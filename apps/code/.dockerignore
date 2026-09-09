@@ -1,0 +1,17 @@
+.git
+.gitignore
+.venv
+venv
+env
+__pycache__
+*.pyc
+.pytest_cache
+.coverage
+htmlcov
+*.db
+*.sqlite3
+report.md
+report.pdf
+report/
+.DS_Store
+Thumbs.db

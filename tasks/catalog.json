@@ -1,0 +1,5205 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {
+      "id": 1,
+      "title": "通讯 A：发送一条指定文本",
+      "type": "T",
+      "app": "chat",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "首字母小写、其余大写",
+        "B": "首字母大写、其余小写",
+        "C": "每个单词首字母大写"
+      },
+      "original_rules": "A：首字母小写、其余大写；B：首字母大写、其余小写；C：每个单词首字母大写",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "首字母小写、其余大写"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "首字母大写、其余小写"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "每个单词首字母大写"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "title": "通讯 A：修改联系人昵称",
+      "type": "T",
+      "app": "chat",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "去掉所有空格",
+        "B": "空格改为下划线",
+        "C": "全部转为小写"
+      },
+      "original_rules": "A：去掉所有空格；B：空格改为下划线；C：全部转为小写",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "去掉所有空格"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "空格改为下划线"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "全部转为小写"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "title": "通讯 A：编辑并发送模板消息",
+      "type": "T",
+      "app": "chat",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "句末加“.”",
+        "B": "句末加“!”",
+        "C": "句末加“?”"
+      },
+      "original_rules": "A：句末加“.”；B：句末加“!”；C：句末加“?”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "句末加“.”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "句末加“!”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "句末加“?”"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "title": "通讯 A：把草稿转换为指定格式后发送",
+      "type": "T",
+      "app": "chat",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "数字前加“#”",
+        "B": "数字后加“号”",
+        "C": "数字改写为英文单词"
+      },
+      "original_rules": "A：数字前加“#”；B：数字后加“号”；C：数字改写为英文单词",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "数字前加“#”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "数字后加“号”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "数字改写为英文单词"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "title": "通讯 A：给收到的消息打标签",
+      "type": "C",
+      "app": "chat",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "含问号归蓝色",
+        "B": "含问号归红色",
+        "C": "含问号归绿色"
+      },
+      "original_rules": "A：含问号归蓝色；B：含问号归红色；C：含问号归绿色",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "含问号归蓝色"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "含问号归红色"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "含问号归绿色"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "title": "通讯 A：整理联系人分组",
+      "type": "C",
+      "app": "chat",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "名字长度为偶数归“甲”",
+        "B": "长度为奇数归“甲”",
+        "C": "名字含元音归“甲”"
+      },
+      "original_rules": "A：名字长度为偶数归“甲”；B：长度为奇数归“甲”；C：名字含元音归“甲”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "名字长度为偶数归“甲”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "长度为奇数归“甲”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "名字含元音归“甲”"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "title": "通讯 A：标记会话优先级",
+      "type": "C",
+      "app": "chat",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "未读数最多为高优先级",
+        "B": "未读数最少为高优先级",
+        "C": "最近消息最新为高优先级"
+      },
+      "original_rules": "A：未读数最多为高优先级；B：未读数最少为高优先级；C：最近消息最新为高优先级",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "未读数最多为高优先级"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "未读数最少为高优先级"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "最近消息最新为高优先级"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "title": "通讯 A：给群聊添加状态标签",
+      "type": "C",
+      "app": "chat",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "成员数大于 5 为大型",
+        "B": "成员数不大于 5 为大型",
+        "C": "群名含数字为大型"
+      },
+      "original_rules": "A：成员数大于 5 为大型；B：成员数不大于 5 为大型；C：群名含数字为大型",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "成员数大于 5 为大型"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "成员数不大于 5 为大型"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "群名含数字为大型"
+        }
+      }
+    },
+    {
+      "id": 9,
+      "title": "通讯 A：从联系人中选收件人",
+      "type": "S",
+      "app": "chat",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "选择姓氏最早者",
+        "B": "选择最近联系者",
+        "C": "选择未读消息最多者"
+      },
+      "original_rules": "A：选择姓氏最早者；B：选择最近联系者；C：选择未读消息最多者",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择姓氏最早者"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择最近联系者"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择未读消息最多者"
+        }
+      }
+    },
+    {
+      "id": 10,
+      "title": "通讯 A：从搜索结果打开目标会话",
+      "type": "S",
+      "app": "chat",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "选结果第一项",
+        "B": "选结果最后一项",
+        "C": "选未读数最多一项"
+      },
+      "original_rules": "A：选结果第一项；B：选结果最后一项；C：选未读数最多一项",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选结果第一项"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选结果最后一项"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选未读数最多一项"
+        }
+      }
+    },
+    {
+      "id": 11,
+      "title": "通讯 A：从附件列表选择文件发送",
+      "type": "S",
+      "app": "chat",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "选体积最小者",
+        "B": "选体积最大者",
+        "C": "选名称最短者"
+      },
+      "original_rules": "A：选体积最小者；B：选体积最大者；C：选名称最短者",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选体积最小者"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选体积最大者"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选名称最短者"
+        }
+      }
+    },
+    {
+      "id": 12,
+      "title": "通讯 A：整理会话列表顺序",
+      "type": "S",
+      "app": "chat",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "按未读数降序",
+        "B": "按最近消息升序",
+        "C": "按会话名反向字母序"
+      },
+      "original_rules": "A：按未读数降序；B：按最近消息升序；C：按会话名反向字母序",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "按未读数降序"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "按最近消息升序"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "按会话名反向字母序"
+        }
+      }
+    },
+    {
+      "id": 13,
+      "title": "通讯 A：处理一组待办消息",
+      "type": "A",
+      "app": "chat",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "含“紧急”的消息转发给联系人甲",
+        "B": "含“紧急”的消息收藏",
+        "C": "含“紧急”的消息归档"
+      },
+      "original_rules": "A：含“紧急”的消息转发给联系人甲；B：含“紧急”的消息收藏；C：含“紧急”的消息归档",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "含“紧急”的消息转发给联系人甲"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "含“紧急”的消息收藏"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "含“紧急”的消息归档"
+        }
+      }
+    },
+    {
+      "id": 14,
+      "title": "通讯 A：清理会话状态",
+      "type": "A",
+      "app": "chat",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "已读会话全部归档",
+        "B": "未读会话全部置顶",
+        "C": "超过 3 天的会话全部静音"
+      },
+      "original_rules": "A：已读会话全部归档；B：未读会话全部置顶；C：超过 3 天的会话全部静音",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "已读会话全部归档"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "未读会话全部置顶"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "超过 3 天的会话全部静音"
+        }
+      }
+    },
+    {
+      "id": 15,
+      "title": "通讯 B：创建群聊并邀请成员",
+      "type": "A",
+      "app": "im",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "邀请名字最短的 3 人",
+        "B": "邀请最近联系的 3 人",
+        "C": "邀请未读数最高的 3 人"
+      },
+      "original_rules": "A：邀请名字最短的 3 人；B：邀请最近联系的 3 人；C：邀请未读数最高的 3 人",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "邀请名字最短的 3 人"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "邀请最近联系的 3 人"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "邀请未读数最高的 3 人"
+        }
+      }
+    },
+    {
+      "id": 16,
+      "title": "通讯 B：处理消息回执",
+      "type": "A",
+      "app": "im",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "看到“收到”就标记已读",
+        "B": "看到“收到”就添加星标",
+        "C": "看到“收到”就回复固定文本"
+      },
+      "original_rules": "A：看到“收到”就标记已读；B：看到“收到”就添加星标；C：看到“收到”就回复固定文本",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "看到“收到”就标记已读"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "看到“收到”就添加星标"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "看到“收到”就回复固定文本"
+        }
+      }
+    },
+    {
+      "id": 17,
+      "title": "音乐：修改歌曲显示名称",
+      "type": "T",
+      "app": "music",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "标题全部大写",
+        "B": "标题全部小写",
+        "C": "只大写最后一个字母"
+      },
+      "original_rules": "A：标题全部大写；B：标题全部小写；C：只大写最后一个字母",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题全部大写"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题全部小写"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "只大写最后一个字母"
+        }
+      }
+    },
+    {
+      "id": 18,
+      "title": "音乐：生成播放列表名称",
+      "type": "T",
+      "app": "music",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "歌手名在前",
+        "B": "歌曲数量在前",
+        "C": "日期在前"
+      },
+      "original_rules": "A：歌手名在前；B：歌曲数量在前；C：日期在前",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "歌手名在前"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "歌曲数量在前"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "日期在前"
+        }
+      }
+    },
+    {
+      "id": 19,
+      "title": "新闻：规范化文章标题",
+      "type": "T",
+      "app": "news",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "删除标点",
+        "B": "保留标点并加句号",
+        "C": "在标题前加来源简称"
+      },
+      "original_rules": "A：删除标点；B：保留标点并加句号；C：在标题前加来源简称",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "删除标点"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "保留标点并加句号"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "在标题前加来源简称"
+        }
+      }
+    },
+    {
+      "id": 20,
+      "title": "新闻：修改文章标签文本",
+      "type": "T",
+      "app": "news",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "标签之间用“/”",
+        "B": "标签之间用“|”",
+        "C": "标签之间用“,”"
+      },
+      "original_rules": "A：标签之间用“/”；B：标签之间用“|”；C：标签之间用“,”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标签之间用“/”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标签之间用“|”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标签之间用“,”"
+        }
+      }
+    },
+    {
+      "id": 21,
+      "title": "视频：修改收藏夹名称",
+      "type": "T",
+      "app": "media",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "名称首尾加方括号",
+        "B": "名称首尾加圆括号",
+        "C": "名称首尾加书名号"
+      },
+      "original_rules": "A：名称首尾加方括号；B：名称首尾加圆括号；C：名称首尾加书名号",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "名称首尾加方括号"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "名称首尾加圆括号"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "名称首尾加书名号"
+        }
+      }
+    },
+    {
+      "id": 22,
+      "title": "音乐：给歌曲按属性分类",
+      "type": "C",
+      "app": "music",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "时长超过 4 分钟为“长”",
+        "B": "时长不超过 4 分钟为“长”",
+        "C": "播放量超过阈值为“长”"
+      },
+      "original_rules": "A：时长超过 4 分钟为“长”；B：时长不超过 4 分钟为“长”；C：播放量超过阈值为“长”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "时长超过 4 分钟为“长”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "时长不超过 4 分钟为“长”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "播放量超过阈值为“长”"
+        }
+      }
+    },
+    {
+      "id": 23,
+      "title": "新闻：给文章标注内容类别",
+      "type": "C",
+      "app": "news",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "标题含数字为“数据”",
+        "B": "标题不含数字为“数据”",
+        "C": "来源为指定媒体为“数据”"
+      },
+      "original_rules": "A：标题含数字为“数据”；B：标题不含数字为“数据”；C：来源为指定媒体为“数据”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题含数字为“数据”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题不含数字为“数据”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "来源为指定媒体为“数据”"
+        }
+      }
+    },
+    {
+      "id": 24,
+      "title": "新闻：给文章标注来源类型",
+      "type": "C",
+      "app": "news",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "来源名以元音开头为“甲”",
+        "B": "以辅音开头为“甲”",
+        "C": "来源名长度超过 5 为“甲”"
+      },
+      "original_rules": "A：来源名以元音开头为“甲”；B：以辅音开头为“甲”；C：来源名长度超过 5 为“甲”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "来源名以元音开头为“甲”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "以辅音开头为“甲”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "来源名长度超过 5 为“甲”"
+        }
+      }
+    },
+    {
+      "id": 25,
+      "title": "视频：给视频标注时长类别",
+      "type": "C",
+      "app": "media",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "短于 10 分钟为“短”",
+        "B": "不短于 10 分钟为“短”",
+        "C": "时长为偶数分钟为“短”"
+      },
+      "original_rules": "A：短于 10 分钟为“短”；B：不短于 10 分钟为“短”；C：时长为偶数分钟为“短”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "短于 10 分钟为“短”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "不短于 10 分钟为“短”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "时长为偶数分钟为“短”"
+        }
+      }
+    },
+    {
+      "id": 26,
+      "title": "信息流：给内容标注推荐等级",
+      "type": "C",
+      "app": "media",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "评分最高的两项为“推荐”",
+        "B": "评分最低的两项为“推荐”",
+        "C": "评论数最多的两项为“推荐”"
+      },
+      "original_rules": "A：评分最高的两项为“推荐”；B：评分最低的两项为“推荐”；C：评论数最多的两项为“推荐”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "评分最高的两项为“推荐”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "评分最低的两项为“推荐”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "评论数最多的两项为“推荐”"
+        }
+      }
+    },
+    {
+      "id": 27,
+      "title": "音乐：从搜索结果选择歌曲",
+      "type": "S",
+      "app": "music",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "选评分最高者",
+        "B": "选播放量最低者",
+        "C": "选标题最短者"
+      },
+      "original_rules": "A：选评分最高者；B：选播放量最低者；C：选标题最短者",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选评分最高者"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选播放量最低者"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选标题最短者"
+        }
+      }
+    },
+    {
+      "id": 28,
+      "title": "音乐：整理播放列表顺序",
+      "type": "S",
+      "app": "music",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "按发行年份升序",
+        "B": "按时长降序",
+        "C": "按歌手名反向排序"
+      },
+      "original_rules": "A：按发行年份升序；B：按时长降序；C：按歌手名反向排序",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "按发行年份升序"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "按时长降序"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "按歌手名反向排序"
+        }
+      }
+    },
+    {
+      "id": 29,
+      "title": "新闻：从列表选择文章阅读",
+      "type": "S",
+      "app": "news",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "选发布时间最新者",
+        "B": "选发布时间最早者",
+        "C": "选标题最长者"
+      },
+      "original_rules": "A：选发布时间最新者；B：选发布时间最早者；C：选标题最长者",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选发布时间最新者"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选发布时间最早者"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选标题最长者"
+        }
+      }
+    },
+    {
+      "id": 30,
+      "title": "新闻：筛选需要阅读的文章",
+      "type": "S",
+      "app": "news",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "保留标签数最多的文章",
+        "B": "保留标签数最少的文章",
+        "C": "保留评论数为偶数的文章"
+      },
+      "original_rules": "A：保留标签数最多的文章；B：保留标签数最少的文章；C：保留评论数为偶数的文章",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "保留标签数最多的文章"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "保留标签数最少的文章"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "保留评论数为偶数的文章"
+        }
+      }
+    },
+    {
+      "id": 31,
+      "title": "视频：从推荐列表选择视频",
+      "type": "S",
+      "app": "media",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "选观看时长最短者",
+        "B": "选点赞率最高者",
+        "C": "选发布时间最早者"
+      },
+      "original_rules": "A：选观看时长最短者；B：选点赞率最高者；C：选发布时间最早者",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选观看时长最短者"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选点赞率最高者"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选发布时间最早者"
+        }
+      }
+    },
+    {
+      "id": 32,
+      "title": "音乐：把歌曲加入播放列表",
+      "type": "A",
+      "app": "music",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "评分高于阈值的歌曲加入列表甲",
+        "B": "评分低于阈值的歌曲加入列表甲",
+        "C": "时长为偶数的歌曲加入列表甲"
+      },
+      "original_rules": "A：评分高于阈值的歌曲加入列表甲；B：评分低于阈值的歌曲加入列表甲；C：时长为偶数的歌曲加入列表甲",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "评分高于阈值的歌曲加入列表甲"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "评分低于阈值的歌曲加入列表甲"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "时长为偶数的歌曲加入列表甲"
+        }
+      }
+    },
+    {
+      "id": 33,
+      "title": "新闻：批量处理文章状态",
+      "type": "A",
+      "app": "news",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "标题含指定词的文章标记已读",
+        "B": "标题含指定词的文章收藏",
+        "C": "标题含指定词的文章隐藏"
+      },
+      "original_rules": "A：标题含指定词的文章标记已读；B：标题含指定词的文章收藏；C：标题含指定词的文章隐藏",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题含指定词的文章标记已读"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题含指定词的文章收藏"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题含指定词的文章隐藏"
+        }
+      }
+    },
+    {
+      "id": 34,
+      "title": "视频：处理观看列表",
+      "type": "A",
+      "app": "media",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "播放完成的视频移入历史",
+        "B": "播放完成的视频移入收藏",
+        "C": "播放完成的视频从列表删除"
+      },
+      "original_rules": "A：播放完成的视频移入历史；B：播放完成的视频移入收藏；C：播放完成的视频从列表删除",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "播放完成的视频移入历史"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "播放完成的视频移入收藏"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "播放完成的视频从列表删除"
+        }
+      }
+    },
+    {
+      "id": 35,
+      "title": "视频：调整播放队列",
+      "type": "A",
+      "app": "media",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "每个短视频后插入一个长视频",
+        "B": "每个长视频后插入一个短视频",
+        "C": "按指定标签交替插入"
+      },
+      "original_rules": "A：每个短视频后插入一个长视频；B：每个长视频后插入一个短视频；C：按指定标签交替插入",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "每个短视频后插入一个长视频"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "每个长视频后插入一个短视频"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "按指定标签交替插入"
+        }
+      }
+    },
+    {
+      "id": 36,
+      "title": "博客：编辑文章标题后保存",
+      "type": "T",
+      "app": "blog",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "标题首字母大写",
+        "B": "标题末字母大写",
+        "C": "标题中每个数字加括号"
+      },
+      "original_rules": "A：标题首字母大写；B：标题末字母大写；C：标题中每个数字加括号",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题首字母大写"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题末字母大写"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题中每个数字加括号"
+        }
+      }
+    },
+    {
+      "id": 37,
+      "title": "AI 工作台：整理输入提示词",
+      "type": "T",
+      "app": "studio",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "每条要求前加“-”",
+        "B": "每条要求前加序号",
+        "C": "每条要求后加分号"
+      },
+      "original_rules": "A：每条要求前加“-”；B：每条要求前加序号；C：每条要求后加分号",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "每条要求前加“-”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "每条要求前加序号"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "每条要求后加分号"
+        }
+      }
+    },
+    {
+      "id": 38,
+      "title": "博客：给文章添加类别",
+      "type": "C",
+      "app": "blog",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "字数超过阈值为“长文”",
+        "B": "字数不超过阈值为“长文”",
+        "C": "标题含问号为“长文”"
+      },
+      "original_rules": "A：字数超过阈值为“长文”；B：字数不超过阈值为“长文”；C：标题含问号为“长文”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "字数超过阈值为“长文”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "字数不超过阈值为“长文”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题含问号为“长文”"
+        }
+      }
+    },
+    {
+      "id": 39,
+      "title": "AI 工作台：给生成结果打标签",
+      "type": "C",
+      "app": "studio",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "包含数字为“事实”",
+        "B": "不包含数字为“事实”",
+        "C": "包含引用符号为“事实”"
+      },
+      "original_rules": "A：包含数字为“事实”；B：不包含数字为“事实”；C：包含引用符号为“事实”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "包含数字为“事实”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "不包含数字为“事实”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "包含引用符号为“事实”"
+        }
+      }
+    },
+    {
+      "id": 40,
+      "title": "博客：从草稿中选择文章发布",
+      "type": "S",
+      "app": "blog",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "选择更新时间最新者",
+        "B": "选择更新时间最早者",
+        "C": "选择字数最少者"
+      },
+      "original_rules": "A：选择更新时间最新者；B：选择更新时间最早者；C：选择字数最少者",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择更新时间最新者"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择更新时间最早者"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择字数最少者"
+        }
+      }
+    },
+    {
+      "id": 41,
+      "title": "AI 工作台：选择生成模型",
+      "type": "S",
+      "app": "studio",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "选择上下文窗口最大的模型",
+        "B": "选择价格最低的模型",
+        "C": "选择名称最短的模型"
+      },
+      "original_rules": "A：选择上下文窗口最大的模型；B：选择价格最低的模型；C：选择名称最短的模型",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择上下文窗口最大的模型"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择价格最低的模型"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择名称最短的模型"
+        }
+      }
+    },
+    {
+      "id": 42,
+      "title": "博客：发布满足条件的文章",
+      "type": "A",
+      "app": "blog",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "带有两个以上标签的文章发布",
+        "B": "没有标签的文章发布",
+        "C": "标题含指定字符的文章发布"
+      },
+      "original_rules": "A：带有两个以上标签的文章发布；B：没有标签的文章发布；C：标题含指定字符的文章发布",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "带有两个以上标签的文章发布"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "没有标签的文章发布"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题含指定字符的文章发布"
+        }
+      }
+    },
+    {
+      "id": 43,
+      "title": "AI 工作台：处理生成结果",
+      "type": "A",
+      "app": "studio",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "结果通过检查后保存",
+        "B": "结果通过检查后复制",
+        "C": "结果通过检查后提交给指定联系人"
+      },
+      "original_rules": "A：结果通过检查后保存；B：结果通过检查后复制；C：结果通过检查后提交给指定联系人",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "结果通过检查后保存"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "结果通过检查后复制"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "结果通过检查后提交给指定联系人"
+        }
+      }
+    },
+    {
+      "id": 44,
+      "title": "旅游：填写乘客信息",
+      "type": "T",
+      "app": "travel",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "姓名姓与名之间加空格",
+        "B": "姓名姓与名之间加连字符",
+        "C": "姓名全部大写"
+      },
+      "original_rules": "A：姓名姓与名之间加空格；B：姓名姓与名之间加连字符；C：姓名全部大写",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "姓名姓与名之间加空格"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "姓名姓与名之间加连字符"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "姓名全部大写"
+        }
+      }
+    },
+    {
+      "id": 45,
+      "title": "购物：填写商品备注",
+      "type": "T",
+      "app": "shop",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "数量写在商品名前",
+        "B": "数量写在商品名后",
+        "C": "数量改为中文数字"
+      },
+      "original_rules": "A：数量写在商品名前；B：数量写在商品名后；C：数量改为中文数字",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "数量写在商品名前"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "数量写在商品名后"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "数量改为中文数字"
+        }
+      }
+    },
+    {
+      "id": 46,
+      "title": "银行：填写转账备注",
+      "type": "T",
+      "app": "bank",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "账号只保留后四位",
+        "B": "账号只保留前四位",
+        "C": "账号中间部分替换为星号"
+      },
+      "original_rules": "A：账号只保留后四位；B：账号只保留前四位；C：账号中间部分替换为星号",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "账号只保留后四位"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "账号只保留前四位"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "账号中间部分替换为星号"
+        }
+      }
+    },
+    {
+      "id": 47,
+      "title": "旅游：给出行方案分类",
+      "type": "C",
+      "app": "travel",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "耗时最短为“快”",
+        "B": "价格最低为“快”",
+        "C": "换乘最少为“快”"
+      },
+      "original_rules": "A：耗时最短为“快”；B：价格最低为“快”；C：换乘最少为“快”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "耗时最短为“快”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "价格最低为“快”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "换乘最少为“快”"
+        }
+      }
+    },
+    {
+      "id": 48,
+      "title": "购物：给商品分类",
+      "type": "C",
+      "app": "shop",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "评分不低于阈值为“优选”",
+        "B": "销量不低于阈值为“优选”",
+        "C": "评论数为偶数为“优选”"
+      },
+      "original_rules": "A：评分不低于阈值为“优选”；B：销量不低于阈值为“优选”；C：评论数为偶数为“优选”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "评分不低于阈值为“优选”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "销量不低于阈值为“优选”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "评论数为偶数为“优选”"
+        }
+      }
+    },
+    {
+      "id": 49,
+      "title": "银行：给交易标注类型",
+      "type": "C",
+      "app": "bank",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "金额为偶数为“常规”",
+        "B": "金额为奇数为“常规”",
+        "C": "备注长度超过阈值为“常规”"
+      },
+      "original_rules": "A：金额为偶数为“常规”；B：金额为奇数为“常规”；C：备注长度超过阈值为“常规”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "金额为偶数为“常规”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "金额为奇数为“常规”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "备注长度超过阈值为“常规”"
+        }
+      }
+    },
+    {
+      "id": 50,
+      "title": "银行：给账户标注风险等级",
+      "type": "C",
+      "app": "bank",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "余额最高的账户为“重点”",
+        "B": "余额最低的账户为“重点”",
+        "C": "最近交易最多的账户为“重点”"
+      },
+      "original_rules": "A：余额最高的账户为“重点”；B：余额最低的账户为“重点”；C：最近交易最多的账户为“重点”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "余额最高的账户为“重点”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "余额最低的账户为“重点”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "最近交易最多的账户为“重点”"
+        }
+      }
+    },
+    {
+      "id": 51,
+      "title": "旅游：从路线列表选择方案",
+      "type": "S",
+      "app": "travel",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "选价格最低者",
+        "B": "选总时长最短者",
+        "C": "选出发时间最晚者"
+      },
+      "original_rules": "A：选价格最低者；B：选总时长最短者；C：选出发时间最晚者",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选价格最低者"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选总时长最短者"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选出发时间最晚者"
+        }
+      }
+    },
+    {
+      "id": 52,
+      "title": "购物：从商品列表选择商品",
+      "type": "S",
+      "app": "shop",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "选评分最高者",
+        "B": "选价格最高者",
+        "C": "选库存最少者"
+      },
+      "original_rules": "A：选评分最高者；B：选价格最高者；C：选库存最少者",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选评分最高者"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选价格最高者"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选库存最少者"
+        }
+      }
+    },
+    {
+      "id": 53,
+      "title": "银行：从交易列表选择记录",
+      "type": "S",
+      "app": "bank",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "选金额最大者",
+        "B": "选金额最小者",
+        "C": "选日期最早者"
+      },
+      "original_rules": "A：选金额最大者；B：选金额最小者；C：选日期最早者",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选金额最大者"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选金额最小者"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选日期最早者"
+        }
+      }
+    },
+    {
+      "id": 54,
+      "title": "旅游：确认预订",
+      "type": "A",
+      "app": "travel",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "价格低于阈值的方案确认",
+        "B": "价格高于阈值的方案确认",
+        "C": "换乘次数为偶数的方案确认"
+      },
+      "original_rules": "A：价格低于阈值的方案确认；B：价格高于阈值的方案确认；C：换乘次数为偶数的方案确认",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "价格低于阈值的方案确认"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "价格高于阈值的方案确认"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "换乘次数为偶数的方案确认"
+        }
+      }
+    },
+    {
+      "id": 55,
+      "title": "购物：处理购物车",
+      "type": "A",
+      "app": "shop",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "带有指定标签的商品加入购物车",
+        "B": "带有指定标签的商品移出购物车",
+        "C": "带有指定标签的商品加入收藏"
+      },
+      "original_rules": "A：带有指定标签的商品加入购物车；B：带有指定标签的商品移出购物车；C：带有指定标签的商品加入收藏",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "带有指定标签的商品加入购物车"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "带有指定标签的商品移出购物车"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "带有指定标签的商品加入收藏"
+        }
+      }
+    },
+    {
+      "id": 56,
+      "title": "银行：执行转账",
+      "type": "A",
+      "app": "bank",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "收款人姓名含指定字母时转账",
+        "B": "账号末位为偶数时转账",
+        "C": "金额低于阈值时转账"
+      },
+      "original_rules": "A：收款人姓名含指定字母时转账；B：账号末位为偶数时转账；C：金额低于阈值时转账",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "收款人姓名含指定字母时转账"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "账号末位为偶数时转账"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "金额低于阈值时转账"
+        }
+      }
+    },
+    {
+      "id": 57,
+      "title": "银行：设置账户提醒",
+      "type": "A",
+      "app": "bank",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "余额低于阈值时开启提醒",
+        "B": "余额高于阈值时开启提醒",
+        "C": "连续两笔交易同日时开启提醒"
+      },
+      "original_rules": "A：余额低于阈值时开启提醒；B：余额高于阈值时开启提醒；C：连续两笔交易同日时开启提醒",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "余额低于阈值时开启提醒"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "余额高于阈值时开启提醒"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "连续两笔交易同日时开启提醒"
+        }
+      }
+    },
+    {
+      "id": 58,
+      "title": "OJ：按规则整理代码后提交",
+      "type": "T",
+      "app": "code",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "缩进使用 2 个空格",
+        "B": "缩进使用 4 个空格",
+        "C": "缩进使用制表符"
+      },
+      "original_rules": "A：缩进使用 2 个空格；B：缩进使用 4 个空格；C：缩进使用制表符",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "缩进使用 2 个空格"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "缩进使用 4 个空格"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "缩进使用制表符"
+        }
+      }
+    },
+    {
+      "id": 59,
+      "title": "OJ：规范化答案文本",
+      "type": "T",
+      "app": "code",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "每行末尾加分号",
+        "B": "每行开头加序号",
+        "C": "所有空格替换为下划线"
+      },
+      "original_rules": "A：每行末尾加分号；B：每行开头加序号；C：所有空格替换为下划线",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "每行末尾加分号"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "每行开头加序号"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "所有空格替换为下划线"
+        }
+      }
+    },
+    {
+      "id": 60,
+      "title": "OJ：修改代码变量名",
+      "type": "T",
+      "app": "code",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "变量名统一加前缀 `x_`",
+        "B": "统一加后缀 `_v`",
+        "C": "统一转为大写"
+      },
+      "original_rules": "A：变量名统一加前缀 `x_`；B：统一加后缀 `_v`；C：统一转为大写",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "变量名统一加前缀 `x_`"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "统一加后缀 `_v`"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "统一转为大写"
+        }
+      }
+    },
+    {
+      "id": 61,
+      "title": "OJ：给提交结果标注类别",
+      "type": "C",
+      "app": "code",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "通过全部测试为“绿”",
+        "B": "存在运行错误为“绿”",
+        "C": "运行时间最低为“绿”"
+      },
+      "original_rules": "A：通过全部测试为“绿”；B：存在运行错误为“绿”；C：运行时间最低为“绿”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "通过全部测试为“绿”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "存在运行错误为“绿”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "运行时间最低为“绿”"
+        }
+      }
+    },
+    {
+      "id": 62,
+      "title": "OJ：给题目标注难度",
+      "type": "C",
+      "app": "code",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "样例数最多为“难”",
+        "B": "样例数最少为“难”",
+        "C": "题目编号为偶数为“难”"
+      },
+      "original_rules": "A：样例数最多为“难”；B：样例数最少为“难”；C：题目编号为偶数为“难”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "样例数最多为“难”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "样例数最少为“难”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "题目编号为偶数为“难”"
+        }
+      }
+    },
+    {
+      "id": 63,
+      "title": "OJ：从题库选择题目",
+      "type": "S",
+      "app": "code",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "选择编号最小者",
+        "B": "选择通过率最高者",
+        "C": "选择标题最长者"
+      },
+      "original_rules": "A：选择编号最小者；B：选择通过率最高者；C：选择标题最长者",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择编号最小者"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择通过率最高者"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择标题最长者"
+        }
+      }
+    },
+    {
+      "id": 64,
+      "title": "OJ：从提交记录选择待检查结果",
+      "type": "S",
+      "app": "code",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "选择最新提交",
+        "B": "选择最早提交",
+        "C": "选择代码行数最多的提交"
+      },
+      "original_rules": "A：选择最新提交；B：选择最早提交；C：选择代码行数最多的提交",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择最新提交"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择最早提交"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择代码行数最多的提交"
+        }
+      }
+    },
+    {
+      "id": 65,
+      "title": "OJ：提交满足条件的代码",
+      "type": "A",
+      "app": "code",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "代码通过本地检查后提交",
+        "B": "代码包含指定函数名后提交",
+        "C": "代码长度低于阈值后提交"
+      },
+      "original_rules": "A：代码通过本地检查后提交；B：代码包含指定函数名后提交；C：代码长度低于阈值后提交",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "代码通过本地检查后提交"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "代码包含指定函数名后提交"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "代码长度低于阈值后提交"
+        }
+      }
+    },
+    {
+      "id": 66,
+      "title": "五子棋：识别并点击目标落子点",
+      "type": "C",
+      "app": "gomoku",
+      "runtime": "linux",
+      "status": "workbench",
+      "variants": {
+        "A": "能形成四连的位置标蓝",
+        "B": "能形成三连的位置标蓝",
+        "C": "能堵住对手四连的位置标蓝"
+      },
+      "original_rules": "A：能形成四连的位置标蓝；B：能形成三连的位置标蓝；C：能堵住对手四连的位置标蓝",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "能形成四连的位置标蓝"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "能形成三连的位置标蓝"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "能堵住对手四连的位置标蓝"
+        }
+      }
+    },
+    {
+      "id": 67,
+      "title": "五子棋：从候选点选择落子",
+      "type": "S",
+      "app": "gomoku",
+      "runtime": "linux",
+      "status": "workbench",
+      "variants": {
+        "A": "选择横向相邻棋子最多的位置",
+        "B": "选择纵向相邻棋子最多的位置",
+        "C": "选择距离中心最近的位置"
+      },
+      "original_rules": "A：选择横向相邻棋子最多的位置；B：选择纵向相邻棋子最多的位置；C：选择距离中心最近的位置",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择横向相邻棋子最多的位置"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择纵向相邻棋子最多的位置"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择距离中心最近的位置"
+        }
+      }
+    },
+    {
+      "id": 68,
+      "title": "2048：选择下一步移动方向",
+      "type": "S",
+      "app": "games",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "优先选择可合并方块最多的方向",
+        "B": "选择本步合并得分最高的方向",
+        "C": "优先选择最高方块保持在角落的方向"
+      },
+      "original_rules": "A：优先选择可合并方块最多的方向；B：优先选择空格增加最多的方向；C：优先选择最高方块保持在角落的方向",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "优先选择可合并方块最多的方向"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择本步合并得分最高的方向"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "优先选择最高方块保持在角落的方向"
+        }
+      }
+    },
+    {
+      "id": 69,
+      "title": "2048：执行一组移动",
+      "type": "A",
+      "app": "games",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "出现目标数字后立即停止",
+        "B": "达到指定分数后停止",
+        "C": "棋盘无空格后停止"
+      },
+      "original_rules": "A：出现目标数字后立即停止；B：达到指定分数后停止；C：棋盘无空格后停止",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "出现目标数字后立即停止"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "达到指定分数后停止"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "棋盘无空格后停止"
+        }
+      }
+    },
+    {
+      "id": 70,
+      "title": "数独：识别需要填写的格子",
+      "type": "C",
+      "app": "games",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "候选集全部为偶数的格子标记",
+        "B": "候选集全部为奇数的格子标记",
+        "C": "候选数字数量最少的格子标记"
+      },
+      "original_rules": "A：候选数字为偶数的格子标记；B：候选数字为奇数的格子标记；C：候选数字数量最少的格子标记",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "候选集全部为偶数的格子标记"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "候选集全部为奇数的格子标记"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "候选数字数量最少的格子标记"
+        }
+      }
+    },
+    {
+      "id": 71,
+      "title": "数独：按视频规则填写数字",
+      "type": "A",
+      "app": "games",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "填入候选数字中最小者",
+        "B": "填入候选数字中最大者",
+        "C": "填入与所在行首数字同奇偶性的数字"
+      },
+      "original_rules": "A：填入候选数字中最小者；B：填入候选数字中最大者；C：填入与所在行首数字同奇偶性的数字",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "填入候选数字中最小者"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "填入候选数字中最大者"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "填入与所在行首数字同奇偶性的数字"
+        }
+      }
+    },
+    {
+      "id": 72,
+      "title": "扫雷：从候选格中选择安全格",
+      "type": "S",
+      "app": "games",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "选择周围已揭示线索数字之和最小的安全候选格",
+        "B": "选择周围未开格最多的格子",
+        "C": "选择距离左上角最近的格子"
+      },
+      "original_rules": "A：选择周围雷数最少的格子；B：选择周围未开格最多的格子；C：选择距离左上角最近的格子",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择周围已揭示线索数字之和最小的安全候选格"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择周围未开格最多的格子"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择距离左上角最近的格子"
+        }
+      }
+    },
+    {
+      "id": 73,
+      "title": "扫雷：执行标记操作",
+      "type": "A",
+      "app": "games",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "数字为 1 的格子插旗",
+        "B": "数字为 2 的格子插旗",
+        "C": "边界格子插旗"
+      },
+      "original_rules": "A：数字为 1 的格子插旗；B：数字为 2 的格子插旗；C：边界格子插旗",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "数字为 1 的格子插旗"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "数字为 2 的格子插旗"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "边界格子插旗"
+        }
+      }
+    },
+    {
+      "id": 74,
+      "title": "黑白棋：选择落子位置",
+      "type": "S",
+      "app": "games",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "选择可翻转棋子最多的位置",
+        "B": "选择靠近角落的位置",
+        "C": "选择可翻转棋子最少的位置"
+      },
+      "original_rules": "A：选择可翻转棋子最多的位置；B：选择靠近角落的位置；C：选择可翻转棋子最少的位置",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择可翻转棋子最多的位置"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择靠近角落的位置"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择可翻转棋子最少的位置"
+        }
+      }
+    },
+    {
+      "id": 75,
+      "title": "黑白棋：完成一轮操作",
+      "type": "A",
+      "app": "games",
+      "runtime": "windows",
+      "status": "workbench",
+      "variants": {
+        "A": "翻转后己方棋子数更多时落子",
+        "B": "选择落子后对手合法落点最少的位置",
+        "C": "翻转后占据边缘时落子"
+      },
+      "original_rules": "A：翻转后己方棋子数更多时落子；B：翻转后空位数更少时落子；C：翻转后占据边缘时落子",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "翻转后己方棋子数更多时落子"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择落子后对手合法落点最少的位置"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "翻转后占据边缘时落子"
+        }
+      }
+    },
+    {
+      "id": 76,
+      "title": "Windows 文件管理：批量重命名文件",
+      "type": "T",
+      "app": "windows",
+      "runtime": "windows",
+      "status": "specified",
+      "variants": {
+        "A": "文件名前加日期",
+        "B": "文件名后加日期",
+        "C": "扩展名前加日期"
+      },
+      "original_rules": "A：文件名前加日期；B：文件名后加日期；C：扩展名前加日期",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "文件名前加日期"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "文件名后加日期"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "扩展名前加日期"
+        }
+      }
+    },
+    {
+      "id": 77,
+      "title": "Windows 文本工具：批量替换文本",
+      "type": "T",
+      "app": "windows",
+      "runtime": "windows",
+      "status": "specified",
+      "variants": {
+        "A": "所有逗号替换为空格",
+        "B": "所有逗号替换为分号",
+        "C": "所有逗号替换为换行"
+      },
+      "original_rules": "A：所有逗号替换为空格；B：所有逗号替换为分号；C：所有逗号替换为换行",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "所有逗号替换为空格"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "所有逗号替换为分号"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "所有逗号替换为换行"
+        }
+      }
+    },
+    {
+      "id": 78,
+      "title": "Windows 文件管理：把文件归入文件夹",
+      "type": "C",
+      "app": "windows",
+      "runtime": "windows",
+      "status": "specified",
+      "variants": {
+        "A": "扩展名为图片归“甲”",
+        "B": "扩展名为文档归“甲”",
+        "C": "文件名含数字归“甲”"
+      },
+      "original_rules": "A：扩展名为图片归“甲”；B：扩展名为文档归“甲”；C：文件名含数字归“甲”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "扩展名为图片归“甲”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "扩展名为文档归“甲”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "文件名含数字归“甲”"
+        }
+      }
+    },
+    {
+      "id": 79,
+      "title": "Windows 文件管理：选择要处理的文件",
+      "type": "S",
+      "app": "windows",
+      "runtime": "windows",
+      "status": "specified",
+      "variants": {
+        "A": "选择体积最大的文件",
+        "B": "选择修改最早的文件",
+        "C": "选择名称最短的文件"
+      },
+      "original_rules": "A：选择体积最大的文件；B：选择修改最早的文件；C：选择名称最短的文件",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择体积最大的文件"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择修改最早的文件"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择名称最短的文件"
+        }
+      }
+    },
+    {
+      "id": 80,
+      "title": "Windows 文件管理：转换并保存路径文本",
+      "type": "T",
+      "app": "windows",
+      "runtime": "windows",
+      "status": "specified",
+      "variants": {
+        "A": "路径分隔符改为 `/`",
+        "B": "路径分隔符改为 `\\\\`",
+        "C": "路径中的空格改为下划线"
+      },
+      "original_rules": "A：路径分隔符改为 `/`；B：路径分隔符改为 `\\\\`；C：路径中的空格改为下划线",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "路径分隔符改为 `/`"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "路径分隔符改为 `\\\\`"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "路径中的空格改为下划线"
+        }
+      }
+    },
+    {
+      "id": 81,
+      "title": "Windows 文件管理：生成备份文件名",
+      "type": "T",
+      "app": "windows",
+      "runtime": "windows",
+      "status": "specified",
+      "variants": {
+        "A": "备份名加前缀 `bak_`",
+        "B": "备份名加后缀 `_copy`",
+        "C": "备份名加入当天日期"
+      },
+      "original_rules": "A：备份名加前缀 `bak_`；B：备份名加后缀 `_copy`；C：备份名加入当天日期",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "备份名加前缀 `bak_`"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "备份名加后缀 `_copy`"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "备份名加入当天日期"
+        }
+      }
+    },
+    {
+      "id": 82,
+      "title": "Windows 文档应用：修改窗口或文档标题",
+      "type": "T",
+      "app": "windows",
+      "runtime": "windows",
+      "status": "specified",
+      "variants": {
+        "A": "标题全部大写",
+        "B": "标题全部小写",
+        "C": "标题首尾加方括号"
+      },
+      "original_rules": "A：标题全部大写；B：标题全部小写；C：标题首尾加方括号",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题全部大写"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题全部小写"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题首尾加方括号"
+        }
+      }
+    },
+    {
+      "id": 83,
+      "title": "Windows 任务管理器：给进程分类",
+      "type": "C",
+      "app": "windows",
+      "runtime": "windows",
+      "status": "specified",
+      "variants": {
+        "A": "内存占用最高的进程为“重点”",
+        "B": "CPU 占用最高的进程为“重点”",
+        "C": "名称最长的进程为“重点”"
+      },
+      "original_rules": "A：内存占用最高的进程为“重点”；B：CPU 占用最高的进程为“重点”；C：名称最长的进程为“重点”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "内存占用最高的进程为“重点”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "CPU 占用最高的进程为“重点”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "名称最长的进程为“重点”"
+        }
+      }
+    },
+    {
+      "id": 84,
+      "title": "Windows 桌面：选择要打开的应用",
+      "type": "S",
+      "app": "windows",
+      "runtime": "windows",
+      "status": "specified",
+      "variants": {
+        "A": "选择启动最快的应用",
+        "B": "选择名称最短的应用",
+        "C": "选择最近使用的应用"
+      },
+      "original_rules": "A：选择启动最快的应用；B：选择名称最短的应用；C：选择最近使用的应用",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择启动最快的应用"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择名称最短的应用"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择最近使用的应用"
+        }
+      }
+    },
+    {
+      "id": 85,
+      "title": "Windows 窗口管理：整理窗口状态",
+      "type": "A",
+      "app": "windows",
+      "runtime": "windows",
+      "status": "specified",
+      "variants": {
+        "A": "标题含指定词的窗口最大化",
+        "B": "标题含指定词的窗口最小化",
+        "C": "标题含指定词的窗口关闭"
+      },
+      "original_rules": "A：标题含指定词的窗口最大化；B：标题含指定词的窗口最小化；C：标题含指定词的窗口关闭",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题含指定词的窗口最大化"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题含指定词的窗口最小化"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "标题含指定词的窗口关闭"
+        }
+      }
+    },
+    {
+      "id": 86,
+      "title": "Windows 设置：修改日期时间显示",
+      "type": "T",
+      "app": "windows",
+      "runtime": "windows",
+      "status": "specified",
+      "variants": {
+        "A": "日期使用年-月-日",
+        "B": "日期使用日/月/年",
+        "C": "日期使用月.日.年"
+      },
+      "original_rules": "A：日期使用年-月-日；B：日期使用日/月/年；C：日期使用月.日.年",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "日期使用年-月-日"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "日期使用日/月/年"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "日期使用月.日.年"
+        }
+      }
+    },
+    {
+      "id": 87,
+      "title": "Windows 网络设置：给网络分类",
+      "type": "C",
+      "app": "windows",
+      "runtime": "windows",
+      "status": "specified",
+      "variants": {
+        "A": "名称含数字的网络为“可信”",
+        "B": "名称不含数字的网络为“可信”",
+        "C": "信号最强的网络为“可信”"
+      },
+      "original_rules": "A：名称含数字的网络为“可信”；B：名称不含数字的网络为“可信”；C：信号最强的网络为“可信”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "名称含数字的网络为“可信”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "名称不含数字的网络为“可信”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "信号最强的网络为“可信”"
+        }
+      }
+    },
+    {
+      "id": 88,
+      "title": "Windows 通知设置：给通知分类",
+      "type": "C",
+      "app": "windows",
+      "runtime": "windows",
+      "status": "specified",
+      "variants": {
+        "A": "来自系统的通知为“重要”",
+        "B": "来自应用的通知为“重要”",
+        "C": "包含感叹号的通知为“重要”"
+      },
+      "original_rules": "A：来自系统的通知为“重要”；B：来自应用的通知为“重要”；C：包含感叹号的通知为“重要”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "来自系统的通知为“重要”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "来自应用的通知为“重要”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "包含感叹号的通知为“重要”"
+        }
+      }
+    },
+    {
+      "id": 89,
+      "title": "Windows 设备设置：选择目标设备",
+      "type": "S",
+      "app": "windows",
+      "runtime": "windows",
+      "status": "specified",
+      "variants": {
+        "A": "选择电量最高的设备",
+        "B": "选择电量最低的设备",
+        "C": "选择名称最长的设备"
+      },
+      "original_rules": "A：选择电量最高的设备；B：选择电量最低的设备；C：选择名称最长的设备",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择电量最高的设备"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择电量最低的设备"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择名称最长的设备"
+        }
+      }
+    },
+    {
+      "id": 90,
+      "title": "Windows 显示设置：改变显示状态",
+      "type": "A",
+      "app": "windows",
+      "runtime": "windows",
+      "status": "specified",
+      "variants": {
+        "A": "屏幕亮度低于阈值时开启夜间模式",
+        "B": "亮度高于阈值时开启夜间模式",
+        "C": "外接显示器存在时开启夜间模式"
+      },
+      "original_rules": "A：屏幕亮度低于阈值时开启夜间模式；B：亮度高于阈值时开启夜间模式；C：外接显示器存在时开启夜间模式",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "屏幕亮度低于阈值时开启夜间模式"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "亮度高于阈值时开启夜间模式"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "外接显示器存在时开启夜间模式"
+        }
+      }
+    },
+    {
+      "id": 91,
+      "title": "Android 设备设置：连接目标设备",
+      "type": "A",
+      "app": "android",
+      "runtime": "android",
+      "status": "specified",
+      "variants": {
+        "A": "名称以指定字母开头的设备连接",
+        "B": "信号最强的设备连接",
+        "C": "电量最高的设备连接"
+      },
+      "original_rules": "A：名称以指定字母开头的设备连接；B：信号最强的设备连接；C：电量最高的设备连接",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "名称以指定字母开头的设备连接"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "信号最强的设备连接"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "电量最高的设备连接"
+        }
+      }
+    },
+    {
+      "id": 92,
+      "title": "Linux 终端：格式化命令输出",
+      "type": "T",
+      "app": "linux",
+      "runtime": "linux",
+      "status": "specified",
+      "variants": {
+        "A": "每行前加行号",
+        "B": "每行末尾加分号",
+        "C": "字段之间改用制表符"
+      },
+      "original_rules": "A：每行前加行号；B：每行末尾加分号；C：字段之间改用制表符",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "每行前加行号"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "每行末尾加分号"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "字段之间改用制表符"
+        }
+      }
+    },
+    {
+      "id": 93,
+      "title": "Linux 终端：转换路径或命令文本",
+      "type": "T",
+      "app": "linux",
+      "runtime": "linux",
+      "status": "specified",
+      "variants": {
+        "A": "相对路径改为绝对路径",
+        "B": "绝对路径改为相对路径",
+        "C": "路径中的大写字母转小写"
+      },
+      "original_rules": "A：相对路径改为绝对路径；B：绝对路径改为相对路径；C：路径中的大写字母转小写",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "相对路径改为绝对路径"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "绝对路径改为相对路径"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "路径中的大写字母转小写"
+        }
+      }
+    },
+    {
+      "id": 94,
+      "title": "Linux 终端：给命令结果分类",
+      "type": "C",
+      "app": "linux",
+      "runtime": "linux",
+      "status": "specified",
+      "variants": {
+        "A": "返回码为 0 为“成功”",
+        "B": "输出包含警告词为“成功”",
+        "C": "输出行数为偶数为“成功”"
+      },
+      "original_rules": "A：返回码为 0 为“成功”；B：输出包含警告词为“成功”；C：输出行数为偶数为“成功”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "返回码为 0 为“成功”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "输出包含警告词为“成功”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "输出行数为偶数为“成功”"
+        }
+      }
+    },
+    {
+      "id": 95,
+      "title": "Linux 终端：给进程标注状态",
+      "type": "C",
+      "app": "linux",
+      "runtime": "linux",
+      "status": "specified",
+      "variants": {
+        "A": "运行时间最长为“关注”",
+        "B": "占用内存最多为“关注”",
+        "C": "进程号最大的为“关注”"
+      },
+      "original_rules": "A：运行时间最长为“关注”；B：占用内存最多为“关注”；C：进程号最大的为“关注”",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "运行时间最长为“关注”"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "占用内存最多为“关注”"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "进程号最大的为“关注”"
+        }
+      }
+    },
+    {
+      "id": 96,
+      "title": "Linux 终端：选择要操作的进程",
+      "type": "S",
+      "app": "linux",
+      "runtime": "linux",
+      "status": "specified",
+      "variants": {
+        "A": "选择 CPU 占用最高者",
+        "B": "选择内存占用最低者",
+        "C": "选择进程名最短者"
+      },
+      "original_rules": "A：选择 CPU 占用最高者；B：选择内存占用最低者；C：选择进程名最短者",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择 CPU 占用最高者"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择内存占用最低者"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择进程名最短者"
+        }
+      }
+    },
+    {
+      "id": 97,
+      "title": "Linux 终端：选择命令作用对象",
+      "type": "S",
+      "app": "linux",
+      "runtime": "linux",
+      "status": "specified",
+      "variants": {
+        "A": "选择修改时间最新的文件",
+        "B": "选择文件大小最小的文件",
+        "C": "选择扩展名最短的文件"
+      },
+      "original_rules": "A：选择修改时间最新的文件；B：选择文件大小最小的文件；C：选择扩展名最短的文件",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择修改时间最新的文件"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择文件大小最小的文件"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "选择扩展名最短的文件"
+        }
+      }
+    },
+    {
+      "id": 98,
+      "title": "Linux 终端：执行命令序列",
+      "type": "A",
+      "app": "linux",
+      "runtime": "linux",
+      "status": "specified",
+      "variants": {
+        "A": "命令成功后继续下一条",
+        "B": "命令失败后继续下一条",
+        "C": "出现警告后暂停"
+      },
+      "original_rules": "A：命令成功后继续下一条；B：命令失败后继续下一条；C：出现警告后暂停",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "命令成功后继续下一条"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "命令失败后继续下一条"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "出现警告后暂停"
+        }
+      }
+    },
+    {
+      "id": 99,
+      "title": "Android 设置：改变系统状态",
+      "type": "A",
+      "app": "android",
+      "runtime": "android",
+      "status": "specified",
+      "variants": {
+        "A": "电量低于阈值时开启省电模式",
+        "B": "电量高于阈值时开启省电模式",
+        "C": "连接 Wi-Fi 时开启省电模式"
+      },
+      "original_rules": "A：电量低于阈值时开启省电模式；B：电量高于阈值时开启省电模式；C：连接 Wi-Fi 时开启省电模式",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "电量低于阈值时开启省电模式"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "电量高于阈值时开启省电模式"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "连接 Wi-Fi 时开启省电模式"
+        }
+      }
+    },
+    {
+      "id": 100,
+      "title": "Android 应用管理：处理应用状态",
+      "type": "A",
+      "app": "android",
+      "runtime": "android",
+      "status": "specified",
+      "variants": {
+        "A": "未使用超过阈值的应用强制停止",
+        "B": "占用空间最大的应用强制停止",
+        "C": "名称含指定字母的应用强制停止"
+      },
+      "original_rules": "A：未使用超过阈值的应用强制停止；B：占用空间最大的应用强制停止；C：名称含指定字母的应用强制停止",
+      "version": "1.0.0",
+      "parameters": {
+        "reference_time": "2026-01-15T12:00:00Z",
+        "threshold": 50,
+        "fixed_reply": "已确认",
+        "keyword": "紧急",
+        "letter": "a"
+      },
+      "seed_splits": {
+        "demo": [
+          0,
+          999
+        ],
+        "development": [
+          1000,
+          9999
+        ],
+        "evaluation": [
+          10000,
+          2147483647
+        ]
+      },
+      "max_actions": 120,
+      "max_seconds": 300,
+      "qa": {
+        "A": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "未使用超过阈值的应用强制停止"
+        },
+        "B": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "占用空间最大的应用强制停止"
+        },
+        "C": {
+          "question": "请说明教程中的选择、变换或操作规则。",
+          "answer": "名称含指定字母的应用强制停止"
+        }
+      }
+    }
+  ]
+}

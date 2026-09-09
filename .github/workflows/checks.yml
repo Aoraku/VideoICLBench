@@ -1,0 +1,27 @@
+name: Core checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22', cache: npm, cache-dependency-path: apps/portal/package-lock.json}
+      - run: pip install -c requirements.lock.txt -e '.[test]'
+      - run: npm --prefix apps/portal ci && npm --prefix apps/portal run build
+      - run: python scripts/build_catalog.py && git diff --exit-code -- tasks/catalog.json
+      - run: python -m pytest
+      - run: python -m playwright install --with-deps chromium
+      - name: Pixel and recording smoke test
+        run: |
+          python scripts/dev.py > /tmp/videoicl-control.log 2>&1 &
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:8765/healthz; then break; fi
+            sleep 1
+          done
+          python scripts/smoke_pixels.py

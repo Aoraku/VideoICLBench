@@ -1,0 +1,167 @@
+{
+  "verified_at": "2026-09-09T20:36:39.364604+00:00",
+  "surface": "development-workspace",
+  "official": false,
+  "tests": {
+    "tests": "390",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "time": "14.288"
+  },
+  "portal_input": "passed",
+  "pixel_recording": "passed",
+  "postgres_pixel_recording": "passed",
+  "mixed_sessions": {
+    "surface": "development-workspace",
+    "official": false,
+    "sessions": 15,
+    "recorded": 5,
+    "agent_sessions": 10,
+    "elapsed_seconds": 12.81,
+    "results": [
+      {
+        "run_id": "a3154d44d4cc496db8fc4951139da96a",
+        "recorded": true,
+        "success": true
+      },
+      {
+        "run_id": "2591a9fc4c024a2e8866d0273d86045a",
+        "recorded": true,
+        "success": true
+      },
+      {
+        "run_id": "63a1957e94c1464a92c02af473364ada",
+        "recorded": true,
+        "success": true
+      },
+      {
+        "run_id": "e008f4321dc14c58b4d5ed0b16cc900e",
+        "recorded": true,
+        "success": true
+      },
+      {
+        "run_id": "3a0b59e0cd934d9694fb6629789f6fa2",
+        "recorded": true,
+        "success": true
+      },
+      {
+        "run_id": "753d5651f3e04188800eadd4d8cd029b",
+        "recorded": false,
+        "success": true
+      },
+      {
+        "run_id": "dee1fc229b164a1bafaba316aea0ebc4",
+        "recorded": false,
+        "success": true
+      },
+      {
+        "run_id": "69415b3d341b48f4a27b4de0f2e48ece",
+        "recorded": false,
+        "success": true
+      },
+      {
+        "run_id": "0a91a80ffa484c92bf80e5f779228c73",
+        "recorded": false,
+        "success": true
+      },
+      {
+        "run_id": "e331f52af7264a56ab46047a7838128e",
+        "recorded": false,
+        "success": true
+      },
+      {
+        "run_id": "1308a9e61be34685baa1136239df9fc0",
+        "recorded": false,
+        "success": true
+      },
+      {
+        "run_id": "ba52b2a1dbaf44ca8107cd80aa155a20",
+        "recorded": false,
+        "success": true
+      },
+      {
+        "run_id": "3851f9d26d65488dad60aab610e4db89",
+        "recorded": false,
+        "success": true
+      },
+      {
+        "run_id": "f97a092a1eaa4c2cbd7aefc83fb01203",
+        "recorded": false,
+        "success": true
+      },
+      {
+        "run_id": "3a19a0cf937943d6a9e7c504ebe802f2",
+        "recorded": false,
+        "success": true
+      }
+    ]
+  },
+  "native_routes": {
+    "results": [
+      {
+        "service": "chat-ui",
+        "status": 200
+      },
+      {
+        "service": "chat-auth",
+        "status": 403
+      },
+      {
+        "service": "im-ui",
+        "status": 200
+      },
+      {
+        "service": "im-auth",
+        "status": 401
+      },
+      {
+        "service": "music",
+        "status": 200
+      },
+      {
+        "service": "news",
+        "status": 200
+      },
+      {
+        "service": "code-ui",
+        "status": 200
+      },
+      {
+        "service": "gomoku-vnc",
+        "status": 200
+      },
+      {
+        "service": "websocket-8811",
+        "status": 403
+      },
+      {
+        "service": "websocket-8812",
+        "status": 403
+      }
+    ],
+    "official": false
+  },
+  "host_preflight": {
+    "linux_host": false,
+    "kvm": false,
+    "docker_running": true,
+    "libvirt": false,
+    "android_emulator": false,
+    "adb": false,
+    "windows_image_configured": false
+  },
+  "built_images": {
+    "videoicl-control": "sha256:2db89f18a1dce7ad5be16a3f46f361e3986075e0be0aff63dbb0739e297b9c5f",
+    "infra-chat": "sha256:3e91b469a3e47a3a9bbde344f6e6b2122fc803074dac5bb0d4b1605c434150a2",
+    "infra-chat-ui": "sha256:1ba2bcd61691bdedd3ac158fb8c4107d0330b9a4111272ce9f3fead1281a908a",
+    "infra-im-backend": "sha256:dd4475fa417d74194ea56ac2805186eb9d5b5177768951b70a4cb9e0f4c214d5",
+    "infra-im": "sha256:b5cc006b322f4bf6f055813b6b649832e8407f7b1665aefdeea6035394bd702b",
+    "infra-music": "sha256:f3885322fdfbcb0f79b0b1cf42c9d06e08eba76b85c04e05c11cde30bb8526c0",
+    "infra-news": "sha256:94f68ad5a812c28e740a1e73ec62921e7025429e27c3d9192a1bcc071845ce59",
+    "infra-code": "sha256:114d9e7e866b0b038a70255c3ae3289a19ec2e263ba0ef576fc0756059bdcce5",
+    "infra-gomoku": "sha256:fcb41ef58d16468ae93334c9ed2175fd4c02f1da9a51f11792468e8e8bc616cf"
+  },
+  "native_task_certified_count": 0,
+  "human_tutorial_approved_count": 0
+}

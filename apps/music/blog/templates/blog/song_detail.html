@@ -1,0 +1,74 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row mb-4">
+    <!-- 左侧图片 -->
+    <div class="col-md-3 text-center">
+      <img src="{{ song.image }}" alt="Song Image"
+           class="img-fluid" style="aspect-ratio: 1 / 1; width: 100%; max-width: 240px; border-radius: 16px;">
+    </div>
+
+    <!-- 右侧信息 -->
+    <div class="col-md-9 text-white">
+      <h2>{{ song.name }}</h2>
+
+      <p><strong>歌手：</strong>
+        {% for artist in song.artists.all %}
+          <a href="{% url 'artist_detail' artist.id %}" class="text-white text-decoration-none artist-name">
+            {{ artist.name }}
+          </a>{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+      </p>
+
+      <p><strong>公開日：</strong> {{ song.date|slice:":10" }} {{ song.date|slice:"11:16" }}</p>
+
+      <p>
+        <a href="{{ song.url }}" target="_blank"
+            class="text-white-50 text-decoration-none original-link">
+            → 原曲ページへ
+        </a>
+      </p>
+
+
+      <p class="text-white" style="white-space: pre-wrap;"><strong>紹介：</strong> {{ song.description }}</p>
+    </div>
+  </div>
+
+  <!-- 歌词 -->
+  <h4 class="text-center mb-4">歌詞</h4>
+  <div class="text-center mb-5">
+    {% for line in lyrics %}
+      <p class="mb-1">{{ line }}</p>
+    {% endfor %}
+  </div>
+
+  <!-- 评论 -->
+  <hr>
+  <h4 class="mb-3">コメント</h4>
+
+  <form method="post" class="mb-4">
+    {% csrf_token %}
+    <textarea name="content" class="form-control mb-2" rows="2" required></textarea>
+    <div class="text-end">
+      <button type="submit" class="btn btn-primary">コメントする</button>
+    </div>
+  </form>
+
+  {% for comment in comments %}
+    <div class="card mb-3">
+      <div class="card-body d-flex justify-content-between align-items-start">
+        <div>
+          <p class="mb-1">{{ comment.content }}</p>
+          <small class="text-muted">{{ comment.created_at|date:"Y-m-d H:i" }}</small>
+        </div>
+        <a href="{% url 'delete_comment' comment.id %}" class="btn btn-sm btn-danger">削除</a>
+      </div>
+    </div>
+  {% empty %}
+    <div class="text-muted">まだコメントがありません。</div>
+  {% endfor %}
+</div>
+
+{% endblock %}

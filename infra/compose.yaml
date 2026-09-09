@@ -1,0 +1,38 @@
+name: videoicl
+services:
+  control:
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile.control
+    environment:
+      VIC_ADMIN_TOKEN: ${VIC_ADMIN_TOKEN:?Set a unique manager credential}
+      VIC_DATABASE_URL: postgresql+psycopg://vic:${VIC_DB_PASSWORD:?Set database password}@postgres:5432/vic
+      VIC_PUBLIC_BASE: http://127.0.0.1:8765
+      VIC_ROOT: /app
+    ports: ["127.0.0.1:${VIC_PORT:-8765}:8765"]
+    volumes: ["run_data:/data"]
+    shm_size: 1gb
+    depends_on:
+      postgres: {condition: service_healthy}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8765/healthz')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+  postgres:
+    image: postgres:17-bookworm
+    environment:
+      POSTGRES_USER: vic
+      POSTGRES_DB: vic
+      POSTGRES_PASSWORD: ${VIC_DB_PASSWORD:?Set database password}
+    volumes: ["pg_data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vic"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+volumes:
+  run_data:
+  pg_data:

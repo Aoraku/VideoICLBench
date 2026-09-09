@@ -1,0 +1,87 @@
+:root {
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: rgba(15, 23, 42, 0.12);
+  --shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
+  --primary: #40a9ff;
+  --danger: #ff4d4f;
+  --radius: 12px;
+  /* wx 子系统与通讯录详情共用（避免 var() 未定义导致回退成浏览器默认 button/select 样式） */
+  --color-primary: var(--primary);
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --color-bg-page: rgba(255, 255, 255, 0.78);
+  --color-bg-elevated: rgba(255, 255, 255, 0.52);
+  --border-hairline: rgba(15, 23, 42, 0.08);
+  --shadow-air: 0 8px 24px rgba(15, 23, 42, 0.06);
+
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--text);
+  background: radial-gradient(900px 520px at 10% 10%, rgba(64, 169, 255, 0.18), transparent 55%),
+    radial-gradient(700px 460px at 85% 20%, rgba(82, 196, 26, 0.12), transparent 60%),
+    var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+  transition: transform 0.08s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(64, 169, 255, 0.35);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.12);
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+input {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+  background: rgba(255, 255, 255, 0.9);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+input:focus {
+  border-color: rgba(64, 169, 255, 0.6);
+  box-shadow: 0 0 0 4px rgba(64, 169, 255, 0.15);
+}

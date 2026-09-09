@@ -1,0 +1,36 @@
+# =========================
+# 后端 (Python/Django) 相关
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3  
+backend/avatars/
+backend/media/
+.env
+.env.deploy
+venv/
+env/
+.venv/
+media/
+# SonarQube 相关文件
+sonarqube_token.txt
+.coverage
+coverage.xml
+
+# =========================
+# 前端 (Node/React) 相关
+# =========================
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# =========================
+# 操作系统与 IDE 相关
+# =========================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

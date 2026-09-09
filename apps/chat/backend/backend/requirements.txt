@@ -1,0 +1,10 @@
+Django>=4.2
+djangorestframework>=3.14
+djangorestframework-simplejwt>=5.3
+Pillow>=9.0
+coverage>=7.0
+django-cors-headers>=4.4
+channels>=4.0
+channels-redis>=4.2
+
+uvicorn[standard]>=0.34,<1

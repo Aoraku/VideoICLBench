@@ -1,0 +1,2 @@
+#!/bin/bash
+pytest --cov=Backend --cov=accounts --cov=manage --cov-report=term-missing --cov-report=xml:coverage-reports/coverage.xml --junitxml=xunit-reports/xunit-result.xml --junitxml=xunit-reports/xunit-result.xml

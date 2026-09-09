@@ -1,0 +1,140 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+
+<h2 class="mb-4">検索結果</h2>
+<p>「{{ query }}」に対する {{ total_results }} 件の結果（{{ time_taken }} 秒）</p>
+
+<div class="container-fluid">
+  <div class="row g-4">
+    {% for item in page_obj %}
+      <div class="col-6 col-md-3 text-center">
+
+        {% if search_type == 'song' %}
+          <!-- 歌曲流 -->
+          <a href="{% url 'song_detail' item.id %}">
+            <img src="{{ item.image }}" alt="Song Image"
+                 class="img-fluid song-cover" style="aspect-ratio: 1 / 1; width: 100%; object-fit: cover; border-radius: 6px;">
+          </a>
+
+          <div class="mt-2">
+            <a href="{% url 'song_detail' item.id %}" class="text-white text-decoration-none song-title">
+              {{ item.name }}
+            </a>
+          </div>
+          <div class="text-white-50 small">
+            {% for artist in item.artists.all %}
+              <a href="{% url 'artist_detail' artist.id %}" class="text-white-50 text-decoration-none artist-name">
+                {{ artist.pure_name }}
+              </a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+          </div>
+
+        {% else %}
+          <!-- 歌手流 -->
+          <a href="{% url 'artist_detail' item.id %}">
+            <img src="{{ item.image }}" alt="Artist Image"
+                 class="img-fluid artist-cover" style="aspect-ratio: 1 / 1; width: 100%; object-fit: cover; border-radius: 6px;">
+          </a>
+
+          <div class="mt-2">
+            <a href="{% url 'artist_detail' item.id %}" class="text-white text-decoration-none artist-name">
+              {{ item.name }}
+            </a>
+          </div>
+        {% endif %}
+        
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="my-5"></div>
+
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
+
+    <!-- 往前走 -->
+    {% if page_obj.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="{% url 'search' %}?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page=1">最初</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="{% url 'search' %}?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ page_obj.previous_page_number }}">前へ</a>
+      </li>
+    {% else %}
+      <li class="page-item disabled"><span class="page-link">最初</span></li>
+      <li class="page-item disabled"><span class="page-link">前へ</span></li>
+    {% endif %}
+
+    <!-- 前省略号 -->
+    {% if page_obj.number > 5 %}
+      <li class="page-item">
+        <a class="page-link" href="{% url 'search' %}?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page=1">1</a>
+      </li>
+      <li class="page-item disabled"><span class="page-link">…</span></li>
+    {% endif %}
+
+    <!-- 中间 -->
+    {% for i in page_obj.paginator.page_range %}
+      {% if i >= page_obj.number|add:'-4' and i <= page_obj.number|add:'4' %}
+        {% if i == page_obj.number %}
+          <li class="page-item active"><span class="page-link">{{ i }}</span></li>
+        {% else %}
+          <li class="page-item">
+            <a class="page-link" href="{% url 'search' %}?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ i }}">{{ i }}</a>
+          </li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    <!-- 后省略号 -->
+    {% if page_obj.number < page_obj.paginator.num_pages|add:'-4' %}
+      <li class="page-item disabled"><span class="page-link">…</span></li>
+      <li class="page-item">
+        <a class="page-link" href="{% url 'search' %}?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+      </li>
+    {% endif %}
+
+    <!-- 往后走 -->
+    {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="{% url 'search' %}?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ page_obj.next_page_number }}">次へ</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="{% url 'search' %}?{% if request.GET %}{{ request.GET.urlencode }}&{% endif %}page={{ page_obj.paginator.num_pages }}">最後</a>
+      </li>
+    {% else %}
+      <li class="page-item disabled"><span class="page-link">次へ</span></li>
+      <li class="page-item disabled"><span class="page-link">最後</span></li>
+    {% endif %}
+
+    <form method="get" class="d-inline ms-3" onsubmit="return validatePageInput(this);">
+      {% for key, value in request.GET.items %}
+        {% if key != 'page' %}
+          <input type="hidden" name="{{ key }}" value="{{ value }}">
+        {% endif %}
+      {% endfor %}
+      
+      <!-- 跳转 -->
+      <input type="number" min="1" max="{{ page_obj.paginator.num_pages }}" name="page" id="page_input" style="width: 60px;" class="form-control d-inline">
+      <button type="submit" class="btn btn-sm btn-primary">へ移動する</button>
+    </form>
+
+  </ul>
+</nav>
+
+<script>
+  function validatePageInput(form) {
+    const input = form.page.value;
+    const maxPage = {{ page_obj.paginator.num_pages }};
+    const page = parseInt(input);
+    if (isNaN(page) || page < 1 || page > maxPage) {
+      alert("有効なページ番号を入力してください（1 から " + maxPage + " まで）");
+      return false;
+    }
+    return true;
+  }
+</script>
+
+{% endblock %}

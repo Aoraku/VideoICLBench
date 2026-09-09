@@ -1,0 +1,17 @@
+{
+  "windows": {
+    "driver": "libvirt",
+    "base_image": "/srv/videoicl/images/windows.qcow2",
+    "domain_template": "/srv/videoicl/images/windows.xml"
+  },
+  "linux": {
+    "driver": "libvirt",
+    "base_image": "/srv/videoicl/images/linux.qcow2",
+    "domain_template": "/srv/videoicl/images/linux.xml"
+  },
+  "android": {
+    "driver": "android",
+    "avd": "VIC_Android",
+    "snapshot": "benchmark-base"
+  }
+}

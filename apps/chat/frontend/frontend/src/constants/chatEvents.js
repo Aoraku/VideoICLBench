@@ -1,0 +1,5 @@
+export const CHAT_EVENT_CONVERSATION_REFRESH = 'chat:conversation-refresh'
+export const CHAT_EVENT_NEW_MESSAGE = 'chat:new-message'
+export const CHAT_EVENT_NEW_MESSAGE_LEGACY = 'chat:new_message'
+export const CHAT_EVENT_DRAFT_UPDATED = 'chat:draft-updated'
+export const CHAT_EVENT_JUMP_TO_MESSAGE = 'chat:jump-to-message'

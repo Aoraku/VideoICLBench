@@ -1,0 +1,28 @@
+image: registry.spring26b.secoder.net/tool/deployer
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - |
+      if [ -n "$VITE_API_BASE_URL" ]; then
+        printf "VITE_API_BASE_URL=%s\n" "$VITE_API_BASE_URL" > frontend/.env.production
+      else
+        echo "未配置 VITE_API_BASE_URL：将使用前端代码中的 Secoder 域名推导兜底逻辑"
+      fi
+    - export BUILD_IMAGE_NAME=$CI_REGISTRY_IMAGE
+    - export BUILD_IMAGE_TAG=$CI_COMMIT_REF_SLUG
+    - export BUILD_IMAGE_USERNAME=$CI_REGISTRY_USER
+    - export BUILD_IMAGE_PASSWORD=$CI_REGISTRY_PASSWORD
+    - deployer build
+
+deploy:
+  stage: deploy
+  script:
+    - export API_SERVER=https://deployer.spring26b.secoder.net/api
+    - deployer dyno replace $CI_PROJECT_NAME "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" "$REGISTRY_USER" "$REGISTRY_PWD"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master" || $CI_COMMIT_BRANCH == "dev"'

@@ -1,0 +1,100 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+
+<h2 class="mb-4">歌手一覧</h2>
+
+<!-- 网格布局 -->
+<div class="container-fluid">
+  <div class="row g-4">
+    {% for artist in page_obj %}
+      <div class="col-6 col-md-3 text-center">
+
+        <!-- 歌手封面 -->
+        <a href="{% url 'artist_detail' artist.id %}">
+          <img src="{{ artist.image }}" alt="Artist Image" class="img-fluid artist-cover" style="aspect-ratio: 1 / 1; width: 100%; object-fit: cover; border-radius: 6px;">
+        </a>
+
+        <!-- 歌手名 -->
+        <div class="mt-2">
+          <a href="{% url 'artist_detail' artist.id %}" class="text-white text-decoration-none artist-name">
+            {{ artist.name }}
+          </a>
+        </div>
+
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- 留空 -->
+<div class="my-5"></div>
+
+<!-- 分页控件 -->
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
+
+    <!-- 往前走 -->
+    {% if page_obj.has_previous %}
+      <li class="page-item"><a class="page-link" href="{% url 'artist_list' %}?page=1">最初</a></li>
+      <li class="page-item"><a class="page-link" href="{% url 'artist_list' %}?page={{ page_obj.previous_page_number }}">前へ</a></li>
+    {% else %}
+      <li class="page-item disabled"><span class="page-link">最初</span></li>
+      <li class="page-item disabled"><span class="page-link">前へ</span></li>
+    {% endif %}
+
+    <!-- 前省略号 -->
+    {% if page_obj.number > 5 %}
+      <li class="page-item"><a class="page-link" href="{% url 'artist_list' %}?page=1">1</a></li>
+      <li class="page-item disabled"><span class="page-link">…</span></li>
+    {% endif %}
+
+    <!-- 中间 -->
+    {% for i in page_obj.paginator.page_range %}
+      {% if i >= page_obj.number|add:'-4' and i <= page_obj.number|add:'4' %}
+        {% if i == page_obj.number %}
+          <li class="page-item active"><span class="page-link">{{ i }}</span></li>
+        {% else %}
+          <li class="page-item"><a class="page-link" href="{% url 'artist_list' %}?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    <!-- 后省略号 -->
+    {% if page_obj.number < page_obj.paginator.num_pages|add:'-4' %}
+      <li class="page-item disabled"><span class="page-link">…</span></li>
+      <li class="page-item"><a class="page-link" href="{% url 'artist_list' %}?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
+    {% endif %}
+
+    <!-- 往后走 -->
+    {% if page_obj.has_next %}
+      <li class="page-item"><a class="page-link" href="{% url 'artist_list' %}?page={{ page_obj.next_page_number }}">次へ</a></li>
+      <li class="page-item"><a class="page-link" href="{% url 'artist_list' %}?page={{ page_obj.paginator.num_pages }}">最後</a></li>
+    {% else %}
+      <li class="page-item disabled"><span class="page-link">次へ</span></li>
+      <li class="page-item disabled"><span class="page-link">最後</span></li>
+    {% endif %}
+
+    <!-- 跳转 -->
+    <form method="get" class="d-inline ms-3" onsubmit="return validatePageInput(this);">
+      <input type="number" min="1" max="{{ page_obj.paginator.num_pages }}" name="page" id="page_input" style="width: 60px;" class="form-control d-inline">
+      <button type="submit" class="btn btn-sm btn-primary">へ移動する</button>
+    </form>
+
+  </ul>
+</nav>
+
+<script>
+  function validatePageInput(form) {
+    const input = form.page.value;
+    const maxPage = {{ page_obj.paginator.num_pages }};
+    const page = parseInt(input);
+    if (isNaN(page) || page < 1 || page > maxPage) {
+      alert("有効なページ番号を入力してください（1 から " + maxPage + " まで）");
+      return false;
+    }
+    return true;
+  }
+</script>
+
+{% endblock %}

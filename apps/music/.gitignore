@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+env/
+
+# Django/runtime
+*.log
+db.sqlite3.copy
+staticfiles/
+media/
+
+# Local image caches replaced by online image URLs
+static/song_image/
+static/artist_image/
+
+# Notebooks and local tooling
+.ipynb_checkpoints/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE/OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

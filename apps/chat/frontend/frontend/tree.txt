@@ -1,0 +1,32 @@
+.
+├── Dockerfile
+├── README.md
+├── docs
+│   └── NEXTJS-DIRECTORY.md
+├── eslint.config.js
+├── index.html
+├── node_modules
+├── package.json
+├── public
+│   └── vite.svg
+├── src
+│   ├── App.css
+│   ├── App.jsx
+│   ├── api
+│   ├── assets
+│   │   └── react.svg
+│   ├── components
+│   │   └── layout
+│   ├── contexts
+│   ├── hooks
+│   ├── index.css
+│   ├── lib
+│   ├── main.jsx
+│   ├── mock
+│   ├── pages
+│   │   └── conversations
+│   └── styles
+├── tree.txt
+└── vite.config.js
+
+16 directories, 14 files

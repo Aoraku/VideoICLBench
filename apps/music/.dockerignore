@@ -1,0 +1,14 @@
+.git
+.gitignore
+.venv
+venv
+env
+__pycache__
+*.pyc
+.pytest_cache
+.ipynb_checkpoints
+static/song_image
+static/artist_image
+db.sqlite3.copy
+.DS_Store
+Thumbs.db

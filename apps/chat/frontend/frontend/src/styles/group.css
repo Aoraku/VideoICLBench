@@ -1,0 +1,660 @@
+/* 群聊资料 / 创建页（与 wx 系页面并存） */
+.groupPage {
+  max-width: 1100px;
+}
+
+.groupPage__headerAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  flex-shrink: 0;
+}
+
+.groupDetailLayout {
+  margin-top: 12px;
+}
+
+.groupDetailLayout__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .groupDetailLayout__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.groupDetailLayout__col--main {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.groupCard {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 16px 44px rgba(15, 23, 42, 0.1);
+  padding: 14px 16px 16px;
+}
+
+.groupCard__title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 800;
+  color: rgba(15, 23, 42, 0.88);
+}
+
+.groupMuted {
+  margin: 0;
+  font-size: 13px;
+  color: rgba(15, 23, 42, 0.45);
+}
+
+.groupInfoPanel__avatarBlock {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.groupInfoPanel__avatarImg,
+.groupInfoPanel__avatarGrid {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(241, 245, 249, 0.9);
+}
+
+.groupInfoPanel__avatarImg {
+  object-fit: cover;
+}
+
+.groupInfoPanel__avatarGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  padding: 3px;
+}
+
+.groupInfoPanel__avatarGrid img,
+.groupInfoPanel__avatarGrid span {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+  display: grid;
+  place-items: center;
+  background: rgba(64, 169, 255, 0.16);
+  color: rgba(37, 99, 235, 0.95);
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.groupInfoPanel__avatarActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.groupInfoPanel__editBtn--danger {
+  color: var(--danger);
+}
+
+.groupInfoPanel__error {
+  width: 100%;
+  font-size: 12px;
+  color: var(--danger);
+}
+
+.groupInfoPanel__dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 8px 12px;
+  font-size: 14px;
+}
+
+.groupInfoPanel__dl dt {
+  margin: 0;
+  color: rgba(15, 23, 42, 0.5);
+  font-weight: 600;
+}
+
+.groupInfoPanel__dl dd {
+  margin: 0;
+  color: rgba(15, 23, 42, 0.88);
+}
+
+.groupInfoPanel__ddRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 0;
+}
+
+.groupInfoPanel__ddText {
+  min-width: 0;
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+
+.groupInfoPanel__editBtn {
+  flex-shrink: 0;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.85);
+  color: rgba(64, 169, 255, 0.95);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.groupInfoPanel__editBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.groupInfoPanel__adminList {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.groupInfoPanel__latestAnn {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(250, 173, 20, 0.08);
+  border: 1px solid rgba(250, 173, 20, 0.22);
+}
+.groupInfoPanel__latestAnnText {
+  margin: 0 0 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(15, 23, 42, 0.88);
+}
+.groupInfoPanel__latestAnnMeta {
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.5);
+}
+
+.groupMemberList__ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.groupMemberList__row {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.groupMemberList__row:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.groupMemberAvatar__img {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.groupMemberAvatar__ph {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, rgba(64, 169, 255, 0.35), rgba(64, 169, 255, 0.08));
+  font-weight: 800;
+  color: rgba(15, 23, 42, 0.65);
+}
+
+.groupMemberList__name {
+  font-weight: 700;
+  color: rgba(15, 23, 42, 0.9);
+}
+
+.groupMemberList__sub {
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.45);
+}
+
+.groupPermTag {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.groupPermTag--owner {
+  background: rgba(250, 173, 20, 0.2);
+  color: #ad6800;
+}
+
+.groupPermTag--admin {
+  background: rgba(64, 169, 255, 0.18);
+  color: #0958d9;
+}
+
+.groupPermTag--member {
+  background: rgba(15, 23, 42, 0.06);
+  color: rgba(15, 23, 42, 0.55);
+}
+
+.groupAnnHistory__ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.groupAnnHistory__item {
+  padding: 12px 0;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.groupAnnHistory__item:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.groupAnnHistory__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.5);
+  margin-bottom: 6px;
+}
+
+.groupAnnHistory__who {
+  font-weight: 700;
+  color: rgba(15, 23, 42, 0.65);
+}
+
+.groupAnnHistory__content {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(15, 23, 42, 0.88);
+}
+
+.groupAdminSlot {
+  border-radius: 16px;
+  border: 1px dashed rgba(15, 23, 42, 0.18);
+  background: rgba(255, 255, 255, 0.35);
+  padding: 14px;
+}
+
+.groupAdminSlot__inner {
+  text-align: left;
+}
+
+.groupAdminSlot__title {
+  display: block;
+  font-weight: 800;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: rgba(15, 23, 42, 0.75);
+}
+
+.groupAdminSlot__hint {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(15, 23, 42, 0.5);
+}
+
+.groupCreateForm {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.groupCreateForm__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.groupCreateForm__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(15, 23, 42, 0.65);
+}
+
+.groupSelectedBar {
+  margin: 10px 0 4px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(64, 169, 255, 0.1);
+  border: 1px solid rgba(64, 169, 255, 0.2);
+  font-size: 13px;
+  color: rgba(15, 23, 42, 0.75);
+}
+
+.groupFriendPick__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 420px;
+  overflow: auto;
+}
+
+.groupFriendPick__row {
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.groupFriendPick__row:first-child {
+  border-top: none;
+}
+
+.groupFriendPick__label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 4px;
+  cursor: pointer;
+}
+
+.groupFriendPick__avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(180deg, rgba(64, 169, 255, 0.28), rgba(64, 169, 255, 0.08));
+  overflow: hidden;
+}
+
+.groupFriendPick__name {
+  font-weight: 600;
+  color: rgba(15, 23, 42, 0.88);
+}
+
+.groupListPage__row {
+  display: grid;
+  grid-template-columns: 46px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 14px;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.groupListPage__list > li:first-child .groupListPage__row {
+  border-top: none;
+}
+
+.groupListPage__rowMain {
+  min-width: 0;
+}
+
+.groupRoleManager__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.groupRoleManager__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.groupRoleManager__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.groupRoleManager__row:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.groupRoleManager__name {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(15, 23, 42, 0.9);
+}
+
+.groupRoleManager__sub {
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.45);
+}
+
+.groupDialogOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+}
+
+.groupDialogOverlay__backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.groupDialog {
+  position: relative;
+  z-index: 1;
+  width: min(560px, calc(100vw - 24px));
+  margin: 7vh auto 0;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 22px 50px rgba(15, 23, 42, 0.25);
+  overflow: hidden;
+}
+
+.groupDialog__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.groupDialog__title {
+  font-size: 15px;
+  font-weight: 800;
+  color: rgba(15, 23, 42, 0.9);
+}
+
+.groupDialog__close {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  line-height: 1;
+  color: rgba(15, 23, 42, 0.5);
+  cursor: pointer;
+}
+
+.groupDialog__body {
+  padding: 14px;
+}
+
+/* 与深色聊天壳层协调的弹窗皮肤（群资料内编辑等） */
+.groupDialog--themeChat {
+  background: linear-gradient(165deg, #2a2d34 0%, #1e2128 55%, #1a1d24 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.35),
+    0 28px 70px rgba(0, 0, 0, 0.55);
+}
+
+.groupDialog--themeChat .groupDialog__head {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.groupDialog--themeChat .groupDialog__title {
+  color: rgba(248, 250, 252, 0.96);
+}
+
+.groupDialog--themeChat .groupDialog__close {
+  color: rgba(248, 250, 252, 0.55);
+}
+
+.groupDialog--themeChat .groupDialog__close:hover:not(:disabled) {
+  color: rgba(248, 250, 252, 0.88);
+}
+
+.groupStringEditDialog__hint {
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(248, 250, 252, 0.58);
+}
+
+.groupStringEditDialog__input {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.28);
+  color: rgba(248, 250, 252, 0.96);
+  font-size: 15px;
+  padding: 11px 12px;
+  outline: none;
+}
+
+.groupStringEditDialog__input::placeholder {
+  color: rgba(248, 250, 252, 0.32);
+}
+
+.groupStringEditDialog__input:focus {
+  border-color: rgba(64, 169, 255, 0.75);
+  box-shadow: 0 0 0 3px rgba(64, 169, 255, 0.18);
+}
+
+.groupStringEditDialog__input:disabled {
+  opacity: 0.65;
+}
+
+.groupStringEditDialog__meta {
+  margin-top: 6px;
+  font-size: 12px;
+  text-align: right;
+  color: rgba(248, 250, 252, 0.42);
+}
+
+.groupStringEditDialog__err {
+  margin-top: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #fecaca;
+  background: rgba(239, 68, 68, 0.16);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.groupStringEditDialog__actions {
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.groupStringEditDialog__actions .wxBtn {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(248, 250, 252, 0.88);
+}
+
+.groupStringEditDialog__actions .wxBtn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.groupStringEditDialog__actions .wxBtn--primary {
+  border-color: transparent;
+}
+
+.groupAdminActionArea {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.groupPublishAnnouncement__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.groupPublishAnnouncement__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(15, 23, 42, 0.65);
+}
+
+.groupPublishAnnouncement__textarea {
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  outline: none;
+}
+
+.groupPublishAnnouncement__textarea:focus {
+  border-color: rgba(64, 169, 255, 0.7);
+  box-shadow: 0 0 0 3px rgba(64, 169, 255, 0.15);
+}
+
+.groupPublishAnnouncement__meta {
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.45);
+  text-align: right;
+}
+
+.groupPublishAnnouncement__actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.groupInviteReview__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.groupInviteReview__head .groupCard__title {
+  margin-bottom: 0;
+}
+
+.groupInviteReview__actions {
+  display: flex;
+  gap: 8px;
+}

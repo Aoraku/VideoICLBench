@@ -1,0 +1,68 @@
+{
+  "data": [
+    {
+      "id": "0",
+      "title": "Alpha report 3",
+      "publisher": "Echo",
+      "publishTime": "2026-01-01T12:00:00Z",
+      "content": "A local benchmark article.",
+      "tags": [],
+      "comments": 0
+    },
+    {
+      "id": "1",
+      "title": "Plain bulletin",
+      "publisher": "North",
+      "publishTime": "2026-01-02T12:00:00Z",
+      "content": "A local benchmark article.",
+      "tags": [
+        "blue"
+      ],
+      "comments": 7
+    },
+    {
+      "id": "2",
+      "title": "Market 7",
+      "publisher": "Orbit",
+      "publishTime": "2026-01-03T12:00:00Z",
+      "content": "A local benchmark article.",
+      "tags": [
+        "blue",
+        "focus"
+      ],
+      "comments": 14
+    },
+    {
+      "id": "3",
+      "title": "Weather update",
+      "publisher": "Sky",
+      "publishTime": "2026-01-04T12:00:00Z",
+      "content": "A local benchmark article.",
+      "tags": [],
+      "comments": 21
+    },
+    {
+      "id": "4",
+      "title": "Weekly briefing",
+      "publisher": "AtlasNews",
+      "publishTime": "2026-01-05T12:00:00Z",
+      "content": "A local benchmark article.",
+      "tags": [
+        "blue"
+      ],
+      "comments": 28
+    },
+    {
+      "id": "5",
+      "title": "Project update 2",
+      "publisher": "Daily",
+      "publishTime": "2026-01-06T12:00:00Z",
+      "content": "A local benchmark article.",
+      "tags": [
+        "blue",
+        "focus"
+      ],
+      "comments": 35
+    }
+  ]
+}

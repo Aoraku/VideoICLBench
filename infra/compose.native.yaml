@@ -1,0 +1,73 @@
+# Native applications are opt-in developer targets; each project name owns its volumes.
+services:
+  chat:
+    profiles: [chat]
+    build: ../apps/chat/backend
+    environment:
+      PORT: 8000
+      SQLITE_PATH: /data/chat.sqlite3
+      DJANGO_SECRET_KEY: ${VIC_APP_SECRET:?Set application secret}
+      DJANGO_DEBUG: "0"
+    volumes: ["chat_data:/data"]
+    ports: ["127.0.0.1:8801:8000"]
+  chat-ui:
+    profiles: [chat]
+    build: ../apps/chat/frontend
+    volumes: ["./chat-nginx.conf:/etc/nginx/conf.d/default.conf:ro"]
+    ports: ["127.0.0.1:8811:80"]
+    depends_on: [chat]
+  im-backend:
+    profiles: [im]
+    build: ../apps/im/Backend
+    environment:
+      PORT: 8000
+      SQLITE_PATH: /data/im.sqlite3
+      DJANGO_SECRET_KEY: ${VIC_APP_SECRET:?Set application secret}
+    volumes: ["im_data:/data"]
+    ports: ["127.0.0.1:8802:8000"]
+  im:
+    profiles: [im]
+    build: ../apps/im/Frontend
+    environment:
+      VIC_BACKEND_URL: http://im-backend:8000
+  im-ui:
+    profiles: [im]
+    image: nginx:1.27-alpine
+    volumes: ["./im-nginx.conf:/etc/nginx/conf.d/default.conf:ro"]
+    ports: ["127.0.0.1:8812:80"]
+    depends_on: [im, im-backend]
+  music:
+    profiles: [music]
+    build: ../apps/music
+    environment:
+      SQLITE_PATH: /data/music.sqlite3
+      DJANGO_SECRET_KEY: ${VIC_APP_SECRET:?Set application secret}
+    command: ["sh", "-ec", "python manage.py migrate --noinput; exec uvicorn Project1.asgi:application --host 0.0.0.0 --port 8000"]
+    volumes: ["music_data:/data"]
+    ports: ["127.0.0.1:8803:8000"]
+  news:
+    profiles: [news]
+    build: ../apps/news
+    environment:
+      VIC_NEWS_SNAPSHOT: /fixtures/news.json
+    volumes: ["../tasks/fixtures/news.json:/fixtures/news.json:ro"]
+    ports: ["127.0.0.1:8804:8080"]
+  code:
+    profiles: [code]
+    build: ../apps/code
+    environment:
+      DATABASE_URL: sqlite:////data/oj.db
+      VIC_OJ_ADMIN_PASSWORD: ${VIC_OJ_ADMIN_PASSWORD:?Set judge administrator password}
+      VIC_SESSION_SECRET: ${VIC_APP_SECRET:?Set application secret}
+      VIC_JUDGE_MODE: disabled
+    volumes: ["code_data:/data"]
+    ports: ["127.0.0.1:8805:8501"]
+  gomoku:
+    profiles: [gomoku]
+    build: ../apps/gomoku
+    ports: ["127.0.0.1:8806:6080"]
+volumes:
+  chat_data:
+  im_data:
+  music_data:
+  code_data:

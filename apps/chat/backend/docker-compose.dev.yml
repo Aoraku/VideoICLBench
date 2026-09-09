@@ -1,0 +1,14 @@
+# 本地开发：热重载，直接暴露 8000，无 nginx
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    environment:
+      DJANGO_DEBUG: "1"
+      DJANGO_ALLOWED_HOSTS: "127.0.0.1,localhost,*"
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]

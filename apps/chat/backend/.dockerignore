@@ -1,0 +1,14 @@
+.git
+.gitignore
+**/__pycache__
+**/*.pyc
+backend/.venv
+backend/venv
+backend/db.sqlite3
+backend/media
+backend/avatars
+*.md
+.env
+.env.deploy
+coverage.xml
+.sonar

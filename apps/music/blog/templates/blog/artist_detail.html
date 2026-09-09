@@ -1,0 +1,46 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- 歌手封面 -->
+<div class="mb-4">
+  <img src="{{ artist.image }}" alt="Artist Image"
+       class="img-fluid w-100" style="height: 680px; object-fit: cover;">
+</div>
+
+<!-- 歌手信息（名字、介绍、URL） -->
+<div class="mb-5 px-3 text-white" style="white-space: pre-wrap;">
+  <h2 class="mb-3">{{ artist.name }}</h2>
+  <p class="text-white-50">{{ artist.description }}</p>
+
+    <a href="{{ artist.url }}" target="_blank" class="text-white text-decoration-none original-link">
+      → 原歌手ページへ
+    </a>
+
+</div>
+
+<!-- 曲目 -->
+<h4 class="text-white mb-4 px-3">この歌手の曲</h4>
+
+<div class="container-fluid px-3">
+  <div class="row g-4">
+    {% for song in songs %}
+      <div class="col-6 col-md-4 col-lg-2 text-center">
+        <!-- 封面图 -->
+        <a href="{% url 'song_detail' song.id %}">
+          <img src="{{ song.image }}" alt="{{ song.name }}"
+               class="img-fluid song-cover"
+               style="aspect-ratio: 1/1; width: 100%; border-radius: 8px; object-fit: cover;">
+        </a>
+        <!-- 歌名 -->
+        <div class="mt-2">
+          <a href="{% url 'song_detail' song.id %}" class="text-white text-decoration-none song-title">
+            {{ song.name }}
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+# Secoder deployer 文档：https://lab.cs.tsinghua.edu.cn/software-engineering/deploy/deployer/
+# - dyno replace 最后两个参数是「拉镜像用的 Registry 账号」：gitlab-ci-token + REGISTRY_PWD
+# - REGISTRY_PWD 必须是 GitLab Personal Access Token（权限 read_registry），不是部署页上的部署密钥
+# - 部署密钥对应环境变量 DEPLOY_TOKEN；大作业由 Secoder 在 Runner 里预注入，勿手动 export DEPLOY_ENV=$GITLAB_USER_LOGIN（会覆盖团队环境导致 401）
+
+stages:
+  - test
+  - sonar
+  - build
+  - deploy
+
+variables:
+  DEPLOYER_IMAGE: registry.spring26b.secoder.net/tool/deployer
+
+backend-test:
+  stage: test
+  image: python:3.10-slim
+  script:
+    - cd backend
+    - pip install -r requirements.txt
+    - coverage run --source=chat manage.py test --verbosity=2
+    - coverage xml -o coverage.xml
+  artifacts:
+    paths:
+      - backend/coverage.xml
+    expire_in: 1 day
+
+sonarqube-check:
+  stage: sonar
+  image:
+    name: sonarsource/sonar-scanner-cli:4.6
+    entrypoint: [""]
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+    GIT_DEPTH: "0"
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - |
+      if [ -z "${SONAR_TOKEN:-}" ]; then
+        echo "SONAR_TOKEN 未配置：请在 GitLab CI/CD Variables 中新增 SONAR_TOKEN（建议 Masked + Protected）"
+        exit 1
+      fi
+    - sonar-scanner -Dsonar.login="$SONAR_TOKEN"
+  dependencies:
+    - backend-test
+
+# ---------- 构建并推送镜像（仅 dev；在 sonar 之后执行）----------
+image-build:
+  stage: build
+  image: $DEPLOYER_IMAGE
+  script:
+    - export BUILD_IMAGE_NAME=$CI_REGISTRY_IMAGE
+    - export BUILD_IMAGE_TAG=$CI_COMMIT_REF_SLUG
+    - export BUILD_IMAGE_USERNAME=$CI_REGISTRY_USER
+    - export BUILD_IMAGE_PASSWORD=$CI_REGISTRY_PASSWORD
+    - deployer build
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev" || $CI_COMMIT_BRANCH == "master"'
+
+# ---------- 发布到 Secoder dyno（仅 dev）----------
+deploy-backend:
+  stage: deploy
+  image: $DEPLOYER_IMAGE
+  script:
+    # 禁止：export DEPLOY_ENV=$GITLAB_USER_LOGIN（课程文档要求大作业删除，否则会 401）
+    - |
+      if [ -z "$REGISTRY_PWD" ]; then
+        echo "缺少 REGISTRY_PWD：请到 GitLab → Settings → Access Tokens 创建令牌，权限勾选 read_registry"
+        echo "再添加到 CI/CD Variables，Key=REGISTRY_PWD（与 Secoder 部署密钥不是同一个）"
+        exit 1
+      fi
+    - export REGISTRY_USER="${REGISTRY_USER:-gitlab-ci-token}"
+    # 与官方 Cheat Sheet 一致；容器名一般为项目名，若 Secoder 里名称不同可设 CI 变量 DYNO_NAME 覆盖
+    - export DYNO_NAME="${DYNO_NAME:-$CI_PROJECT_NAME}"
+    - deployer dyno replace "$DYNO_NAME" "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG" "$REGISTRY_USER" "$REGISTRY_PWD"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "dev" || $CI_COMMIT_BRANCH == "master"'

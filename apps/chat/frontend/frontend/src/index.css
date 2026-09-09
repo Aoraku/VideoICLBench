@@ -1,0 +1,8 @@
+/* Split CSS for easier staged commits (≤500 lines). */
+@import './styles/base.css';
+@import './styles/auth.css';
+@import './styles/shell.css';
+@import './styles/profile.css';
+@import './styles/wx.css';
+@import './styles/group.css';
+@import './styles/calendar.css';

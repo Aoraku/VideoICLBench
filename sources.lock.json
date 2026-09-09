@@ -1,0 +1,40 @@
+{
+  "sources": [
+    {
+      "module": "chat",
+      "repo": "Aoraku/VIC-Chat",
+      "commit": "d5c4e255da2cfc4ce593c8fbd8e1bcbd94da245e",
+      "files": 249
+    },
+    {
+      "module": "music",
+      "repo": "Aoraku/VIC-Music",
+      "commit": "f25ce100045fdf71fe8e9b8563172c696cf52a7c",
+      "files": 34
+    },
+    {
+      "module": "code",
+      "repo": "Aoraku/VIC-Code",
+      "commit": "f406da7d10807b209f28c1ab0bc2a64726ffb5aa",
+      "files": 33
+    },
+    {
+      "module": "news",
+      "repo": "Aoraku/VIC-News",
+      "commit": "abc0caef42f4e413a5015f4d19dd8effb22bea69",
+      "files": 17
+    },
+    {
+      "module": "gomoku",
+      "repo": "peilin717/VIC-gomuku",
+      "commit": "8f3d8512f3ce56c3188a42fb79a8f734453009a2",
+      "files": 6
+    },
+    {
+      "module": "im",
+      "repo": "peilin717/VIC-IM",
+      "commit": "e2035ee55826181dea858ec75698b6cbcb2a90e6",
+      "files": 97
+    }
+  ]
+}

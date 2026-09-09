@@ -1,0 +1,23 @@
+# 本地联调：frontend（Vite） + backend（需存在 ./backend 且可 docker build）。
+# 若当前仓库没有后端目录，请改用：
+#   docker compose -f docker-compose.frontend-only.yml up --build
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      # 容器内访问后端服务名（见 frontend/vite.config.js）
+      VITE_DEV_PROXY_TARGET: http://backend:8000
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
