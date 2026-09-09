@@ -51,7 +51,7 @@
       10001
     ],
     "correct_variants": 450,
-    "wrong_variant_rejection_cases": 450
+    "wrong_rule_evaluations_rejected": 900
   },
   "recording": {
     "local": {
