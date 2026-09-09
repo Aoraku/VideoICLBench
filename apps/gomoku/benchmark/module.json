@@ -1,0 +1,18 @@
+{
+  "id": "gomoku",
+  "title": "VIC Gomoku",
+  "subtitle": "五子棋",
+  "tabs": [
+    "棋盘",
+    "操作记录"
+  ],
+  "color": "#987048",
+  "tasks": [
+    66,
+    67
+  ],
+  "schema_version": 1,
+  "entrypoint": "vic_apps.server:create_app",
+  "state_backend": "sqlite-domain-tables",
+  "surface": "application-benchmark"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "blog",
+  "title": "VIC Blog",
+  "subtitle": "文章与发布",
+  "tabs": [
+    "草稿",
+    "文章",
+    "发布记录"
+  ],
+  "color": "#447e48",
+  "tasks": [
+    36,
+    38,
+    40,
+    42
+  ],
+  "schema_version": 1,
+  "entrypoint": "vic_apps.server:create_app",
+  "state_backend": "sqlite-domain-tables",
+  "surface": "application-benchmark"
+}

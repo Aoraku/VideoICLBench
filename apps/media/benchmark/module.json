@@ -1,0 +1,23 @@
+{
+  "id": "media",
+  "title": "VIC Media",
+  "subtitle": "视频与信息流",
+  "tabs": [
+    "发现",
+    "观看列表",
+    "播放队列"
+  ],
+  "color": "#d65d43",
+  "tasks": [
+    21,
+    25,
+    26,
+    31,
+    34,
+    35
+  ],
+  "schema_version": 1,
+  "entrypoint": "vic_apps.server:create_app",
+  "state_backend": "sqlite-domain-tables",
+  "surface": "application-benchmark"
+}

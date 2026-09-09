@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "task_id": 92,
+  "task_version": "1.1.0",
+  "title": "Linux 终端：格式化命令输出",
+  "app": "linux",
+  "type": "T",
+  "status": "deferred-system",
+  "execution_surface": "linux",
+  "variants": {
+    "A": {
+      "rule": "每行前加行号",
+      "evaluator": "task_092_A",
+      "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
+    },
+    "B": {
+      "rule": "每行末尾加分号",
+      "evaluator": "task_092_B",
+      "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
+    },
+    "C": {
+      "rule": "字段之间改用制表符",
+      "evaluator": "task_092_C",
+      "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
+    }
+  },
+  "api": {
+    "create": "POST /v1/runs",
+    "evaluate": "POST /v1/tasks/92/eval",
+    "contract": "GET /v1/tasks/92/contract",
+    "reset": "POST /v1/runs/{run_id}/reset",
+    "evidence": "GET /v1/runs/{run_id}/evidence"
+  },
+  "request_schema": {
+    "type": "object",
+    "required": [
+      "run_id"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "run_id": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{32}$"
+      }
+    }
+  },
+  "response_fields": [
+    "task_id",
+    "variant",
+    "success",
+    "completion",
+    "checks",
+    "violations",
+    "epoch",
+    "evidence_ref",
+    "official"
+  ],
+  "read_set": [
+    "artifacts.output_text"
+  ],
+  "process_constraints": [
+    "nonempty_action_trace",
+    "no_rule_or_answer_in_actor_surface",
+    "sealed_input_before_evaluation",
+    "idempotent_evaluation",
+    "no_extra_side_effects"
+  ],
+  "initialization": {
+    "generator": "task_092",
+    "seed_partitions": {
+      "demo": [
+        0,
+        999
+      ],
+      "development": [
+        1000,
+        9999
+      ],
+      "evaluation": [
+        10000,
+        2147483647
+      ]
+    },
+    "public_parameters": {
+      "reference_time": "2026-01-15T12:00:00Z",
+      "threshold": 50,
+      "fixed_reply": "已确认",
+      "keyword": "紧急",
+      "letter": "a"
+    }
+  },
+  "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
+  "system_snapshot_schema": {
+    "required": [
+      "artifacts.output_text"
+    ],
+    "collector": "guest-side read-only adapter",
+    "availability": "deferred"
+  }
+}

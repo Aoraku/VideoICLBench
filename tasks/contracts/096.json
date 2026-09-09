@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "task_id": 96,
+  "task_version": "1.1.0",
+  "title": "Linux 终端：选择要操作的进程",
+  "app": "linux",
+  "type": "S",
+  "status": "deferred-system",
+  "execution_surface": "linux",
+  "variants": {
+    "A": {
+      "rule": "选择 CPU 占用最高者",
+      "evaluator": "task_096_A",
+      "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
+    },
+    "B": {
+      "rule": "选择内存占用最低者",
+      "evaluator": "task_096_B",
+      "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
+    },
+    "C": {
+      "rule": "选择进程名最短者",
+      "evaluator": "task_096_C",
+      "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
+    }
+  },
+  "api": {
+    "create": "POST /v1/runs",
+    "evaluate": "POST /v1/tasks/96/eval",
+    "contract": "GET /v1/tasks/96/contract",
+    "reset": "POST /v1/runs/{run_id}/reset",
+    "evidence": "GET /v1/runs/{run_id}/evidence"
+  },
+  "request_schema": {
+    "type": "object",
+    "required": [
+      "run_id"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "run_id": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{32}$"
+      }
+    }
+  },
+  "response_fields": [
+    "task_id",
+    "variant",
+    "success",
+    "completion",
+    "checks",
+    "violations",
+    "epoch",
+    "evidence_ref",
+    "official"
+  ],
+  "read_set": [
+    "selection.process"
+  ],
+  "process_constraints": [
+    "nonempty_action_trace",
+    "no_rule_or_answer_in_actor_surface",
+    "sealed_input_before_evaluation",
+    "idempotent_evaluation",
+    "no_extra_side_effects"
+  ],
+  "initialization": {
+    "generator": "task_096",
+    "seed_partitions": {
+      "demo": [
+        0,
+        999
+      ],
+      "development": [
+        1000,
+        9999
+      ],
+      "evaluation": [
+        10000,
+        2147483647
+      ]
+    },
+    "public_parameters": {
+      "reference_time": "2026-01-15T12:00:00Z",
+      "threshold": 50,
+      "fixed_reply": "已确认",
+      "keyword": "紧急",
+      "letter": "a"
+    }
+  },
+  "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
+  "system_snapshot_schema": {
+    "required": [
+      "selection.process"
+    ],
+    "collector": "guest-side read-only adapter",
+    "availability": "deferred"
+  }
+}

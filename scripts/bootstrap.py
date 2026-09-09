@@ -1,6 +1,7 @@
 """Create local credentials without printing values or replacing existing files."""
 
 import os
+import hmac
 from pathlib import Path
 import secrets
 
@@ -29,3 +30,18 @@ write_once(
     local / "docker.env", "".join(f"{key}={value}\n" for key, value in values.items())
 )
 print("Credential files are ready under .local/. Existing credentials are preserved.")
+
+# Upgrade credential files without rotating any existing value.
+path = local / "docker.env"
+existing = dict(
+    line.split("=", 1)
+    for line in path.read_text().splitlines()
+    if line and not line.startswith("#")
+)
+if "VIC_APP_RUNTIME_TOKEN" not in existing:
+    value = hmac.new(
+        existing["VIC_ADMIN_TOKEN"].encode(), b"application-worker", "sha256"
+    ).hexdigest()
+    with path.open("a") as stream:
+        stream.write("VIC_APP_RUNTIME_TOKEN=" + value + "\n")
+    path.chmod(0o600)

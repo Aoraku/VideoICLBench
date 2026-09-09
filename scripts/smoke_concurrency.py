@@ -33,7 +33,11 @@ async def main():
                 "POST",
                 "/v1/runs",
                 json=dict(
-                    task_id=1, variant="A", seed=seed, mode="demo" if i < 5 else "eval"
+                    task_id=1,
+                    variant="A",
+                    seed=seed,
+                    mode="demo" if i < 5 else "eval",
+                    runtime="web-dev",
                 ),
             )
             run["_seed"] = seed

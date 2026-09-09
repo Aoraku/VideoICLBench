@@ -2,6 +2,7 @@
 
 from copy import deepcopy
 import random
+import json
 
 DIRECTIONS = ("left", "up", "right", "down")
 
@@ -526,6 +527,20 @@ def apply(state, op, target="", value="", ids=None):
 def evaluate(initial, final, variant, events):
     id_ = initial["task_id"]
     violations = []
+    replayed = deepcopy(initial)
+    try:
+        for event in events:
+            replayed = apply(
+                replayed,
+                event["op"],
+                event.get("target", ""),
+                event.get("value", ""),
+                event.get("ids"),
+            )
+        if json.dumps(replayed, sort_keys=True) != json.dumps(final, sort_keys=True):
+            violations.append("board_does_not_match_legal_actions")
+    except (ValueError, TypeError, KeyError):
+        violations.append("illegal_action_sequence")
     if id_ == 69:
         replay = deepcopy(initial)
         met_at = None

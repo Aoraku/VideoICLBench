@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "task_id": 60,
+  "task_version": "1.1.0",
+  "title": "OJ：修改代码变量名",
+  "app": "code",
+  "type": "T",
+  "status": "implemented",
+  "execution_surface": "application-benchmark",
+  "variants": {
+    "A": {
+      "rule": "变量名统一加前缀 `x_`",
+      "evaluator": "task_060_A",
+      "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
+    },
+    "B": {
+      "rule": "统一加后缀 `_v`",
+      "evaluator": "task_060_B",
+      "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
+    },
+    "C": {
+      "rule": "统一转为大写",
+      "evaluator": "task_060_C",
+      "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
+    }
+  },
+  "api": {
+    "create": "POST /v1/runs",
+    "evaluate": "POST /v1/tasks/60/eval",
+    "contract": "GET /v1/tasks/60/contract",
+    "reset": "POST /v1/runs/{run_id}/reset",
+    "evidence": "GET /v1/runs/{run_id}/evidence"
+  },
+  "request_schema": {
+    "type": "object",
+    "required": [
+      "run_id"
+    ],
+    "additionalProperties": false,
+    "properties": {
+      "run_id": {
+        "type": "string",
+        "pattern": "^[a-f0-9]{32}$"
+      }
+    }
+  },
+  "response_fields": [
+    "task_id",
+    "variant",
+    "success",
+    "completion",
+    "checks",
+    "violations",
+    "epoch",
+    "evidence_ref",
+    "official"
+  ],
+  "read_set": [
+    "objects.code",
+    "AST.bindings"
+  ],
+  "process_constraints": [
+    "nonempty_action_trace",
+    "no_rule_or_answer_in_actor_surface",
+    "sealed_input_before_evaluation",
+    "idempotent_evaluation",
+    "no_extra_side_effects"
+  ],
+  "initialization": {
+    "generator": "task_060",
+    "seed_partitions": {
+      "demo": [
+        0,
+        999
+      ],
+      "development": [
+        1000,
+        9999
+      ],
+      "evaluation": [
+        10000,
+        2147483647
+      ]
+    },
+    "public_parameters": {
+      "reference_time": "2026-01-15T12:00:00Z",
+      "threshold": 50,
+      "fixed_reply": "已确认",
+      "keyword": "紧急",
+      "letter": "a"
+    }
+  },
+  "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
+  "system_snapshot_schema": null,
+  "format": "Identifiers must follow the demonstrated rename; AST bindings and semantics must be preserved. Comments and harmless whitespace are permitted."
+}

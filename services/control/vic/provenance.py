@@ -10,6 +10,8 @@ def provenance():
     digest = hashlib.sha256()
     files = list((ROOT / "services/control/vic").glob("*.py"))
     files += list((ROOT / "apps/portal/dist").rglob("*"))
+    files += list((ROOT / "packages/app_runtime/vic_apps").glob("*.py"))
+    files += list((ROOT / "packages/app_runtime/vic_apps").glob("*.json"))
     for path in sorted(p for p in files if p.is_file()):
         digest.update(str(path.relative_to(ROOT)).encode() + b"\0")
         digest.update(path.read_bytes() + b"\0")

@@ -1,0 +1,21 @@
+{
+  "id": "shop",
+  "title": "VIC Shop",
+  "subtitle": "商品与购物车",
+  "tabs": [
+    "商品",
+    "购物车",
+    "收藏"
+  ],
+  "color": "#ad6836",
+  "tasks": [
+    45,
+    48,
+    52,
+    55
+  ],
+  "schema_version": 1,
+  "entrypoint": "vic_apps.server:create_app",
+  "state_backend": "sqlite-domain-tables",
+  "surface": "application-benchmark"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "travel",
+  "title": "VIC Travel",
+  "subtitle": "出行与预订",
+  "tabs": [
+    "路线",
+    "乘客",
+    "预订记录"
+  ],
+  "color": "#1b809d",
+  "tasks": [
+    44,
+    47,
+    51,
+    54
+  ],
+  "schema_version": 1,
+  "entrypoint": "vic_apps.server:create_app",
+  "state_backend": "sqlite-domain-tables",
+  "surface": "application-benchmark"
+}

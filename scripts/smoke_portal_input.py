@@ -30,11 +30,11 @@ async def main():
                 position={"x": x * box["width"] / 1280, "y": y * box["height"] / 960}
             )
 
-        await click(750, 385)
+        await click(850, 350)
         source = generate(1, 0)["source"]["text"]
         answer = source[:1].lower() + source[1:].upper()
         await page.keyboard.type(answer, delay=5)
-        await click(653, 663)
+        await click(760, 635)
         await page.get_by_role("button", name="结束并评测").click()
         await expect(page.get_by_role("heading", name="任务通过")).to_be_visible(
             timeout=60000

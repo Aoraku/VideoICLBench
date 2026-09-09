@@ -1,0 +1,23 @@
+{
+  "id": "music",
+  "title": "VIC Music",
+  "subtitle": "音乐资料库",
+  "tabs": [
+    "音乐库",
+    "播放列表",
+    "正在播放"
+  ],
+  "color": "#7354b6",
+  "tasks": [
+    17,
+    18,
+    22,
+    27,
+    28,
+    32
+  ],
+  "schema_version": 1,
+  "entrypoint": "vic_apps.server:create_app",
+  "state_backend": "sqlite-domain-tables",
+  "surface": "application-benchmark"
+}

@@ -18,7 +18,8 @@ with httpx.Client(
     timeout=120,
 ) as c:
     response = c.post(
-        "/v1/runs", json=dict(task_id=1, variant="A", seed=1, mode="demo")
+        "/v1/runs",
+        json=dict(task_id=1, variant="A", seed=1, mode="demo", runtime="web-dev"),
     )
     response.raise_for_status()
     run = response.json()

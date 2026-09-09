@@ -1,27 +1,19 @@
 # VideoICL-Bench
 
-VideoICL-Bench 提供任务目录、独立运行环境、截图与键盘鼠标接口、教程录制、状态判分和可追溯证据。
+VideoICL-Bench 为人类录制者和 GUI Agent 提供统一的应用、任务、截图输入、录像和状态评测平台。
 
-## 可运行范围
+## 录制前就绪范围
 
-| 能力 | 状态 |
-|---|---|
-| 六个来源仓库及固定提交记录 | 位于 `apps/`，来源记录见 `sources.lock.json` |
-| 六个原应用容器与浏览器入口 | Compose profile 支持；启动与 HTTP/WebSocket 鉴权检查通过 |
-| 100 个基础任务、300 个规则版本 | 任务目录完整 |
-| 65 道软件题与 10 道游戏题 | 可使用 Chromium 开发工作台；包含确定性数据及私有判分器 |
-| 真实截图、鼠标键盘、重置、凭证隔离、证据封存 | 本地控制服务支持 |
-| MP4 录制、规则字幕、结果审核 | 本地录制服务支持，开发采样率 5 FPS |
-| 六个原应用的任务接入认证 | 尚未完成；原应用和开发工作台是不同执行表面 |
-| 25 道系统题 | 有任务规范与部分采集/生命周期工具，尚未接入可执行任务 |
-| Windows/Linux/Android 正式执行池 | 需要实验室主机、系统镜像、客体初始化和操作适配器 |
-| 300 段人工教程 | 需要同事录制、人工审核；自动测试视频不计入数据集 |
+- **75 个软件／游戏任务，225 个 A/B/C 规则版本**：可初始化、GUI 操作、重置、评测及录制。
+- **13 个应用模块**：六个来源仓库的 benchmark 模式，六个新增业务应用和一个游戏集合。
+- **100 份逐题 eval 契约**：任务 1–75 有执行实现；76–100 的系统模拟器与系统执行适配暂缓。
+- 每个运行使用独立应用数据库和独立 Chromium 进程，隔离 Cookie、页面和剪贴板。
+- 录制支持规则字幕、鼠标指示、点击标记、15 FPS MP4；停止录制即封存输入。帧率可通过 `VIC_RECORDING_FPS` 设置为 5–30，单段最长 45 秒。
+- 通过判分的教程可提交人工审核。正式数据集仍需要人工录制和审核的视频，因此运行结果中的 `official` 为 `false`。
 
-所有开发运行均返回 `official: false`。平台不会把 Chromium 开发环境自动替代为 Windows，也不会以未连接的系统模拟结果判分。
+软件／游戏的执行表面为 `application-benchmark`。六个来源仓库内的 `benchmark/` 使用专用领域界面和独立业务数据模型。普通模式独立运行。该表面以 Chromium 为执行基准；Windows 桌面和原生 SDL 应用属于独立执行适配范围。
 
-## 本地启动
-
-要求 Python 3.11+、Node.js 20+。在仓库根目录执行：
+## 启动
 
 ```bash
 python3 -m venv .venv
@@ -29,53 +21,77 @@ python3 -m venv .venv
 .venv/bin/python -m playwright install chromium
 npm --prefix apps/portal ci
 npm --prefix apps/portal run build
-.venv/bin/python scripts/dev.py
+.venv/bin/python scripts/start_platform.py
 ```
 
-浏览器访问 `http://127.0.0.1:8765`。访问密钥保存在 `.local/admin-token`，文件权限为 0600，不进入 Git。服务只绑定本机回环地址。
+打开 [本地平台](http://127.0.0.1:8765/)。访问密钥位于 `.local/admin-token`，权限 0600。应用 Worker 在本机 8771 端口运行。两个服务分别对应 `scripts/dev.py` 和 `scripts/dev_apps.py`，统一启动器负责启动检查和退出清理。
 
-在任务大厅选择任务、规则版本、用途和种子，准备环境后在远程画面里完成操作。教程录制只允许演示运行；停止录制后执行判分，通过后提交人工审核。
+容器版使用 PostgreSQL 和独立应用数据卷：
 
-停止录制会封存该轮输入；重置将录像和证据归档到对应 epoch。录制超出开发帧数上限会被拒绝，不能作为完整教程审核。
+```bash
+python3 scripts/bootstrap.py
+docker compose --env-file .local/docker.env -f infra/compose.yaml up --build -d
+```
 
-## 数据与凭证
+端口 8765 已占用时可在命令前设置 `VIC_PORT=8766`。容器访问密钥为 `.local/docker.env` 中的 `VIC_ADMIN_TOKEN`；凭证生成器不覆盖既有值。
 
-- 演示种子范围为 0–999，开发种子为 1000–9999，正式预留种子从 10000 开始。
-- 原始任务文档为 `VideoICL_100_tasks.md`；`scripts/build_catalog.py` 生成版本化目录。
-- 规则、初始状态和标准答案只由控制服务与私有 evaluator 持有。
-- 管理员凭证管理生命周期；Agent 凭证只允许本次运行的截图和输入；应用界面使用独立凭证。
-- 每次运行有独立 SQLite 业务文件；控制数据库支持 SQLite 和 PostgreSQL。
-- 重置增加 epoch，并归档上一轮证据；旧应用凭证和旧 epoch 操作失效。
-- 正式任务必须先通过原生/辅助环境认证；开发工作台状态不能作为论文正式成绩。
+## 应用与任务
 
-## API 与 SDK
+| 应用 | 路径 | 任务 |
+|---|---|---|
+| 通讯 A | `apps/chat/benchmark` | 1–14 |
+| 通讯 B | `apps/im/benchmark` | 15–16 |
+| 音乐 | `apps/music/benchmark` | 17、18、22、27、28、32 |
+| 新闻 | `apps/news/benchmark` | 19、20、23、24、29、30、33 |
+| 视频／信息流 | `apps/media/benchmark` | 21、25、26、31、34、35 |
+| 博客 | `apps/blog/benchmark` | 36、38、40、42 |
+| 内容工作室 | `apps/studio/benchmark` | 37、39、41、43 |
+| 旅游 | `apps/travel/benchmark` | 44、47、51、54 |
+| 购物 | `apps/shop/benchmark` | 45、48、52、55 |
+| 银行 | `apps/bank/benchmark` | 46、49、50、53、56、57 |
+| 编程 | `apps/code/benchmark` | 58–65 |
+| 五子棋 | `apps/gomoku/benchmark` | 66–67 |
+| 2048／数独／扫雷／黑白棋 | `apps/games/benchmark` | 68–75 |
 
-API 以 `/v1/runs` 为入口。Runner 持有管理凭证，模型进程只获得 `actor_token`。
+## 每题 eval API
+
+管理凭证创建并结束任务，Agent 凭证只允许该运行的截图和键鼠输入。
 
 ```python
 from vic_sdk import Client
 
 runner = Client('http://127.0.0.1:8765', manager_token)
-run = runner.create(task_id=1, variant='A', seed=1000)
+contract = runner.task_contract(1)
+run = runner.create(task_id=1, variant='A', seed=10001, runtime='browser')
 actor = Client('http://127.0.0.1:8765', run['actor_token'])
-observation = actor.observation(run['id'])
-actor.act(run['id'], observation['epoch'], observation['frame'], 'click', x=750, y=385)
-# 后续动作来自模型；模型不调用 evaluate。
-result = runner.evaluate(run['id'])
+shot = actor.observation(run['id'])
+# Agent 根据截图发出 actor.act(...)；不接触规则、业务 API 或判分接口。
+result = runner.evaluate_task(1, run['id'])
 ```
 
-`completion` 表示子目标完成比例；`success` 同时要求全部子目标与过程约束满足。评测终止输入并封存证据，重复调用返回同一结果。
+对应 HTTP 接口：
+
+```text
+GET  /v1/tasks/{task_id}/contract
+POST /v1/runs
+GET  /v1/runs/{run_id}/observation
+POST /v1/runs/{run_id}/actions
+POST /v1/tasks/{task_id}/eval       {"run_id": "..."}
+POST /v1/runs/{run_id}/reset
+GET  /v1/runs/{run_id}/evidence
+```
+
+判分封存输入，检查业务结果、过程约束和额外操作，返回 `success`、`completion`、`checks`、`violations` 和证据引用。重复判分返回同一结果，任务编号不匹配会被拒绝。
+
+[逐题应用与评测索引](docs/task-evaluation-map.md) 汇总全部任务、规则与读取字段。逐题契约位于 `tasks/contracts/001.json` 至 `100.json`。系统题返回明确的未接入错误，不生成模拟成功结果。
 
 ## 验证
 
 ```bash
 .venv/bin/python -m pytest
-npm --prefix apps/portal run build
-.venv/bin/python scripts/preflight.py
+.venv/bin/python scripts/check_application_ui.py
+.venv/bin/python scripts/smoke_application_pixels.py
+.venv/bin/python scripts/smoke_application_concurrency.py
 ```
 
-测试覆盖反事实可区分性、示范答案迁移隔离、棋盘规则、正确/错误轨迹、重复动作、运行隔离、重置和评分权限。部署与原应用接入要求见 `docs/deployment.md` 和 `docs/acceptance.md`。
-
-启动本地服务后，执行 `scripts/smoke_pixels.py` 验证截图操作、判分与录像；执行 `scripts/smoke_concurrency.py` 验证 15 个开发会话（含 5 路录像）。原应用启动后可执行 `scripts/smoke_native.py`。这些检查不构成真实 Windows/Linux/Android 执行池的容量验收。
-
-完整模块边界、任务分配和正式交付门槛见 [实现范围](docs/implementation-scope.md)。
+`check_application_ui.py` 使用私有 QA 定位器驱动真实界面，覆盖全部 225 个规则版本；模型执行协议始终为像素输入。测试报告见 `docs/verification.json`，录制操作说明见 `docs/recording-guide.md`，架构与业务模型见 `docs/implementation-scope.md`。

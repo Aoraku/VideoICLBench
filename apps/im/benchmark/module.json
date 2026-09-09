@@ -1,0 +1,19 @@
+{
+  "id": "im",
+  "title": "VIC IM",
+  "subtitle": "团队消息",
+  "tabs": [
+    "消息",
+    "群组",
+    "回执"
+  ],
+  "color": "#4672ca",
+  "tasks": [
+    15,
+    16
+  ],
+  "schema_version": 1,
+  "entrypoint": "vic_apps.server:create_app",
+  "state_backend": "sqlite-domain-tables",
+  "surface": "application-benchmark"
+}

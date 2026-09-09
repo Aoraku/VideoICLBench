@@ -9,17 +9,36 @@ services:
       VIC_DATABASE_URL: postgresql+psycopg://vic:${VIC_DB_PASSWORD:?Set database password}@postgres:5432/vic
       VIC_PUBLIC_BASE: http://127.0.0.1:8765
       VIC_ROOT: /app
+      VIC_APPLICATION_BASE: http://applications:8771
+      VIC_APP_RUNTIME_TOKEN: ${VIC_APP_RUNTIME_TOKEN:?Set application worker credential}
     ports: ["127.0.0.1:${VIC_PORT:-8765}:8765"]
     volumes: ["run_data:/data"]
     shm_size: 1gb
     depends_on:
       postgres: {condition: service_healthy}
+      applications: {condition: service_healthy}
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8765/healthz')"]
       interval: 15s
       timeout: 5s
       retries: 5
+  applications:
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile.control
+    command: ["uvicorn", "vic_apps.server:create_app", "--factory", "--host", "0.0.0.0", "--port", "8771", "--workers", "1"]
+    environment:
+      VIC_ROOT: /app
+      VIC_APP_DATA: /data/applications
+      VIC_APP_RUNTIME_TOKEN: ${VIC_APP_RUNTIME_TOKEN:?Set application worker credential}
+    volumes: ["application_data:/data"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8771/healthz')"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
   postgres:
     image: postgres:17-bookworm
     environment:
@@ -34,5 +53,6 @@ services:
       retries: 10
     restart: unless-stopped
 volumes:
+  application_data:
   run_data:
   pg_data:

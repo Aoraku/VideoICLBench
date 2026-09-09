@@ -1,0 +1,21 @@
+{
+  "id": "studio",
+  "title": "VIC Studio",
+  "subtitle": "内容工作室",
+  "tabs": [
+    "编辑器",
+    "模型库",
+    "交付记录"
+  ],
+  "color": "#7757b5",
+  "tasks": [
+    37,
+    39,
+    41,
+    43
+  ],
+  "schema_version": 1,
+  "entrypoint": "vic_apps.server:create_app",
+  "state_backend": "sqlite-domain-tables",
+  "surface": "application-benchmark"
+}

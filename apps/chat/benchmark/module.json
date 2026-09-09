@@ -1,0 +1,31 @@
+{
+  "id": "chat",
+  "title": "VIC Chat",
+  "subtitle": "沟通与协作",
+  "tabs": [
+    "会话",
+    "联系人",
+    "已发送"
+  ],
+  "color": "#15786e",
+  "tasks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+  ],
+  "schema_version": 1,
+  "entrypoint": "vic_apps.server:create_app",
+  "state_backend": "sqlite-domain-tables",
+  "surface": "application-benchmark"
+}

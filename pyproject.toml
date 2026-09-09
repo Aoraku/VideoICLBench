@@ -17,7 +17,7 @@ test = ["pytest>=8,<10", "pytest-asyncio>=0.25,<2"]
 postgres = ["psycopg[binary]>=3.2,<4"]
 
 [tool.setuptools.packages.find]
-where = ["services/control", "packages/sdk"]
+where = ["services/control", "packages/sdk", "packages/app_runtime"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

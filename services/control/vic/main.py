@@ -15,11 +15,14 @@ from . import business
 from .catalog import catalog, task, task_digest
 from .config import ROOT, DATA, PUBLIC_BASE, admin_token
 from .models import make_database, Run
-from .schemas import CreateRun, Action, Mutation, Review
+from .schemas import CreateRun, Action, Mutation, Review, EvaluateTask
 from .store import WorkspaceStore
 from .runtime import BrowserRuntime
 from .recording import Recorder
 from .provenance import provenance
+from .app_client import ApplicationClient
+from . import application_eval
+from vic_apps.domain import initialize as initialize_domain
 
 
 def create_app(database_url=None, data_dir=None, secret=None, browser=None):
@@ -40,6 +43,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
     runtime = browser or BrowserRuntime()
     recorder = Recorder(data / "artifacts", runtime)
     implementation = provenance()
+    applications = ApplicationClient(secret)
     locks = {}
 
     @asynccontextmanager
@@ -101,7 +105,11 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
         return run
 
     def url(run):
-        return f"{PUBLIC_BASE}/workspace/{run.id}#{ui_token(run)}"
+        return (
+            applications.url(run, ui_token(run))
+            if run.runtime == "browser"
+            else f"{PUBLIC_BASE}/workspace/{run.id}#{ui_token(run)}"
+        )
 
     def lock(run_id):
         return locks.setdefault(run_id, asyncio.Lock())
@@ -141,20 +149,40 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
         return dict(
             runtimes={
                 "web-dev": True,
+                "browser": True,
                 "windows": False,
                 "linux": False,
                 "android": False,
             },
+            application_modules=13,
+            application_tasks=75,
+            system_tasks_deferred=25,
             software_workspaces=65,
             game_workspaces=10,
             native_app_certified=0,
-            recording_fps=5,
+            recording_fps=recorder.fps,
             official_evaluation_ready=False,
         )
 
     @app.get("/v1/tasks", dependencies=[Depends(manager)])
     def tasks():
         return catalog()
+
+    @app.get("/v1/tasks/{task_id}/contract", dependencies=[Depends(manager)])
+    def contract(task_id: int):
+        if not 1 <= task_id <= 100:
+            raise HTTPException(404, "Task not found")
+        return json.loads(
+            (ROOT / "tasks/contracts" / f"{task_id:03d}.json").read_text()
+        )
+
+    @app.post("/v1/tasks/{task_id}/eval", dependencies=[Depends(manager)])
+    async def eval_task(task_id: int, body: EvaluateTask):
+        run = get_run(body.run_id)
+        if run.task_id != task_id:
+            raise HTTPException(409, "Task and run mismatch")
+        result = await evaluate(body.run_id)
+        return dict(**result, task_id=task_id, variant=run.variant)
 
     @app.get("/v1/runs", dependencies=[Depends(manager)])
     def runs():
@@ -168,7 +196,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
 
     @app.post("/v1/runs", dependencies=[Depends(manager)], status_code=201)
     def create(body: CreateRun):
-        if body.runtime != "web-dev":
+        if body.runtime not in ("web-dev", "browser"):
             raise HTTPException(
                 409,
                 "Runtime worker is not configured; no simulated fallback will be used",
@@ -184,6 +212,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 422, "Demo seeds: 0–999; evaluation/development seeds: 1000 and above"
             )
         initial = business.generate(body.task_id, body.seed)
+        if body.runtime == "browser":
+            initial = initialize_domain(initial)
         run_id = uuid.uuid4().hex
         actor = secrets.token_urlsafe(32)
         source_lock = json.loads((ROOT / "sources.lock.json").read_text())
@@ -207,11 +237,18 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                     x["module"]: x["commit"] for x in source_lock["sources"]
                 },
                 implementation=implementation,
-                surface="development-workspace",
+                surface="application-benchmark"
+                if body.runtime == "browser"
+                else "development-workspace",
                 official=False,
             ),
         )
         store.initialize(run.id, initial)
+        if run.runtime == "browser":
+            try:
+                applications.prepare(run, ui_token(run))
+            except Exception as e:
+                raise HTTPException(503, "Application worker unavailable") from e
         with sessions() as db:
             db.add(run)
             db.commit()
@@ -225,12 +262,20 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             **summarize(run),
             workspace_url=url(run),
             rule=task(run.task_id)["variants"][run.variant],
-            events=[] if run.status == "destroyed" else store.events(run_id),
+            events=[]
+            if run.status == "destroyed"
+            else (
+                applications.snapshot(run_id)["events"]
+                if run.runtime == "browser"
+                else store.events(run_id)
+            ),
         )
 
     @app.get("/v1/workspaces/{run_id}")
     def workspace(run_id, t=Depends(token)):
         run = authorize_ui(run_id, t)
+        if run.runtime == "browser":
+            raise HTTPException(409, "Use the application origin")
         if run.status in ("destroying", "destroyed"):
             raise HTTPException(410, "Workspace destroyed")
         return dict(epoch=run.epoch, status=run.status, state=store.snapshot(run_id))
@@ -238,6 +283,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
     @app.post("/v1/workspaces/{run_id}/mutations")
     async def mutation(run_id, body: Mutation, t=Depends(token)):
         run = authorize_ui(run_id, t)
+        if run.runtime == "browser":
+            raise HTTPException(409, "Use the application origin")
         active(run)
         if body.epoch != run.epoch:
             raise HTTPException(409, "Stale execution epoch")
@@ -305,6 +352,9 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             await runtime.close_run(run_id)
             archive = data / "runs" / run_id / f"epoch-{run.epoch}"
             archive.mkdir(exist_ok=True)
+            if run.runtime == "browser":
+                current = applications.seal(run_id)
+                (archive / "application.json").write_text(json.dumps(current))
             (archive / "state.json").write_text(json.dumps(store.snapshot(run_id)))
             (archive / "events.json").write_text(json.dumps(store.events(run_id)))
             (archive / "result.json").write_text(json.dumps(run.result))
@@ -325,8 +375,18 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             with sessions() as db:
                 row = db.get(Run, run_id)
                 row.epoch += 1
-                row.status = "ready"
+                row.status = "resetting"
                 row.result = None
+                db.commit()
+                db.refresh(row)
+                if row.runtime == "browser":
+                    try:
+                        applications.prepare(row, ui_token(row))
+                    except Exception as exc:
+                        row.status = "environment_error"
+                        db.commit()
+                        raise HTTPException(503, "Application reset failed") from exc
+                row.status = "ready"
                 db.commit()
                 db.refresh(row)
                 return dict(**summarize(row), workspace_url=url(row))
@@ -344,7 +404,20 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             save_status(run_id, "sealing")
             state = store.snapshot(run_id)
             events = store.events(run_id)
-            result = business.evaluate(run.initial, state, run.variant, events)
+            if run.runtime == "browser":
+                sealed = applications.seal(run_id)
+                state = sealed["state"]
+                events = sealed["events"]
+                clipboard = (
+                    await runtime.clipboard(run_id)
+                    if run.task_id == 43 and run.variant == "B"
+                    else None
+                )
+                result = application_eval.evaluate(
+                    run.initial, state, run.variant, events, clipboard
+                )
+            else:
+                result = business.evaluate(run.initial, state, run.variant, events)
             result.update(
                 run_id=run_id,
                 status="completed",
@@ -367,12 +440,25 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                     indent=2,
                 )
             )
+            if run.runtime == "browser" and run_id in runtime.sessions:
+                (dest / f"final-{run.epoch}.png").write_bytes(
+                    await runtime.capture(run_id, url(run))
+                )
+                await runtime.close_run(run_id)
             with sessions() as db:
                 row = db.get(Run, run_id)
                 row.result = result
                 row.status = "completed"
                 db.commit()
             return result
+
+    @app.get("/v1/runs/{run_id}/final-image", dependencies=[Depends(manager)])
+    def final_image(run_id):
+        run = get_run(run_id)
+        path = data / "artifacts" / run_id / f"final-{run.epoch}.png"
+        if not path.exists():
+            raise HTTPException(404, "No final screenshot")
+        return FileResponse(path, media_type="image/png")
 
     @app.get("/v1/runs/{run_id}/evidence", dependencies=[Depends(manager)])
     def evidence(run_id):
@@ -398,7 +484,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 )
             except ValueError as exc:
                 raise HTTPException(409, str(exc))
-            return dict(status="recording", fps=5)
+            return dict(status="recording", fps=recorder.fps)
 
     @app.post("/v1/runs/{run_id}/recordings/stop", dependencies=[Depends(manager)])
     async def stop_recording(run_id):
@@ -406,6 +492,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             get_run(run_id)
             try:
                 meta = await recorder.stop(run_id)
+                if get_run(run_id).runtime == "browser":
+                    applications.seal(run_id)
                 save_status(run_id, "recorded")
                 return meta
             except ValueError as exc:
@@ -446,6 +534,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             get_run(run_id)
             if run_id in recorder.active:
                 raise HTTPException(409, "Stop recording first")
+            if get_run(run_id).runtime == "browser":
+                applications.destroy(run_id)
             save_status(run_id, "destroying")
             await runtime.close_run(run_id)
             save_status(run_id, "destroyed")

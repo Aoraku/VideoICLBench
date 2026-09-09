@@ -15,7 +15,7 @@ class Client:
         response.raise_for_status()
         return response.json()
 
-    def create(self, task_id, variant, seed, mode="eval", runtime="web-dev"):
+    def create(self, task_id, variant, seed, mode="eval", runtime="browser"):
         return self._call(
             "POST",
             "/v1/runs",
@@ -42,6 +42,12 @@ class Client:
 
     def evaluate(self, run_id):
         return self._call("POST", f"/v1/runs/{run_id}/evaluate")
+
+    def task_contract(self, task_id):
+        return self._call("GET", f"/v1/tasks/{task_id}/contract")
+
+    def evaluate_task(self, task_id, run_id):
+        return self._call("POST", f"/v1/tasks/{task_id}/eval", json={"run_id": run_id})
 
     def reset(self, run_id):
         return self._call("POST", f"/v1/runs/{run_id}/reset")

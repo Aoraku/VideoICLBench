@@ -1,0 +1,25 @@
+{
+  "id": "code",
+  "title": "VIC Code",
+  "subtitle": "编程工作区",
+  "tabs": [
+    "编辑器",
+    "题库",
+    "提交记录"
+  ],
+  "color": "#3b5978",
+  "tasks": [
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65
+  ],
+  "schema_version": 1,
+  "entrypoint": "vic_apps.server:create_app",
+  "state_backend": "sqlite-domain-tables",
+  "surface": "application-benchmark"
+}

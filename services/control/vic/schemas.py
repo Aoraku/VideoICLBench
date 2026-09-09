@@ -11,7 +11,7 @@ class CreateRun(StrictModel):
     variant: Literal["A", "B", "C"]
     seed: int = Field(ge=0, le=2147483647)
     mode: Literal["demo", "eval"] = "eval"
-    runtime: Literal["web-dev", "windows", "linux", "android"] = "web-dev"
+    runtime: Literal["web-dev", "browser", "windows", "linux", "android"] = "browser"
 
 
 class Action(StrictModel):
@@ -42,3 +42,7 @@ class Review(StrictModel):
     approved: bool
     reviewer: str = Field(min_length=1, max_length=100)
     note: str = Field(default="", max_length=2000)
+
+
+class EvaluateTask(StrictModel):
+    run_id: str = Field(pattern=r"^[a-f0-9]{32}$")

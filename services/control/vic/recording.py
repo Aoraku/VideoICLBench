@@ -1,6 +1,7 @@
 """Sample the remote workspace itself and encode a portable MP4 artifact."""
 
 import asyncio
+import os
 import json
 import subprocess
 import time
@@ -16,6 +17,8 @@ class Recorder:
         self.directory = Path(directory)
         self.runtime = runtime
         self.active = {}
+        self.fps = max(5, min(30, int(os.environ.get("VIC_RECORDING_FPS", "15"))))
+        self.max_frames = self.fps * 45
 
     async def start(self, run_id, url, rule, epoch=0):
         if run_id in self.active:
@@ -37,7 +40,7 @@ class Recorder:
 
         async def sample():
             try:
-                while not record["stop"] and record["frames"] < 180:
+                while not record["stop"] and record["frames"] < self.max_frames:
                     tick = time.monotonic()
                     raw = await self.runtime.capture(run_id, url)
                     img = Image.open(BytesIO(raw)).convert("RGB")
@@ -61,9 +64,43 @@ class Recorder:
                             [rule[j : j + 40] for j in range(0, len(rule), 40)][:3]
                         ):
                             draw.text((28, 12 + i * 32), line, font=font, fill="white")
+                    cursor = self.runtime.sessions.get(run_id, {}).get("cursor")
+                    if cursor:
+                        x, y, at = cursor
+                        draw = ImageDraw.Draw(img)
+                        if time.monotonic() - at < 0.35:
+                            draw.ellipse(
+                                (x - 13, y - 13, x + 13, y + 13),
+                                outline="#ffae35",
+                                width=3,
+                            )
+                        draw.polygon(
+                            [
+                                (x, y),
+                                (x + 3, y + 18),
+                                (x + 8, y + 12),
+                                (x + 17, y + 11),
+                            ],
+                            fill="white",
+                            outline="#142b43",
+                        )
+                    index = min(
+                        self.max_frames - 1,
+                        int((time.monotonic() - record["started"]) * self.fps),
+                    )
+                    while record["frames"] < index:
+                        prior = dest / f"{max(0, record['frames'] - 1):05d}.png"
+                        gap = dest / f"{record['frames']:05d}.png"
+                        if prior.exists():
+                            os.link(prior, gap)
+                        else:
+                            img.save(gap)
+                        record["frames"] += 1
                     img.save(dest / f"{record['frames']:05d}.png")
                     record["frames"] += 1
-                    await asyncio.sleep(max(0, 0.2 - (time.monotonic() - tick)))
+                    await asyncio.sleep(
+                        max(0, 1 / self.fps - (time.monotonic() - tick))
+                    )
                 if not record["stop"]:
                     record["error"] = (
                         "Recording frame budget exceeded; create a shorter demonstration"
@@ -96,7 +133,7 @@ class Recorder:
             "-loglevel",
             "error",
             "-framerate",
-            "5",
+            str(self.fps),
             "-i",
             str(dest / "%05d.png"),
             "-c:v",
@@ -114,13 +151,15 @@ class Recorder:
             raise RuntimeError("Video encoding failed")
         meta = dict(
             frames=record["frames"],
-            fps=5,
-            duration=record["frames"] / 5,
+            fps=self.fps,
+            duration=record["frames"] / self.fps,
             epoch=record["epoch"],
             status="pending_review",
             official=False,
         )
         (dest / "recording.json").write_text(json.dumps(meta, indent=2))
+        for frame in dest.glob("[0-9]*.png"):
+            frame.unlink()
         return meta
 
     async def close(self):

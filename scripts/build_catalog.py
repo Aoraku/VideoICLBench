@@ -50,10 +50,10 @@ for line in (ROOT / "VideoICL_100_tasks.md").read_text().splitlines():
             runtime=app
             if app in ("windows", "linux", "android")
             else ("linux" if app == "gomoku" else "windows"),
-            status="workbench" if id_ <= 75 else "specified",
+            status="application-ready" if id_ <= 75 else "deferred-system",
             variants=variants,
             original_rules=rules.strip(),
-            version="1.0.0",
+            version="1.1.0",
             parameters=dict(
                 reference_time="2026-01-15T12:00:00Z",
                 threshold=50,

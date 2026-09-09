@@ -578,6 +578,8 @@ def generate(id_, seed):
             rename_targets=["value", "total"],
             reference_time="2026-01-15T12:00:00Z",
         )
+        if id_ == 19:
+            s["text"] = f"aLpha, {nonce}! Report 3?"
         if id_ == 37:
             s["text"] = (
                 f"Summarize report {nonce}\nUse short sentences\nExplain the result"
@@ -603,6 +605,7 @@ def generate(id_, seed):
             app=task(id_)["app"],
             items=items,
             source=s,
+            seed=seed,
             outputs={},
             labels={x["id"]: "" for x in items},
             order=[x["id"] for x in items],
