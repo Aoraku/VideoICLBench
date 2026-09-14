@@ -97,7 +97,10 @@
   "python_undefined_unused_import_checks": "passed",
   "ci": {
     "workflow": ".github/workflows/checks.yml",
-    "remote_execution": "not_triggered"
+    "remote_execution": "success",
+    "run_url": "https://github.com/Aoraku/VideoICLBench/actions/runs/34901258226",
+    "revision": "0cac31c7d0e65d8d6469753cc0948ffb5ce48c7c",
+    "checked_at": "2026-09-14T22:01:26.466466+00:00"
   },
   "built_images": {
     "videoicl-control:latest": "sha256:e991a686e25cbcc23c0c1b0b3ab718d53d95d799cd157d272cd3c80fde2203ae",

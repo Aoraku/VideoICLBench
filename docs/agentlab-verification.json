@@ -1,0 +1,74 @@
+{
+  "verified_at": "2026-09-14T22:01:26.466466+00:00",
+  "host": "agentlab",
+  "surface": "application-benchmark",
+  "official": false,
+  "deployed_application_revision": "0cac31c7d0e65d8d6469753cc0948ffb5ce48c7c",
+  "services": [
+    "control",
+    "applications",
+    "postgres"
+  ],
+  "service_health": "healthy",
+  "access": "SSH tunnel to server loopback port 8765",
+  "github_ci": {
+    "status": "success",
+    "revision": "0cac31c7d0e65d8d6469753cc0948ffb5ce48c7c",
+    "url": "https://github.com/Aoraku/VideoICLBench/actions/runs/34901258226",
+    "checked_at": "2026-09-14T22:01:26.466466+00:00"
+  },
+  "gui": {
+    "tasks": 75,
+    "variants": 225,
+    "passed": 225,
+    "failed": 0,
+    "seconds": 320.92,
+    "revision": "4d18a1d",
+    "report_sha256": "298965dc98e8fea3f72ab769f57139d7af7ca1ab4c09e79ad45727a1fc49aac1"
+  },
+  "network_checks": {
+    "unauthenticated_catalog_rejected": true,
+    "authenticated_catalog": true,
+    "pixel_input_and_recording": true,
+    "portal_keyboard_queue": true,
+    "video_and_evidence_download": true
+  },
+  "concurrency": {
+    "sessions": 15,
+    "recorded": 5,
+    "agent_sessions": 10,
+    "elapsed_seconds": 30.16
+  },
+  "persistence_after_container_replacement": {
+    "passed": true,
+    "run_id": "336255845eb340759c487b525d15943a",
+    "verified": [
+      "state",
+      "evidence",
+      "final-image",
+      "video"
+    ],
+    "sha256": {
+      "state": "4a1fd5b6849fb5908676746feee692cc37f4141a24477592b5f8e2ffa919693b",
+      "evidence": "bc1537cae92660068503add4c65a600cd5bfee371e96573781844ab02414d485",
+      "image": "29e424db320f9b19db84a240f8e4d486630489a336b99a3791ef65dc09df9f43",
+      "video": "329bf1c9e5443b0ec43563c2621373e6c33cbb9921b5a6ec12482ce209211cc5"
+    }
+  },
+  "images": {
+    "videoicl-control:latest": "sha256:7b683c8cee0dd9cdb82fe75d5c59e6c588315fce46d61618525fb6d899995d55",
+    "videoicl-applications:latest": "sha256:216e096d4226330286b37d403e5638285fefe86d917a3947e76b16f81d146df5"
+  },
+  "system_tasks_deferred": 25,
+  "human_tutorials_approved": 0,
+  "deployed_image_gui_sanity": {
+    "task_id": 43,
+    "variants": [
+      "A",
+      "B",
+      "C"
+    ],
+    "passed": 3,
+    "failed": 0
+  }
+}

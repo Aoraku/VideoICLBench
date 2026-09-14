@@ -57,3 +57,7 @@ sudo docker compose --env-file .local/docker.env -f infra/compose.yaml up --buil
 停止或更新服务时保留数据卷；`down -v` 会删除持久数据，不用于常规维护。备份需同时覆盖 PostgreSQL、应用数据库、运行证据及凭证文件。
 
 服务属于受控团队平台，使用共享管理凭证；任务执行状态隔离不等于成员权限隔离。个人账号、任务归属权限和公网身份接入为独立功能。
+
+## 验收记录
+
+[服务器验收记录](agentlab-verification.json) 包含 225 个 GUI 变体、网络操作与录像、15 会话并发、服务更新后数据校验及 GitHub CI 结果。
