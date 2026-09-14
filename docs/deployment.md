@@ -41,3 +41,19 @@ docker compose --env-file .local/docker.env -f infra/compose.yaml up --build -d
 Windows 76–90、Linux 92–98、Android 91／99／100 暂缓执行。`scripts/preflight.py` 检查 Linux/KVM、libvirt、ADB 和镜像配置，`runtimes/profiles.example.json` 定义可允许的执行 profile。
 
 Worker 可管理 qcow2 写入层和 transient domain，以及单个独占 Android AVD。Windows UEFI 需要实例级 NVRAM／TPM 隔离，Android 并发需要 AVD 与端口分配；系统输入、逐题初始化和采集适配必须齐备后才可启用录制。
+
+## Docker 官方镜像的备用仓库
+
+基础镜像可通过 `VIC_NODE_IMAGE`、`VIC_PYTHON_IMAGE` 和 `VIC_POSTGRES_IMAGE` 指定。当执行主机无法连接 Docker Hub 时，可在 `.local/docker.env` 中配置 Docker 官方镜像的 ECR Public 地址：
+
+```dotenv
+VIC_NODE_IMAGE=public.ecr.aws/docker/library/node:22-bookworm-slim
+VIC_PYTHON_IMAGE=public.ecr.aws/docker/library/python:3.12-slim-bookworm
+VIC_POSTGRES_IMAGE=public.ecr.aws/docker/library/postgres:17-bookworm
+```
+
+这些变量仅选择基础镜像来源。服务、端口、应用数据卷及认证配置由同一份 Compose 文件管理。[Docker 官方镜像在 ECR Public 的发布说明](https://aws.amazon.com/blogs/containers/docker-official-images-now-available-on-amazon-elastic-container-registry-public/)。
+
+## Agentlab
+
+团队执行主机的访问、验收及维护步骤见 [Agentlab 使用说明](agentlab.md)。

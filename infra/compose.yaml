@@ -1,9 +1,12 @@
 name: videoicl
 services:
   control:
-    build:
+    build: &platform-build
       context: ..
       dockerfile: infra/Dockerfile.control
+      args:
+        VIC_NODE_IMAGE: ${VIC_NODE_IMAGE:-node:22-bookworm-slim}
+        VIC_PYTHON_IMAGE: ${VIC_PYTHON_IMAGE:-python:3.12-slim-bookworm}
     environment:
       VIC_ADMIN_TOKEN: ${VIC_ADMIN_TOKEN:?Set a unique manager credential}
       VIC_DATABASE_URL: postgresql+psycopg://vic:${VIC_DB_PASSWORD:?Set database password}@postgres:5432/vic
@@ -24,9 +27,7 @@ services:
       timeout: 5s
       retries: 5
   applications:
-    build:
-      context: ..
-      dockerfile: infra/Dockerfile.control
+    build: *platform-build
     command: ["uvicorn", "vic_apps.server:create_app", "--factory", "--host", "0.0.0.0", "--port", "8771", "--workers", "1"]
     environment:
       VIC_ROOT: /app
@@ -40,7 +41,7 @@ services:
       timeout: 3s
       retries: 10
   postgres:
-    image: postgres:17-bookworm
+    image: ${VIC_POSTGRES_IMAGE:-postgres:17-bookworm}
     environment:
       POSTGRES_USER: vic
       POSTGRES_DB: vic

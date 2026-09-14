@@ -1,6 +1,7 @@
 """Exercise human keyboard input through the portal's remote image surface."""
 
 import asyncio
+import os
 from pathlib import Path
 from playwright.async_api import async_playwright, expect
 from vic.business import generate
@@ -8,13 +9,15 @@ from vic.business import generate
 
 async def main():
     root = Path(__file__).resolve().parents[1]
-    token = (root / ".local/admin-token").read_text().strip()
+    token = os.environ.get("VIC_ADMIN_TOKEN") or (
+        root / ".local/admin-token"
+    ).read_text().strip()
     async with async_playwright() as p:
         browser = await p.chromium.launch()
         page = await browser.new_page(viewport={"width": 1500, "height": 1100})
         errors = []
         page.on("pageerror", lambda e: errors.append(str(e)))
-        await page.goto("http://127.0.0.1:8765/")
+        await page.goto(os.environ.get("VIC_TEST_BASE", "http://127.0.0.1:8765") + "/")
         await page.get_by_label("访问密钥").fill(token)
         await page.get_by_role("button", name="连接工作台 →").click()
         await page.get_by_role(
