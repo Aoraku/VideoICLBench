@@ -1,0 +1,43 @@
+name: 任务验收反馈
+description: 报告任务操作、判分、重置或录像问题
+title: "[验收] 题号 / 版本 / 问题简述"
+body:
+  - type: markdown
+    attributes:
+      value: "请勿填写平台访问密钥、GitHub 凭证或 SSH 私钥。截图和日志请先检查是否含有凭证。"
+  - type: input
+    id: task
+    attributes:
+      label: 题号与版本
+      placeholder: "例如：043 / B"
+    validations:
+      required: true
+  - type: input
+    id: seed
+    attributes:
+      label: 数据种子
+    validations:
+      required: true
+  - type: input
+    id: run
+    attributes:
+      label: run_id
+      description: 在运行记录中查找；环境创建失败时可留空。
+  - type: textarea
+    id: steps
+    attributes:
+      label: 操作步骤与预期结果
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际结果与证据
+      description: 可附截图、判分结果、录像或错误信息。
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: 浏览器、操作系统与访问方式
+      placeholder: "例如：Chrome / Windows / SSH 隧道"
