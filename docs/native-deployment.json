@@ -1,0 +1,122 @@
+{
+  "timestamp": "2026-09-19T19:06:55.796977+00:00",
+  "host": "agentlab",
+  "application_revision": "ec5f2ed706e75b63f9962e15ddaba7890fee198e",
+  "image": "sha256:dc2097a42b35db6b535d87fa10de95ab938e9842d796e0a43a99a4e76a14b338",
+  "services": {
+    "control": "healthy",
+    "applications": "healthy",
+    "postgres": "healthy"
+  },
+  "access": {
+    "url": "http://127.0.0.1:18765/",
+    "requires_ssh_tunnel": true,
+    "requires_platform_credential": true
+  },
+  "homepages": [
+    {
+      "module": "chat",
+      "task_id": 1,
+      "entry_mouse_navigation": true,
+      "screenshot_reviewed": true
+    },
+    {
+      "module": "im",
+      "task_id": 15,
+      "entry_mouse_navigation": true,
+      "screenshot_reviewed": true
+    },
+    {
+      "module": "music",
+      "task_id": 17,
+      "entry_mouse_navigation": true,
+      "screenshot_reviewed": true
+    },
+    {
+      "module": "news",
+      "task_id": 19,
+      "entry_mouse_navigation": true,
+      "screenshot_reviewed": true
+    },
+    {
+      "module": "code",
+      "task_id": 58,
+      "entry_mouse_navigation": true,
+      "screenshot_reviewed": true
+    },
+    {
+      "module": "gomoku",
+      "task_id": 66,
+      "entry_mouse_navigation": true,
+      "screenshot_reviewed": true
+    },
+    {
+      "module": "media",
+      "task_id": 21,
+      "entry_mouse_navigation": true,
+      "screenshot_reviewed": true
+    },
+    {
+      "module": "blog",
+      "task_id": 36,
+      "entry_mouse_navigation": true,
+      "screenshot_reviewed": true
+    },
+    {
+      "module": "studio",
+      "task_id": 37,
+      "entry_mouse_navigation": true,
+      "screenshot_reviewed": true
+    },
+    {
+      "module": "travel",
+      "task_id": 44,
+      "entry_mouse_navigation": true,
+      "screenshot_reviewed": true
+    },
+    {
+      "module": "shop",
+      "task_id": 45,
+      "entry_mouse_navigation": true,
+      "screenshot_reviewed": true
+    },
+    {
+      "module": "bank",
+      "task_id": 46,
+      "entry_mouse_navigation": true,
+      "screenshot_reviewed": true
+    },
+    {
+      "module": "games",
+      "task_id": 68,
+      "entry_mouse_navigation": true,
+      "screenshot_reviewed": true
+    }
+  ],
+  "pixel_api": {
+    "chat_task_1A": {
+      "entry_home_navigation_send_evaluate": true,
+      "recording": {
+        "decoded": true,
+        "duration": "00:00:06.80",
+        "bytes": 98334
+      }
+    },
+    "news_task_23A": {
+      "category_menu_mouse_input": true,
+      "reload_persistence": true,
+      "evaluation_passed": true
+    }
+  },
+  "sdl_harness": {
+    "command": "python scripts/check_native_ui.py 66,67 ABC",
+    "passed": 6,
+    "environment": "isolated Linux review container"
+  },
+  "persistent_data": {
+    "verified_business_state_and_event_hashes": 22,
+    "backup_directory": "/home/qingle/services/backups/native-20260920"
+  },
+  "human_visual_acceptance": "required",
+  "official_tutorials": false
+}

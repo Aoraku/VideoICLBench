@@ -11,3 +11,7 @@
 `check_application_ui.py` 属于开发诊断控件回归，不作为原应用前端验收证据。自动化录像不作为正式人工教程。系统任务 76–100 暂缓。
 
 正式教程必须从应用入口开始，展示默认首页与导航过程。评测通过还需要视频内容与题目、规则版本、种子一致，最终由录制者和审核者确认。
+
+五子棋检查命令为 `python scripts/check_native_ui.py 66,67 ABC`，需要 Linux、Xvfb、x11vnc、websockify、noVNC 以及 `apps/gomoku/build/gomoku_benchmark`。平台 Docker 镜像包含这些运行依赖；检查脚本在独立数据目录创建环境，通过棋盘画面的鼠标输入完成任务，并检查刷新后的业务结果。
+
+[服务器验收记录](native-deployment.json) 列出部署版本、服务状态、入口检查和持久数据校验结果；[应用界面预览](native-frontends.md) 用于分配人工验收。
