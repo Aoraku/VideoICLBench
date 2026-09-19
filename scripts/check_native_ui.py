@@ -201,6 +201,19 @@ async def main():
                idx=next(i for i,x in enumerate(s['items']) if x['id']==target);await click(page.get_by_role('radio',name=value,exact=True).nth(idx));await click(page.get_by_role('button',name='保存结果标签').nth(idx))
             else:
              idx=next(i for i,x in enumerate(s['items']) if x['id']==effect['selection'][0]);await click(page.get_by_role('button',name='查看代码').nth(idx))
+          elif module=='gomoku':
+           from vic.games import expected
+           canvas=page.locator('canvas');await canvas.wait_for(timeout=60000)
+           await page.wait_for_timeout(1200)
+           await page.screenshot(path=str(directory/f'{task}-{variant}-home.png'))
+           box=await canvas.bounding_box();assert box,'SDL canvas not rendered'
+           async def board_click(x,y):
+            await page.mouse.click(box['x']+x*box['width']/1280,box['y']+y*box['height']/960)
+            await page.wait_for_timeout(300)
+           await board_click(1000,210)
+           wanted=expected(t,variant,s)
+           for row,col in (wanted if t==66 else [wanted]):await board_click(col*50+100,row*50+50)
+           await page.wait_for_timeout(500)
           elif module=='games':
            from vic.games import expected, stopping_paths
            await button('打开练习棋盘 →')
