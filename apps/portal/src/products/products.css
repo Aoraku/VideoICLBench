@@ -480,7 +480,7 @@
   font:
     40px Georgia,
     serif;
-  writing-mode: vertical-rl;
+  white-space: nowrap;
   opacity: 0.6;
   transform: rotate(-10deg);
 }
