@@ -500,6 +500,7 @@
   padding: 22px;
 }
 .blog-card small {
+  display: block;
   font-size: 10px;
   color: #97a098;
 }
