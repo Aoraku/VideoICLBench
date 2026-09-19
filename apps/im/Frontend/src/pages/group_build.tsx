@@ -1,3 +1,4 @@
+import {nativeFetch as fetch, nativeIM} from '../benchmark/bridge';
 import React, { useEffect, useMemo, useState } from 'react';
 import { Button, Empty, Input, Layout, message, Spin, Typography } from 'antd';
 import { CheckOutlined, CloseCircleFilled, RightOutlined, SearchOutlined, TeamOutlined, UserOutlined } from '@ant-design/icons';
@@ -312,7 +313,7 @@ export default function GroupBuildPage() {
                           {selected && <CheckOutlined />}
                         </span>
                         {renderSquareAvatar(item.avatar, <UserOutlined />, '#9bd7ff')}
-                        <Text ellipsis style={{ color: '#253143', maxWidth: 190 }}>{item.title}</Text>
+                        <span style={{display:"flex",flexDirection:"column",textAlign:"left"}}><Text ellipsis style={{ color: '#253143', maxWidth: 190 }}>{item.title}</Text>{nativeIM&&<small style={{fontSize:10,color:"#8a95a6"}}>{item.description}</small>}</span>
                       </button>
                     );
                   })}

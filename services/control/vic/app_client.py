@@ -46,6 +46,9 @@ class ApplicationClient:
     def seal(self, id_):
         return self.call("POST", f"/internal/runs/{id_}/seal")
 
+    def release(self, id_):
+        return self.call("POST", f"/internal/runs/{id_}/release")
+
     def destroy(self, id_):
         return self.call("DELETE", f"/internal/runs/{id_}")
 

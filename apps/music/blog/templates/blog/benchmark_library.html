@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="music-library-head"><span class="music-kicker">YOUR COLLECTION</span><h1>{% if playlist_page %}播放列表{% else %}我的音乐{% endif %}</h1><p>收藏旋律，整理属于自己的聆听时刻。</p></div>
+{% if playlist_page and benchmark_state.task_id == 18 %}
+<section class="music-playlist-create"><div class="music-playlist-art">♫</div><div><h2>{{ benchmark_state.outputs.target|default:'新建播放列表' }}</h2><p>歌手 {{ benchmark_state.source.artist }} · {{ benchmark_state.source.count }} 首 · {{ benchmark_state.source.date }}</p><button class="btn btn-outline-light" id="newPlaylist">新建播放列表</button><form id="playlistForm" hidden><label class="form-label">列表名称<input name="name" class="form-control" required placeholder="输入播放列表名称"></label><button class="btn btn-light">创建列表</button></form><span role="status" class="music-status"></span></div></section>
+{% else %}
+<h3 class="music-list-title">{% if playlist_page %}播放列表甲{% else %}资料库 · 所有歌曲{% endif %}</h3>
+<div class="music-table"><div class="music-table-head"><span>#</span><span>歌曲 / 歌手</span><span>发行年份</span><span>时长</span><span>评分 / 播放次数</span><span>整理</span></div>
+{% for song in songs %}<div class="music-table-row" data-song="{{ song.id }}"><span>{{ forloop.counter }}</span><a href="{% url 'song_detail' song.id %}" class="music-row-song"><img src="{{ song.image }}"><div>{{ song.name }}<small>{{ song.artists.all.0.name }}</small></div></a><span>{{ song.year }}</span><span>{{ song.duration }} 秒</span><span>{{ song.rating }} / {{ song.plays }}</span><div>{% if benchmark_state.task_id == 28 %}<button aria-label="上移 {{ song.name }}" data-move="-1" data-target="{{ song.id }}">↑</button><button aria-label="下移 {{ song.name }}" data-move="1" data-target="{{ song.id }}">↓</button>{% elif benchmark_state.task_id == 22 %}<div class="music-label-menu"><button data-label-open="{{ song.id }}">{{ song.label|default:'分类' }} ▾</button><div role="listbox" class="music-options" hidden><button role="option" data-label="" data-target="{{ song.id }}">清除分类</button>{% for label in benchmark_state.options %}<button role="option" data-label="{{ label }}" data-target="{{ song.id }}">{{ label }}</button>{% endfor %}</div></div>{% elif benchmark_state.task_id == 32 %}<button data-add="{{ song.id }}">＋ 加入列表</button>{% else %}<a href="{% url 'song_detail' song.id %}" class="text-white">打开</a>{% endif %}</div></div>{% endfor %}
+</div>
+{% endif %}
+<div role="status" id="libraryStatus" class="music-status"></div>
+{% endblock %}

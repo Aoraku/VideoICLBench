@@ -18,11 +18,17 @@ class Recorder:
         self.runtime = runtime
         self.active = {}
         self.fps = max(5, min(30, int(os.environ.get("VIC_RECORDING_FPS", "15"))))
-        self.max_frames = self.fps * 45
+        self.max_frames = self.fps * max(30, min(180, int(os.environ.get("VIC_RECORDING_MAX_SECONDS", "120"))))
 
     async def start(self, run_id, url, rule, epoch=0):
         if run_id in self.active:
             raise ValueError("Recording already active")
+        if "/apps/" in url:
+            session = await self.runtime.ensure(run_id, url)
+            from urllib.parse import urlsplit
+            current, entry = urlsplit(session["page"].url), urlsplit(url)
+            if current.path != entry.path or current.query:
+                raise ValueError("请重置环境回到应用入口，再开始录制；视频必须包含进入首页和导航的过程。")
         dest = self.directory / run_id
         if (dest / "tutorial.mp4").exists():
             raise ValueError("A recording already exists; create a new demo run")

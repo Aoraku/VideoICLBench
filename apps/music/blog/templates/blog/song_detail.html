@@ -13,6 +13,7 @@
     <!-- 右侧信息 -->
     <div class="col-md-9 text-white">
       <h2>{{ song.name }}</h2>
+      {% if benchmark %}{% include 'blog/benchmark_song_controls.html' %}{% endif %}
 
       <p><strong>歌手：</strong>
         {% for artist in song.artists.all %}

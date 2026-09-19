@@ -60,4 +60,4 @@ sudo docker compose --env-file .local/docker.env -f infra/compose.yaml up --buil
 
 ## 验收记录
 
-[服务器验收记录](agentlab-verification.json) 包含 225 个 GUI 变体、网络操作与录像、15 会话并发、服务更新后数据校验及 GitHub CI 结果。
+[应用界面与验收范围](native-frontends.md) 提供来源、首页预览和任务流程说明。`check_native_ui.py` 检查应用任务路径；`check_application_ui.py` 的 225 个诊断用例只证明诊断控件与业务接口可运行。正式录制仍需逐题人工视觉验收。

@@ -1,3 +1,4 @@
+import {nativeRun, nativeRequest} from '../benchmark/bridge.js'
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from '../constants/storage.js'
 import { refreshToken } from './auth.js'
 
@@ -33,6 +34,7 @@ export function authHeaders(initialHeaders) {
  * @param {RequestInit & { json?: unknown }} options
  */
 export async function apiFetch(path, options = {}) {
+  if (nativeRun) return nativeRequest(path, options)
   const url = apiUrl(path)
   const headers = authHeaders(options.headers)
 

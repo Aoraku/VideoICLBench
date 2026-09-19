@@ -1,3 +1,4 @@
+import {nativeFetch as fetch} from '../benchmark/bridge';
 import React, { useEffect, useMemo, useState } from 'react';
 import { Avatar, Button, DatePicker, Empty, Input, Layout, message, Spin, Typography } from 'antd';
 import {

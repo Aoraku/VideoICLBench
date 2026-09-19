@@ -139,6 +139,7 @@ export default function ContactsDetailPane({
         <dl className="wxDetailPane__dl">
           <dt>分组</dt>
           <dd>{f.group_name || '未分组'}</dd>
+          {f.benchmark_contact_time!==undefined&&<><dt>最近联系序号</dt><dd>{f.benchmark_contact_time}</dd><dt>未读消息</dt><dd>{f.benchmark_unread}</dd></>}
           {f.status?.presence ? (
             <>
               <dt>在线状态</dt>

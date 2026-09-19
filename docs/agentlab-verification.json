@@ -1,7 +1,7 @@
 {
   "verified_at": "2026-09-14T22:01:26.466466+00:00",
   "host": "agentlab",
-  "surface": "application-benchmark",
+  "surface": "development-diagnostic",
   "official": false,
   "deployed_application_revision": "0cac31c7d0e65d8d6469753cc0948ffb5ce48c7c",
   "services": [
@@ -70,5 +70,6 @@
     ],
     "passed": 3,
     "failed": 0
-  }
+  },
+  "native_frontend_acceptance": false
 }

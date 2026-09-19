@@ -21,9 +21,22 @@ flowchart LR
 
 ## 应用模块
 
-六个来源仓库均包含 `benchmark/app.py`、`benchmark/module.json` 和模块说明。新增模块为 `media`、`blog`、`studio`、`travel`、`shop`、`bank`、`games`，同样具备应用入口、任务注册、界面配置和数据库语义。它们在 monorepo 内共享 `vic_apps` 应用运行库和领域 UI 组件。
+| 应用 | 录制界面 | 会话连接方式 |
+|---|---|---|
+| Chat | 来源 React/Vite 组件、通讯录、会话、消息与输入框 | 原 API 形状到独立业务库的适配器 |
+| IM | 来源 Next.js/Ant Design 页面 | 原 API 形状到独立业务库的适配器 |
+| Music | 来源 Django 首页、歌曲与歌手模板；资料库面板 | Django 模板渲染与独立业务库 |
+| Code | 来源 Streamlit 题目、提交与导航页面；代码笔记面板 | 每个运行独立 Streamlit 进程，HTTP/WebSocket 代理 |
+| News | Java 仓库新闻页面资源、新闻首页与阅读编辑面板 | 页面业务请求直接写入独立业务库 |
+| 五子棋 | 来源 C++/SDL 棋盘与棋谱入口 | 每个运行独立 Xvfb、SDL、VNC；鼠标意图写入事务 |
+| Media、Blog、Studio、Travel、Shop、Bank | 各应用的首页、导航、列表、详情与业务操作 | 共享认证与命令协议，独立领域数据 |
+| Games | 游戏大厅与 2048、数独、扫雷、黑白棋 | 合法棋盘动作与领域事务 |
 
-应用 benchmark 模式使用专用浏览器界面和独立业务模型，不依赖普通模式的外部账号、实时新闻、音乐服务或未经隔离的代码执行。普通模式的六个容器入口由 `infra/compose.native.yaml` 提供；应用基准使用 `infra/compose.yaml` 的 `applications` 服务。
+应用入口为 `/apps/{module}/{run_id}`，打开后进入应用默认首页。开发诊断界面需要显式添加 `?diagnostic=1`，不用于正式录制。录制服务要求在应用入口开始。
+
+原生应用经同一个 Worker 服务连接，Cookie 按运行路径隔离。Code 与五子棋进程合计容量为 12；录制结束封存输入，评测完成释放进程，重置和销毁也会释放进程。普通模式的六个独立入口见 `infra/compose.native.yaml`；任务录制使用 `infra/compose.yaml`。
+
+会话使用固定资料、模拟身份与独立业务数据。功能验收覆盖题目所需操作；真实支付、外部账号连接、任意代码执行和原仓库全部功能不属于自动化通过声明。任务首页包含完整业务说明，分类菜单使用页面内控件，支持截图与坐标输入。
 
 ## 业务数据与判分
 

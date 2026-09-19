@@ -1,3 +1,4 @@
+import {command, nativeRun, currentBusiness} from '../../benchmark/bridge.js'
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { resolveAvatarSrc } from '../../utils/avatarUrl.js'
 import { CHAT_EVENT_JUMP_TO_MESSAGE } from '../../constants/chatEvents.js'
@@ -284,6 +285,8 @@ export default function MessageList({
   const bottomRef = useRef(null)
   /** @type {[{ x: number, y: number, row: Record<string, unknown> } | null, function]} */
   const [menu, setMenu] = useState(null)
+  const [savedLabels, setSavedLabels] = useState({})
+  const [labelError, setLabelError] = useState('')
   const [previewFile, setPreviewFile] = useState(null)
   /** 与 `messageAnchorId(row)` 一致，用于跳转后短时高亮 */
   const [highlightAnchorId, setHighlightAnchorId] = useState(/** @type {string|null} */ (null))
@@ -641,6 +644,7 @@ export default function MessageList({
                     onClick={(e) => handleMoreClick(e, row)}
                   />
                   {bubble}
+                  {(savedLabels[row.benchmark_object] ?? row.benchmark_label) && <span style={{display:'block',marginTop:6,fontSize:12,color:({'蓝色':'#3478db','红色':'#df5454','绿色':'#2c9c6a'})[savedLabels[row.benchmark_object] ?? row.benchmark_label]||'#516373'}}>● {savedLabels[row.benchmark_object] ?? row.benchmark_label}</span>}
                 </div>
               </>
             ) : (
@@ -653,6 +657,7 @@ export default function MessageList({
                     onClick={(e) => handleMoreClick(e, row)}
                   />
                   {bubble}
+                  {(savedLabels[row.benchmark_object] ?? row.benchmark_label) && <span style={{display:'block',marginTop:6,fontSize:12,color:({'蓝色':'#3478db','红色':'#df5454','绿色':'#2c9c6a'})[savedLabels[row.benchmark_object] ?? row.benchmark_label]||'#516373'}}>● {savedLabels[row.benchmark_object] ?? row.benchmark_label}</span>}
                 </div>
                 {avatar}
               </>
@@ -668,6 +673,12 @@ export default function MessageList({
         anchorY={menu?.y ?? 0}
         onClose={closeMenu}
       >
+        {nativeRun && menu?.row?.benchmark_object && menu.row.benchmark_options?.length > 0 && <>
+          <div style={{padding:'8px 12px',fontSize:12,color:'#75808c'}}>消息标签</div>
+          {['',...menu.row.benchmark_options].map(label=><button type="button" role="menuitem" className="popMenu__item" key={label} onClick={async()=>{const object=menu.row.benchmark_object;try{await command('label',object,label);setSavedLabels(prev=>({...prev,[object]:label}));setLabelError('');closeMenu()}catch(e){setLabelError(e.message)}}}><span style={{color:({'蓝色':'#3478db','红色':'#df5454','绿色':'#2c9c6a'})[label]||'#8c96a3'}}>●</span> {label||'清除标签'}</button>)}
+          {labelError&&<div role="alert">{labelError}</div>}
+        </>}
+        {nativeRun && currentBusiness()?.task_id===13 && menu?.row?.benchmark_object && <button type="button" role="menuitem" className="popMenu__item" onClick={async()=>{try{await command('action',menu.row.benchmark_object,'归档');closeMenu()}catch(e){setLabelError(e.message)}}}>归档消息</button>}
         <div className="popMenu__emojiRow" role="group" aria-label="快速表情">
           {['👍', '❤️', '😂', '😮', '🙏'].map((emoji) => (
             <button
@@ -736,7 +747,7 @@ export default function MessageList({
           disabled={!menu?.row || !canDeleteRow(menu.row) || typeof onBookmarkMessage !== 'function'}
           onClick={runBookmark}
         >
-          加入待办
+          {nativeRun ? '收藏消息' : '加入待办'}
         </button>
         <button
           type="button"

@@ -98,14 +98,16 @@ class BrowserRuntime:
                 raise ValueError("Time budget exhausted")
             page = s["page"]
             kind = action.kind
-            if kind in ("click", "double_click", "drag") and (
+            if kind in ("click", "right_click", "double_click", "drag") and (
                 action.x is None or action.y is None
             ):
                 raise ValueError("Coordinates required")
-            if kind in ("click", "double_click", "drag"):
+            if kind in ("click", "right_click", "double_click", "drag"):
                 s["cursor"] = (action.x, action.y, time.monotonic())
             if kind == "click":
                 await page.mouse.click(action.x, action.y)
+            elif kind == "right_click":
+                await page.mouse.click(action.x, action.y, button="right")
             elif kind == "double_click":
                 await page.mouse.dblclick(action.x, action.y)
             elif kind == "drag":

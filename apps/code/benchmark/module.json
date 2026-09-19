@@ -19,7 +19,8 @@
     65
   ],
   "schema_version": 1,
+  "frontend": "apps/code/app/frontend.py",
   "entrypoint": "vic_apps.server:create_app",
   "state_backend": "sqlite-domain-tables",
-  "surface": "application-benchmark"
+  "surface": "native-task-workspace"
 }

@@ -18,7 +18,7 @@ class Action(StrictModel):
     epoch: int = Field(ge=0)
     action_id: str = Field(min_length=1, max_length=100)
     frame: int = Field(ge=0)
-    kind: Literal["click", "double_click", "drag", "scroll", "key", "text", "wait"]
+    kind: Literal["click", "right_click", "double_click", "drag", "scroll", "key", "text", "wait"]
     x: int | None = Field(default=None, ge=0, lt=1280)
     y: int | None = Field(default=None, ge=0, lt=960)
     to_x: int | None = Field(default=None, ge=0, lt=1280)

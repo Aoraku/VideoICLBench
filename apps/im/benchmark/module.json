@@ -13,7 +13,8 @@
     16
   ],
   "schema_version": 1,
+  "frontend": "apps/im/Frontend/src",
   "entrypoint": "vic_apps.server:create_app",
   "state_backend": "sqlite-domain-tables",
-  "surface": "application-benchmark"
+  "surface": "native-task-workspace"
 }

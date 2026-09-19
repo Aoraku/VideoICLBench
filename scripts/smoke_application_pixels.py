@@ -49,9 +49,14 @@ with httpx.Client(
         )
         result.raise_for_status()
 
-    act("click", x=850, y=350)
+    # App launcher -> upstream default home -> conversation -> native composer.
+    act("click", x=300, y=547)
+    time.sleep(0.6)
+    act("click", x=250, y=130)
+    time.sleep(0.3)
+    act("click", x=700, y=880)
     act("text", text=answer)
-    act("click", x=760, y=635)
+    act("click", x=1208, y=862)
     time.sleep(0.5)
     recording = c.post(path + "/recordings/stop")
     recording.raise_for_status()

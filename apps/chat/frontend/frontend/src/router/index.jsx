@@ -1,3 +1,4 @@
+import {nativeBase} from '../benchmark/bridge.js'
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom'
 import AuthLayout from '../components/layout/AuthLayout.jsx'
 import MainLayout from '../components/layout/MainLayout.jsx'
@@ -44,7 +45,7 @@ function RedirectIfAuthed({ to, children }) {
  */
 export default function AppRouter() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={nativeBase || undefined}>
       <Routes>
         {/* 认证页：只显示登录/注册卡片，不带任何导航 */}
         <Route element={<AuthLayout />}>

@@ -7,19 +7,45 @@ RUN npm ci
 COPY apps/portal/ ./
 RUN npm run build
 
+FROM ${VIC_NODE_IMAGE} AS chat
+WORKDIR /src/apps/chat/frontend/frontend
+COPY apps/chat/frontend/frontend/package*.json ./
+RUN npm ci
+COPY apps/chat/frontend/frontend/ ./
+RUN VITE_BASE_PATH=/native-assets/chat/ npm run build
+
+FROM ${VIC_NODE_IMAGE} AS im
+WORKDIR /src/apps/im/Frontend
+RUN npm install -g pnpm@10.4.1
+COPY apps/im/Frontend/package.json apps/im/Frontend/pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
+COPY apps/im/Frontend/ ./
+RUN NEXT_PUBLIC_VIC_BENCHMARK=1 pnpm build
+
 FROM ${VIC_PYTHON_IMAGE}
 WORKDIR /app
 COPY pyproject.toml ./
 COPY requirements.lock.txt ./
 RUN pip install --no-cache-dir -r requirements.lock.txt
 RUN python -m playwright install --with-deps --only-shell chromium
+ARG VIC_DEBIAN_MIRROR=
+RUN if [ -n "$VIC_DEBIAN_MIRROR" ]; then sed -i "s|http://deb.debian.org/debian|$VIC_DEBIAN_MIRROR|g" /etc/apt/sources.list.d/debian.sources; fi && apt-get update && apt-get install -y --no-install-recommends build-essential cmake libsdl2-dev libsdl2-ttf-dev xvfb x11vnc novnc websockify x11-utils && rm -rf /var/lib/apt/lists/*
 COPY services/ services/
 COPY packages/ packages/
 RUN pip install --no-cache-dir --no-deps '.[postgres]'
 COPY tasks/ tasks/
 COPY sources.lock.json ./
 COPY --from=portal /src/apps/portal/dist apps/portal/dist
+COPY --from=chat /src/apps/chat/frontend/frontend/dist apps/chat/frontend/frontend/dist
+COPY --from=im /src/apps/im/Frontend/out apps/im/Frontend/out
+COPY apps/news/src/main/resources/web apps/news/src/main/resources/web
+COPY apps/music/blog/templates apps/music/blog/templates
+COPY apps/music/blog/static/benchmark apps/music/blog/static/benchmark
+COPY apps/media/assets apps/media/assets
+COPY apps/code/app/frontend.py apps/code/app/benchmark_bridge.py apps/code/app/
 COPY apps/gomoku/simhei.ttf apps/gomoku/simhei.ttf
+COPY apps/gomoku/main.cpp apps/gomoku/CMakeLists.txt apps/gomoku/
+RUN cmake -S apps/gomoku -B apps/gomoku/build && cmake --build apps/gomoku/build -j2
 RUN useradd --create-home --uid 10001 vic && mkdir /data && chown vic:vic /data && mv /root/.cache/ms-playwright /opt/ms-playwright && chmod -R a+rX /opt/ms-playwright
 ENV PLAYWRIGHT_BROWSERS_PATH=/opt/ms-playwright VIC_DATA=/data VIC_ROOT=/app
 USER vic

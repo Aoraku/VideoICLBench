@@ -183,7 +183,7 @@ def initialize(state):
     )
     if t == 11:
         for item in state["items"]:
-            content = (item["id"].encode() * 100)[: item["size"]]
+            content = item["file_text"].encode("utf-8")
             d["files"][item["id"]] = dict(
                 name=item["name"],
                 content=base64.b64encode(content).decode(),

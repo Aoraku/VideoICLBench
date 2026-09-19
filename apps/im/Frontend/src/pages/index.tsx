@@ -1,3 +1,5 @@
+import {nativeIM, imCommand} from '../benchmark/bridge';
+import {nativeFetch as fetch} from '../benchmark/bridge';
 import React, { useEffect, useState, useRef } from 'react';
 import {Layout, List, Avatar, Typography, message, Spin, Dropdown, type MenuProps, Badge, Input, Button, Empty, Modal, Drawer, Divider, Select, Switch, Upload } from 'antd';
 
@@ -1891,6 +1893,10 @@ export default function Home() {
                     const messageMenu: MenuProps = {
                       items: [
                         { key: 'reply', label: '回复', onClick: () => setReplyingTo(msg) },
+                        ...(nativeIM && msg.benchmark_object ? [
+                          {key:'receipt',label:'确认已读',onClick:async()=>{try{await imCommand('action',msg.benchmark_object,'已读');await fetchMessages(activeConv.conversation_id,true)}catch(e){message.error(String(e))}}},
+                          {key:'star',label:'星标消息',onClick:async()=>{try{await imCommand('action',msg.benchmark_object,'星标');await fetchMessages(activeConv.conversation_id,true)}catch(e){message.error(String(e))}}},
+                        ] : []),
                         { type: 'divider' },
                         { 
                           key: 'delete', 
@@ -1951,6 +1957,8 @@ export default function Home() {
                               }}
                             >
                               <div>{msg.content}</div>
+                              {msg.benchmark_read && <small style={{color:'#408964'}}>✓ 已确认阅读</small>}
+                              {msg.benchmark_starred && <small style={{color:'#bc8b22'}}>★ 已星标</small>}
 
                               {msg.reply_to && (
                                 <div 

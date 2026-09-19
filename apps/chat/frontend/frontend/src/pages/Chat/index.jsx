@@ -1,3 +1,5 @@
+import {nativeRun, command, currentBusiness} from '../../benchmark/bridge.js'
+import AttachmentLibrary from '../../benchmark/AttachmentLibrary.jsx'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import {
@@ -384,6 +386,7 @@ export default function ChatPage() {
   const [listError, setListError] = useState('')
   const [selectedId, setSelectedId] = useState(null)
   const [draft, setDraft] = useState('')
+  const [filesOpen,setFilesOpen] = useState(false)
   const [sending, setSending] = useState(false)
   const [sendError, setSendError] = useState('')
   /** 空白/纯空格发送时短时提示（与 sendError 区分） */
@@ -1736,6 +1739,7 @@ export default function ChatPage() {
             {listError}
           </div>
         ) : null}
+        {nativeRun && currentBusiness()?.task_id===11 && <button className="pane__toolBtn" style={{margin:12}} onClick={()=>setFilesOpen(true)}>聊天文件</button>}
         <div className="list">
           {listLoading ? (
             <div className="emptyState" style={{ border: 'none', margin: 8 }}>
@@ -1795,6 +1799,9 @@ export default function ChatPage() {
                         <div className="list__time">{time}</div>
                       </div>
                       <div className="list__sub">{lastPreview(last)}</div>
+                      {c.benchmark_label && <div style={{fontSize:11,color:'#317060'}}>● {c.benchmark_label}</div>}
+                      {nativeRun && [7,12,14].includes(currentBusiness()?.task_id) && <div style={{fontSize:10,color:'#718199'}}>时间序号 {c.benchmark_timestamp} · {c.benchmark_age_days} 天前</div>}
+                      {nativeRun && currentBusiness()?.task_id===8 && <div style={{fontSize:11,color:'#718199'}}>{c.member_count} 位成员</div>}
                     </div>
                     {c.unread_count > 0 ? (
                       <div className={c.is_muted ? 'list__badge list__badge--muted' : 'list__badge'}>
@@ -2333,11 +2340,11 @@ export default function ChatPage() {
       ) : null}
 
       {todoDialogOpen ? (
-        <div className="chatOverlay" role="dialog" aria-modal="true" aria-label="加入待办">
+        <div className="chatOverlay" role="dialog" aria-modal="true" aria-label={nativeRun?"收藏消息":"加入待办"}>
           <div className="chatDialog chatDialog--compact">
             <div className="chatDialog__head">
               <div>
-                <div className="chatDialog__title">加入待办</div>
+                <div className="chatDialog__title">{nativeRun?"收藏消息":"加入待办"}</div>
                 <div className="chatDialog__sub">{replySnippet(todoTargetRow)}</div>
               </div>
               <button type="button" className="chatDialog__close" onClick={() => setTodoDialogOpen(false)} aria-label="关闭">
@@ -2357,7 +2364,7 @@ export default function ChatPage() {
                 取消
               </button>
               <button type="button" className="wxBtn wxBtn--primary" onClick={() => void submitTodoDialog()} disabled={todoSaving}>
-                {todoSaving ? '保存中…' : '加入'}
+                {todoSaving ? '保存中…' : nativeRun?'保存':'加入'}
               </button>
             </div>
           </div>
@@ -2423,12 +2430,16 @@ export default function ChatPage() {
         </div>
       ) : null}
 
+      {nativeRun && <AttachmentLibrary open={filesOpen} onClose={()=>setFilesOpen(false)}/>}
       <PopMenu
         open={Boolean(convMenu)}
         anchorX={convMenu?.x ?? 0}
         anchorY={convMenu?.y ?? 0}
         onClose={() => setConvMenu(null)}
       >
+        {nativeRun && [7,8].includes(currentBusiness()?.task_id) && ['',...currentBusiness().options].map(label=><button type="button" role="menuitem" className="popMenu__item" key={label} onClick={async()=>{try{await command('label',convMenu.conv.benchmark_object,label);await refreshConversationList();setConvMenu(null)}catch(e){setSendError(e.message)}}}>{label||'清除标签'}</button>)}
+        {nativeRun && currentBusiness()?.task_id===14 && <button type="button" role="menuitem" className="popMenu__item" onClick={async()=>{try{await command('action',convMenu.conv.benchmark_object,'归档');await refreshConversationList();setConvMenu(null)}catch(e){setSendError(e.message)}}}>归档会话</button>}
+        {nativeRun && currentBusiness()?.task_id===12 && [-1,1].map(delta=><button type="button" role="menuitem" className="popMenu__item" key={delta} onClick={async()=>{const ids=[...currentBusiness().domain.orders.main],i=ids.indexOf(convMenu.conv.benchmark_object),j=i+delta;if(j<0||j>=ids.length)return;[ids[i],ids[j]]=[ids[j],ids[i]];try{await command('order','','',ids);await refreshConversationList();setConvMenu(null)}catch(e){setSendError(e.message)}}}>{delta<0?'上移会话':'下移会话'}</button>)}
         <button
           type="button"
           role="menuitem"

@@ -5,6 +5,7 @@ import json
 import time
 import pandas as pd
 import datetime
+import benchmark_bridge as benchmark
 
 # 配置
 st.set_page_config(
@@ -27,12 +28,16 @@ def init_session_state():
         "current_problem_id": None,
         "cookies": None
     }
+    if benchmark.ACTIVE:
+        defaults.update(logged_in=True, username="周予安", user_id="1", role="user", current_page="problems")
     for key, value in defaults.items():
         if key not in st.session_state:
             st.session_state[key] = value
 
 # API请求封装
 def api_request(method, endpoint, data=None, params=None, files=None, cookies=None):
+    if benchmark.ACTIVE:
+        return benchmark.api_request(method, endpoint, data=data, params=params, files=files, cookies=cookies)
     url = f"{BASE_URL}{endpoint}"
     if cookies is None and st.session_state.cookies:
         cookies = st.session_state.cookies
@@ -167,6 +172,8 @@ def render_problems_page():
                     info_cols[1].markdown(f"**作者:** {problem.get('author', 'N/A')}")
                     info_cols[2].markdown(f"**来源:** {problem.get('source', 'N/A')}")
                     
+                    if benchmark.ACTIVE:
+                        benchmark.extra_problem(problem)
                     st.markdown("") # 增加一些间距
 
                     if st.button("进入题目", key=f"view_{problem.get('id')}", use_container_width=True):
@@ -337,6 +344,10 @@ def render_submit_code_page():
         st.warning("无法加载可用语言列表，请确保后端服务正常且已配置语言。")
         languages = ["python"] # Fallback
 
+    if benchmark.ACTIVE:
+        current = benchmark.business()["state"]
+        st.caption("待整理的代码草稿")
+        st.code(current["source"]["text"], language="python")
     with st.form("submission_form"):
         language = st.selectbox("选择语言", languages)
         code = st.text_area("代码", height=400)
@@ -346,7 +357,10 @@ def render_submit_code_page():
             if res and res.get("code") == 200:
                 submission_id = res.get('data', {}).get('submission_id')
                 st.success(f"提交成功！提交ID: {submission_id}")
-                st.info("评测任务已在后台运行，请稍后在“查看提交”页面手动查询结果。")
+                if benchmark.ACTIVE:
+                    st.info("代码已存入提交记录。")
+                else:
+                    st.info("评测任务已在后台运行，请稍后在“查看提交”页面手动查询结果。")
             else:
                 st.error(f"提交失败: {res.get('msg', '未知错误')}")
 
@@ -381,6 +395,8 @@ def render_view_submissions_page():
                 score = sub.get('score', 0)
                 counts = sub.get('counts', 10)
                 c4.metric("分数", f"{score}/{counts}")
+                if benchmark.ACTIVE:
+                    benchmark.extra_submission(sub)
 
     with my_submissions_tab:
         st.subheader("我的提交")
@@ -694,6 +710,7 @@ def render_sidebar():
             if st.button("题目列表", use_container_width=True): navigate_to("problems")
             if st.button("添加题目", use_container_width=True): navigate_to("add_problem")
             if st.button("查看提交", use_container_width=True): navigate_to("view_submissions")
+            if benchmark.ACTIVE and st.button("我的代码与笔记", use_container_width=True): navigate_to("files")
             if st.button("查看日志", use_container_width=True): navigate_to("submission_log")
             if st.button("支持的语言", use_container_width=True): navigate_to("languages")
             
@@ -720,6 +737,7 @@ def main():
     
     if not st.session_state.logged_in:
         render_login_page()
+    elif page == "files" and benchmark.ACTIVE: benchmark.render_files()
     elif page == "problems": render_problems_page()
     elif page == "problem_detail": render_problem_detail_page()
     elif page == "add_problem": render_add_problem_page()

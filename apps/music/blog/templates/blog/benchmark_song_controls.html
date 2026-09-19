@@ -1,0 +1,8 @@
+<div class="music-controls" data-song="{{ song.id }}">
+  <p class="music-stats">{{ song.duration }} 秒 · 播放 {{ song.plays }} 次 · 评分 {{ song.rating }} · {{ song.year }}</p>
+  {% if benchmark_state.task_id == 17 %}<button class="btn btn-outline-light" id="editName">编辑显示名称</button><form id="nameForm" hidden><label class="form-label">显示名称<input name="name" class="form-control" value="{{ song.name }}"></label><button class="btn btn-light">保存名称</button></form>{% endif %}
+  {% if benchmark_state.task_id == 27 %}<button class="btn btn-light music-play" data-play="{{ song.id }}">▶ 选择这首歌</button>{% endif %}
+  {% if benchmark_state.task_id == 22 %}<div class="music-label-menu"><button class="btn btn-outline-light" data-label-open="{{ song.id }}">{{ song.label|default:'设置分类' }} ▾</button><div role="listbox" class="music-options" hidden><button role="option" data-label="" data-target="{{ song.id }}">清除分类</button>{% for label in benchmark_state.options %}<button role="option" data-label="{{ label }}" data-target="{{ song.id }}">{{ label }}</button>{% endfor %}</div></div>{% endif %}
+  {% if benchmark_state.task_id == 32 %}<button class="btn btn-outline-light" data-add="{{ song.id }}">＋ 加入播放列表甲</button>{% endif %}
+  <span role="status" class="music-status"></span>
+</div>

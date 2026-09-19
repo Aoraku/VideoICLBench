@@ -1,0 +1,1372 @@
+{
+  "surface": "native-task-workspace",
+  "timestamp": "2026-09-19T18:43:46.182855+00:00",
+  "seed": 10001,
+  "task_variants_passed": 225,
+  "unit_tests": 552,
+  "viewport": [
+    1280,
+    960
+  ],
+  "inputs": "Mouse coordinates and keyboard; no select_option or direct commands for task completion",
+  "sdl_environment": "Agentlab Linux Docker review image",
+  "pixel_api": {
+    "chat_entry_navigation_send_record_evaluate": true,
+    "news_category_menu_persistence_evaluate": true
+  },
+  "human_visual_acceptance": "required",
+  "official_tutorials": false,
+  "system_tasks": "deferred: 76-100",
+  "results": [
+    {
+      "task_id": 1,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 1,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 1,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 2,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 2,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 2,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 3,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 3,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 3,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 4,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 4,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 4,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 5,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 5,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 5,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 6,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 6,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 6,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 7,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 7,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 7,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 8,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 8,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 8,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 9,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 9,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 9,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 10,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 10,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 10,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 11,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 11,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 11,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 12,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 12,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 12,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 13,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 13,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 13,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 14,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 14,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 14,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 15,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 15,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 15,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 16,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 16,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 16,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 17,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 17,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 17,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 18,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 18,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 18,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 19,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 19,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 19,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 20,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 20,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 20,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 21,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 21,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 21,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 22,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 22,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 22,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 23,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 23,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 23,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 24,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 24,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 24,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 25,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 25,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 25,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 26,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 26,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 26,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 27,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 27,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 27,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 28,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 28,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 28,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 29,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 29,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 29,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 30,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 30,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 30,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 31,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 31,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 31,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 32,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 32,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 32,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 33,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 33,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 33,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 34,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 34,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 34,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 35,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 35,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 35,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 36,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 36,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 36,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 37,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 37,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 37,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 38,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 38,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 38,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 39,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 39,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 39,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 40,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 40,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 40,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 41,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 41,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 41,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 42,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 42,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 42,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 43,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 43,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 43,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 44,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 44,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 44,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 45,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 45,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 45,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 46,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 46,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 46,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 47,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 47,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 47,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 48,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 48,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 48,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 49,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 49,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 49,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 50,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 50,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 50,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 51,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 51,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 51,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 52,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 52,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 52,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 53,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 53,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 53,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 54,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 54,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 54,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 55,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 55,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 55,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 56,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 56,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 56,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 57,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 57,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 57,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 58,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 58,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 58,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 59,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 59,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 59,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 60,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 60,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 60,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 61,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 61,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 61,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 62,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 62,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 62,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 63,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 63,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 63,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 64,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 64,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 64,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 65,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 65,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 65,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 66,
+      "variant": "A",
+      "passed": true,
+      "surface": "original-sdl-via-vnc"
+    },
+    {
+      "task_id": 66,
+      "variant": "B",
+      "passed": true,
+      "surface": "original-sdl-via-vnc"
+    },
+    {
+      "task_id": 66,
+      "variant": "C",
+      "passed": true,
+      "surface": "original-sdl-via-vnc"
+    },
+    {
+      "task_id": 67,
+      "variant": "A",
+      "passed": true,
+      "surface": "original-sdl-via-vnc"
+    },
+    {
+      "task_id": 67,
+      "variant": "B",
+      "passed": true,
+      "surface": "original-sdl-via-vnc"
+    },
+    {
+      "task_id": 67,
+      "variant": "C",
+      "passed": true,
+      "surface": "original-sdl-via-vnc"
+    },
+    {
+      "task_id": 68,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 68,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 68,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 69,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 69,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 69,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 70,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 70,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 70,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 71,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 71,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 71,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 72,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 72,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 72,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 73,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 73,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 73,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 74,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 74,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 74,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 75,
+      "variant": "A",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 75,
+      "variant": "B",
+      "passed": true,
+      "surface": "browser-native-ui"
+    },
+    {
+      "task_id": 75,
+      "variant": "C",
+      "passed": true,
+      "surface": "browser-native-ui"
+    }
+  ]
+}

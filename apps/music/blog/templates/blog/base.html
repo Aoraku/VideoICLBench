@@ -6,10 +6,10 @@
     <title>青楽 - あなたの音楽の友</title>
 
     <!-- 引入Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    {% if benchmark %}<link rel="stylesheet" href="/native-assets/music/bootstrap.min.css"><link rel="stylesheet" href="/native-assets/music/native.css">{% else %}<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">{% endif %}
 
     <!-- 引入Google字体 -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@600&display=swap" rel="stylesheet">
+    {% if not benchmark %}<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@600&display=swap" rel="stylesheet">{% endif %}
 
     <style>
         {% comment %} 主体背景 {% endcomment %}
@@ -155,6 +155,7 @@
 
         <a href="{% url 'song_list' %}" class="{% if request.path == '/' or request.resolver_match.url_name == 'song_list' %}active{% endif %}">歌曲一覧</a>
         <a href="{% url 'artist_list' %}" class="{% if request.resolver_match.url_name == 'artist_list' %}active{% endif %}">歌手一覧</a>
+        {% if benchmark %}<div class="music-nav-separator"></div><a href="{% url 'music_library' %}">我的音乐</a><a href="{% url 'music_playlists' %}">播放列表</a><div class="music-user">周予安<br><small>个人音乐资料库</small></div>{% endif %}
     </div>
 
     <!-- 主内容 -->
@@ -171,16 +172,16 @@
                 action="{% url 'search' %}" method="get">
                 <input class="form-control form-control-sm me-2" type="text" name="q"
                     placeholder="入力して" maxlength="20" style="width: 300px;">
-                <select name="type" class="form-select form-select-sm me-2" style="width: 80px;">
+                {% if benchmark %}<input type="hidden" name="type" value="song">{% else %}<select name="type" class="form-select form-select-sm me-2" style="width: 80px;">
                     <option value="song">歌曲</option>
                     <option value="artist">歌手</option>
-                </select>
+                </select>{% endif %}
                 <button class="btn btn-outline-light btn-sm" type="submit" style="white-space: nowrap;">検索</button>
             </form>
 
             <!-- 右侧：游客模式 -->
             <div class="text-light" style="width: 100px; text-align: right;">
-                遊客モード
+                {% if benchmark %}我的资料库{% else %}遊客モード{% endif %}
             </div>
         </div>
 
@@ -197,5 +198,6 @@
         </div>
     </div>
 </div>
+{% if benchmark %}{{ benchmark_state|json_script:"music-state" }}<script type="module" src="/native-assets/music/native.js"></script>{% endif %}
 </body>
 </html>

@@ -1,3 +1,4 @@
+import {nativeFetch as fetch} from '../benchmark/bridge';
 import React, { useEffect, useState } from 'react';
 import { Avatar, Button, Empty, Input, Layout, message, Modal, Spin, Tag, Typography } from 'antd';
 import { ArrowLeftOutlined, CheckCircleOutlined, ClockCircleOutlined, CloseCircleOutlined, SearchOutlined, UserAddOutlined, UserOutlined } from '@ant-design/icons';

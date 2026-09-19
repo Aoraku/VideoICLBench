@@ -1,3 +1,4 @@
+import {nativeFetch as fetch} from '../benchmark/bridge';
 import React, { useState } from 'react';
 import { Button, Form, Input, Card, message, Tabs, Typography } from 'antd';
 import UserOutlined from '@ant-design/icons/UserOutlined';

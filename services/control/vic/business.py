@@ -1,7 +1,7 @@
 """Deterministic task workspaces. No private rule is present in workspace state.
 
-The imported native applications are separate deployment targets. These workspaces
-are an executable development surface, not a claim of native-app certification.
+Native application adapters and domain evaluators share these ordinary fixtures.
+Frontend acceptance is tracked independently of rule and state validation.
 """
 
 import ast
@@ -468,14 +468,28 @@ def generate(id_, seed):
         raise ValueError("Only software workspaces are executable")
     for attempt in range(1000):
         rng = random.Random(seed * 1009 + id_ * 997 + attempt * 104729)
-        names = ["Ana", "Bryn", "Cobalt7", "Delta?", "Epsilon", "Sky22"]
-        # Different names across seeds, preserving the parity/letter fixtures.
-        nonce = "".join(
-            chr(97 + int(c, 16))
-            for c in hashlib.sha256(str(seed).encode()).hexdigest()[:6]
-        )
-        prefix = nonce
-        names = [prefix + x for x in names]
+        # Human-readable fixtures vary by seed without leaking the private rule.
+        from .scenarios import scenario_names, scenario_texts, source_text
+        app_name = task(id_)["app"]
+        names = scenario_names(app_name, seed)
+        if id_ == 41:
+            names = ["Atlas", "Orion Pro", "Nova Lite", "Cedar", "Aurora Long", "Vela"]
+        if id_ == 45:
+            chosen_name = source_text(id_, seed)
+            names.remove(chosen_name)
+            names.insert(0, chosen_name)
+        if id_ == 8:
+            names = ["产品讨论组", "研发协作组", "设计 3 组", "周末徒步", "项目 7 组", "读书分享组"]
+        if id_ == 11:
+            names = ["会议议程.md", "产品需求说明书.md", "预算.csv", "设计规范.txt", "评审纪要.md", "路线说明.txt"]
+        if id_ == 42:
+            names[0] = "写给 Anna 的旅行手记"
+            names[2] = "在 Canva 中整理旅行照片"
+        if id_ == 56:
+            names[0] = "Anna · 日常储蓄账户"
+            names[4] = "Daniel · 房租备用账户"
+        if id_ == 38:
+            names[2] = "怎样安排一个人的周末?"
         items = []
         columns = [
             "unread",
@@ -507,18 +521,11 @@ def generate(id_, seed):
                 name=name,
                 name_length=len(name),
                 surname=["Wen", "Cao", "Lin", "Zhu", "Han", "Xu"][i],
-                text=[
-                    "紧急收到? 3",
-                    "Plain message",
-                    "收到 [ref]",
-                    "Report 7",
-                    "紧急 follow up",
-                    "Long plain message without numbers",
-                ][i],
+                text=scenario_texts(app_name, seed)[i],
                 members=[3, 7, 4, 8, 2, 9][i],
                 duration=(
                     [120, 300, 480, 660, 720, 900][i]
-                    if id_ in (25, 35)
+                    if app_name == "media"
                     else rng.randrange(110, 700)
                 ),
                 age_days=[1, 4, 2, 5, 6, 0][i],
@@ -545,28 +552,38 @@ def generate(id_, seed):
                     'print("a longer example for checking")',
                 ][i],
             )
+            if app_name == "shop":
+                from .scenarios import NAMES, PRODUCT_TEXTS
+                row["text"] = PRODUCT_TEXTS["shop"][NAMES["shop"].index(name)]
+            if id_ == 11:
+                from .scenarios import attachment_text
+                row["file_text"] = attachment_text(i, seed)
+                row["size"] = len(row["file_text"].encode("utf-8"))
             try:
                 ast.parse(row["code"])
                 row["check_pass"] = True
             except SyntaxError:
                 row["check_pass"] = False
+            if id_ == 64:
+                row["code"] += "\n" + "\n".join(f"# Step {step}: retain the intermediate result for inspection." for step in range(max(0, row["lines"]-len(row["code"].splitlines())-1)))
+                row["lines"] = len(row["code"].splitlines())
             if id_ == 33 and i % 2 == 0:
                 row["name"] = "紧急 " + row["name"]
             if id_ == 38:
-                row["text"] = " ".join(["word"] * row["words"])
+                row["text"] = ("我们沿着河岸记录社区的日常变化，整理居民的意见，并讨论公共空间的使用方式。" * 4)[:row["words"]]
             items.append(row)
         s = dict(
-            text=f"aLpha {prefix}eTA 3",
+            text=source_text(id_, seed),
             threshold=50,
             text_threshold=15,
             code_threshold=25,
-            artist="Arco " + nonce,
+            artist=["陈绮贞", "坂本龙一", "林生祥"][seed % 3],
             count=3 + seed % 7,
             date="2026-01-15",
             publisher="Echo",
             publisher_short="EC:",
-            tags=["blue-" + nonce, "weekly", "focus"],
-            surname="Lin" + nonce,
+            tags=[("research", "design", "travel")[seed % 3], "weekly", "focus"],
+            surname=["Lin", "Wang", "Zhang"][seed % 3],
             given_name="Mei",
             quantity=3,
             keyword="紧急",
@@ -574,18 +591,18 @@ def generate(id_, seed):
             tag="focus",
             function="solve",
             fixed_reply="已确认",
-            recipient="联系人甲",
+            recipient="林若宁",
             rename_targets=["value", "total"],
             reference_time="2026-01-15T12:00:00Z",
         )
         if id_ == 19:
-            s["text"] = f"aLpha, {nonce}! Report 3?"
+            s["text"] = f"城市更新观察：2026年1月{seed % 28 + 1}日，街区如何变得更宜居？"
         if id_ == 37:
             s["text"] = (
-                f"Summarize report {nonce}\nUse short sentences\nExplain the result"
+                f"Summarize the January {seed % 28 + 1} research report\nUse short sentences\nExplain the result"
             )
         if id_ in (17, 36):
-            s["text"] = f"aLpha 3 {prefix}eTa"
+            s["text"] = ["morning 3 Walk", "summer 7 Breeze", "city 2 Lights"][seed % 3]
         if id_ == 46:
             s["text"] = str(
                 100000000000
@@ -597,7 +614,7 @@ def generate(id_, seed):
                 f"value = {seed + 7}\nif value > 0:\n   total = value + 1\n   print(total)"
             )
         if id_ == 59:
-            s["text"] = f"alpha {nonce}\ngamma delta"
+            s["text"] = ["The algorithm uses a queue\nEach node is visited once", "The input contains an array\nThe result contains unique values", "The graph has weighted edges\nThe shortest path is returned"][seed % 3]
         public = dict(
             task_id=id_,
             title=task(id_)["title"],

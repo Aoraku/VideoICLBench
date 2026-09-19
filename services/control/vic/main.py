@@ -160,6 +160,9 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             software_workspaces=65,
             game_workspaces=10,
             native_app_certified=0,
+            frontend_review="human-review-required",
+            recording_entry_required=True,
+            native_process_capacity=12,
             recording_fps=recorder.fps,
             official_evaluation_ready=False,
         )
@@ -237,7 +240,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                     x["module"]: x["commit"] for x in source_lock["sources"]
                 },
                 implementation=implementation,
-                surface="application-benchmark"
+                surface="native-task-workspace"
                 if body.runtime == "browser"
                 else "development-workspace",
                 official=False,
@@ -445,6 +448,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                     await runtime.capture(run_id, url(run))
                 )
                 await runtime.close_run(run_id)
+            if run.runtime == "browser":
+                applications.release(run_id)
             with sessions() as db:
                 row = db.get(Run, run_id)
                 row.result = result

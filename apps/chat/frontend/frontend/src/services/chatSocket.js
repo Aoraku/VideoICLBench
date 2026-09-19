@@ -1,3 +1,4 @@
+import {nativeRun} from '../benchmark/bridge.js'
 import { ACCESS_TOKEN_KEY } from '../constants/storage.js'
 
 const HEARTBEAT_MS = 30000
@@ -19,6 +20,8 @@ function buildSocketUrl() {
  * @returns {() => void} 断开连接
  */
 export function connectChatSocket({ onMessage, onOpen, onClose } = {}) {
+  // This single-user isolated instance uses the original page's HTTP polling.
+  if (nativeRun) { const disconnect = () => {}; disconnect.send = () => false; return disconnect }
   let ws = null
   let stopped = false
   let reconnectMs = 1000

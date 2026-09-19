@@ -1,6 +1,6 @@
 {
   "verified_at": "2026-09-09T21:41:35.624567+00:00",
-  "surface": "application-benchmark",
+  "surface": "development-diagnostic",
   "official": false,
   "scope": {
     "application_modules": 13,
@@ -112,5 +112,6 @@
     "control_database": "PostgreSQL 17 in Docker / SQLite locally",
     "business_database": "one SQLite file per application run",
     "lab_server": "requires host access details"
-  }
+  },
+  "native_frontend_acceptance": false
 }

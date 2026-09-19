@@ -1,4 +1,4 @@
-"""Reference GUI acceptance: real rendered apps, with no direct business writes.
+"""Development control regression; this is NOT native frontend acceptance.
 
 DOM locators are used only by this private QA harness. Agent API remains pixels.
 """
@@ -77,6 +77,7 @@ async def main():
                     path = f"/v1/runs/{run['id']}"
                     await request("GET", path + "/observation")
                     page = runtime.sessions[run["id"]]["page"]
+                    await page.goto(page.url.replace("#", "?diagnostic=1#"))
                     page.set_default_timeout(12000)
                     failures = []
                     page.on("pageerror", lambda e: failures.append(str(e)))
@@ -105,9 +106,8 @@ async def main():
                                 async with page.expect_response(
                                     lambda r: r.url.endswith("/commands")
                                 ) as reply:
-                                    await page.get_by_label(
-                                        f"分类 {target}", exact=True
-                                    ).select_option(value)
+                                    await page.get_by_role("button", name=f"分类 {target}", exact=True).click()
+                                    await page.get_by_role("option", name=value or "清除标签", exact=False).click()
                                 assert (await reply.value).ok
                             elif op in ("select", "invite"):
                                 for id_ in ids:
@@ -216,13 +216,13 @@ async def main():
                     finally:
                         await request("DELETE", path)
                 print(
-                    f"PASS task {t:03d}: A/B/C through real application GUI", flush=True
+                    f"PASS task {t:03d}: A/B/C through development diagnostic controls", flush=True
                 )
         finally:
             (data / "report.json").write_text(
                 json.dumps(
                     dict(
-                        surface="application-benchmark",
+                        surface="development-diagnostic",
                         elapsed=round(time.monotonic() - start, 2),
                         results=results,
                     ),

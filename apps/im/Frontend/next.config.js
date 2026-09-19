@@ -2,12 +2,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     // TODO Start: [Student] Enable standalone build
-    output: 'standalone',
+    output: process.env.NEXT_PUBLIC_VIC_BENCHMARK === '1' ? 'export' : 'standalone',
+    basePath: process.env.NEXT_PUBLIC_VIC_BENCHMARK === '1' ? '/native-assets/im' : '',
+    images: {unoptimized: true},
     // TODO End
     reactStrictMode: false, /* @note: To prevent duplicated call of useEffect */
     // swcMinify: true,
 
     async headers() {
+        if (process.env.NEXT_PUBLIC_VIC_BENCHMARK === '1') return [];
         return [
             {
                 source: '/(.*)',
@@ -21,6 +24,7 @@ const nextConfig = {
     },
 
     async rewrites() {
+        if (process.env.NEXT_PUBLIC_VIC_BENCHMARK === '1') return [];
         // 仅在本地开发时生效（NEXT_PUBLIC_API_URL 未设置时）。
         // 生产部署时 nginx 已将 /api/ 代理到后端，Next.js 的 rewrite 不会被触发。
         const backendUrl = (process.env.VIC_BACKEND_URL || 'http://backend:80').replace(/\/$/, '');

@@ -9,7 +9,7 @@ requires-python = ">=3.11"
 dependencies = [
   "fastapi>=0.115,<1", "uvicorn>=0.34,<1", "sqlalchemy>=2.0,<3",
   "pydantic>=2.10,<3", "httpx>=0.28,<1", "PyYAML>=6,<7",
-  "playwright>=1.51,<2", "pillow>=11,<13", "imageio-ffmpeg>=0.6,<1",
+  "Django>=5.2,<6.0", "streamlit>=1.35,<2", "websockets>=15,<16", "playwright>=1.51,<2", "pillow>=11,<13", "imageio-ffmpeg>=0.6,<1",
 ]
 
 [project.optional-dependencies]

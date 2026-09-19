@@ -2,6 +2,9 @@
 #include <SDL2/SDL_ttf.h>
 #include <iostream>
 #include <vector>
+#include <fstream>
+#include <string>
+#include <cstdlib>
 
 #define DEPTH 3
 #define MAXN 100000000
@@ -474,6 +477,72 @@ void game_start() {
 	}
 }
 
+
+// Read-only scene snapshots and mouse intents connect the SDL interface to the
+// isolated application database. The desktop never receives a rule variant.
+void benchmark_scene(const char* directory) {
+    bool quit = false, opened = false;
+    std::string base(directory);
+    SDL_Event event;
+    while (!quit) {
+        int task = 66, color = 1, chosen = 0, map[15][15] = {0};
+        std::vector<pos> candidates, marks;
+        std::ifstream input(base + "/gomoku-state.txt");
+        input >> task >> color >> chosen;
+        for (int r=0;r<15;r++) for (int c=0;c<15;c++) {
+            int value=0; input >> value;
+            if (opened) map[c][r] = value==1 ? 2 : value==2 ? 1 : 0;
+        }
+        int count=0; input >> count;
+        for (int i=0;i<count;i++) {int r,c;input >> r >> c;candidates.push_back({c,r});}
+        input >> count;
+        for (int i=0;i<count;i++) {int r,c;input >> r >> c;marks.push_back({c,r});}
+        while (SDL_PollEvent(&event)) {
+            if (event.type==SDL_QUIT) quit=true;
+            if (event.type==SDL_MOUSEBUTTONDOWN && event.button.button==SDL_BUTTON_LEFT) {
+                int x=event.button.x,y=event.button.y;
+                if(x>=885 && x<=1205 && y>=180 && y<=245) {opened=!opened;continue;}
+                if(!opened || (task==67 && chosen)) continue;
+                for(const auto& p:candidates) {
+                    if(abs(x-(p.x*50+100))<21 && abs(y-(p.y*50+50))<21) {
+                        std::ofstream out(base+"/gomoku-intents.txt",std::ios::app);
+                        out << (task==66?"mark":"choose") << " " << p.y << " " << p.x << std::endl;
+                        break;
+                    }
+                }
+            }
+        }
+        print_map(map);
+        SDL_Color dark={36,51,62,255}, muted={123,134,141,255};
+        RenderText("五子棋",900,65,dark);
+        RenderText(opened?"棋谱练习":"棋谱与练习",900,118,muted);
+        SDL_Rect button={885,180,320,65};
+        SDL_SetRenderDrawColor(renderer,227,237,231,255);SDL_RenderFillRect(renderer,&button);
+        RenderText(opened?"返回首页":"打开练习棋谱",918,197,dark);
+        if(opened) {
+            for(const auto& p:candidates) {
+                SDL_Rect box={p.x*50+76,p.y*50+26,48,48};
+                SDL_SetRenderDrawColor(renderer,74,139,116,255);SDL_RenderDrawRect(renderer,&box);
+            }
+            for(const auto& p:marks) {
+                SDL_SetRenderDrawColor(renderer,48,130,190,255);
+                DrawFilledCircle(renderer,p.x*50+100,p.y*50+50,12);
+            }
+            RenderText(color==1?"当前执黑":"当前执白",900,310,dark);
+            RenderText(task==66?"点击候选位置标记":"点击候选位置落子",870,365,muted);
+            std::string status=chosen?"已落子":std::string("已保存标记：")+std::to_string(marks.size());
+            RenderText(status.c_str(),900,435,dark);
+            RenderText("棋盘行、列从左上开始",850,535,muted);
+            RenderText("绿色边框为候选位置",870,575,muted);
+        } else {
+            RenderText("欢迎来到棋谱练习室",870,330,dark);
+            RenderText("打开棋谱后查看局面",870,385,muted);
+            RenderText("再按示范完成操作",885,425,muted);
+        }
+        SDL_RenderPresent(renderer);SDL_Delay(40);
+    }
+}
+
 int main(int argc, char* args[]) {
 	// 必须执行你原版的 ran 数组边界初始化，否则 AI 评估区域全为 0 会死循环！
 	for (int i = 0; i < 15; i++) {
@@ -497,11 +566,12 @@ int main(int argc, char* args[]) {
 
 	if (SDL_Init(SDL_INIT_VIDEO) < 0 || TTF_Init() == -1) return -1;
 	window = SDL_CreateWindow("Gomoku AI Benchmark", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1280, 960, SDL_WINDOW_SHOWN);
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-	font = TTF_OpenFont("simhei.ttf", 36); 
+	renderer = SDL_CreateRenderer(window, -1, std::getenv("VIC_BENCH_DIRECTORY") ? SDL_RENDERER_SOFTWARE : SDL_RENDERER_ACCELERATED);
+	font = TTF_OpenFont("simhei.ttf", std::getenv("VIC_BENCH_DIRECTORY") ? 24 : 36);
 	if (!font) std::cout << "Warning: simhei.ttf not found!" << std::endl;
 
-	game_start();
+	if (const char* directory=std::getenv("VIC_BENCH_DIRECTORY")) benchmark_scene(directory);
+	else game_start();
 
 	if (font) TTF_CloseFont(font);
 	SDL_DestroyRenderer(renderer);

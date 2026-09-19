@@ -26,9 +26,10 @@
       14
     ],
     "schema_version": 1,
+    "frontend": "apps/chat/frontend/frontend/src",
     "entrypoint": "vic_apps.server:create_app",
     "state_backend": "sqlite-domain-tables",
-    "surface": "application-benchmark"
+    "surface": "native-task-workspace"
   },
   "im": {
     "id": "im",
@@ -45,9 +46,10 @@
       16
     ],
     "schema_version": 1,
+    "frontend": "apps/im/Frontend/src",
     "entrypoint": "vic_apps.server:create_app",
     "state_backend": "sqlite-domain-tables",
-    "surface": "application-benchmark"
+    "surface": "native-task-workspace"
   },
   "music": {
     "id": "music",
@@ -68,9 +70,10 @@
       32
     ],
     "schema_version": 1,
+    "frontend": "apps/music/blog/templates/blog",
     "entrypoint": "vic_apps.server:create_app",
     "state_backend": "sqlite-domain-tables",
-    "surface": "application-benchmark"
+    "surface": "native-task-workspace"
   },
   "news": {
     "id": "news",
@@ -92,9 +95,10 @@
       33
     ],
     "schema_version": 1,
+    "frontend": "apps/news/src/main/resources/web",
     "entrypoint": "vic_apps.server:create_app",
     "state_backend": "sqlite-domain-tables",
-    "surface": "application-benchmark"
+    "surface": "native-task-workspace"
   },
   "media": {
     "id": "media",
@@ -115,9 +119,10 @@
       35
     ],
     "schema_version": 1,
+    "frontend": "apps/portal/src/products/Media.tsx",
     "entrypoint": "vic_apps.server:create_app",
     "state_backend": "sqlite-domain-tables",
-    "surface": "application-benchmark"
+    "surface": "native-task-workspace"
   },
   "blog": {
     "id": "blog",
@@ -136,9 +141,10 @@
       42
     ],
     "schema_version": 1,
+    "frontend": "apps/portal/src/products/Blog.tsx",
     "entrypoint": "vic_apps.server:create_app",
     "state_backend": "sqlite-domain-tables",
-    "surface": "application-benchmark"
+    "surface": "native-task-workspace"
   },
   "studio": {
     "id": "studio",
@@ -157,9 +163,10 @@
       43
     ],
     "schema_version": 1,
+    "frontend": "apps/portal/src/products/Studio.tsx",
     "entrypoint": "vic_apps.server:create_app",
     "state_backend": "sqlite-domain-tables",
-    "surface": "application-benchmark"
+    "surface": "native-task-workspace"
   },
   "travel": {
     "id": "travel",
@@ -178,9 +185,10 @@
       54
     ],
     "schema_version": 1,
+    "frontend": "apps/portal/src/products/Travel.tsx",
     "entrypoint": "vic_apps.server:create_app",
     "state_backend": "sqlite-domain-tables",
-    "surface": "application-benchmark"
+    "surface": "native-task-workspace"
   },
   "shop": {
     "id": "shop",
@@ -199,9 +207,10 @@
       55
     ],
     "schema_version": 1,
+    "frontend": "apps/portal/src/products/Shop.tsx",
     "entrypoint": "vic_apps.server:create_app",
     "state_backend": "sqlite-domain-tables",
-    "surface": "application-benchmark"
+    "surface": "native-task-workspace"
   },
   "bank": {
     "id": "bank",
@@ -222,9 +231,10 @@
       57
     ],
     "schema_version": 1,
+    "frontend": "apps/portal/src/products/Bank.tsx",
     "entrypoint": "vic_apps.server:create_app",
     "state_backend": "sqlite-domain-tables",
-    "surface": "application-benchmark"
+    "surface": "native-task-workspace"
   },
   "code": {
     "id": "code",
@@ -247,9 +257,10 @@
       65
     ],
     "schema_version": 1,
+    "frontend": "apps/code/app/frontend.py",
     "entrypoint": "vic_apps.server:create_app",
     "state_backend": "sqlite-domain-tables",
-    "surface": "application-benchmark"
+    "surface": "native-task-workspace"
   },
   "gomoku": {
     "id": "gomoku",
@@ -265,9 +276,10 @@
       67
     ],
     "schema_version": 1,
+    "frontend": "apps/gomoku/main.cpp",
     "entrypoint": "vic_apps.server:create_app",
     "state_backend": "sqlite-domain-tables",
-    "surface": "application-benchmark"
+    "surface": "native-task-workspace"
   },
   "games": {
     "id": "games",
@@ -289,8 +301,9 @@
       75
     ],
     "schema_version": 1,
+    "frontend": "apps/portal/src/products/Games.tsx",
     "entrypoint": "vic_apps.server:create_app",
     "state_backend": "sqlite-domain-tables",
-    "surface": "application-benchmark"
+    "surface": "native-task-workspace"
   }
 }

@@ -7,3 +7,5 @@
 **/.next
 **/.pytest_cache
 **/dist
+
+**/out
