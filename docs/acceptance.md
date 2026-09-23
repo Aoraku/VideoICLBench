@@ -15,3 +15,5 @@
 五子棋检查命令为 `python scripts/check_native_ui.py 66,67 ABC`，需要 Linux、Xvfb、x11vnc、websockify、noVNC 以及 `apps/gomoku/build/gomoku_benchmark`。平台 Docker 镜像包含这些运行依赖；检查脚本在独立数据目录创建环境，通过棋盘画面的鼠标输入完成任务，并检查刷新后的业务结果。
 
 [服务器验收记录](native-deployment.json) 列出部署版本、服务状态、入口检查和持久数据校验结果；[应用界面预览](native-frontends.md) 用于分配人工验收。
+
+[独立应用入口验收](direct-application-acceptance.md) 提供 Computer Use 的 13 个模块、15 个代表性任务记录，以及录像与浏览器兼容性边界。

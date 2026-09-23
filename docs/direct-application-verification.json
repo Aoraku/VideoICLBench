@@ -1,0 +1,255 @@
+{
+  "date": "2026-09-24",
+  "server": "agentlab",
+  "application_code_revision": "1fa6856",
+  "image": "videoicl-native:direct-final",
+  "image_manifest": "sha256:71d1f03beb6b511cbd6b76e95a44e847388ec35f8a3ee2f724b02179e2ac2185",
+  "interaction": "human",
+  "ui_driver": "Computer Use cua_repl",
+  "scope": "13 modules, 15 representative A-variant tasks; not all 225 task variants",
+  "runs": [
+    {
+      "task_id": 1,
+      "module": "chat",
+      "variant": "A",
+      "seed": 0,
+      "run_id": "49678657b0234859b37c9c95d314895f",
+      "epoch": 0,
+      "actions": "首页→林若宁会话→中文输入→转换并发送→刷新",
+      "success": true,
+      "completion": 1.0,
+      "checks_passed": 12,
+      "checks_total": 12
+    },
+    {
+      "task_id": 23,
+      "module": "news",
+      "variant": "A",
+      "seed": 0,
+      "run_id": "f60dd259e9104503ab6717bf5803c12e",
+      "epoch": 0,
+      "actions": "首页→全部文章→分类菜单→数据标签→刷新",
+      "success": true,
+      "completion": 1.0,
+      "checks_passed": 17,
+      "checks_total": 17
+    },
+    {
+      "task_id": 5,
+      "module": "chat",
+      "variant": "A",
+      "seed": 0,
+      "run_id": "4b8c01cb66c54d008020ba75497547bd",
+      "epoch": 0,
+      "actions": "首页→会话→消息操作→蓝色标签→刷新",
+      "success": true,
+      "completion": 1.0,
+      "checks_passed": 17,
+      "checks_total": 17
+    },
+    {
+      "task_id": 6,
+      "module": "chat",
+      "variant": "A",
+      "seed": 0,
+      "run_id": "1a527d3a8cbd4e63982168863e3b0097",
+      "epoch": 0,
+      "actions": "首页→通讯录→联系人→分组菜单→保存",
+      "success": true,
+      "completion": 1.0,
+      "checks_passed": 17,
+      "checks_total": 17
+    },
+    {
+      "task_id": 17,
+      "module": "music",
+      "variant": "A",
+      "seed": 0,
+      "run_id": "199c662518574eb19e5d72f1a3e419ce",
+      "epoch": 0,
+      "actions": "首页→歌曲详情→编辑名称→保存→刷新",
+      "success": true,
+      "completion": 1.0,
+      "checks_passed": 12,
+      "checks_total": 12
+    },
+    {
+      "task_id": 15,
+      "module": "im",
+      "variant": "A",
+      "seed": 0,
+      "run_id": "14649afce1684da7b32eee3397089517",
+      "epoch": 0,
+      "actions": "消息首页→新建→发起群聊→选择三位联系人→完成→刷新",
+      "success": true,
+      "completion": 1.0,
+      "checks_passed": 12,
+      "checks_total": 12
+    },
+    {
+      "task_id": 21,
+      "module": "media",
+      "variant": "A",
+      "seed": 0,
+      "run_id": "b04aad5591c84e1caaa4bee60f418fbd",
+      "epoch": 0,
+      "actions": "发现首页→收藏夹→保存名称→刷新",
+      "success": true,
+      "completion": 1.0,
+      "checks_passed": 12,
+      "checks_total": 12
+    },
+    {
+      "task_id": 36,
+      "module": "blog",
+      "variant": "A",
+      "seed": 0,
+      "run_id": "5b63a9e9f7c44158ba2f15d5ed683ddb",
+      "epoch": 0,
+      "actions": "工作台首页→继续编辑→保存草稿→刷新",
+      "success": true,
+      "completion": 1.0,
+      "checks_passed": 12,
+      "checks_total": 12
+    },
+    {
+      "task_id": 37,
+      "module": "studio",
+      "variant": "A",
+      "seed": 0,
+      "run_id": "2f628ce724ad48c6adbe69d1ade73569",
+      "epoch": 0,
+      "actions": "工作台首页→提示词库→编辑多行文本→保存→刷新",
+      "success": true,
+      "completion": 1.0,
+      "checks_passed": 12,
+      "checks_total": 12
+    },
+    {
+      "task_id": 44,
+      "module": "travel",
+      "variant": "A",
+      "seed": 0,
+      "run_id": "78052e4b7d1148c483ff6f31a0e83394",
+      "epoch": 0,
+      "actions": "首页→常用旅客→填写姓名→保存→刷新",
+      "success": true,
+      "completion": 1.0,
+      "checks_passed": 12,
+      "checks_total": 12
+    },
+    {
+      "task_id": 45,
+      "module": "shop",
+      "variant": "A",
+      "seed": 0,
+      "run_id": "817df19ba2744599ac8a91b75666c8bb",
+      "epoch": 1,
+      "actions": "首页→商品详情→备注→保存→刷新；精确格式复核",
+      "success": true,
+      "completion": 1.0,
+      "checks_passed": 12,
+      "checks_total": 12
+    },
+    {
+      "task_id": 46,
+      "module": "bank",
+      "variant": "A",
+      "seed": 0,
+      "run_id": "3b805c1ef8c14c689d67db3249e891f1",
+      "epoch": 0,
+      "actions": "总览→转账汇款→备注→保存→刷新",
+      "success": true,
+      "completion": 1.0,
+      "checks_passed": 12,
+      "checks_total": 12
+    },
+    {
+      "task_id": 58,
+      "module": "code",
+      "variant": "A",
+      "seed": 0,
+      "run_id": "e5d155b555154bea86021d04192b7376",
+      "epoch": 0,
+      "actions": "题目列表→题目详情→提交代码→提交记录→刷新",
+      "success": true,
+      "completion": 1.0,
+      "checks_passed": 12,
+      "checks_total": 12
+    },
+    {
+      "task_id": 68,
+      "module": "games",
+      "variant": "A",
+      "seed": 0,
+      "run_id": "f59f7f5892b44926a1abdfb2380418bf",
+      "epoch": 0,
+      "actions": "游戏大厅→2048棋盘→向左移动→刷新",
+      "success": true,
+      "completion": 1.0,
+      "checks_passed": 1,
+      "checks_total": 1
+    },
+    {
+      "task_id": 67,
+      "module": "gomoku",
+      "variant": "A",
+      "seed": 0,
+      "run_id": "d4fd95e51cae4fecb63f8337a57fc06d",
+      "epoch": 0,
+      "actions": "首页→打开练习棋谱→鼠标落子→已落子反馈",
+      "success": true,
+      "completion": 1.0,
+      "checks_passed": 1,
+      "checks_total": 1
+    }
+  ],
+  "negative_cases": [
+    {
+      "task_id": 6,
+      "run_id": "1a527d3a8cbd4e63982168863e3b0097",
+      "epoch": 1,
+      "case": "reset_without_operations",
+      "success": false
+    },
+    {
+      "task_id": 45,
+      "run_id": "817df19ba2744599ac8a91b75666c8bb",
+      "epoch": 0,
+      "case": "extra_space_in_exact_text",
+      "success": false
+    }
+  ],
+  "checks": {
+    "pytest_full_suite": {
+      "passed": 557
+    },
+    "direct_evidence_suite": {
+      "passed": 6
+    },
+    "human_budget_test": {
+      "commands": 302,
+      "passed": true
+    },
+    "recording_upload": {
+      "run_id": "1989697acb2c4e1792b4c326f08bcc29",
+      "source": "synthetic_test_clip",
+      "duration_seconds": 2,
+      "ui_upload": true,
+      "decoded": true,
+      "inline_playback_completed": true,
+      "official_tutorial": false
+    },
+    "final_ui_rechecks": [
+      "Blog home displays saved Morning 3 Walk",
+      "Chat blue label rgb(52,120,219)",
+      "Expired Chat page gives explicit return-to-workbench instruction"
+    ]
+  },
+  "limits": [
+    "Screen capture permission and live capture are not covered by this acceptance.",
+    "An in-app-browser tab crashed when invoking a native video control through accessibility automation; coordinate-based inline playback completed after recovery.",
+    "System tasks 76–100 are deferred.",
+    "Formal tutorial content requires per-task human review."
+  ]
+}
