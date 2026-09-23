@@ -12,6 +12,11 @@ class CreateRun(StrictModel):
     seed: int = Field(ge=0, le=2147483647)
     mode: Literal["demo", "eval"] = "eval"
     runtime: Literal["web-dev", "browser", "windows", "linux", "android"] = "browser"
+    interaction: Literal["agent", "human"] = "agent"
+
+
+class HumanEvidence(StrictModel):
+    clipboard: str | None = Field(default=None, max_length=16000)
 
 
 class Action(StrictModel):

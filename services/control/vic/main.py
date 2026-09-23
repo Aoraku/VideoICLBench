@@ -2,6 +2,7 @@ import asyncio
 import hashlib
 import hmac
 import json
+import os
 import secrets
 import shutil
 import uuid
@@ -15,7 +16,7 @@ from . import business
 from .catalog import catalog, task, task_digest
 from .config import ROOT, DATA, PUBLIC_BASE, admin_token
 from .models import make_database, Run
-from .schemas import CreateRun, Action, Mutation, Review, EvaluateTask
+from .schemas import CreateRun, Action, Mutation, Review, EvaluateTask, HumanEvidence
 from .store import WorkspaceStore
 from .runtime import BrowserRuntime
 from .recording import Recorder
@@ -51,7 +52,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
         # Never silently resume a process that lost its browser and input log.
         with sessions() as db:
             for run in db.scalars(select(Run).where(Run.status == "running")):
-                run.status = "interrupted"
+                if run.manifest.get("interaction", "agent") == "agent":
+                    run.status = "interrupted"
             db.commit()
         yield
         await recorder.close()
@@ -111,6 +113,23 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             else f"{PUBLIC_BASE}/workspace/{run.id}#{ui_token(run)}"
         )
 
+    def human(run):
+        return run.manifest.get("interaction", "agent") == "human"
+
+    def direct_modules():
+        return os.environ.get("VIC_DIRECT_MODULES", "chat,news").split(",")
+
+    def links(run):
+        public_base = os.environ.get("VIC_APPLICATION_PUBLIC_BASE", "http://127.0.0.1:8771").rstrip("/")
+        return dict(workspace_url=url(run), application_url=(
+            f"{public_base}/apps/{run.initial['app']}/{run.id}#{ui_token(run)}"
+            if human(run) else None
+        ))
+
+    def remote_only(run):
+        if human(run):
+            raise HTTPException(409, "此环境在独立应用页面操作；远程截图、键鼠和服务器录制仅用于 Agent 会话。")
+
     def lock(run_id):
         return locks.setdefault(run_id, asyncio.Lock())
 
@@ -132,6 +151,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             result=run.result,
             created_at=run.created_at.isoformat(),
             manifest=run.manifest,
+            interaction=run.manifest.get("interaction", "agent"),
         )
 
     def save_status(run_id, status):
@@ -165,6 +185,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             native_process_capacity=12,
             recording_fps=recorder.fps,
             official_evaluation_ready=False,
+            direct_application_modules=direct_modules(),
         )
 
     @app.get("/v1/tasks", dependencies=[Depends(manager)])
@@ -215,6 +236,10 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 422, "Demo seeds: 0–999; evaluation/development seeds: 1000 and above"
             )
         initial = business.generate(body.task_id, body.seed)
+        if body.interaction == "human" and (
+            body.runtime != "browser" or initial["app"] not in direct_modules()
+        ):
+            raise HTTPException(409, "该应用的独立入口尚未开放")
         if body.runtime == "browser":
             initial = initialize_domain(initial)
         run_id = uuid.uuid4().hex
@@ -244,6 +269,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 if body.runtime == "browser"
                 else "development-workspace",
                 official=False,
+                interaction=body.interaction,
             ),
         )
         store.initialize(run.id, initial)
@@ -256,14 +282,14 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             db.add(run)
             db.commit()
             db.refresh(run)
-        return dict(**summarize(run), actor_token=actor, workspace_url=url(run))
+        return dict(**summarize(run), actor_token=actor, **links(run))
 
     @app.get("/v1/runs/{run_id}", dependencies=[Depends(manager)])
     def details(run_id):
         run = get_run(run_id)
         return dict(
             **summarize(run),
-            workspace_url=url(run),
+            **links(run),
             rule=task(run.task_id)["variants"][run.variant],
             events=[]
             if run.status == "destroyed"
@@ -303,6 +329,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
     async def observation(run_id, t=Depends(token)):
         async with lock(run_id):
             run = authorize(run_id, t)
+            remote_only(run)
             active(run)
             try:
                 shot = await runtime.screenshot(run_id, url(run))
@@ -319,6 +346,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
     async def action(run_id, body: Action, t=Depends(token)):
         async with lock(run_id):
             run = authorize(run_id, t)
+            remote_only(run)
             active(run)
             if body.epoch != run.epoch:
                 raise HTTPException(409, "Stale execution epoch")
@@ -392,10 +420,10 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 row.status = "ready"
                 db.commit()
                 db.refresh(row)
-                return dict(**summarize(row), workspace_url=url(row))
+                return dict(**summarize(row), **links(row))
 
     @app.post("/v1/runs/{run_id}/evaluate", dependencies=[Depends(manager)])
-    async def evaluate(run_id):
+    async def evaluate(run_id, body: HumanEvidence | None = None):
         async with lock(run_id):
             run = get_run(run_id)
             if run.result:
@@ -404,6 +432,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 active(run)
             if run_id in recorder.active:
                 raise HTTPException(409, "Stop recording before evaluating")
+            if human(run) and run.task_id == 43 and run.variant == "B" and (body is None or body.clipboard is None):
+                raise HTTPException(409, "请在工作台粘贴应用复制的内容，再提交剪贴板核验。")
             save_status(run_id, "sealing")
             state = store.snapshot(run_id)
             events = store.events(run_id)
@@ -412,13 +442,15 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 state = sealed["state"]
                 events = sealed["events"]
                 clipboard = (
-                    await runtime.clipboard(run_id)
+                    (body.clipboard if human(run) and body else await runtime.clipboard(run_id))
                     if run.task_id == 43 and run.variant == "B"
                     else None
                 )
                 result = application_eval.evaluate(
                     run.initial, state, run.variant, events, clipboard
                 )
+                if human(run) and run.task_id == 43 and run.variant == "B":
+                    result["clipboard_evidence_source"] = "human_paste"
             else:
                 result = business.evaluate(run.initial, state, run.variant, events)
             result.update(
@@ -477,6 +509,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
     async def start_recording(run_id):
         async with lock(run_id):
             run = get_run(run_id)
+            remote_only(run)
             active(run)
             if run.mode != "demo":
                 raise HTTPException(409, "Tutorial recording requires a demo run")

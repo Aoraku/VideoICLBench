@@ -12,6 +12,7 @@ from fastapi import FastAPI, Header, HTTPException, Depends, Request, WebSocket
 from fastapi.responses import FileResponse, Response, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict
+from typing import Literal
 from vic.config import ROOT
 from vic.schemas import Mutation
 from .store import ApplicationStore
@@ -85,6 +86,7 @@ def create_app():
         token: str
         epoch: int
         state: dict
+        interaction: Literal["agent", "human"] = "agent"
 
     @app.get("/healthz")
     def health():
@@ -105,6 +107,7 @@ def create_app():
                 epoch=body.epoch,
                 token_hash=hashlib.sha256(body.token.encode()).hexdigest(),
                 status="active",
+                interaction=body.interaction,
             ),
         )
         return dict(status="ready")
@@ -168,7 +171,7 @@ def create_app():
         m = auth(run_id, authorization)
         if m["status"] != "active" or m["epoch"] != body.epoch:
             raise HTTPException(409, "Application sealed or stale epoch")
-        if len(store.events(run_id)) >= 300:
+        if m.get("interaction", "agent") == "agent" and len(store.events(run_id)) >= 300:
             raise HTTPException(409, "Command budget exhausted")
         try:
             s = store.mutate(run_id, body)

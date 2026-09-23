@@ -13,6 +13,8 @@ services:
       VIC_PUBLIC_BASE: http://127.0.0.1:8765
       VIC_ROOT: /app
       VIC_APPLICATION_BASE: http://applications:8771
+      VIC_APPLICATION_PUBLIC_BASE: ${VIC_APPLICATION_PUBLIC_BASE:-http://127.0.0.1:18766}
+      VIC_DIRECT_MODULES: ${VIC_DIRECT_MODULES:-chat,news}
       VIC_APP_RUNTIME_TOKEN: ${VIC_APP_RUNTIME_TOKEN:?Set application worker credential}
     ports: ["127.0.0.1:${VIC_PORT:-8765}:8765"]
     volumes: ["run_data:/data"]
@@ -34,6 +36,7 @@ services:
       VIC_APP_DATA: /data/applications
       VIC_APP_RUNTIME_TOKEN: ${VIC_APP_RUNTIME_TOKEN:?Set application worker credential}
     volumes: ["application_data:/data"]
+    ports: ["127.0.0.1:${VIC_APPLICATION_PORT:-8771}:8771"]
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8771/healthz')"]

@@ -37,6 +37,7 @@ class ApplicationClient:
                 token=token,
                 epoch=run.epoch,
                 state=run.initial,
+                interaction=run.manifest.get("interaction", "agent"),
             ),
         )
 
