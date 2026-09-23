@@ -8,7 +8,7 @@ import shutil
 import uuid
 from contextlib import asynccontextmanager
 from pathlib import Path
-from fastapi import FastAPI, Depends, Header, HTTPException
+from fastapi import FastAPI, Depends, Header, HTTPException, Request
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy import select
@@ -117,7 +117,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
         return run.manifest.get("interaction", "agent") == "human"
 
     def direct_modules():
-        return os.environ.get("VIC_DIRECT_MODULES", "chat,news").split(",")
+        return os.environ.get("VIC_DIRECT_MODULES", "chat,im,music,news,media,blog,studio,travel,shop,bank,code,gomoku,games").split(",")
 
     def links(run):
         public_base = os.environ.get("VIC_APPLICATION_PUBLIC_BASE", "http://127.0.0.1:8771").rstrip("/")
@@ -538,6 +538,45 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 raise HTTPException(409, str(exc))
             except RuntimeError as exc:
                 raise HTTPException(503, str(exc))
+
+    @app.post("/v1/runs/{run_id}/recordings/upload", dependencies=[Depends(manager)])
+    async def upload_recording(run_id, epoch: int, request: Request):
+        from .human_recording import MAX_BYTES, convert
+        async with lock(run_id):
+            run = get_run(run_id)
+            if not human(run) or run.mode != "demo":
+                raise HTTPException(409, "仅人工演示环境可导入浏览器录像")
+            active(run)
+            if epoch != run.epoch:
+                raise HTTPException(409, "录像属于另一轮环境，请重新录制")
+            media_type = request.headers.get("content-type", "").split(";")[0]
+            if media_type not in ("video/webm", "video/mp4"):
+                raise HTTPException(415, "请上传 WebM 或 MP4 录像")
+            dest = data / "artifacts" / run_id
+            dest.mkdir(parents=True, exist_ok=True)
+            if (dest / "tutorial.mp4").exists():
+                raise HTTPException(409, "本轮已有录像，请重置后录制")
+            source, converted = dest / "upload.input", dest / "upload.mp4"
+            try:
+                size = 0
+                with source.open("wb") as f:
+                    async for chunk in request.stream():
+                        size += len(chunk)
+                        if size > MAX_BYTES:
+                            raise HTTPException(413, "录像不能超过 150 MB")
+                        f.write(chunk)
+                try:
+                    meta = await asyncio.to_thread(convert, source, converted, media_type, epoch)
+                except (ValueError, RuntimeError, OSError) as exc:
+                    raise HTTPException(422, "无法读取录像，请检查文件格式与时长") from exc
+                applications.seal(run_id)
+                converted.replace(dest / "tutorial.mp4")
+                (dest / "recording.json").write_text(json.dumps(meta, indent=2))
+                save_status(run_id, "recorded")
+                return meta
+            finally:
+                source.unlink(missing_ok=True)
+                converted.unlink(missing_ok=True)
 
     @app.get("/v1/runs/{run_id}/recordings/video", dependencies=[Depends(manager)])
     def video(run_id):

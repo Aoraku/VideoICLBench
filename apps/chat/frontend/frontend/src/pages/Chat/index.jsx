@@ -1799,7 +1799,7 @@ export default function ChatPage() {
                         <div className="list__time">{time}</div>
                       </div>
                       <div className="list__sub">{lastPreview(last)}</div>
-                      {c.benchmark_label && <div style={{fontSize:11,color:'#317060'}}>● {c.benchmark_label}</div>}
+                      {c.benchmark_label && <div style={{fontSize:11,color:({'蓝色':'#3478db','红色':'#df5454','绿色':'#2c9c6a'})[c.benchmark_label]||'#317060'}}>● {c.benchmark_label}</div>}
                       {nativeRun && [7,12,14].includes(currentBusiness()?.task_id) && <div style={{fontSize:10,color:'#718199'}}>时间序号 {c.benchmark_timestamp} · {c.benchmark_age_days} 天前</div>}
                       {nativeRun && currentBusiness()?.task_id===8 && <div style={{fontSize:11,color:'#718199'}}>{c.member_count} 位成员</div>}
                     </div>

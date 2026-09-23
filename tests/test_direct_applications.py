@@ -47,9 +47,50 @@ def test_human_commands_do_not_inherit_agent_budget(clients):
     assert not c.app.state.runtime.sessions
 
 
-def test_pilot_gate_and_human_recording_guard(clients):
+def test_pilot_gate_and_human_recording_guard(clients,monkeypatch):
+    monkeypatch.setenv("VIC_DIRECT_MODULES", "chat,news")
     c,w=clients
     assert c.post('/v1/runs',headers=admin(),json=dict(task_id=17,variant='A',seed=10001,interaction='human')).status_code==409
     r=c.post('/v1/runs',headers=admin(),json=dict(task_id=23,variant='A',seed=0,mode='demo',interaction='human')).json()
     assert c.post('/v1/runs/'+r['id']+'/recordings/start',headers=admin()).status_code==409
+    assert not c.app.state.runtime.sessions
+
+
+def test_all_application_modules_have_direct_entry(clients):
+    c,w=clients
+    modules={1:'chat',15:'im',17:'music',23:'news',21:'media',36:'blog',37:'studio',44:'travel',45:'shop',46:'bank',58:'code',66:'gomoku',68:'games'}
+    for task,module in modules.items():
+        r=human(c,task)
+        assert '/apps/'+module+'/' in r['application_url']
+        assert w.get('/api/runs/'+r['id'],headers=credential(r)).status_code==200
+    assert not c.app.state.runtime.sessions
+
+
+def test_import_recording_decode_seal_review_and_reset(clients,tmp_path):
+    import subprocess
+    import imageio_ffmpeg
+    c,w=clients
+    r=c.post('/v1/runs',headers=admin(),json=dict(task_id=1,variant='A',seed=0,mode='demo',interaction='human')).json()
+    path='/v1/runs/'+r['id'];wp='/api/runs/'+r['id']
+    state=w.get(wp,headers=credential(r)).json()['state']
+    assert w.post(wp+'/commands',headers=credential(r),json=dict(epoch=0,action_id='save',op='save',target='target',value=transform(1,0,state))).status_code==200
+    upload=path+'/recordings/upload?epoch=0'
+    assert c.post(upload,content=b'invalid').status_code==401
+    assert c.post(upload,headers=admin(),content=b'invalid').status_code==415
+    assert c.post(upload,headers={**admin(),'Content-Type':'video/webm'},content=b'invalid').status_code==422
+    clip=tmp_path/'test.mp4'
+    subprocess.run([imageio_ffmpeg.get_ffmpeg_exe(),'-y','-loglevel','error','-f','lavfi','-i','color=c=blue:s=320x240:r=30','-t','1','-c:v','libx264',str(clip)],check=True)
+    assert c.post(path+'/recordings/upload?epoch=1',headers={**admin(),'Content-Type':'video/mp4'},content=clip.read_bytes()).status_code==409
+    result=c.post(upload,headers={**admin(),'Content-Type':'video/mp4'},content=clip.read_bytes())
+    assert result.status_code==200,result.text
+    assert result.json()['source']=='human_browser' and result.json()['frames']>=29
+    assert not result.json()['entry_verified'] and not result.json()['official']
+    assert c.get(path+'/recordings/video',headers=admin()).headers['content-type']=='video/mp4'
+    assert w.post(wp+'/commands',headers=credential(r),json=dict(epoch=0,action_id='late',op='save',target='target',value='late')).status_code==409
+    review=dict(approved=True,reviewer='test',note='synthetic unit fixture')
+    assert c.post(path+'/recordings/review',headers=admin(),json=review).status_code==409
+    assert c.post(path+'/evaluate',headers=admin()).json()['success']
+    assert c.post(path+'/recordings/review',headers=admin(),json=review).json()['status']=='approved'
+    assert c.post(path+'/reset',headers=admin()).json()['epoch']==1
+    assert c.get(path+'/recordings/video',headers=admin()).status_code==404
     assert not c.app.state.runtime.sessions

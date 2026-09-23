@@ -14,7 +14,7 @@ services:
       VIC_ROOT: /app
       VIC_APPLICATION_BASE: http://applications:8771
       VIC_APPLICATION_PUBLIC_BASE: ${VIC_APPLICATION_PUBLIC_BASE:-http://127.0.0.1:18766}
-      VIC_DIRECT_MODULES: ${VIC_DIRECT_MODULES:-chat,news}
+      VIC_DIRECT_MODULES: ${VIC_DIRECT_MODULES:-chat,im,music,news,media,blog,studio,travel,shop,bank,code,gomoku,games}
       VIC_APP_RUNTIME_TOKEN: ${VIC_APP_RUNTIME_TOKEN:?Set application worker credential}
     ports: ["127.0.0.1:${VIC_PORT:-8765}:8765"]
     volumes: ["run_data:/data"]
