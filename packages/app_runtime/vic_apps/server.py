@@ -291,7 +291,7 @@ fetch('/native/music/'+run+'/authorize',{method:'POST',headers:{Authorization:'B
         if not token:
             if page or request.method != "GET":
                 raise HTTPException(403, "Application credential required")
-            return HTMLResponse('''<!doctype html><meta charset="utf-8"><title>Liugu OJ</title><p>正在打开在线评测系统…</p><script>
+            return HTMLResponse('''<!doctype html><meta charset="utf-8"><title>正在打开应用</title><p>正在打开独立应用…</p><script>
 const module=location.pathname.split('/')[2],run=location.pathname.split('/')[3],key='vic-'+module+':'+run;
 const token=location.hash.slice(1)||sessionStorage.getItem(key)||'';sessionStorage.setItem(key,token);
 fetch('/native/'+module+'/'+run+'/authorize',{method:'POST',headers:{Authorization:'Bearer '+token}}).then(async r=>{if(!r.ok)throw Error((await r.json()).detail);history.replaceState({},'',location.pathname);location.reload()}).catch(e=>document.querySelector('p').textContent=e.message);

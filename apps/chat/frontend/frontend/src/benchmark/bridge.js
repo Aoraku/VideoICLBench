@@ -26,6 +26,9 @@ export async function business(path = "", body) {
     body: body ? JSON.stringify(body) : undefined,
   });
   const data = await response.json();
+  if ([403, 410].includes(response.status)) {
+    window.dispatchEvent(new CustomEvent("vic-session-unavailable"));
+  }
   if (!response.ok)
     throw new Error(
       typeof data.detail === "string" ? data.detail : "操作未能保存，请重试",

@@ -15,7 +15,7 @@ export function HumanSession({run,token,onUpdate}:{run:HumanRun;token:string;onU
   }
   return <>
     <div className="session-heading"><div><h2>任务 {run.task_id} · 版本 {run.variant}</h2><span className="muted">独立应用 · {run.id.slice(0,8)} · 第 {run.epoch+1} 轮</span></div><div className="actions"><button disabled={busy||recordingBusy} onClick={()=>operation('reset')}>重置环境</button><button className="primary" disabled={busy||recordingBusy||!!run.result} onClick={()=>operation('evaluate')}>结束并评测</button></div></div>
-    {run.rule&&<div className="rule inline-rule"><b>录制者规则卡</b><span>{run.rule}</span></div>}
+    {run.rule&&<div className="rule inline-rule"><b>录制者规则卡</b><span>{run.rule}{run.task_id===45&&<small style={{display:"block"}}>数量与商品名紧邻，不额外插入空格。</small>}</span></div>}
     {error&&<p className="error" role="alert">{error}</p>}
     <section className="panel direct-launch"><span className="eyebrow">{run.result?'任务已结束':run.status==='recorded'?'录像已保存，等待评测':'应用已准备好'}</span><h2>在独立页面中使用应用</h2><p>打开后从应用首页开始，使用浏览器中的鼠标、输入法、菜单和快捷键完成任务。</p>
       {!run.result&&run.status!=='recorded'&&run.application_url&&<a className="direct-open" href={run.application_url} target="_blank" rel="noopener noreferrer">打开独立应用 ↗</a>}

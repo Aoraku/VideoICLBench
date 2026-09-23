@@ -81,7 +81,7 @@ export function Blog({ api }: { api: ProductAPI }) {
             <section className="blog-welcome">
               <div>
                 <span className="product-eyebrow">继续写作</span>
-                <h2>{s.type === "T" ? s.source.text : rows[0].name}</h2>
+                <h2>{s.type === "T" ? (s.outputs.target ?? s.source.text) : rows[0].name}</h2>
                 <p>编辑标题与正文，为文章整理标签，或准备发布。</p>
                 <button
                   className="product-primary"
