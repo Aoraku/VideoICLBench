@@ -192,6 +192,17 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
     def tasks():
         return catalog()
 
+    @app.get("/v1/tasks/{task_id}/recording-preview", dependencies=[Depends(manager)])
+    def recording_preview(task_id: int):
+        if not 1 <= task_id <= 75:
+            raise HTTPException(404, "此任务尚未开放录制")
+        # Match the recording portal's fixed demo fixture, without allocating a run.
+        initial = initialize_domain(business.generate(task_id, 0))
+        return dict(task_id=task_id, title=initial["title"], type=initial["type"],
+                    app=initial["app"], source=initial.get("source", {}),
+                    target_number=initial.get("target_number"),
+                    target_score=initial.get("target_score"))
+
     @app.get("/v1/tasks/{task_id}/contract", dependencies=[Depends(manager)])
     def contract(task_id: int):
         if not 1 <= task_id <= 100:

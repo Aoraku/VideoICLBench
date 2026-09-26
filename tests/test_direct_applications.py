@@ -111,3 +111,24 @@ def test_human_clipboard_evidence_is_required_and_identified(clients):
     assert result.json()['success'],result.text
     assert result.json()['clipboard_evidence_source']=='human_paste'
     assert not c.app.state.runtime.sessions
+
+
+def test_recording_preview_matches_demo_without_allocating_runs(clients):
+    from vic import business
+    from vic_apps.domain import initialize
+    c, _ = clients
+    assert c.get('/v1/tasks/15/recording-preview').status_code == 401
+    before = c.get('/v1/runs', headers=admin()).json()
+    for task_id in range(1, 76):
+        response = c.get(f'/v1/tasks/{task_id}/recording-preview', headers=admin())
+        assert response.status_code == 200, response.text
+        preview = response.json()
+        expected = initialize(business.generate(task_id, 0))
+        assert preview['source'] == expected.get('source', {})
+        assert preview['task_id'] == task_id
+        assert preview['target_number'] == expected.get('target_number')
+        assert preview['target_score'] == expected.get('target_score')
+        assert 'actor_token' not in preview and 'rule' not in preview
+    for task_id in (0, 76, 100, 101):
+        assert c.get(f'/v1/tasks/{task_id}/recording-preview', headers=admin()).status_code == 404
+    assert c.get('/v1/runs', headers=admin()).json() == before
