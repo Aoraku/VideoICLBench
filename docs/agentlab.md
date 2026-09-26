@@ -22,6 +22,31 @@ ssh -N -o ExitOnForwardFailure=yes -o ServerAliveInterval=30 \
 
 关闭隧道会断开该成员的访问；执行主机上的服务继续运行。公网域名入口需要独立配置 DNS、HTTPS 和成员认证。
 
+### macOS 自动连接
+
+具备免交互 SSH 登录权限的成员可安装登录后自动运行的后台连接。先关闭占用 18765、18766 端口的手动隧道，再在仓库目录运行：
+
+```bash
+python3 scripts/install_macos_tunnel.py --host qingle@agentlab
+```
+
+安装后直接访问 [平台入口](http://127.0.0.1:18765/)，无需打开终端。macOS 登录后自动连接；连接进程退出后由 launchd 自动拉起。SSH 每 15 秒检查服务器响应，连续三次无响应会退出并重连。电脑断网、关机或休眠期间无法访问，联网并唤醒后会重新连接；服务器本身不可用时需等待服务器恢复。
+
+配置位于 `~/Library/LaunchAgents/com.videoicl.agentlab-tunnel.plist`，日志位于 `~/Library/Logs/VideoICL/`。该配置仅保存连接参数，不保存平台密钥或 SSH 私钥。检查状态：
+
+```bash
+launchctl print gui/$(id -u)/com.videoicl.agentlab-tunnel
+curl --fail http://127.0.0.1:18765/healthz
+curl --fail http://127.0.0.1:18766/healthz
+```
+
+卸载自动连接：
+
+```bash
+launchctl bootout gui/$(id -u)/com.videoicl.agentlab-tunnel
+rm ~/Library/LaunchAgents/com.videoicl.agentlab-tunnel.plist
+```
+
 ## 验收流程
 
 1. 查看 [逐题索引](task-evaluation-map.md)，选择分配的题号、A/B/C 版本和种子。
