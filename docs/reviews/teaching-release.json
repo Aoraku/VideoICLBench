@@ -1,34 +1,35 @@
 {
-  "verified_at": "2026-09-27T23:27:52.205725+00:00",
-  "source_commit": "2757423431e8cce7bb58161f351b493a90d181e6",
-  "image": "sha256:99071a63bae94bfffe0153c1cceb5ea9af13e1b3a5f617ba6523a6cce31e05e0",
-  "image_tag": "videoicl-native:teaching-v6",
+  "verified_at": "2026-09-27T23:47:48.899588+00:00",
+  "source_commit": "341fbf964d26f3d3aa58f1017c1b5e2c9b5ad675",
+  "image": "sha256:58f7288fd4d1397d052d13a26494ae495437e446e5f7b34511506756ac65db75",
+  "image_tag": "videoicl-native:teaching-v7",
   "deployed": true,
   "services": "healthy",
-  "base_image": "videoicl-native:teaching-v5",
-  "base_validation": "teaching-v5-release.json",
+  "base_image": "videoicl-native:teaching-v6",
+  "base_validation": "teaching-v6-release.json",
   "validation": {
-    "full_suite_passed": 928,
+    "full_suite_passed": 930,
     "failed": 0,
-    "local_game_lessons_via_ui": 4,
-    "local_game_episodes_via_ui": 24,
-    "local_game_lesson_evaluation_success": true,
+    "local_content_lessons_via_ui": 6,
+    "local_content_episodes_via_ui": 36,
+    "local_lesson_evaluation_success": true,
+    "title_edit_regression_passed": true,
     "recorded_video": false,
-    "detail": "teaching-game-ui-validation.json"
+    "detail": "teaching-content-ui-validation.json"
   },
   "image_checks": {
-    "cases_generated": 75,
-    "mines_seeds": 6,
-    "source_package_match": true,
     "files": {
-      "games.py": "bd095309852b35e24ac8bcdd033c9fefedc56f96856102ec0578b4edc2f1aa74",
-      "teaching.py": "0af165c09933a5a2e44ffb5f2b354a94c30bb73cb7cfa831cb034df482b3942b",
-      "teaching_materials.py": "678fe29ed5750be93bb1932aff0973a2f05f7f100d07205e7ef71fd88e9f3b0f",
-      "portal_index": "266273b2bcb7363f1c340bc13a11ead20e3e5a14ebae25246a7e72db3a13efff"
-    }
+      "apps/portal/dist/index.html": "99fe5adebbb089c505377d15ec696ee15aabf9589e97f15144df53e88d4b3ca8",
+      "apps/news/src/main/resources/web/index.html": "840f4bec15a0281590b89210691b8fde6104615f3acf854ae21d9ba0ebebdfd3",
+      "apps/news/src/main/resources/web/native.js": "3291689c5559db126edd77a60eb3a10bf38efd7dae656964fe70807f1474c22b",
+      "apps/music/blog/static/benchmark/native.js": "8cb513dc186546a0ebbf655a188db42c1798d3379da6a88503922bf21c2659ad",
+      "apps/music/blog/templates/blog/benchmark_library.html": "648dea37a8ba8cc7d47305e95f1dd93126894fb4e9a9ea5a9f29a7982348f59c",
+      "apps/music/blog/templates/blog/benchmark_song_controls.html": "a8aeda371a5a8b4666229af5e64ee9861c1daedc51a87589ad2d3792ba940248"
+    },
+    "music_templates_rendered": 2
   },
   "live_checks": {
-    "source_commit": "2757423431e8cce7bb58161f351b493a90d181e6",
+    "source_commit": "341fbf964d26f3d3aa58f1017c1b5e2c9b5ad675",
     "services": {
       "http://127.0.0.1:18765": {
         "status": "ok",
@@ -54,102 +55,47 @@
       }
     },
     "files": {
-      "index.html": "266273b2bcb7363f1c340bc13a11ead20e3e5a14ebae25246a7e72db3a13efff",
-      "/assets/index-D8GBSAvM.js": "29c8e5c5100617774d98c70419782d4020bcfffec865c862b34c60fc39c56e74",
-      "/assets/index-BBHTa132.css": "d53667b719ba44c4174e3b56d7f9c5bc911a01d530a631b31ad7735d0490a06d"
+      "index.html": "99fe5adebbb089c505377d15ec696ee15aabf9589e97f15144df53e88d4b3ca8",
+      "/assets/index-BMLLTJhL.js": "20e1552c3d5e96d8d67b7f30c45949eaced45d40373b08e089e26bd7399c3b3a",
+      "/assets/index-BBHTa132.css": "d53667b719ba44c4174e3b56d7f9c5bc911a01d530a631b31ad7735d0490a06d",
+      "/native-assets/news/native.js": "3291689c5559db126edd77a60eb3a10bf38efd7dae656964fe70807f1474c22b",
+      "/native-assets/music/native.js": "8cb513dc186546a0ebbf655a188db42c1798d3379da6a88503922bf21c2659ad"
     },
-    "task72C": {
-      "run_id": "663819f4e37142cebe3222bd83950143",
-      "episodes": [
-        {
-          "index": 0,
-          "selection": [
-            2,
-            0
-          ],
-          "revealed_clue": 1,
-          "candidate_quadrants": 4,
-          "completed": 1
-        },
-        {
-          "index": 1,
-          "selection": [
-            1,
-            3
-          ],
-          "revealed_clue": 1,
-          "candidate_quadrants": 4,
-          "completed": 2
-        },
-        {
-          "index": 2,
-          "selection": [
-            0,
-            2
-          ],
-          "revealed_clue": 1,
-          "candidate_quadrants": 4,
-          "completed": 3
-        },
-        {
-          "index": 3,
-          "selection": [
-            2,
-            1
-          ],
-          "revealed_clue": 1,
-          "candidate_quadrants": 4,
-          "completed": 4
-        },
-        {
-          "index": 4,
-          "selection": [
-            2,
-            0
-          ],
-          "revealed_clue": 0,
-          "candidate_quadrants": 4,
-          "completed": 5
-        },
-        {
-          "index": 5,
-          "selection": [
-            2,
-            0
-          ],
-          "revealed_clue": 0,
-          "candidate_quadrants": 4,
-          "completed": 6
-        }
-      ],
-      "evaluation_success": true,
-      "old_credentials_rejected": true,
-      "verification_method": "API"
-    },
-    "verified_at": "2026-09-27T23:27:52.205725+00:00",
-    "task74A_ui": {
-      "run_id": "5f4856f5b19e406ba1d123a4af7224ab",
-      "episodes_completed": 1,
-      "total_episodes": 6,
-      "entered_via_homepage": true,
-      "color_visible": "white",
-      "choice": [
-        2,
-        7
-      ],
-      "flips": 5,
-      "final_black": 18,
-      "final_white": 32,
-      "selection_highlighted": true,
-      "board_disabled_after_move": true,
-      "next_episode_homepage": true,
-      "episode_evaluation_success": true,
-      "episode_evidence_sha256": "6347d126e83ae840b3002e24252fbd27f0df8432e665eaa3fe30d7e357b73cb0"
-    }
+    "verified_at": "2026-09-27T23:47:48.899588+00:00",
+    "native_ui": [
+      {
+        "task_id": 17,
+        "variant": "C",
+        "run_id": "aa295d3c723d48a79b4d2886635fdf7d",
+        "episodes_completed": 1,
+        "total_episodes": 6,
+        "entered_via_homepage": true,
+        "next_episode_homepage": true,
+        "episode_evaluation_success": true,
+        "episode_evidence_sha256": "3f3dcd5b38a19ab1bf687662740c69ab575bdd42f90d3ab9cb344db830028593",
+        "saved_output": "morning 3 walK",
+        "saved_notice_visible_after_reload": true
+      },
+      {
+        "task_id": 29,
+        "variant": "B",
+        "run_id": "b0676fa7540f44e9a122b1f14b7d6c7b",
+        "episodes_completed": 1,
+        "total_episodes": 6,
+        "entered_via_homepage": true,
+        "next_episode_homepage": true,
+        "episode_evaluation_success": true,
+        "episode_evidence_sha256": "e8add036c48a6850549e078b8db3e7c6a6c646d1ced3a5569fa03ae058aa7774",
+        "selected_name": "9 月文化活动指南发布",
+        "displayed_time": "2026-01-01 19:19 UTC",
+        "list_detail_dates_match": true,
+        "lesson_controls_survive_navigation_and_mutation": true
+      }
+    ]
   },
   "rollback_tags": [
-    "videoicl-control:before-teaching-v6",
-    "videoicl-applications:before-teaching-v6"
+    "videoicl-control:before-teaching-v7",
+    "videoicl-applications:before-teaching-v7"
   ],
   "database_backup_present": true,
   "remaining_gate": "Complete 75-case native UI/video checks and human rule-inference acceptance; actual capture frames including episode transitions must not contain private rules."
