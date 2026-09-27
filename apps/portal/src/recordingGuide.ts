@@ -56,5 +56,5 @@ export function recordingSteps(s:any, variant:string, rule:string):string[] {
     59:variant==='B'?'从 1 开始编号，格式为“1. 原内容”，句点后有一个空格。':'每一行都需要按规则处理。',
     60:'所有指定变量的定义和引用都需要一致修改，其他变量不变。',
   };
-  return [action + (s.object_count >= 24 ? ` 本轮共有 ${s.object_count} 个对象，请检查整个列表，并保留符合与不符合规则的例子。` : ""),`本版本的操作要求：${rule}。${details[s.task_id]||''}`,completion];
+  return [(s.episode_count>1 ? `本段录像需连续完成 ${s.episode_count} 组练习。每组完成后点应用右下角“下一组”，最后点“完成练习”；始终使用同一个应用标签页。` : '') + action + (s.object_count >= 24 ? ` 本轮共有 ${s.object_count} 个对象，请检查整个列表，并保留符合与不符合规则的例子。` : ""),`本版本的操作要求：${rule}。${details[s.task_id]||''}`,completion];
 }

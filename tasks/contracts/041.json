@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 41,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "AI 工作台：选择生成模型",
   "app": "studio",
   "type": "S",

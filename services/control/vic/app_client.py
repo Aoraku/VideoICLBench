@@ -2,6 +2,7 @@ import os
 from urllib.parse import urlsplit
 import hmac
 import httpx
+from .lessons import progress
 
 
 class ApplicationClient:
@@ -38,6 +39,7 @@ class ApplicationClient:
                 epoch=run.epoch,
                 state=run.initial,
                 interaction=run.manifest.get("interaction", "agent"),
+                lesson=progress(run.manifest.get("lesson")),
             ),
         )
 
@@ -46,6 +48,9 @@ class ApplicationClient:
 
     def seal(self, id_):
         return self.call("POST", f"/internal/runs/{id_}/seal")
+
+    def resume(self, id_):
+        return self.call("POST", f"/internal/runs/{id_}/resume")
 
     def release(self, id_):
         return self.call("POST", f"/internal/runs/{id_}/release")

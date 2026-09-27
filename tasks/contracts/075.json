@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 75,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "黑白棋：完成一轮操作",
   "app": "games",
   "type": "A",

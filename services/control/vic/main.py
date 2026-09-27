@@ -12,11 +12,11 @@ from fastapi import FastAPI, Depends, Header, HTTPException, Request
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy import select
-from . import business
+from . import business, lessons
 from .catalog import catalog, task, task_digest
 from .config import ROOT, DATA, PUBLIC_BASE, admin_token
 from .models import make_database, Run
-from .schemas import CreateRun, Action, Mutation, Review, EvaluateTask, HumanEvidence
+from .schemas import CreateRun, Action, Mutation, Review, EvaluateTask, HumanEvidence, LessonAdvance
 from .store import WorkspaceStore
 from .runtime import BrowserRuntime
 from .recording import Recorder
@@ -97,7 +97,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
 
     def ui_token(run):
         return hmac.new(
-            secret.encode(), f"ui:{run.id}:{run.epoch}".encode(), "sha256"
+            secret.encode(), (f"ui:{run.id}:{run.epoch}" +
+                              (f":lesson:{run.manifest['lesson']['index']}" if run.manifest.get('lesson') else '')).encode(), "sha256"
         ).hexdigest()
 
     def authorize_ui(run_id, t):
@@ -157,6 +158,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             created_at=run.created_at.isoformat(),
             manifest=run.manifest,
             interaction=run.manifest.get("interaction", "agent"),
+            lesson=lessons.progress(run.manifest.get("lesson")),
         )
 
     def save_status(run_id, status):
@@ -206,6 +208,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
         return dict(task_id=task_id, title=initial["title"], type=initial["type"],
                     app=initial["app"], source=initial.get("source", {}),
                     object_count=len(initial.get("items", [])),
+                    episode_count=lessons.episode_count(task_id),
                     target_number=initial.get("target_number"),
                     target_score=initial.get("target_score"))
 
@@ -252,6 +255,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             raise HTTPException(
                 422, "Demo seeds: 0–999; evaluation/development seeds: 1000 and above"
             )
+        if body.teaching and (body.interaction != "human" or body.mode != "demo" or body.runtime != "browser"):
+            raise HTTPException(422, "连续教学仅用于人工演示录制")
         initial = business.generate(body.task_id, body.seed)
         if body.interaction == "human" and (
             body.runtime != "browser" or initial["app"] not in direct_modules()
@@ -287,6 +292,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 else "development-workspace",
                 official=False,
                 interaction=body.interaction,
+                lesson=lessons.plan(body.task_id, body.seed) if body.teaching else None,
             ),
         )
         store.initialize(run.id, initial)
@@ -428,6 +434,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             with sessions() as db:
                 row = db.get(Run, run_id)
                 row.initial = initial
+                if row.manifest.get("lesson"):
+                    row.manifest = {**row.manifest, "lesson": lessons.plan(row.task_id, row.seed)}
                 row.manifest = {**row.manifest,
                     "task_digest": task_digest(row.task_id),
                     "initial_digest": hashlib.sha256(json.dumps(initial, sort_keys=True).encode()).hexdigest(),
@@ -449,6 +457,93 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 db.commit()
                 db.refresh(row)
                 return dict(**summarize(row), **links(row))
+
+    @app.post("/v1/runs/{run_id}/lesson/next")
+    async def next_lesson(run_id, body: LessonAdvance, credential=Depends(token)):
+        async with lock(run_id):
+            run = get_run(run_id)
+            current_contract(run)
+            lesson = run.manifest.get("lesson")
+            if not lesson or not human(run) or run.mode != "demo":
+                raise HTTPException(409, "此环境不属于连续教学录制")
+            if body.epoch != run.epoch:
+                raise HTTPException(409, "环境已重置，请重新打开应用")
+            # A previous episode credential may retry its transition, but cannot
+            # act in the new episode or advance it a second time.
+            expected_token = hmac.new(secret.encode(),
+                f"ui:{run.id}:{run.epoch}:lesson:{body.index}".encode(), "sha256").hexdigest()
+            if not hmac.compare_digest(credential, secret) and not hmac.compare_digest(credential, expected_token):
+                raise HTTPException(403, "Application credential required")
+            if body.index not in (lesson["index"], lesson["index"] - 1):
+                raise HTTPException(409, "练习进度已变化，请重新打开当前练习")
+
+            def response(row):
+                return dict(lesson=lessons.progress(row.manifest["lesson"]), epoch=row.epoch,
+                            application_url=lessons.native_path(row.initial['app'], row.id) + '#' + ui_token(row))
+
+            def prepare_episode(row):
+                store.initialize(run_id, row.initial)
+                try:
+                    applications.prepare(row, ui_token(row))
+                except Exception as exc:
+                    save_status(run_id, "environment_error")
+                    raise HTTPException(503, "下一组暂未载入，请重试；已完成的练习仍保留。") from exc
+                save_status(run_id, "ready")
+
+            if body.index < lesson["index"]:
+                if run.status in ("environment_error", "resetting"):
+                    prepare_episode(run)
+                return response(get_run(run_id))
+            if lesson["finished"]:
+                return response(run)
+            active(run)
+            sealed = applications.seal(run_id)
+            try:
+                result = application_eval.evaluate(run.initial, sealed['state'], run.variant, sealed['events'])
+            except Exception as exc:
+                applications.resume(run_id)
+                raise HTTPException(503, "本组检查暂未完成，请重试；当前操作仍保留。") from exc
+            if not result['success']:
+                applications.resume(run_id)
+                raise HTTPException(409, "本组操作尚未完成，请检查并保存后继续。")
+            archive = data / 'runs' / run_id / 'lesson' / f'epoch-{run.epoch}'
+            archive.mkdir(parents=True, exist_ok=True)
+            evidence_file = archive / f'episode-{lesson["index"]}.json'
+            evidence_file.write_text(json.dumps(dict(index=lesson['index'], seed=lesson['seeds'][lesson['index']],
+                initial=run.initial, final=sealed['state'], events=sealed['events'],
+                result=result, manifest=run.manifest), ensure_ascii=False, indent=2))
+            completed = lesson['completed'] + [dict(index=lesson['index'], result=result,
+                evidence_ref=f"/v1/runs/{run_id}/lesson/evidence/{run.epoch}/{lesson['index']}")]
+            finished = len(completed) == len(lesson['seeds'])
+            following = {**lesson, 'completed': completed, 'finished': finished,
+                         'index': lesson['index'] if finished else lesson['index'] + 1}
+            try:
+                initial = run.initial if finished else initialize_domain(
+                    business.generate(run.task_id, following['seeds'][following['index']]))
+            except Exception as exc:
+                applications.resume(run_id)
+                raise HTTPException(503, "下一组数据暂未准备好，请稍后重试。当前练习仍保留。") from exc
+            with sessions() as db:
+                row = db.get(Run, run_id)
+                row.initial = initial
+                row.manifest = {**row.manifest, 'lesson': following,
+                    'initial_digest': hashlib.sha256(json.dumps(initial, sort_keys=True).encode()).hexdigest()}
+                row.status = 'ready' if finished else 'resetting'
+                db.commit()
+                db.refresh(row)
+                if not finished:
+                    prepare_episode(row)
+            return response(get_run(run_id))
+
+    @app.get("/v1/runs/{run_id}/lesson/evidence/{epoch}/{index}", dependencies=[Depends(manager)])
+    def lesson_evidence(run_id, epoch: int, index: int):
+        get_run(run_id)
+        if epoch < 0 or index < 0:
+            raise HTTPException(404, "No episode evidence")
+        path = data / 'runs' / run_id / 'lesson' / f'epoch-{epoch}' / f'episode-{index}.json'
+        if not path.is_file():
+            raise HTTPException(404, "No episode evidence")
+        return FileResponse(path, media_type="application/json")
 
     @app.post("/v1/runs/{run_id}/evaluate", dependencies=[Depends(manager)])
     async def evaluate(run_id, body: HumanEvidence | None = None):
@@ -482,6 +577,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                     result["clipboard_evidence_source"] = "human_paste"
             else:
                 result = business.evaluate(run.initial, state, run.variant, events)
+            if run.manifest.get("lesson"):
+                result = lessons.aggregate(run.manifest["lesson"], result)
             result.update(
                 run_id=run_id,
                 status="completed",
@@ -499,6 +596,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                         events=events,
                         manifest=run.manifest,
                         result=result,
+                        episode_evidence=run.manifest.get("lesson", {}).get("completed", []) if run.manifest.get("lesson") else [],
                     ),
                     ensure_ascii=False,
                     indent=2,
@@ -618,7 +716,11 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
     async def review(run_id, body: Review):
         run = get_run(run_id)
         if body.approved:
+            if run.mode != "demo":
+                raise HTTPException(409, "只能批准演示录像")
             current_contract(run)
+            if lessons.episode_count(run.task_id) > 1 and not run.manifest.get("lesson"):
+                raise HTTPException(409, "此题需要完整的多组教学录像，请从录制台重新开始。")
         path = data / "artifacts" / run_id / "recording.json"
         if not path.exists():
             raise HTTPException(409, "No recording to review")

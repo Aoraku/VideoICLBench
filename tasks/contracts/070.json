@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 70,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "数独：识别需要填写的格子",
   "app": "games",
   "type": "C",

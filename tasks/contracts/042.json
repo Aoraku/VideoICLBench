@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 42,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "博客：发布满足条件的文章",
   "app": "blog",
   "type": "A",

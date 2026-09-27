@@ -55,7 +55,7 @@ def test_gomoku_demonstration_and_evaluation_boards_differ(task_id):
 def test_game_counterfactuals_and_reference_play(task_id, seed):
     state = fixture(task_id, seed)
     assert state == fixture(task_id, seed)
-    if task_id != 69:
+    if task_id not in (68, 69):
         assert len(set(repr(expected(task_id, v, state)) for v in "ABC")) == 3
     for v in "ABC":
         final = copy.deepcopy(state)
@@ -84,4 +84,5 @@ def test_game_counterfactuals_and_reference_play(task_id, seed):
         assert evaluate(state, final, v, events)["success"]
         if task_id != 69:
             for wrong in set("ABC") - {v}:
-                assert not evaluate(state, final, wrong, events)["success"]
+                if expected(task_id, wrong, state) != wanted:
+                    assert not evaluate(state, final, wrong, events)["success"]

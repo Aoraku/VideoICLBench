@@ -9,8 +9,8 @@ from datetime import datetime, timedelta, timezone
 import ast
 import random
 
-FIXTURE_VERSION = 2
-BATCH_TASKS = {5, 6, 8, 13, 14, 16, 22, 23, 24, 25, 30, 32, 33, 34,
+FIXTURE_VERSION = 3
+BATCH_TASKS = {5, 6, 8, 13, 14, 16, 22, 23, 24, 25, 32, 33, 34,
                38, 39, 42, 43, 48, 49, 54, 55, 56, 57, 65}
 
 # Realistic independent titles: title features must not be manufactured by appending
@@ -104,6 +104,12 @@ def enrich(id_, seed, items, source, rng):
     assign('year', rng.sample(range(1980, 2026), n))
     assign('same_day', [True, False])
 
+    if id_ == 7:
+        assign('unread', rng.sample(range(1, 90), n))
+        if seed % 3 == 0:
+            items[rng.randrange(n)]['unread'] = 0
+    if id_ in (47, 51):
+        assign('transfers', [seed % 3 + x for x in (0,1,2,3,4,5)])
     if id_ == 22:
         threshold_examples('duration', 240)
         threshold_examples('plays', 50)
@@ -166,7 +172,7 @@ def enrich(id_, seed, items, source, rng):
         assign('text', notes)
         assign('amount', [12, 25, 46, 57, 78, 91])
     if id_ == 41:
-        assign('name', ['Birch', 'Lumen Plus', 'Pine', 'Vale Ultra', 'Elm', 'Maple Studio'] if seed >= 1000 else ['Atlas', 'Orion Pro', 'Nova Lite', 'Cedar', 'Aurora Long', 'Vela'])
+        assign('name', rng.sample(['Birch', 'Lumen Plus', 'Pine', 'Vale Ultra', 'Elm', 'Maple Studio', 'Fern Pro', 'Willow', 'Clover Max', 'Aspen Lite', 'Oak', 'Ivy'] if seed >= 1000 else ['Atlas', 'Orion Pro', 'Nova Lite', 'Cedar', 'Aurora Long', 'Vela', 'Aria', 'Echo Small', 'Lynx', 'Cobalt XL', 'Quartz', 'Beryl', 'Coral Lite', 'Amber Max', 'Sage', 'Indigo', 'Reed', 'Aster', 'Dahlia Pro', 'Dove', 'Finch', 'Jade', 'Iris Max', 'Tern'], n))
     if id_ == 35:
         assign('duration', [120, 300, 599, 600, 720, 901])
     if id_ in (43, 65):
@@ -230,9 +236,26 @@ def enrich(id_, seed, items, source, rng):
             item['size'] = len(item['file_text'].encode('utf-8'))
     rng.shuffle(items)
     source.pop('_app')
+    demo = seed < 1000
+    examples = ["Please Review the Design Draft", "Please Confirm the Meeting Room", "Please Share the Weekly Report", "Bring the Updated Budget Tomorrow", "Check the Delivery Notes Carefully", "Send the Workshop Schedule Today"] if demo else ["Discuss the New Library Plan", "Confirm the Garden Visit", "Prepare the Museum Guide", "Share the Walking Route", "Review the Evening Programme", "Send the Reading List"]
+    if id_ in (1,3):
+        source['text'] = examples[seed % 6]
+    if id_ == 2:
+        source['text'] = (['Anna Wen','Chloe Lin','Emma Han','Noah Li','Mia Chen','Lily He'] if demo else ['Alice Qiu','Victor Bai','June Wei','May Deng','Rose Su','Eric Luo'])[seed % 6]
+    if id_ in (17,36):
+        source['text'] = (['morning 3 Walk','summer 7 Breeze','city 2 Lights','river 12 Song','quiet 5 Hours','open 14 Windows'] if demo else ['autumn 8 Lanterns','winter 6 Letters','orange 9 Moon','green 10 Fields','ocean 11 Drive','first 4 Snow'])[seed % 6]
+    if id_ == 18:
+        source['date'] = f"2026-{1 if demo else 2:02d}-{1+seed%27:02d}"
+    if id_ == 20:
+        vocabulary = ['research','design','travel','writing','music','community','science','history'] if demo else ['nature','reading','photography','gardening','cooking','hiking','architecture','education']
+        source['tags'] = random.Random(seed + 4020).sample(vocabulary, 2 + seed % 3)
+    if id_ == 21:
+        source['text'] = (['城市观察与阅读笔记','周末旅行与影像记录','日常料理与生活灵感','庭院植物与四季变化','街头摄影与光影练习','音乐会与演出记录'] if demo else ['森林露营与自然观察','图书馆漫游记','雨天手作与绘画','骑行路线与地图','植物园周末游记','咖啡馆的阅读时光'])[seed % 6]
+    if id_ == 44:
+        source['given_name'] = (['Mei','Ruo Ning','Zi An','Yu Chen','Xiao Man','Jia He'] if demo else ['Jun','Qing Yue','Zhi Xia','Ming Yuan','Ke Xin','Yu An'])[seed % 6]
     source['transaction_window'] = {'start':'2025-12-17', 'end':'2026-01-15', 'days':30}
     if id_ == 4:
-        source['text'] = ['评审改到会议室3，请在下午14点前确认', '请准备25份会议资料，送到会议室8', '周五到楼栋17参加讨论，请提前2小时确认'][seed % 3]
+        source['text'] = (['评审改到会议室3，请在下午14点前确认', '请准备25份会议资料，送到会议室8', '周五到楼栋17参加讨论，请提前2小时确认', '请核对10份预算表并打印6份备份', '会议安排在楼层20，请联系工位4', '活动分为12组，集合时间为上午9点'] if demo else ['请到会议室16领取8份资料', '班车安排在车位23，请在上午10点集合', '展览使用楼层15和6，请准备40张门票', '路线包含18个站点和2处休息区', '讲座开放35个座位，请提前7分钟入场', '请核对24份反馈并选取9个问题'])[seed % 6]
     if id_ == 45:
         source['quantity'] = 2 + seed % 7
     if id_ == 46:
@@ -241,9 +264,21 @@ def enrich(id_, seed, items, source, rng):
     if id_ == 58:
         source['text'] = f'limit = {seed % 9 + 2}\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)'
     if id_ == 59:
+        source['text'] = (examples[seed % 6] + '\n' + source['text'])
         source['text'] += '\nRead the input carefully\nKeep intermediate values\nCheck the boundary cases\nReturn the final result'
     if id_ == 60:
-        a, b = [('value', 'total'), ('length', 'area'), ('price', 'cost'), ('count', 'result')][seed % 4]
+        names = ([('value', 'total'), ('length', 'area'), ('price', 'cost'), ('count', 'result'),
+                  ('limit', 'answer'), ('scores', 'average')] if demo else
+                 [('height', 'volume'), ('budget', 'remaining'), ('items', 'subtotal'),
+                  ('steps', 'distance'), ('target', 'attempt'), ('samples', 'mean')])
+        a, b = names[seed % 6]
         source['rename_targets'] = [a, b]
-        source['text'] = f'{a} = {seed + 7}\nif {a} > 0:\n   {b} = {a} + 1\n   print({b})'
+        source['text'] = [
+            f'{a} = {seed + 7}\nif {a} > 0:\n   {b} = {a} + 1\n   print({b})',
+            f'{a} = {seed + 3}\n{b} = {a} * {a}\nprint({b}, {a})',
+            f'{a} = [7, 12, 5]\n{b} = sum({a})\nif {b} > 20:\n   print({b} - min({a}))',
+            f'{b} = 0\nfor {a} in range({seed + 4}):\n   {b} += {a}\nprint({b})',
+            f'{a} = {seed + 2}\n{b} = 1\nwhile {b} < {a}:\n   {b} *= 2\nprint({b}, {a})',
+            f'{a} = [6, 8, 10]\n{b} = sum({a}) / len({a})\nprint(round({b}, 2))',
+        ][seed % 6]
     return items

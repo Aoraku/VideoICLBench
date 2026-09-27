@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 15,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "通讯 B：创建群聊并邀请成员",
   "app": "im",
   "type": "A",

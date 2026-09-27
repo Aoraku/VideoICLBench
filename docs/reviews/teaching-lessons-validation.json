@@ -1,0 +1,54 @@
+{
+  "stage": "local_validation",
+  "deployed": false,
+  "fixture_version": 3,
+  "lesson_version": 1,
+  "test_runs": {
+    "teaching-v3-full-tests": {
+      "tests": 773,
+      "passed": 771,
+      "failed": 2,
+      "log_sha256": "34ba7ff86158b29a9e9200761e995d5f2163c409bc47e61f4a518730ccf48f4e"
+    },
+    "teaching-v3-final-regressions": {
+      "tests": 353,
+      "passed": 353,
+      "failed": 0,
+      "log_sha256": "8515408e06c7698afd1a0015662b84efd7f8efb5fcbc700703e911d716f80eae"
+    },
+    "lesson-all-task-tests": {
+      "tests": 166,
+      "passed": 166,
+      "failed": 0,
+      "log_sha256": "6b75a54f53353c1cf0e89c0a7c4e3d116cc05f6d3956bad97b8585efea4ae931"
+    },
+    "games-query-v3-tests": {
+      "tests": 190,
+      "passed": 190,
+      "failed": 0,
+      "log_sha256": "6635ea7a9c929d81c968e27afd7c30fd840ce0f883c6371f145e3d8b2c26ac27"
+    }
+  },
+  "full_suite_failure_resolution": {
+    "music_cookie_rotation": "Bootstrap page has no private state; old cookie and bearer token remain rejected. Related suite passes.",
+    "template_variable_semantics": "All six code structures preserve stdout and renamed variable values. Related suite passes."
+  },
+  "additional_targeted_checks": [
+    "2048 held-out direction variation",
+    "Six distinct code structures and disjoint query names",
+    "Proxy finished progress and connection failure recovery"
+  ],
+  "builds": [
+    "portal TypeScript and Vite",
+    "Chat frontend with /native-assets/chat/ base"
+  ],
+  "browser_evidence": "teaching-browser-evidence.json",
+  "fixture_audit": "teaching-lessons-v3.json",
+  "remaining": [
+    "Complete browser recording and frame-level privacy acceptance",
+    "Full native UI exercise for all 75 tasks",
+    "OJ duplicate sample resources",
+    "Audio/video actual duration matching",
+    "Human rule inference and rival-rule exclusion for every task"
+  ]
+}

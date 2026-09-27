@@ -31,6 +31,7 @@ def create_app():
         ).split(",")
     )
     store = ApplicationStore(root)
+    from vic.schemas import LessonAdvance
     from .native_processes import NativeProcesses
     native = NativeProcesses(root)
     app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
@@ -87,6 +88,7 @@ def create_app():
         epoch: int
         state: dict
         interaction: Literal["agent", "human"] = "agent"
+        lesson: dict | None = None
 
     @app.get("/healthz")
     def health():
@@ -108,6 +110,7 @@ def create_app():
                 token_hash=hashlib.sha256(body.token.encode()).hexdigest(),
                 status="active",
                 interaction=body.interaction,
+                lesson=body.lesson,
             ),
         )
         return dict(status="ready")
@@ -121,6 +124,15 @@ def create_app():
         return dict(
             state=store.snapshot(run_id), events=store.events(run_id), epoch=m["epoch"]
         )
+
+    @app.post("/internal/runs/{run_id}/resume", dependencies=[Depends(private)])
+    async def resume(run_id):
+        m = meta(run_id)
+        if m["status"] != "sealed":
+            raise HTTPException(409, "Only sealed episodes can resume")
+        m["status"] = "active"
+        save(run_id, m)
+        return dict(status="active")
 
     @app.post("/internal/runs/{run_id}/release", dependencies=[Depends(private)])
     async def release(run_id):
@@ -152,7 +164,7 @@ def create_app():
         m = auth(run_id, authorization)
         if m["status"] == "destroyed":
             raise HTTPException(410, "Destroyed")
-        return dict(epoch=m["epoch"], status=m["status"], state=store.snapshot(run_id))
+        return dict(epoch=m["epoch"], status=m["status"], lesson=m.get("lesson"), state=store.snapshot(run_id))
 
     @app.get("/api/runs/{run_id}/files/{file_id}")
     async def attachment(run_id, file_id, authorization: str = Header(default="")):
@@ -178,6 +190,38 @@ def create_app():
         except ValueError as e:
             raise HTTPException(422, str(e))
         return dict(epoch=m["epoch"], status=m["status"], state=s)
+
+    @app.get("/lesson-controls.js")
+    def lesson_controls():
+        return FileResponse(Path(__file__).with_name('lesson_controls.js'), media_type='application/javascript')
+
+    @app.post("/api/runs/{run_id}/lesson/next")
+    async def next_lesson(run_id, body: LessonAdvance, authorization: str = Header(default="")):
+        # Controller validates current/prior episode tokens for idempotent retry.
+        # No worker credential or private result is returned to the application.
+        m = meta(run_id)
+        if not m.get('lesson') or m.get('interaction') != 'human':
+            raise HTTPException(409, "此应用不属于连续教学")
+        import httpx
+        control_base = os.environ.get('VIC_CONTROL_BASE', 'http://127.0.0.1:8765').rstrip('/')
+        try:
+            async with httpx.AsyncClient(timeout=60, trust_env=False) as client:
+                result = await client.post(control_base + f'/v1/runs/{run_id}/lesson/next',
+                    headers={'Authorization': authorization}, json=body.model_dump())
+        except httpx.RequestError as exc:
+            raise HTTPException(503, "练习服务暂时无法连接，请重试；已保存的进度仍保留。") from exc
+        response = Response(result.content, status_code=result.status_code, media_type='application/json')
+        if result.is_success:
+            progress = result.json().get('lesson', {})
+            if progress.get('finished'):
+                current = meta(run_id)
+                current['lesson'] = progress
+                save(run_id, current)
+            # Music/Streamlit authenticate their native entry through an HttpOnly
+            # cookie. A new episode must authorize with its fresh fragment token.
+            for module in ('music','code','gomoku'):
+                response.delete_cookie(f'vic_{module}', path=f'/native/{module}/{run_id}/')
+        return response
 
     dist = ROOT / "apps/portal/dist"
     app.mount("/assets", StaticFiles(directory=dist / "assets"), name="assets")
@@ -220,6 +264,10 @@ def create_app():
         if meta(run_id)["app"] != "music":
             raise HTTPException(404, "Application mismatch")
         token = request.cookies.get("vic_music", "")
+        try:
+            auth(run_id, token)
+        except HTTPException:
+            token = ""
         if not token:
             return HTMLResponse('''<!doctype html><meta charset="utf-8"><title>青楽</title><p>正在打开音乐资料库…</p><script>
 const run=location.pathname.split('/')[3],key='vic-music:'+run;
@@ -288,6 +336,10 @@ fetch('/native/music/'+run+'/authorize',{method:'POST',headers:{Authorization:'B
         if module not in ("code", "gomoku") or meta(run_id)["app"] != module:
             raise HTTPException(404, "Application mismatch")
         token = request.cookies.get(f"vic_{module}", "")
+        try:
+            auth(run_id, token)
+        except HTTPException:
+            token = ""
         if not token:
             if page or request.method != "GET":
                 raise HTTPException(403, "Application credential required")
@@ -369,6 +421,17 @@ rfb.addEventListener('disconnect',()=>{const status=document.createElement('div'
     @app.middleware("http")
     async def headers(request, call_next):
         response = await call_next(request)
+        if response.status_code == 200 and 'text/html' in response.headers.get('content-type', '') and (
+                request.url.path.startswith('/native/') or request.url.path.startswith('/native-assets/im/')):
+            content = b''.join([chunk async for chunk in response.body_iterator])
+            script = b'<script src="/lesson-controls.js"></script>'
+            if b'<head>' in content:
+                content = content.replace(b'<head>', b'<head>' + script, 1)
+            else:
+                match = re.search(br"<!doctype[^>]*>", content, re.I)
+                content = content[:match.end()] + script + content[match.end():] if match else script + content
+            headers = {k: v for k, v in response.headers.items() if k.lower() not in ('content-length', 'content-encoding')}
+            response = Response(content, status_code=response.status_code, headers=headers)
         response.headers["Cache-Control"] = "no-store"
         response.headers["Referrer-Policy"] = "no-referrer"
         return response

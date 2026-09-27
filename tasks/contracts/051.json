@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 51,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "旅游：从路线列表选择方案",
   "app": "travel",
   "type": "S",

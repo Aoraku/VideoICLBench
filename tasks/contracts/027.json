@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 27,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "音乐：从搜索结果选择歌曲",
   "app": "music",
   "type": "S",

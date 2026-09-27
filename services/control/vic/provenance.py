@@ -12,6 +12,7 @@ def provenance():
     files += list((ROOT / "apps/portal/dist").rglob("*"))
     files += list((ROOT / "packages/app_runtime/vic_apps").glob("*.py"))
     files += list((ROOT / "packages/app_runtime/vic_apps").glob("*.json"))
+    files += list((ROOT / "packages/app_runtime/vic_apps").glob("*.js"))
     for directory in (
         "apps/chat/frontend/frontend/dist", "apps/im/Frontend/out",
         "apps/news/src/main/resources/web", "apps/music/blog/templates",

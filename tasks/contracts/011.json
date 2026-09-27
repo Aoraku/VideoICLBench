@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 11,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "通讯 A：从附件列表选择文件发送",
   "app": "chat",
   "type": "S",

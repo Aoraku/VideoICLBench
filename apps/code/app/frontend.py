@@ -6,6 +6,7 @@ import time
 import pandas as pd
 import datetime
 import benchmark_bridge as benchmark
+from contextlib import nullcontext
 
 # 配置
 st.set_page_config(
@@ -347,11 +348,18 @@ def render_submit_code_page():
     if benchmark.ACTIVE:
         current = benchmark.business()["state"]
         st.caption("待整理的代码草稿")
-        st.code(current["source"]["text"], language="python")
-    with st.form("submission_form"):
+        if current['task_id'] == 58:
+            benchmark.whitespace_view(current["source"]["text"])
+        else:
+            st.code(current["source"]["text"], language="python")
+    # Live whitespace inspection needs the editor value on each normal rerun.
+    with nullcontext() if benchmark.ACTIVE else st.form("submission_form"):
         language = st.selectbox("选择语言", languages)
         code = st.text_area("代码", height=400)
-        if st.form_submit_button("提交"):
+        if benchmark.ACTIVE and current['task_id'] == 58 and code:
+            benchmark.whitespace_view(code)
+        submit = st.button("提交", type="primary") if benchmark.ACTIVE else st.form_submit_button("提交")
+        if submit:
             data = {"problem_id": problem_id, "language": language, "code": code}
             res, _ = api_request("POST", "/api/submissions/", data=data)
             if res and res.get("code") == 200:

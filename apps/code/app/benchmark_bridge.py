@@ -8,6 +8,19 @@ import streamlit as st
 ACTIVE = bool(os.environ.get("VIC_NATIVE_RUN"))
 
 
+def whitespace_view(text):
+    """A display-only inspection aid; never alters submitted source characters."""
+    st.caption("空白字符视图：· 表示一个空格，⇥ 表示一个 Tab。编辑与提交保留原始字符。")
+    st.code(text.replace(" ", "·").replace("\t", "⇥   "), language="text", line_numbers=True)
+    indents = []
+    for number, line in enumerate(text.splitlines(), 1):
+        prefix = line[:len(line) - len(line.lstrip(" \t"))]
+        if prefix:
+            indents.append(f"第 {number} 行：{prefix.count(' ')} 个空格、{prefix.count(chr(9))} 个 Tab")
+    if indents:
+        st.caption("；".join(indents))
+
+
 def business(path="", body=None):
     response = requests.request(
         "POST" if body else "GET",

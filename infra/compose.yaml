@@ -34,6 +34,7 @@ services:
     environment:
       VIC_ROOT: /app
       VIC_APP_DATA: /data/applications
+      VIC_CONTROL_BASE: http://control:8765
       VIC_APP_RUNTIME_TOKEN: ${VIC_APP_RUNTIME_TOKEN:?Set application worker credential}
     volumes: ["application_data:/data"]
     ports: ["127.0.0.1:${VIC_APPLICATION_PORT:-8771}:8771"]

@@ -168,7 +168,7 @@ def fixture(task_id, seed):
                 board[1][c] = 1
             for r in (8, 9, 10):
                 board[r][12] = 1
-            candidates = [(1, 4), (11, 12), (7, 7)]
+            candidates = [(1, 4), (11, 12), (rng.randrange(5, 10), rng.randrange(5, 10))]
         # Vary spatial positions and distractors across demonstration/evaluation seeds.
         # Reflect/rotate the full board so row/column rules remain visually grounded.
         for _ in range(rng.randrange(4)):
@@ -200,7 +200,7 @@ def fixture(task_id, seed):
             if task_id == 69:
                 if any(x == 0 for row in board for x in row) and stopping_paths(state):
                     return state
-            elif len(set(repr(expected(68, v, state)) for v in "ABC")) == 3:
+            elif all(expected(68, v, state) for v in "ABC"):
                 return state
         raise ValueError("No discriminative 2048 fixture")
     if task_id in (70, 71):

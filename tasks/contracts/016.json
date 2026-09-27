@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 16,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "通讯 B：处理消息回执",
   "app": "im",
   "type": "A",

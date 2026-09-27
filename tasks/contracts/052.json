@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 52,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "购物：从商品列表选择商品",
   "app": "shop",
   "type": "S",

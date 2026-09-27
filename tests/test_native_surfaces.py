@@ -25,7 +25,11 @@ def test_music_cookie_is_run_scoped_and_rotates(clients):
     assert worker.post(f"/native/music/{second['id']}/authorize",headers={'Authorization':'Bearer '+token}).status_code==403
     assert worker.get(f"/native/product/shop/{first['id']}").status_code==404
     control.post(f"/v1/runs/{first['id']}/reset",headers=admin()).raise_for_status()
-    assert worker.get(path).status_code==403
+    entry=worker.get(path)
+    assert entry.status_code==200 and 'music-state' not in entry.text
+    assert '正在打开音乐资料库' in entry.text
+    assert worker.post(path+'authorize',headers={'Authorization':'Bearer '+token}).status_code==403
+    assert worker.get('/api/runs/'+first['id'],headers={'Authorization':'Bearer '+token}).status_code==403
 
 
 def test_native_release_requires_seal_and_preserves_data(clients):

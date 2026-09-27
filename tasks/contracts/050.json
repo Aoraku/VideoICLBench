@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 50,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "给账户标记重点",
   "app": "bank",
   "type": "C",

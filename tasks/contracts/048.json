@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 48,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "购物：给商品分类",
   "app": "shop",
   "type": "C",

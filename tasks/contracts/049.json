@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 49,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "银行：给交易标注类型",
   "app": "bank",
   "type": "C",

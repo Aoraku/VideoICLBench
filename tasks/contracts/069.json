@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 69,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "2048：执行一组移动",
   "app": "games",
   "type": "A",

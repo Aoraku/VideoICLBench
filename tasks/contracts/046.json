@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 46,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "银行：填写转账备注",
   "app": "bank",
   "type": "T",

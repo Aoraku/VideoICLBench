@@ -13,6 +13,12 @@ class CreateRun(StrictModel):
     mode: Literal["demo", "eval"] = "eval"
     runtime: Literal["web-dev", "browser", "windows", "linux", "android"] = "browser"
     interaction: Literal["agent", "human"] = "agent"
+    teaching: bool = False
+
+
+class LessonAdvance(StrictModel):
+    epoch: int = Field(ge=0)
+    index: int = Field(ge=0, le=100)
 
 
 class HumanEvidence(StrictModel):

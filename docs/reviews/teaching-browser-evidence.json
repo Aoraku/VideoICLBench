@@ -1,5 +1,5 @@
 {
-  "scope": "Local native UI acceptance of tasks 22 A, 53 C, 55 B, 57 C; not a 75-case video identifiability certification.",
+  "scope": "Local native UI observations and independent evaluation; not a 75-case video identifiability certification.",
   "cases": [
     {
       "task_id": 22,
@@ -352,6 +352,484 @@
         "official": false,
         "evidence_ref": "/v1/runs/f5b9d9ad627b40119f27e15f70be9420/evidence"
       }
+    },
+    {
+      "task_id": 1,
+      "variant": "A",
+      "run_id": "8ec0778802914ec6a5c37c01513bb08a",
+      "method": "human UI via cua_repl",
+      "episodes": 6,
+      "result": {
+        "success": true,
+        "completion": 1.0,
+        "checks": [
+          {
+            "id": "episode:1",
+            "passed": true
+          },
+          {
+            "id": "episode:2",
+            "passed": true
+          },
+          {
+            "id": "episode:3",
+            "passed": true
+          },
+          {
+            "id": "episode:4",
+            "passed": true
+          },
+          {
+            "id": "episode:5",
+            "passed": true
+          },
+          {
+            "id": "episode:6",
+            "passed": true
+          }
+        ],
+        "violations": [],
+        "episodes": [
+          {
+            "index": 0,
+            "result": {
+              "success": true,
+              "completion": 1.0,
+              "checks": [
+                {
+                  "id": "outputs:target",
+                  "passed": true
+                },
+                {
+                  "id": "business:objects",
+                  "passed": true
+                },
+                {
+                  "id": "business:messages",
+                  "passed": true
+                },
+                {
+                  "id": "business:memberships",
+                  "passed": true
+                },
+                {
+                  "id": "business:collections",
+                  "passed": true
+                },
+                {
+                  "id": "business:orders",
+                  "passed": true
+                },
+                {
+                  "id": "business:settings",
+                  "passed": true
+                },
+                {
+                  "id": "business:artifacts",
+                  "passed": true
+                },
+                {
+                  "id": "business:ledger",
+                  "passed": true
+                },
+                {
+                  "id": "business:balances",
+                  "passed": true
+                },
+                {
+                  "id": "business:clipboard_history",
+                  "passed": true
+                },
+                {
+                  "id": "business:files",
+                  "passed": true
+                }
+              ],
+              "violations": []
+            },
+            "evidence_ref": "/v1/runs/8ec0778802914ec6a5c37c01513bb08a/lesson/evidence/0/0"
+          },
+          {
+            "index": 1,
+            "result": {
+              "success": true,
+              "completion": 1.0,
+              "checks": [
+                {
+                  "id": "outputs:target",
+                  "passed": true
+                },
+                {
+                  "id": "business:objects",
+                  "passed": true
+                },
+                {
+                  "id": "business:messages",
+                  "passed": true
+                },
+                {
+                  "id": "business:memberships",
+                  "passed": true
+                },
+                {
+                  "id": "business:collections",
+                  "passed": true
+                },
+                {
+                  "id": "business:orders",
+                  "passed": true
+                },
+                {
+                  "id": "business:settings",
+                  "passed": true
+                },
+                {
+                  "id": "business:artifacts",
+                  "passed": true
+                },
+                {
+                  "id": "business:ledger",
+                  "passed": true
+                },
+                {
+                  "id": "business:balances",
+                  "passed": true
+                },
+                {
+                  "id": "business:clipboard_history",
+                  "passed": true
+                },
+                {
+                  "id": "business:files",
+                  "passed": true
+                }
+              ],
+              "violations": []
+            },
+            "evidence_ref": "/v1/runs/8ec0778802914ec6a5c37c01513bb08a/lesson/evidence/0/1"
+          },
+          {
+            "index": 2,
+            "result": {
+              "success": true,
+              "completion": 1.0,
+              "checks": [
+                {
+                  "id": "outputs:target",
+                  "passed": true
+                },
+                {
+                  "id": "business:objects",
+                  "passed": true
+                },
+                {
+                  "id": "business:messages",
+                  "passed": true
+                },
+                {
+                  "id": "business:memberships",
+                  "passed": true
+                },
+                {
+                  "id": "business:collections",
+                  "passed": true
+                },
+                {
+                  "id": "business:orders",
+                  "passed": true
+                },
+                {
+                  "id": "business:settings",
+                  "passed": true
+                },
+                {
+                  "id": "business:artifacts",
+                  "passed": true
+                },
+                {
+                  "id": "business:ledger",
+                  "passed": true
+                },
+                {
+                  "id": "business:balances",
+                  "passed": true
+                },
+                {
+                  "id": "business:clipboard_history",
+                  "passed": true
+                },
+                {
+                  "id": "business:files",
+                  "passed": true
+                }
+              ],
+              "violations": []
+            },
+            "evidence_ref": "/v1/runs/8ec0778802914ec6a5c37c01513bb08a/lesson/evidence/0/2"
+          },
+          {
+            "index": 3,
+            "result": {
+              "success": true,
+              "completion": 1.0,
+              "checks": [
+                {
+                  "id": "outputs:target",
+                  "passed": true
+                },
+                {
+                  "id": "business:objects",
+                  "passed": true
+                },
+                {
+                  "id": "business:messages",
+                  "passed": true
+                },
+                {
+                  "id": "business:memberships",
+                  "passed": true
+                },
+                {
+                  "id": "business:collections",
+                  "passed": true
+                },
+                {
+                  "id": "business:orders",
+                  "passed": true
+                },
+                {
+                  "id": "business:settings",
+                  "passed": true
+                },
+                {
+                  "id": "business:artifacts",
+                  "passed": true
+                },
+                {
+                  "id": "business:ledger",
+                  "passed": true
+                },
+                {
+                  "id": "business:balances",
+                  "passed": true
+                },
+                {
+                  "id": "business:clipboard_history",
+                  "passed": true
+                },
+                {
+                  "id": "business:files",
+                  "passed": true
+                }
+              ],
+              "violations": []
+            },
+            "evidence_ref": "/v1/runs/8ec0778802914ec6a5c37c01513bb08a/lesson/evidence/0/3"
+          },
+          {
+            "index": 4,
+            "result": {
+              "success": true,
+              "completion": 1.0,
+              "checks": [
+                {
+                  "id": "outputs:target",
+                  "passed": true
+                },
+                {
+                  "id": "business:objects",
+                  "passed": true
+                },
+                {
+                  "id": "business:messages",
+                  "passed": true
+                },
+                {
+                  "id": "business:memberships",
+                  "passed": true
+                },
+                {
+                  "id": "business:collections",
+                  "passed": true
+                },
+                {
+                  "id": "business:orders",
+                  "passed": true
+                },
+                {
+                  "id": "business:settings",
+                  "passed": true
+                },
+                {
+                  "id": "business:artifacts",
+                  "passed": true
+                },
+                {
+                  "id": "business:ledger",
+                  "passed": true
+                },
+                {
+                  "id": "business:balances",
+                  "passed": true
+                },
+                {
+                  "id": "business:clipboard_history",
+                  "passed": true
+                },
+                {
+                  "id": "business:files",
+                  "passed": true
+                }
+              ],
+              "violations": []
+            },
+            "evidence_ref": "/v1/runs/8ec0778802914ec6a5c37c01513bb08a/lesson/evidence/0/4"
+          },
+          {
+            "index": 5,
+            "result": {
+              "success": true,
+              "completion": 1.0,
+              "checks": [
+                {
+                  "id": "outputs:target",
+                  "passed": true
+                },
+                {
+                  "id": "business:objects",
+                  "passed": true
+                },
+                {
+                  "id": "business:messages",
+                  "passed": true
+                },
+                {
+                  "id": "business:memberships",
+                  "passed": true
+                },
+                {
+                  "id": "business:collections",
+                  "passed": true
+                },
+                {
+                  "id": "business:orders",
+                  "passed": true
+                },
+                {
+                  "id": "business:settings",
+                  "passed": true
+                },
+                {
+                  "id": "business:artifacts",
+                  "passed": true
+                },
+                {
+                  "id": "business:ledger",
+                  "passed": true
+                },
+                {
+                  "id": "business:balances",
+                  "passed": true
+                },
+                {
+                  "id": "business:clipboard_history",
+                  "passed": true
+                },
+                {
+                  "id": "business:files",
+                  "passed": true
+                }
+              ],
+              "violations": []
+            },
+            "evidence_ref": "/v1/runs/8ec0778802914ec6a5c37c01513bb08a/lesson/evidence/0/5"
+          }
+        ],
+        "episode_count": 6,
+        "run_id": "8ec0778802914ec6a5c37c01513bb08a",
+        "status": "completed",
+        "epoch": 0,
+        "official": false,
+        "evidence_ref": "/v1/runs/8ec0778802914ec6a5c37c01513bb08a/evidence"
+      },
+      "observations": [
+        "Same application tab across all six episodes",
+        "Each episode opened from homepage and conversation list",
+        "Premature next step blocked with neutral message",
+        "Final completion state visible"
+      ],
+      "video_capture": "not_verified; system capture picker unavailable to test tooling"
+    },
+    {
+      "task_id": 58,
+      "variant": "C",
+      "run_id": "a92e74ce56074cb7aea2fa09c5d63f8c",
+      "epoch": 1,
+      "method": "human UI via cua_repl",
+      "episode_result": {
+        "success": true,
+        "completion": 1.0,
+        "checks": [
+          {
+            "id": "code_rules_and_bindings",
+            "passed": true
+          },
+          {
+            "id": "business:objects",
+            "passed": true
+          },
+          {
+            "id": "business:messages",
+            "passed": true
+          },
+          {
+            "id": "business:memberships",
+            "passed": true
+          },
+          {
+            "id": "business:collections",
+            "passed": true
+          },
+          {
+            "id": "business:orders",
+            "passed": true
+          },
+          {
+            "id": "business:settings",
+            "passed": true
+          },
+          {
+            "id": "business:artifacts",
+            "passed": true
+          },
+          {
+            "id": "business:ledger",
+            "passed": true
+          },
+          {
+            "id": "business:balances",
+            "passed": true
+          },
+          {
+            "id": "business:clipboard_history",
+            "passed": true
+          },
+          {
+            "id": "business:files",
+            "passed": true
+          }
+        ],
+        "violations": []
+      },
+      "completed_episodes": 1,
+      "observations": [
+        "Homepage to problem detail to submission editor",
+        "Source displays three/six spaces; submitted code displays one/two Tab characters",
+        "Whitespace preview preserves actual input characters",
+        "Save succeeds and same application tab opens episode 2 problem list"
+      ],
+      "video_capture": "not_verified",
+      "remaining": "Five episodes and full-video acceptance remain unverified"
     }
   ]
 }

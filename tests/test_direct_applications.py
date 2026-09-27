@@ -70,10 +70,14 @@ def test_import_recording_decode_seal_review_and_reset(clients,tmp_path):
     import subprocess
     import imageio_ffmpeg
     c,w=clients
-    r=c.post('/v1/runs',headers=admin(),json=dict(task_id=1,variant='A',seed=0,mode='demo',interaction='human')).json()
+    r=c.post('/v1/runs',headers=admin(),json=dict(task_id=1,variant='A',seed=0,mode='demo',interaction='human',teaching=True)).json()
     path='/v1/runs/'+r['id'];wp='/api/runs/'+r['id']
     state=w.get(wp,headers=credential(r)).json()['state']
     assert w.post(wp+'/commands',headers=credential(r),json=dict(epoch=0,action_id='save',op='save',target='target',value=transform(1,0,state))).status_code==200
+    from test_lessons import advance, operate
+    for index in range(6):
+        if index: operate(w,r,'A')
+        r={**r,**advance(c,r,index)}
     upload=path+'/recordings/upload?epoch=0'
     assert c.post(upload,content=b'invalid').status_code==401
     assert c.post(upload,headers=admin(),content=b'invalid').status_code==415
@@ -137,9 +141,9 @@ def test_recording_preview_matches_demo_without_allocating_runs(clients):
 def test_legacy_server_video_cannot_be_approved_without_rule_free_evidence(clients):
     import json
     c,w=clients
-    r=human(c);path='/v1/runs/'+r['id'];wp='/api/runs/'+r['id']
-    state=w.get(wp,headers=credential(r)).json()['state']
-    w.post(wp+'/commands',headers=credential(r),json=dict(epoch=0,action_id='save',op='save',target='target',value=transform(1,0,state))).raise_for_status()
+    from test_lessons import create_lesson, operate
+    r=create_lesson(c,22);path='/v1/runs/'+r['id'];wp='/api/runs/'+r['id']
+    operate(w,r,'A')
     assert c.post(path+'/evaluate',headers=admin()).json()['success']
     dest=c.app.state.store.directory.parent/'artifacts'/r['id']
     dest.mkdir(parents=True,exist_ok=True)

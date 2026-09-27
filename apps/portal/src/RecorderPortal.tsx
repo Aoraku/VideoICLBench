@@ -26,10 +26,16 @@ export function RecorderPortal(){
   useEffect(()=>{if(!token)return;Promise.all([api('/v1/tasks',token),api('/v1/capabilities',token)]).then(([a,b])=>{setTasks(a.tasks);setModules(b.direct_application_modules||[])}).catch(e=>setError(String(e)))},[token]);
   useEffect(()=>{setPreview(null);setPreviewError('');setNotice('');setClipboard('');setCapture(null);if(!selected||selected.id>75)return;let current=true;api(`/v1/tasks/${selected.id}/recording-preview`,token).then(p=>{if(current)setPreview(p)}).catch(e=>{if(current)setPreviewError(String(e))});return()=>{current=false}},[selected?.id,token]);
   useEffect(()=>{if(!locked)return;const warn=(e:BeforeUnloadEvent)=>{e.preventDefault();e.returnValue=''};window.addEventListener('beforeunload',warn);return()=>window.removeEventListener('beforeunload',warn)},[locked]);
+  useEffect(()=>{
+    if(!privateCapture||!run?.lesson||run.lesson.total<2)return;
+    const id=run.id;let live=true;
+    const timer=setInterval(()=>{api(`/v1/runs/${id}`,token).then(value=>{if(live)update(value)}).catch(()=>{})},1500);
+    return()=>{live=false;clearInterval(timer)};
+  },[privateCapture,run?.id,token]);
   async function prepare(reset=false){
     if(!selected)throw Error('请先选择任务。');
-    if(run&&!reset&&['ready','running'].includes(run.status))return run;
-    const next=run&&reset?await api(`/v1/runs/${run.id}/reset`,token,'POST'):await api('/v1/runs',token,'POST',{task_id:selected.id,variant,seed:0,mode:'demo',runtime:'browser',interaction:'human'});
+    if(run?.lesson&&!reset&&['ready','running'].includes(run.status))return run;
+    const next=run?.lesson&&reset?await api(`/v1/runs/${run.id}/reset`,token,'POST'):await api('/v1/runs',token,'POST',{task_id:selected.id,variant,seed:0,mode:'demo',runtime:'browser',interaction:'human',teaching:true});
     const value={...next,rule:selected.variants[variant]};update(value);return value as HumanRun;
   }
   async function reset(){setBusy(true);setError('');try{appWindow.current?.close();appWindow.current=null;setCapture(null);await prepare(true);setNotice('环境已重置。点击“开始录制”将从应用首页进入。')}catch(e){setError(String(e))}finally{setBusy(false)}}
@@ -61,7 +67,7 @@ export function RecorderPortal(){
   async function evaluate(r:HumanRun){
     setBusy(true);setError('');try{const result=await api(`/v1/runs/${r.id}/evaluate`,token,'POST',r.task_id===43&&r.variant==='B'?{clipboard}:{});update({...r,status:'completed',result})}catch(e){setError(String(e))}finally{setBusy(false)}
   }
-  function recorded(r:HumanRun){update(r);setNotice('录像已保存，可以回放检查。');if(r.status==='recorded'&&!r.result&&!(r.task_id===43&&r.variant==='B'))void evaluate(r)}
+  async function recorded(r:HumanRun){const current=await api(`/v1/runs/${r.id}`,token);update(current);setNotice('录像已保存，可以回放检查。');if(current.status==='recorded'&&!current.result&&!(current.task_id===43&&current.variant==='B'))void evaluate(current)}
   async function loadHistory(){try{setHistory((await api('/v1/runs',token)).filter((r:HumanRun)=>r.interaction==='human'&&r.mode==='demo'))}catch(e){setError(String(e))}}
   async function openHistory(r:HumanRun){setBusy(true);try{const full=await api(`/v1/runs/${r.id}`,token);update(full);setVariant(r.variant);setSelected(tasks.find(t=>t.id===r.task_id)||null);setHistory(null)}catch(e){setError(String(e))}finally{setBusy(false)}}
   if(!token)return <main className="login"><div className="brand"><span className="logo">V</span>VideoICL</div><h1>视频录制台</h1><p>输入访问密钥，选择任务开始录制。</p><form onSubmit={e=>{e.preventDefault();sessionStorage.setItem('vic-manager',entry);setToken(entry);setEntry('');setError('')}}><label>访问密钥<input type="password" value={entry} onChange={e=>setEntry(e.target.value)} required autoComplete="off"/></label><button className="primary">进入录制台</button></form>{error&&<p className="error" role="alert">{error}</p>}</main>;
@@ -74,7 +80,7 @@ export function RecorderPortal(){
     <section className="panel recorder-card" aria-label="录制任务卡">{selected?<><p className="eyebrow">任务 {String(selected.id).padStart(3,'0')}</p><h2>{selected.title}</h2>{!privateCapture&&<><div className="segmented">{'ABC'.split('').map(v=><button key={v} disabled={locked} aria-pressed={variant===v} className={variant===v?'chosen':''} onClick={()=>{setVariant(v);setCapture(null);setNotice('');setClipboard('')}}>版本 {v}</button>)}</div>
       <div className="rule"><span>版本 {variant} 的规则</span><p>{selected.variants[variant]}</p>{selected.id===45&&<p>数量与商品名紧邻，不额外插入空格。</p>}</div>
       <div className="recording-instructions"><h3>录制中要完成的事情</h3>{preview&&preview.task_id===selected.id?<><ol>{recordingSteps(preview,variant,selected.variants[variant]).map((line,i)=><li key={i}>{line}</li>)}</ol>{preview.type==='T'&&![18,20,44].includes(selected.id)&&preview.source?.text&&<div className="recording-source"><b>需要处理的原始内容</b><pre>{preview.source.text}</pre></div>}<p className="muted">从应用默认首页开始，保留找到目标页面的导航过程。{preview.type!=='T'&&(selected.id<66?'数值并列时按初始列表顺序处理。':[68,69].includes(selected.id)?'方向并列时按左、上、右、下选择。':'候选点并列时按行、列升序选择。')}</p></>:<p className="muted">{previewError|| (ready?'正在载入操作说明…':'此任务尚未开放录制。')}</p>}</div></>}
-      {privateCapture&&<p className="recorder-notice">正在录制，请在应用窗口完成操作。</p>}
+      {privateCapture&&<p className="recorder-notice">正在录制，请在应用窗口完成操作。{run?.lesson&&run.lesson.total>1&&` 当前练习 ${run.lesson.index+1} / ${run.lesson.total}；每组完成后，在应用右下角继续下一组。`}</p>}
       <div className="recorder-start"><button disabled={locked||!ready} onClick={reset}>重置环境</button><button className="primary" disabled={locked||!ready||!preview||!!run?.result||run?.status==='recorded'} onClick={start}>{busy?'正在准备…':recordingBusy?'录制进行中':'● 开始录制'}</button></div>
       <p className="muted recording-hint">直接进入应用首页。内置录屏请选择应用标签页或所在窗口；完成后回到此卡结束录制。</p>
       {privateCapture&&!locked&&<button onClick={()=>setPrivateCapture(false)}>已结束外部录屏，返回说明</button>}

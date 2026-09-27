@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 71,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "数独：按视频规则填写数字",
   "app": "games",
   "type": "A",

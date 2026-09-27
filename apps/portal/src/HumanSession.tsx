@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {HumanRecording} from './HumanRecording';
 
-export type HumanRun = {id:string;task_id:number;variant:string;mode:string;runtime:string;status:string;epoch:number;result:any;interaction?:string;application_url?:string;workspace_url?:string;rule?:string};
+export type HumanRun = {id:string;task_id:number;variant:string;mode:string;runtime:string;status:string;epoch:number;result:any;interaction?:string;application_url?:string;workspace_url?:string;rule?:string;lesson?:{index:number;total:number;completed:number;finished:boolean}|null};
 export function HumanSession({run,token,onUpdate}:{run:HumanRun;token:string;onUpdate:(r:HumanRun)=>void}) {
   const [busy,setBusy]=useState(false),[error,setError]=useState(''),[clipboard,setClipboard]=useState(''),[recordingBusy,setRecordingBusy]=useState(false);
   const base=`/v1/runs/${run.id}`;

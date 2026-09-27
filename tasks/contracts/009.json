@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 9,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "通讯 A：从联系人中选收件人",
   "app": "chat",
   "type": "S",

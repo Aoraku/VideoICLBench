@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 53,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "银行：从交易列表选择记录",
   "app": "bank",
   "type": "S",

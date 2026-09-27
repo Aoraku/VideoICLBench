@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 68,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "2048：选择下一步移动方向",
   "app": "games",
   "type": "S",

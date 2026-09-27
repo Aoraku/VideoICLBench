@@ -23,3 +23,6 @@ where = ["services/control", "packages/sdk", "packages/app_runtime"]
 testpaths = ["tests"]
 asyncio_mode = "auto"
 addopts = "-q"
+
+[tool.setuptools.package-data]
+vic_apps = ["*.json", "*.js"]

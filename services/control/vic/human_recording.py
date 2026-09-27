@@ -4,7 +4,7 @@ from pathlib import Path
 import imageio_ffmpeg
 
 MAX_BYTES = 150 * 1024 * 1024
-MAX_SECONDS = 900
+MAX_SECONDS = 1800
 
 
 def convert(source: Path, output: Path, media_type: str, epoch: int):
@@ -24,7 +24,7 @@ def convert(source: Path, output: Path, media_type: str, epoch: int):
         raise ValueError('无法解码录像，请上传浏览器录制的 WebM 或 MP4 文件。')
     frames,duration = imageio_ffmpeg.count_frames_and_secs(str(output))
     if duration < .5 or duration > MAX_SECONDS:
-        raise ValueError('录像长度应为 0.5 秒到 15 分钟。')
+        raise ValueError('录像长度应为 0.5 秒到 30 分钟。')
     return dict(epoch=epoch,frames=frames,fps=30,duration=duration,
                 source='human_browser',entry_verified=False,
                 status='pending_review',official=False)

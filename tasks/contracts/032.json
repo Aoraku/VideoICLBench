@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 32,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "音乐：把歌曲加入播放列表",
   "app": "music",
   "type": "A",

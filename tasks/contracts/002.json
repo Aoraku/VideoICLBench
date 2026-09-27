@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 2,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "通讯 A：修改联系人昵称",
   "app": "chat",
   "type": "T",

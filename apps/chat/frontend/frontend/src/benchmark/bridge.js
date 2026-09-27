@@ -9,6 +9,7 @@ const token = nativeRun
   ? location.hash.slice(1) || sessionStorage.getItem(tokenKey) || ""
   : "";
 if (nativeRun && token) {
+  if (sessionStorage.getItem(tokenKey) !== token) sessionStorage.removeItem(tokenKey + ":read");
   sessionStorage.setItem(tokenKey, token);
   localStorage.setItem("access_token", token);
 }

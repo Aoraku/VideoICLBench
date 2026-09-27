@@ -95,12 +95,22 @@ def test_invalid_object_and_duplicate_order():
 
 
 def test_template_variables_preserve_semantics():
-    s = generate(60, 1000)
-    for v in "ABC":
-        namespace = {}
-        exec(expected_effect(60, v, s)["outputs"]["target"], namespace)
-        name = {"A": "x_total", "B": "total_v", "C": "TOTAL"}[v]
-        assert namespace[name] == 1008
+    import contextlib
+    import io
+    for seed in range(1000, 1006):
+        s = generate(60, seed)
+        original, original_output = {}, io.StringIO()
+        with contextlib.redirect_stdout(original_output):
+            exec(s['source']['text'], original)
+        for v in "ABC":
+            namespace, output = {}, io.StringIO()
+            with contextlib.redirect_stdout(output):
+                exec(expected_effect(60, v, s)["outputs"]["target"], namespace)
+            assert output.getvalue() == original_output.getvalue()
+            for name in s['source']['rename_targets']:
+                renamed = {"A": "x_" + name, "B": name + "_v", "C": name.upper()}[v]
+                assert namespace[renamed] == original[name]
+                assert name not in namespace
 
 
 @pytest.mark.parametrize(

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 59,
-  "task_version": "2.0.0",
+  "task_version": "3.0.0",
   "title": "OJ：规范化答案文本",
   "app": "code",
   "type": "T",
