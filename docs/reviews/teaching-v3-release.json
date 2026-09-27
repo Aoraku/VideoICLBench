@@ -1,0 +1,119 @@
+{
+  "verified_at": "2026-09-27T22:27:51.574127+00:00",
+  "source_commit": "79085fe7a87ef85641980bc4aab2bfaba2b8f41d",
+  "image": "sha256:79e5527dbaa357c0f31ee0dc7725f90cfd68c1d754a2167f0744b6c42da88ae0",
+  "image_tag": "videoicl-native:teaching-v3",
+  "deployed": true,
+  "services": "healthy",
+  "local_full_suite": {
+    "passed": 853,
+    "failed": 0
+  },
+  "image_checks": {
+    "cases": 75,
+    "oj_titles": 30,
+    "media_encoders": "audio/video passed",
+    "source_package_match": true,
+    "portal_sha256": "c6a5b0db46a170804b5b2f5518d11748999bd9038f4a8859d906c0340d553940",
+    "chat_sha256": "012a5fb7f6d94a484c106ddc11f64ec8505c886e4f9dd8670f9eabe443bdb854"
+  },
+  "live_checks": {
+    "source_commit": "79085fe",
+    "services": {
+      "http://127.0.0.1:18765": {
+        "status": "ok",
+        "service": "videoicl-control"
+      },
+      "http://127.0.0.1:18766": {
+        "status": "ok",
+        "modules": [
+          "bank",
+          "blog",
+          "chat",
+          "code",
+          "games",
+          "gomoku",
+          "im",
+          "media",
+          "music",
+          "news",
+          "shop",
+          "studio",
+          "travel"
+        ]
+      }
+    },
+    "runs": {
+      "2": {
+        "id": "65aaf6d42f98470d8dff40f3f5fd16bc",
+        "lesson": {
+          "index": 0,
+          "total": 6,
+          "completed": 0,
+          "finished": false
+        },
+        "progress_after_next": {
+          "index": 1,
+          "total": 6,
+          "completed": 1,
+          "finished": false
+        },
+        "previous_token_rejected": true
+      },
+      "22": {
+        "id": "959cd6cf97724888badf0513e552de22",
+        "lesson": {
+          "index": 0,
+          "total": 1,
+          "completed": 0,
+          "finished": false
+        },
+        "objects": 24,
+        "audio_range_status": 206
+      }
+    },
+    "apps/portal/dist/index.html": "c6a5b0db46a170804b5b2f5518d11748999bd9038f4a8859d906c0340d553940",
+    "apps/chat/frontend/frontend/dist/index.html": "012a5fb7f6d94a484c106ddc11f64ec8505c886e4f9dd8670f9eabe443bdb854",
+    "capabilities": {
+      "runtimes": {
+        "web-dev": true,
+        "browser": true,
+        "windows": false,
+        "linux": false,
+        "android": false
+      },
+      "application_modules": 13,
+      "application_tasks": 75,
+      "system_tasks_deferred": 25,
+      "software_workspaces": 65,
+      "game_workspaces": 10,
+      "native_app_certified": 0,
+      "frontend_review": "human-review-required",
+      "recording_entry_required": true,
+      "native_process_capacity": 12,
+      "recording_fps": 15,
+      "official_evaluation_ready": false,
+      "direct_application_modules": [
+        "chat",
+        "im",
+        "music",
+        "news",
+        "media",
+        "blog",
+        "studio",
+        "travel",
+        "shop",
+        "bank",
+        "code",
+        "gomoku",
+        "games"
+      ]
+    }
+  },
+  "rollback_tags": [
+    "videoicl-control:before-teaching-v3",
+    "videoicl-applications:before-teaching-v3"
+  ],
+  "database_backup_present": true,
+  "remaining_gate": "Complete 75-case native UI/video checks and human rule-inference acceptance; actual capture frames including episode transitions must not contain private rules."
+}

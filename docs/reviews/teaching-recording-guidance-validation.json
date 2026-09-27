@@ -75,10 +75,11 @@
     "passed": 192,
     "failed": 0
   },
-  "deployed": false,
+  "deployed": true,
   "recorded_video": false,
   "remaining": [
     "Actual captured frame review",
     "75-case human rule-inference acceptance"
-  ]
+  ],
+  "deployment_evidence": "teaching-release.json"
 }
