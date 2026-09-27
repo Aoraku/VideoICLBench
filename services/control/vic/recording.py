@@ -7,9 +7,8 @@ import subprocess
 import time
 from pathlib import Path
 import imageio_ffmpeg
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
 from io import BytesIO
-from .config import ROOT
 
 
 class Recorder:
@@ -20,7 +19,7 @@ class Recorder:
         self.fps = max(5, min(30, int(os.environ.get("VIC_RECORDING_FPS", "15"))))
         self.max_frames = self.fps * max(30, min(180, int(os.environ.get("VIC_RECORDING_MAX_SECONDS", "120"))))
 
-    async def start(self, run_id, url, rule, epoch=0):
+    async def start(self, run_id, url, epoch=0):
         if run_id in self.active:
             raise ValueError("Recording already active")
         if "/apps/" in url:
@@ -50,26 +49,7 @@ class Recorder:
                     tick = time.monotonic()
                     raw = await self.runtime.capture(run_id, url)
                     img = Image.open(BytesIO(raw)).convert("RGB")
-                    # Recording-only overlay. The application receives no rule.
-                    if time.monotonic() - record["started"] < 4:
-                        draw = ImageDraw.Draw(img)
-                        draw.rectangle((0, 0, 1280, 112), fill="#102338")
-                        candidates = [
-                            str(ROOT / "apps/gomoku/simhei.ttf"),
-                            "/System/Library/Fonts/PingFang.ttc",
-                            "/System/Library/Fonts/STHeiti Medium.ttc",
-                            "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
-                        ]
-                        path = next((p for p in candidates if Path(p).exists()), None)
-                        if not path:
-                            raise RuntimeError(
-                                "CJK font required for recording rule subtitles"
-                            )
-                        font = ImageFont.truetype(path, 26)
-                        for i, line in enumerate(
-                            [rule[j : j + 40] for j in range(0, len(rule), 40)][:3]
-                        ):
-                            draw.text((28, 12 + i * 32), line, font=font, fill="white")
+                    # Only application pixels and the interaction cursor belong in tutorials.
                     cursor = self.runtime.sessions.get(run_id, {}).get("cursor")
                     if cursor:
                         x, y, at = cursor
@@ -162,6 +142,7 @@ class Recorder:
             epoch=record["epoch"],
             status="pending_review",
             official=False,
+            rule_overlay=False,
         )
         (dest / "recording.json").write_text(json.dumps(meta, indent=2))
         for frame in dest.glob("[0-9]*.png"):

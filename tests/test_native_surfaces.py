@@ -64,5 +64,40 @@ async def test_recording_must_start_at_launcher(tmp_path,current):
         async def ensure(self,*args):return {'page':SimpleNamespace(url=current)}
     recorder=Recorder(tmp_path,Runtime())
     with pytest.raises(ValueError,match='入口'):
-        await recorder.start('abc','http://application.localhost/apps/chat/abc#credential','rule')
+        await recorder.start('abc','http://application.localhost/apps/chat/abc#credential')
     assert not recorder.active
+
+
+@pytest.mark.asyncio
+async def test_recorder_preserves_first_frame_without_rule_overlay(tmp_path):
+    import asyncio
+    import io
+    import inspect
+    from PIL import Image, ImageChops
+
+    original = Image.new('RGB', (1280, 960), '#5d9361')
+    buffer = io.BytesIO()
+    original.save(buffer, format='PNG')
+
+    class Runtime:
+        sessions = {}
+        async def ensure(self, run_id, url):
+            return {'page': SimpleNamespace(url=url)}
+        async def capture(self, run_id, url):
+            return buffer.getvalue()
+
+    recorder = Recorder(tmp_path, Runtime())
+    # Private rule text cannot enter the rendering API at all.
+    assert 'rule' not in inspect.signature(recorder.start).parameters
+    await recorder.start('clean', 'http://application.localhost/apps/chat/clean#token')
+    try:
+        async with asyncio.timeout(3):
+            while recorder.active['clean']['frames'] < 2:
+                await asyncio.sleep(.01)
+        for path in (tmp_path / 'clean').glob('*.png'):
+            frame = Image.open(path).convert('RGB')
+            assert ImageChops.difference(frame, original).getbbox() is None
+        metadata = await recorder.stop('clean')
+        assert metadata['rule_overlay'] is False
+    finally:
+        await recorder.close()

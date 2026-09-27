@@ -528,7 +528,6 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 await recorder.start(
                     run_id,
                     url(run),
-                    task(run.task_id)["variants"][run.variant],
                     epoch=run.epoch,
                 )
             except ValueError as exc:
@@ -608,6 +607,9 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
         meta = json.loads(path.read_text())
         if meta.get("epoch") != run.epoch:
             raise HTTPException(409, "Recording belongs to another execution epoch")
+        if (body.approved and meta.get("source") != "human_browser"
+                and meta.get("rule_overlay") is not False):
+            raise HTTPException(409, "此服务端录像未通过无规则字幕检查，请重新录制。")
         meta.update(body.model_dump())
         meta["status"] = "approved" if body.approved else "rejected"
         meta["task_digest"] = run.manifest["task_digest"]

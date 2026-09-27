@@ -38,7 +38,7 @@ export function HumanRecording({run,token,onUpdate,onBusy,initialStream,compact=
       let size=0;
       recording.ondataavailable=e=>{if(e.data.size){chunks.push(e.data);size+=e.data.size;if(size>150*1024*1024&&recording.state==='recording')recording.stop()}};
       recording.onstop=()=>{if(deadline.current)clearTimeout(deadline.current);stream.current?.getTracks().forEach(t=>t.stop());if(mounted.current)void upload(new Blob(chunks,{type:recording.mimeType.split(';')[0]}))};
-      recording.onerror=()=>{setError('录制中断，请保留本地录像后重试。');busy(false)};
+      recording.onerror=()=>{stream.current?.getTracks().forEach(t=>t.stop());if(recording.state==='recording')recording.stop();setError('录制中断，请保留本地录像后重试。');busy(false)};
       stream.current.getVideoTracks()[0].onended=()=>{if(recording.state==='recording')recording.stop()};
       recorder.current=recording;recording.start(1000);setStatus('recording');busy(true);
       deadline.current=setTimeout(()=>{if(recording.state==='recording')recording.stop()},15*60*1000);

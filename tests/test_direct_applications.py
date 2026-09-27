@@ -132,3 +132,20 @@ def test_recording_preview_matches_demo_without_allocating_runs(clients):
     for task_id in (0, 76, 100, 101):
         assert c.get(f'/v1/tasks/{task_id}/recording-preview', headers=admin()).status_code == 404
     assert c.get('/v1/runs', headers=admin()).json() == before
+
+
+def test_legacy_server_video_cannot_be_approved_without_rule_free_evidence(clients):
+    import json
+    c,w=clients
+    r=human(c);path='/v1/runs/'+r['id'];wp='/api/runs/'+r['id']
+    state=w.get(wp,headers=credential(r)).json()['state']
+    w.post(wp+'/commands',headers=credential(r),json=dict(epoch=0,action_id='save',op='save',target='target',value=transform(1,0,state))).raise_for_status()
+    assert c.post(path+'/evaluate',headers=admin()).json()['success']
+    dest=c.app.state.store.directory.parent/'artifacts'/r['id']
+    dest.mkdir(parents=True,exist_ok=True)
+    metadata=dest/'recording.json'
+    metadata.write_text(json.dumps({'epoch':0,'status':'pending_review'}))
+    payload=dict(approved=True,reviewer='regression',note='metadata-only fixture')
+    assert c.post(path+'/recordings/review',headers=admin(),json=payload).status_code==409
+    metadata.write_text(json.dumps({'epoch':0,'status':'pending_review','rule_overlay':False}))
+    assert c.post(path+'/recordings/review',headers=admin(),json=payload).status_code==200

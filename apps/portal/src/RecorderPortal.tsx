@@ -1,4 +1,5 @@
 import {useEffect,useRef,useState} from 'react';
+import {flushSync} from 'react-dom';
 import {HumanRecording} from './HumanRecording';
 import type {HumanRun} from './HumanSession';
 import {recordingSteps} from './recordingGuide';
@@ -17,6 +18,7 @@ export function RecorderPortal(){
   const [query,setQuery]=useState(''),[filter,setFilter]=useState('all'),[selected,setSelected]=useState<Task|null>(null),[variant,setVariant]=useState('A');
   const [preview,setPreview]=useState<any>(null),[previewError,setPreviewError]=useState(''),[busy,setBusy]=useState(false),[recordingBusy,setRecordingBusy]=useState(false);
   const [sessions,setSessions]=useState<Record<string,HumanRun>>({}),[capture,setCapture]=useState<MediaStream|null>(null),[notice,setNotice]=useState(''),[clipboard,setClipboard]=useState('');
+  const [privateCapture,setPrivateCapture]=useState(false);
   const [history,setHistory]=useState<HumanRun[]|null>(null);
   const appWindow=useRef<Window|null>(null),key=selected?`${selected.id}-${variant}`:'',run=sessions[key],locked=busy||recordingBusy;
   const ready=!!selected&&selected.status==='application-ready'&&modules.includes(selected.app);
@@ -33,10 +35,11 @@ export function RecorderPortal(){
   async function reset(){setBusy(true);setError('');try{appWindow.current?.close();appWindow.current=null;setCapture(null);await prepare(true);setNotice('环境已重置。点击“开始录制”将从应用首页进入。')}catch(e){setError(String(e))}finally{setBusy(false)}}
   async function start(){
     if(locked||!ready)return;
-    setBusy(true);setError('');setNotice('');setCapture(null);
+    // Commit the rule-free DOM before any screen-capture request can sample it.
+    flushSync(()=>{setPrivateCapture(true);setBusy(true);setError('');setNotice('');setCapture(null)});
     // Reserve a tab during the click, so preparation cannot trigger popup blocking.
     const tab=window.open('about:blank','_blank');
-    if(!tab){setError('浏览器拦截了应用标签页。请允许本站打开弹出式窗口后重试。');setBusy(false);return}
+    if(!tab){setError('浏览器拦截了应用标签页。请允许本站打开弹出式窗口后重试。');setBusy(false);setPrivateCapture(false);return}
     tab.opener=null;tab.document.title=`任务 ${selected!.id} · 录制应用`;appWindow.current=tab;
     // Request screen access during this same user gesture, not after the API request.
     const supported=!!navigator.mediaDevices?.getDisplayMedia&&typeof MediaRecorder!=='undefined';
@@ -49,11 +52,11 @@ export function RecorderPortal(){
       tab.location.replace(nativeApplicationUrl(prepared.application_url));
       const access=await streamPromise;stream=access.value;
       if(tab.closed){stream?.getTracks().forEach(t=>t.stop());throw Error('应用标签页已关闭，请重新开始。')}
-      if(access.error){setNotice('应用已打开，但尚未录屏。请允许屏幕共享后重试，或使用系统录屏并上传视频。');return}
+      if(access.error){setPrivateCapture(false);setNotice('应用已打开，但尚未录屏。请允许屏幕共享后重试，或使用系统录屏并上传视频。');return}
       if(stream){setCapture(stream);setRecordingBusy(true);setNotice('正在录制。请在应用首页开始操作，完成后回到此任务卡结束录制。')}
       else setNotice('应用已打开。此浏览器不支持内置录屏，请使用系统录屏，完成后在此卡上传视频；也可用 Chrome 或 Edge 打开本平台。');
       tab.focus();
-    }catch(e){tab.close();stream?.getTracks().forEach(t=>t.stop());void streamPromise.then(s=>s.value?.getTracks().forEach(t=>t.stop()));setError(String(e))}finally{setBusy(false)}
+    }catch(e){tab.close();stream?.getTracks().forEach(t=>t.stop());void streamPromise.then(s=>s.value?.getTracks().forEach(t=>t.stop()));setPrivateCapture(false);setError(String(e))}finally{setBusy(false)}
   }
   async function evaluate(r:HumanRun){
     setBusy(true);setError('');try{const result=await api(`/v1/runs/${r.id}/evaluate`,token,'POST',r.task_id===43&&r.variant==='B'?{clipboard}:{});update({...r,status:'completed',result})}catch(e){setError(String(e))}finally{setBusy(false)}
@@ -68,13 +71,15 @@ export function RecorderPortal(){
     {history?<section className="panel"><table><thead><tr><th>任务</th><th>版本</th><th>录制 / 检查</th><th/></tr></thead><tbody>{history.map(r=><tr key={r.id}><td>#{r.task_id} {tasks.find(t=>t.id===r.task_id)?.title}</td><td>{r.variant}</td><td>{r.result?(r.result.success?'任务通过':'需要检查'):r.status==='recorded'?'录像已保存':'未完成'}</td><td><button disabled={locked||r.status==='destroyed'} onClick={()=>openHistory(r)}>查看</button></td></tr>)}</tbody></table>{!history.length&&<p className="empty">还没有录制记录。</p>}</section>:<>
     <div className="toolbar"><input aria-label="搜索任务" placeholder="搜索任务名称或编号…" value={query} onChange={e=>setQuery(e.target.value)}/><select aria-label="应用筛选" value={filter} onChange={e=>setFilter(e.target.value)}><option value="all">全部应用</option>{Object.entries(APPS).map(([k,v])=><option key={k} value={k}>{v}</option>)}</select><span className="muted">{shown.length} 个任务</span></div>
     <div className="recorder-layout"><section className="panel task-list"><table><thead><tr><th>任务</th><th>应用</th></tr></thead><tbody>{shown.map(t=><tr key={t.id} tabIndex={locked?-1:0} aria-disabled={locked} aria-selected={selected?.id===t.id} className={selected?.id===t.id?'selected':''} onClick={()=>{if(!locked){setSelected(t);setError('')}}} onKeyDown={e=>{if(!locked&&e.key==='Enter')setSelected(t)}}><td><span className="task-id">{String(t.id).padStart(3,'0')}</span>{t.title}</td><td><span className="muted">{APPS[t.app]||'暂未开放'}</span></td></tr>)}</tbody></table></section>
-    <section className="panel recorder-card" aria-label="录制任务卡">{selected?<><p className="eyebrow">任务 {String(selected.id).padStart(3,'0')}</p><h2>{selected.title}</h2><div className="segmented">{'ABC'.split('').map(v=><button key={v} disabled={locked} aria-pressed={variant===v} className={variant===v?'chosen':''} onClick={()=>{setVariant(v);setCapture(null);setNotice('');setClipboard('')}}>版本 {v}</button>)}</div>
+    <section className="panel recorder-card" aria-label="录制任务卡">{selected?<><p className="eyebrow">任务 {String(selected.id).padStart(3,'0')}</p><h2>{selected.title}</h2>{!privateCapture&&<><div className="segmented">{'ABC'.split('').map(v=><button key={v} disabled={locked} aria-pressed={variant===v} className={variant===v?'chosen':''} onClick={()=>{setVariant(v);setCapture(null);setNotice('');setClipboard('')}}>版本 {v}</button>)}</div>
       <div className="rule"><span>版本 {variant} 的规则</span><p>{selected.variants[variant]}</p>{selected.id===45&&<p>数量与商品名紧邻，不额外插入空格。</p>}</div>
-      <div className="recording-instructions"><h3>录制中要完成的事情</h3>{preview&&preview.task_id===selected.id?<><ol>{recordingSteps(preview,variant,selected.variants[variant]).map((line,i)=><li key={i}>{line}</li>)}</ol>{preview.type==='T'&&![18,20,44].includes(selected.id)&&preview.source?.text&&<div className="recording-source"><b>需要处理的原始内容</b><pre>{preview.source.text}</pre></div>}<p className="muted">从应用默认首页开始，保留找到目标页面的导航过程。{preview.type!=='T'&&(selected.id<66?'数值并列时按初始列表顺序处理。':[68,69].includes(selected.id)?'方向并列时按左、上、右、下选择。':'候选点并列时按行、列升序选择。')}</p></>:<p className="muted">{previewError|| (ready?'正在载入操作说明…':'此任务尚未开放录制。')}</p>}</div>
+      <div className="recording-instructions"><h3>录制中要完成的事情</h3>{preview&&preview.task_id===selected.id?<><ol>{recordingSteps(preview,variant,selected.variants[variant]).map((line,i)=><li key={i}>{line}</li>)}</ol>{preview.type==='T'&&![18,20,44].includes(selected.id)&&preview.source?.text&&<div className="recording-source"><b>需要处理的原始内容</b><pre>{preview.source.text}</pre></div>}<p className="muted">从应用默认首页开始，保留找到目标页面的导航过程。{preview.type!=='T'&&(selected.id<66?'数值并列时按初始列表顺序处理。':[68,69].includes(selected.id)?'方向并列时按左、上、右、下选择。':'候选点并列时按行、列升序选择。')}</p></>:<p className="muted">{previewError|| (ready?'正在载入操作说明…':'此任务尚未开放录制。')}</p>}</div></>}
+      {privateCapture&&<p className="recorder-notice">正在录制，请在应用窗口完成操作。</p>}
       <div className="recorder-start"><button disabled={locked||!ready} onClick={reset}>重置环境</button><button className="primary" disabled={locked||!ready||!preview||!!run?.result||run?.status==='recorded'} onClick={start}>{busy?'正在准备…':recordingBusy?'录制进行中':'● 开始录制'}</button></div>
       <p className="muted recording-hint">直接进入应用首页。内置录屏请选择应用标签页或所在窗口；完成后回到此卡结束录制。</p>
+      {privateCapture&&!locked&&<button onClick={()=>setPrivateCapture(false)}>已结束外部录屏，返回说明</button>}
       {notice&&<p className="recorder-notice" role="status">{notice}</p>}
-      {run&&<><HumanRecording key={`${run.id}-${run.epoch}`} run={run} token={token} onUpdate={recorded} onBusy={setRecordingBusy} initialStream={capture} compact/>{run.task_id===43&&run.variant==='B'&&!run.result&&<label>粘贴刚才复制的内容<textarea value={clipboard} onChange={e=>setClipboard(e.target.value)}/></label>}{run.status==='recorded'&&!run.result&&<button disabled={locked||(run.task_id===43&&run.variant==='B'&&!clipboard)} onClick={()=>evaluate(run)}>检查任务完成情况</button>}{run.result&&<div className="recording-result" role="status"><h3>{run.result.success?'✓ 任务完成':'任务未通过，请检查操作'}</h3><p>完成度 {Math.round(run.result.completion*100)}%。需要重录时点击“重置环境”。</p></div>}<details className="recording-details"><summary>问题反馈信息</summary><p>任务 {run.task_id} / 版本 {run.variant}<br/>记录编号 {run.id}<br/>第 {run.epoch+1} 次环境</p></details></>}
+      {run&&<><HumanRecording key={`${run.id}-${run.epoch}`} run={run} token={token} onUpdate={recorded} onBusy={value=>{setRecordingBusy(value);if(!value)setPrivateCapture(false)}} initialStream={capture} compact/>{run.task_id===43&&run.variant==='B'&&!run.result&&<label>粘贴刚才复制的内容<textarea value={clipboard} onChange={e=>setClipboard(e.target.value)}/></label>}{run.status==='recorded'&&!run.result&&<button disabled={locked||(run.task_id===43&&run.variant==='B'&&!clipboard)} onClick={()=>evaluate(run)}>检查任务完成情况</button>}{run.result&&<div className="recording-result" role="status"><h3>{run.result.success?'✓ 任务完成':'任务未通过，请检查操作'}</h3><p>完成度 {Math.round(run.result.completion*100)}%。需要重录时点击“重置环境”。</p></div>}<details className="recording-details"><summary>问题反馈信息</summary><p>任务 {run.task_id} / 版本 {run.variant}<br/>记录编号 {run.id}<br/>第 {run.epoch+1} 次环境</p></details></>}
     </>:<div className="empty"><h2>选择一个任务</h2><p>阅读 A / B / C 的规则和操作说明，然后开始录制。</p></div>}</section></div></>}
   </main>;
 }
