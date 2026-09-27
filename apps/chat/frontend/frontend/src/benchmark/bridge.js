@@ -75,6 +75,7 @@ function user(state, id) {
     id,
     user_id: id,
     username: name,
+    benchmark_identity_name: id === 2 && state.task_id === 2 ? name : undefined,
     remark:
       id === 2 && state.task_id === 2
         ? state.outputs.target || state.source.text
@@ -90,7 +91,7 @@ function user(state, id) {
         ? state.options.indexOf(state.domain.objects[item.id].label) + 1
         : null,
     is_friend: true,
-    benchmark_contact_time: item?.contact_time,
+    benchmark_contact_time: item?.last_contact_at,
     benchmark_unread: item?.unread,
     group_name:
       state.task_id === 6 && item ? state.domain.objects[item.id].label : "",
@@ -112,7 +113,7 @@ function message(
     sender: user(state, senderId),
     sender_id: senderId,
     sender_name: user(state, senderId).username,
-    created_at: "2026-01-15T09:30:00Z",
+    created_at: object?.created_at || state.source.reference_time,
     is_recalled: false,
     reactions: [],
     read_by_count: 1,

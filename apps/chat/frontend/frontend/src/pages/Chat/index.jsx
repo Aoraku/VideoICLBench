@@ -63,7 +63,7 @@ function convTitle(c) {
   if (!c || typeof c !== 'object') return '会话'
   const peer = c.peer_user
   if (peer && typeof peer === 'object') {
-    return peer.remark || peer.username || '私聊'
+    return peer.benchmark_identity_name || peer.remark || peer.username || '私聊'
   }
   if (c.type === 'group') return c.name || '群聊'
   if (c.type === 'ai') return c.name || 'AI助手'

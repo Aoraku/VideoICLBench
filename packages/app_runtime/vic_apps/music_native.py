@@ -48,10 +48,10 @@ def render_music(run_id, state, route, query_string=""):
     artists, songs = [], []
     for i, item in enumerate(state["items"]):
         artist = Record(id=f"artist-{i}", name=item["artist"], pure_name=item["artist"],
-                        description="独立音乐人，以细腻的旋律记录生活。", image=f"/native-assets/music/cover-{i}.svg", url="#")
+                        description="独立音乐人，以细腻的旋律记录生活。", image=f"/native-assets/music/cover-{i % 6}.svg", url="#")
         artists.append(artist)
         songs.append(Record(**{
-            **item, "image": f"/native-assets/music/cover-{i}.svg",
+            **item, "image": f"/native-assets/music/cover-{i % 6}.svg",
             "artists": Record(all=lambda artist=artist: [artist]),
             "date": f"{item['year']}-01-15T12:00:00", "url": "#",
             "description": "收录于独立音乐精选集。原声与电子乐器交织，呈现轻松、安静的听觉氛围。",

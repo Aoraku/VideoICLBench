@@ -368,7 +368,7 @@ export default function ContactsPage() {
   }
 
   function relationName(item) {
-    return item?.remark || item?.username || item?.blocked_username || item?.whitelisted_username || `用户 ${item?.user_id ?? ''}`
+    return item?.benchmark_identity_name || item?.remark || item?.username || item?.blocked_username || item?.whitelisted_username || `用户 ${item?.user_id ?? ''}`
   }
 
   function relationUserId(item) {

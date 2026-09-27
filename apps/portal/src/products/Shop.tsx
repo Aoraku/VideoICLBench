@@ -17,7 +17,7 @@ function ProductArt({ item, index }: { item: any; index: number }) {
       "桌面阅读灯",
       "旅行收纳包",
       "无线静音鼠标",
-    ].indexOf(item.name),
+    ].indexOf(item.name.split(" · ")[0]),
   );
   return (
     <div className={`shop-art shop-art-${index % 6}`}>
@@ -146,13 +146,13 @@ export function Shop({ api }: { api: ProductAPI }) {
         <>
           <button
             className="product-primary"
-            disabled={api.busy}
+            disabled={api.busy || d.collections.cart.includes(item.id)}
             onClick={() => api.mutate("action", item.id, "加入购物车")}
           >
-            {"加入购物车"}
+            {d.collections.cart.includes(item.id) ? "✓ 已在购物车" : "加入购物车"}
           </button>
           <button
-            disabled={api.busy}
+            disabled={api.busy || !d.collections.cart.includes(item.id)}
             onClick={() => api.mutate("action", item.id, "移出购物车")}
           >
             移出购物车

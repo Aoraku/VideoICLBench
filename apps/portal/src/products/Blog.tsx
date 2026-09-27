@@ -153,8 +153,7 @@ export function Blog({ api }: { api: ProductAPI }) {
                   <div className="blog-editor-body">{current.text}</div>
                   <Tags item={current} api={api} />
                   <p className="product-muted">
-                    {current.words} 字 · {current.tag_count} 个标签 · 时间序号{" "}
-                    {current.timestamp}
+                    {current.words} 字 · {current.tag_count} 个标签 · 创建时间 {current.created_at.replace("T", " ").slice(0, 16)} UTC
                   </p>
                   {s.task_id === 38 && <Classify item={current} api={api} />}
                 </>

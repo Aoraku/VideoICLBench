@@ -16,7 +16,7 @@ export function Media({ api }: { api: ProductAPI }) {
     [query, setQuery] = useState("");
   const rows = s.items.map((x: any) => d.objects[x.id]),
     active = d.objects[selected];
-  const index = (id: string) => s.items.findIndex((x: any) => x.id === id);
+  const index = (id: string) => s.items.find((x: any) => x.id === id)?.asset_index ?? 0;
   async function play(id: string) {
     if (s.task_id === 31 && !(await api.mutate("select", "", "", [id]))) return;
     setSelected(id);
@@ -122,7 +122,7 @@ export function Media({ api }: { api: ProductAPI }) {
                 <p>{active.text}</p>
                 <p>
                   {minutes(active.duration)} · 评分 {active.rating}/100 · 点赞率{" "}
-                  {active.like_rate}% · 发布时间序号 {active.timestamp}
+                  {active.like_rate}% · 发布时间 {active.created_at.replace("T", " ").slice(0, 16)} UTC
                 </p>
                 <Tags item={active} api={api} />
               </div>
@@ -251,7 +251,7 @@ export function Media({ api }: { api: ProductAPI }) {
                           评分 {item.rating}/100 · {item.comments} 条评论
                         </p>
                         <p>
-                          点赞率 {item.like_rate}% · 发布序号 {item.timestamp}
+                          点赞率 {item.like_rate}% · 发布时间 {item.created_at.replace("T", " ").slice(0, 16)} UTC
                         </p>
                         <p className="product-muted">
                           {item.completed ? "✓ 已看完" : "未看完"} ·{" "}

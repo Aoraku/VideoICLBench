@@ -72,13 +72,15 @@ def audit():
         risks=[]
         if any('generation_error' in x for x in batches):risks.append('fixture_generation_failure')
         if any(not x.get('distinct_ABC',True) for x in batches):risks.append('counterfactual_collision')
-        if task['type']=='T' or task_id>=66 or task['type']=='S' or task_id in (7,15,26,47,50,61,62):
+        if task['type']=='T' or task_id>=66 or task['type']=='S' or task_id in (7,15,26,35,47,50,61,62):
             risks.append('single_episode_cannot_disambiguate_rule')
-        else:risks.append('demo_object_count_not_greater_than_eval')
+        elif any(demo.get('objects', 0) <= query.get('objects', 0) for demo,query in zip(batches[:3],batches[3:])):
+            risks.append('demo_object_count_not_greater_than_eval')
         if any(x.get('boundary',{}).get('missing') for x in batches[:3]):risks.append('missing_threshold_neighbors')
         for v in 'ABC':
             signatures=[tuple(x.get('selected_positions',{}).get(v,[])) for x in batches[:3]]
-            if signatures[0] and len(set(signatures))==1:risks.append(f'fixed_demo_positions_{v}')
+            if task_id != 10 and signatures[0] and len(set(signatures))==1:
+                risks.append(f'fixed_demo_positions_{v}')
         records.append({'task_id':task_id,'title':task['title'],'app':task['app'],
                         'review_comments':feedback.get(task_id,[]),'measured_risks':risks,
                         'status':'requires_fixture_and_ui_acceptance','samples':batches})

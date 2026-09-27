@@ -1,0 +1,357 @@
+{
+  "scope": "Local native UI acceptance of tasks 22 A, 53 C, 55 B, 57 C; not a 75-case video identifiability certification.",
+  "cases": [
+    {
+      "task_id": 22,
+      "run_id": "112772d187b74f12a3807c7f0e1492c4",
+      "method": "human UI via cua_repl",
+      "result": {
+        "success": true,
+        "completion": 1.0,
+        "checks": [
+          {
+            "id": "labels:object-720de635d3",
+            "passed": true
+          },
+          {
+            "id": "labels:object-b27cd8d566",
+            "passed": true
+          },
+          {
+            "id": "labels:object-5142f9247a",
+            "passed": true
+          },
+          {
+            "id": "labels:object-e724119ad8",
+            "passed": true
+          },
+          {
+            "id": "labels:object-91f524aed7",
+            "passed": true
+          },
+          {
+            "id": "labels:object-de04d32e79",
+            "passed": true
+          },
+          {
+            "id": "labels:object-1292e45e41",
+            "passed": true
+          },
+          {
+            "id": "labels:object-dfecb0e833",
+            "passed": true
+          },
+          {
+            "id": "labels:object-c1adb09587",
+            "passed": true
+          },
+          {
+            "id": "labels:object-359c8ba3e9",
+            "passed": true
+          },
+          {
+            "id": "labels:object-546fa1fcc8",
+            "passed": true
+          },
+          {
+            "id": "labels:object-5439ca475e",
+            "passed": true
+          },
+          {
+            "id": "labels:object-81f22c1861",
+            "passed": true
+          },
+          {
+            "id": "labels:object-fad4b6d22d",
+            "passed": true
+          },
+          {
+            "id": "labels:object-85feeb50a8",
+            "passed": true
+          },
+          {
+            "id": "labels:object-49b4b94adc",
+            "passed": true
+          },
+          {
+            "id": "labels:object-a569a248ec",
+            "passed": true
+          },
+          {
+            "id": "labels:object-1551145ff2",
+            "passed": true
+          },
+          {
+            "id": "labels:object-4c93eec36f",
+            "passed": true
+          },
+          {
+            "id": "labels:object-55eb313165",
+            "passed": true
+          },
+          {
+            "id": "labels:object-847fbdd677",
+            "passed": true
+          },
+          {
+            "id": "labels:object-52685ef5a3",
+            "passed": true
+          },
+          {
+            "id": "labels:object-641a7a555e",
+            "passed": true
+          },
+          {
+            "id": "labels:object-a9da6fa6c8",
+            "passed": true
+          },
+          {
+            "id": "business:objects",
+            "passed": true
+          },
+          {
+            "id": "business:messages",
+            "passed": true
+          },
+          {
+            "id": "business:memberships",
+            "passed": true
+          },
+          {
+            "id": "business:collections",
+            "passed": true
+          },
+          {
+            "id": "business:orders",
+            "passed": true
+          },
+          {
+            "id": "business:settings",
+            "passed": true
+          },
+          {
+            "id": "business:artifacts",
+            "passed": true
+          },
+          {
+            "id": "business:ledger",
+            "passed": true
+          },
+          {
+            "id": "business:balances",
+            "passed": true
+          },
+          {
+            "id": "business:clipboard_history",
+            "passed": true
+          },
+          {
+            "id": "business:files",
+            "passed": true
+          }
+        ],
+        "violations": [],
+        "run_id": "112772d187b74f12a3807c7f0e1492c4",
+        "status": "completed",
+        "epoch": 0,
+        "official": false,
+        "evidence_ref": "/v1/runs/112772d187b74f12a3807c7f0e1492c4/evidence"
+      }
+    },
+    {
+      "task_id": 53,
+      "run_id": "b792d5f299534158b699848f1134eae1",
+      "method": "human UI via cua_repl",
+      "result": {
+        "success": true,
+        "completion": 1.0,
+        "checks": [
+          {
+            "id": "selection",
+            "passed": true
+          },
+          {
+            "id": "business:objects",
+            "passed": true
+          },
+          {
+            "id": "business:messages",
+            "passed": true
+          },
+          {
+            "id": "business:memberships",
+            "passed": true
+          },
+          {
+            "id": "business:collections",
+            "passed": true
+          },
+          {
+            "id": "business:orders",
+            "passed": true
+          },
+          {
+            "id": "business:settings",
+            "passed": true
+          },
+          {
+            "id": "business:artifacts",
+            "passed": true
+          },
+          {
+            "id": "business:ledger",
+            "passed": true
+          },
+          {
+            "id": "business:balances",
+            "passed": true
+          },
+          {
+            "id": "business:clipboard_history",
+            "passed": true
+          },
+          {
+            "id": "business:files",
+            "passed": true
+          }
+        ],
+        "violations": [],
+        "run_id": "b792d5f299534158b699848f1134eae1",
+        "status": "completed",
+        "epoch": 0,
+        "official": false,
+        "evidence_ref": "/v1/runs/b792d5f299534158b699848f1134eae1/evidence"
+      }
+    },
+    {
+      "task_id": 55,
+      "run_id": "aebbbc3097a1477d9fd6aaee49863a6c",
+      "method": "human UI via cua_repl",
+      "result": {
+        "success": true,
+        "completion": 1.0,
+        "checks": [
+          {
+            "id": "actions",
+            "passed": true
+          },
+          {
+            "id": "business:objects",
+            "passed": true
+          },
+          {
+            "id": "business:messages",
+            "passed": true
+          },
+          {
+            "id": "business:memberships",
+            "passed": true
+          },
+          {
+            "id": "business:collections",
+            "passed": true
+          },
+          {
+            "id": "business:orders",
+            "passed": true
+          },
+          {
+            "id": "business:settings",
+            "passed": true
+          },
+          {
+            "id": "business:artifacts",
+            "passed": true
+          },
+          {
+            "id": "business:ledger",
+            "passed": true
+          },
+          {
+            "id": "business:balances",
+            "passed": true
+          },
+          {
+            "id": "business:clipboard_history",
+            "passed": true
+          },
+          {
+            "id": "business:files",
+            "passed": true
+          }
+        ],
+        "violations": [],
+        "run_id": "aebbbc3097a1477d9fd6aaee49863a6c",
+        "status": "completed",
+        "epoch": 0,
+        "official": false,
+        "evidence_ref": "/v1/runs/aebbbc3097a1477d9fd6aaee49863a6c/evidence"
+      }
+    },
+    {
+      "task_id": 57,
+      "run_id": "f5b9d9ad627b40119f27e15f70be9420",
+      "method": "human UI via cua_repl",
+      "result": {
+        "success": true,
+        "completion": 1.0,
+        "checks": [
+          {
+            "id": "actions",
+            "passed": true
+          },
+          {
+            "id": "business:objects",
+            "passed": true
+          },
+          {
+            "id": "business:messages",
+            "passed": true
+          },
+          {
+            "id": "business:memberships",
+            "passed": true
+          },
+          {
+            "id": "business:collections",
+            "passed": true
+          },
+          {
+            "id": "business:orders",
+            "passed": true
+          },
+          {
+            "id": "business:settings",
+            "passed": true
+          },
+          {
+            "id": "business:artifacts",
+            "passed": true
+          },
+          {
+            "id": "business:ledger",
+            "passed": true
+          },
+          {
+            "id": "business:balances",
+            "passed": true
+          },
+          {
+            "id": "business:clipboard_history",
+            "passed": true
+          },
+          {
+            "id": "business:files",
+            "passed": true
+          }
+        ],
+        "violations": [],
+        "run_id": "f5b9d9ad627b40119f27e15f70be9420",
+        "status": "completed",
+        "epoch": 0,
+        "official": false,
+        "evidence_ref": "/v1/runs/f5b9d9ad627b40119f27e15f70be9420/evidence"
+      }
+    }
+  ]
+}

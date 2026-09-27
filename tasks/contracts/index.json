@@ -4,7 +4,7 @@
     {
       "schema_version": 1,
       "task_id": 1,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "通讯 A：发送一条指定文本",
       "app": "chat",
       "type": "T",
@@ -94,12 +94,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“发送一条指定文本”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 2,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "通讯 A：修改联系人昵称",
       "app": "chat",
       "type": "T",
@@ -188,12 +189,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“修改联系人昵称”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 3,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "通讯 A：编辑并发送模板消息",
       "app": "chat",
       "type": "T",
@@ -282,12 +284,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“编辑并发送模板消息”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 4,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "通讯 A：把草稿转换为指定格式后发送",
       "app": "chat",
       "type": "T",
@@ -376,12 +379,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“把草稿转换为指定格式后发送”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 5,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "通讯 A：给收到的消息打标签",
       "app": "chat",
       "type": "C",
@@ -470,12 +474,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“给收到的消息打标签”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 6,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "通讯 A：整理联系人分组",
       "app": "chat",
       "type": "C",
@@ -483,12 +488,12 @@
       "execution_surface": "application-benchmark",
       "variants": {
         "A": {
-          "rule": "名字长度为偶数归“甲”",
+          "rule": "姓名去掉空格后，字符数为偶数的归入甲",
           "evaluator": "task_006_A",
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         },
         "B": {
-          "rule": "长度为奇数归“甲”",
+          "rule": "姓名去掉空格后，字符数为奇数的归入甲",
           "evaluator": "task_006_B",
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         },
@@ -564,12 +569,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“整理联系人分组”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 7,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "通讯 A：标记会话优先级",
       "app": "chat",
       "type": "C",
@@ -658,12 +664,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“标记会话优先级”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 8,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "通讯 A：给群聊添加状态标签",
       "app": "chat",
       "type": "C",
@@ -752,12 +759,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“给群聊添加状态标签”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 9,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "通讯 A：从联系人中选收件人",
       "app": "chat",
       "type": "S",
@@ -846,12 +854,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“从联系人中选收件人”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 10,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "通讯 A：从搜索结果打开目标会话",
       "app": "chat",
       "type": "S",
@@ -940,12 +949,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“从搜索结果打开目标会话”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 11,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "通讯 A：从附件列表选择文件发送",
       "app": "chat",
       "type": "S",
@@ -1034,12 +1044,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“从附件列表选择文件发送”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 12,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "通讯 A：整理会话列表顺序",
       "app": "chat",
       "type": "S",
@@ -1128,12 +1139,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“整理会话列表顺序”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 13,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "通讯 A：处理一组待办消息",
       "app": "chat",
       "type": "A",
@@ -1225,12 +1237,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“处理一组待办消息”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 14,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "通讯 A：清理会话状态",
       "app": "chat",
       "type": "A",
@@ -1322,12 +1335,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“清理会话状态”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 15,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "通讯 B：创建群聊并邀请成员",
       "app": "im",
       "type": "A",
@@ -1416,12 +1430,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“创建群聊并邀请成员”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 16,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "通讯 B：处理消息回执",
       "app": "im",
       "type": "A",
@@ -1513,12 +1528,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“处理消息回执”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 17,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "音乐：修改歌曲显示名称",
       "app": "music",
       "type": "T",
@@ -1607,12 +1623,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“修改歌曲显示名称”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 18,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "音乐：生成播放列表名称",
       "app": "music",
       "type": "T",
@@ -1702,12 +1719,13 @@
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
       "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“生成播放列表名称”。只处理本次提供的内容，并确认操作结果已经保存。",
       "format": "Three fields cyclically reordered and joined with underscore."
     },
     {
       "schema_version": 1,
       "task_id": 19,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "新闻：规范化文章标题",
       "app": "news",
       "type": "T",
@@ -1796,12 +1814,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“规范化文章标题”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 20,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "新闻：修改文章标签文本",
       "app": "news",
       "type": "T",
@@ -1890,12 +1909,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“修改文章标签文本”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 21,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "视频：修改收藏夹名称",
       "app": "media",
       "type": "T",
@@ -1984,12 +2004,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“修改收藏夹名称”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 22,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "音乐：给歌曲按属性分类",
       "app": "music",
       "type": "C",
@@ -2078,12 +2099,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“给歌曲按属性分类”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 23,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "新闻：给文章标注内容类别",
       "app": "news",
       "type": "C",
@@ -2172,12 +2194,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“给文章标注内容类别”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 24,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "新闻：给文章标注来源类型",
       "app": "news",
       "type": "C",
@@ -2266,12 +2289,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“给文章标注来源类型”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 25,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "视频：给视频标注时长类别",
       "app": "media",
       "type": "C",
@@ -2289,7 +2313,7 @@
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         },
         "C": {
-          "rule": "时长为偶数分钟为“短”",
+          "rule": "时长换算成分钟后取整数部分，为偶数的标为短",
           "evaluator": "task_025_C",
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         }
@@ -2360,12 +2384,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“给视频标注时长类别”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 26,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "信息流：给内容标注推荐等级",
       "app": "media",
       "type": "C",
@@ -2454,12 +2479,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“给内容标注推荐等级”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 27,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "音乐：从搜索结果选择歌曲",
       "app": "music",
       "type": "S",
@@ -2548,12 +2574,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“从搜索结果选择歌曲”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 28,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "音乐：整理播放列表顺序",
       "app": "music",
       "type": "S",
@@ -2642,12 +2669,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“整理播放列表顺序”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 29,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "新闻：从列表选择文章阅读",
       "app": "news",
       "type": "S",
@@ -2736,12 +2764,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“从列表选择文章阅读”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 30,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "新闻：筛选需要阅读的文章",
       "app": "news",
       "type": "S",
@@ -2830,12 +2859,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“筛选需要阅读的文章”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 31,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "视频：从推荐列表选择视频",
       "app": "media",
       "type": "S",
@@ -2924,12 +2954,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“从推荐列表选择视频”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 32,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "音乐：把歌曲加入播放列表",
       "app": "music",
       "type": "A",
@@ -3018,12 +3049,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“把歌曲加入播放列表”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 33,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "新闻：批量处理文章状态",
       "app": "news",
       "type": "A",
@@ -3115,12 +3147,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“批量处理文章状态”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 34,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "视频：处理观看列表",
       "app": "media",
       "type": "A",
@@ -3211,12 +3244,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“处理观看列表”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 35,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "视频：调整播放队列",
       "app": "media",
       "type": "A",
@@ -3305,12 +3339,13 @@
         }
       },
       "ties": "队列类别交替，同类对象保持初始相对顺序；A 从短视频开始，B 从长视频开始，C 从甲类开始。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“调整播放队列”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 36,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "博客：编辑文章标题后保存",
       "app": "blog",
       "type": "T",
@@ -3399,12 +3434,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“编辑文章标题后保存”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 37,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "AI 工作台：整理输入提示词",
       "app": "studio",
       "type": "T",
@@ -3493,12 +3529,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“整理输入提示词”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 38,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "博客：给文章添加类别",
       "app": "blog",
       "type": "C",
@@ -3587,12 +3624,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“给文章添加类别”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 39,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "AI 工作台：给生成结果打标签",
       "app": "studio",
       "type": "C",
@@ -3681,12 +3719,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“给生成结果打标签”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 40,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "博客：从草稿中选择文章发布",
       "app": "blog",
       "type": "S",
@@ -3776,12 +3815,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“从草稿中选择文章发布”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 41,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "AI 工作台：选择生成模型",
       "app": "studio",
       "type": "S",
@@ -3870,12 +3910,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“选择生成模型”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 42,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "博客：发布满足条件的文章",
       "app": "blog",
       "type": "A",
@@ -3967,12 +4008,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“发布满足条件的文章”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 43,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "AI 工作台：处理生成结果",
       "app": "studio",
       "type": "A",
@@ -4065,12 +4107,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“处理生成结果”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 44,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "旅游：填写乘客信息",
       "app": "travel",
       "type": "T",
@@ -4088,7 +4131,7 @@
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         },
         "C": {
-          "rule": "姓名全部大写",
+          "rule": "姓名全部大写，姓与名之间保留一个空格",
           "evaluator": "task_044_C",
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         }
@@ -4159,12 +4202,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“填写乘客信息”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 45,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "购物：填写商品备注",
       "app": "shop",
       "type": "T",
@@ -4253,12 +4297,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“填写商品备注”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 46,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "银行：填写转账备注",
       "app": "bank",
       "type": "T",
@@ -4347,12 +4392,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“填写转账备注”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 47,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "旅游：给出行方案分类",
       "app": "travel",
       "type": "C",
@@ -4441,12 +4487,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“给出行方案分类”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 48,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "购物：给商品分类",
       "app": "shop",
       "type": "C",
@@ -4535,12 +4582,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“给商品分类”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 49,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "银行：给交易标注类型",
       "app": "bank",
       "type": "C",
@@ -4629,13 +4677,14 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“给交易标注类型”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 50,
-      "task_version": "1.1.0",
-      "title": "银行：给账户标注风险等级",
+      "task_version": "2.0.0",
+      "title": "给账户标记重点",
       "app": "bank",
       "type": "C",
       "status": "implemented",
@@ -4652,7 +4701,7 @@
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         },
         "C": {
-          "rule": "最近交易最多的账户为“重点”",
+          "rule": "最近30天交易笔数最多的账户标为重点",
           "evaluator": "task_050_C",
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         }
@@ -4723,12 +4772,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，为本次提供的账户标记“重点”，并保存操作结果。"
     },
     {
       "schema_version": 1,
       "task_id": 51,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "旅游：从路线列表选择方案",
       "app": "travel",
       "type": "S",
@@ -4817,12 +4867,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“从路线列表选择方案”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 52,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "购物：从商品列表选择商品",
       "app": "shop",
       "type": "S",
@@ -4911,12 +4962,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“从商品列表选择商品”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 53,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "银行：从交易列表选择记录",
       "app": "bank",
       "type": "S",
@@ -5005,12 +5057,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“从交易列表选择记录”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 54,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "旅游：确认预订",
       "app": "travel",
       "type": "A",
@@ -5099,12 +5152,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“确认预订”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 55,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "购物：处理购物车",
       "app": "shop",
       "type": "A",
@@ -5112,12 +5166,12 @@
       "execution_surface": "application-benchmark",
       "variants": {
         "A": {
-          "rule": "带有指定标签的商品加入购物车",
+          "rule": "将含指定标签且尚未入车的商品加入购物车",
           "evaluator": "task_055_A",
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         },
         "B": {
-          "rule": "带有指定标签的商品移出购物车",
+          "rule": "将购物车中含指定标签的商品移出购物车",
           "evaluator": "task_055_B",
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         },
@@ -5194,12 +5248,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“处理购物车”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 56,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "银行：执行转账",
       "app": "bank",
       "type": "A",
@@ -5289,12 +5344,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“执行转账”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 57,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "银行：设置账户提醒",
       "app": "bank",
       "type": "A",
@@ -5383,12 +5439,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“设置账户提醒”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 58,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "OJ：按规则整理代码后提交",
       "app": "code",
       "type": "T",
@@ -5478,12 +5535,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“按规则整理代码后提交”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 59,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "OJ：规范化答案文本",
       "app": "code",
       "type": "T",
@@ -5572,12 +5630,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“规范化答案文本”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 60,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "OJ：修改代码变量名",
       "app": "code",
       "type": "T",
@@ -5668,12 +5727,13 @@
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
       "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“修改代码变量名”。只处理本次提供的内容，并确认操作结果已经保存。",
       "format": "Identifiers must follow the demonstrated rename; AST bindings and semantics must be preserved. Comments and harmless whitespace are permitted."
     },
     {
       "schema_version": 1,
       "task_id": 61,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "OJ：给提交结果标注类别",
       "app": "code",
       "type": "C",
@@ -5762,12 +5822,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“给提交结果标注类别”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 62,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "OJ：给题目标注难度",
       "app": "code",
       "type": "C",
@@ -5856,12 +5917,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“给题目标注难度”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 63,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "OJ：从题库选择题目",
       "app": "code",
       "type": "S",
@@ -5950,12 +6012,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“从题库选择题目”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 64,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "OJ：从提交记录选择待检查结果",
       "app": "code",
       "type": "S",
@@ -6044,12 +6107,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“从提交记录选择待检查结果”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 65,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "OJ：提交满足条件的代码",
       "app": "code",
       "type": "A",
@@ -6140,12 +6204,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“提交满足条件的代码”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 66,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "五子棋：识别并点击目标落子点",
       "app": "gomoku",
       "type": "C",
@@ -6239,12 +6304,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“识别并点击目标落子点”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 67,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "五子棋：从候选点选择落子",
       "app": "gomoku",
       "type": "S",
@@ -6338,12 +6404,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“从候选点选择落子”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 68,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "2048：选择下一步移动方向",
       "app": "games",
       "type": "S",
@@ -6437,12 +6504,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“选择下一步移动方向”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 69,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "2048：执行一组移动",
       "app": "games",
       "type": "A",
@@ -6536,12 +6604,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“执行一组移动”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 70,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "数独：识别需要填写的格子",
       "app": "games",
       "type": "C",
@@ -6635,12 +6704,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“识别需要填写的格子”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 71,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "数独：按视频规则填写数字",
       "app": "games",
       "type": "A",
@@ -6658,7 +6728,7 @@
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         },
         "C": {
-          "rule": "填入与所在行首数字同奇偶性的数字",
+          "rule": "将候选数字从小到大排列，填入正中间的数字",
           "evaluator": "task_071_C",
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         }
@@ -6734,12 +6804,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“按视频规则填写数字”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 72,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "扫雷：从候选格中选择安全格",
       "app": "games",
       "type": "S",
@@ -6833,12 +6904,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“从候选格中选择安全格”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 73,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "扫雷：执行标记操作",
       "app": "games",
       "type": "A",
@@ -6932,12 +7004,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“执行标记操作”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 74,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "黑白棋：选择落子位置",
       "app": "games",
       "type": "S",
@@ -7031,12 +7104,13 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“选择落子位置”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,
       "task_id": 75,
-      "task_version": "1.1.0",
+      "task_version": "2.0.0",
       "title": "黑白棋：完成一轮操作",
       "app": "games",
       "type": "A",
@@ -7130,7 +7204,8 @@
         }
       },
       "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-      "system_snapshot_schema": null
+      "system_snapshot_schema": null,
+      "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“完成一轮操作”。只处理本次提供的内容，并确认操作结果已经保存。"
     },
     {
       "schema_version": 1,

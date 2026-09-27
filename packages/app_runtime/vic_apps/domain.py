@@ -161,7 +161,7 @@ def initialize(state):
                 "favorites": [],
             }
             if state["app"] == "media"
-            else {"cart": [x["id"] for x in state["items"]][::2], "favorites": []}
+            else {"cart": [x["id"] for x in state["items"] if x.get("initial_in_cart", False)], "favorites": []}
             if state["app"] == "shop"
             else {"reading_list": [], "favorites": []}
             if state["app"] == "news"

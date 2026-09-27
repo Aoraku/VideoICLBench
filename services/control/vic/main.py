@@ -133,7 +133,12 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
     def lock(run_id):
         return locks.setdefault(run_id, asyncio.Lock())
 
+    def current_contract(run):
+        if run.manifest.get("task_digest") != task_digest(run.task_id):
+            raise HTTPException(409, "任务数据或规则已更新，请重置环境后重新录制。已有录像与结果保留归档。")
+
     def active(run):
+        current_contract(run)
         if run.status not in ("ready", "running"):
             raise HTTPException(
                 409, f"Run is {run.status}; reset or create another run"
@@ -200,6 +205,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
         initial = initialize_domain(business.generate(task_id, 0))
         return dict(task_id=task_id, title=initial["title"], type=initial["type"],
                     app=initial["app"], source=initial.get("source", {}),
+                    object_count=len(initial.get("items", [])),
                     target_number=initial.get("target_number"),
                     target_score=initial.get("target_score"))
 
@@ -390,6 +396,9 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 raise HTTPException(410, "Create a new run after destruction")
             if run_id in recorder.active:
                 raise HTTPException(409, "Stop recording before reset")
+            initial = business.generate(run.task_id, run.seed)
+            if run.runtime == "browser":
+                initial = initialize_domain(initial)
             save_status(run_id, "resetting")
             await runtime.close_run(run_id)
             archive = data / "runs" / run_id / f"epoch-{run.epoch}"
@@ -400,6 +409,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             (archive / "state.json").write_text(json.dumps(store.snapshot(run_id)))
             (archive / "events.json").write_text(json.dumps(store.events(run_id)))
             (archive / "result.json").write_text(json.dumps(run.result))
+            (archive / "initial.json").write_text(json.dumps(run.initial))
+            (archive / "manifest.json").write_text(json.dumps(run.manifest))
             input_file = data / "runs" / run_id / "input.jsonl"
             if input_file.exists():
                 input_file.rename(archive / "input.jsonl")
@@ -413,9 +424,15 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 ]:
                     if artifact.exists():
                         artifact.rename(recording_archive / artifact.name)
-            store.initialize(run_id, run.initial)
+            store.initialize(run_id, initial)
             with sessions() as db:
                 row = db.get(Run, run_id)
+                row.initial = initial
+                row.manifest = {**row.manifest,
+                    "task_digest": task_digest(row.task_id),
+                    "initial_digest": hashlib.sha256(json.dumps(initial, sort_keys=True).encode()).hexdigest(),
+                    "implementation": implementation,
+                }
                 row.epoch += 1
                 row.status = "resetting"
                 row.result = None
@@ -437,6 +454,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
     async def evaluate(run_id, body: HumanEvidence | None = None):
         async with lock(run_id):
             run = get_run(run_id)
+            current_contract(run)
             if run.result:
                 return run.result
             if run.status != "recorded":
@@ -599,6 +617,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
     @app.post("/v1/runs/{run_id}/recordings/review", dependencies=[Depends(manager)])
     async def review(run_id, body: Review):
         run = get_run(run_id)
+        if body.approved:
+            current_contract(run)
         path = data / "artifacts" / run_id / "recording.json"
         if not path.exists():
             raise HTTPException(409, "No recording to review")

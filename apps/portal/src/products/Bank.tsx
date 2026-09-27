@@ -7,6 +7,7 @@ import {
   DataRows,
   type ProductAPI,
 } from "./kit";
+const dateTime = (value: string) => value ? value.replace("T", " ").slice(0, 16) + " UTC" : "—";
 const money = (n: number) =>
   n.toLocaleString("zh-CN", {
     minimumFractionDigits: 2,
@@ -215,8 +216,7 @@ export function Bank({ api }: { api: ProductAPI }) {
                 <dd>{active.text}</dd>
                 <dt>交易时间</dt>
                 <dd>
-                  2026-01-15 09:{String(active.timestamp % 60).padStart(2, "0")}{" "}
-                  · 流水序号 {active.timestamp}
+                  {dateTime(active.created_at)}
                 </dd>
                 <dt>账户</dt>
                 <dd>{active.account}</dd>
@@ -241,11 +241,17 @@ export function Bank({ api }: { api: ProductAPI }) {
             <section className="bank-form">
               <span>账户余额</span>
               <h1>¥{money(active.balance)}</h1>
-              <p>交易笔数：{active.transactions}</p>
+              <p>最近 30 天交易笔数：{active.transactions}</p>
+              <p>{s.source.transaction_window.start} 至 {s.source.transaction_window.end}</p>
               <p>
                 开户日期：
-                {active.same_day ? "2026-01-15（今天）" : "2025-08-12"}
+                {active.opened_at}
               </p>
+              <h3>最近两笔交易</h3>
+              <DataRows items={active.recent_transactions} columns={[
+                ["occurred_at", "交易时间", (x) => dateTime(x.occurred_at)],
+                ["amount", "金额", (x) => `¥${money(x.amount)}`],
+              ]} />
               {s.task_id === 50 && <Classify item={active} api={api} />}{" "}
               {s.task_id === 57 && (
                 <button
@@ -278,7 +284,7 @@ export function Bank({ api }: { api: ProductAPI }) {
               columns={[
                 ["name", "交易对象", (x) => x.name],
                 ["text", "备注", (x) => x.text],
-                ["time", "流水序号", (x) => x.timestamp],
+                ["time", "交易时间", (x) => dateTime(x.created_at)],
                 ["amount", "金额", (x) => `¥${money(x.amount)}`],
               ]}
               renderActions={(x) =>
@@ -304,11 +310,11 @@ export function Bank({ api }: { api: ProductAPI }) {
                 ["name", "账户名称", (x) => x.name],
                 ["account", "账号", (x) => x.account],
                 ["balance", "余额", (x) => `¥${money(x.balance)}`],
-                ["transactions", "交易笔数", (x) => x.transactions],
+                ["transactions", "最近30天交易笔数", (x) => x.transactions],
                 [
                   "date",
-                  "开户日期",
-                  (x) => (x.same_day ? "2026-01-15（今天）" : "2025-08-12"),
+                  "最近两笔交易",
+                  (x) => <span>{x.recent_transactions.map((tx: any) => <span key={tx.occurred_at} style={{display:"block"}}>{dateTime(tx.occurred_at)}</span>)}</span>,
                 ],
               ]}
               renderActions={(x) =>

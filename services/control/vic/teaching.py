@@ -1,0 +1,249 @@
+"""Deterministic, variant-blind teaching data for ordinary application workspaces.
+
+A batch demonstration contains 24 objects; its held-out query contains six.
+Single-choice and editing tasks use multiple episodes (managed separately).
+No label, decision, rule, or expected output is stored in the public fixture.
+"""
+from copy import deepcopy
+from datetime import datetime, timedelta, timezone
+import ast
+import random
+
+FIXTURE_VERSION = 2
+BATCH_TASKS = {5, 6, 8, 13, 14, 16, 22, 23, 24, 25, 30, 32, 33, 34,
+               38, 39, 42, 43, 48, 49, 54, 55, 56, 57, 65}
+
+# Realistic independent titles: title features must not be manufactured by appending
+# an object ID or by encoding a classification in a name.
+NAMES = {
+    'music': ['Morning Walk', 'Blue Hour', 'Summer Breeze', 'City Lights 7', 'After the Rain', 'Night Train 22', 'Paper Boats', 'Quiet Streets', 'Sunday Radio', 'Window Seat', 'Amber Sky', 'Northbound', 'Second Sunrise', 'Late Coffee', 'River Song', 'Small Hours', 'Lost Postcard', 'Home Again', 'Silver Lining', 'Green Fields', 'September Letters', 'Ocean Drive', 'Last Station', 'Distant Stars'],
+    'news': ['城市图书馆延长夜间开放时间', '2026 年公共交通服务报告', '社区花园迎来收获季', '地铁 7 号线增加班次', '河岸步道完成无障碍改造', '青年设计师分享街区实践', '博物馆推出夜间导览', '3 所学校开放体育场地', '周末市集迎来手工艺人', '12 个街区开展环境调查', '社区食堂征集居民意见', '第 8 届城市读书节开幕', '老街修缮方案开始公示', '新建 5 处社区休息亭', '公交驾驶员讲述沿途故事', '步行地图收录 14 条路线', '街角书店发起旧书交换', '2 家剧院推出公益演出', '园艺志愿者举办交流会', '河流监测新增 6 个站点', '社区合唱团开启排练', '9 月文化活动指南发布', '城市夜行摄影展开放', '35 位居民参与口述历史'],
+    'chat': ['Anna Wen', 'Bryn Ng', 'Chloe Lin', 'Daniel Zhu', 'Emma Han', 'Sky Ng', 'Mia Chen', 'Noah Li', 'Rhys Ng', 'Will Sun', 'Owen Lu', 'Lily He', 'Iris Gu', 'Mark Hu', 'Vera Luo', 'Lynn Ng', 'Grace Ma', 'Eric Tang', 'Rose Fang', 'Ben Su', 'Yuki Shen', 'Seth Qin', 'Amy Zhou', 'Drew Xia'],
+    'im': ['林若宁', '陈子安', '许安', '欧阳晓', '周思远', '李可', '张宁', '王悦', '刘晨', '赵然', '沈一舟', '陈明远', '顾安', '苏晴', '李知夏', '周小满', '许知远', '陆洲', '唐可心', '秦朗', '宋雨', '吴书言', '程小禾', '何予安'],
+    'media': ['森林清晨', '意外的访客', '森林里的冒险', '大兔子与朋友', '林间故事', '开放电影之夜', '午后追逐', '河岸来信', '穿过草地', '朋友的礼物', '树影之间', '远处的脚步', '奇妙的计划', '小路转弯处', '风中的种子', '意外的相遇', '一个晴天', '出发的早晨', '林间回声', '湖边野餐', '黄昏归途', '一起看星星', '新的邻居', '周末约定'],
+    'blog': ['我的城市散步路线', '读完 7 本书之后', '在家搭建工作角', '第 2 次海边旅行', '社区花园的四季', '每周写作笔记', '街角咖啡馆日记', '山里的周末', '摄影与自然光', '厨房里的小实验', '读书会的夏天', '写给未来的信', '整理旧相册', '骑车穿过城市', '一间安静的书房', '从阳台开始种菜', '雨天的观察', '如何安排假期', '我的旅行手账', '公交车窗外', '夜间图书馆', '工作日的午餐', '陌生街道的地图', '朋友带来的礼物'],
+    'studio': ['会议纪要助手', '研究摘要助手', '代码审阅助手', '旅行规划助手', '课程设计助手', '周报整理助手', '活动策划记录', '书评素材整理', '访谈转录整理', '路线比较记录', '阅读提纲', '社区调查总结', '故事梗概', '产品调研笔记', '摄影说明草稿', '课程练习草案', '邮件草稿', '预算分析笔记', '志愿活动简报', '知识库索引', '设计会议记录', '实验观察', '日程整理', '资料归档'],
+    'shop': ['帆布通勤背包', '不锈钢保温杯', '便携机械键盘', '桌面阅读灯', '旅行收纳包', '无线静音鼠标', '折叠雨伞', '软木笔记本', '便携咖啡杯', '亚麻桌布', '磁吸书签', '帆布笔袋', '桌面收纳盒', '手机支架', '阅读靠垫', '便携水壶', '棉质手提袋', '无线充电座', '多口充电器', '陶瓷马克杯', '旅行眼罩', '线缆收纳袋', '简约挂钟', '防滑桌垫'],
+    'bank': ['日常储蓄账户', '旅行专项账户', '家庭共同账户', '学习预算账户', '房租备用账户', '应急储蓄账户', '书籍采购账户', '休假储备账户', '运动预算账户', '交通支出账户', '文具采购账户', '摄影储蓄账户', '生活备用账户', '周末活动账户', '志愿活动账户', '家居采购账户', '植物养护账户', '年度计划账户', '医疗备用账户', '水电支出账户', '订阅服务账户', '亲友礼物账户', '维修储备账户', '长期储蓄账户'],
+    'code': ['两数之和', '合并有序数组', '括号匹配', '二叉树遍历', '最短路径', '区间合并', '旋转数组', '字符串压缩', '链表反转', '岛屿数量', '矩阵搜索', '课程安排', '窗口最大值', '编辑距离', '路径总和', '环形队列', '位运算入门', '数独验证', '字母异位词', '缓存设计', '子序列匹配', '拓扑排序', '前缀树查询', '单调栈练习'],
+    'travel': [f'G{n} · 北京南至上海虹桥' for n in range(101, 149, 2)],
+}
+
+
+QUERY_NAMES = {
+    'chat': ['Rhys Ng', 'Lynn Ng', 'Alice Qiu', 'Victor Bai', 'June Wei', 'May Deng'],
+    'im': ['方宁', '江夏', '陶然', '白景川', '邓嘉禾', '魏星河'],
+    'news': ['天文馆延长周末参观时间', '18 条公交线路开通夜间服务', '旧车站改建为社区展厅', '4 家书店联合举办交换集市', '湿地观察活动面向居民开放', '2027 年自然教育项目启动'],
+    'music': ['Open Windows', 'Autumn Lanterns', 'Across the Valley', 'First Snow', 'Orange Moon', 'Saturday Market'],
+    'media': ['林间新伙伴', '湖畔的惊喜', '晨雾消散以后', '旅途中的朋友', '落叶的故事', '回到熟悉的地方'],
+    'blog': ['第一次参加露营', '春天的花园计划', '我的早晨书单', '海边小城漫游', '尝试烘焙面包', '收集城市声音'],
+    'studio': ['餐饮访谈整理', '露营计划草案', '植物观察总结', '演出材料整理', '城市声音记录', '运动课程提纲'],
+    'shop': ['帆布通勤背包 · 秋日款', '不锈钢保温杯 · 冬季款', '便携机械键盘 · 旅行款', '桌面阅读灯 · 夜读款', '旅行收纳包 · 轻量款', '无线静音鼠标 · 随行款'],
+    'bank': ['露营预算账户', '植物养护储备', '家电维修账户', '烘焙材料账户', '音乐学习账户', '公益活动账户'],
+    'code': ['最长回文子串', '乘积最大子数组', '地图着色', '航班路线规划', '堆排序', '区间查询'],
+    'travel': [f'D{n} · 北京南至上海虹桥' for n in (701,703,705,707,709,711)],
+}
+
+
+def displayed_time(rank):
+    """Chronological values and visible times have the same ordering across dates."""
+    base = datetime(2026, 1, 1, 8, tzinfo=timezone.utc)
+    return (base + timedelta(minutes=rank * 97)).isoformat(timespec='seconds')
+
+
+def enrich(id_, seed, items, source, rng):
+    n = 24 if id_ in BATCH_TASKS and seed < 1000 else 6
+    app = items and source['_app']
+    base = items
+    items = [deepcopy(base[i % len(base)]) for i in range(n)]
+    pool = (QUERY_NAMES if seed >= 1000 else NAMES)[app].copy()
+    rng.shuffle(pool)
+    # Keep product identifiers matching the edit target and attachment filenames.
+    if id_ not in (8, 11, 41, 45):
+        for item, name in zip(items, pool):
+            item['name'] = name
+    for i, item in enumerate(items):
+        item.update(id=f'item-{i + 1}', asset_index=i % 6)
+
+    def assign(field, values):
+        values = list(values)
+        values = (values * ((n + len(values) - 1) // len(values)))[:n]
+        rng.shuffle(values)
+        for item, value in zip(items, values):
+            item[field] = value
+
+    def threshold_examples(field, threshold):
+        if n == 6:
+            values = [threshold // 2, threshold - 1, threshold,
+                      threshold + 1, threshold * 3 // 2, threshold * 2]
+        else:
+            values = ([threshold - 1] + rng.sample(range(1, threshold - 1), 9)
+                      + [threshold] * 4 + [threshold + 1]
+                      + rng.sample(range(threshold + 2, threshold * 2 + 1), 9))
+        assign(field, values)
+
+    # Features are independently permuted, so neither row order nor another
+    # column's parity is a proxy for the rule being taught.
+    for field in ('timestamp', 'contact_time', 'size', 'plays', 'rating', 'comments',
+                  'price', 'words', 'balance', 'transactions', 'departure', 'stock',
+                  'amount', 'pass_rate', 'runtime_ms', 'context', 'like_rate', 'sales'):
+        assign(field, rng.sample(range(1, 100), n))
+    assign('unread', [0, 3, 0, 7, 2, 0])
+    assign('members', [4, 5, 6, 3, 8, 9])
+    assign('duration', [119, 240, 301, 599, 600, 721])
+    assign('age_days', [0, 3, 4, 7, 1, 5])
+    assign('transfers', [0, 1, 2, 3, 4, 5])
+    assign('tag_count', [0, 1, 2, 3, 4, 5])
+    assign('completed', [True, False])
+    assign('category', ['甲', '乙'])
+    assign('samples', rng.sample(range(1, 40), n))
+    assign('number', rng.sample(range(100, 300), n))
+    assign('verdict', ['AC', 'WA', 'RE', 'AC', 'TLE', 'RE'])
+    assign('publisher', ['Echo', 'North', 'Orbit', 'Sky', 'AtlasNews', 'Daily'])
+    assign('artist', ['Vela', 'Arco', 'Sora', 'Mica', 'Kite', 'Nova'])
+    assign('year', rng.sample(range(1980, 2026), n))
+    assign('same_day', [True, False])
+
+    if id_ == 22:
+        threshold_examples('duration', 240)
+        threshold_examples('plays', 50)
+    if id_ == 25:
+        threshold_examples('duration', 600)
+    if id_ in (32, 38, 48, 54, 56, 57):
+        field = {32:'rating', 38:'words', 48:'rating', 54:'price', 56:'amount', 57:'balance'}[id_]
+        threshold_examples(field, 50)
+        if id_ == 48:
+            threshold_examples('sales', 50)
+            assign('comments', [12, 25, 46, 57, 78, 91])
+    if id_ in (5, 13, 16):
+        assign('text', ['紧急：请确认会议室是否可用?', '收到，设计材料已经归档。',
+                        '周末活动的集合地点在哪里?', '收到，明天会提前到场。',
+                        '紧急：请核对交付清单和负责人。', '本周的阅读分享安排在周五下午。'])
+    if id_ == 8:
+        groups = ['设计协作组', '产品 3 组', '研发 7 组', '周末徒步', '阅读分享组', '项目 12 组']
+        for i, item in enumerate(items):
+            item['name'] = groups[i % 6] + (['', ' · 东区', ' · 西区', ' · 南区'][i // 6])
+    if id_ == 23:
+        # Balanced title-digit classes even in a six-object held-out query.
+        pool = (QUERY_NAMES if seed >= 1000 else NAMES)['news']
+        digits = [x for x in pool if any(c.isdigit() for c in x)]
+        plain = [x for x in pool if not any(c.isdigit() for c in x)]
+        rng.shuffle(digits)
+        rng.shuffle(plain)
+        assign('name', digits[:n//2] + plain[:n//2])
+    if id_ == 33:
+        flags = [True, False, True, False, False, True] * (n // 6)
+        rng.shuffle(flags)
+        for item, urgent in zip(items, flags):
+            item['name'] = ('紧急：' if urgent else '') + item['name']
+    if id_ == 38:
+        flags = [True, False] * (n // 2)
+        rng.shuffle(flags)
+        for item, question in zip(items, flags):
+            item['name'] = item['name'].rstrip('?') + ('?' if question else '')
+            item['text'] = ('我们沿着河岸记录社区的日常变化，整理居民的意见，并讨论公共空间的使用方式。' * 4)[:item['words']]
+    if id_ == 39:
+        assign('text', ['调查覆盖了 3 个街区。', '居民说：“这里适合散步。”',
+                        '共有 12 位居民提到“夜间开放”。', '街角的公共空间正在修缮。',
+                        '材料索引见 [设计文档]。', '访谈记录已按主题归档。'])
+    if id_ == 42:
+        assign('name', ['Maya 的花园笔记', 'Ruth 的书评', 'Camera 入门记录', 'Python 学习笔记', '烘焙日记', '露营随笔'] if seed >= 1000 else ['Anna 的旅行手记', 'Bryn 的工作笔记', 'Canva 排版练习',
+                        'Notion 读书清单', '城市散步地图', '每周写作记录'])
+    if id_ == 56:
+        assign('name', ['Maya · 备用账户', 'Ruth · 日常账户', 'Oscar · 旅行账户', 'Will · 学习账户', '方宁 · 储蓄账户', '江夏 · 房租账户'] if seed >= 1000 else ['Anna · 储蓄账户', 'Bryn · 储蓄账户', 'Daniel · 房租账户',
+                        'Chloe · 旅行账户', '林若宁 · 日常账户', '陈子安 · 学习账户'])
+    if app == 'shop' and id_ != 45:
+        from .scenarios import NAMES as ORIGINAL_NAMES, PRODUCT_TEXTS
+        pool = QUERY_NAMES['shop'] if seed >= 1000 else [name + suffix for suffix in ('', ' · 轻便款', ' · 经典款', ' · 升级款') for name in ORIGINAL_NAMES['shop']]
+        assign('name', pool)
+        for item in items:
+            item['text'] = PRODUCT_TEXTS['shop'][ORIGINAL_NAMES['shop'].index(item['name'].split(' · ')[0])]
+    if id_ == 49:
+        # Natural remarks with lengths 14/15/16 around the strict threshold.
+        notes = ['午餐结算', '地铁出行费用', '采购办公用品及打印材料费结算',
+                 '购买办公用品及打印材料费用结算', '购买办公用品和打印材料费用已结算',
+                 '共同承担本月水电宽带及公共区域清洁费用']
+        assign('text', notes)
+        assign('amount', [12, 25, 46, 57, 78, 91])
+    if id_ == 41:
+        assign('name', ['Birch', 'Lumen Plus', 'Pine', 'Vale Ultra', 'Elm', 'Maple Studio'] if seed >= 1000 else ['Atlas', 'Orion Pro', 'Nova Lite', 'Cedar', 'Aurora Long', 'Vela'])
+    if id_ == 35:
+        assign('duration', [120, 300, 599, 600, 720, 901])
+    if id_ in (43, 65):
+        value = 2 + seed % 97
+        programs = [f'print({value})', f'def solve():\n    return {value}',
+                    f'def solve(data):\n    return len(data) + {value}',
+                    f'answer = {value}\nprint(answer', f'def other():\n    return {value}',
+                    f'for item in range({value})\n    print(item)']
+        if id_ == 65:
+            # Code length 24 / 25 / 26; different names and validity are crossed.
+            programs[0] = 'print(1) # '.ljust(23, 'a') + '\n'
+            programs[3] = 'print(2) # '.ljust(24, 'b') + '\n'
+            programs[5] = 'print( # '.ljust(25, 'c') + '\n'
+        assign('code', programs)
+
+    tags = ['focus', 'blue', 'weekly', 'travel', 'ideas']
+    account_prefixes = rng.sample(range(1000000, 9999999), n)
+    endings = list(range(6)) * (n // 6)
+    rng.shuffle(endings)
+    for i, item in enumerate(items):
+        item['account'] = str(account_prefixes[i]) + str(endings[i])
+        # Rotate the tag vocabulary independently of count, including positives
+        # on both sides of the initial cart membership.
+        vocabulary = tags.copy()
+        rng.shuffle(vocabulary)
+        item['tags'] = vocabulary[:item['tag_count']]
+        item['name_length'] = len(item['name'].replace(' ', '')) if id_ == 6 else len(item['name'])
+        item['surname'] = item['name'].split()[-1] if app == 'chat' else item['name'][0]
+        item['created_at'] = displayed_time(item['timestamp'])
+        item['last_contact_at'] = displayed_time(item['contact_time'])
+        if id_ == 14:
+            updated = datetime.fromisoformat(source['reference_time']) - timedelta(days=item['age_days'])
+            item['created_at'] = updated.isoformat(timespec='seconds')
+            item['timestamp'] = int(updated.timestamp())
+        item['opened_at'] = f'2025-{1+i%9:02d}-{1+seed%27:02d}'
+        recent = datetime(2026, 1, 14, rng.randrange(24), rng.randrange(60), tzinfo=timezone.utc) - timedelta(days=i % 12)
+        if item['same_day']:
+            prior = recent.replace(hour=0, minute=0) + timedelta(minutes=rng.randrange(max(1, recent.hour * 60 + recent.minute)))
+        else:
+            prior = (recent - timedelta(days=1)).replace(hour=rng.randrange(24), minute=rng.randrange(60))
+        # Short cross-midnight gaps and long within-day gaps rule out elapsed
+        # time as a substitute for the calendar-date criterion.
+        if item['same_day'] and i % 3 == 0:
+            prior = recent.replace(hour=0, minute=10)
+            recent = recent.replace(hour=23, minute=50)
+        elif not item['same_day'] and i % 3 == 0:
+            recent = recent.replace(hour=0, minute=10)
+            prior = (recent - timedelta(days=1)).replace(hour=23, minute=50)
+        item['recent_transactions'] = [
+            {'id': f'transaction-{i}-{amount}', 'occurred_at': dt.isoformat(timespec='seconds'), 'amount': amount}
+            for dt, amount in [(recent, 12+i), (prior, 30+i)]
+        ]
+        item['initial_in_cart'] = bool(rng.randrange(2))
+        try:
+            ast.parse(item['code'])
+            item['check_pass'] = True
+        except SyntaxError:
+            item['check_pass'] = False
+        if id_ == 11:
+            item['file_text'] += '\n' + '请确认相关资料与负责人。\n' * rng.randrange(1, 50)
+            item['size'] = len(item['file_text'].encode('utf-8'))
+    rng.shuffle(items)
+    source.pop('_app')
+    source['transaction_window'] = {'start':'2025-12-17', 'end':'2026-01-15', 'days':30}
+    if id_ == 4:
+        source['text'] = ['评审改到会议室3，请在下午14点前确认', '请准备25份会议资料，送到会议室8', '周五到楼栋17参加讨论，请提前2小时确认'][seed % 3]
+    if id_ == 45:
+        source['quantity'] = 2 + seed % 7
+    if id_ == 46:
+        length = [10, 12, 16, 19, 14, 18][seed % 6]
+        source['text'] = str(random.Random(seed + 8461).randrange(10**(length-1), 10**length))
+    if id_ == 58:
+        source['text'] = f'limit = {seed % 9 + 2}\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)'
+    if id_ == 59:
+        source['text'] += '\nRead the input carefully\nKeep intermediate values\nCheck the boundary cases\nReturn the final result'
+    if id_ == 60:
+        a, b = [('value', 'total'), ('length', 'area'), ('price', 'cost'), ('count', 'result')][seed % 4]
+        source['rename_targets'] = [a, b]
+        source['text'] = f'{a} = {seed + 7}\nif {a} > 0:\n   {b} = {a} + 1\n   print({b})'
+    return items

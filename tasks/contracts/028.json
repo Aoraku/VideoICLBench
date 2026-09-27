@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 28,
-  "task_version": "1.1.0",
+  "task_version": "2.0.0",
   "title": "音乐：整理播放列表顺序",
   "app": "music",
   "type": "S",
@@ -90,5 +90,6 @@
     }
   },
   "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-  "system_snapshot_schema": null
+  "system_snapshot_schema": null,
+  "inference_prompt": "按照教程视频演示的规则，在当前应用中完成“整理播放列表顺序”。只处理本次提供的内容，并确认操作结果已经保存。"
 }

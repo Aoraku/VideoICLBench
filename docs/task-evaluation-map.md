@@ -15,7 +15,7 @@
 | [003](../tasks/contracts/003.json) | chat | 通讯 A：编辑并发送模板消息 | 句末加“.” | 句末加“!” | 句末加“?” | `messages.body` |
 | [004](../tasks/contracts/004.json) | chat | 通讯 A：把草稿转换为指定格式后发送 | 数字前加“#” | 数字后加“号” | 数字改写为英文单词 | `messages.body` |
 | [005](../tasks/contracts/005.json) | chat | 通讯 A：给收到的消息打标签 | 含问号归蓝色 | 含问号归红色 | 含问号归绿色 | `objects.label` |
-| [006](../tasks/contracts/006.json) | chat | 通讯 A：整理联系人分组 | 名字长度为偶数归“甲” | 长度为奇数归“甲” | 名字含元音归“甲” | `objects.label` |
+| [006](../tasks/contracts/006.json) | chat | 通讯 A：整理联系人分组 | 姓名去掉空格后，字符数为偶数的归入甲 | 姓名去掉空格后，字符数为奇数的归入甲 | 名字含元音归“甲” | `objects.label` |
 | [007](../tasks/contracts/007.json) | chat | 通讯 A：标记会话优先级 | 未读数最多为高优先级 | 未读数最少为高优先级 | 最近消息最新为高优先级 | `objects.label` |
 | [008](../tasks/contracts/008.json) | chat | 通讯 A：给群聊添加状态标签 | 成员数大于 5 为大型 | 成员数不大于 5 为大型 | 群名含数字为大型 | `objects.label` |
 | [009](../tasks/contracts/009.json) | chat | 通讯 A：从联系人中选收件人 | 选择姓氏最早者 | 选择最近联系者 | 选择未读消息最多者 | `settings` |
@@ -34,7 +34,7 @@
 | [022](../tasks/contracts/022.json) | music | 音乐：给歌曲按属性分类 | 时长超过 4 分钟为“长” | 时长不超过 4 分钟为“长” | 播放量超过阈值为“长” | `objects.label` |
 | [023](../tasks/contracts/023.json) | news | 新闻：给文章标注内容类别 | 标题含数字为“数据” | 标题不含数字为“数据” | 来源为指定媒体为“数据” | `objects.label` |
 | [024](../tasks/contracts/024.json) | news | 新闻：给文章标注来源类型 | 来源名以元音开头为“甲” | 以辅音开头为“甲” | 来源名长度超过 5 为“甲” | `objects.label` |
-| [025](../tasks/contracts/025.json) | media | 视频：给视频标注时长类别 | 短于 10 分钟为“短” | 不短于 10 分钟为“短” | 时长为偶数分钟为“短” | `objects.label` |
+| [025](../tasks/contracts/025.json) | media | 视频：给视频标注时长类别 | 短于 10 分钟为“短” | 不短于 10 分钟为“短” | 时长换算成分钟后取整数部分，为偶数的标为短 | `objects.label` |
 | [026](../tasks/contracts/026.json) | media | 信息流：给内容标注推荐等级 | 评分最高的两项为“推荐” | 评分最低的两项为“推荐” | 评论数最多的两项为“推荐” | `objects.label` |
 | [027](../tasks/contracts/027.json) | music | 音乐：从搜索结果选择歌曲 | 选评分最高者 | 选播放量最低者 | 选标题最短者 | `settings` |
 | [028](../tasks/contracts/028.json) | music | 音乐：整理播放列表顺序 | 按发行年份升序 | 按时长降序 | 按歌手名反向排序 | `orders.main` |
@@ -53,18 +53,18 @@
 | [041](../tasks/contracts/041.json) | studio | AI 工作台：选择生成模型 | 选择上下文窗口最大的模型 | 选择价格最低的模型 | 选择名称最短的模型 | `settings.model` |
 | [042](../tasks/contracts/042.json) | blog | 博客：发布满足条件的文章 | 带有两个以上标签的文章发布 | 没有标签的文章发布 | 标题含指定字符的文章发布 | `objects`、`messages`、`collections`、`artifacts` |
 | [043](../tasks/contracts/043.json) | studio | AI 工作台：处理生成结果 | 结果通过检查后保存 | 结果通过检查后复制 | 结果通过检查后提交给指定联系人 | `checks`、`artifacts`、`messages`、`browser.clipboard` |
-| [044](../tasks/contracts/044.json) | travel | 旅游：填写乘客信息 | 姓名姓与名之间加空格 | 姓名姓与名之间加连字符 | 姓名全部大写 | `objects.full_name` |
+| [044](../tasks/contracts/044.json) | travel | 旅游：填写乘客信息 | 姓名姓与名之间加空格 | 姓名姓与名之间加连字符 | 姓名全部大写，姓与名之间保留一个空格 | `objects.full_name` |
 | [045](../tasks/contracts/045.json) | shop | 购物：填写商品备注 | 数量写在商品名前 | 数量写在商品名后 | 数量改为中文数字 | `objects.note` |
 | [046](../tasks/contracts/046.json) | bank | 银行：填写转账备注 | 账号只保留后四位 | 账号只保留前四位 | 账号中间部分替换为星号 | `objects.note` |
 | [047](../tasks/contracts/047.json) | travel | 旅游：给出行方案分类 | 耗时最短为“快” | 价格最低为“快” | 换乘最少为“快” | `objects.label` |
 | [048](../tasks/contracts/048.json) | shop | 购物：给商品分类 | 评分不低于阈值为“优选” | 销量不低于阈值为“优选” | 评论数为偶数为“优选” | `objects.label` |
 | [049](../tasks/contracts/049.json) | bank | 银行：给交易标注类型 | 金额为偶数为“常规” | 金额为奇数为“常规” | 备注长度超过阈值为“常规” | `objects.label` |
-| [050](../tasks/contracts/050.json) | bank | 银行：给账户标注风险等级 | 余额最高的账户为“重点” | 余额最低的账户为“重点” | 最近交易最多的账户为“重点” | `objects.label` |
+| [050](../tasks/contracts/050.json) | bank | 给账户标记重点 | 余额最高的账户为“重点” | 余额最低的账户为“重点” | 最近30天交易笔数最多的账户标为重点 | `objects.label` |
 | [051](../tasks/contracts/051.json) | travel | 旅游：从路线列表选择方案 | 选价格最低者 | 选总时长最短者 | 选出发时间最晚者 | `settings` |
 | [052](../tasks/contracts/052.json) | shop | 购物：从商品列表选择商品 | 选评分最高者 | 选价格最高者 | 选库存最少者 | `settings` |
 | [053](../tasks/contracts/053.json) | bank | 银行：从交易列表选择记录 | 选金额最大者 | 选金额最小者 | 选日期最早者 | `settings` |
 | [054](../tasks/contracts/054.json) | travel | 旅游：确认预订 | 价格低于阈值的方案确认 | 价格高于阈值的方案确认 | 换乘次数为偶数的方案确认 | `artifacts.booking` |
-| [055](../tasks/contracts/055.json) | shop | 购物：处理购物车 | 带有指定标签的商品加入购物车 | 带有指定标签的商品移出购物车 | 带有指定标签的商品加入收藏 | `collections.cart`、`collections.favorites` |
+| [055](../tasks/contracts/055.json) | shop | 购物：处理购物车 | 将含指定标签且尚未入车的商品加入购物车 | 将购物车中含指定标签的商品移出购物车 | 带有指定标签的商品加入收藏 | `collections.cart`、`collections.favorites` |
 | [056](../tasks/contracts/056.json) | bank | 银行：执行转账 | 收款人姓名含指定字母时转账 | 账号末位为偶数时转账 | 金额低于阈值时转账 | `ledger`、`balances` |
 | [057](../tasks/contracts/057.json) | bank | 银行：设置账户提醒 | 余额低于阈值时开启提醒 | 余额高于阈值时开启提醒 | 连续两笔交易同日时开启提醒 | `objects.reminder` |
 | [058](../tasks/contracts/058.json) | code | OJ：按规则整理代码后提交 | 缩进使用 2 个空格 | 缩进使用 4 个空格 | 缩进使用制表符 | `objects.code`、`artifacts.submission` |
@@ -80,7 +80,7 @@
 | [068](../tasks/contracts/068.json) | games | 2048：选择下一步移动方向 | 优先选择可合并方块最多的方向 | 选择本步合并得分最高的方向 | 优先选择最高方块保持在角落的方向 | `board`、`moves`、`marks`、`selection`、`stopped`、`events` |
 | [069](../tasks/contracts/069.json) | games | 2048：执行一组移动 | 出现目标数字后立即停止 | 达到指定分数后停止 | 棋盘无空格后停止 | `board`、`moves`、`marks`、`selection`、`stopped`、`events` |
 | [070](../tasks/contracts/070.json) | games | 数独：识别需要填写的格子 | 候选集全部为偶数的格子标记 | 候选集全部为奇数的格子标记 | 候选数字数量最少的格子标记 | `board`、`moves`、`marks`、`selection`、`stopped`、`events` |
-| [071](../tasks/contracts/071.json) | games | 数独：按视频规则填写数字 | 填入候选数字中最小者 | 填入候选数字中最大者 | 填入与所在行首数字同奇偶性的数字 | `board`、`moves`、`marks`、`selection`、`stopped`、`events` |
+| [071](../tasks/contracts/071.json) | games | 数独：按视频规则填写数字 | 填入候选数字中最小者 | 填入候选数字中最大者 | 将候选数字从小到大排列，填入正中间的数字 | `board`、`moves`、`marks`、`selection`、`stopped`、`events` |
 | [072](../tasks/contracts/072.json) | games | 扫雷：从候选格中选择安全格 | 选择周围已揭示线索数字之和最小的安全候选格 | 选择周围未开格最多的格子 | 选择距离左上角最近的格子 | `board`、`moves`、`marks`、`selection`、`stopped`、`events` |
 | [073](../tasks/contracts/073.json) | games | 扫雷：执行标记操作 | 数字为 1 的格子插旗 | 数字为 2 的格子插旗 | 边界格子插旗 | `board`、`moves`、`marks`、`selection`、`stopped`、`events` |
 | [074](../tasks/contracts/074.json) | games | 黑白棋：选择落子位置 | 选择可翻转棋子最多的位置 | 选择靠近角落的位置 | 选择可翻转棋子最少的位置 | `board`、`moves`、`marks`、`selection`、`stopped`、`events` |

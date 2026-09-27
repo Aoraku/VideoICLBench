@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "task_id": 50,
-  "task_version": "1.1.0",
-  "title": "银行：给账户标注风险等级",
+  "task_version": "2.0.0",
+  "title": "给账户标记重点",
   "app": "bank",
   "type": "C",
   "status": "implemented",
@@ -19,7 +19,7 @@
       "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
     },
     "C": {
-      "rule": "最近交易最多的账户为“重点”",
+      "rule": "最近30天交易笔数最多的账户标为重点",
       "evaluator": "task_050_C",
       "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
     }
@@ -90,5 +90,6 @@
     }
   },
   "ties": "单对象数值相同时按初始对象顺序；棋盘候选点按行、列升序；2048 方向顺序：左、上、右、下。",
-  "system_snapshot_schema": null
+  "system_snapshot_schema": null,
+  "inference_prompt": "按照教程视频演示的规则，为本次提供的账户标记“重点”，并保存操作结果。"
 }

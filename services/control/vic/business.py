@@ -106,7 +106,7 @@ def transform(id_, v, state):
         return [
             s["surname"] + " " + s["given_name"],
             s["surname"] + "-" + s["given_name"],
-            (s["surname"] + s["given_name"]).upper(),
+            (s["surname"] + " " + s["given_name"]).upper(),
         ][v]
     if id_ == 45:
         return [
@@ -152,8 +152,8 @@ def targets(id_, v, items, source):
             x
             for x in items
             if [
-                len(x["name"]) % 2 == 0,
-                len(x["name"]) % 2 == 1,
+                len(x["name"].replace(" ", "")) % 2 == 0,
+                len(x["name"].replace(" ", "")) % 2 == 1,
                 bool(re.search("[aeiou]", x["name"], re.I)),
             ][v]
         ]
@@ -256,7 +256,7 @@ def targets(id_, v, items, source):
             if [
                 bool(re.search(r"\d", x["text"])),
                 not bool(re.search(r"\d", x["text"])),
-                "[" in x["text"],
+                any(mark in x["text"] for mark in ('"', "“", "”")),
             ][v]
         ]
     elif id_ == 40:
@@ -361,7 +361,8 @@ def action_targets(id_, v, items, s):
             if [x["price"] < t, x["price"] > t, x["transfers"] % 2 == 0][v]
         ], OPS[id_][0]
     if id_ == 55:
-        return [x["id"] for x in items if s["tag"] in x["tags"]], OPS[id_][v]
+        return [x["id"] for x in items if s["tag"] in x["tags"]
+                and (v == 2 or x["initial_in_cart"] == (v == 1))], OPS[id_][v]
     if id_ == 56:
         return [
             x["id"]
@@ -376,7 +377,10 @@ def action_targets(id_, v, items, s):
         return [
             x["id"]
             for x in items
-            if [x["balance"] < t, x["balance"] > t, x["same_day"]][v]
+            if [x["balance"] < t, x["balance"] > t,
+                len(x["recent_transactions"]) >= 2 and
+                x["recent_transactions"][0]["occurred_at"][:10] ==
+                x["recent_transactions"][1]["occurred_at"][:10]][v]
         ], OPS[id_][0]
     if id_ == 65:
         return [
@@ -615,7 +619,11 @@ def generate(id_, seed):
             )
         if id_ == 59:
             s["text"] = ["The algorithm uses a queue\nEach node is visited once", "The input contains an array\nThe result contains unique values", "The graph has weighted edges\nThe shortest path is returned"][seed % 3]
+        from .teaching import enrich, FIXTURE_VERSION
+        s["_app"] = app_name
+        items = enrich(id_, seed, items, s, rng)
         public = dict(
+            fixture_version=FIXTURE_VERSION,
             task_id=id_,
             title=task(id_)["title"],
             type=task(id_)["type"],
@@ -637,6 +645,13 @@ def generate(id_, seed):
         signatures = [
             json.dumps(expected_effect(id_, v, public), sort_keys=True) for v in "ABC"
         ]
+        from .teaching import BATCH_TASKS
+        if seed < 1000 and id_ in BATCH_TASKS and id_ != 30:
+            effects = [expected_effect(id_, v, public) for v in "ABC"]
+            counts = [sum(bool(label) for label in e["labels"].values()) if "labels" in e
+                      else len(e["actions"]) for e in effects]
+            if any(count < 4 or count > len(items) - 4 for count in counts):
+                continue
         if len(set(signatures)) == 3 and all(
             _nonempty(expected_effect(id_, v, public)) for v in "ABC"
         ):

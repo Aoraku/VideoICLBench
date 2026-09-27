@@ -1,4 +1,4 @@
-import {taskBrief} from './taskBrief';
+import {recordingContext} from './recordingContext';
 
 /** Recorder-only guidance; never sent to the application's execution surface. */
 export function recordingSteps(s:any, variant:string, rule:string):string[] {
@@ -30,7 +30,7 @@ export function recordingSteps(s:any, variant:string, rule:string):string[] {
     57:`进入余额提醒，按规则开启目标账户的提醒。${variant!=='C'?`余额阈值为 ${a.threshold} 元。`:'比较各账户最近两笔交易的日期。'}`,
     65:`进入我的代码与笔记，${variant==='A'?'先运行本地检查，再提交检查通过的代码':variant==='B'?`提交包含函数名 ${a.function} 的代码`:`提交长度低于 ${a.code_threshold} 的代码`}。`,
   };
-  const action=(games[s.task_id] || targeted[s.task_id] || taskBrief(s,s.title)).replaceAll('视频示范','本卡规则');
+  const action=(games[s.task_id] || targeted[s.task_id] || recordingContext(s,s.title)).replaceAll('视频示范','本卡规则');
   let completion=s.type==='C'?'检查所有对象：符合规则的都已标注，其余保持原状。'
     :s.type==='T'?'确认编辑后的内容已发送、保存或提交成功，不能只停留在输入框中。'
     :s.type==='S'?'确认已打开或选中目标，并完成页面要求的确认操作。'
@@ -49,12 +49,12 @@ export function recordingSteps(s:any, variant:string, rule:string):string[] {
     35:variant==='C'?'按甲、乙、甲、乙交替排列，两类各自保留初始顺序。':'短视频为不足 10 分钟，长视频为不短于 10 分钟；两类各自保留初始顺序。',
     36:variant==='C'?'每一位数字分别加英文圆括号，其余文字不变。':'仅改变指定位置的字母，其余字符保持不变。',
     37:variant==='A'?'每行开头直接加减号，不额外加空格。':variant==='B'?'从 1 开始编号，格式为“1. 原内容”，句点后有一个空格。':'每行末尾添加英文分号。',
-    44:variant==='C'?'姓与名直接拼接后全部大写，不留分隔符。':'按给出的姓、名顺序填写。',
+    44:variant==='C'?'姓名字母全部大写，姓与名之间保留一个空格。':'按给出的姓、名顺序填写。',
     45:variant==='C'?'中文数量放在商品名前，数量与商品名之间不加空格。':'数量与商品名之间不加空格。',
     46:variant==='C'?'保留账号前四位与后四位，中间每一位分别替换成一个星号。':'直接填写截取出的四位账号，不添加其他文字。',
     58:'保留原代码的逻辑和缩进层级，只调整每一级的缩进字符。',
     59:variant==='B'?'从 1 开始编号，格式为“1. 原内容”，句点后有一个空格。':'每一行都需要按规则处理。',
     60:'所有指定变量的定义和引用都需要一致修改，其他变量不变。',
   };
-  return [action,`本版本的操作要求：${rule}。${details[s.task_id]||''}`,completion];
+  return [action + (s.object_count >= 24 ? ` 本轮共有 ${s.object_count} 个对象，请检查整个列表，并保留符合与不符合规则的例子。` : ""),`本版本的操作要求：${rule}。${details[s.task_id]||''}`,completion];
 }

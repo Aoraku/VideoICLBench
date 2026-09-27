@@ -161,6 +161,7 @@ def fixture(task_id, seed):
                 board[5][c] = 1
             for c in (1, 2, 3, 4):
                 board[10][c] = 2
+            board[10][0] = 1  # Close the far end; the candidate blocks the only winning end.
             candidates = [(1, 4), (5, 3), (10, 5)]
         else:
             for c in (1, 2, 3):
@@ -214,16 +215,7 @@ def fixture(task_id, seed):
                     (r, c)
                     for r, c in candidates
                     if len(sudoku_candidates(board, r, c)) >= 3
-                    and len(
-                        [
-                            v
-                            for v in sudoku_candidates(board, r, c)
-                            if v % 2 == board[r][0] % 2
-                        ]
-                    )
-                    == 1
-                    and sudoku_candidates(board, r, c)[0] % 2 != board[r][0] % 2
-                    and sudoku_candidates(board, r, c)[-1] % 2 != board[r][0] % 2
+                    and len(sudoku_candidates(board, r, c)) % 2 == 1
                 ]
                 if not candidates:
                     continue
@@ -392,7 +384,7 @@ def expected(task_id, variant, state):
         return [
             candidates[0],
             candidates[-1],
-            next(x for x in candidates if x % 2 == board[r][0] % 2),
+            candidates[len(candidates) // 2],
         ][v]
     if task_id == 72:
 

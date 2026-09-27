@@ -65,6 +65,8 @@ system = {
     99: ["settings.battery_saver"],
     100: ["packages.stopped"],
 }
+prompts = json.loads((ROOT / "tasks/public-prompts.json").read_text())
+(ROOT / "apps/portal/src/publicTaskPrompts.json").write_text(json.dumps(prompts, ensure_ascii=False, indent=2) + "\n")
 contracts = []
 for t in tasks:
     id_ = t["id"]
@@ -147,6 +149,8 @@ for t in tasks:
         if id_ > 75
         else None,
     )
+    if id_ <= 75:
+        c["inference_prompt"] = prompts[str(id_)]
     if id_ == 35:
         c["ties"] = (
             "队列类别交替，同类对象保持初始相对顺序；A 从短视频开始，B 从长视频开始，C 从甲类开始。"
