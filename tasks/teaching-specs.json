@@ -1,0 +1,1844 @@
+{
+  "schema_version": 1,
+  "scope": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75
+  ],
+  "principles": [
+    "规则仅供录制前阅读，视频不含规则原文",
+    "demo样本显著多于inference",
+    "关键边界与正反例必须可见",
+    "多实例排除位置、次序、共极值和相关属性捷径",
+    "A/B/C同一初始状态，评价新实例",
+    "数值、资源和业务效果必须与判分一致"
+  ],
+  "cases": [
+    {
+      "task_id": 1,
+      "title": "通讯 A：发送一条指定文本",
+      "app": "chat",
+      "review_comments": [
+        "B和C规则重复了"
+      ],
+      "design_requirements": "多个混合大小写、多词和单词输入；展示句首大写与每词大写的不同结果。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“发送一条指定文本”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 2,
+      "title": "通讯 A：修改联系人昵称",
+      "app": "chat",
+      "review_comments": [
+        "左侧栏联系人的名称不对，应该是林若宁"
+      ],
+      "design_requirements": "联系人真实姓名与可编辑备注分开显示；覆盖单空格、多空格和无空格输入。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“修改联系人昵称”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 3,
+      "title": "通讯 A：编辑并发送模板消息",
+      "app": "chat",
+      "review_comments": [],
+      "design_requirements": "多种已有结尾标点；明确追加英文标点而不是替换已有标点。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“编辑并发送模板消息”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 4,
+      "title": "通讯 A：把草稿转换为指定格式后发送",
+      "app": "chat",
+      "review_comments": [
+        "“评审改到3号会议室，请在下午2点前确认”我觉得改成“评审改到会议室3，请在下午14点前确认”，因为版本B是给数字加“号”，版本A是“每一位数字”（其实我不确定是每个数字加#还是数字整体加#）"
+      ],
+      "design_requirements": "正文避免自带“号”；同时使用个位数、多位数与零，规则明确逐位处理。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“把草稿转换为指定格式后发送”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 5,
+      "title": "通讯 A：给收到的消息打标签",
+      "app": "chat",
+      "review_comments": [
+        "含问号的消息只有一条，感觉再来一条好一点"
+      ],
+      "design_requirements": "至少四条含问号和四条不含问号消息；混排，颜色选择后立即显示且可持久化。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“给收到的消息打标签”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 6,
+      "title": "通讯 A：整理联系人分组",
+      "app": "chat",
+      "review_comments": [
+        "名字的长度包含包含last name嘛，其实我感觉不太能想到去数名字的单词数（）"
+      ],
+      "design_requirements": "明确统计显示全名去空格后的字符数；全名长度与元音特征独立。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“整理联系人分组”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 7,
+      "title": "通讯 A：标记会话优先级",
+      "app": "chat",
+      "review_comments": [],
+      "design_requirements": "六批会话，最大未读、最小未读与最近消息目标分别变化；展示真实时间。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“标记会话优先级”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 8,
+      "title": "通讯 A：给群聊添加状态标签",
+      "app": "chat",
+      "review_comments": [],
+      "design_requirements": "成员数覆盖4、5、6，群名数字与人数无关，正反例混排。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“给群聊添加状态标签”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 9,
+      "title": "通讯 A：从联系人中选收件人",
+      "app": "chat",
+      "review_comments": [
+        "版本A，姓氏最早是指姓氏首字母排序嘛（感觉不太好想得到），版本B所有人发消息的时间是一样的"
+      ],
+      "design_requirements": "姓氏字段与显示姓名一致；姓氏排序、最近联系时间、未读数独立变化。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“从联系人中选收件人”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 10,
+      "title": "通讯 A：从搜索结果打开目标会话",
+      "app": "chat",
+      "review_comments": [],
+      "design_requirements": "保留首项/末项作为有意定义的规则；未读最多对象不得固定在首尾。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“从搜索结果打开目标会话”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 11,
+      "title": "通讯 A：从附件列表选择文件发送",
+      "app": "chat",
+      "review_comments": [
+        "文件大小没有显示"
+      ],
+      "design_requirements": "附件显示真实字节大小并与文件内容一致；大小、名称长度和位置独立。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“从附件列表选择文件发送”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 12,
+      "title": "通讯 A：整理会话列表顺序",
+      "app": "chat",
+      "review_comments": [],
+      "design_requirements": "未读数、消息时间、会话名互不共序；保存后整体顺序可见。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“整理会话列表顺序”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 13,
+      "title": "通讯 A：处理一组待办消息",
+      "app": "chat",
+      "review_comments": [],
+      "design_requirements": "紧急消息与普通消息各有多例；关键词与位置、时间、标签数独立。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“处理一组待办消息”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 14,
+      "title": "通讯 A：清理会话状态",
+      "app": "chat",
+      "review_comments": [
+        "版本A已读会话就一个（而且是第一个 感觉会有歧义）"
+      ],
+      "design_requirements": "已读/未读均有多例，消息年龄覆盖2、3、4天；归档、置顶、静音反馈可见。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“清理会话状态”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 15,
+      "title": "通讯 B：创建群聊并邀请成员",
+      "app": "im",
+      "review_comments": [
+        "版本A名字是两个字的不够三个人"
+      ],
+      "design_requirements": "最短姓名至少三位，最近联系、未读数与姓名长度独立；三人群成员可核验。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“创建群聊并邀请成员”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 16,
+      "title": "通讯 B：处理消息回执",
+      "app": "im",
+      "review_comments": [
+        "有“收到”的只有一条消息"
+      ],
+      "design_requirements": "多条收到与非收到消息，固定回复内容可读；三种操作有清晰回执。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“处理消息回执”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 17,
+      "title": "音乐：修改歌曲显示名称",
+      "app": "music",
+      "review_comments": [
+        "保存之后绿色的显示文字貌似没渲染出来，有时候打不开录制界面"
+      ],
+      "design_requirements": "多组不同长度标题；保存反馈和名称刷新正确，末字母规则显示其余字母变化。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“修改歌曲显示名称”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 18,
+      "title": "音乐：生成播放列表名称",
+      "app": "music",
+      "review_comments": [
+        "歌手陈绮贞、3首、日期2026-01-15这几个信息页面里没有，模型不好去推断吧"
+      ],
+      "design_requirements": "歌手、数量、日期在应用中可见；六组组合，完整拼接顺序与分隔符明确。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“生成播放列表名称”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 19,
+      "title": "新闻：规范化文章标题",
+      "app": "news",
+      "review_comments": [],
+      "design_requirements": "多种中英文标点和来源简称；来源、原标题、保存结果均可见。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“规范化文章标题”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 20,
+      "title": "新闻：修改文章标签文本",
+      "app": "news",
+      "review_comments": [],
+      "design_requirements": "不同标签数量及长度，保持标签顺序；分隔符在结果中可辨。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“修改文章标签文本”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 21,
+      "title": "视频：修改收藏夹名称",
+      "app": "media",
+      "review_comments": [],
+      "design_requirements": "不同收藏夹名称长度，括号种类可辨，保存反馈清晰。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“修改收藏夹名称”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 22,
+      "title": "音乐：给歌曲按属性分类",
+      "app": "music",
+      "review_comments": [
+        "给音乐建立分类，实际上分类选项确认，点击“长”选项后无法看到类别的变化。同时只有6首歌，是否足够存疑。"
+      ],
+      "design_requirements": "时长包含239/240/241秒，播放量包含49/50/51；歌曲混排，分类立即可见。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“给歌曲按属性分类”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 23,
+      "title": "新闻：给文章标注内容类别",
+      "app": "news",
+      "review_comments": [
+        "同样只有6篇文章用于分类。"
+      ],
+      "design_requirements": "数字标题、无数字标题与媒体来源交叉分布；多篇正反例，类别立即可见。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“给文章标注内容类别”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 24,
+      "title": "新闻：给文章标注来源类型",
+      "app": "news",
+      "review_comments": [],
+      "design_requirements": "来源名元音/辅音开头与长度独立，覆盖5/6字符边界。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“给文章标注来源类型”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 25,
+      "title": "视频：给视频标注时长类别",
+      "app": "media",
+      "review_comments": [
+        "版本A，因为时长是从短到长排列的，标注小于10分钟的为短，有没有可能误认为是前3个为短或者后三个为短？分类也只有6个。"
+      ],
+      "design_requirements": "时长包含599/600/601秒及多个整奇偶分钟值；混排，消除前半列表捷径。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“给视频标注时长类别”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 26,
+      "title": "信息流：给内容标注推荐等级",
+      "app": "media",
+      "review_comments": [],
+      "design_requirements": "六批内容，评分极值与评论极值独立，推荐对象位置轮换。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“给内容标注推荐等级”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 27,
+      "title": "音乐：从搜索结果选择歌曲",
+      "app": "music",
+      "review_comments": [
+        "版本A，评分最高也是时长最短。"
+      ],
+      "design_requirements": "评分最高、播放最低、标题最短分别独立；评分与时长不共极值。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“从搜索结果选择歌曲”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 28,
+      "title": "音乐：整理播放列表顺序",
+      "app": "music",
+      "review_comments": [],
+      "design_requirements": "年份、时长、歌手排序相互独立，多批资料库排序示范。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“整理播放列表顺序”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 29,
+      "title": "新闻：从列表选择文章阅读",
+      "app": "news",
+      "review_comments": [
+        "我也没找到怎样算选中目标。"
+      ],
+      "design_requirements": "发布时间与列表位置独立；打开文章产生明确阅读状态，时间展示与判分一致。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“从列表选择文章阅读”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 30,
+      "title": "新闻：筛选需要阅读的文章",
+      "app": "news",
+      "review_comments": [],
+      "design_requirements": "标签数最大/最小与偶数评论独立；阅读清单支持保存并展示结果。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“筛选需要阅读的文章”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 31,
+      "title": "视频：从推荐列表选择视频",
+      "app": "media",
+      "review_comments": [
+        "发布时间早和发布序号小是一个意思吗？版本B，点赞率最高和版本序号最大是同一个视频"
+      ],
+      "design_requirements": "真实发布日期、点赞率和时长独立；播放选择有可见回执。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“从推荐列表选择视频”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 32,
+      "title": "音乐：把歌曲加入播放列表",
+      "app": "music",
+      "review_comments": [
+        "分类问题，同样只有6个样本，不一定能找到阈值是50，中间跨度是36-54"
+      ],
+      "design_requirements": "评分49/50/51与整秒奇偶交叉；加入列表后可查，正反例均充分。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“把歌曲加入播放列表”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 33,
+      "title": "新闻：批量处理文章状态",
+      "app": "news",
+      "review_comments": [
+        "标题含紧急，和标签是偶数的分类结果是一样的"
+      ],
+      "design_requirements": "紧急词、标签数奇偶、数字和位置独立；已读/收藏/隐藏有可见反馈。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“批量处理文章状态”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 34,
+      "title": "视频：处理观看列表",
+      "app": "media",
+      "review_comments": [
+        "播放完成和视频时长是偶数的分类结果是一样的"
+      ],
+      "design_requirements": "播放完成状态与时长奇偶独立；历史、收藏及移除状态均能检查。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“处理观看列表”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 35,
+      "title": "视频：调整播放队列",
+      "app": "media",
+      "review_comments": [],
+      "design_requirements": "两类数量相等，初始混排；长短及甲乙交替规则用多批对象示范。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“调整播放队列”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 36,
+      "title": "博客：编辑文章标题后保存",
+      "app": "blog",
+      "review_comments": [],
+      "design_requirements": "多词、混合大小写、多位数字标题；明确只改指定字符及逐位数字括号。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“编辑文章标题后保存”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 37,
+      "title": "AI 工作台：整理输入提示词",
+      "app": "studio",
+      "review_comments": [],
+      "design_requirements": "至少六行不同要求，六份模板；减号、编号空格及分号可辨。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“整理输入提示词”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 38,
+      "title": "博客：给文章添加类别",
+      "app": "blog",
+      "review_comments": [
+        "版本C，标题含问号为长文，含问号的草稿同时是标签数为2的草稿。同时，我感觉判断标题有问号的时候标为长文我不一定看的出来。"
+      ],
+      "design_requirements": "字数49/50/51与标题问号、标签数独立；真实正文长度与展示字数一致。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“给文章添加类别”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 39,
+      "title": "AI 工作台：给生成结果打标签",
+      "app": "studio",
+      "review_comments": [
+        "版本C，包含引用符号的标记为事实，但是没有一条是有引用符号的，只有方括号。"
+      ],
+      "design_requirements": "真实中文引号与普通方括号作为不同样本，数字与引用独立；分类语义明确。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“给生成结果打标签”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 40,
+      "title": "博客：从草稿中选择文章发布",
+      "app": "blog",
+      "review_comments": [
+        "版本A,B，最后任务的判定成功似乎有点问题，最早和最新的含义不明。同时有可能跟字数最多的草稿重合，导致可以同时适用不同的规则。"
+      ],
+      "design_requirements": "发布时间显示完整日期时间，字数极值独立；发布时间与判分排序一致。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“从草稿中选择文章发布”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 41,
+      "title": "AI 工作台：选择生成模型",
+      "app": "studio",
+      "review_comments": [
+        "C最短名称永远是第6项 Vela"
+      ],
+      "design_requirements": "名称长度、价格、上下文窗口独立；最短名和位置跨示范变化。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“选择生成模型”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 42,
+      "title": "博客：发布满足条件的文章",
+      "app": "blog",
+      "review_comments": [
+        "A标签数>2的只有第4篇，B无标签的固定第1、5篇，C含a的也恰好都是带英文的标题"
+      ],
+      "design_requirements": "标签数覆盖0/1/2/3，英文标题同时包含有a与无a，位置及语言不替代规则。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“发布满足条件的文章”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 43,
+      "title": "AI 工作台：处理生成结果",
+      "app": "studio",
+      "review_comments": [
+        "6段代码中只有第3段检查失败，代码跨 seed 不变"
+      ],
+      "design_requirements": "有效与无效代码各多例，代码跨实例变化；检查先于保存/复制/发送。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“处理生成结果”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 44,
+      "title": "旅游：填写乘客信息",
+      "app": "travel",
+      "review_comments": [
+        "“姓名全部大写”实际要求 LINMEI，还删除了空格"
+      ],
+      "design_requirements": "姓名全部大写保留姓名分隔空格；姓、名在页面可见并跨实例变化。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“填写乘客信息”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 45,
+      "title": "购物：填写商品备注",
+      "app": "shop",
+      "review_comments": [
+        "数量一直是3"
+      ],
+      "design_requirements": "数量跨实例变化，包含不同商品与数字；清楚呈现数字位于前后及中文数字。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“填写商品备注”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 46,
+      "title": "银行：填写转账备注",
+      "app": "bank",
+      "review_comments": [
+        "全是12位账号，C永远产生4个星号"
+      ],
+      "design_requirements": "账号长度和前后缀变化；掩码数量随中间位数变化，完整原账号可读。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“填写转账备注”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 47,
+      "title": "旅游：给出行方案分类",
+      "app": "travel",
+      "review_comments": [
+        "每轮只有一个“快”，C换乘最少永远是第1项且为直达"
+      ],
+      "design_requirements": "六批路线，不同换乘最小值和目标位置；耗时、价格、换乘数分别有独立极值。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“给出行方案分类”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 48,
+      "title": "购物：给商品分类",
+      "app": "shop",
+      "review_comments": [
+        "seed0评分规则是5正1负，偶数评论规则只有1个正例"
+      ],
+      "design_requirements": "评分与销量阈值的等号边界齐全，评论奇偶均衡；正反例数量不过度偏斜。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“给商品分类”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 49,
+      "title": "银行：给交易标注类型",
+      "app": "bank",
+      "review_comments": [
+        "备注长度只有4、17、18、19，没有14/15/16"
+      ],
+      "design_requirements": "备注长度包含14/15/16，金额奇偶与备注长度独立，原文完整可读。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“给交易标注类型”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 50,
+      "title": "银行：给账户标注风险等级",
+      "app": "bank",
+      "review_comments": [
+        "“风险等级”实际只标“重点”，“最近交易最多”没有对应时间窗口"
+      ],
+      "design_requirements": "任务命名为重点账户，最近交易数使用明确的近30天窗口；余额与笔数独立。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“给账户标注风险等级”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 51,
+      "title": "旅游：从路线列表选择方案",
+      "app": "travel",
+      "review_comments": [
+        "最低价、最短耗时分别重复047-B/A"
+      ],
+      "design_requirements": "与47保持不同交付动作；六批路线，最低价、最短耗时、最晚出发各自独立。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“从路线列表选择方案”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 52,
+      "title": "购物：从商品列表选择商品",
+      "app": "shop",
+      "review_comments": [
+        "合理捏"
+      ],
+      "design_requirements": "评分、价格、库存各有独立极值，目标位置跨示范变化。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“从商品列表选择商品”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 53,
+      "title": "银行：从交易列表选择记录",
+      "app": "bank",
+      "review_comments": [
+        "列表没有日期，详情日期相同，时间显示与判分排序不一致，seed1000中09:05比09:07早，判分却选后者"
+      ],
+      "design_requirements": "列表和详情显示完整交易日期时间，排序完全一致，覆盖跨小时和跨日。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“从交易列表选择记录”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 54,
+      "title": "旅游：确认预订",
+      "app": "travel",
+      "review_comments": [
+        "缺等号案例，C位置固定， A是<50、B是>50，C偶数换乘固定落在第1、3、5项"
+      ],
+      "design_requirements": "价格49/50/51及奇偶换乘交叉；预订确认覆盖多个对象且位置不固定。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“确认预订”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 55,
+      "title": "购物：处理购物车",
+      "app": "shop",
+      "review_comments": [
+        "B存在环境与判分错误。 4件商品符合标签，但购物车里只有其中1件；只移除这1件仍被判错。A还要求对已在车内的商品重复加入。"
+      ],
+      "design_requirements": "购物车内外均有指定标签与非指定标签；只对需要变化的对象增删，不要求幂等重复动作。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“处理购物车”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 56,
+      "title": "银行：执行转账",
+      "app": "bank",
+      "review_comments": [
+        "A容易学成“有英文名就转账”。 只有Anna、Daniel是英文人名，也恰好含a"
+      ],
+      "design_requirements": "英文姓名中同时存在有a/无a对象，账号末位奇偶及金额独立。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“执行转账”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 57,
+      "title": "银行：设置账户提醒",
+      "app": "bank",
+      "review_comments": [
+        "C当前无法从视频推导。 规则要求“连续两笔交易同日”，页面却只有开户日期，没有两笔交易记录。"
+      ],
+      "design_requirements": "显示真实最近两笔交易的日期与金额，同日判定由交易记录派生，余额阈值有边界。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“设置账户提醒”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 58,
+      "title": "OJ：按规则整理代码后提交",
+      "app": "code",
+      "review_comments": [
+        "普通编辑框无法可靠辨别空格和Tab，输入也只有一个缩进层级"
+      ],
+      "design_requirements": "源代码含多个缩进层级；编辑器提供可视空白字符与缩进信息，空格和Tab可区分。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“按规则整理代码后提交”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 59,
+      "title": "OJ：规范化答案文本",
+      "app": "code",
+      "review_comments": [
+        "两行文本感觉太少"
+      ],
+      "design_requirements": "至少六行答案文本且跨实例变化，编号、分号、空格替换可辨。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“规范化答案文本”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 60,
+      "title": "OJ：修改代码变量名",
+      "app": "code",
+      "review_comments": [
+        "永远只改 value、total，代码结构也相同，这玩意真的能泛化吗"
+      ],
+      "design_requirements": "变量名、引用次数、代码结构跨实例变化，定义与引用绑定保持一致。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“修改代码变量名”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 61,
+      "title": "OJ：给提交结果标注类别",
+      "app": "code",
+      "review_comments": [],
+      "design_requirements": "AC/RE/其他结果均有多例，最低耗时与判题结果独立，多批提交演示。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“给提交结果标注类别”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 62,
+      "title": "OJ：给题目标注难度",
+      "app": "code",
+      "review_comments": [
+        "版本C，题目编号为偶数和样例数为奇数得到的标注结果是相同的。"
+      ],
+      "design_requirements": "题号奇偶和样例数奇偶独立；最多/最少样例目标位置变化。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“给题目标注难度”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 63,
+      "title": "OJ：从题库选择题目",
+      "app": "code",
+      "review_comments": [],
+      "design_requirements": "题号、通过率、标题长度独立，修复特定种子无法生成问题。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“从题库选择题目”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 64,
+      "title": "OJ：从提交记录选择待检查结果",
+      "app": "code",
+      "review_comments": [],
+      "design_requirements": "完整提交时间与真实代码行数，六批提交对比，目标位置变化。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 6
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“从提交记录选择待检查结果”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 65,
+      "title": "OJ：提交满足条件的代码",
+      "app": "code",
+      "review_comments": [
+        "版本B，提交包含指定函数名，但实际上只有一个样本是含有指定函数名solve的，感觉不太清晰。版本C，没有找到代码长度的标注。"
+      ],
+      "design_requirements": "多个指定函数正反例、多个检查成败例；代码长度可见并包含24/25/26边界。",
+      "demo": {
+        "episodes": 1,
+        "objects_per_episode": 24
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 6,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“提交满足条件的代码”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 66,
+      "title": "五子棋：识别并点击目标落子点",
+      "app": "gomoku",
+      "review_comments": [
+        "版本C，能堵住对手4连的位置，实际上并没有堵住。"
+      ],
+      "design_requirements": "对手四连一端封闭，标注点确实阻断立即成五；六个不同棋形用于对照。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“识别并点击目标落子点”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 67,
+      "title": "五子棋：从候选点选择落子",
+      "app": "gomoku",
+      "review_comments": [
+        "个人觉得规则有点过于隐晦了，让我来做我不一定能看的出来……"
+      ],
+      "design_requirements": "多棋形对比横向、纵向、距中心优先级；坐标与候选信息可读，目标位置变化。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“从候选点选择落子”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 68,
+      "title": "2048：选择下一步移动方向",
+      "app": "games",
+      "review_comments": [
+        "都只移动一步，似乎无法看出具体规则，规则可能就是简单的朝某一个方向移动。至少需要一连串的活动才能体现出一个移动的规则。"
+      ],
+      "design_requirements": "连续展示至少六个独立棋盘的方向选择，方向不能固定，合并数与得分产生反例。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“选择下一步移动方向”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 69,
+      "title": "2048：执行一组移动",
+      "app": "games",
+      "review_comments": [
+        "感觉和68一样，可解释的规则比较多。合成32就停下，还是达到64分就停下，规则都不太清晰，而且比较看具体录制的导向。我可能一直保持朝某一个方向移动，或者也可以理解为操作多少步之后停下。"
+      ],
+      "design_requirements": "多局不同目标数字与目标分数，停止步数变化；证据能区分数字、得分、满盘停止条件。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“执行一组移动”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 70,
+      "title": "数独：识别需要填写的格子",
+      "app": "games",
+      "review_comments": [],
+      "design_requirements": "多局数独，多种候选集与候选数；奇偶性质与候选数量独立。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“识别需要填写的格子”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 71,
+      "title": "数独：按视频规则填写数字",
+      "app": "games",
+      "review_comments": [
+        "版本C，填入与行首数奇偶相同的候选数字，似乎有点隐晦和奇怪。"
+      ],
+      "design_requirements": "第三规则改为候选数中位数；奇数个候选且至少三个，避免行首奇偶的隐含关联。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“按视频规则填写数字”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 72,
+      "title": "扫雷：从候选格中选择安全格",
+      "app": "games",
+      "review_comments": [
+        "扫雷，感觉规则都很隐晦。"
+      ],
+      "design_requirements": "多局扫雷，候选格周围线索、未开数量及坐标可读，各规则目标变化。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“从候选格中选择安全格”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 73,
+      "title": "扫雷：执行标记操作",
+      "app": "games",
+      "review_comments": [],
+      "design_requirements": "多局棋盘，数字1/2与边界位置交叉，防止数字类别与边界重合。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“执行标记操作”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 74,
+      "title": "黑白棋：选择落子位置",
+      "app": "games",
+      "review_comments": [],
+      "design_requirements": "多局合法棋盘，可翻转数量与角落距离独立，落子及翻转反馈明确。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“选择落子位置”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    },
+    {
+      "task_id": 75,
+      "title": "黑白棋：完成一轮操作",
+      "app": "games",
+      "review_comments": [],
+      "design_requirements": "多局合法棋盘，己方数量、对手合法落点及边缘占据不共变；展示落子后效果。",
+      "demo": {
+        "episodes": 6,
+        "objects_per_episode": 1
+      },
+      "inference": {
+        "episodes": 1,
+        "objects": 1,
+        "prompt": "按照教程视频演示的规则，在当前应用中完成“完成一轮操作”。只处理本次提供的内容，并确认操作结果已经保存。"
+      },
+      "acceptance": {
+        "fixture": "pending",
+        "public_surface": "pending",
+        "evaluation": "pending",
+        "video_identifiability": "pending"
+      }
+    }
+  ]
+}
