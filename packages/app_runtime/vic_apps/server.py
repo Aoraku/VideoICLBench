@@ -8,6 +8,7 @@ import json
 import os
 from pathlib import Path
 import re
+import subprocess
 from fastapi import FastAPI, Header, HTTPException, Depends, Request, WebSocket
 from fastapi.responses import FileResponse, Response, HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -160,11 +161,36 @@ def create_app():
         return dict(status="destroyed")
 
     @app.get("/api/runs/{run_id}")
-    async def state(run_id, authorization: str = Header(default="")):
+    async def state(run_id, response: Response, authorization: str = Header(default="")):
         m = auth(run_id, authorization)
         if m["status"] == "destroyed":
             raise HTTPException(410, "Destroyed")
+        if m['app'] == 'media':
+            response.set_cookie('vic_media', authorization.removeprefix('Bearer '),
+                                httponly=True, samesite='strict', path=f'/api/runs/{run_id}/media/')
         return dict(epoch=m["epoch"], status=m["status"], lesson=m.get("lesson"), state=store.snapshot(run_id))
+
+    def media_file(run_id, object_id, kind):
+        from .media_resources import edition
+        state=store.snapshot(run_id)
+        item=next((x for x in state['items'] if x['id']==object_id), None)
+        if item is None:
+            raise HTTPException(404, "Media item not found")
+        try:
+            file=edition(ROOT, root/'media-cache', kind, item['asset_index'], item['duration'])
+        except (ValueError, FileNotFoundError) as exc:
+            raise HTTPException(404, "Media source unavailable") from exc
+        except (subprocess.SubprocessError, OSError) as exc:
+            raise HTTPException(503, "Media preparation failed; please retry",
+                                headers={'Retry-After': '5'}) from exc
+        return FileResponse(file, media_type='video/mp4' if kind=='video' else 'audio/mp4',
+                            headers={'Cache-Control':'private, max-age=3600'})
+
+    @app.get('/api/runs/{run_id}/media/{object_id}')
+    def video_file(run_id, object_id, request: Request):
+        if auth(run_id,request.cookies.get('vic_media',''))['app']!='media':
+            raise HTTPException(404, "Application mismatch")
+        return media_file(run_id,object_id,'video')
 
     @app.get("/api/runs/{run_id}/files/{file_id}")
     async def attachment(run_id, file_id, authorization: str = Header(default="")):
@@ -258,6 +284,12 @@ def create_app():
         response.set_cookie("vic_music", authorization.removeprefix("Bearer "),
                             httponly=True, samesite="strict", path=f"/native/music/{run_id}/")
         return response
+
+    @app.get('/native/music/{run_id}/audio/{object_id}')
+    def audio_file(run_id, object_id, request: Request):
+        if auth(run_id,request.cookies.get('vic_music',''))['app']!='music':
+            raise HTTPException(404, "Application mismatch")
+        return media_file(run_id,object_id,'audio')
 
     @app.get("/native/music/{run_id}/{page:path}")
     def native_music(run_id, page, request: Request):

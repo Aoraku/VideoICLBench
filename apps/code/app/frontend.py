@@ -240,12 +240,14 @@ def render_problem_detail_page():
         if not samples:
             st.info("该题目没有提供样例。")
         else:
+            st.caption(f"共 {len(samples)} 组样例")
             for i, sample in enumerate(samples, 1):
-                c1, c2 = st.columns(2)
-                c1.markdown(f"**样例输入 {i}**")
-                c1.code(sample.get("input", ""), language="text")
-                c2.markdown(f"**样例输出 {i}**")
-                c2.code(sample.get("output", ""), language="text")
+                with st.expander(f"样例 {i}", expanded=i <= 2):
+                    c1, c2 = st.columns(2)
+                    c1.markdown(f"**样例输入 {i}**")
+                    c1.code(sample.get("input", ""), language="text")
+                    c2.markdown(f"**样例输出 {i}**")
+                    c2.code(sample.get("output", ""), language="text")
         
         st.markdown("---")
         

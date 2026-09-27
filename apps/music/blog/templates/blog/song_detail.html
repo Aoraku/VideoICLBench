@@ -25,12 +25,15 @@
 
       <p><strong>公開日：</strong> {{ song.date|slice:":10" }} {{ song.date|slice:"11:16" }}</p>
 
-      <p>
+      {% if benchmark %}
+      <audio controls preload="metadata" src="{{ song.audio_url }}" aria-label="播放 {{ song.name }}" style="width:100%;margin:12px 0"></audio>
+      <p class="text-white-50 small">VIC Sessions · 器乐试听版</p>
+      {% else %}<p>
         <a href="{{ song.url }}" target="_blank"
             class="text-white-50 text-decoration-none original-link">
             → 原曲ページへ
         </a>
-      </p>
+      </p>{% endif %}
 
 
       <p class="text-white" style="white-space: pre-wrap;"><strong>紹介：</strong> {{ song.description }}</p>

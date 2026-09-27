@@ -109,7 +109,8 @@ export function ProductWorkspace({
     return <p role="alert">应用与会话不匹配</p>;
   return (
     <Component
-      api={{ s: data.state, d: data.state.domain, busy, notice, mutate }}
+      api={{ s: data.state, d: data.state.domain, busy, notice, mutate,
+             mediaUrl: target => `/api/runs/${id}/media/${encodeURIComponent(target)}` }}
     />
   );
 }

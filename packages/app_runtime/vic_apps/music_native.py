@@ -52,6 +52,7 @@ def render_music(run_id, state, route, query_string=""):
         artists.append(artist)
         songs.append(Record(**{
             **item, "image": f"/native-assets/music/cover-{i % 6}.svg",
+            "audio_url": f"/native/music/{run_id}/audio/{item['id']}",
             "artists": Record(all=lambda artist=artist: [artist]),
             "date": f"{item['year']}-01-15T12:00:00", "url": "#",
             "description": "收录于独立音乐精选集。原声与电子乐器交织，呈现轻松、安静的听觉氛围。",

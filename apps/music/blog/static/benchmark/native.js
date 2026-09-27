@@ -93,8 +93,10 @@ document.querySelectorAll("[data-add]").forEach((button) => {
 document.querySelectorAll("[data-play]").forEach(
   (button) =>
     (button.onclick = async () => {
-      if (await command("select", "", "", [button.dataset.play]))
+      if (await command("select", "", "", [button.dataset.play])) {
         button.textContent = "✓ 已选择歌曲";
+        document.querySelector('audio')?.play().catch(() => {});
+      }
     }),
 );
 document.querySelectorAll("[data-move]").forEach(

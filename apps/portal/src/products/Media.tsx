@@ -113,7 +113,7 @@ export function Media({ api }: { api: ProductAPI }) {
               className="media-player"
               controls
               autoPlay
-              src={`/native-assets/media/clip-${index(active.id)}.mp4`}
+              src={api.mediaUrl?.(active.id)}
               poster={`/native-assets/media/poster-${index(active.id)}.jpg`}
             />
             <div className="media-player-info">

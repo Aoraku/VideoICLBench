@@ -1,0 +1,87 @@
+{
+  "scope": "Local resource fidelity and recorder privacy checks; not complete acceptance of all 75 cases.",
+  "deployed": false,
+  "tests": {
+    "full_pytest": {
+      "passed": 825,
+      "failed": 0,
+      "seconds": 113.88
+    },
+    "portal_build": "passed"
+  },
+  "oj": {
+    "problem_definitions": 30,
+    "distinct_examples_per_problem_checked": 39,
+    "known_examples_checked": 30,
+    "ui": {
+      "task_id": 58,
+      "run_id": "a92e74ce56074cb7aea2fa09c5d63f8c",
+      "epoch": 2,
+      "title": "旋转数组",
+      "shown_sample_count": 28,
+      "sample_1_input": "4 1\n1 2 3 4",
+      "sample_1_output": "4 1 2 3",
+      "sample_2_input": "3 0\n22 29 36",
+      "sample_2_output": "22 29 36"
+    }
+  },
+  "media": {
+    "container_duration_checks": {
+      "audio": [
+        239,
+        240,
+        241
+      ],
+      "video": [
+        599,
+        600,
+        601
+      ]
+    },
+    "authorization_and_range_requests": "passed",
+    "generation_timeout_recovery": "passed",
+    "audio_ui": {
+      "run_id": "43e8b52b5a7742a0ae7a12e051f42624",
+      "title": "Distant Stars",
+      "displayed_seconds": 240,
+      "dom_duration": 240,
+      "play_current_time": 0.178429,
+      "seek_current_time": 182.022498,
+      "paused_after_seek": false,
+      "media_error": null,
+      "method": "cua_repl mouse coordinates from screenshot; read-only DOM media properties"
+    },
+    "video_ui": {
+      "run_id": "d2a750bd5e714030825aecdf34b5c07f",
+      "title": "新的邻居",
+      "displayed_duration": "10:00",
+      "dom_duration": 600,
+      "current_time": 15.078595,
+      "paused": false,
+      "media_error": null
+    },
+    "automation_caveat": "Accessibility-node clicks on native media controls crashed the in-app browser. Mouse-coordinate playback and seeking worked for both the app audio and an isolated three-second WAV probe. Do not interpret accessibility-action failure as a codec failure."
+  },
+  "privacy": {
+    "ui_observation": "Task 1 rule and detailed instructions visible before Start; absent from the task-card DOM immediately after Start while display-media selection was pending.",
+    "automatic_rule_restore": false,
+    "restore_action": "已停止所有录屏，返回任务说明",
+    "actual_capture_frames": "pending: system display-media picker was not completed by this check"
+  },
+  "remaining_acceptance": [
+    "Actual human recording first/last frames and episode transitions must contain no private rule text.",
+    "Full 75-case native UI and demonstration learnability acceptance remains open.",
+    "Changes require deployment and verification on the shared server."
+  ],
+  "sha256": {
+    "packages/app_runtime/vic_apps/media_resources.py": "27fcc6c587901c45ae0d9d949c96dacfa8e570c90f01c505705fbbf349decd63",
+    "packages/app_runtime/vic_apps/oj_resources.py": "bb1d1159b03430917a5530e0864f544265ae849b77ca4abfaf527537d6e19a4c",
+    "packages/app_runtime/vic_apps/oj_problems.json": "25eb56f1f657303ef51aa2799eaf9bae2c46f59234059fab71d6749dad71eaa8",
+    "packages/app_runtime/vic_apps/server.py": "40461aae852680adf3b023faf7154b151150089de9a0948dae437238f482ddd6",
+    "apps/code/app/benchmark_bridge.py": "60c9205d7c299bb87708d0bed780034ab243cff037ff9131773b9d64b039c123",
+    "apps/code/app/frontend.py": "b56bedbaaa78485f5c546f6423a74f6da40d7c10ea4f8bb751ec97a38eb8aaf4",
+    "apps/portal/src/RecorderPortal.tsx": "070f2f3f5e2ab87c43e5bd43b48c175430d18116e406f6c5ad95ec8e232ae0c3",
+    "apps/portal/src/products/Media.tsx": "5d41c394c660b12222b25c8096bb367d9673818780286bfc4bc50044cac174de",
+    "apps/portal/dist/index.html": "c6a5b0db46a170804b5b2f5518d11748999bd9038f4a8859d906c0340d553940"
+  }
+}
