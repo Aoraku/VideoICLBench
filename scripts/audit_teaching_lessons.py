@@ -61,6 +61,12 @@ def inspect_lesson(task, base_seed):
         if task_id in (37,59) and min(coverage['line_counts']) < 6:
             risks.append('insufficient_multiline_examples')
     if task_id < 66:
+        material_field = {5:'text',13:'text',16:'text',39:'text',42:'name',43:'code',49:'text',56:'name',65:'code'}.get(task_id)
+        if material_field:
+            counts = [len({item[material_field] for item in state['items']}) for state in states]
+            report['distinct_batch_materials'] = dict(field=material_field, counts=counts)
+            if any(count != len(state['items']) for count,state in zip(counts,states)):
+                risks.append('duplicated_batch_materials')
         report['positions'] = {v: [[s['order'].index(i) + 1 for i in (selected(e[v]) or [])]
                                   for s, e in zip(states, effects)] for v in 'ABC'}
         report['shared_extrema_explanations'] = {}

@@ -8,6 +8,7 @@ from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 import ast
 import random
+from . import teaching_materials
 
 FIXTURE_VERSION = 3
 BATCH_TASKS = {5, 6, 8, 13, 14, 16, 22, 23, 24, 25, 32, 33, 34,
@@ -122,9 +123,7 @@ def enrich(id_, seed, items, source, rng):
             threshold_examples('sales', 50)
             assign('comments', [12, 25, 46, 57, 78, 91])
     if id_ in (5, 13, 16):
-        assign('text', ['紧急：请确认会议室是否可用?', '收到，设计材料已经归档。',
-                        '周末活动的集合地点在哪里?', '收到，明天会提前到场。',
-                        '紧急：请核对交付清单和负责人。', '本周的阅读分享安排在周五下午。'])
+        assign('text', teaching_materials.messages(seed >= 1000))
     if id_ == 8:
         groups = ['设计协作组', '产品 3 组', '研发 7 组', '周末徒步', '阅读分享组', '项目 12 组']
         for i, item in enumerate(items):
@@ -149,44 +148,20 @@ def enrich(id_, seed, items, source, rng):
             item['name'] = item['name'].rstrip('?') + ('?' if question else '')
             item['text'] = ('我们沿着河岸记录社区的日常变化，整理居民的意见，并讨论公共空间的使用方式。' * 4)[:item['words']]
     if id_ == 39:
-        assign('text', ['调查覆盖了 3 个街区。', '居民说：“这里适合散步。”',
-                        '共有 12 位居民提到“夜间开放”。', '街角的公共空间正在修缮。',
-                        '材料索引见 [设计文档]。', '访谈记录已按主题归档。'])
+        assign('text', teaching_materials.generated_passages(seed >= 1000))
     if id_ == 42:
-        assign('name', ['Maya 的花园笔记', 'Ruth 的书评', 'Camera 入门记录', 'Python 学习笔记', '烘焙日记', '露营随笔'] if seed >= 1000 else ['Anna 的旅行手记', 'Bryn 的工作笔记', 'Canva 排版练习',
-                        'Notion 读书清单', '城市散步地图', '每周写作记录'])
+        assign('name', teaching_materials.article_titles(seed >= 1000))
     if id_ == 56:
-        assign('name', ['Maya · 备用账户', 'Ruth · 日常账户', 'Oscar · 旅行账户', 'Will · 学习账户', '方宁 · 储蓄账户', '江夏 · 房租账户'] if seed >= 1000 else ['Anna · 储蓄账户', 'Bryn · 储蓄账户', 'Daniel · 房租账户',
-                        'Chloe · 旅行账户', '林若宁 · 日常账户', '陈子安 · 学习账户'])
-    if app == 'shop' and id_ != 45:
-        from .scenarios import NAMES as ORIGINAL_NAMES, PRODUCT_TEXTS
-        pool = QUERY_NAMES['shop'] if seed >= 1000 else [name + suffix for suffix in ('', ' · 轻便款', ' · 经典款', ' · 升级款') for name in ORIGINAL_NAMES['shop']]
-        assign('name', pool)
-        for item in items:
-            item['text'] = PRODUCT_TEXTS['shop'][ORIGINAL_NAMES['shop'].index(item['name'].split(' · ')[0])]
+        assign('name', teaching_materials.account_names(seed >= 1000))
     if id_ == 49:
-        # Natural remarks with lengths 14/15/16 around the strict threshold.
-        notes = ['午餐结算', '地铁出行费用', '采购办公用品及打印材料费结算',
-                 '购买办公用品及打印材料费用结算', '购买办公用品和打印材料费用已结算',
-                 '共同承担本月水电宽带及公共区域清洁费用']
-        assign('text', notes)
+        assign('text', teaching_materials.transaction_notes(seed >= 1000))
         assign('amount', [12, 25, 46, 57, 78, 91])
     if id_ == 41:
         assign('name', rng.sample(['Birch', 'Lumen Plus', 'Pine', 'Vale Ultra', 'Elm', 'Maple Studio', 'Fern Pro', 'Willow', 'Clover Max', 'Aspen Lite', 'Oak', 'Ivy'] if seed >= 1000 else ['Atlas', 'Orion Pro', 'Nova Lite', 'Cedar', 'Aurora Long', 'Vela', 'Aria', 'Echo Small', 'Lynx', 'Cobalt XL', 'Quartz', 'Beryl', 'Coral Lite', 'Amber Max', 'Sage', 'Indigo', 'Reed', 'Aster', 'Dahlia Pro', 'Dove', 'Finch', 'Jade', 'Iris Max', 'Tern'], n))
     if id_ == 35:
         assign('duration', [120, 300, 599, 600, 720, 901])
     if id_ in (43, 65):
-        value = 2 + seed % 97
-        programs = [f'print({value})', f'def solve():\n    return {value}',
-                    f'def solve(data):\n    return len(data) + {value}',
-                    f'answer = {value}\nprint(answer', f'def other():\n    return {value}',
-                    f'for item in range({value})\n    print(item)']
-        if id_ == 65:
-            # Code length 24 / 25 / 26; different names and validity are crossed.
-            programs[0] = 'print(1) # '.ljust(23, 'a') + '\n'
-            programs[3] = 'print(2) # '.ljust(24, 'b') + '\n'
-            programs[5] = 'print( # '.ljust(25, 'c') + '\n'
-        assign('code', programs)
+        assign('code', teaching_materials.code_snippets(seed))
 
     tags = ['focus', 'blue', 'weekly', 'travel', 'ideas']
     account_prefixes = rng.sample(range(1000000, 9999999), n)

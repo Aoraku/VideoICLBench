@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 65,
-  "task_version": "3.0.0",
+  "task_version": "3.1.0",
   "title": "OJ：提交满足条件的代码",
   "app": "code",
   "type": "A",

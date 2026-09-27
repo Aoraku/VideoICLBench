@@ -222,7 +222,7 @@
         "C": "含问号归绿色"
       },
       "original_rules": "A：含问号归蓝色；B：含问号归红色；C：含问号归绿色",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -638,7 +638,7 @@
         "C": "含“紧急”的消息归档"
       },
       "original_rules": "A：含“紧急”的消息转发给联系人甲；B：含“紧急”的消息收藏；C：含“紧急”的消息归档",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -794,7 +794,7 @@
         "C": "看到“收到”就回复固定文本"
       },
       "original_rules": "A：看到“收到”就标记已读；B：看到“收到”就添加星标；C：看到“收到”就回复固定文本",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -1990,7 +1990,7 @@
         "C": "包含引用符号为“事实”"
       },
       "original_rules": "A：包含数字为“事实”；B：不包含数字为“事实”；C：包含引用符号为“事实”",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -2146,7 +2146,7 @@
         "C": "标题含指定字符的文章发布"
       },
       "original_rules": "A：带有两个以上标签的文章发布；B：没有标签的文章发布；C：标题含指定字符的文章发布",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -2198,7 +2198,7 @@
         "C": "结果通过检查后提交给指定联系人"
       },
       "original_rules": "A：结果通过检查后保存；B：结果通过检查后复制；C：结果通过检查后提交给指定联系人",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -2510,7 +2510,7 @@
         "C": "备注长度超过阈值为“常规”"
       },
       "original_rules": "A：金额为偶数为“常规”；B：金额为奇数为“常规”；C：备注长度超过阈值为“常规”",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -2874,7 +2874,7 @@
         "C": "金额低于阈值时转账"
       },
       "original_rules": "A：收款人姓名含指定字母时转账；B：账号末位为偶数时转账；C：金额低于阈值时转账",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -3342,7 +3342,7 @@
         "C": "代码长度低于阈值后提交"
       },
       "original_rules": "A：代码通过本地检查后提交；B：代码包含指定函数名后提交；C：代码长度低于阈值后提交",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,

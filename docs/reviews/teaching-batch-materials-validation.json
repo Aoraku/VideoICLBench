@@ -1,0 +1,137 @@
+{
+  "scope": "Distinct batch inputs for nine tasks, full regression, and native task 65A UI operations. No captured-video or human inference acceptance.",
+  "materials": [
+    {
+      "task_id": 5,
+      "field": "text",
+      "demo_objects": 24,
+      "demo_distinct": 24,
+      "query_objects": 6,
+      "query_distinct": 6,
+      "demo_query_disjoint": true
+    },
+    {
+      "task_id": 13,
+      "field": "text",
+      "demo_objects": 24,
+      "demo_distinct": 24,
+      "query_objects": 6,
+      "query_distinct": 6,
+      "demo_query_disjoint": true
+    },
+    {
+      "task_id": 16,
+      "field": "text",
+      "demo_objects": 24,
+      "demo_distinct": 24,
+      "query_objects": 6,
+      "query_distinct": 6,
+      "demo_query_disjoint": true
+    },
+    {
+      "task_id": 39,
+      "field": "text",
+      "demo_objects": 24,
+      "demo_distinct": 24,
+      "query_objects": 6,
+      "query_distinct": 6,
+      "demo_query_disjoint": true
+    },
+    {
+      "task_id": 42,
+      "field": "name",
+      "demo_objects": 24,
+      "demo_distinct": 24,
+      "query_objects": 6,
+      "query_distinct": 6,
+      "demo_query_disjoint": true
+    },
+    {
+      "task_id": 43,
+      "field": "code",
+      "demo_objects": 24,
+      "demo_distinct": 24,
+      "query_objects": 6,
+      "query_distinct": 6,
+      "demo_query_disjoint": true
+    },
+    {
+      "task_id": 49,
+      "field": "text",
+      "demo_objects": 24,
+      "demo_distinct": 24,
+      "query_objects": 6,
+      "query_distinct": 6,
+      "demo_query_disjoint": true
+    },
+    {
+      "task_id": 56,
+      "field": "name",
+      "demo_objects": 24,
+      "demo_distinct": 24,
+      "query_objects": 6,
+      "query_distinct": 6,
+      "demo_query_disjoint": true
+    },
+    {
+      "task_id": 65,
+      "field": "code",
+      "demo_objects": 24,
+      "demo_distinct": 24,
+      "query_objects": 6,
+      "query_distinct": 6,
+      "demo_query_disjoint": true
+    }
+  ],
+  "validation_seeds": [
+    0,
+    1,
+    2,
+    10,
+    20,
+    999
+  ],
+  "query_seeds": [
+    1000,
+    1001,
+    1002,
+    1010,
+    1020,
+    1999
+  ],
+  "tests": {
+    "passed": 893,
+    "failed": 0,
+    "seconds": 116.73
+  },
+  "lesson_audit": {
+    "cases": 75,
+    "base_seeds": [
+      0,
+      10,
+      20
+    ],
+    "enumerated_risks": 0,
+    "report": "teaching-lessons-v4.json"
+  },
+  "native_ui": {
+    "task_id": 65,
+    "variant": "A",
+    "seed": 0,
+    "run_id": "83a444cff9884591befe25d96d1d6ef1",
+    "entered_via_homepage": true,
+    "files_checked": 24,
+    "submitted": 17,
+    "failed_checks": 7,
+    "all_actions_via_browser": true,
+    "persistent_after_reload": true,
+    "duplicate_submit_disabled": true,
+    "evaluation_success": true,
+    "evaluation_sha256": "6d8f2f821b2b760c87082151f9738ecc8f5cba6d6a837d5db08b3da307960a74",
+    "recorded_video": false
+  },
+  "deployed": false,
+  "remaining": [
+    "Recorded frames, full native paths, and human rule-inference acceptance across all 75 cases"
+  ]
+}

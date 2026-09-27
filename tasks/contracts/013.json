@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 13,
-  "task_version": "3.0.0",
+  "task_version": "3.1.0",
   "title": "通讯 A：处理一组待办消息",
   "app": "chat",
   "type": "A",

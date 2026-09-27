@@ -122,14 +122,24 @@ def render_files():
         if st.button("保存文件",type="primary"):
             command("save","target",text);st.success("文件已保存")
     else:
+        submitted = {record["target"] for record in state["domain"]["artifacts"]
+                     if record["kind"] == "submission"}
+        checked = {record["target"]: record["passed"] for record in state["domain"]["checks"]}
+        st.caption(f"共 {len(state['items'])} 份文件 · 已提交 {len(submitted)} 份")
+        if t == 65:
+            st.caption("指定函数名：" + state["source"]["function"])
         for item in state["items"]:
             with st.expander(item["name"]+" · solution.py"):
                 st.code(item["code"],language="python")
                 st.caption(f"代码长度：{len(item['code'])} 个字符（包含空格和换行）")
+                if item["id"] in checked:
+                    st.success("语法检查通过") if checked[item["id"]] else st.error("语法检查未通过")
+                if item["id"] in submitted:
+                    st.success("已提交")
                 a,b=st.columns(2)
                 if a.button("本地检查",key="check_"+item["id"]):
-                    result=command("action",item["id"],"本地检查")
-                    passed=result["state"]["domain"]["checks"][-1]["passed"]
-                    st.success("语法检查通过") if passed else st.error("语法检查未通过")
-                if b.button("提交",key="submit_"+item["id"]):
-                    command("action",item["id"],"提交");st.success("已提交")
+                    command("action",item["id"],"本地检查")
+                    st.rerun()
+                if b.button("提交",key="submit_"+item["id"],disabled=item["id"] in submitted):
+                    command("action",item["id"],"提交")
+                    st.rerun()

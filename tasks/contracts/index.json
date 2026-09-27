@@ -385,7 +385,7 @@
     {
       "schema_version": 1,
       "task_id": 5,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "通讯 A：给收到的消息打标签",
       "app": "chat",
       "type": "C",
@@ -1145,7 +1145,7 @@
     {
       "schema_version": 1,
       "task_id": 13,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "通讯 A：处理一组待办消息",
       "app": "chat",
       "type": "A",
@@ -1436,7 +1436,7 @@
     {
       "schema_version": 1,
       "task_id": 16,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "通讯 B：处理消息回执",
       "app": "im",
       "type": "A",
@@ -3630,7 +3630,7 @@
     {
       "schema_version": 1,
       "task_id": 39,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "AI 工作台：给生成结果打标签",
       "app": "studio",
       "type": "C",
@@ -3916,7 +3916,7 @@
     {
       "schema_version": 1,
       "task_id": 42,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "博客：发布满足条件的文章",
       "app": "blog",
       "type": "A",
@@ -4014,7 +4014,7 @@
     {
       "schema_version": 1,
       "task_id": 43,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "AI 工作台：处理生成结果",
       "app": "studio",
       "type": "A",
@@ -4588,7 +4588,7 @@
     {
       "schema_version": 1,
       "task_id": 49,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "银行：给交易标注类型",
       "app": "bank",
       "type": "C",
@@ -5254,7 +5254,7 @@
     {
       "schema_version": 1,
       "task_id": 56,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "银行：执行转账",
       "app": "bank",
       "type": "A",
@@ -6113,7 +6113,7 @@
     {
       "schema_version": 1,
       "task_id": 65,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "OJ：提交满足条件的代码",
       "app": "code",
       "type": "A",
