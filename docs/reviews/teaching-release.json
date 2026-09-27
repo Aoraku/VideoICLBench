@@ -1,0 +1,22 @@
+{
+  "source_commit": "0cfafce3a0336dac2a07901ef48ff24732d7f54f",
+  "image": "sha256:8d07ae6a9d5bfceb90507ff8de02b31a51efb4bf3a6056aace003d07d623c456",
+  "services": "healthy",
+  "music_demo_objects": 24,
+  "distinct_durations": 21,
+  "boundaries": [
+    239,
+    240,
+    241
+  ],
+  "new_run": "9b2797e318724d96a7e299c7084da820",
+  "remaining_gate": "Multiple-episode teaching and complete 75-case UI/video acceptance are required.",
+  "remote_browser_check": {
+    "native_music_library_rows": 24,
+    "visible_duration_seconds": [
+      239,
+      240,
+      241
+    ]
+  }
+}
