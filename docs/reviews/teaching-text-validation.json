@@ -223,7 +223,7 @@
   "single_example_collisions": "Tasks 1 and 2 allow natural equal outputs on individual single-word or space-free inputs; six-example lessons must still distinguish all three complete rule sequences.",
   "remaining": [
     "Remaining five UI episodes for each recorded local run",
-    "Full video frame and human rule-inference review",
-    "Shared-server deployment"
-  ]
+    "Full video frame and human rule-inference review"
+  ],
+  "deployment_evidence": "teaching-release.json"
 }
