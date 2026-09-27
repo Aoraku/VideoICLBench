@@ -115,6 +115,8 @@ def render_files():
     st.title("我的代码与笔记")
     if t in (59,60):
         st.subheader("解题笔记" if t==59 else "solution.py")
+        if t == 60:
+            st.caption("待重命名变量：" + "、".join(state["source"]["rename_targets"]))
         st.code(state["source"]["text"],language="text" if t==59 else "python")
         text=st.text_area("编辑答案" if t==59 else "编辑源代码",value=state["outputs"].get("target",state["source"]["text"]),height=320)
         if st.button("保存文件",type="primary"):

@@ -37,11 +37,11 @@ export function recordingSteps(s:any, variant:string, rule:string):string[] {
     :'检查每个符合条件的对象都已完成操作，其余保持原状。';
   if([12,28,35].includes(s.task_id))completion='确认整个列表的顺序已保存；同类对象保留初始相对顺序。';
   if(s.task_id===15)completion='确认选中了三位符合规则的联系人并创建群聊，在群聊中检查成员。';
-  if(s.task_id>=66)completion='保留完成操作后的棋盘画面，再回到此任务卡结束录制。';
+  if(s.task_id>=66)completion='每组操作后停留片刻，让完成后的棋盘清晰可见。';
   if(s.task_id===43&&variant==='B')completion+=' 回到任务卡后，将实际复制的内容粘贴到核验框。';
   const details:Record<number,string>={
     4:variant==='C'?'每一位数字分别换为对应的英文单词，其他文字保留。':'每一位数字都按规则处理，其他文字保留。',
-    15:variant==='B'?'最近联系显示为数值时，数值越大表示越近。':'比较所有联系人的信息，只选三人。',
+    15:variant==='B'?'比较显示的最近联系时间，选择时间最近的三人。':'比较所有联系人的信息，只选三人。',
     17:variant==='C'?'除最后一个字母大写外，其余字母全部小写。':'保留标题的数字和空格。',
     18:`完整名称顺序为${{A:'歌手名_歌曲数量_日期',B:'歌曲数量_日期_歌手名',C:'日期_歌手名_歌曲数量'}[variant]}，不要另加空格。`,
     19:variant==='C'?'来源简称紧接原标题，不额外添加空格或分隔符。':variant==='B'?'保留原标题的所有标点，再在末尾添加一个英文句号。':'删除标点，保留文字、数字和空格。',
@@ -56,5 +56,11 @@ export function recordingSteps(s:any, variant:string, rule:string):string[] {
     59:variant==='B'?'从 1 开始编号，格式为“1. 原内容”，句点后有一个空格。':'每一行都需要按规则处理。',
     60:'所有指定变量的定义和引用都需要一致修改，其他变量不变。',
   };
-  return [(s.episode_count>1 ? `本段录像需连续完成 ${s.episode_count} 组练习。每组完成后点应用右下角“下一组”，最后点“完成练习”；始终使用同一个应用标签页。` : '') + action + (s.object_count >= 24 ? ` 本轮共有 ${s.object_count} 个对象，请检查整个列表，并保留符合与不符合规则的例子。` : ""),`本版本的操作要求：${rule}。${details[s.task_id]||''}`,completion];
+  const sequence=s.episode_count>1
+    ? `本段录像需连续完成 ${s.episode_count} 组练习，始终使用同一个应用标签页。每组的原始资料会变化，请读取应用内本组资料并沿用同一规则，不要重复填写上一组答案。`
+    : '';
+  const finish=s.episode_count>1
+    ? '每组完成操作后点击应用右下角“下一组”，进入下一组首页并继续录制。最后一组点击“完成练习”，内置录屏会自动结束并保存；使用系统录屏时，在完成画面停留后停止并上传录像。'
+    : '完成全部操作后回到任务卡，点击“结束并保存录像”；使用系统录屏时，停止并上传录像。';
+  return [sequence + action + (s.object_count >= 24 ? ` 本轮共有 ${s.object_count} 个对象，请检查整个列表，并保留符合与不符合规则的例子。` : ""),`本版本的操作要求：${rule}。${details[s.task_id]||''}`,completion,finish];
 }

@@ -32,3 +32,21 @@ def test_oj_visible_submission_metadata_agrees_with_content_and_selection(seed,m
         stamp=row['created_at'].replace('T',' ').removesuffix('+00:00')
         assert stamp+' UTC' in captions[-1]
         assert '时间序号' not in captions[-1]
+
+
+@pytest.mark.parametrize('seed', list(range(6)) + [1000,1001,1002,1003,1004,1005])
+def test_rename_editor_exposes_current_targets_without_transforming_them(seed,monkeypatch):
+    spec=importlib.util.spec_from_file_location('rename_bridge',ROOT/'apps/code/app/benchmark_bridge.py')
+    bridge=importlib.util.module_from_spec(spec);spec.loader.exec_module(bridge)
+    state=initialize(business.generate(60,seed))
+    monkeypatch.setattr(bridge,'business',lambda:{'state':state})
+    captions=[];sources=[];drafts=[]
+    monkeypatch.setattr(bridge.st,'title',lambda *args,**kwargs:None)
+    monkeypatch.setattr(bridge.st,'subheader',lambda *args,**kwargs:None)
+    monkeypatch.setattr(bridge.st,'caption',captions.append)
+    monkeypatch.setattr(bridge.st,'code',lambda text,**kwargs:sources.append(text))
+    monkeypatch.setattr(bridge.st,'text_area',lambda label,**kwargs:drafts.append(kwargs['value']))
+    monkeypatch.setattr(bridge.st,'button',lambda *args,**kwargs:False)
+    bridge.render_files()
+    assert captions == ['待重命名变量：'+'、'.join(state['source']['rename_targets'])]
+    assert sources == drafts == [state['source']['text']]

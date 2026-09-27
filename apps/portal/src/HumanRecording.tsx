@@ -50,7 +50,7 @@ export function HumanRecording({run,token,onUpdate,onBusy,initialStream,compact=
     setError('');busy(true);
     try{const r=await fetch(base+'/review',{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify({approved:true,reviewer,note})});const d=await r.json();if(!r.ok)throw Error(d.detail);setApproved(true)}catch(e){setError(String(e))}finally{busy(false)}
   }
-  return <section className={compact?'recording-controls':'panel results'}><h2>{status==='recording'?'● 正在录制':video?'录像已保存':'录像'}</h2><p>录制包含应用首页、导航和任务操作。完成后回到此任务卡结束录制，录像会自动保存并检查任务结果。</p>
+  return <section className={compact?'recording-controls':'panel results'}><h2>{status==='recording'?'● 正在录制':video?'录像已保存':'录像'}</h2><p>录制包含应用首页、导航和任务操作。{run.lesson && run.lesson.total>1?`请连续完成 ${run.lesson.total} 组练习，最后点击应用内“完成练习”；内置录屏会自动结束、保存并检查任务结果。`:'完成后回到此任务卡结束录制，录像会自动保存并检查任务结果。'}</p>
     {!video&&!run.result&&<div className="actions">{(!compact||status==='recording'||status==='uploading')&&<button disabled={status==='uploading'} className={status==='recording'?'danger':'primary'} onClick={()=>status==='recording'?recorder.current?.stop():start()}>{status==='recording'?'结束并保存录像':status==='uploading'?'正在保存录像…':'开始屏幕录制'}</button>}<label className="recording-upload">或选择录像文件<input type="file" accept="video/webm,video/mp4,.webm,.mp4" disabled={status==='recording'||status==='uploading'} onChange={e=>{const f=e.target.files?.[0];if(f)void upload(f.type?f:new Blob([f],{type:f.name.endsWith('.mp4')?'video/mp4':'video/webm'}))}}/></label></div>}
     <p className="muted">最长 30 分钟，文件不超过 150 MB。录制仅包含你选择的画面；首页与导航是否完整需要人工审核。</p>
     {error&&<p className="error" role="alert">{error}</p>}

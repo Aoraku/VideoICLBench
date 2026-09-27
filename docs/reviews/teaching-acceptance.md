@@ -30,6 +30,7 @@
 - [完整示例组审计](teaching-lessons-v3.json)：75 题各三组教学计划，检查整组版本区分、编辑材料变化、选择位置、阈值和 2048 推理方向分布。
 - [界面操作证据](teaching-browser-evidence.json)：本机原生界面完成第 22 题 A、第 53 题 C、第 55 题 B、第 57 题 C，并调用独立判分接口。
 - [资源检查](teaching-resource-validation.json)：OJ 独立样例、真实媒体时间轴、音频播放跳转与录制入口的规则隐藏。
+- [录制说明与变量编辑检查](teaching-recording-guidance-validation.json)：第 60 题 B 的六组原生界面操作、错误操作拒绝与逐组判分；任务卡区分首组预览与各组资料。
 - [文本与提交记录检查](teaching-text-validation.json)：输入对照覆盖、完整回归及第 2、37、64 题各一组原生操作与判分。
 - [审阅回归检查](../../tests/test_teaching.py)：边界、字符长度、购物车实际状态、日期排序、棋盘防守及环境版本迁移。
 - [连续练习检查](../../tests/test_lessons.py)：全部 51 个多组任务的 A/B/C、逐组隔离、重复请求、故障恢复、缺组拒绝及汇总判分。

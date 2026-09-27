@@ -1,0 +1,84 @@
+{
+  "scope": "Local native OJ task 60B: six UI-operated episodes and recorder guidance; no captured-video or human-inference acceptance.",
+  "run_id": "fe625644ef19499ca4ca22626bc98f6a",
+  "variant": "B",
+  "task_id": 60,
+  "all_six_ui_operated": true,
+  "wrong_unmodified_save_rejected": true,
+  "failure_message": "本组操作尚未完成，请检查并保存后继续。",
+  "completion_message": "已完成 6 组练习",
+  "evaluation_success": true,
+  "episodes": [
+    {
+      "index": 0,
+      "seed": 0,
+      "targets": [
+        "value",
+        "total"
+      ],
+      "success": true,
+      "evidence_sha256": "abdfab0eb58f12798c64f61a01cfccef3646ee05b39b27c4d65c149060e4d29a"
+    },
+    {
+      "index": 1,
+      "seed": 1,
+      "targets": [
+        "length",
+        "area"
+      ],
+      "success": true,
+      "evidence_sha256": "f4e7a5cf5e70aa1d0fde40f8f2548641a34919a90614407cddee52f5bb9fb7a6"
+    },
+    {
+      "index": 2,
+      "seed": 2,
+      "targets": [
+        "price",
+        "cost"
+      ],
+      "success": true,
+      "evidence_sha256": "042ec032abf7ed680571f42da471263b10a7c5588b24c4b1aecd8e9ccd27bad6"
+    },
+    {
+      "index": 3,
+      "seed": 3,
+      "targets": [
+        "count",
+        "result"
+      ],
+      "success": true,
+      "evidence_sha256": "f44064e625750b7f5060583032af3d2112890110e544c460a0dd5848501ada0d"
+    },
+    {
+      "index": 4,
+      "seed": 4,
+      "targets": [
+        "limit",
+        "answer"
+      ],
+      "success": true,
+      "evidence_sha256": "03a6678e1e0aa39e1ef8b140226cce50c227f146e0d0e92e9a0fd0c08da4963d"
+    },
+    {
+      "index": 5,
+      "seed": 5,
+      "targets": [
+        "scores",
+        "average"
+      ],
+      "success": true,
+      "evidence_sha256": "7780f11ce88225b431ba5f816a9f7927d4037780c4aca41ec364516c1bbdd481"
+    }
+  ],
+  "portal_build": "passed",
+  "regression": {
+    "passed": 192,
+    "failed": 0
+  },
+  "deployed": false,
+  "recorded_video": false,
+  "remaining": [
+    "Actual captured frame review",
+    "75-case human rule-inference acceptance"
+  ]
+}
