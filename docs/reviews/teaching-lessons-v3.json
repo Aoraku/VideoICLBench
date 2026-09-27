@@ -108,6 +108,35 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              7,
+              8,
+              23,
+              24,
+              30
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 2,
+            "multiple_words": 4,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "E",
+              "M",
+              "T",
+              "t",
+              "y"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -163,6 +192,35 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              7,
+              8,
+              23,
+              24,
+              30
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 2,
+            "multiple_words": 4,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "E",
+              "M",
+              "T",
+              "t",
+              "y"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -217,6 +275,35 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              7,
+              8,
+              23,
+              24,
+              30
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 2,
+            "multiple_words": 4,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "E",
+              "M",
+              "T",
+              "t",
+              "y"
+            ]
           },
           "positions": {
             "A": [
@@ -280,6 +367,37 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              4,
+              7,
+              8,
+              9,
+              10,
+              13
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 1,
+            "multiple_words": 5,
+            "space_widths": [
+              1,
+              2,
+              3
+            ],
+            "endings": [
+              "A",
+              "E",
+              "i",
+              "n"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -335,6 +453,37 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              4,
+              7,
+              8,
+              9,
+              10,
+              13
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 1,
+            "multiple_words": 5,
+            "space_widths": [
+              1,
+              2,
+              3
+            ],
+            "endings": [
+              "A",
+              "E",
+              "i",
+              "n"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -389,6 +538,37 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              4,
+              7,
+              8,
+              9,
+              10,
+              13
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 1,
+            "multiple_words": 5,
+            "space_widths": [
+              1,
+              2,
+              3
+            ],
+            "endings": [
+              "A",
+              "E",
+              "i",
+              "n"
+            ]
           },
           "positions": {
             "A": [
@@ -452,6 +632,36 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              17,
+              24,
+              25,
+              27,
+              30
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "!",
+              ".",
+              "?",
+              "t",
+              "y",
+              "。"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -507,6 +717,36 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              17,
+              24,
+              25,
+              27,
+              30
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "!",
+              ".",
+              "?",
+              "t",
+              "y",
+              "。"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -561,6 +801,36 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              17,
+              24,
+              25,
+              27,
+              30
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "!",
+              ".",
+              "?",
+              "t",
+              "y",
+              "。"
+            ]
           },
           "positions": {
             "A": [
@@ -624,6 +894,32 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              16,
+              17,
+              19,
+              20
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 6,
+            "multiple_words": 0,
+            "space_widths": [],
+            "endings": [
+              "4",
+              "8",
+              "份",
+              "点",
+              "认"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -679,6 +975,32 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              16,
+              17,
+              19,
+              20
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 6,
+            "multiple_words": 0,
+            "space_widths": [],
+            "endings": [
+              "4",
+              "8",
+              "份",
+              "点",
+              "认"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -733,6 +1055,32 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              16,
+              17,
+              19,
+              20
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 6,
+            "multiple_words": 0,
+            "space_widths": [],
+            "endings": [
+              "4",
+              "8",
+              "份",
+              "点",
+              "认"
+            ]
           },
           "positions": {
             "A": [
@@ -3601,6 +3949,32 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              13,
+              14,
+              15
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "e",
+              "g",
+              "k",
+              "s"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -3656,6 +4030,32 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              13,
+              14,
+              15
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "e",
+              "g",
+              "k",
+              "s"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -3710,6 +4110,32 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              13,
+              14,
+              15
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "e",
+              "g",
+              "k",
+              "s"
+            ]
           },
           "positions": {
             "A": [
@@ -3773,6 +4199,29 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              30,
+              31
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "m",
+              "t"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -3828,6 +4277,29 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              30,
+              31
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "m",
+              "t"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -3882,6 +4354,29 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              30,
+              31
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "m",
+              "t"
+            ]
           },
           "positions": {
             "A": [
@@ -3945,6 +4440,45 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              10,
+              13,
+              17,
+              18,
+              21,
+              22
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 3,
+            "multiple_words": 3,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              ".",
+              "。",
+              "明",
+              "花",
+              "！",
+              "？"
+            ],
+            "publisher_short_names": [
+              "AN:",
+              "DA:",
+              "EC:",
+              "NO:",
+              "OR:",
+              "SK:"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -4000,6 +4534,45 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              10,
+              13,
+              17,
+              18,
+              21,
+              22
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 3,
+            "multiple_words": 3,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              ".",
+              "。",
+              "明",
+              "花",
+              "！",
+              "？"
+            ],
+            "publisher_short_names": [
+              "AN:",
+              "DA:",
+              "EC:",
+              "NO:",
+              "OR:",
+              "SK:"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -4054,6 +4627,45 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              10,
+              13,
+              17,
+              18,
+              21,
+              22
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 3,
+            "multiple_words": 3,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              ".",
+              "。",
+              "明",
+              "花",
+              "！",
+              "？"
+            ],
+            "publisher_short_names": [
+              "AN:",
+              "DA:",
+              "EC:",
+              "NO:",
+              "OR:",
+              "SK:"
+            ]
           },
           "positions": {
             "A": [
@@ -4117,6 +4729,29 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              30,
+              31
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "m",
+              "t"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -4172,6 +4807,29 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              30,
+              31
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "m",
+              "t"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -4226,6 +4884,29 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              30,
+              31
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "m",
+              "t"
+            ]
           },
           "positions": {
             "A": [
@@ -4289,6 +4970,33 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              2,
+              5,
+              9,
+              10
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 6,
+            "multiple_words": 0,
+            "space_widths": [],
+            "endings": [
+              "习",
+              "单",
+              "录",
+              "然",
+              "记",
+              "集"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -4344,6 +5052,33 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              2,
+              5,
+              9,
+              10
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 6,
+            "multiple_words": 0,
+            "space_widths": [],
+            "endings": [
+              "习",
+              "单",
+              "录",
+              "然",
+              "记",
+              "集"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -4398,6 +5133,33 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              2,
+              5,
+              9,
+              10
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 6,
+            "multiple_words": 0,
+            "space_widths": [],
+            "endings": [
+              "习",
+              "单",
+              "录",
+              "然",
+              "记",
+              "集"
+            ]
           },
           "positions": {
             "A": [
@@ -7837,6 +8599,32 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              13,
+              14,
+              15
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "e",
+              "g",
+              "k",
+              "s"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -7892,6 +8680,32 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              13,
+              14,
+              15
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "e",
+              "g",
+              "k",
+              "s"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -7946,6 +8760,32 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              13,
+              14,
+              15
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "e",
+              "g",
+              "k",
+              "s"
+            ]
           },
           "positions": {
             "A": [
@@ -8009,6 +8849,35 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              144,
+              147,
+              153,
+              155,
+              159,
+              161
+            ],
+            "line_counts": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "e",
+              "n",
+              "s",
+              "y"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -8064,6 +8933,35 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              144,
+              147,
+              153,
+              155,
+              159,
+              161
+            ],
+            "line_counts": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "e",
+              "n",
+              "s",
+              "y"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -8118,6 +9016,35 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              144,
+              147,
+              153,
+              155,
+              159,
+              161
+            ],
+            "line_counts": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "e",
+              "n",
+              "s",
+              "y"
+            ]
           },
           "positions": {
             "A": [
@@ -9621,6 +10548,29 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              30,
+              31
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "m",
+              "t"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -9676,6 +10626,29 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              30,
+              31
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "m",
+              "t"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -9730,6 +10703,29 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              30,
+              31
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "m",
+              "t"
+            ]
           },
           "positions": {
             "A": [
@@ -9793,6 +10789,28 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              5,
+              6
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 6,
+            "multiple_words": 0,
+            "space_widths": [],
+            "endings": [
+              "包",
+              "杯",
+              "灯"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -9848,6 +10866,28 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              5,
+              6
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 6,
+            "multiple_words": 0,
+            "space_widths": [],
+            "endings": [
+              "包",
+              "杯",
+              "灯"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -9902,6 +10942,28 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              5,
+              6
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 6,
+            "multiple_words": 0,
+            "space_widths": [],
+            "endings": [
+              "包",
+              "杯",
+              "灯"
+            ]
           },
           "positions": {
             "A": [
@@ -9965,6 +11027,34 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              10,
+              12,
+              14,
+              16,
+              18,
+              19
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 6,
+            "multiple_words": 0,
+            "space_widths": [],
+            "endings": [
+              "0",
+              "3",
+              "4",
+              "7",
+              "8"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -10020,6 +11110,33 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              10,
+              12,
+              14,
+              16,
+              18,
+              19
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 6,
+            "multiple_words": 0,
+            "space_widths": [],
+            "endings": [
+              "0",
+              "2",
+              "6",
+              "8"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -10074,6 +11191,33 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              10,
+              12,
+              14,
+              16,
+              18,
+              19
+            ],
+            "line_counts": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "single_word": 6,
+            "multiple_words": 0,
+            "space_widths": [],
+            "endings": [
+              "1",
+              "6",
+              "7",
+              "8"
+            ]
           },
           "positions": {
             "A": [
@@ -12988,6 +14132,29 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              106
+            ],
+            "line_counts": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1,
+              3,
+              6
+            ],
+            "endings": [
+              ")"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -13043,6 +14210,29 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              106
+            ],
+            "line_counts": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1,
+              3,
+              6
+            ],
+            "endings": [
+              ")"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -13097,6 +14287,29 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              106
+            ],
+            "line_counts": [
+              6,
+              6,
+              6,
+              6,
+              6,
+              6
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1,
+              3,
+              6
+            ],
+            "endings": [
+              ")"
+            ]
           },
           "positions": {
             "A": [
@@ -13160,6 +14373,32 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              182,
+              185,
+              188,
+              190,
+              192,
+              195
+            ],
+            "line_counts": [
+              7,
+              7,
+              7,
+              7,
+              7,
+              7
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "t"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -13215,6 +14454,32 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              182,
+              185,
+              188,
+              190,
+              192,
+              195
+            ],
+            "line_counts": [
+              7,
+              7,
+              7,
+              7,
+              7,
+              7
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "t"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -13269,6 +14534,32 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              182,
+              185,
+              188,
+              190,
+              192,
+              195
+            ],
+            "line_counts": [
+              7,
+              7,
+              7,
+              7,
+              7,
+              7
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1
+            ],
+            "endings": [
+              "t"
+            ]
           },
           "positions": {
             "A": [
@@ -13332,6 +14623,32 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              53,
+              60,
+              66,
+              78,
+              80
+            ],
+            "line_counts": [
+              4,
+              3,
+              4,
+              4,
+              5,
+              3
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1,
+              3
+            ],
+            "endings": [
+              ")"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -13387,6 +14704,33 @@
             "B": 6,
             "C": 6
           },
+          "source_coverage": {
+            "lengths": [
+              54,
+              61,
+              67,
+              78,
+              79,
+              80
+            ],
+            "line_counts": [
+              5,
+              3,
+              4,
+              3,
+              4,
+              4
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1,
+              3
+            ],
+            "endings": [
+              ")"
+            ]
+          },
           "positions": {
             "A": [
               [],
@@ -13441,6 +14785,33 @@
             "A": 6,
             "B": 6,
             "C": 6
+          },
+          "source_coverage": {
+            "lengths": [
+              54,
+              61,
+              67,
+              78,
+              79,
+              80
+            ],
+            "line_counts": [
+              4,
+              4,
+              5,
+              3,
+              4,
+              3
+            ],
+            "single_word": 0,
+            "multiple_words": 6,
+            "space_widths": [
+              1,
+              3
+            ],
+            "endings": [
+              ")"
+            ]
           },
           "positions": {
             "A": [

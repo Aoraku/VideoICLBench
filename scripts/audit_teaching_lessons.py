@@ -3,6 +3,7 @@
 import argparse
 from collections import Counter
 import json
+import re
 from pathlib import Path
 
 from vic import business, games, lessons
@@ -37,6 +38,28 @@ def inspect_lesson(task, base_seed):
         report['distinct_outputs'] = {v: len({signature(e[v]) for e in effects}) for v in 'ABC'}
         if report['distinct_sources'] < 6:
             risks.append('repeated_editing_material')
+        texts = [s['source']['text'] for s in states]
+        coverage = dict(lengths=sorted({len(t) for t in texts}),
+                        line_counts=[len(t.splitlines()) for t in texts],
+                        single_word=sum(len(t.split()) == 1 for t in texts),
+                        multiple_words=sum(len(t.split()) > 1 for t in texts),
+                        space_widths=sorted({len(m) for t in texts for m in re.findall(' +',t)}),
+                        endings=sorted({t[-1:] for t in texts}))
+        report['source_coverage'] = coverage
+        if task_id == 1 and not (coverage['single_word'] >= 2 and coverage['multiple_words'] >= 4):
+            risks.append('missing_single_or_multiword_contrast')
+        if task_id == 2 and not (coverage['single_word'] and {1,2,3} <= set(coverage['space_widths'])):
+            risks.append('missing_spacing_contrast')
+        if task_id == 3 and not {'.','!','?','。'} <= set(coverage['endings']):
+            risks.append('missing_existing_punctuation_contrast')
+        if task_id == 19:
+            coverage['publisher_short_names'] = sorted({s['source']['publisher_short'] for s in states})
+            if len(coverage['publisher_short_names']) < 6:
+                risks.append('fixed_news_source_prefix')
+        if task_id == 21 and len(coverage['lengths']) < 4:
+            risks.append('insufficient_collection_name_lengths')
+        if task_id in (37,59) and min(coverage['line_counts']) < 6:
+            risks.append('insufficient_multiline_examples')
     if task_id < 66:
         report['positions'] = {v: [[s['order'].index(i) + 1 for i in (selected(e[v]) or [])]
                                   for s, e in zip(states, effects)] for v in 'ABC'}

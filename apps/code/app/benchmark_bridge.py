@@ -65,7 +65,7 @@ def api_request(method, endpoint, data=None, params=None, **kwargs):
         elif method == "GET" and route.startswith("/api/submissions"):
             rows = [dict(submission_id=str(1000+i), problem_id=str(x["number"]), status=x["verdict"],
                          score=100 if x["verdict"]=="AC" else 0, counts=100, code=x["code"],
-                         runtime_ms=x["runtime_ms"], lines=x["lines"], timestamp=x["timestamp"],
+                         runtime_ms=x["runtime_ms"], lines=len(x["code"].splitlines()), created_at=x["created_at"],
                          benchmark_object=x["id"], label=x["label"]) for i,x in enumerate(items)]
             rows.extend(dict(submission_id=str(2000+i),problem_id="100",status="saved",score=0,counts=0,
                              code=x["body"]) for i,x in enumerate(state["domain"]["artifacts"]) if x["kind"]=="submission")
@@ -98,7 +98,8 @@ def extra_submission(sub):
     if not sub.get("benchmark_object"):
         return
     state = business()["state"]
-    st.caption(f"耗时 {sub['runtime_ms']} ms · 代码 {sub['lines']} 行 · 时间序号 {sub['timestamp']}")
+    submitted_at = sub['created_at'].replace('T', ' ').removesuffix('+00:00')
+    st.caption(f"耗时 {sub['runtime_ms']} ms · 代码 {sub['lines']} 行 · 提交时间 {submitted_at} UTC")
     if state["task_id"] == 61:
         options=[""]+state["options"]
         label=st.radio("结果标签",["未标注"]+state["options"],index=options.index(state["labels"][sub["benchmark_object"]]),horizontal=True,key="sub_label_"+sub["submission_id"])

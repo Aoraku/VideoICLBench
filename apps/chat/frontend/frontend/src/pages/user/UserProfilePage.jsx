@@ -182,7 +182,7 @@ export default function UserProfilePage() {
                 </span>
               </div>
               <div className="wxMeta">好友关系：{profile.is_friend ? '已是好友' : '还不是好友'}</div>
-              {profile.is_friend ? <div className="wxMeta">备注：{profile.remark || '-'}</div> : null}
+              {profile.is_friend ? <div className="wxMeta" style={{whiteSpace: 'pre-wrap'}}>备注：{profile.remark || '-'}</div> : null}
             </div>
             <div className="wxActions">
               {!profile.is_friend ? (

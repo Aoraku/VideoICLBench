@@ -652,7 +652,9 @@ def generate(id_, seed):
                       else len(e["actions"]) for e in effects]
             if any(count < 4 or count > len(items) - 4 for count in counts):
                 continue
-        if len(set(signatures)) == 3 and all(
+        # Natural single-word and space-free inputs can have equal outputs under
+        # different rules. The complete six-episode lesson distinguishes them.
+        if (id_ in (1, 2) or len(set(signatures)) == 3) and all(
             _nonempty(expected_effect(id_, v, public)) for v in "ABC"
         ):
             return public

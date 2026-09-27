@@ -68,7 +68,7 @@ export function presenceClass(presence) {
 }
 
 export function getFriendDisplayName(friend) {
-  return friend.remark || friend.username
+  return friend.benchmark_identity_name || friend.remark || friend.username
 }
 
 export function groupExists(groups, groupId) {

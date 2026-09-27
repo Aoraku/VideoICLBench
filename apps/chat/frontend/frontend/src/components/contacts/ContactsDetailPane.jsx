@@ -137,6 +137,7 @@ export default function ContactsDetailPane({
           </div>
         </div>
         <dl className="wxDetailPane__dl">
+          {f.remark && <><dt>备注</dt><dd style={{whiteSpace: 'pre-wrap'}}>{f.remark}</dd></>}
           <dt>分组</dt>
           <dd>{f.group_name || '未分组'}</dd>
           {f.benchmark_contact_time!==undefined&&<><dt>最近联系时间</dt><dd>{String(f.benchmark_contact_time).replace("T", " ").slice(0, 16)} UTC</dd><dt>未读消息</dt><dd>{f.benchmark_unread}</dd></>}

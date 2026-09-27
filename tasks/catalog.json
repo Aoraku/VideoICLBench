@@ -14,7 +14,7 @@
         "C": "每个单词首字母大写"
       },
       "original_rules": "A：首字母小写、其余大写；B：首字母大写、其余小写；C：每个单词首字母大写",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -66,7 +66,7 @@
         "C": "全部转为小写"
       },
       "original_rules": "A：去掉所有空格；B：空格改为下划线；C：全部转为小写",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -118,7 +118,7 @@
         "C": "句末加“?”"
       },
       "original_rules": "A：句末加“.”；B：句末加“!”；C：句末加“?”",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -950,7 +950,7 @@
         "C": "在标题前加来源简称"
       },
       "original_rules": "A：删除标点；B：保留标点并加句号；C：在标题前加来源简称",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -1054,7 +1054,7 @@
         "C": "名称首尾加书名号"
       },
       "original_rules": "A：名称首尾加方括号；B：名称首尾加圆括号；C：名称首尾加书名号",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -1886,7 +1886,7 @@
         "C": "每条要求后加分号"
       },
       "original_rules": "A：每条要求前加“-”；B：每条要求前加序号；C：每条要求后加分号",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -3134,7 +3134,7 @@
         "C": "运行时间最低为“绿”"
       },
       "original_rules": "A：通过全部测试为“绿”；B：存在运行错误为“绿”；C：运行时间最低为“绿”",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -3290,7 +3290,7 @@
         "C": "选择代码行数最多的提交"
       },
       "original_rules": "A：选择最新提交；B：选择最早提交；C：选择代码行数最多的提交",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,

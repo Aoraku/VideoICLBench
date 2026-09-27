@@ -1,0 +1,229 @@
+{
+  "scope": "Local text transformation contrasts and native UI observations, with full regression. No all-case human video acceptance is inferred.",
+  "tests": {
+    "full_suite_passed": 853,
+    "failed": 0,
+    "seconds": 114.37,
+    "chat_build": "passed",
+    "all_75_lesson_audit_measured_risks": 0
+  },
+  "cases": [
+    {
+      "task_id": 2,
+      "variant": "B",
+      "run_id": "ad792ae39c714feeb1bf8611f8310283",
+      "epoch": 0,
+      "episode": 0,
+      "seed": 1,
+      "ui_observation": "联系人显示林若宁；备注显示两个空格；保存为 Chloe__Lin 后身份保持不变，详情显示新备注。",
+      "independent_evaluation": {
+        "success": true,
+        "completion": 1.0,
+        "checks": [
+          {
+            "id": "outputs:target",
+            "passed": true
+          },
+          {
+            "id": "business:objects",
+            "passed": true
+          },
+          {
+            "id": "business:messages",
+            "passed": true
+          },
+          {
+            "id": "business:memberships",
+            "passed": true
+          },
+          {
+            "id": "business:collections",
+            "passed": true
+          },
+          {
+            "id": "business:orders",
+            "passed": true
+          },
+          {
+            "id": "business:settings",
+            "passed": true
+          },
+          {
+            "id": "business:artifacts",
+            "passed": true
+          },
+          {
+            "id": "business:ledger",
+            "passed": true
+          },
+          {
+            "id": "business:balances",
+            "passed": true
+          },
+          {
+            "id": "business:clipboard_history",
+            "passed": true
+          },
+          {
+            "id": "business:files",
+            "passed": true
+          }
+        ],
+        "violations": []
+      },
+      "advanced_to_episode": 1,
+      "recorded_video": false,
+      "evidence_sha256": "dbde9c3a6c7e106958861cdf7bd91a75accf34e759473ce46283100cc4cc3535"
+    },
+    {
+      "task_id": 37,
+      "variant": "B",
+      "run_id": "239d323425d74c008cabbcc1133f976b",
+      "epoch": 0,
+      "episode": 0,
+      "seed": 0,
+      "ui_observation": "从工作台进入提示词库，六行文本编号 1–6 并保存，显示内容已保存。",
+      "independent_evaluation": {
+        "success": true,
+        "completion": 1.0,
+        "checks": [
+          {
+            "id": "outputs:target",
+            "passed": true
+          },
+          {
+            "id": "business:objects",
+            "passed": true
+          },
+          {
+            "id": "business:messages",
+            "passed": true
+          },
+          {
+            "id": "business:memberships",
+            "passed": true
+          },
+          {
+            "id": "business:collections",
+            "passed": true
+          },
+          {
+            "id": "business:orders",
+            "passed": true
+          },
+          {
+            "id": "business:settings",
+            "passed": true
+          },
+          {
+            "id": "business:artifacts",
+            "passed": true
+          },
+          {
+            "id": "business:ledger",
+            "passed": true
+          },
+          {
+            "id": "business:balances",
+            "passed": true
+          },
+          {
+            "id": "business:clipboard_history",
+            "passed": true
+          },
+          {
+            "id": "business:files",
+            "passed": true
+          }
+        ],
+        "violations": []
+      },
+      "advanced_to_episode": 1,
+      "recorded_video": false,
+      "evidence_sha256": "9f3c8dfc571178022b2fb36726d1ba3a0384230f2b6448677227d0a432810bda"
+    },
+    {
+      "task_id": 64,
+      "variant": "C",
+      "run_id": "c78d76b3ab5d422d92e2a60cfccb4cbf",
+      "epoch": 0,
+      "episode": 0,
+      "seed": 0,
+      "ui_observation": "从题库首页进入查看提交；六项均显示完整 UTC 日期与实际行数，选择 76 行的提交并查看代码。",
+      "independent_evaluation": {
+        "success": true,
+        "completion": 1.0,
+        "checks": [
+          {
+            "id": "selection",
+            "passed": true
+          },
+          {
+            "id": "business:objects",
+            "passed": true
+          },
+          {
+            "id": "business:messages",
+            "passed": true
+          },
+          {
+            "id": "business:memberships",
+            "passed": true
+          },
+          {
+            "id": "business:collections",
+            "passed": true
+          },
+          {
+            "id": "business:orders",
+            "passed": true
+          },
+          {
+            "id": "business:settings",
+            "passed": true
+          },
+          {
+            "id": "business:artifacts",
+            "passed": true
+          },
+          {
+            "id": "business:ledger",
+            "passed": true
+          },
+          {
+            "id": "business:balances",
+            "passed": true
+          },
+          {
+            "id": "business:clipboard_history",
+            "passed": true
+          },
+          {
+            "id": "business:files",
+            "passed": true
+          }
+        ],
+        "violations": []
+      },
+      "advanced_to_episode": 1,
+      "recorded_video": false,
+      "evidence_sha256": "0c33bc9377ef3dac96f2db1185fd031c2e3a0d11e775c735ffac0f88423a28ec"
+    }
+  ],
+  "contracts_3_1": [
+    1,
+    2,
+    3,
+    19,
+    21,
+    37,
+    61,
+    64
+  ],
+  "single_example_collisions": "Tasks 1 and 2 allow natural equal outputs on individual single-word or space-free inputs; six-example lessons must still distinguish all three complete rule sequences.",
+  "remaining": [
+    "Remaining five UI episodes for each recorded local run",
+    "Full video frame and human rule-inference review",
+    "Shared-server deployment"
+  ]
+}

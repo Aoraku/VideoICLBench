@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 1,
-  "task_version": "3.0.0",
+  "task_version": "3.1.0",
   "title": "通讯 A：发送一条指定文本",
   "app": "chat",
   "type": "T",

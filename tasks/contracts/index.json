@@ -4,7 +4,7 @@
     {
       "schema_version": 1,
       "task_id": 1,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "通讯 A：发送一条指定文本",
       "app": "chat",
       "type": "T",
@@ -100,7 +100,7 @@
     {
       "schema_version": 1,
       "task_id": 2,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "通讯 A：修改联系人昵称",
       "app": "chat",
       "type": "T",
@@ -195,7 +195,7 @@
     {
       "schema_version": 1,
       "task_id": 3,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "通讯 A：编辑并发送模板消息",
       "app": "chat",
       "type": "T",
@@ -1725,7 +1725,7 @@
     {
       "schema_version": 1,
       "task_id": 19,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "新闻：规范化文章标题",
       "app": "news",
       "type": "T",
@@ -1915,7 +1915,7 @@
     {
       "schema_version": 1,
       "task_id": 21,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "视频：修改收藏夹名称",
       "app": "media",
       "type": "T",
@@ -3440,7 +3440,7 @@
     {
       "schema_version": 1,
       "task_id": 37,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "AI 工作台：整理输入提示词",
       "app": "studio",
       "type": "T",
@@ -5733,7 +5733,7 @@
     {
       "schema_version": 1,
       "task_id": 61,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "OJ：给提交结果标注类别",
       "app": "code",
       "type": "C",
@@ -6018,7 +6018,7 @@
     {
       "schema_version": 1,
       "task_id": 64,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "OJ：从提交记录选择待检查结果",
       "app": "code",
       "type": "S",

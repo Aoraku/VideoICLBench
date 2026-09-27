@@ -81,6 +81,9 @@ def test_application_all_variants(task_id, seed, tmp_path):
             result["violations"],
         )
         for other in set("ABC") - {variant}:
+            if task_id in (1, 2) and business.expected_effect(task_id, other, initial) == business.expected_effect(task_id, variant, initial):
+                assert application_eval.evaluate(initial, final, other, events)['success']
+                continue
             if task_id == 68 and expected(task_id, other, initial) == expected(task_id, variant, initial):
                 continue  # Individual tutorial boards may share correct actions; the full lesson distinguishes policies.
             assert not application_eval.evaluate(initial, final, other, events)[

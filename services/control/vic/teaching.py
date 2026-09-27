@@ -238,19 +238,53 @@ def enrich(id_, seed, items, source, rng):
     source.pop('_app')
     demo = seed < 1000
     examples = ["Please Review the Design Draft", "Please Confirm the Meeting Room", "Please Share the Weekly Report", "Bring the Updated Budget Tomorrow", "Check the Delivery Notes Carefully", "Send the Workshop Schedule Today"] if demo else ["Discuss the New Library Plan", "Confirm the Garden Visit", "Prepare the Museum Guide", "Share the Walking Route", "Review the Evening Programme", "Send the Reading List"]
-    if id_ in (1,3):
-        source['text'] = examples[seed % 6]
+    if id_ == 1:
+        source['text'] = (['pLeAsE rEVIEW the DESIGN draft', 'cONFIRM', 'share The weekly REPORT',
+                           'BRING the Updated Budget', 'check Delivery NOTES carefully', 'sChEdUlE'] if demo else
+                          ['dISCUSS the library PLAN', 'pREPARE', 'review The evening PROGRAMME',
+                           'SHARE the Walking Route', 'confirm Garden VISIT today', 'rEaDiNg'])[seed % 6]
     if id_ == 2:
-        source['text'] = (['Anna Wen','Chloe Lin','Emma Han','Noah Li','Mia Chen','Lily He'] if demo else ['Alice Qiu','Victor Bai','June Wei','May Deng','Rose Su','Eric Luo'])[seed % 6]
+        source['text'] = (['Anna Wen','Chloe  Lin','eMMA','Noah   Li','Mia  Chen Han','LILY HE'] if demo else
+                          ['Alice Qiu','Victor  Bai','jUNE','May   Deng','Rose  Su Mei','ERIC LUO'])[seed % 6]
+    if id_ == 3:
+        source['text'] = (['Please review the design draft', 'Can you confirm the room?',
+                           'The weekly report is ready.', 'Bring the budget!',
+                           'Note: check the delivery', 'Please send the schedule。'] if demo else
+                          ['Discuss the library plan', 'Is the garden open?', 'The museum guide is ready.',
+                           'Share the walking route!', 'Reminder: review the programme',
+                           'Please send the reading list。'])[seed % 6]
     if id_ in (17,36):
         source['text'] = (['morning 3 Walk','summer 7 Breeze','city 2 Lights','river 12 Song','quiet 5 Hours','open 14 Windows'] if demo else ['autumn 8 Lanterns','winter 6 Letters','orange 9 Moon','green 10 Fields','ocean 11 Drive','first 4 Snow'])[seed % 6]
     if id_ == 18:
         source['date'] = f"2026-{1 if demo else 2:02d}-{1+seed%27:02d}"
+    if id_ == 19:
+        source['text'] = (['城市更新观察：街区如何变得更宜居？', '周末书单 (2026)：阅读与城市。',
+                           'Night Walk! 老街新增 3 处照明', '社区手记——一起种花',
+                           '开放日：「图书馆」的夜晚！', '2026/01/15, 城市声音采集计划.'] if demo else
+                          ['湿地观察：春天有哪些新发现？', '植物笔记 (2027)：阳台四季。',
+                           'Open Garden! 5 个社区参与共建', '海边漫游——潮汐与风',
+                           '读书会：「自然」主题分享！', '2027/02/16, 公园声音记录.'])[seed % 6]
+        source['publisher'], source['publisher_short'] = (
+            [('Echo','EC:'),('North','NO:'),('Orbit','OR:'),('Sky','SK:'),('AtlasNews','AN:'),('Daily','DA:')] if demo else
+            [('Field Notes','FN:'),('Garden Post','GP:'),('Coast Review','CR:'),('City Voice','CV:'),('Open Press','OP:'),('Park Journal','PJ:')]
+        )[seed % 6]
     if id_ == 20:
         vocabulary = ['research','design','travel','writing','music','community','science','history'] if demo else ['nature','reading','photography','gardening','cooking','hiking','architecture','education']
         source['tags'] = random.Random(seed + 4020).sample(vocabulary, 2 + seed % 3)
     if id_ == 21:
-        source['text'] = (['城市观察与阅读笔记','周末旅行与影像记录','日常料理与生活灵感','庭院植物与四季变化','街头摄影与光影练习','音乐会与演出记录'] if demo else ['森林露营与自然观察','图书馆漫游记','雨天手作与绘画','骑行路线与地图','植物园周末游记','咖啡馆的阅读时光'])[seed % 6]
+        source['text'] = (['书单','城市观察与阅读笔记','自然','周末旅行与影像记录集','街头摄影与光影练习','音乐会记录'] if demo else ['露营','图书馆漫游记','手作','雨天的骑行路线与地图','植物园周末游记','咖啡馆的阅读时光'])[seed % 6]
+    if id_ == 37:
+        topic = (['community research','design review','travel planning','book discussion','garden survey','music workshop'] if demo else
+                 ['wildlife observation','museum visits','baking lessons','cycling routes','library services','photography walks'])[seed % 6]
+        templates = [
+            [f'Summarize the {topic} report', 'Use short sentences', 'List the key findings', 'Separate facts from opinions', 'Mention open questions', 'End with a brief conclusion'],
+            [f'Prepare a {topic} outline', 'State the purpose', 'Describe the audience', 'Include three sections', 'Give one practical example', 'Keep the tone friendly'],
+            [f'Review the {topic} notes', 'Group related ideas', 'Preserve important names', 'Identify missing details', 'Suggest two follow-up questions', 'Use plain language'],
+            [f'Draft a {topic} invitation', 'Explain the meeting time', 'Introduce the activity', 'List what to bring', 'Include a contact person', 'Close with a welcome'],
+            [f'Compare the {topic} options', 'Use the same criteria', 'Describe each benefit', 'Explain the limitations', 'Check the available budget', 'Provide a short recommendation'],
+            [f'Create a {topic} checklist', 'Start with preparation', 'Include the main activity', 'Add a review step', 'Assign clear responsibilities', 'Finish with next actions'],
+        ]
+        source['text'] = '\n'.join(templates[seed % 6])
     if id_ == 44:
         source['given_name'] = (['Mei','Ruo Ning','Zi An','Yu Chen','Xiao Man','Jia He'] if demo else ['Jun','Qing Yue','Zhi Xia','Ming Yuan','Ke Xin','Yu An'])[seed % 6]
     source['transaction_window'] = {'start':'2025-12-17', 'end':'2026-01-15', 'days':30}

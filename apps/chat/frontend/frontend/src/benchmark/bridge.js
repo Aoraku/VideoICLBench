@@ -132,7 +132,9 @@ function messages(state, conv) {
       message(
         state,
         1,
-        `请帮我整理下面这段内容，整理好后在这里发给我：\n${state.source.text}`,
+        state.task_id === 2
+          ? `请在通讯录中整理我的备注信息，原始备注是：\n${state.source.text}`
+          : `请帮我整理下面这段内容，整理好后在这里发给我：\n${state.source.text}`,
       ),
     ];
     if ([5, 13].includes(state.task_id))
