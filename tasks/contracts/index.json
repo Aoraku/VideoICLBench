@@ -6810,7 +6810,7 @@
     {
       "schema_version": 1,
       "task_id": 72,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "扫雷：从候选格中选择安全格",
       "app": "games",
       "type": "S",

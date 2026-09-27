@@ -29,7 +29,7 @@
     background 0.15s,
     box-shadow 0.15s;
 }
-.product button:hover {
+.product button:hover:not(:disabled):not(.game-square) {
   background: #f0f2f4;
   box-shadow: 0 2px 6px #00000008;
 }
@@ -1417,13 +1417,16 @@
 }
 .games-layout {
   display: grid;
-  grid-template-columns: minmax(380px, 580px) 240px;
+  grid-template-columns: clamp(300px, calc(100dvh - 310px), 580px) 240px;
   gap: 34px;
   justify-content: center;
   align-items: start;
 }
 .games-board {
   display: grid;
+  width: 100%;
+  max-width: clamp(300px, calc(100dvh - 310px), 580px);
+  justify-self: center;
   aspect-ratio: 1;
   border-radius: 9px;
   overflow: hidden;
@@ -1433,8 +1436,11 @@
 }
 .product .game-square {
   padding: 0;
+  min-width: 0;
+  min-height: 0;
   aspect-ratio: 1;
   font-size: 38px;
+  line-height: 1;
   font-weight: 700;
   border: none;
   background: #e8e2d6;
@@ -1513,6 +1519,7 @@
 }
 .board-sudoku small {
   font-size: 12px;
+  line-height: 1.2;
   font-weight: 400;
   color: #758795;
 }
@@ -1534,8 +1541,11 @@
 .games-board .focused {
   background: #d5e4f2;
 }
-.games-board .marked {
+.product .games-board .marked {
   box-shadow: inset 0 0 0 3px #caaf48;
+}
+.product .games-board .selected-square {
+  box-shadow: inset 0 0 0 3px #e7b64f;
 }
 .games-controls {
   background: #fff;
@@ -1549,6 +1559,15 @@
 .games-controls p {
   font-size: 12px;
   color: #8b998b;
+}
+.games-controls .games-side {
+  font-size: 18px;
+  font-weight: 700;
+  color: #243a2b;
+}
+.games-controls .games-counts {
+  font-size: 15px;
+  color: #455a4b;
 }
 .games-controls hr {
   border: 0;
@@ -1590,6 +1609,32 @@
 }
 .games-numbers button {
   font-size: 20px;
+}
+.game-2048 .games-controls {
+  padding: 18px;
+}
+.game-2048 .games-controls h2 {
+  margin: 0 0 8px;
+}
+.game-2048 .games-controls p {
+  margin: 10px 0;
+}
+.game-2048 .games-controls hr {
+  margin: 12px 0;
+}
+.game-2048 .games-score {
+  margin: 10px 0;
+  padding: 6px;
+}
+.game-2048 .games-score b {
+  font-size: 26px;
+}
+.game-2048 .games-directions {
+  margin: 10px 0;
+}
+.game-2048 .games-directions button {
+  font-size: 20px;
+  padding: 6px;
 }
 @media (max-width: 1100px) {
   .product-nav {

@@ -12,6 +12,13 @@ export function Games({ api }: { api: ProductAPI }) {
     },
     name = names[s.game];
   const [instructions, setInstructions] = useState(false);
+  const settled = s.stopped || ([68, 71, 72, 74, 75].includes(s.task_id) && s.selection !== null);
+  const selected = (r: number, c: number) =>
+    s.task_id === 71
+      ? s.selection !== null && s.candidates.some((p: number[]) => p[0] === r && p[1] === c)
+      : Array.isArray(s.selection) && s.selection[0] === r && s.selection[1] === c;
+  const blackCount = s.board.flat().filter((cell: number | null) => cell === 1).length;
+  const whiteCount = s.board.flat().filter((cell: number | null) => cell === 2).length;
   const point = (r: number, c: number) => `${r},${c}`,
     candidate = (r: number, c: number) =>
       s.candidates.some((p: number[]) => p[0] === r && p[1] === c),
@@ -29,7 +36,7 @@ export function Games({ api }: { api: ProductAPI }) {
         page === "play" &&
         s.game === "2048" &&
         map[e.key] &&
-        !s.stopped &&
+        !settled &&
         !api.busy
       ) {
         e.preventDefault();
@@ -38,7 +45,7 @@ export function Games({ api }: { api: ProductAPI }) {
     }
     window.addEventListener("keydown", key);
     return () => window.removeEventListener("keydown", key);
-  }, [page, s.stopped, api.busy]);
+  }, [page, settled, api.busy]);
   function click(r: number, c: number) {
     const p = point(r, c);
     if ([70, 73].includes(s.task_id)) void api.mutate("mark", p);
@@ -146,17 +153,21 @@ export function Games({ api }: { api: ProductAPI }) {
             <div className="games-layout">
               <div
                 className={`games-board board-${s.game}`}
-                style={{ gridTemplateColumns: `repeat(${s.board.length},1fr)` }}
+                style={{
+                  gridTemplateColumns: `repeat(${s.board.length},minmax(0,1fr))`,
+                  gridTemplateRows: `repeat(${s.board.length},minmax(0,1fr))`,
+                }}
               >
                 {s.board.map((row: any[], r: number) =>
                   row.map((cell: any, c: number) => (
                     <button
                       key={point(r, c)}
                       aria-label={`第${r + 1}行第${c + 1}列`}
-                      className={`game-square tile-${cell || 0} ${candidate(r, c) ? "candidate" : ""} ${marked(r, c) ? "marked" : ""} ${focus === point(r, c) ? "focused" : ""}`}
+                      aria-pressed={selected(r, c) || marked(r, c)}
+                      className={`game-square tile-${cell || 0} ${candidate(r, c) && !settled ? "candidate" : ""} ${marked(r, c) ? "marked" : ""} ${selected(r, c) ? "selected-square" : ""} ${focus === point(r, c) ? "focused" : ""}`}
                       disabled={
                         api.busy ||
-                        s.stopped ||
+                        settled ||
                         s.game === "2048" ||
                         !candidate(r, c)
                       }
@@ -194,6 +205,10 @@ export function Games({ api }: { api: ProductAPI }) {
               </div>
               <aside className="games-controls">
                 <h2>本局状态</h2>
+                {s.game === "reversi" && <>
+                  <p className="games-side">本局执{s.color === 1 ? "黑" : "白"}</p>
+                  <p className="games-counts">黑棋 {blackCount} · 白棋 {whiteCount}</p>
+                </>}
                 {s.game === "2048" ? (
                   <>
                     <div className="games-score">
@@ -215,7 +230,7 @@ export function Games({ api }: { api: ProductAPI }) {
                         <button
                           key={v}
                           aria-label={v}
-                          disabled={api.busy || s.stopped}
+                          disabled={api.busy || settled}
                           onClick={() => api.mutate("move", "", v)}
                         >
                           {icon}
@@ -229,18 +244,18 @@ export function Games({ api }: { api: ProductAPI }) {
                         disabled={api.busy || s.stopped}
                         onClick={() => api.mutate("stop")}
                       >
-                        {s.stopped ? "已结束练习" : "结束练习"}
+                        {s.stopped ? "已停止操作" : "停止操作"}
                       </button>
                     )}
                   </>
                 ) : s.task_id === 71 ? (
                   <>
-                    <p>{focus ? "为选中的格子填入数字" : "点击一个候选格子"}</p>
+                    <p>{s.selection !== null ? `✓ 已填入 ${s.selection}` : focus ? "为选中的格子填入数字" : "点击一个候选格子"}</p>
                     <div className="games-numbers">
                       {(s.candidate_values[focus] || []).map((v: number) => (
                         <button
                           key={v}
-                          disabled={api.busy}
+                          disabled={api.busy || settled}
                           onClick={() => api.mutate("fill", focus, String(v))}
                         >
                           {v}
@@ -256,7 +271,7 @@ export function Games({ api }: { api: ProductAPI }) {
                         : "点击棋盘中的候选位置。"}
                     </p>
                     {s.selection !== null && (
-                      <p className="product-ok">✓ 选择已保存</p>
+                      <p className="product-ok">✓ 选择已保存{Array.isArray(s.selection) && `：第 ${s.selection[0] + 1} 行第 ${s.selection[1] + 1} 列`}</p>
                     )}
                   </>
                 )}

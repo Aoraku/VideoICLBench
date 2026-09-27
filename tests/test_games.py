@@ -43,6 +43,43 @@ def test_sudoku_row_column_and_box():
     assert sudoku_candidates(board, 0, 0) == [4, 5, 6, 7, 8, 9]
 
 
+@pytest.mark.parametrize('seed',list(range(30))+[1000,1001,1002,10001])
+def test_mines_candidates_cover_board_and_only_clicked_safe_clue_is_revealed(seed):
+    from vic.games import _mines_layout
+    from collections import Counter
+    initial=fixture(72,seed)
+    assert Counter((r//4,c//4) for r,c in initial['candidates'])=={(0,0):2,(0,1):2,(1,0):2,(1,1):2}
+    # The private mine map is reconstructed only inside the server.
+    _,_,clues=_mines_layout(72,seed)
+    assert sum(cell==-1 for row in clues for cell in row)==10
+    assert not {'clues','mines','hidden','reveals','candidate_reveals'} & initial.keys()
+    for r,c in initial['candidates']:
+        assert initial['board'][r][c] is None and clues[r][c]>=0
+        expected_clue=sum(clues[i][j]==-1 for i in range(max(0,r-1),min(8,r+2))
+                          for j in range(max(0,c-1),min(8,c+2)))
+        final=apply(initial,'choose',f'{r},{c}')
+        assert final['board'][r][c]==expected_clue
+        assert initial['board'][r][c] is None
+        assert [(i,j) for i in range(8) for j in range(8)
+                if initial['board'][i][j]!=final['board'][i][j]]==[(r,c)]
+        with pytest.raises(ValueError,match='Only one move'):
+            apply(final,'choose',f'{r},{c}')
+    # Callers cannot mutate cached layout data through a fixture.
+    initial['board'][0][0]=99
+    assert fixture(72,seed)['board'][0][0]!=99
+
+
+def test_mines_reveal_is_checked_by_event_replay():
+    initial=fixture(72,0)
+    r,c=expected(72,'A',initial)
+    final=apply(initial,'choose',f'{r},{c}')
+    events=[dict(op='choose',target=f'{r},{c}',value='')]
+    assert evaluate(initial,final,'A',events)['success']
+    final['board'][r][c]+=1
+    result=evaluate(initial,final,'A',events)
+    assert not result['success'] and 'board_does_not_match_legal_actions' in result['violations']
+
+
 @pytest.mark.parametrize("task_id", [66, 67])
 def test_gomoku_demonstration_and_evaluation_boards_differ(task_id):
     examples = [fixture(task_id, seed) for seed in (0, 1, 1000, 1001, 10000, 10001)]

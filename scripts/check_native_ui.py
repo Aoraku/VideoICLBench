@@ -221,7 +221,7 @@ async def main():
            if t==68:await button(wanted)
            elif t==69:
             for direction in stopping_paths(s)[variant]:await button(direction)
-            await button('结束练习')
+            await button('停止操作')
            elif t in (70,73):
             for r,c in wanted:await button(f'第{r+1}行第{c+1}列')
            elif t==71:

@@ -1,0 +1,417 @@
+{
+  "scope": "Local browser interactions and independent aggregate evaluation of four six-episode game lessons; no captured-video or human inference acceptance.",
+  "tests": {
+    "passed": 928,
+    "failed": 0,
+    "seconds": 112.37
+  },
+  "lesson_audit": {
+    "report": "teaching-lessons-v5.json",
+    "cases": 75,
+    "base_seeds": [
+      0,
+      10,
+      20
+    ],
+    "enumerated_risks": 0
+  },
+  "native_ui": [
+    {
+      "task_id": 69,
+      "variant": "B",
+      "run_id": "5bedf690de384562b3a95c751202dd50",
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "778aa0f74d5d5ac51af08cdbaf74b5bb67fb4921e6cca1116618d0f5440ffaa1",
+          "selection": "left",
+          "moves": [
+            "left",
+            "down",
+            "left"
+          ],
+          "score": 68,
+          "stopped": true,
+          "color": 1
+        },
+        {
+          "index": 1,
+          "sha256": "2cb1ea13ebae44900cd18850efe9ec261d23774ffb80e816728de6742675707e",
+          "selection": "up",
+          "moves": [
+            "right",
+            "up"
+          ],
+          "score": 72,
+          "stopped": true,
+          "color": 1
+        },
+        {
+          "index": 2,
+          "sha256": "556d45e14f4e89b038ce68453f12affe6de1b78505b776584251cc25587a8590",
+          "selection": "up",
+          "moves": [
+            "left",
+            "up"
+          ],
+          "score": 68,
+          "stopped": true,
+          "color": 1
+        },
+        {
+          "index": 3,
+          "sha256": "3ea1484403616463fea36c80c28166a2c8729077a9ff1d6033e4ecbf03208aad",
+          "selection": "up",
+          "moves": [
+            "right",
+            "right",
+            "up"
+          ],
+          "score": 64,
+          "stopped": true,
+          "color": 1
+        },
+        {
+          "index": 4,
+          "sha256": "863a75ec7b19450fbcb46373bac4980f31a1a3c4c42972e0e91e73d82129296f",
+          "selection": "left",
+          "moves": [
+            "up",
+            "left"
+          ],
+          "score": 76,
+          "stopped": true,
+          "color": 1
+        },
+        {
+          "index": 5,
+          "sha256": "254d99514d60a1481a973612122a265a0906976652b8499017fda0b860c8e681",
+          "selection": "left",
+          "moves": [
+            "left",
+            "down",
+            "left",
+            "left"
+          ],
+          "score": 96,
+          "stopped": true,
+          "color": 1
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "d7b6bea70a966b25d3747c402e5167bc7038ac206dfcefc288eb87fa5ac0d258"
+    },
+    {
+      "task_id": 71,
+      "variant": "C",
+      "run_id": "95a0e8204363496480a1b56a53471434",
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "02f723e303e13bc61944ccb9fd3016ac78f1fd08171bd5b56f6c98b29f2b0e24",
+          "selection": 4,
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 1
+        },
+        {
+          "index": 1,
+          "sha256": "32d52110285e5493423bc9a0d1f5c1d511d665f3500dac55b96792a313b41077",
+          "selection": 5,
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 1
+        },
+        {
+          "index": 2,
+          "sha256": "018cf00242f5b0f7e49e393c4ed9af864b4bc73b797f68f9c3d526c31b2d34fa",
+          "selection": 6,
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 1
+        },
+        {
+          "index": 3,
+          "sha256": "42aeafca6fd3c183e4a878c0df60e45d42d83faf41e3b7d27a41b7563282cb91",
+          "selection": 8,
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 1
+        },
+        {
+          "index": 4,
+          "sha256": "7ed6a632a1e7d42088f0e5a6137ca3255caf66b2effaf5f14d8ddb01e39765fc",
+          "selection": 5,
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 1
+        },
+        {
+          "index": 5,
+          "sha256": "24b1700b28c95b23a1fd5b159c84f32d92f0955d10387fe069bf8241608ea71f",
+          "selection": 3,
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 1
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "915159fc5730a8060fe36317eb604cf87479f8009f9d0dfce76b8df460f290c3"
+    },
+    {
+      "task_id": 72,
+      "variant": "C",
+      "run_id": "5606a8bfb8a54380a87be50c6c6fb89a",
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "40743dbfbfb29e952bb7d70d162881d01bb04e1f60c0850d27fda92c13dcd187",
+          "selection": [
+            2,
+            0
+          ],
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 1
+        },
+        {
+          "index": 1,
+          "sha256": "4a700d7c5211d2fa1629c6d4cacfdae92cdd022334bee361a4ffb4c7050bf6ec",
+          "selection": [
+            1,
+            3
+          ],
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 1
+        },
+        {
+          "index": 2,
+          "sha256": "63ee2c11129ec3471a094a079ecc0d5c1b400b21fabac2a808ad5dd281f31286",
+          "selection": [
+            0,
+            2
+          ],
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 1
+        },
+        {
+          "index": 3,
+          "sha256": "2ac50c11633651168335c0048d709a6e50b3499193715da3c2f1354952f602d1",
+          "selection": [
+            2,
+            1
+          ],
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 1
+        },
+        {
+          "index": 4,
+          "sha256": "4c367fc046cda48b777b534ad50bc17ad62f2e9bf424eb243f05f432541c89aa",
+          "selection": [
+            2,
+            0
+          ],
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 1
+        },
+        {
+          "index": 5,
+          "sha256": "5c23db3fb0e11f628ee45d5d773f22744e5d2b3358d60e07ca3b18c422190133",
+          "selection": [
+            2,
+            0
+          ],
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 1
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "becc8e15916984b0521eb6a6c55e8d4bdd82d0b482dc36f242c7e4a6fcdbeb5f"
+    },
+    {
+      "task_id": 74,
+      "variant": "A",
+      "run_id": "dce02e2645ee4b78885b7666a03eef6d",
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "640152625ec2e66cda48338e0902505c4ce9c7616c74c8d8db139b1c648ffd0e",
+          "selection": [
+            2,
+            7
+          ],
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 2
+        },
+        {
+          "index": 1,
+          "sha256": "d7e3e5ffab46fea5363ed8dfb5f34c2590158f99d03631518e8183d4c8338100",
+          "selection": [
+            7,
+            5
+          ],
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 1
+        },
+        {
+          "index": 2,
+          "sha256": "d57ae7817fecedfd9d74e827febd1c201922d5b7016e7840504a7dc1585eecff",
+          "selection": [
+            1,
+            7
+          ],
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 2
+        },
+        {
+          "index": 3,
+          "sha256": "25b48227a802addfa586326cf8b33d381936e58cfb39a62f2b71337839d66994",
+          "selection": [
+            7,
+            1
+          ],
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 2
+        },
+        {
+          "index": 4,
+          "sha256": "e1ec1535bf89ea00a2fae9fa1ad928e09e1e397bbf94fd82fd54182d7a74ac27",
+          "selection": [
+            0,
+            5
+          ],
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 2
+        },
+        {
+          "index": 5,
+          "sha256": "6801df7fe25fd6f7884704c43cebaf94b645b22a5aa7861a583d17ea9ee29784",
+          "selection": [
+            1,
+            4
+          ],
+          "moves": [],
+          "score": 0,
+          "stopped": false,
+          "color": 2
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "cef34b63bd594f96def8b00c7204596d57a7459e15e9f9e8e60b8f545664c004"
+    }
+  ],
+  "ui_checks": {
+    "task69B": {
+      "moves_per_episode": [
+        3,
+        2,
+        2,
+        3,
+        2,
+        4
+      ],
+      "scores_at_stop": [
+        68,
+        72,
+        68,
+        64,
+        76,
+        96
+      ],
+      "directions_and_stop_disabled_after_stop": true
+    },
+    "task71C": {
+      "filled_numbers": [
+        4,
+        5,
+        6,
+        8,
+        5,
+        3
+      ],
+      "filled_cell_disabled": true,
+      "candidates_include_three_and_five_values": true
+    },
+    "task72C": {
+      "candidates_per_quadrant": 2,
+      "only_selected_cell_revealed": true,
+      "selected_clues": [
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "selection_ring_visible": true
+    },
+    "task74A": {
+      "side_visible_each_episode": true,
+      "black_white_counts_match_independent_flip_computation": true,
+      "selection_ring_visible": true,
+      "board_disabled_after_move": true
+    },
+    "task68_keyboard_lock": {
+      "run_id": "b21e3d8bd1c2455588f9f8f5ed7bdec4",
+      "moves_before": 1,
+      "moves_after_up_key": 1,
+      "score_before": 36,
+      "score_after": 36
+    },
+    "sudoku_layout": {
+      "run_id": "ebba03841ed34a42ac6919f61bacd4b8",
+      "viewport": [
+        1280,
+        720
+      ],
+      "all_81_cells_inside_board": true,
+      "internal_scroll_top": 0,
+      "internal_scroll_left": 0,
+      "filled_selection_survives_reload": true,
+      "selected_cell": "第6行第5列",
+      "filled_value": 6
+    }
+  },
+  "artifact_hashes": {
+    "apps/portal/dist/index.html": "266273b2bcb7363f1c340bc13a11ead20e3e5a14ebae25246a7e72db3a13efff",
+    "apps/portal/src/products/Games.tsx": "edcc1469e4fad114644e061f084d49015ae696377589800684325bacf3d79291",
+    "apps/portal/src/products/products.css": "54f9d087189373bfdb882912c49b58668b6ea94dc104a5f812400d139183e821",
+    "services/control/vic/games.py": "bd095309852b35e24ac8bcdd033c9fefedc56f96856102ec0578b4edc2f1aa74"
+  },
+  "remaining_gate": "Full captured-video checks, all-case UI coverage, and human rule-inference acceptance remain pending."
+}

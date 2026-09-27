@@ -1,6 +1,7 @@
 """Pure board transitions shared by game clients and private evaluators."""
 
 from copy import deepcopy
+from functools import lru_cache
 import random
 import json
 
@@ -139,6 +140,36 @@ def mine_clues(mines):
     ]
 
 
+@lru_cache(maxsize=512)
+def _mines_layout(task_id, seed):
+    """Server-only layout; unrevealed clues never enter the public fixture."""
+    rng = random.Random(seed)
+    for attempt in range(200):
+        mines = [[False] * 8 for _ in range(8)]
+        for r, c in rng.sample([(r, c) for r in range(8) for c in range(8)], 10):
+            mines[r][c] = True
+        clues = mine_clues(mines)
+        safe = [(r, c) for r in range(8) for c in range(8) if not mines[r][c]]
+        hidden = set(rng.sample(safe, 18))
+        board = [[None if (r,c) in hidden or mines[r][c] else clues[r][c]
+                  for c in range(8)] for r in range(8)]
+        if task_id == 72:
+            quadrants = [[p for p in sorted(hidden) if p[0]//4 == r and p[1]//4 == c]
+                         for r in range(2) for c in range(2)]
+            if any(len(points) < 2 for points in quadrants):
+                continue
+            candidates = [p for points in quadrants for p in rng.sample(points, 2)]
+            rng.shuffle(candidates)
+        else:
+            candidates = rng.sample([(r,c) for r in range(8) for c in range(8)
+                                     if board[r][c] is not None], 6)
+        state = dict(board=board, candidates=candidates, color=1)
+        signatures = [expected(task_id, v, state) for v in 'ABC']
+        if all(s is not None and s != [] for s in signatures) and len(set(map(repr,signatures))) == 3:
+            return board, candidates, clues
+    raise ValueError('No discriminative mines fixture')
+
+
 def fixture(task_id, seed):
     rng = random.Random(seed)
     base = dict(
@@ -230,43 +261,9 @@ def fixture(task_id, seed):
                 return state
         raise ValueError("No discriminative Sudoku fixture")
     if task_id in (72, 73):
-        for attempt in range(200):
-            mines = [[False] * 8 for _ in range(8)]
-            for r, c in rng.sample([(r, c) for r in range(8) for c in range(8)], 10):
-                mines[r][c] = True
-            clues = mine_clues(mines)
-            safe = [(r, c) for r in range(8) for c in range(8) if not mines[r][c]]
-            hidden = set(rng.sample(safe, 18))
-            board = [
-                [
-                    None if (r, c) in hidden or mines[r][c] else clues[r][c]
-                    for c in range(8)
-                ]
-                for r in range(8)
-            ]
-            candidates = (
-                sorted(hidden)[:8]
-                if task_id == 72
-                else rng.sample(
-                    [
-                        (r, c)
-                        for r in range(8)
-                        for c in range(8)
-                        if board[r][c] is not None
-                    ],
-                    6,
-                )
-            )
-            state = dict(
-                **base, game="mines", board=board, candidates=candidates, color=1
-            )
-            signatures = [expected(task_id, v, state) for v in "ABC"]
-            if (
-                all(s is not None and s != [] for s in signatures)
-                and len(set(repr(s) for s in signatures)) == 3
-            ):
-                return state
-        raise ValueError("No discriminative mines fixture")
+        board, candidates, _ = _mines_layout(task_id, seed)
+        return dict(**base, game='mines', board=deepcopy(board),
+                    candidates=deepcopy(candidates), color=1)
     if task_id in (74, 75):
         for attempt in range(200):
             board = [[0] * 8 for _ in range(8)]
@@ -503,6 +500,9 @@ def apply(state, op, target="", value="", ids=None):
         out["selection"] = [r, c]
         if task_id == 67:
             out["board"][r][c] = out["color"]
+        elif task_id == 72:
+            _, _, clues = _mines_layout(task_id, out['seed'])
+            out['board'][r][c] = clues[r][c]
         elif task_id in (74, 75):
             out["board"] = reversi_move(out["board"], r, c, out["color"])
     elif op == "fill" and task_id == 71:

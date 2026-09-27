@@ -28,8 +28,9 @@
 - [逐题审阅](2026-09-28.md)：用户提供的反馈与设计原则。
 - [75 题教学规格](../../tasks/teaching-specs.json)：每题的设计要求、演示规模和待验收项。
 - [数据审计](teaching-fixtures-v2.json)：每题六组种子的数据、版本区分度、阈值覆盖与候选捷径。
-- [完整示例组审计](teaching-lessons-v4.json)：75 题各三组教学计划，检查整组版本区分、编辑材料变化、选择位置、阈值和 2048 推理方向分布。
+- [完整示例组审计](teaching-lessons-v5.json)：75 题各三组教学计划，检查整组版本区分、编辑材料变化、选择位置、阈值和 2048 推理方向分布。
 - [界面操作证据](teaching-browser-evidence.json)：本机原生界面完成第 22 题 A、第 53 题 C、第 55 题 B、第 57 题 C，并调用独立判分接口。
+- [游戏界面与逐组判分](teaching-game-ui-validation.json)：第 69、71、72、74 题各六组界面操作、落点与停止反馈、数独候选数、黑白棋执子颜色和棋子数量；1280×720 下的棋盘可见性。
 - [资源检查](teaching-resource-validation.json)：OJ 独立样例、真实媒体时间轴、音频播放跳转与录制入口的规则隐藏。
 - [批量素材与 OJ 操作检查](teaching-batch-materials-validation.json)：9 题各 24 份不同演示素材、独立推理素材、代码与备注的长度边界；第 65 题 A 的 24 份文件检查和选择性提交。
 - [录制说明与变量编辑检查](teaching-recording-guidance-validation.json)：第 60 题 B 的六组原生界面操作、错误操作拒绝与逐组判分；任务卡区分首组预览与各组资料。

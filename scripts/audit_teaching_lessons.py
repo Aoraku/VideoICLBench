@@ -93,6 +93,16 @@ def inspect_lesson(task, base_seed):
                 risks.append('missing_threshold_neighbors')
     else:
         report['expected_series'] = series
+        if task_id == 69:
+            report['stopping_steps'] = {v:[len(path) for path in paths] for v,paths in series.items()}
+            if any(len(set(lengths)) < 2 for lengths in report['stopping_steps'].values()):
+                risks.append('fixed_2048_stopping_step')
+        if task_id == 72:
+            report['candidate_quadrants'] = [sorted({f'{r//4},{c//4}' for r,c in state['candidates']}) for state in states]
+            if any(len(quadrants) < 4 for quadrants in report['candidate_quadrants']):
+                risks.append('spatially_concentrated_mines_candidates')
+        if task_id in (74,75):
+            report['player_colors'] = [state['color'] for state in states]
         if task_id == 68:
             report['distinct_directions'] = {v: len(set(series[v])) for v in 'ABC'}
             if any(n < 2 for n in report['distinct_directions'].values()):

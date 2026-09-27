@@ -3706,7 +3706,7 @@
         "C": "选择距离左上角最近的格子"
       },
       "original_rules": "A：选择周围雷数最少的格子；B：选择周围未开格最多的格子；C：选择距离左上角最近的格子",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
