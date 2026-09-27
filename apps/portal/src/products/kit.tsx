@@ -203,6 +203,6 @@ export function DataRows({
   );
 }
 export const dateOf = (item: any) =>
-  `2026-01-${String(15 - (item.age_days || 0)).padStart(2, "0")}`;
+  item.created_at ? `${item.created_at.replace("T", " ").slice(0, 16)} UTC` : "";
 export const minutes = (seconds: number) =>
   `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;

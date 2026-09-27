@@ -32,6 +32,52 @@ def test_music_cookie_is_run_scoped_and_rotates(clients):
     assert worker.get('/api/runs/'+first['id'],headers={'Authorization':'Bearer '+token}).status_code==403
 
 
+@pytest.mark.parametrize('task_id,route,notice', [
+    (17, 'songs/target/', '✓ 名称已保存'),
+    (18, 'playlists/', '✓ 播放列表已创建'),
+])
+def test_music_save_feedback_survives_server_page_reload(clients, task_id, route, notice):
+    from html.parser import HTMLParser
+
+    class VisibleText(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.hidden = 0
+            self.parts = []
+
+        def handle_starttag(self, tag, attrs):
+            if tag in ('script', 'style'):
+                self.hidden += 1
+
+        def handle_endtag(self, tag):
+            if tag in ('script', 'style'):
+                self.hidden -= 1
+
+        def handle_data(self, text):
+            if not self.hidden:
+                self.parts.append(text)
+
+    control, worker = clients
+    run = create(control, task_id)
+    auth = {'Authorization': 'Bearer ' + run['workspace_url'].split('#')[1]}
+    path = f"/native/music/{run['id']}/"
+    worker.post(path + 'authorize', headers=auth).raise_for_status()
+    before = worker.get(path + route)
+    before.raise_for_status()
+    assert notice not in before.text
+    saved = 'Saved <Song> & Playlist'
+    worker.post(f"/api/runs/{run['id']}/commands", headers=auth,
+                json=dict(epoch=0, action_id='save-feedback', op='save', target='target', value=saved)).raise_for_status()
+    for _ in range(2):
+        response = worker.get(path + route)
+        response.raise_for_status()
+        parser = VisibleText()
+        parser.feed(response.text)
+        visible = ''.join(parser.parts)
+        assert notice in visible and saved in visible
+        assert '<Song>' not in response.text
+
+
 def test_native_release_requires_seal_and_preserves_data(clients):
     control, worker=clients
     run=create(control,58);rid=run['id'];private={'Authorization':'Bearer '+SECRET}

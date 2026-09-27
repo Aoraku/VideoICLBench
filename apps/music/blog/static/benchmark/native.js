@@ -90,15 +90,20 @@ document.querySelectorAll("[data-add]").forEach((button) => {
     }
   };
 });
-document.querySelectorAll("[data-play]").forEach(
-  (button) =>
-    (button.onclick = async () => {
-      if (await command("select", "", "", [button.dataset.play])) {
-        button.textContent = "✓ 已选择歌曲";
-        document.querySelector('audio')?.play().catch(() => {});
-      }
-    }),
-);
+document.querySelectorAll("[data-play]").forEach((button) => {
+  const isSelected = () => state.domain.settings.playing_song?.includes(button.dataset.play);
+  const renderSelection = () => {
+    button.textContent = isSelected() ? "✓ 已选择歌曲" : "▶ 选择这首歌";
+    button.setAttribute("aria-pressed", String(Boolean(isSelected())));
+  };
+  renderSelection();
+  button.onclick = async () => {
+    if (await command("select", "", "", [button.dataset.play])) {
+      renderSelection();
+      document.querySelector('audio')?.play().catch(() => {});
+    }
+  };
+});
 document.querySelectorAll("[data-move]").forEach(
   (button) =>
     (button.onclick = async () => {

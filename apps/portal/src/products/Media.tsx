@@ -14,7 +14,7 @@ export function Media({ api }: { api: ProductAPI }) {
     [selected, setSelected] = useState(""),
     [text, setText] = useState(s.outputs.target ?? s.source.text),
     [query, setQuery] = useState("");
-  const rows = s.items.map((x: any) => d.objects[x.id]),
+  const rows = s.items.map((x: any) => d.objects[x.id]).filter((x: any) => !x.hidden),
     active = d.objects[selected];
   const index = (id: string) => s.items.find((x: any) => x.id === id)?.asset_index ?? 0;
   async function play(id: string) {
@@ -109,6 +109,9 @@ export function Media({ api }: { api: ProductAPI }) {
             <button className="product-back" onClick={() => setPage("library")}>
               ← 返回视频资料库
             </button>
+            {s.task_id === 31 && d.settings.playing_video?.includes(active.id) && (
+              <p className="product-ok" role="status">✓ 已选择播放：{active.name}</p>
+            )}
             <video
               className="media-player"
               controls
@@ -257,6 +260,9 @@ export function Media({ api }: { api: ProductAPI }) {
                           {item.completed ? "✓ 已看完" : "未看完"} ·{" "}
                           {item.category} 类
                         </p>
+                        {s.task_id === 31 && d.settings.playing_video?.includes(item.id) && (
+                          <p className="product-ok">✓ 已选择播放</p>
+                        )}
                         {operations(item)}
                       </div>
                     </article>

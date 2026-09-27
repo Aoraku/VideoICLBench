@@ -1,0 +1,346 @@
+{
+  "scope": "Six local native UI lessons completed through all six episodes each. Selections and transformations use visible application content; this is not recorded-video or human inference acceptance.",
+  "native_ui": [
+    {
+      "task_id": 17,
+      "variant": "C",
+      "run_id": "7de6947d1b004961a2987e39262df690",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "episode_count": 6,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "d904a6066770ab1311f0da547c8adfa98931fa83f1b33e780d23f4a7a1c7e36d",
+          "evaluation_success": true,
+          "saved_output": "morning 3 walK"
+        },
+        {
+          "index": 1,
+          "sha256": "4f12e48c5401f00256b6608cad136cbe4dc062381e2a9fa0934c23e78692da3a",
+          "evaluation_success": true,
+          "saved_output": "summer 7 breezE"
+        },
+        {
+          "index": 2,
+          "sha256": "13288b0109a6320c77ae367190e4686187a374732cd58aa246577873e1522fe1",
+          "evaluation_success": true,
+          "saved_output": "city 2 lightS"
+        },
+        {
+          "index": 3,
+          "sha256": "62354757386d9f5be78ee927abf7a6b3c22d027830ecfcd74a223c11a83e0818",
+          "evaluation_success": true,
+          "saved_output": "river 12 sonG"
+        },
+        {
+          "index": 4,
+          "sha256": "6a2e5f990097b74501f749f38db71d275dc269ad266e291ffaa296d3dc845775",
+          "evaluation_success": true,
+          "saved_output": "quiet 5 hourS"
+        },
+        {
+          "index": 5,
+          "sha256": "0146d4fa52d1ef9de26d7b5fdd4d9289578ea150a5c6643fbd03715579147768",
+          "evaluation_success": true,
+          "saved_output": "open 14 windowS"
+        }
+      ]
+    },
+    {
+      "task_id": 18,
+      "variant": "B",
+      "run_id": "c64194b706a84128a91a787a29b19bae",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "episode_count": 6,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "e3f5e9d78ad127323df18352e19b1fbd40bde157120c3fb1247452c08197f9cb",
+          "evaluation_success": true,
+          "saved_output": "3_2026-01-01_陈绮贞"
+        },
+        {
+          "index": 1,
+          "sha256": "b47973e17481d4efcc065025929ce70041e3b0ab1d451b36ad5edbe455adbdd1",
+          "evaluation_success": true,
+          "saved_output": "4_2026-01-02_坂本龙一"
+        },
+        {
+          "index": 2,
+          "sha256": "0386da81c12c3d7b2f4cb574b826cba674bedecdd6df0341f2b936b1b070fa6e",
+          "evaluation_success": true,
+          "saved_output": "5_2026-01-03_林生祥"
+        },
+        {
+          "index": 3,
+          "sha256": "51e636209d0318d60adae0d838b470a9c50f5854722422a6156d51f2f89df831",
+          "evaluation_success": true,
+          "saved_output": "6_2026-01-04_陈绮贞"
+        },
+        {
+          "index": 4,
+          "sha256": "77b210f32a141ca1bdc8d7fb6347a64db621a46a528f9d1c9c805040e2d51de2",
+          "evaluation_success": true,
+          "saved_output": "7_2026-01-05_坂本龙一"
+        },
+        {
+          "index": 5,
+          "sha256": "581f1e34e4e49df8b4c336bee65c07a842ad1660df9059fd09e43a6ddffb096d",
+          "evaluation_success": true,
+          "saved_output": "8_2026-01-06_林生祥"
+        }
+      ]
+    },
+    {
+      "task_id": 29,
+      "variant": "B",
+      "run_id": "2a2f84c8cb2f4f5c9ccc3c15cc58d9cd",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "episode_count": 6,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "cff87991a550980b07e46aa1b3f692ea1a58b198ab99f8faf4931c8bf9565431",
+          "evaluation_success": true,
+          "selected_name": "9 月文化活动指南发布",
+          "created_at": "2026-01-01T19:19:00+00:00"
+        },
+        {
+          "index": 1,
+          "sha256": "917597319b50682abd6f2e70c21ff69d28ea8ef075f6615ce62a1784fa4d1269",
+          "evaluation_success": true,
+          "selected_name": "园艺志愿者举办交流会",
+          "created_at": "2026-01-02T06:38:00+00:00"
+        },
+        {
+          "index": 2,
+          "sha256": "a5c9c38c9c5a9d42ea2696d6f7505b158aabbe83918c211aae2e80ddde5c3d37",
+          "evaluation_success": true,
+          "selected_name": "街角书店发起旧书交换",
+          "created_at": "2026-01-02T21:11:00+00:00"
+        },
+        {
+          "index": 3,
+          "sha256": "ff46e3577ccfd9f7d9c6fbecd27257dc4fe9b44a8814f930e97588dddc0bc20b",
+          "evaluation_success": true,
+          "selected_name": "12 个街区开展环境调查",
+          "created_at": "2026-01-02T06:38:00+00:00"
+        },
+        {
+          "index": 4,
+          "sha256": "e4d8c4ab8c91f87e19dafff0bd6c711c8ed080d2654741baf2412d08ca646afc",
+          "evaluation_success": true,
+          "selected_name": "35 位居民参与口述历史",
+          "created_at": "2026-01-02T17:57:00+00:00"
+        },
+        {
+          "index": 5,
+          "sha256": "a86a55cf9ecb3e5431b2bf09626be1c13200a3850bfc7fd0936d5c0aa38c5b57",
+          "evaluation_success": true,
+          "selected_name": "地铁 7 号线增加班次",
+          "created_at": "2026-01-02T03:24:00+00:00"
+        }
+      ]
+    },
+    {
+      "task_id": 40,
+      "variant": "A",
+      "run_id": "c2edd0dbc2d34c3282424978bf3644e0",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "episode_count": 6,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "efbb07a7cf95163f9ff07407adf5714f6a35dabebf4e6cbc3b1cbcfd51a8ec38",
+          "evaluation_success": true,
+          "selected_name": "我的旅行手账",
+          "created_at": "2026-01-03T21:26:00+00:00"
+        },
+        {
+          "index": 1,
+          "sha256": "24431400c70ee90b35a3cebe647a572ede52bc2aa0e726fdbf4fe6a6974c3625",
+          "evaluation_success": true,
+          "selected_name": "从阳台开始种菜",
+          "created_at": "2026-01-04T11:59:00+00:00"
+        },
+        {
+          "index": 2,
+          "sha256": "a357b3abb884134766431347f00c029e2e4c4922d814cb4f967022f4f13c3cc2",
+          "evaluation_success": true,
+          "selected_name": "我的旅行手账",
+          "created_at": "2026-01-07T17:35:00+00:00"
+        },
+        {
+          "index": 3,
+          "sha256": "68db56f59bd4ab462c9fc096f34f97cc9f06704a2b1ae56e585762265922a3fe",
+          "evaluation_success": true,
+          "selected_name": "公交车窗外",
+          "created_at": "2026-01-05T18:42:00+00:00"
+        },
+        {
+          "index": 4,
+          "sha256": "a4d802d0819418fa100afece97c67f30d28116c3ad662d221c406e4dc26e9dd6",
+          "evaluation_success": true,
+          "selected_name": "雨天的观察",
+          "created_at": "2026-01-06T07:38:00+00:00"
+        },
+        {
+          "index": 5,
+          "sha256": "b2cc8744639e846e77c6f064a4a12a8b7706d3a73e237fbad9da2f3c0f45c07e",
+          "evaluation_success": true,
+          "selected_name": "厨房里的小实验",
+          "created_at": "2026-01-06T06:01:00+00:00"
+        }
+      ]
+    },
+    {
+      "task_id": 27,
+      "variant": "A",
+      "run_id": "f2e341a0211e45f7a8098bae2e3f96f2",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "episode_count": 6,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "8f465c652c1c392f1c1650c4159bf7b09041174f7f8933c780824744d5754b64",
+          "evaluation_success": true,
+          "selected_name": "Lost Postcard",
+          "created_at": "2026-01-04T08:45:00+00:00"
+        },
+        {
+          "index": 1,
+          "sha256": "47edae04274be1e211af99405965dae835e5cca958d78d31e8dba1f82e0a1977",
+          "evaluation_success": true,
+          "selected_name": "Silver Lining",
+          "created_at": "2026-01-02T06:38:00+00:00"
+        },
+        {
+          "index": 2,
+          "sha256": "e775d0bb6361d6b94772139f41db1dda7f5eab1165b5e2c5a6b7233f6046e34b",
+          "evaluation_success": true,
+          "selected_name": "Summer Breeze",
+          "created_at": "2026-01-04T03:54:00+00:00"
+        },
+        {
+          "index": 3,
+          "sha256": "b460a5a471be568d1a7c0644cf4c022dafe606323d09bf71575bdcae772d5307",
+          "evaluation_success": true,
+          "selected_name": "Night Train 22",
+          "created_at": "2026-01-08T00:03:00+00:00"
+        },
+        {
+          "index": 4,
+          "sha256": "76841d62280a6c08c8b1fc12009b50c8970b4c8144d663e312ecc58f4b262da0",
+          "evaluation_success": true,
+          "selected_name": "Ocean Drive",
+          "created_at": "2026-01-03T06:53:00+00:00"
+        },
+        {
+          "index": 5,
+          "sha256": "bbe8fe1aba7009cc59840309bcb76adf055c9a9bc31c45e1046ee83f8a2fa4f7",
+          "evaluation_success": true,
+          "selected_name": "Lost Postcard",
+          "created_at": "2026-01-06T22:11:00+00:00"
+        }
+      ]
+    },
+    {
+      "task_id": 31,
+      "variant": "C",
+      "run_id": "23af07d9df234a1581d6b7eefbca52d5",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "episode_count": 6,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "eb38f324436024888c12b793952048b7caf9ddd194d4003505d426480e825075",
+          "evaluation_success": true,
+          "selected_name": "林间回声",
+          "created_at": "2026-01-02T11:29:00+00:00"
+        },
+        {
+          "index": 1,
+          "sha256": "fea7bc095fbcfddea769b63d29a3e50b366948cd0f8bdd0ed6fb12af88884b05",
+          "evaluation_success": true,
+          "selected_name": "穿过草地",
+          "created_at": "2026-01-01T09:37:00+00:00"
+        },
+        {
+          "index": 2,
+          "sha256": "664629e7386ad713791f65dd90161f20490a8da89379a949a150e5654f176129",
+          "evaluation_success": true,
+          "selected_name": "黄昏归途",
+          "created_at": "2026-01-02T09:52:00+00:00"
+        },
+        {
+          "index": 3,
+          "sha256": "55da380571589df20c9690a70259d028f2d99059116a95c03b3aab0688a93063",
+          "evaluation_success": true,
+          "selected_name": "大兔子与朋友",
+          "created_at": "2026-01-02T06:38:00+00:00"
+        },
+        {
+          "index": 4,
+          "sha256": "e15e3b72135103d2800f34e37b61c9a7dfb666a4ddb0575947ef340215c71b7b",
+          "evaluation_success": true,
+          "selected_name": "树影之间",
+          "created_at": "2026-01-02T11:29:00+00:00"
+        },
+        {
+          "index": 5,
+          "sha256": "287cf4541088353e0a276831668b3046327d01fb3d980dd956bb6bd09c093b29",
+          "evaluation_success": true,
+          "selected_name": "黄昏归途",
+          "created_at": "2026-01-01T09:37:00+00:00"
+        }
+      ]
+    }
+  ],
+  "ui_checks": {
+    "17C": "Saved name and confirmation remain after server page reload in all six episodes.",
+    "18B": "Artist, count and date read from visible playlist source; saved heading and creation confirmation in all six episodes.",
+    "27A": "Highest displayed rating selected; chosen song indicator survives reload in all six episodes.",
+    "29B": "Earliest displayed timestamp selected; list/detail dates match, saved choice visible, lesson controls survive page navigation and mutation in all six episodes.",
+    "31C": "Earliest displayed timestamp selected; result visible in player and library in all six episodes.",
+    "40A": "Latest displayed timestamp selected; list/editor dates match, publication visible in published list, duplicate publish button disabled in all six episodes."
+  },
+  "remaining_gate": "75-case video continuity, actual captured-frame privacy, and human rule-inference acceptance remain pending.",
+  "adjacent_task_check": {
+    "task_id": 36,
+    "variant": "A",
+    "seed": 1000,
+    "run_id": "af402c45675c4094bedacc722a11c49a",
+    "editor_without_date_field": true,
+    "saved_title": "Ocean 11 Drive",
+    "persistent_after_reload": true,
+    "evaluation_success": true
+  },
+  "regression": {
+    "tests_passed": 930,
+    "failed": 0,
+    "exit_code": 0,
+    "test_log_sha256": "0202af49046da1524c2d3951f468e71b759b369bab5297cc5b2ff2dcbe1b6a42",
+    "portal_build": "TypeScript and Vite passed",
+    "native_javascript_syntax": "Node checks passed"
+  },
+  "artifact_hashes": {
+    "apps/portal/dist/index.html": "99fe5adebbb089c505377d15ec696ee15aabf9589e97f15144df53e88d4b3ca8",
+    "apps/news/src/main/resources/web/native.js": "3291689c5559db126edd77a60eb3a10bf38efd7dae656964fe70807f1474c22b",
+    "apps/news/src/main/resources/web/index.html": "840f4bec15a0281590b89210691b8fde6104615f3acf854ae21d9ba0ebebdfd3",
+    "apps/music/blog/static/benchmark/native.js": "8cb513dc186546a0ebbf655a188db42c1798d3379da6a88503922bf21c2659ad",
+    "apps/music/blog/templates/blog/benchmark_song_controls.html": "a8aeda371a5a8b4666229af5e64ee9861c1daedc51a87589ad2d3792ba940248",
+    "apps/music/blog/templates/blog/benchmark_library.html": "648dea37a8ba8cc7d47305e95f1dd93126894fb4e9a9ea5a9f29a7982348f59c"
+  }
+}

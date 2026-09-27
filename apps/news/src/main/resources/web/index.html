@@ -18,6 +18,7 @@
   </style>
 </head>
 <body>
+  <div id="news-app">
   <header><h1>VIC-News</h1></header>
   <main>
     <form id="searchForm">
@@ -31,6 +32,7 @@
     </form>
     <section id="results"></section>
   </main>
+  </div>
   <script>
     if (!location.pathname.startsWith('/native/news/')) {
     const form = document.querySelector('#searchForm');

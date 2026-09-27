@@ -30,6 +30,7 @@
 - [数据审计](teaching-fixtures-v2.json)：每题六组种子的数据、版本区分度、阈值覆盖与候选捷径。
 - [完整示例组审计](teaching-lessons-v5.json)：75 题各三组教学计划，检查整组版本区分、编辑材料变化、选择位置、阈值和 2048 推理方向分布。
 - [界面操作证据](teaching-browser-evidence.json)：本机原生界面完成第 22 题 A、第 53 题 C、第 55 题 B、第 57 题 C，并调用独立判分接口。
+- [内容应用时间与保存反馈](teaching-content-ui-validation.json)：第 17、18、27、29、31、40 题各六组原生界面操作及汇总判分，新闻列表与详情时间、草稿更新时间、音乐保存提示和跨页练习控件；第 36 题标题保存检查。
 - [游戏界面与逐组判分](teaching-game-ui-validation.json)：第 69、71、72、74 题各六组界面操作、落点与停止反馈、数独候选数、黑白棋执子颜色和棋子数量；1280×720 下的棋盘可见性。
 - [资源检查](teaching-resource-validation.json)：OJ 独立样例、真实媒体时间轴、音频播放跳转与录制入口的规则隐藏。
 - [批量素材与 OJ 操作检查](teaching-batch-materials-validation.json)：9 题各 24 份不同演示素材、独立推理素材、代码与备注的长度边界；第 65 题 A 的 24 份文件检查和选择性提交。

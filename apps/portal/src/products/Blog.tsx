@@ -35,7 +35,7 @@ export function Blog({ api }: { api: ProductAPI }) {
           </div>
           <div>
             <small>
-              {dateOf(item)} · {item.words} 字
+              {s.task_id === 40 ? "更新于" : "创建于"} {dateOf(item)} · {item.words} 字
             </small>
             <button className="product-text-link" onClick={() => edit(item.id)}>
               <h2>{item.name}</h2>
@@ -114,7 +114,7 @@ export function Blog({ api }: { api: ProductAPI }) {
               action={
                 <button
                   className="product-primary"
-                  disabled={api.busy || s.task_id === 38}
+                  disabled={api.busy || s.task_id === 38 || current.published}
                   onClick={async () => {
                     if (s.task_id === 36)
                       await api.mutate("save", "target", text);
@@ -124,13 +124,13 @@ export function Blog({ api }: { api: ProductAPI }) {
                       await api.mutate("action", selected, "发布");
                   }}
                 >
-                  {s.task_id === 36 ? "保存草稿" : "发布文章"}
+                  {s.task_id === 36 ? "保存草稿" : current.published ? "已发布" : "发布文章"}
                 </button>
               }
             />
             <section className="blog-editor">
               <span className="product-eyebrow">
-                {dateOf(current)} · PERSONAL NOTES
+                {current.created_at && <>{s.task_id === 40 ? "更新于" : "创建于"} {dateOf(current)} · </>}PERSONAL NOTES
               </span>
               {s.task_id === 36 ? (
                 <>
@@ -153,7 +153,7 @@ export function Blog({ api }: { api: ProductAPI }) {
                   <div className="blog-editor-body">{current.text}</div>
                   <Tags item={current} api={api} />
                   <p className="product-muted">
-                    {current.words} 字 · {current.tag_count} 个标签 · 创建时间 {current.created_at.replace("T", " ").slice(0, 16)} UTC
+                    {current.words} 字 · {current.tag_count} 个标签
                   </p>
                   {s.task_id === 38 && <Classify item={current} api={api} />}
                 </>
