@@ -130,8 +130,9 @@
     "evaluation_sha256": "6d8f2f821b2b760c87082151f9738ecc8f5cba6d6a837d5db08b3da307960a74",
     "recorded_video": false
   },
-  "deployed": false,
+  "deployed": true,
   "remaining": [
     "Recorded frames, full native paths, and human rule-inference acceptance across all 75 cases"
-  ]
+  ],
+  "deployment_evidence": "teaching-release.json"
 }

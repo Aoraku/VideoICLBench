@@ -1,0 +1,77 @@
+{
+  "verified_at": "2026-09-27T22:45:59.311099+00:00",
+  "source_commit": "60e455e8edcf68d38fc86f0c58681d01d85e412d",
+  "image": "sha256:a705d32fa28b890deeb14ae212663e6c702e8a9ca41300394c60084b5b4a0678",
+  "image_tag": "videoicl-native:teaching-v4",
+  "deployed": true,
+  "services": "healthy",
+  "base_image": "videoicl-native:teaching-v3",
+  "base_validation": "teaching-v3-release.json",
+  "changed_runtime_files": [
+    "apps/portal/dist",
+    "apps/code/app/benchmark_bridge.py"
+  ],
+  "validation": {
+    "related_regression_passed": 192,
+    "failed": 0,
+    "portal_build": "passed",
+    "task60B_native_ui_episodes_passed": 6,
+    "recorded_video": false
+  },
+  "image_checks": {
+    "code_bridge_sha256": "4851935f8de644ceb40c1127bac43c32fe8979846988e1d5acbf162dd00ead6f",
+    "portal_sha256": "7a3d351ac98c0c8386aaae3071e096060fe2e77313a3f9dd962fbff0945b2f53",
+    "source_and_running_file_match": true
+  },
+  "live_checks": {
+    "source_commit": "60e455e8edcf68d38fc86f0c58681d01d85e412d",
+    "services": {
+      "http://127.0.0.1:18765": {
+        "status": "ok",
+        "service": "videoicl-control"
+      },
+      "http://127.0.0.1:18766": {
+        "status": "ok",
+        "modules": [
+          "bank",
+          "blog",
+          "chat",
+          "code",
+          "games",
+          "gomoku",
+          "im",
+          "media",
+          "music",
+          "news",
+          "shop",
+          "studio",
+          "travel"
+        ]
+      }
+    },
+    "files": {
+      "apps/portal/dist/index.html": "7a3d351ac98c0c8386aaae3071e096060fe2e77313a3f9dd962fbff0945b2f53",
+      "/assets/index-B4npC5RL.js": "9c4c2b05b47057af3f32dc28d4f8e960a46b04ec115e75b772eab26110d0063d",
+      "/assets/index-Dq9kbdF5.css": "5f6d6137bb71141228c6e101e5a316a0d052f3d7c640fef59572416f4d307130"
+    },
+    "task60": {
+      "run_id": "29386312edb24f1f99c09e351aca2233",
+      "variant": "C",
+      "wrong_operation_rejected": true,
+      "correct_operation_advanced": true,
+      "current_episode": 1,
+      "old_token_rejected": true,
+      "next_targets": [
+        "length",
+        "area"
+      ]
+    },
+    "verified_at": "2026-09-27T22:45:59.311099+00:00"
+  },
+  "rollback_tags": [
+    "videoicl-control:before-teaching-v4",
+    "videoicl-applications:before-teaching-v4"
+  ],
+  "database_backup_present": true,
+  "remaining_gate": "Complete 75-case native UI/video checks and human rule-inference acceptance; actual capture frames including episode transitions must not contain private rules."
+}
