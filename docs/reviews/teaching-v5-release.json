@@ -1,0 +1,164 @@
+{
+  "verified_at": "2026-09-27T23:00:23.476703+00:00",
+  "source_commit": "d5fda1b4e004a24488fa5745353ffc5638099833",
+  "image": "sha256:3e856e48bc1e2bfda59cfc9b21989793df7d2c27fc287aaa7283da9bd6e2a061",
+  "image_tag": "videoicl-native:teaching-v5",
+  "deployed": true,
+  "services": "healthy",
+  "base_image": "videoicl-native:teaching-v4",
+  "base_validation": "teaching-v4-release.json",
+  "validation": {
+    "full_suite_passed": 893,
+    "failed": 0,
+    "task65A_files_checked_via_ui": 24,
+    "task65A_submitted_via_ui": 17,
+    "task65A_evaluation_success": true,
+    "recorded_video": false
+  },
+  "image_checks": {
+    "cases_generated": 75,
+    "distinct_batches": 9,
+    "source_package_match": true,
+    "files": {
+      "teaching.py": "0af165c09933a5a2e44ffb5f2b354a94c30bb73cb7cfa831cb034df482b3942b",
+      "teaching_materials.py": "678fe29ed5750be93bb1932aff0973a2f05f7f100d07205e7ef71fd88e9f3b0f",
+      "benchmark_bridge.py": "ab052e985abe405e026ece915b2b2c73b1736f717cb921aa939a40df8cf9a7ed"
+    }
+  },
+  "live_checks": {
+    "source_commit": "d5fda1b4e004a24488fa5745353ffc5638099833",
+    "services": {
+      "http://127.0.0.1:18765": {
+        "status": "ok",
+        "service": "videoicl-control"
+      },
+      "http://127.0.0.1:18766": {
+        "status": "ok",
+        "modules": [
+          "bank",
+          "blog",
+          "chat",
+          "code",
+          "games",
+          "gomoku",
+          "im",
+          "media",
+          "music",
+          "news",
+          "shop",
+          "studio",
+          "travel"
+        ]
+      }
+    },
+    "materials": [
+      {
+        "task_id": 5,
+        "field": "text",
+        "demo_run_id": "1673d016a1ba45e7b58a863546503bc1",
+        "query_run_id": "631c549d067c46708f9897f79a61a464",
+        "demo_distinct": 24,
+        "query_distinct": 6,
+        "disjoint": true,
+        "task_version": "3.1.0"
+      },
+      {
+        "task_id": 13,
+        "field": "text",
+        "demo_run_id": "52a3495e60054bab8e9c84d642cb4425",
+        "query_run_id": "49c36245ae08472facf3e05b3e95e0cb",
+        "demo_distinct": 24,
+        "query_distinct": 6,
+        "disjoint": true,
+        "task_version": "3.1.0"
+      },
+      {
+        "task_id": 16,
+        "field": "text",
+        "demo_run_id": "cf0928dc30e149b189147a5b1ca1646c",
+        "query_run_id": "ce14b941a30549f18713a0c515373ed7",
+        "demo_distinct": 24,
+        "query_distinct": 6,
+        "disjoint": true,
+        "task_version": "3.1.0"
+      },
+      {
+        "task_id": 39,
+        "field": "text",
+        "demo_run_id": "bb7c4d1e35d441788fc8fba14b9370aa",
+        "query_run_id": "40d7ec90ec2a4a4b9dc7fdbc505e85da",
+        "demo_distinct": 24,
+        "query_distinct": 6,
+        "disjoint": true,
+        "task_version": "3.1.0"
+      },
+      {
+        "task_id": 42,
+        "field": "name",
+        "demo_run_id": "56a25907e1974c1aa402d6a29e94d8a8",
+        "query_run_id": "065b61fbfc6c430594a23c0e7e957958",
+        "demo_distinct": 24,
+        "query_distinct": 6,
+        "disjoint": true,
+        "task_version": "3.1.0"
+      },
+      {
+        "task_id": 43,
+        "field": "code",
+        "demo_run_id": "7e0817fef10d4b55ad250138cac5c4d7",
+        "query_run_id": "88581e04273748a7b453e964f91f34ab",
+        "demo_distinct": 24,
+        "query_distinct": 6,
+        "disjoint": true,
+        "task_version": "3.1.0"
+      },
+      {
+        "task_id": 49,
+        "field": "text",
+        "demo_run_id": "249bacf89ff94c8386a2c9f4c3c118a0",
+        "query_run_id": "36e3c27caa8b41f5b57caaeaab809d4f",
+        "demo_distinct": 24,
+        "query_distinct": 6,
+        "disjoint": true,
+        "task_version": "3.1.0"
+      },
+      {
+        "task_id": 56,
+        "field": "name",
+        "demo_run_id": "76f602042352455d90ed56eb56ab5060",
+        "query_run_id": "0413ce5f8ed745ea9d355d82b01af7d4",
+        "demo_distinct": 24,
+        "query_distinct": 6,
+        "disjoint": true,
+        "task_version": "3.1.0"
+      },
+      {
+        "task_id": 65,
+        "field": "code",
+        "demo_run_id": "8b69608edf9347cc80c1bacf18064e78",
+        "query_run_id": "c6f186f278a841b3b566b359ac7ec088",
+        "demo_distinct": 24,
+        "query_distinct": 6,
+        "disjoint": true,
+        "task_version": "3.1.0"
+      }
+    ],
+    "task65C": {
+      "run_id": "8b69608edf9347cc80c1bacf18064e78",
+      "submitted": 13,
+      "boundary_lengths": [
+        24,
+        25,
+        26
+      ],
+      "evaluation_success": true
+    },
+    "verified_at": "2026-09-27T23:00:23.476703+00:00"
+  },
+  "rollback_tags": [
+    "videoicl-control:before-teaching-v5",
+    "videoicl-applications:before-teaching-v5"
+  ],
+  "database_backup_present": true,
+  "remaining_gate": "Complete 75-case native UI/video checks and human rule-inference acceptance; actual capture frames including episode transitions must not contain private rules."
+}
