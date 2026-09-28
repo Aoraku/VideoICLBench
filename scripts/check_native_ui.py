@@ -189,7 +189,15 @@ async def main():
              await expect(page.get_by_role('menu')).to_have_count(0)
              if value in ('已读','星标'):
               await bubble.locator('..').get_by_text('✓ 已确认阅读' if value=='已读' else '★ 已星标',exact=True).wait_for()
-             if value=='回复':await text(page.locator('textarea:not([aria-hidden="true"])'),s['source']['fixed_reply']);await click(page.get_by_role('button',name=re.compile(r'发\s*送')))
+             if value=='回复':
+              await text(page.locator('textarea:not([aria-hidden="true"])'),s['source']['fixed_reply'])
+              await click(page.get_by_role('button',name=re.compile(r'发\s*送')))
+              # The composer clears before the asynchronous send completes.
+              # Wait for the persisted reply's quote before opening another
+              # reply draft or reading the state for evaluation.
+              quote=re.compile('：'+re.escape(initial['domain']['objects'][target]['text'])+'$')
+              await page.get_by_role('button',name=quote).wait_for()
+              await expect(page.get_by_title('取消回复',exact=True)).to_have_count(0)
           elif module=='code':
            if t in (59,60,65):
             await click(page.get_by_text('我的代码与笔记',exact=True))
@@ -253,7 +261,7 @@ async def main():
           print(f'{task}{variant} PASS',flush=True)
          except Exception as exc:
           results.append(dict(task=task,variant=variant,status='failed',error=str(exc)))
-          print(f'{task}{variant} FAIL {str(exc)[:400]}',flush=True)
+          print(f'{task}{variant} FAIL {exc}',flush=True)
           await page.screenshot(path=str(directory/f'{task}-{variant}-failed.png'))
          finally:
           with (directory/'history.jsonl').open('a') as history:history.write(json.dumps(results[-1],ensure_ascii=False)+'\n')

@@ -1,0 +1,27 @@
+{
+  "scope": "Task 16 C with CI seed 10001, native IM UI replies and refresh persistence. CI failure root cause is not proven by this passing replay.",
+  "verified_at": "2026-09-28T06:21:23.454877+00:00",
+  "task_id": 16,
+  "variant": "C",
+  "seed": 10001,
+  "run_id": "a4d1d5c2eac54c4883e312b4849532d9",
+  "all_actions_via_browser": true,
+  "reply_count": 2,
+  "visible_quotes": [
+    "林若宁：收到，露营清单已整理。",
+    "林若宁：收到，志愿者名单已经核对。"
+  ],
+  "persisted_after_reload": true,
+  "evaluation_success": true,
+  "evidence_sha256": "9977342173efd994d3173c66046c19feaa97610fd287a2b0de15afbca09acf57",
+  "failed_ci": {
+    "url": "https://github.com/Aoraku/VideoICLBench/actions/runs/36383315541",
+    "step": "Pixel and recording smoke test",
+    "case": "16C",
+    "failed_checks": [
+      "actions",
+      "business:messages"
+    ]
+  },
+  "harness_gate": "Each reply must expose its persisted quote and close the reply composer before the next action or evaluation."
+}
