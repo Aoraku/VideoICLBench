@@ -1,11 +1,9 @@
 {
   "scope": "Index of task-specific browser observations recorded in review artifacts. Presence does not imply complete A/B/C coverage, current-version replay, recorded-video verification, or human inference acceptance. Null episode counts mean the source has no explicit episode count.",
   "task_count": 75,
-  "tasks_with_indexed_browser_evidence": 72,
+  "tasks_with_indexed_browser_evidence": 74,
   "tasks_without_indexed_browser_evidence": [
-    67,
-    73,
-    75
+    67
   ],
   "cases": [
     {
@@ -1299,6 +1297,20 @@
           "variant": "A",
           "run_id": "37344b74894b48268837f7b9a4a15a2a",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-games-additional-ui-validation.json",
+          "json_pointer": "/native_ui/5",
+          "variant": "B",
+          "run_id": "c0211f6a14aa4b56a3eecc53ba8d548d",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-games-additional-ui-validation.json",
+          "json_pointer": "/native_ui/6",
+          "variant": "C",
+          "run_id": "492b46f5b1ae4152867da135e476f60e",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -1328,7 +1340,29 @@
     },
     {
       "task_id": 73,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-games-additional-ui-validation.json",
+          "json_pointer": "/native_ui/7",
+          "variant": "A",
+          "run_id": "2308828aa6ca4152b995f0a4693d9601",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-games-additional-ui-validation.json",
+          "json_pointer": "/native_ui/8",
+          "variant": "B",
+          "run_id": "2e3cb8384c634f8ebc698981c84e5fa5",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-games-additional-ui-validation.json",
+          "json_pointer": "/native_ui/9",
+          "variant": "C",
+          "run_id": "a9902e3ed3f2449eaa45a2de528071d1",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 74,
@@ -1344,7 +1378,29 @@
     },
     {
       "task_id": 75,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-games-additional-ui-validation.json",
+          "json_pointer": "/native_ui/10",
+          "variant": "A",
+          "run_id": "17f0f053d6ec4270a1a0229520916f92",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-games-additional-ui-validation.json",
+          "json_pointer": "/native_ui/11",
+          "variant": "B",
+          "run_id": "c7c0426525f94ab7b21f7b1bb73aee45",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-games-additional-ui-validation.json",
+          "json_pointer": "/native_ui/12",
+          "variant": "C",
+          "run_id": "c55b0ecf512644168f94d329047c1dcc",
+          "reported_episode_count": 6
+        }
+      ]
     }
   ]
 }

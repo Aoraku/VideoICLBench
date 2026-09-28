@@ -440,6 +440,854 @@
       "evaluation_success": true,
       "evaluation_sha256": "4cea26a0906dcddbd7d4dbaa9b23730e23490590b5019c9407dc4667dd7add82",
       "environment": "local native web product"
+    },
+    {
+      "task_id": 70,
+      "variant": "B",
+      "run_id": "c0211f6a14aa4b56a3eecc53ba8d548d",
+      "epoch": 0,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": null,
+          "marks": [
+            [
+              2,
+              3
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "5c715e15ac39a5c8b4c2489d342460a27ec9e418320f8f1b8b982dcb98ae0de7"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": null,
+          "marks": [
+            [
+              1,
+              3
+            ],
+            [
+              5,
+              1
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "4febd2cfd932b3c2aa05110bafeb0d0f328a13d7d27fb50554c43e5f7f627cf3"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": null,
+          "marks": [
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "57b8986c15a563db6357537eb261b506c7b34e7b8e87ddf86ce53c7b6fd4a14f"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": null,
+          "marks": [
+            [
+              3,
+              1
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "d1079a27564692cecdba0c9d12e43f228c213a4e941f76c9af6b73759a6c1cea"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": null,
+          "marks": [
+            [
+              5,
+              8
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "fe94de48568b01d380bc23f7204fe4a7e96f615eb05f6b6c65a14788fd63c82a"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": null,
+          "marks": [
+            [
+              3,
+              7
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "80c8be08cc11bdd535e67e53532111e591031eb4219a17dc2bac216ca7d5bdf0"
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "ec1b627b18c185e6aa4fb4fdb923d8f5286c90e23ad0264ea7e39e295bf0679f",
+      "environment": "local native web product"
+    },
+    {
+      "task_id": 70,
+      "variant": "C",
+      "run_id": "492b46f5b1ae4152867da135e476f60e",
+      "epoch": 0,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": null,
+          "marks": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "18372d408d36ab165ff9ea39ce7aa2d4e5c144844a4e95d72834be36431b40fa"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": null,
+          "marks": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "f26b26ac7478780a6892deb3f6b2bc1d78df9a22a8db2293ea14ff2dc26bf7c2"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": null,
+          "marks": [
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "ad28bb48bc9905ec33cd59de24ea676905bcac2fcfb50f5d319b2605b88b3652"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": null,
+          "marks": [
+            [
+              3,
+              1
+            ],
+            [
+              8,
+              2
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "485528f98bea9687adfb73e4aeb21d71f56f2f50dd2ea92f3cdbf2c296757064"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": null,
+          "marks": [
+            [
+              1,
+              2
+            ],
+            [
+              5,
+              8
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "8babf046e94a9e7af3b11de8c1d1e5510c29c253cbb6704e87726bff15030329"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": null,
+          "marks": [
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "c2290a73dbcd3f058d401ae7008bfd023f6acda630a9c9e8b745fc066bdefd33"
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "a9135e84f2ae9d03b70b3eef0e867a69784b256f23f6080bcb4a9e1298a22972",
+      "environment": "local native web product"
+    },
+    {
+      "task_id": 73,
+      "variant": "A",
+      "run_id": "2308828aa6ca4152b995f0a4693d9601",
+      "epoch": 0,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": null,
+          "marks": [
+            [
+              1,
+              3
+            ],
+            [
+              5,
+              2
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "2379d43d9c9fa8335c1cbe39a849c88e764471c81e126a7eb01e25c60c217dde"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": null,
+          "marks": [
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "cd9297e01ad6d476e8ef771928a3bddd0322d79746b1f805682e6e762177318c"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": null,
+          "marks": [
+            [
+              1,
+              1
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "0d08e8f694a90cb3ea0c8245a97a344489d9dce22897ee5c476811df20366e28"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": null,
+          "marks": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "0b7f3e6068eda85661d9ceac2cd08891e7d119fe249abab515af66c83e20e602"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": null,
+          "marks": [
+            [
+              3,
+              3
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "f80e4e90d8670b1ceeb74d09813a719a7d66c43aef3d829eb545f9e6472edbdf"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": null,
+          "marks": [
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "36957329351922632dc5a85fbb62ec8fe61ea86461d1a0aaae655ca84d9f7899"
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "95d4215b27e6337de91b355437536435cf8c9d56e269ec46fcbb398c858128a7",
+      "environment": "local native web product"
+    },
+    {
+      "task_id": 73,
+      "variant": "B",
+      "run_id": "2e3cb8384c634f8ebc698981c84e5fa5",
+      "epoch": 0,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": null,
+          "marks": [
+            [
+              6,
+              4
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "eb4243011a3036d1fbd6f6b3ce5924e3ed8d0d07d1150b0db77d36be94cd0af1"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": null,
+          "marks": [
+            [
+              2,
+              3
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "6936b42c5499fd1602c6dd17236c2e8508ac90977697975973969510d9377227"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": null,
+          "marks": [
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "fe4040884d952283d085216920ff6cc0182f34789ff597e07428dd93fbab1ca2"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": null,
+          "marks": [
+            [
+              4,
+              5
+            ],
+            [
+              5,
+              3
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "649850e7db3148f94232e8e07d34f7a0279e77ab5a791fcb04830309ab32e1ef"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": null,
+          "marks": [
+            [
+              4,
+              6
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "a973638e668ceb28d918179ae654c23ed6d6eea315f6cea74e8a5bbb3ccf89f4"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": null,
+          "marks": [
+            [
+              2,
+              1
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "abe28fbab3d42ba32a296a081160d733d36371863ed3710636a879d369946a01"
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "5488ac35c3e778f493f590e3c739eba969650cbe908dc83b9f2add6e80de8b2b",
+      "environment": "local native web product"
+    },
+    {
+      "task_id": 73,
+      "variant": "C",
+      "run_id": "a9902e3ed3f2449eaa45a2de528071d1",
+      "epoch": 0,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": null,
+          "marks": [
+            [
+              0,
+              7
+            ],
+            [
+              3,
+              7
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "6a4836d7f81b33a6d9d55b8bcd2895c4a579942ef1dbd57fb2476018884ab105"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": null,
+          "marks": [
+            [
+              4,
+              0
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "f2180673f39c072d86f09fcc4853abd5667b6587db7933408456dfd0d2690838"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": null,
+          "marks": [
+            [
+              6,
+              7
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "d75d43477eddd22d52e13f4c3719dc7bde4d8b561b9bfe353f653fffd81cf4bd"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": null,
+          "marks": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "c99b199c6b3148c646211922be7a479244ffd5eb0cd49a622b42ab892dc8a71e"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": null,
+          "marks": [
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "ad3539eff6d9f120fd004a2aae0ca89d4a52e8e6fb9675b343043a1e43b71235"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": null,
+          "marks": [
+            [
+              0,
+              6
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "eb2080e43bc107b0f79ef01da493d845f68813695af25f8d98689c6b52106f15"
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "b32c4502565377e9fbf3eca99ae21387ed7d83691c0aa5a87a0ee3e359d1a63a",
+      "environment": "local native web product"
+    },
+    {
+      "task_id": 75,
+      "variant": "A",
+      "run_id": "17f0f053d6ec4270a1a0229520916f92",
+      "epoch": 0,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": [
+            2,
+            6
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "39398925eb57745f64fff3a4a1b427f9c033ca0dd465451e42bd8aed57b1c9af"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": [
+            1,
+            1
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "cd0bc8453d69628f3d9481b58d325670bc49762b59a562993d53add440825e25"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": [
+            1,
+            3
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "04242b93d132682240ccf2d1f20bf345517dcd7b01d58e69e6c9d7999268e6a8"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": [
+            0,
+            3
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "8717fc040b53fa156a0629fa8517923538bdc17f528c06c859e96b676289ff80"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": [
+            1,
+            6
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "1d2a85009f4871dd206af05a7bd32f87818d3cbec266953f7016655c4e618e6c"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": [
+            2,
+            1
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "042652b4078cc4d0bf1abdcd6f2e914740d1e04c622fc507b74b9a3f723e68bc"
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "dfdf08cb335da03a00eeeaf4ab321dcd0519147a86d6fda0103f48bedf34429a",
+      "environment": "local native web product"
+    },
+    {
+      "task_id": 75,
+      "variant": "B",
+      "run_id": "c7c0426525f94ab7b21f7b1bb73aee45",
+      "epoch": 0,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": [
+            7,
+            3
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "96a90b30a87dbd44c62d60fa2d387605bcd3d043a161cafbdc14cc44a43496ba"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": [
+            2,
+            0
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "a7fa02d23e84504816cdfd8bd6543cad5b4dafe47b2764eb5d78f5154b9199b2"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": [
+            7,
+            3
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "f96fdd84d8daa82228df9d6afc43374f19d7e9270ff8e93e84c7d4920fa67ac4"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": [
+            4,
+            6
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "3bc67c44a4cf7beb3943593671e38ec706fa1480106450dd1c183c7fc78fb4f4"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": [
+            2,
+            5
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "cd4b12d8fdee8f27a060475518f3a36a8955deffcddaf8b921daa0d4529b4274"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": [
+            1,
+            7
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "47aadaecb369313570c0a9cf93e7680af5a305484eeb2cc1efc46e5179fa7f42"
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "b779d43ee0020f226c8d0245ad429bee315cd7904acdbfc002234c8532499cda",
+      "environment": "local native web product"
+    },
+    {
+      "task_id": 75,
+      "variant": "C",
+      "run_id": "c55b0ecf512644168f94d329047c1dcc",
+      "epoch": 0,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": [
+            0,
+            3
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "077e485c6e8b4be201b2150261874e874d810d94b333d5aae83414c3203bbae3"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": [
+            0,
+            1
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "23ae4a07a6128d6f2188bb7956ea1e2fc0a193bb5fa68a2a2a0bbf1aafe37152"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": [
+            7,
+            1
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "da38326c4799c0b215f745edc63cbaf574b877e884061e0e3a633040b4500cc9"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": [
+            0,
+            2
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "985202d46f63ecff37108b33996464774b9a5539b33b4cd2fa6dcf640784f7c7"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": [
+            2,
+            0
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "da22336cd662a005ec8be2de14b7441afba67404a0e9d79f6b8beacac84232c8"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": [
+            0,
+            0
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "7c818d2f3ad87e00302243c9418339d0d2d1310de2cb44a3ab6701f367548be4"
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "1677744068a23567b6dbe24aff45453ffcc9566d7d562bf3360fa3f610f316cd",
+      "environment": "local native web product"
     }
   ],
   "fixture_regressions": {
