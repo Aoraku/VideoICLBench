@@ -15,10 +15,10 @@
 | [003](../tasks/contracts/003.json) | chat | 通讯 A：编辑并发送模板消息 | 句末加“.” | 句末加“!” | 句末加“?” | `messages.body` |
 | [004](../tasks/contracts/004.json) | chat | 通讯 A：把草稿转换为指定格式后发送 | 数字前加“#” | 数字后加“号” | 数字改写为英文单词 | `messages.body` |
 | [005](../tasks/contracts/005.json) | chat | 通讯 A：给收到的消息打标签 | 含问号归蓝色 | 含问号归红色 | 含问号归绿色 | `objects.label` |
-| [006](../tasks/contracts/006.json) | chat | 通讯 A：整理联系人分组 | 姓名去掉空格后，字符数为偶数的归入甲 | 姓名去掉空格后，字符数为奇数的归入甲 | 名字含元音归“甲” | `objects.label` |
+| [006](../tasks/contracts/006.json) | chat | 通讯 A：整理联系人分组 | 姓名去掉空格后，字符数为偶数的归入甲 | 姓名去掉空格后，字符数为奇数的归入甲 | 姓名（含姓和名）中含 a/e/i/o/u 任一元音，不区分大小写，归入甲 | `objects.label` |
 | [007](../tasks/contracts/007.json) | chat | 通讯 A：标记会话优先级 | 未读数最多为高优先级 | 未读数最少为高优先级 | 最近消息最新为高优先级 | `objects.label` |
 | [008](../tasks/contracts/008.json) | chat | 通讯 A：给群聊添加状态标签 | 成员数大于 5 为大型 | 成员数不大于 5 为大型 | 群名含数字为大型 | `objects.label` |
-| [009](../tasks/contracts/009.json) | chat | 通讯 A：从联系人中选收件人 | 选择姓氏最早者 | 选择最近联系者 | 选择未读消息最多者 | `settings` |
+| [009](../tasks/contracts/009.json) | chat | 通讯 A：从联系人中选收件人 | 选择姓氏按英文字母顺序排列最靠前的联系人 | 选择最近联系者 | 选择未读消息最多者 | `settings` |
 | [010](../tasks/contracts/010.json) | chat | 通讯 A：从搜索结果打开目标会话 | 选结果第一项 | 选结果最后一项 | 选未读数最多一项 | `settings` |
 | [011](../tasks/contracts/011.json) | chat | 通讯 A：从附件列表选择文件发送 | 选体积最小者 | 选体积最大者 | 选名称最短者 | `messages.attachment` |
 | [012](../tasks/contracts/012.json) | chat | 通讯 A：整理会话列表顺序 | 按未读数降序 | 按最近消息升序 | 按会话名反向字母序 | `orders.main` |

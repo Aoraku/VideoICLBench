@@ -1,0 +1,387 @@
+{
+  "scope": "Native Chat contacts: task 6 A/B/C, 24 contacts each; task 9 A/B/C, six independent episodes each. Browser evidence and evaluation do not establish recorded-video or human inference acceptance.",
+  "tests": {
+    "passed": 1146,
+    "failed": 0,
+    "chat_build": true
+  },
+  "native_ui": [
+    {
+      "task_id": 6,
+      "variant": "A",
+      "run_id": "6dad17bca0b94503bfd17ec0176e3832",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "9628c7494691738442f740666dc70ab0ffafa5ffea627d34a7ca9b8b53a570c2",
+          "evidence_ref": "/v1/runs/6dad17bca0b94503bfd17ec0176e3832/evidence",
+          "evaluation_success": true,
+          "object_count": 24,
+          "saved_output": null
+        }
+      ],
+      "observed_grouped_count": 11
+    },
+    {
+      "task_id": 6,
+      "variant": "B",
+      "run_id": "657228fdb0f7458790817878937e2ae5",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "56d4f93bc65231993b69c6a045a1e68a966815a5071ca6965d56581827b1018d",
+          "evidence_ref": "/v1/runs/657228fdb0f7458790817878937e2ae5/evidence",
+          "evaluation_success": true,
+          "object_count": 24,
+          "saved_output": null
+        }
+      ],
+      "observed_grouped_count": 13
+    },
+    {
+      "task_id": 6,
+      "variant": "C",
+      "run_id": "7bb27a940976482097cf10ff9b04666e",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "7d6b7426d1c080e764a929a205cdcc85ac312c68a519238680de3c18671a5a2a",
+          "evidence_ref": "/v1/runs/7bb27a940976482097cf10ff9b04666e/evidence",
+          "evaluation_success": true,
+          "object_count": 24,
+          "saved_output": null
+        }
+      ],
+      "observed_grouped_count": 12
+    },
+    {
+      "task_id": 9,
+      "variant": "A",
+      "run_id": "130d65e6bb8941768a97147a6ea15656",
+      "epoch": 2,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "6b95b0b8a44dcf0e7912d552790122ef96c44ea94f4614653030f8149f1a80bd",
+          "evidence_ref": "/v1/runs/130d65e6bb8941768a97147a6ea15656/lesson/evidence/2/0",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Emma Han",
+              "surname": "Han",
+              "unread": 5,
+              "last_contact_at": "2026-01-01T12:51:00+00:00"
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "sha256": "54619001c849960f2f0d60ffe1bb92556c4af3de1d1651e5122105da73e2656b",
+          "evidence_ref": "/v1/runs/130d65e6bb8941768a97147a6ea15656/lesson/evidence/2/1",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Chloe Lin",
+              "surname": "Lin",
+              "unread": 1,
+              "last_contact_at": "2026-01-05T20:19:00+00:00"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "sha256": "29b4a8f5245db95f769efc438c172a442407b9e9312e24aa18e7bd4f64530f95",
+          "evidence_ref": "/v1/runs/130d65e6bb8941768a97147a6ea15656/lesson/evidence/2/2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Ben Su",
+              "surname": "Su",
+              "unread": 9,
+              "last_contact_at": "2026-01-06T07:38:00+00:00"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "sha256": "c926d3a5335b5d754cafa517e37856e2acd137ff3d6073194d80aec49d831a00",
+          "evidence_ref": "/v1/runs/130d65e6bb8941768a97147a6ea15656/lesson/evidence/2/3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Emma Han",
+              "surname": "Han",
+              "unread": 9,
+              "last_contact_at": "2026-01-05T09:00:00+00:00"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "sha256": "c8e4f0f3f85ef9d87a230f5d376c4e2b45395e9e4dc2a4e66fe3148b785faf07",
+          "evidence_ref": "/v1/runs/130d65e6bb8941768a97147a6ea15656/lesson/evidence/2/4",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Noah Li",
+              "surname": "Li",
+              "unread": 1,
+              "last_contact_at": "2026-01-07T17:35:00+00:00"
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "sha256": "5785cd368285e0d5dcaa2c41196f4b2888676c44d8236632c8f701d8e4434d9e",
+          "evidence_ref": "/v1/runs/130d65e6bb8941768a97147a6ea15656/lesson/evidence/2/5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Ben Su",
+              "surname": "Su",
+              "unread": 18,
+              "last_contact_at": "2026-01-03T16:35:00+00:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": 9,
+      "variant": "B",
+      "run_id": "01d8b72750c0406290394993fd2340ad",
+      "epoch": 2,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "3d5728d0f6a43a6cf775b426253e03e05635f8b4276b229be2a77ee9cf9d8614",
+          "evidence_ref": "/v1/runs/01d8b72750c0406290394993fd2340ad/lesson/evidence/2/0",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Seth Qin",
+              "surname": "Qin",
+              "unread": 6,
+              "last_contact_at": "2026-01-07T15:58:00+00:00"
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "sha256": "6adf0e3ff80e8a7b517396446b8ddd2d891f4e88625ea48cbbbf0127afc24687",
+          "evidence_ref": "/v1/runs/01d8b72750c0406290394993fd2340ad/lesson/evidence/2/1",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Drew Xia",
+              "surname": "Xia",
+              "unread": 3,
+              "last_contact_at": "2026-01-06T10:52:00+00:00"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "sha256": "2e127f375441ac1b2fe766115807f7f6e6ed37c62faec53530ad15a14affc5e4",
+          "evidence_ref": "/v1/runs/01d8b72750c0406290394993fd2340ad/lesson/evidence/2/2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Drew Xia",
+              "surname": "Xia",
+              "unread": 18,
+              "last_contact_at": "2026-01-06T18:57:00+00:00"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "sha256": "726f1a74f7349dabd2c0dac655d8d0db3516d8f957bea908365471e86ad861af",
+          "evidence_ref": "/v1/runs/01d8b72750c0406290394993fd2340ad/lesson/evidence/2/3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Amy Zhou",
+              "surname": "Zhou",
+              "unread": 3,
+              "last_contact_at": "2026-01-07T06:16:00+00:00"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "sha256": "a42cf99a2fa433b8f7869aa53c900aa4f56b916c2fecd530562319a542492691",
+          "evidence_ref": "/v1/runs/01d8b72750c0406290394993fd2340ad/lesson/evidence/2/4",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Drew Xia",
+              "surname": "Xia",
+              "unread": 12,
+              "last_contact_at": "2026-01-07T22:26:00+00:00"
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "sha256": "c5394062e04d4369e2703d61ea2c80b35a22a8de8da660d048d6e35c80f931cb",
+          "evidence_ref": "/v1/runs/01d8b72750c0406290394993fd2340ad/lesson/evidence/2/5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Eric Tang",
+              "surname": "Tang",
+              "unread": 11,
+              "last_contact_at": "2026-01-06T22:11:00+00:00"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": 9,
+      "variant": "C",
+      "run_id": "84fb1c935980422cb2dec1c64eb1a186",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "fa6f19bb74e55442db78a9cceb7eb8d1f744ae4bee166996a4aebd04a62bd791",
+          "evidence_ref": "/v1/runs/84fb1c935980422cb2dec1c64eb1a186/lesson/evidence/1/0",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Anna Wen",
+              "surname": "Wen",
+              "unread": 7,
+              "last_contact_at": "2026-01-02T17:57:00+00:00"
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "sha256": "9a020c62abd80c8e6908d67af48a3fa069e8c7c12cade1708a2f7de748a26df8",
+          "evidence_ref": "/v1/runs/84fb1c935980422cb2dec1c64eb1a186/lesson/evidence/1/1",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Owen Lu",
+              "surname": "Lu",
+              "unread": 14,
+              "last_contact_at": "2026-01-01T19:19:00+00:00"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "sha256": "ff92c2c361335705db5db446a538476eb57a2c447ee15b70046350141599fc22",
+          "evidence_ref": "/v1/runs/84fb1c935980422cb2dec1c64eb1a186/lesson/evidence/1/2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Will Sun",
+              "surname": "Sun",
+              "unread": 24,
+              "last_contact_at": "2026-01-02T05:01:00+00:00"
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "sha256": "5f0800ba206bdc22fa327e6df857f935838ff0062e9e4f69be73ba5a6d90c9c2",
+          "evidence_ref": "/v1/runs/84fb1c935980422cb2dec1c64eb1a186/lesson/evidence/1/3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Ben Su",
+              "surname": "Su",
+              "unread": 10,
+              "last_contact_at": "2026-01-06T10:52:00+00:00"
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "sha256": "29091b09a7ff5dd263eb4f0cfc12c200be0aa6ec36282bf535f526b09b6fd0b6",
+          "evidence_ref": "/v1/runs/84fb1c935980422cb2dec1c64eb1a186/lesson/evidence/1/4",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Vera Luo",
+              "surname": "Luo",
+              "unread": 18,
+              "last_contact_at": "2026-01-03T03:39:00+00:00"
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "sha256": "baa772a82b0d67bbc56e755e346092915d7a424cef3086957c53be4c67efef81",
+          "evidence_ref": "/v1/runs/84fb1c935980422cb2dec1c64eb1a186/lesson/evidence/1/5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            {
+              "name": "Daniel Zhu",
+              "surname": "Zhu",
+              "unread": 35,
+              "last_contact_at": "2026-01-05T07:23:00+00:00"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "observations": [
+    "Group selection updates the list and selected contact details immediately; unchanged Save is disabled. Reload retains groups and counts.",
+    "Task 6 displays both given name and surname. Full-name parity and vowel presence cross in the demonstration, with surnames appearing in both vowel classes. Query names are held out.",
+    "Task 9 contact list exposes surname, unread count and full UTC contact time; details expose given name and surname. Each episode begins on the native homepage, then Contacts, contact selection and Send message.",
+    "Task 9 surname choices are unique and include matching first initials. Six C episodes have maxima 7, 14, 24, 10, 18, 35, overlapping other episodes’ non-target values."
+  ],
+  "recorded_video": false,
+  "human_inference_acceptance": "pending"
+}

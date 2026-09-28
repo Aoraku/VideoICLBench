@@ -63,6 +63,27 @@ def enrich(id_, seed, items, source, rng):
     if id_ not in (8, 11, 41, 45):
         for item, name in zip(items, pool):
             item['name'] = name
+    if id_ == 9:
+        # Selection must have a unique surname; the fixed query pool may
+        # contain namesakes, so use a larger held-out contact pool here.
+        if seed >= 1000:
+            pool = ['Alice Qiu', 'Victor Bai', 'June Wei', 'May Deng', 'Robin Yu',
+                    'Clara Wu', 'Theo Liu', 'Mabel Jiang', 'Finn Li', 'Hazel Lin',
+                    'Oscar Luo', 'Nora Lu', 'Dylan Zhou', 'Ruby Zhang', 'Ivy Guo',
+                    'Evan He', 'Leah Han', 'Felix Cao', 'Milo Cheng', 'Cora Chen']
+            rng.shuffle(pool)
+        unique = {}
+        for name in pool:
+            unique.setdefault(name.split()[-1], name)
+        # Include two candidates sharing the earliest surname initial so the
+        # full spelling, rather than the initial alone, determines the choice.
+        initial = ('CHL' if seed >= 1000 else 'HLS')[seed % 3]
+        same_initial = [name for surname, name in unique.items() if surname[0] == initial]
+        later = [name for surname, name in unique.items() if surname[0] > initial]
+        chosen = rng.sample(same_initial, 2) + rng.sample(later, n - 2)
+        rng.shuffle(chosen)
+        for item, name in zip(items, chosen):
+            item['name'] = name
     for i, item in enumerate(items):
         item.update(id=f'item-{i + 1}', asset_index=i % 6)
 
@@ -118,6 +139,9 @@ def enrich(id_, seed, items, source, rng):
         assign('unread', rng.sample(range(1, 90), n))
         if seed % 3 == 0:
             items[rng.randrange(n)]['unread'] = 0
+    if id_ == 9:
+        maximum = [7, 14, 24, 10, 18, 35][seed % 6]
+        assign('unread', [maximum] + rng.sample(range(maximum), n - 1))
     if id_ in (47, 51):
         assign('transfers', [seed % 3 + x for x in (0,1,2,3,4,5)])
     if id_ == 22:
@@ -133,6 +157,8 @@ def enrich(id_, seed, items, source, rng):
             assign('comments', [12, 25, 46, 57, 78, 91])
     if id_ in (5, 13, 16):
         assign('text', teaching_materials.messages(seed >= 1000))
+    if id_ == 6:
+        assign('name', teaching_materials.grouped_contacts(seed >= 1000))
     if id_ == 8:
         groups = ['设计协作组', '产品 3 组', '研发 7 组', '周末徒步', '阅读分享组', '项目 12 组']
         for i, item in enumerate(items):
@@ -253,6 +279,8 @@ def enrich(id_, seed, items, source, rng):
         if id_ == 11:
             item['size'] = len(item['file_text'].encode('utf-8'))
     rng.shuffle(items)
+    if id_ == 9:
+        random.Random(seed + 19009).shuffle(items)
     source.pop('_app')
     demo = seed < 1000
     examples = ["Please Review the Design Draft", "Please Confirm the Meeting Room", "Please Share the Weekly Report", "Bring the Updated Budget Tomorrow", "Check the Delivery Notes Carefully", "Send the Workshop Schedule Today"] if demo else ["Discuss the New Library Plan", "Confirm the Garden Visit", "Prepare the Museum Guide", "Share the Walking Route", "Review the Evening Programme", "Send the Reading List"]

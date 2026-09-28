@@ -480,7 +480,7 @@
     {
       "schema_version": 1,
       "task_id": 6,
-      "task_version": "3.0.0",
+      "task_version": "3.1",
       "title": "通讯 A：整理联系人分组",
       "app": "chat",
       "type": "C",
@@ -498,7 +498,7 @@
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         },
         "C": {
-          "rule": "名字含元音归“甲”",
+          "rule": "姓名（含姓和名）中含 a/e/i/o/u 任一元音，不区分大小写，归入甲",
           "evaluator": "task_006_C",
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         }
@@ -765,7 +765,7 @@
     {
       "schema_version": 1,
       "task_id": 9,
-      "task_version": "3.0.0",
+      "task_version": "3.1",
       "title": "通讯 A：从联系人中选收件人",
       "app": "chat",
       "type": "S",
@@ -773,7 +773,7 @@
       "execution_surface": "application-benchmark",
       "variants": {
         "A": {
-          "rule": "选择姓氏最早者",
+          "rule": "选择姓氏按英文字母顺序排列最靠前的联系人",
           "evaluator": "task_009_A",
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         },

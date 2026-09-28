@@ -1,6 +1,22 @@
 """Distinct visible materials for batch lessons, without rules or answers."""
 
 
+def grouped_contacts(query=False):
+    """Full names crossing character parity and vowel presence.
+
+    Repeated first/last names occur on both sides of the vowel decision, so
+    remembering a particular surname or looking only at the first name fails.
+    """
+    if query:
+        return ['Wyn Byrd', 'Brynn Ng', 'Myr Flynn', 'Elin Fry', 'Nia Ng', 'Wynn Li']
+    return [
+        'Rhys Ng', 'Lynn Fry', 'Bryn Byrd', 'Sky Lynch', 'Gwyn Flynn', 'Syd Glynn',
+        'Wynn Ng', 'Glyn Fry', 'Cym Byrd', 'Llyr Lynch', 'Lyn Flynn', 'Gwyn Glynn',
+        'Eva Ng', 'Owen Fry', 'Iris Byrd', 'Anna Lynch', 'Emma Flynn', 'Noah Glynn',
+        'Rhys Li', 'Lynn Chen', 'Bryn He', 'Sky Luo', 'Gwyn Sun', 'Syd Ma',
+    ]
+
+
 def chat_files(seed):
     """Shared documents with independent filename lengths and actual byte sizes."""
     import random

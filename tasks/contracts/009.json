@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 9,
-  "task_version": "3.0.0",
+  "task_version": "3.1",
   "title": "通讯 A：从联系人中选收件人",
   "app": "chat",
   "type": "S",
@@ -9,7 +9,7 @@
   "execution_surface": "application-benchmark",
   "variants": {
     "A": {
-      "rule": "选择姓氏最早者",
+      "rule": "选择姓氏按英文字母顺序排列最靠前的联系人",
       "evaluator": "task_009_A",
       "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
     },

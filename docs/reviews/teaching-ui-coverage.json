@@ -1,13 +1,11 @@
 {
   "scope": "Index of task-specific browser observations recorded in review artifacts. Presence does not imply complete A/B/C coverage, current-version replay, recorded-video verification, or human inference acceptance. Null episode counts mean the source has no explicit episode count.",
   "task_count": 75,
-  "tasks_with_indexed_browser_evidence": 47,
+  "tasks_with_indexed_browser_evidence": 49,
   "tasks_without_indexed_browser_evidence": [
     3,
-    6,
     7,
     8,
-    9,
     10,
     12,
     13,
@@ -115,7 +113,29 @@
     },
     {
       "task_id": 6,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-contacts-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "6dad17bca0b94503bfd17ec0176e3832",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-contacts-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "657228fdb0f7458790817878937e2ae5",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-contacts-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "C",
+          "run_id": "7bb27a940976482097cf10ff9b04666e",
+          "reported_episode_count": 1
+        }
+      ]
     },
     {
       "task_id": 7,
@@ -127,7 +147,29 @@
     },
     {
       "task_id": 9,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-contacts-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "A",
+          "run_id": "130d65e6bb8941768a97147a6ea15656",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-contacts-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "B",
+          "run_id": "01d8b72750c0406290394993fd2340ad",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-contacts-ui-validation.json",
+          "json_pointer": "/native_ui/5",
+          "variant": "C",
+          "run_id": "84fb1c935980422cb2dec1c64eb1a186",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 10,

@@ -7,6 +7,59 @@ from vic import business
 from vic import teaching, teaching_materials
 
 
+@pytest.mark.parametrize('seed', [0, 1, 2, 5, 10, 999, 1000, 1001, 10001])
+def test_contact_group_materials_cross_parity_and_vowels(seed):
+    items = business.generate(6, seed)['items']
+    cells = Counter((len(x['name'].replace(' ', '')) % 2, bool(re.search('[aeiou]', x['name'], re.I))) for x in items)
+    assert set(cells) == {(parity, vowel) for parity in (0, 1) for vowel in (False, True)}
+    assert min(cells.values()) >= (5 if seed < 1000 else 1)
+    assert all(x['name_length'] == len(x['name'].replace(' ', '')) for x in items)
+    full_vowels = {x['id'] for x in items if re.search('[aeiou]', x['name'], re.I)}
+    first_vowels = {x['id'] for x in items if re.search('[aeiou]', x['name'].split()[0], re.I)}
+    last_vowels = {x['id'] for x in items if re.search('[aeiou]', x['surname'], re.I)}
+    assert full_vowels != first_vowels
+    assert full_vowels != last_vowels
+
+
+def test_contact_names_disallow_a_surname_lookup_for_vowels_and_hold_out_query():
+    demo = teaching_materials.grouped_contacts()
+    query = teaching_materials.grouped_contacts(True)
+    assert set(demo).isdisjoint(query)
+    both_classes = 0
+    for surname in {n.split()[-1] for n in demo}:
+        classes = {bool(re.search('[aeiou]', n, re.I)) for n in demo if n.split()[-1] == surname}
+        both_classes += len(classes) == 2
+    assert both_classes >= 6
+
+
+@pytest.mark.parametrize('seed', [*range(30), 999, *range(1000, 1020), 10001])
+def test_recipient_choices_have_unique_surnames_and_visible_chronology(seed):
+    from datetime import datetime
+    items = business.generate(9, seed)['items']
+    assert len({x['surname'] for x in items}) == 6
+    assert all(x['surname'] == x['name'].split()[-1] for x in items)
+    assert [x['id'] for x in sorted(items, key=lambda x: x['contact_time'])] == [
+        x['id'] for x in sorted(items, key=lambda x: datetime.fromisoformat(x['last_contact_at']))]
+    assert len({x['last_contact_at'] for x in items}) == 6
+
+
+def test_recipient_lesson_includes_surnames_sharing_first_letter():
+    episodes = [business.generate(9, seed)['items'] for seed in range(6)]
+    assert any(sum(x['surname'][0] == min(items, key=lambda x: x['surname'])['surname'][0] for x in items) > 1 for items in episodes)
+    for variant in 'ABC':
+        winners = [business.targets(9, 'ABC'.index(variant), items, {'threshold': 50})[0] for items in episodes]
+        assert len({next(i for i, x in enumerate(items) if x['id'] == winner) for items, winner in zip(episodes, winners)}) >= 3
+
+
+def test_recipient_unread_rule_requires_relative_comparison():
+    episodes = [business.generate(9, seed)['items'] for seed in range(6)]
+    positives = [max(x['unread'] for x in items) for items in episodes]
+    negatives = [x['unread'] for items, maximum in zip(episodes, positives) for x in items if x['unread'] != maximum]
+    assert len(set(positives)) == 6
+    assert min(positives) < max(negatives)
+    assert set(positives) & set(negatives)
+
+
 @pytest.mark.parametrize('seed', [*range(12), 999, *range(1000, 1012), 10001])
 def test_chat_files_have_real_sizes_and_distinct_selection_rules(seed):
     import base64

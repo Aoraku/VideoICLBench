@@ -94,6 +94,9 @@ function user(state, id) {
     is_friend: true,
     benchmark_contact_time: item?.last_contact_at,
     benchmark_unread: item?.unread,
+    benchmark_surname: item && [6, 9].includes(state.task_id) ? item.surname : undefined,
+    benchmark_given_name: item && [6, 9].includes(state.task_id) ? item.name.split(" ").slice(0, -1).join(" ") : undefined,
+    benchmark_contact_summary: state.task_id === 9,
     group_name:
       state.task_id === 6 && item ? state.domain.objects[item.id].label : "",
   };

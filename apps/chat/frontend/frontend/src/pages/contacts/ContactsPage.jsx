@@ -183,6 +183,13 @@ export default function ContactsPage() {
     }
 
     setFriends(nextFriends)
+    if (!resetUi) {
+      setSelection(current => {
+        if (current?.kind !== 'friend') return current
+        const friend = nextFriends.find(f => String(f.user_id) === String(current.friend.user_id))
+        return friend ? { ...current, friend } : null
+      })
+    }
     setGroups(recalculateGroupCounts(nextGroups, nextFriends))
     setRequests(nextRequests)
     setBlacklist(nextBlacklist)
@@ -536,6 +543,10 @@ export default function ContactsPage() {
                           </div>
                           <div className="wxAccRow__main">
                             <div className="wxName">{getFriendDisplayName(f)}</div>
+                            {f.benchmark_contact_summary && <div className="wxMeta">
+                              姓 {f.benchmark_surname} · 未读 {f.benchmark_unread}<br />
+                              最近联系 {String(f.benchmark_contact_time).replace('T', ' ').slice(0, 16)} UTC
+                            </div>}
                             <div className="wxMeta">
                               {f.group_name || '未分组'}
                               {' · '}
