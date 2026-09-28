@@ -336,7 +336,7 @@
       "task_id": 8,
       "variant": "A",
       "run_id": "933815d2cf4044dbb25d80fc03c4246b",
-      "epoch": 0,
+      "epoch": 1,
       "entered_via_homepage_each_episode": true,
       "all_actions_via_browser": true,
       "evaluation_success": true,
@@ -344,7 +344,7 @@
       "episodes": [
         {
           "index": 0,
-          "sha256": "611e4a32f518c8311df29a113d24e2b0f940dc06ac171a21291888a34a7a8b5c",
+          "sha256": "c71453220e505503cf4b20f175e770c45da282e4b25c097d53063bac36a753f9",
           "evidence_ref": "/v1/runs/933815d2cf4044dbb25d80fc03c4246b/evidence",
           "evaluation_success": true,
           "object_count": 24
@@ -357,7 +357,7 @@
       "task_id": 8,
       "variant": "B",
       "run_id": "d041b9c3ec7b44508bff4e071ed2fd13",
-      "epoch": 0,
+      "epoch": 1,
       "entered_via_homepage_each_episode": true,
       "all_actions_via_browser": true,
       "evaluation_success": true,
@@ -365,7 +365,7 @@
       "episodes": [
         {
           "index": 0,
-          "sha256": "37aadf8050ebd1b142053bca7af1f32a68d1a608ffbc62da9831d21e074f9ca7",
+          "sha256": "05383387cada505c28b2428505ac0f3c5556ea94197b24c2354f769a45fc04d5",
           "evidence_ref": "/v1/runs/d041b9c3ec7b44508bff4e071ed2fd13/evidence",
           "evaluation_success": true,
           "object_count": 24
@@ -378,7 +378,7 @@
       "task_id": 8,
       "variant": "C",
       "run_id": "2da9dcfe82754d82854d6204d4163ef4",
-      "epoch": 0,
+      "epoch": 1,
       "entered_via_homepage_each_episode": true,
       "all_actions_via_browser": true,
       "evaluation_success": true,
@@ -386,7 +386,7 @@
       "episodes": [
         {
           "index": 0,
-          "sha256": "4c81748c497514504163e585c7067214bff2d3d8eaa06d08b45d37f0056879de",
+          "sha256": "c979313f3c3d6fa05b363409e8e242439664a737e4362307d545da99de0e61a1",
           "evidence_ref": "/v1/runs/2da9dcfe82754d82854d6204d4163ef4/evidence",
           "evaluation_success": true,
           "object_count": 24
@@ -399,7 +399,7 @@
       "task_id": 10,
       "variant": "A",
       "run_id": "d8129d131bfa41438eeb18b8f07a71e1",
-      "epoch": 0,
+      "epoch": 1,
       "entered_via_homepage_each_episode": true,
       "all_actions_via_browser": true,
       "evaluation_success": true,
@@ -407,43 +407,43 @@
       "episodes": [
         {
           "index": 0,
-          "sha256": "8a6adabe5bc1851240a93cea1633e5eb81a23514b62830473f44da0455abd039",
-          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/0/0",
+          "sha256": "b62cf1b7fcdb1266ff5bcfcf590d367916ce10f9a0cc913b937ee0206d1a300c",
+          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/1/0",
           "evaluation_success": true,
           "object_count": 6
         },
         {
           "index": 1,
-          "sha256": "0d56a54a5d92a63b6f1c966a2b498f82cc91d02e1da29b8f0bc4ebb5eea2eb96",
-          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/0/1",
+          "sha256": "79823dac1cd658eb9d635825b8203c6c15321cc64dd6f39cd4a5bc68629f6d7d",
+          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/1/1",
           "evaluation_success": true,
           "object_count": 6
         },
         {
           "index": 2,
-          "sha256": "25cf86a14705d73d806a35709790a688a39c607c66e2e1ffb12e45c028e68882",
-          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/0/2",
+          "sha256": "97f01da83f3c5fd67e1b097734c2b9ab904d59bea27f8951bd60840b4efc4783",
+          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/1/2",
           "evaluation_success": true,
           "object_count": 6
         },
         {
           "index": 3,
-          "sha256": "86c3a8ab2530b25b2b3aaa9b7de54db8ff1394524e105b740e83427b9b6d82e0",
-          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/0/3",
+          "sha256": "a915ba616e5dfa7a14d4c41a1f12edccad41d09009cbb2eb733f2b7cf7190958",
+          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/1/3",
           "evaluation_success": true,
           "object_count": 6
         },
         {
           "index": 4,
-          "sha256": "7f8aa21ffd9f8339706f9f97928d78954223cbc8b4d518fe2298dbc59b28af65",
-          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/0/4",
+          "sha256": "6d146f764a49361a1412336cef7d19daa7bf89b5f10367c01e7f13a9ae7296ff",
+          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/1/4",
           "evaluation_success": true,
           "object_count": 6
         },
         {
           "index": 5,
-          "sha256": "477a920517c0f61fa1c86960554e67720865de1928eae5f5889643a3302505dc",
-          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/0/5",
+          "sha256": "0075d3e4b6019e1d3f02833e587f4ac9908928ca2a9ace8d004099acbefec4bc",
+          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/1/5",
           "evaluation_success": true,
           "object_count": 6
         }
@@ -453,7 +453,7 @@
       "task_id": 10,
       "variant": "B",
       "run_id": "ef619181bcd44573b197cdc6cbdcb424",
-      "epoch": 0,
+      "epoch": 1,
       "entered_via_homepage_each_episode": true,
       "all_actions_via_browser": true,
       "evaluation_success": true,
@@ -461,43 +461,43 @@
       "episodes": [
         {
           "index": 0,
-          "sha256": "496bfc87e22f504fb653838c2474eeb9b637ddc342c666671962dde5aad4e2b6",
-          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/0/0",
+          "sha256": "9044ac70ee7349c08e3faac723f6323785c8c64ad5ca2a946d6d0988291f7a27",
+          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/1/0",
           "evaluation_success": true,
           "object_count": 6
         },
         {
           "index": 1,
-          "sha256": "d4cf2695838f84d4a12b333fa327f5a99f8b088099b72352622d3095c3d4645e",
-          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/0/1",
+          "sha256": "74d221c9e7f2e2c929ea6404fad60fd754e8493d33fc713c7fda7695b44da3a0",
+          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/1/1",
           "evaluation_success": true,
           "object_count": 6
         },
         {
           "index": 2,
-          "sha256": "492ac447f218bbf0fbc94f3eb24f0bd6c6b6ece43cf74cc8130bdaf7414df5e6",
-          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/0/2",
+          "sha256": "70aa39358738d734d59eedb20c0bb85ec6dd4c12887a21694c58901e4c864f7b",
+          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/1/2",
           "evaluation_success": true,
           "object_count": 6
         },
         {
           "index": 3,
-          "sha256": "20a02e119217956e4aa5c6491b21c40b7e23c38d7267af1918b0a6fe004819df",
-          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/0/3",
+          "sha256": "da13813d9bb81ac37ff8d943c48e2a32afda184f66f373396d04241e97b72d9c",
+          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/1/3",
           "evaluation_success": true,
           "object_count": 6
         },
         {
           "index": 4,
-          "sha256": "fe88c6331694fb8c9cb50efa923a79e45ef8bb17675bf94d8f969d791b951541",
-          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/0/4",
+          "sha256": "ad8e532e2b5194c67c48354c35b97d648d18bd8a6f2996a84add1a84513fc9e1",
+          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/1/4",
           "evaluation_success": true,
           "object_count": 6
         },
         {
           "index": 5,
-          "sha256": "481acad3dab8f6a312605e0b4eb30eb130245727ed0feadda3b70e45020dd24a",
-          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/0/5",
+          "sha256": "3d8deab4309b05f4f59ee2053676abfda128867dbf71de31a7bccc108ec05813",
+          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/1/5",
           "evaluation_success": true,
           "object_count": 6
         }
@@ -507,7 +507,7 @@
       "task_id": 10,
       "variant": "C",
       "run_id": "9c2e280f03c94baa8fd0c3588bda9443",
-      "epoch": 0,
+      "epoch": 1,
       "entered_via_homepage_each_episode": true,
       "all_actions_via_browser": true,
       "evaluation_success": true,
@@ -515,43 +515,43 @@
       "episodes": [
         {
           "index": 0,
-          "sha256": "5d9f7b10aff94a23d4e4f5558299bb1c718eb4ee8305264292dbfe90c6cd9f32",
-          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/0/0",
+          "sha256": "a554f176f7aa080b6e32e7ba2885dc2e2e8ba34bf823454790ea480a127f2fda",
+          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/1/0",
           "evaluation_success": true,
           "object_count": 6
         },
         {
           "index": 1,
-          "sha256": "a6ff472b6937a377868760c1f5ccadec38f5a4c3e01a586e235b80f6b00816ef",
-          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/0/1",
+          "sha256": "2f239e539c7dbd5ed59279c1120cd1dd1aaab56035f64aa30a7726f19da69f82",
+          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/1/1",
           "evaluation_success": true,
           "object_count": 6
         },
         {
           "index": 2,
-          "sha256": "57f23d0d88fb87810a4780504c93b51551fa7d1b0de32dd6672b09ce1f0f0a6b",
-          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/0/2",
+          "sha256": "0d3c3f594a471626916c7d58f18de69bd4da68ce8202fecb5029c91650804784",
+          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/1/2",
           "evaluation_success": true,
           "object_count": 6
         },
         {
           "index": 3,
-          "sha256": "c388a66794c1e78c6e44efd39d0ceb456178d409d098d5eb2ea69a959e9c945d",
-          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/0/3",
+          "sha256": "36718c71aef1cd9d1700b2301794993365b3ebc98e8222c38728a133a287563a",
+          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/1/3",
           "evaluation_success": true,
           "object_count": 6
         },
         {
           "index": 4,
-          "sha256": "6fb71f9bfcecded026ad2bdeef24234d7ad0315888e9414d9dd933fd0f30ed94",
-          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/0/4",
+          "sha256": "14bf34e15cbb68cb71820a19e24895335f1fbd33a9223246bb4160a26ccf115f",
+          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/1/4",
           "evaluation_success": true,
           "object_count": 6
         },
         {
           "index": 5,
-          "sha256": "71aaea9a6d6d304b65a27a2a6de617dbd470ca68b1e9775d93f79f25fd54835b",
-          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/0/5",
+          "sha256": "3261b07f3e90f368d970d0068e64c4e8617e5026651f223bd868b0e9586afc7e",
+          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/1/5",
           "evaluation_success": true,
           "object_count": 6
         }
@@ -585,7 +585,9 @@
     "Task 8 presents 24 distinct group names, 11 distinct member counts including 4/5/6, and independent name-digit classes. Each variant labels 12 groups and preserves the remaining 12; labels survive reload. Query uses six held-out names.",
     "Task 10 starts at the native homepage, opens record search, uses the visible episode keyword, shows six matching messages with unread counts, and opens the chosen search result. Marking a conversation read alone does not submit a search selection.",
     "At 1280x720 the search result panel shows all six query hits. The toolbar fits within the sidebar.",
-    "Held-out task 10 C query uses 旧书交换 and selects Victor Bai (18 unread)."
+    "Held-out task 10 C query uses 旧书交换 and selects Victor Bai (18 unread).",
+    "Search selection is persisted before the chosen conversation is displayed; all three versions were exercised with immediate Next clicks for six episodes each.",
+    "Label actions close their menu before the asynchronous save, so one completed operation cannot close a newly opened menu for another group. A/B/C were replayed with consecutive labels and reload checks."
   ],
   "recorded_video": false,
   "human_inference_acceptance": "pending"

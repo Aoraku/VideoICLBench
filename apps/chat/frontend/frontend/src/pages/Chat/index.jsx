@@ -2458,7 +2458,7 @@ export default function ChatPage() {
         anchorY={convMenu?.y ?? 0}
         onClose={() => setConvMenu(null)}
       >
-        {nativeRun && [7,8].includes(currentBusiness()?.task_id) && ['',...currentBusiness().options].map(label=><button type="button" role="menuitem" className="popMenu__item" key={label} onClick={async()=>{try{await command('label',convMenu.conv.benchmark_object,label);await refreshConversationList();setConvMenu(null)}catch(e){setSendError(e.message)}}}>{label||'清除标签'}</button>)}
+        {nativeRun && [7,8].includes(currentBusiness()?.task_id) && ['',...currentBusiness().options].map(label=><button type="button" role="menuitem" className="popMenu__item" key={label} onClick={async()=>{const objectId=convMenu.conv.benchmark_object;setConvMenu(null);try{await command('label',objectId,label);await refreshConversationList()}catch(e){setSendError(e.message)}}}>{label||'清除标签'}</button>)}
         {nativeRun && currentBusiness()?.task_id===14 && <button type="button" role="menuitem" className="popMenu__item" onClick={async()=>{try{await command('action',convMenu.conv.benchmark_object,'归档');await refreshConversationList();setConvMenu(null)}catch(e){setSendError(e.message)}}}>归档会话</button>}
         {nativeRun && currentBusiness()?.task_id===12 && [-1,1].map(delta=><button type="button" role="menuitem" className="popMenu__item" key={delta} onClick={async()=>{const ids=[...currentBusiness().domain.orders.main],i=ids.indexOf(convMenu.conv.benchmark_object),j=i+delta;if(j<0||j>=ids.length)return;[ids[i],ids[j]]=[ids[j],ids[i]];try{await command('order','','',ids);await refreshConversationList();setConvMenu(null)}catch(e){setSendError(e.message)}}}>{delta<0?'上移会话':'下移会话'}</button>)}
         <button
