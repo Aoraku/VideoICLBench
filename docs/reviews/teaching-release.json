@@ -1,35 +1,60 @@
 {
-  "verified_at": "2026-09-27T23:47:48.899588+00:00",
-  "source_commit": "341fbf964d26f3d3aa58f1017c1b5e2c9b5ad675",
-  "image": "sha256:58f7288fd4d1397d052d13a26494ae495437e446e5f7b34511506756ac65db75",
-  "image_tag": "videoicl-native:teaching-v7",
+  "verified_at": "2026-09-28T00:20:21.413034+00:00",
+  "source_commit": "373f9873836f889931e43a142925485b29ec21bf",
+  "image": "sha256:9fc4a06e9fde6504e58eab17fab8f03913269cef74f4eb60cf2189137146dfae",
+  "image_tag": "videoicl-native:teaching-v8",
   "deployed": true,
   "services": "healthy",
-  "base_image": "videoicl-native:teaching-v6",
-  "base_validation": "teaching-v6-release.json",
+  "base_image": "videoicl-native:teaching-v7",
+  "base_validation": "teaching-v7-release.json",
   "validation": {
-    "full_suite_passed": 930,
+    "full_suite_passed": 945,
     "failed": 0,
-    "local_content_lessons_via_ui": 6,
-    "local_content_episodes_via_ui": 36,
-    "local_lesson_evaluation_success": true,
-    "title_edit_regression_passed": true,
+    "local_ui_versions": 13,
+    "local_multi_episode_lessons": 8,
+    "local_multi_episode_total": 48,
+    "local_batch_runs": 5,
+    "objects_per_batch": 24,
+    "local_evaluation_success": true,
     "recorded_video": false,
-    "detail": "teaching-content-ui-validation.json"
+    "detail": "teaching-commerce-ui-validation.json"
   },
   "image_checks": {
     "files": {
-      "apps/portal/dist/index.html": "99fe5adebbb089c505377d15ec696ee15aabf9589e97f15144df53e88d4b3ca8",
-      "apps/news/src/main/resources/web/index.html": "840f4bec15a0281590b89210691b8fde6104615f3acf854ae21d9ba0ebebdfd3",
-      "apps/news/src/main/resources/web/native.js": "3291689c5559db126edd77a60eb3a10bf38efd7dae656964fe70807f1474c22b",
-      "apps/music/blog/static/benchmark/native.js": "8cb513dc186546a0ebbf655a188db42c1798d3379da6a88503922bf21c2659ad",
-      "apps/music/blog/templates/blog/benchmark_library.html": "648dea37a8ba8cc7d47305e95f1dd93126894fb4e9a9ea5a9f29a7982348f59c",
-      "apps/music/blog/templates/blog/benchmark_song_controls.html": "a8aeda371a5a8b4666229af5e64ee9861c1daedc51a87589ad2d3792ba940248"
+      "apps/portal/dist/index.html": "21f6f64aa603d8c832f5d95f26e7a08389be847ae952b527e3892d258fd85fc4",
+      "services/control/vic/teaching.py": "3c26fd1e11a6098bc2ea269eff697ceff660200d925a6c013a67e967ca8fbfa7",
+      "tasks/catalog.json": "34a22a99a4b93c9e9b1a00261b23e021eae19019c1157e04efdae1ca12eb9d55"
     },
-    "music_templates_rendered": 2
+    "minimum_series": {
+      "31": [
+        100,
+        471,
+        236,
+        640,
+        309,
+        154
+      ],
+      "47": [
+        102,
+        469,
+        213,
+        636,
+        322,
+        176
+      ],
+      "51": [
+        93,
+        460,
+        229,
+        635,
+        316,
+        158
+      ]
+    },
+    "installed_source_matches": true
   },
   "live_checks": {
-    "source_commit": "341fbf964d26f3d3aa58f1017c1b5e2c9b5ad675",
+    "source_commit": "373f9873836f889931e43a142925485b29ec21bf",
     "services": {
       "http://127.0.0.1:18765": {
         "status": "ok",
@@ -55,47 +80,43 @@
       }
     },
     "files": {
-      "index.html": "99fe5adebbb089c505377d15ec696ee15aabf9589e97f15144df53e88d4b3ca8",
-      "/assets/index-BMLLTJhL.js": "20e1552c3d5e96d8d67b7f30c45949eaced45d40373b08e089e26bd7399c3b3a",
+      "index.html": "21f6f64aa603d8c832f5d95f26e7a08389be847ae952b527e3892d258fd85fc4",
+      "/assets/index-BXJCZ3Zi.js": "088130eb88d298395c4ca54216156defef2fa2c7df76aa4319372a8f4c11958b",
       "/assets/index-BBHTa132.css": "d53667b719ba44c4174e3b56d7f9c5bc911a01d530a631b31ad7735d0490a06d",
       "/native-assets/news/native.js": "3291689c5559db126edd77a60eb3a10bf38efd7dae656964fe70807f1474c22b",
       "/native-assets/music/native.js": "8cb513dc186546a0ebbf655a188db42c1798d3379da6a88503922bf21c2659ad"
     },
-    "verified_at": "2026-09-27T23:47:48.899588+00:00",
+    "verified_at": "2026-09-28T00:20:21.413034+00:00",
     "native_ui": [
       {
-        "task_id": 17,
-        "variant": "C",
-        "run_id": "aa295d3c723d48a79b4d2886635fdf7d",
+        "task_id": 47,
+        "variant": "A",
+        "run_id": "c9a1caf5b4d34a60aa5cabae9b6edad4",
         "episodes_completed": 1,
         "total_episodes": 6,
         "entered_via_homepage": true,
+        "bottom_menu_click_saved": true,
         "next_episode_homepage": true,
         "episode_evaluation_success": true,
-        "episode_evidence_sha256": "3f3dcd5b38a19ab1bf687662740c69ab575bdd42f90d3ab9cb344db830028593",
-        "saved_output": "morning 3 walK",
-        "saved_notice_visible_after_reload": true
+        "evidence_sha256": "000095cba8596834da1c42e1921a3dacd8e1232ecfed481e5bdc830aab992cab"
       },
       {
-        "task_id": 29,
-        "variant": "B",
-        "run_id": "b0676fa7540f44e9a122b1f14b7d6c7b",
-        "episodes_completed": 1,
-        "total_episodes": 6,
+        "task_id": 56,
+        "variant": "A",
+        "run_id": "654cf6d2605e43029f5e168da67fb4c7",
+        "objects": 24,
+        "transfers": 8,
         "entered_via_homepage": true,
-        "next_episode_homepage": true,
-        "episode_evaluation_success": true,
-        "episode_evidence_sha256": "e8add036c48a6850549e078b8db3e7c6a6c646d1ced3a5569fa03ae058aa7774",
-        "selected_name": "9 月文化活动指南发布",
-        "displayed_time": "2026-01-01 19:19 UTC",
-        "list_detail_dates_match": true,
-        "lesson_controls_survive_navigation_and_mutation": true
+        "evaluation_success": true,
+        "balance_after_reload": 9575,
+        "duplicate_transfer_disabled": true,
+        "evidence_sha256": "005eea873a0137f0bb515593d01734a30e3a9aada1e90ab36f0ed71231107f62"
       }
     ]
   },
   "rollback_tags": [
-    "videoicl-control:before-teaching-v7",
-    "videoicl-applications:before-teaching-v7"
+    "videoicl-control:before-teaching-v8",
+    "videoicl-applications:before-teaching-v8"
   ],
   "database_backup_present": true,
   "remaining_gate": "Complete 75-case native UI/video checks and human rule-inference acceptance; actual capture frames including episode transitions must not contain private rules."
