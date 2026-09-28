@@ -114,6 +114,18 @@ def inspect_lesson(task, base_seed):
                 risks.append('missing_threshold_neighbors')
     else:
         report['expected_series'] = series
+        if task_id == 67:
+            spatial = {}
+            for v in 'AB':
+                shared = None
+                for state, point in zip(states, series[v]):
+                    explanations = {f'{axis}:{side}' for axis in range(2) for side in ('min', 'max')
+                                    if point[axis] == (min if side == 'min' else max)(p[axis] for p in state['candidates'])}
+                    shared = explanations if shared is None else shared & explanations
+                spatial[v] = sorted(shared)
+                if shared:
+                    risks.append(f'gomoku_direction_matches_spatial_extreme_{v}')
+            report['gomoku_spatial_alternatives'] = spatial
         if task_id == 69:
             report['stopping_steps'] = {v:[len(path) for path in paths] for v,paths in series.items()}
             if any(len(set(lengths)) < 2 for lengths in report['stopping_steps'].values()):

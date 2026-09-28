@@ -1,0 +1,165 @@
+{
+  "scope": "Native UI operations and independent evaluations. Full recording and human inference acceptance remain pending.",
+  "native_ui": [
+    {
+      "task_id": 36,
+      "task_version": "3.1.0",
+      "variant": "A",
+      "run_id": "7251c6ff2b3f44f39acd41707fe904b9",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/7251c6ff2b3f44f39acd41707fe904b9/evidence",
+      "sha256": "2a67f5ec7bc8a78a741dda0c103745138f1cec260088055e1b63d8cc124dfb73",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "morning 3 Walk",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Morning 3 Walk"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/7251c6ff2b3f44f39acd41707fe904b9/lesson/evidence/0/0",
+          "sha256": "084eb147c1dceffc762fd13ea2e193550c61f49f0e8e74ff39a6da71f6434fab"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "summer 7 Breeze",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Summer 7 Breeze"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/7251c6ff2b3f44f39acd41707fe904b9/lesson/evidence/0/1",
+          "sha256": "46d9b8c56f501491bb37791a918bbef35791cee7b008618a209bb99e49de60b5"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "city 2 Lights",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "City 2 Lights"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/7251c6ff2b3f44f39acd41707fe904b9/lesson/evidence/0/2",
+          "sha256": "a58e27e1d145602b317e99aeccd80e3261a1751ad0cf2154804bde844b635999"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "river 12 Song",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "River 12 Song"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/7251c6ff2b3f44f39acd41707fe904b9/lesson/evidence/0/3",
+          "sha256": "d2ed080a2300bef463f03f7f338304094c7ae870e80f47cdf31d8a97570e029a"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "quiet 5 Hours",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Quiet 5 Hours"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/7251c6ff2b3f44f39acd41707fe904b9/lesson/evidence/0/4",
+          "sha256": "719bbe7dcb649cd1508c5cd7b285ec37cc83e6c036c5c181e57b33062cc2935f"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "open 14 Windows",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Open 14 Windows"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/7251c6ff2b3f44f39acd41707fe904b9/lesson/evidence/0/5",
+          "sha256": "745428752f8cda50d55c36686629277ac259e319ccdd175c7bd5c479d4849bc1"
+        }
+      ],
+      "persisted_after_reload_each_episode": true,
+      "observed_titles": [
+        "morning 3 Walk",
+        "summer 7 Breeze",
+        "city 2 Lights",
+        "river 12 Song",
+        "quiet 5 Hours",
+        "open 14 Windows"
+      ],
+      "observations": [
+        "Opened Continue editing from the default blog home in every episode. Capitalized the first letter, saved the draft, reloaded and checked the title in the editor."
+      ]
+    }
+  ],
+  "verified_at": "2026-09-28T08:43:20.425683+00:00"
+}

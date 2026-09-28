@@ -1,0 +1,262 @@
+{
+  "scope": "Native UI operations and independent evaluations. Full recording and human inference acceptance remain pending.",
+  "native_ui": [
+    {
+      "task_id": 66,
+      "task_version": "3.0.1",
+      "variant": "A",
+      "run_id": "fd48ced1d08e4f4fb6cd4c5052ece2c2",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/fd48ced1d08e4f4fb6cd4c5052ece2c2/evidence",
+      "sha256": "c528973bc976d95e97fca9f8a9be29e5d3365d25411f27b4f4dbb19c457b971c",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {},
+          "selection": null,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd48ced1d08e4f4fb6cd4c5052ece2c2/lesson/evidence/0/0",
+          "sha256": "32b0b2dd94eef00156ae20bd439f95476606ad7730c0290b4c1c937495726865"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {},
+          "selection": null,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd48ced1d08e4f4fb6cd4c5052ece2c2/lesson/evidence/0/1",
+          "sha256": "e89e2023e3551d6ef6b6673d450a26f0b14dceab2301ee485c370aead6162e62"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {},
+          "selection": null,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd48ced1d08e4f4fb6cd4c5052ece2c2/lesson/evidence/0/2",
+          "sha256": "b921fc67055df07dab8efc810818472f0024a8e95bceda14162f73ac8679ef55"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {},
+          "selection": null,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd48ced1d08e4f4fb6cd4c5052ece2c2/lesson/evidence/0/3",
+          "sha256": "e540dbc3dd97626df51780d9a4cb30fa0c2e8713022284effaab8e7b6db5b70c"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {},
+          "selection": null,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd48ced1d08e4f4fb6cd4c5052ece2c2/lesson/evidence/0/4",
+          "sha256": "f607dcf81488e1041116f9fc02919c4953ed53641c948f8c875219cd20899053"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {},
+          "selection": null,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd48ced1d08e4f4fb6cd4c5052ece2c2/lesson/evidence/0/5",
+          "sha256": "c16042349c313f7de314f211d47a48d7ec8b7d08f6397cfa2119122dae01133f"
+        }
+      ],
+      "environment": "agentlab shared SDL desktop",
+      "observations": [
+        "Entered the original SDL practice lobby for every episode. Chose candidate positions from rendered stones; verified blue marks and saved count for task 66, or a black stone and the placed status for task 67. All episode and aggregate evaluations pass."
+      ]
+    },
+    {
+      "task_id": 66,
+      "task_version": "3.0.1",
+      "variant": "B",
+      "run_id": "fcfc8ed36fce43fdade33c303a12cd29",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/fcfc8ed36fce43fdade33c303a12cd29/evidence",
+      "sha256": "38f8fb1fcddff5c4ab09fec8690cc25428c43dd5e9d4695acb111bc385279de1",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {},
+          "selection": null,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fcfc8ed36fce43fdade33c303a12cd29/lesson/evidence/0/0",
+          "sha256": "9dd7b9b572e07571033c520d959e0bf66f21f6f29e75a03aef26a97130a1d18d"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {},
+          "selection": null,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fcfc8ed36fce43fdade33c303a12cd29/lesson/evidence/0/1",
+          "sha256": "2451f736cac97b83aedb85a65c7d9951242323d62e731c12624ee947e826f72c"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {},
+          "selection": null,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fcfc8ed36fce43fdade33c303a12cd29/lesson/evidence/0/2",
+          "sha256": "e6eaa9d43a2d3d475c05eafebe02a1754aeed001ee576fae0114c5496189e0d4"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {},
+          "selection": null,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fcfc8ed36fce43fdade33c303a12cd29/lesson/evidence/0/3",
+          "sha256": "5511f186baa270989a4bc0619bea24f194f0cf9650b00bd298fbd55ff8441f03"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {},
+          "selection": null,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fcfc8ed36fce43fdade33c303a12cd29/lesson/evidence/0/4",
+          "sha256": "735e261c9fe409738d1ef819ee02e7079421c5159154c475d274d435127ef71d"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {},
+          "selection": null,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fcfc8ed36fce43fdade33c303a12cd29/lesson/evidence/0/5",
+          "sha256": "3741c66c3534288dec260dd91fdc79e6b89a543bb4ffefb81a3c6f44fc805514"
+        }
+      ],
+      "environment": "agentlab shared SDL desktop",
+      "observations": [
+        "Entered the original SDL practice lobby for every episode. Chose candidate positions from rendered stones; verified blue marks and saved count for task 66, or a black stone and the placed status for task 67. All episode and aggregate evaluations pass."
+      ]
+    },
+    {
+      "task_id": 67,
+      "task_version": "3.0.1",
+      "variant": "B",
+      "run_id": "dc6afa0d66ad4d198c93b687a23b5019",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/dc6afa0d66ad4d198c93b687a23b5019/evidence",
+      "sha256": "545e26c3c3525e77d88c8502f67178e783b776541fbce96074b88cbbdc8f17df",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {},
+          "selection": [
+            11,
+            12
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dc6afa0d66ad4d198c93b687a23b5019/lesson/evidence/0/0",
+          "sha256": "fa19053c5035028f8b8c5f4eb51aa7b6a42fb7eab2248ea47f20d8db3970b9cd"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {},
+          "selection": [
+            11,
+            12
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dc6afa0d66ad4d198c93b687a23b5019/lesson/evidence/0/1",
+          "sha256": "2a94d833cdbdef8e24b3583dfbd8808725f350525c3d5c3a16e746f0949e5d4b"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {},
+          "selection": [
+            11,
+            12
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dc6afa0d66ad4d198c93b687a23b5019/lesson/evidence/0/2",
+          "sha256": "d09e17ce226b29c4413a093b30ffd9e48958c98ad714334a742395f1aff41b64"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {},
+          "selection": [
+            4,
+            13
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dc6afa0d66ad4d198c93b687a23b5019/lesson/evidence/0/3",
+          "sha256": "79dd20e311343175bf7a96fe10e77ab666066480a17ab7c52dadcbfdc590d11a"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {},
+          "selection": [
+            11,
+            12
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dc6afa0d66ad4d198c93b687a23b5019/lesson/evidence/0/4",
+          "sha256": "91d9bcda02e7cb2fc8fd3c5cc59e039ad19cb45b36a13da80760c10a9d15dc14"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {},
+          "selection": [
+            3,
+            12
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dc6afa0d66ad4d198c93b687a23b5019/lesson/evidence/0/5",
+          "sha256": "93761dd83bbda8c42b41a554b9ec5552bc494fc58f76e7a795c6bbe46045ca6f"
+        }
+      ],
+      "environment": "agentlab shared SDL desktop",
+      "observations": [
+        "Entered the original SDL practice lobby for every episode. Chose candidate positions from rendered stones; verified blue marks and saved count for task 66, or a black stone and the placed status for task 67. All episode and aggregate evaluations pass."
+      ],
+      "teaching_limitation": "These six 3.0.1 examples place every vertical-neighbor answer at the rightmost candidate; operational success does not certify teaching sufficiency."
+    }
+  ],
+  "verified_at": "2026-09-28T08:40:37.086943+00:00"
+}

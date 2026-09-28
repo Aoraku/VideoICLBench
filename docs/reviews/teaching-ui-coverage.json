@@ -993,6 +993,13 @@
           "variant": "C",
           "run_id": "ffd5f7b6e44d411e82d26a65cf7ade68",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-blog-final-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "7251c6ff2b3f44f39acd41707fe904b9",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -1808,6 +1815,20 @@
           "variant": "C",
           "run_id": "3d14f3be56974888b1fc5f61295f47c3",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-gomoku-complete-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "fd48ced1d08e4f4fb6cd4c5052ece2c2",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-gomoku-complete-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "fcfc8ed36fce43fdade33c303a12cd29",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -1820,6 +1841,13 @@
           "variant": "A",
           "run_id": "2de89c5378bf4886bb07426633a19795",
           "epoch": 1,
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-gomoku-complete-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "B",
+          "run_id": "dc6afa0d66ad4d198c93b687a23b5019",
           "reported_episode_count": 6
         }
       ]

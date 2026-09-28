@@ -53,6 +53,17 @@ def test_reversi_relative_minima_cannot_be_replaced_by_fixed_count_or_threshold(
     assert max(selected) >= min(other)
 
 
+@pytest.mark.parametrize('base_seed', [0, 1, 2, 3, 10, 20, 1000, 10001])
+def test_gomoku_direction_cannot_be_inferred_from_spatial_extremes(base_seed):
+    states = [fixture(67, seed) for seed in range(base_seed, base_seed + 6)]
+    for variant in 'AB':
+        choices = [expected(67, variant, state) for state in states]
+        for axis in (0, 1):
+            for extreme in (min, max):
+                assert any(point[axis] != extreme(p[axis] for p in state['candidates'])
+                           for state, point in zip(states, choices))
+
+
 def test_sudoku_row_column_and_box():
     board = [[0] * 9 for _ in range(9)]
     board[0][2] = 1

@@ -202,10 +202,14 @@ def fixture(task_id, seed):
             candidates = [(1, 4), (11, 12), (rng.randrange(5, 10), rng.randrange(5, 10))]
         # Vary spatial positions and distractors across demonstration/evaluation seeds.
         # Reflect/rotate the full board so row/column rules remain visually grounded.
-        for _ in range(rng.randrange(4)):
+        # Six consecutive teaching seeds must cover both sides of the board;
+        # random orientation alone can make every vertical answer rightmost.
+        rotations = seed % 4 if task_id == 67 else rng.randrange(4)
+        for _ in range(rotations):
             board = [list(row) for row in zip(*board[::-1])]
             candidates = [(c, 14 - r) for r, c in candidates]
-        if rng.choice([True, False]):
+        reflect = (seed // 4) % 2 == 1 if task_id == 67 else rng.choice([True, False])
+        if reflect:
             board = [row[::-1] for row in board]
             candidates = [(r, 14 - c) for r, c in candidates]
         available = [
