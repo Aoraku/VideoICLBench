@@ -898,7 +898,7 @@
         "C": "日期在前"
       },
       "original_rules": "A：歌手名在前；B：歌曲数量在前；C：日期在前",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,

@@ -1,0 +1,1467 @@
+{
+  "scope": "Native music UI actions and independent evaluation. Task 18 version 3.1.0 includes crossed dates, counts and artists. Version 3.0.0 records prove operability only. Full recording and human inference acceptance remain pending.",
+  "verified_at": "2026-09-28T06:14:39.130599+00:00",
+  "native_ui": [
+    {
+      "task_id": 17,
+      "variant": "A",
+      "task_version": "3.0.0",
+      "run_id": "9125265a459445fea5137a9fee4fefbe",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC Music preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "5af90b6cb7369e377e0ff6378027e9369a08df1769e353caf24f76ddbf0fdbee",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "morning 3 Walk",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "MORNING 3 WALK"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/9125265a459445fea5137a9fee4fefbe/lesson/evidence/0/0",
+          "sha256": "cccbed4d3483011faf232bb27ccff2bcb88d5c765b2b28dbc41aa73e16d17e32"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "summer 7 Breeze",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "SUMMER 7 BREEZE"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/9125265a459445fea5137a9fee4fefbe/lesson/evidence/0/1",
+          "sha256": "f68566e0a66000f2f3fbbb09e29b0c42d41b18b6dd18dff2e505df312a8884c4"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "city 2 Lights",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "CITY 2 LIGHTS"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/9125265a459445fea5137a9fee4fefbe/lesson/evidence/0/2",
+          "sha256": "5b4864f6bc8820ad5ba66f2e3a2380ec214d6f20f71edfc2e4c4fb3968c425fb"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "river 12 Song",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "RIVER 12 SONG"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/9125265a459445fea5137a9fee4fefbe/lesson/evidence/0/3",
+          "sha256": "865572ac131c54432fca919381324d26e915ce385e467590fe62c28bc1a8eb62"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "quiet 5 Hours",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "QUIET 5 HOURS"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/9125265a459445fea5137a9fee4fefbe/lesson/evidence/0/4",
+          "sha256": "867f5b3da6744dd4d6647e69a649b9de517b91102e121f8de4a1a730349f3ccf"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "open 14 Windows",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "OPEN 14 WINDOWS"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/9125265a459445fea5137a9fee4fefbe/lesson/evidence/0/5",
+          "sha256": "56aace5e801bd193e0399a03671ac9a51a7fd35b7f30242ee142f5a0a87238d9"
+        }
+      ]
+    },
+    {
+      "task_id": 17,
+      "variant": "B",
+      "task_version": "3.0.0",
+      "run_id": "8914b34388a34a27b34dc8a8257f004f",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC Music preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "8ebd2a2e6b7d31146e072b58a104753be3830b37cba859f240c9629e98ae1214",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "morning 3 Walk",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "morning 3 walk"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/8914b34388a34a27b34dc8a8257f004f/lesson/evidence/0/0",
+          "sha256": "91bd16f88b5c215e2a74cc386a72d33c3997152a0a0bbb721242c2e011bae306"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "summer 7 Breeze",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "summer 7 breeze"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/8914b34388a34a27b34dc8a8257f004f/lesson/evidence/0/1",
+          "sha256": "40129fbb4c7b9e9090baaf20a4656d49a59f22b17fe58884f806c8bcbf7f429f"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "city 2 Lights",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "city 2 lights"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/8914b34388a34a27b34dc8a8257f004f/lesson/evidence/0/2",
+          "sha256": "ce10fadb5b7a986723e63cb0a5f70a7771e5f4c0bf9497a9862ebbe414e61c9c"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "river 12 Song",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "river 12 song"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/8914b34388a34a27b34dc8a8257f004f/lesson/evidence/0/3",
+          "sha256": "7bc1335f0b9ad23d8a86b18321385694e72822b79b769c307058d05a96faddff"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "quiet 5 Hours",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "quiet 5 hours"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/8914b34388a34a27b34dc8a8257f004f/lesson/evidence/0/4",
+          "sha256": "9e59f3d95a31d082072b8a0c4086161cca356a0a831ddda077be50ccfa2a8ce7"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "open 14 Windows",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "open 14 windows"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/8914b34388a34a27b34dc8a8257f004f/lesson/evidence/0/5",
+          "sha256": "e636c453a4995fc2574b730fb91740afc07d99929fa3ca8c337f38cb325a8e9b"
+        }
+      ]
+    },
+    {
+      "task_id": 18,
+      "variant": "A",
+      "task_version": "3.0.0",
+      "run_id": "b9744e0c8ff941fbb45360699d5f70db",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC Music preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "4d8d5011036deb7fac0cc3d7f1e53668edc51e10de49e45826a1c81e3b1dba04",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-01",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "陈绮贞_3_2026-01-01"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b9744e0c8ff941fbb45360699d5f70db/lesson/evidence/0/0",
+          "sha256": "e8da7e68dd8aeefd023bf6729515bfa852289f2f47edeee7b5f975b8b5d23c65"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-02",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "坂本龙一_4_2026-01-02"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b9744e0c8ff941fbb45360699d5f70db/lesson/evidence/0/1",
+          "sha256": "071b72784c7a9d0a1c843f702b69cb061d9ee3fd858652bd88257eea5155db6c"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-03",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "林生祥_5_2026-01-03"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b9744e0c8ff941fbb45360699d5f70db/lesson/evidence/0/2",
+          "sha256": "e72af40e3d592d64ac1dc5ab6aa7e8128b7cfad2b442230a84834e45088799f8"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-04",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "陈绮贞_6_2026-01-04"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b9744e0c8ff941fbb45360699d5f70db/lesson/evidence/0/3",
+          "sha256": "5483df285e0fb25f20242883bd97860665c6a973de969748fd1e2acdf9694581"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-05",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "坂本龙一_7_2026-01-05"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b9744e0c8ff941fbb45360699d5f70db/lesson/evidence/0/4",
+          "sha256": "358d4ccff4c60b7aaeb6d729e540278c3c642cf7135c1ddafaaf1cbd41221418"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-06",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "林生祥_8_2026-01-06"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b9744e0c8ff941fbb45360699d5f70db/lesson/evidence/0/5",
+          "sha256": "1bc723dde55d0c3c16337a203a6cd35501cfa3a4d9aa136ab723e8f535fa4880"
+        }
+      ]
+    },
+    {
+      "task_id": 18,
+      "variant": "C",
+      "task_version": "3.0.0",
+      "run_id": "9feb33a90bcf4a2bb08a5e742af0ddaf",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC Music preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "83927936c047389dad898dd17f2bc6837f95fef1b5787f8b1c1a7806ae578f37",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-01",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "2026-01-01_陈绮贞_3"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/9feb33a90bcf4a2bb08a5e742af0ddaf/lesson/evidence/0/0",
+          "sha256": "fde072fc475ed0f60618421d47a3c4dd6bd21dbee388452bc59ad4592214e345"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-02",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "2026-01-02_坂本龙一_4"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/9feb33a90bcf4a2bb08a5e742af0ddaf/lesson/evidence/0/1",
+          "sha256": "7804fdfb5776dd242ee9df63004045218b3bef5ed15f6ea78d50e47d3e00f3d1"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-03",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "2026-01-03_林生祥_5"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/9feb33a90bcf4a2bb08a5e742af0ddaf/lesson/evidence/0/2",
+          "sha256": "06fcf0d0cacab2ad61ee01eaf6947de0c2c41d484a860b77031fe89ebfd6ed6b"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-04",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "2026-01-04_陈绮贞_6"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/9feb33a90bcf4a2bb08a5e742af0ddaf/lesson/evidence/0/3",
+          "sha256": "b45a4026c174b08160c36515cd9d0e70c392c9697696e26aacf145f4e4a1f16f"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-05",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "2026-01-05_坂本龙一_7"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/9feb33a90bcf4a2bb08a5e742af0ddaf/lesson/evidence/0/4",
+          "sha256": "8fe86a4e73923766e2227cde8dffc5f3c60708aa80635502d2c330cc71e21341"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-06",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "2026-01-06_林生祥_8"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/9feb33a90bcf4a2bb08a5e742af0ddaf/lesson/evidence/0/5",
+          "sha256": "84b08740591f84a2959bd6b3874d1f5d7bffbbc9411c143c46335b14f001d907"
+        }
+      ]
+    },
+    {
+      "task_id": 18,
+      "variant": "A",
+      "task_version": "3.1.0",
+      "run_id": "5a3ae77c8f3249e48d7ef8f13242813f",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC Music preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "ad9754302e8e2b30ac628cc27c8d84a1caac1f7e83ab3e1eb6ebc35aee9b5d3b",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-04"
+          },
+          "saved_outputs": {
+            "target": "陈绮贞_3_2026-01-04"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5a3ae77c8f3249e48d7ef8f13242813f/lesson/evidence/0/0",
+          "sha256": "0d100349a6f43a943adccfd2fa13f7825687ef13d75975591234ce1ace68ebe7"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-04"
+          },
+          "saved_outputs": {
+            "target": "坂本龙一_7_2026-01-04"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5a3ae77c8f3249e48d7ef8f13242813f/lesson/evidence/0/1",
+          "sha256": "04b4587d9a633cf404c2a359781fc0f0a8c0b122b0966e6506d80d165be7ce22"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "artist": "林生祥",
+            "count": 3,
+            "date": "2026-01-17"
+          },
+          "saved_outputs": {
+            "target": "林生祥_3_2026-01-17"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5a3ae77c8f3249e48d7ef8f13242813f/lesson/evidence/0/2",
+          "sha256": "8b36336bd685e888d67eb33dd5c458a9e44fb60420c744fab482fc7d570416e7"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "artist": "陈绮贞",
+            "count": 5,
+            "date": "2026-01-17"
+          },
+          "saved_outputs": {
+            "target": "陈绮贞_5_2026-01-17"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5a3ae77c8f3249e48d7ef8f13242813f/lesson/evidence/0/3",
+          "sha256": "e37552b94a5f66ee4e961eddbbbe3d4b1b51b0915862488ec7ed847a3fd13642"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "artist": "林生祥",
+            "count": 7,
+            "date": "2026-01-26"
+          },
+          "saved_outputs": {
+            "target": "林生祥_7_2026-01-26"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5a3ae77c8f3249e48d7ef8f13242813f/lesson/evidence/0/4",
+          "sha256": "bc328eb4f42dfb7629d2184da63d43c3e2d35dfefa271d42d56b225639dca01a"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "artist": "坂本龙一",
+            "count": 5,
+            "date": "2026-01-26"
+          },
+          "saved_outputs": {
+            "target": "坂本龙一_5_2026-01-26"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5a3ae77c8f3249e48d7ef8f13242813f/lesson/evidence/0/5",
+          "sha256": "4c82b9cccb6c16b11f066a0616afafa2849e71a5657e1061e83468b0c187c5dd"
+        }
+      ]
+    },
+    {
+      "task_id": 18,
+      "variant": "B",
+      "task_version": "3.1.0",
+      "run_id": "afb2cc2a3db748a69c1f3c2919cc0e99",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC Music preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "439b94bed7fdb4bdcdce16e9ac8c455f5be39dfc2c2566a2a920b528e27106dd",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-04"
+          },
+          "saved_outputs": {
+            "target": "3_2026-01-04_陈绮贞"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/afb2cc2a3db748a69c1f3c2919cc0e99/lesson/evidence/0/0",
+          "sha256": "d8e6c7b9370dd14dbcf331019f2ba786d53df1e93c557e8e694f572526d57ebd"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-04"
+          },
+          "saved_outputs": {
+            "target": "7_2026-01-04_坂本龙一"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/afb2cc2a3db748a69c1f3c2919cc0e99/lesson/evidence/0/1",
+          "sha256": "93ddf72a7ab9ba3ed74026ffe43b4577f414973699681428e60a869d1b07cea2"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "artist": "林生祥",
+            "count": 3,
+            "date": "2026-01-17"
+          },
+          "saved_outputs": {
+            "target": "3_2026-01-17_林生祥"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/afb2cc2a3db748a69c1f3c2919cc0e99/lesson/evidence/0/2",
+          "sha256": "8c495555b65d3d850bbe740ae32802452972b140e31ba94bed468f924ebce1ce"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "artist": "陈绮贞",
+            "count": 5,
+            "date": "2026-01-17"
+          },
+          "saved_outputs": {
+            "target": "5_2026-01-17_陈绮贞"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/afb2cc2a3db748a69c1f3c2919cc0e99/lesson/evidence/0/3",
+          "sha256": "886eb4ea4ea93f9401dfc30a41c63494fd9b08749eaee1caf5ae9360fab74994"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "artist": "林生祥",
+            "count": 7,
+            "date": "2026-01-26"
+          },
+          "saved_outputs": {
+            "target": "7_2026-01-26_林生祥"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/afb2cc2a3db748a69c1f3c2919cc0e99/lesson/evidence/0/4",
+          "sha256": "07072739094a25874240525b050f4cfd19c0dd84c2c88addc4fad7f48184f64c"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "artist": "坂本龙一",
+            "count": 5,
+            "date": "2026-01-26"
+          },
+          "saved_outputs": {
+            "target": "5_2026-01-26_坂本龙一"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/afb2cc2a3db748a69c1f3c2919cc0e99/lesson/evidence/0/5",
+          "sha256": "dd0ec4f87a575591056b8c89e15826344809cdb1a11826547b5a81e463ad5102"
+        }
+      ]
+    },
+    {
+      "task_id": 18,
+      "variant": "C",
+      "task_version": "3.1.0",
+      "run_id": "ec25573e3e7e4083b325bc104fe91cca",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC Music preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "3a99e4391c4490c285179133bf3c4f520a1ed20da838881495bbe423442d1f91",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-04"
+          },
+          "saved_outputs": {
+            "target": "2026-01-04_陈绮贞_3"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ec25573e3e7e4083b325bc104fe91cca/lesson/evidence/0/0",
+          "sha256": "77467ff2b21bcbf1ce00ecd57dd8d82c3826ef3849cbb715d87ad8924695f520"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-04"
+          },
+          "saved_outputs": {
+            "target": "2026-01-04_坂本龙一_7"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ec25573e3e7e4083b325bc104fe91cca/lesson/evidence/0/1",
+          "sha256": "2a9529c3779099f58fb8e6779930c1ff939d1cad4e93f936a7f67de96f0942a2"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "artist": "林生祥",
+            "count": 3,
+            "date": "2026-01-17"
+          },
+          "saved_outputs": {
+            "target": "2026-01-17_林生祥_3"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ec25573e3e7e4083b325bc104fe91cca/lesson/evidence/0/2",
+          "sha256": "58c28cf0f39fea2cbcf7023c585015bfd1ac91d3a25677153cd2e3946e0186e0"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "artist": "陈绮贞",
+            "count": 5,
+            "date": "2026-01-17"
+          },
+          "saved_outputs": {
+            "target": "2026-01-17_陈绮贞_5"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ec25573e3e7e4083b325bc104fe91cca/lesson/evidence/0/3",
+          "sha256": "6a901610fc461a107d67179547d103567cb667e37226b68235807f05e95fc8ba"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "artist": "林生祥",
+            "count": 7,
+            "date": "2026-01-26"
+          },
+          "saved_outputs": {
+            "target": "2026-01-26_林生祥_7"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ec25573e3e7e4083b325bc104fe91cca/lesson/evidence/0/4",
+          "sha256": "2f36eff4a18a8acc3be3cad8059402b7a3ba8cba7880b5bb5bb98ff587994cb8"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "artist": "坂本龙一",
+            "count": 5,
+            "date": "2026-01-26"
+          },
+          "saved_outputs": {
+            "target": "2026-01-26_坂本龙一_5"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ec25573e3e7e4083b325bc104fe91cca/lesson/evidence/0/5",
+          "sha256": "d2dc42f781b117627acc32d86c470a6109c410f7217db683711c0e87ab63af84"
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "full_suite_passed": 1254,
+    "full_suite_failed": 0,
+    "playlist_field_crossing_regression": "tests/test_lessons.py::test_playlist_naming_examples_separate_date_count_and_artist",
+    "recorded_video_verified": false
+  }
+}

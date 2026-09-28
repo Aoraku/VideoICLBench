@@ -217,3 +217,18 @@ def test_editing_lessons_have_six_distinct_sources():
     for task in (1,2,3,4,17,18,19,20,21,36,37,44,45,46,58,59,60):
         values=[generate(task,seed)['source'] for seed in seeds_for(task,0)]
         assert len({json.dumps(s,sort_keys=True) for s in values})==6,task
+
+
+def test_playlist_naming_examples_separate_date_count_and_artist():
+    from vic.business import generate
+    for first_seed in (0, 10, 20, 1000, 10000):
+        sources = [generate(18, first_seed + index)['source'] for index in range(6)]
+        for field, other in (('date', 'count'), ('count', 'date'),
+                             ('artist', 'count'), ('artist', 'date')):
+            groups = {}
+            for source in sources:
+                groups.setdefault(source[field], set()).add(source[other])
+            assert all(len(values) >= 2 for values in groups.values()), (first_seed, field, other)
+    demos = {generate(18, seed)['source']['artist'] for seed in range(6)}
+    queries = {generate(18, seed)['source']['artist'] for seed in range(1000, 1006)}
+    assert demos.isdisjoint(queries)

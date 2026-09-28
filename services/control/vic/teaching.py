@@ -345,7 +345,13 @@ def enrich(id_, seed, items, source, rng):
     if id_ in (17,36):
         source['text'] = (['morning 3 Walk','summer 7 Breeze','city 2 Lights','river 12 Song','quiet 5 Hours','open 14 Windows'] if demo else ['autumn 8 Lanterns','winter 6 Letters','orange 9 Moon','green 10 Fields','ocean 11 Drive','first 4 Snow'])[seed % 6]
     if id_ == 18:
-        source['date'] = f"2026-{1 if demo else 2:02d}-{1+seed%27:02d}"
+        # Cross the naming fields so the song count cannot be inferred from
+        # the date, and repeated dates do not prescribe a single song count.
+        example = seed % 6
+        source['count'] = [3, 7, 3, 5, 7, 5][example] + (0 if demo else 1)
+        source['date'] = f"2026-{1 if demo else 2:02d}-{[4, 4, 17, 17, 26, 26][example]:02d}"
+        artists = ['陈绮贞', '坂本龙一', '林生祥'] if demo else ['张悬', '久石让', '陈建年']
+        source['artist'] = artists[[0, 1, 2, 0, 2, 1][example]]
     if id_ == 19:
         source['text'] = (['城市更新观察：街区如何变得更宜居？', '周末书单 (2026)：阅读与城市。',
                            'Night Walk! 老街新增 3 处照明', '社区手记——一起种花',

@@ -1,0 +1,1716 @@
+{
+  "scope": "Native UI actions and independent evaluation for tasks 1 and 2, A/B/C, six episodes each. Full recording and human inference acceptance remain pending.",
+  "verified_at": "2026-09-28T06:07:18.168476+00:00",
+  "native_ui": [
+    {
+      "task_id": 1,
+      "variant": "A",
+      "run_id": "93fb9a0330a94ca7af1bee03514201c3",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC Chat preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "c96e9e33ae51127f238377f22b0003d6c28fde0f3743433d8a6ea27ba2e073d9",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "pLeAsE rEVIEW the DESIGN draft",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "pLEASE REVIEW THE DESIGN DRAFT"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/93fb9a0330a94ca7af1bee03514201c3/lesson/evidence/0/0",
+          "sha256": "9e8341fefbf7ff1c91372927a65caafb11a1b04270c1494ef1dc1a2240dfba2b"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "cONFIRM",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "cONFIRM"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/93fb9a0330a94ca7af1bee03514201c3/lesson/evidence/0/1",
+          "sha256": "0c04826158f21017040c8936588b624badef22543fa9d058ba35a2967bc1c2ad"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "share The weekly REPORT",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "sHARE THE WEEKLY REPORT"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/93fb9a0330a94ca7af1bee03514201c3/lesson/evidence/0/2",
+          "sha256": "0b979b92caf96e948402b9d16d4a10a4b3025b531710ed73c59edcaeb6ad40fb"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "BRING the Updated Budget",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "bRING THE UPDATED BUDGET"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/93fb9a0330a94ca7af1bee03514201c3/lesson/evidence/0/3",
+          "sha256": "0a6b5cd4da6b6644675c11da7785053408363ce9c26c3dfaff3b0b8281ae6dbc"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "check Delivery NOTES carefully",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "cHECK DELIVERY NOTES CAREFULLY"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/93fb9a0330a94ca7af1bee03514201c3/lesson/evidence/0/4",
+          "sha256": "857bcbbfae8e69bd2c2ef37fca16a828d1f5480e80fafc02c3107459f97d7c35"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "sChEdUlE",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "sCHEDULE"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/93fb9a0330a94ca7af1bee03514201c3/lesson/evidence/0/5",
+          "sha256": "c1a80ec9c161be0900b468be3f70577664e0a5cc17207ac08ae07ad4cc23f34c"
+        }
+      ]
+    },
+    {
+      "task_id": 1,
+      "variant": "B",
+      "run_id": "306d80c157b94b61be76ff50fbf75e0c",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC Chat preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "d0ee6e91986d7514c158e4e620011486b9b50ac70f63cadc32b9d32e8fbfa238",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "pLeAsE rEVIEW the DESIGN draft",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "Please review the design draft"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/306d80c157b94b61be76ff50fbf75e0c/lesson/evidence/0/0",
+          "sha256": "1fb36374dea42e55a8ee0d8d71c7b753c6520ba897f6bbfadb28075214f75d14"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "cONFIRM",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "Confirm"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/306d80c157b94b61be76ff50fbf75e0c/lesson/evidence/0/1",
+          "sha256": "6d73d08ef0f4337f0dd702f7d0170cf9d906a538ffcefe2ffbf7b498bbb7d88a"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "share The weekly REPORT",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "Share the weekly report"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/306d80c157b94b61be76ff50fbf75e0c/lesson/evidence/0/2",
+          "sha256": "161a9dd3022d1e14fd59f59f1ef1772a1587706110934287fac496c2f5840346"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "BRING the Updated Budget",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "Bring the updated budget"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/306d80c157b94b61be76ff50fbf75e0c/lesson/evidence/0/3",
+          "sha256": "34f40a3db6a7e8a832bdd11c3b069a82acf332ee04360a1423fc0e4051ad4f53"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "check Delivery NOTES carefully",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "Check delivery notes carefully"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/306d80c157b94b61be76ff50fbf75e0c/lesson/evidence/0/4",
+          "sha256": "823e00f6eed88b510af1844a16c25b4cacaf73f817fab7687868f79dc6a27640"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "sChEdUlE",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "Schedule"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/306d80c157b94b61be76ff50fbf75e0c/lesson/evidence/0/5",
+          "sha256": "38a6b8be38936bc11d003f03e4a5b87ef41a8d88b2ccdbddd0b1e1333f84b5f4"
+        }
+      ]
+    },
+    {
+      "task_id": 1,
+      "variant": "C",
+      "run_id": "dfe37e8d107f411c8cc584351489a790",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC Chat preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "06026d017c51f25ada2403ec63c622eec26353e19ce2061d780014e1f2b915e0",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "pLeAsE rEVIEW the DESIGN draft",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "Please Review The Design Draft"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dfe37e8d107f411c8cc584351489a790/lesson/evidence/0/0",
+          "sha256": "4442124cd8ff2899e3e7a81aed1b5e35fa1532c8222c92d536077c9d9e4a4638"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "cONFIRM",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "Confirm"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dfe37e8d107f411c8cc584351489a790/lesson/evidence/0/1",
+          "sha256": "870b3d66b96551c16ae651e3c9ce2357c38d1ad2c323cc1daa445a9e7cc18b4b"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "share The weekly REPORT",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "Share The Weekly Report"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dfe37e8d107f411c8cc584351489a790/lesson/evidence/0/2",
+          "sha256": "fbf5ad151deabfe9d89311c975ee6474c751b529db3ffe11a7e124e294b4c51a"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "BRING the Updated Budget",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "Bring The Updated Budget"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dfe37e8d107f411c8cc584351489a790/lesson/evidence/0/3",
+          "sha256": "9dfaccc66719c1e516db3501667d4a6d5ad1aeecf7577b4cf8aef6a3121aa749"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "check Delivery NOTES carefully",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "Check Delivery Notes Carefully"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dfe37e8d107f411c8cc584351489a790/lesson/evidence/0/4",
+          "sha256": "7f8cad1d38b4e1fb0ff28ac18fb055d4e911826d821e72ba984964f68a9918c7"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "sChEdUlE",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "Schedule"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dfe37e8d107f411c8cc584351489a790/lesson/evidence/0/5",
+          "sha256": "7b1ef039edec53894737891bff24ddd3602d150a255679c560c8ed279d69eb22"
+        }
+      ]
+    },
+    {
+      "task_id": 2,
+      "variant": "A",
+      "run_id": "934cdb11911e4714ac5d1ea626f0157d",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC Chat preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "2485f20afaac7e1638d848ea876a57b31e067d1e41183206f75b3a8b689328c7",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Anna Wen",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "AnnaWen"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/934cdb11911e4714ac5d1ea626f0157d/lesson/evidence/0/0",
+          "sha256": "7d7213afee17da74998bb41c29637201dd458e1b053a9400d637873da1769df7"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Chloe  Lin",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "ChloeLin"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/934cdb11911e4714ac5d1ea626f0157d/lesson/evidence/0/1",
+          "sha256": "e0c1744337abb3cc3a061ffee7bd539deefce0b15fa4414e005758d64347324d"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "eMMA",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "eMMA"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/934cdb11911e4714ac5d1ea626f0157d/lesson/evidence/0/2",
+          "sha256": "e9f06b5ddf8cafcb473e47a37e0486e4813a01a0cae67d2a3f430c79358396c1"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Noah   Li",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "NoahLi"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/934cdb11911e4714ac5d1ea626f0157d/lesson/evidence/0/3",
+          "sha256": "a164ada0ed8b96827d5517846649338c3c3cbd495022add44e9cc965782d6874"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Mia  Chen Han",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "MiaChenHan"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/934cdb11911e4714ac5d1ea626f0157d/lesson/evidence/0/4",
+          "sha256": "a16f7905548d3b3e981fa4b9c7a7f9ccbc0a28c9e7a7d72b621de3df7c90fc9a"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "LILY HE",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "LILYHE"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/934cdb11911e4714ac5d1ea626f0157d/lesson/evidence/0/5",
+          "sha256": "d0ed3d274017c92237007dd5ac5e020e0e6bf69db5537ba565114c06fcb19427"
+        }
+      ]
+    },
+    {
+      "task_id": 2,
+      "variant": "B",
+      "run_id": "fd09400d6af1466dbad1b07ddb30c942",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC Chat preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "4f98234fecf24cbfebec6e68aaeda2cda1841414c0542a79b6e2b00288923c57",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Anna Wen",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "Anna_Wen"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd09400d6af1466dbad1b07ddb30c942/lesson/evidence/0/0",
+          "sha256": "08be4317f1177b234aa206880be5f0a01da1fb8d17df76f32f84161c4a2935d1"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Chloe  Lin",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "Chloe__Lin"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd09400d6af1466dbad1b07ddb30c942/lesson/evidence/0/1",
+          "sha256": "aa9dea6f640c6fea2a97d9ab8a87dea7e9372c008373fb4c337333c2257a4b90"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "eMMA",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "eMMA"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd09400d6af1466dbad1b07ddb30c942/lesson/evidence/0/2",
+          "sha256": "dca0c63dc23cb3e8c0d2cb76f3936328ae2460780ce0ceee459853558321c828"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Noah   Li",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "Noah___Li"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd09400d6af1466dbad1b07ddb30c942/lesson/evidence/0/3",
+          "sha256": "b20d338a418d37c1423b3bb6718317dca03104ca05ea0736f8e80c34be854d45"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Mia  Chen Han",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "Mia__Chen_Han"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd09400d6af1466dbad1b07ddb30c942/lesson/evidence/0/4",
+          "sha256": "fc651695218a0faf9bc75ce59f6b3ab9bf2a11e0e82120b14901d26c1ae1fb36"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "LILY HE",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "LILY_HE"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd09400d6af1466dbad1b07ddb30c942/lesson/evidence/0/5",
+          "sha256": "3cdba5d851136a0dd5d56c70806c65711eda4155e06a5e3b5c1760aa03dcbf49"
+        }
+      ]
+    },
+    {
+      "task_id": 2,
+      "variant": "C",
+      "run_id": "47ffac401d7b463a9af089258d90f584",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC Chat preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "8345bd1520e3bec37bba991ad245c97d4545a43780999d98a1d474a9134c45a1",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Anna Wen",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "anna wen"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/47ffac401d7b463a9af089258d90f584/lesson/evidence/0/0",
+          "sha256": "819e7770333fdeab0d190f39481d8a16ca678fc43f07f403bf0e53178cf68dee"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Chloe  Lin",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "chloe  lin"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/47ffac401d7b463a9af089258d90f584/lesson/evidence/0/1",
+          "sha256": "e8ed25c343d843cecc06337242ee1910d9e7f4da66bc51b34d4ea606f0c1d196"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "eMMA",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "emma"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/47ffac401d7b463a9af089258d90f584/lesson/evidence/0/2",
+          "sha256": "66ac98810636093ebe632b4e0f51e9af3ae6262721fe769edcbb215a38c700cf"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Noah   Li",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Lin",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "noah   li"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/47ffac401d7b463a9af089258d90f584/lesson/evidence/0/3",
+          "sha256": "a0d26310ee4f250eaaabfe296a0f656ffac20d2f2d6c3d9b73308d4145675153"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Mia  Chen Han",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Wang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "mia  chen han"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/47ffac401d7b463a9af089258d90f584/lesson/evidence/0/4",
+          "sha256": "59602657e3d80f7a06ca35b88e4386cd5c792389783f6eb4777564f2960a5e1d"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "LILY HE",
+            "threshold": 50,
+            "text_threshold": 15,
+            "code_threshold": 25,
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "publisher": "Echo",
+            "publisher_short": "EC:",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ],
+            "surname": "Zhang",
+            "given_name": "Mei",
+            "quantity": 3,
+            "keyword": "紧急",
+            "letter": "a",
+            "tag": "focus",
+            "function": "solve",
+            "fixed_reply": "已确认",
+            "recipient": "林若宁",
+            "rename_targets": [
+              "value",
+              "total"
+            ],
+            "reference_time": "2026-01-15T12:00:00Z",
+            "transaction_window": {
+              "start": "2025-12-17",
+              "end": "2026-01-15",
+              "days": 30
+            }
+          },
+          "saved_outputs": {
+            "target": "lily he"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/47ffac401d7b463a9af089258d90f584/lesson/evidence/0/5",
+          "sha256": "62bc979ec558035ed8c813ed277d134bc9d1250c3e9190fe5406626c60270556"
+        }
+      ]
+    }
+  ],
+  "observations": [
+    "Task 1 B and C differ on multiword messages; single-word agreements are retained as contrast examples.",
+    "Task 2 preserves identity 林若宁 separately from editable remarks. Each variant includes zero, one, two and three consecutive spaces.",
+    "Task 2 A episode 0 remains saved after a browser reload.",
+    "Each task 2 save is checked in the visible contact detail before advancing."
+  ]
+}

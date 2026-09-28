@@ -13,6 +13,27 @@
           "variant": "A",
           "run_id": "8ec0778802914ec6a5c37c01513bb08a",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-chat-text-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "93fb9a0330a94ca7af1bee03514201c3",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-chat-text-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "306d80c157b94b61be76ff50fbf75e0c",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-chat-text-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "C",
+          "run_id": "dfe37e8d107f411c8cc584351489a790",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -25,6 +46,27 @@
           "variant": "B",
           "run_id": "ad792ae39c714feeb1bf8611f8310283",
           "reported_episode_count": null
+        },
+        {
+          "file": "teaching-chat-text-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "A",
+          "run_id": "934cdb11911e4714ac5d1ea626f0157d",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-chat-text-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "B",
+          "run_id": "fd09400d6af1466dbad1b07ddb30c942",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-chat-text-ui-validation.json",
+          "json_pointer": "/native_ui/5",
+          "variant": "C",
+          "run_id": "47ffac401d7b463a9af089258d90f584",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -408,6 +450,20 @@
           "variant": "C",
           "run_id": "7de6947d1b004961a2987e39262df690",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-music-text-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "9125265a459445fea5137a9fee4fefbe",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-music-text-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "8914b34388a34a27b34dc8a8257f004f",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -419,6 +475,41 @@
           "json_pointer": "/native_ui/1",
           "variant": "B",
           "run_id": "c64194b706a84128a91a787a29b19bae",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-music-text-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "A",
+          "run_id": "b9744e0c8ff941fbb45360699d5f70db",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-music-text-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "C",
+          "run_id": "9feb33a90bcf4a2bb08a5e742af0ddaf",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-music-text-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "A",
+          "run_id": "5a3ae77c8f3249e48d7ef8f13242813f",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-music-text-ui-validation.json",
+          "json_pointer": "/native_ui/5",
+          "variant": "B",
+          "run_id": "afb2cc2a3db748a69c1f3c2919cc0e99",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-music-text-ui-validation.json",
+          "json_pointer": "/native_ui/6",
+          "variant": "C",
+          "run_id": "ec25573e3e7e4083b325bc104fe91cca",
           "reported_episode_count": 6
         }
       ]
