@@ -1,15 +1,10 @@
 {
   "scope": "Index of task-specific browser observations recorded in review artifacts. Presence does not imply complete A/B/C coverage, current-version replay, recorded-video verification, or human inference acceptance. Null episode counts mean the source has no explicit episode count.",
   "task_count": 75,
-  "tasks_with_indexed_browser_evidence": 58,
+  "tasks_with_indexed_browser_evidence": 63,
   "tasks_without_indexed_browser_evidence": [
-    21,
-    25,
-    26,
     28,
     32,
-    34,
-    35,
     59,
     61,
     62,
@@ -467,7 +462,29 @@
     },
     {
       "task_id": 21,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-media-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "A",
+          "run_id": "ab62f239c1474762931da6750125cff3",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-media-ui-validation.json",
+          "json_pointer": "/native_ui/7",
+          "variant": "B",
+          "run_id": "8bf9c0f5290f4f0f8386585154bb1def",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-media-ui-validation.json",
+          "json_pointer": "/native_ui/8",
+          "variant": "C",
+          "run_id": "073cb4f130f24e1597ea3eb57cb69aa2",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 22,
@@ -507,11 +524,55 @@
     },
     {
       "task_id": 25,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-media-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "c234a78e49fe4ed597c91f7fddcfb76a",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-media-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "621de27c8d574796ae0d19315d48fd7c",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-media-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "C",
+          "run_id": "25163ab007fb456093f08e745f9e63b8",
+          "reported_episode_count": 1
+        }
+      ]
     },
     {
       "task_id": 26,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-media-ui-validation.json",
+          "json_pointer": "/native_ui/9",
+          "variant": "A",
+          "run_id": "97eec2de2c27453eb7edc01c4b09f18f",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-media-ui-validation.json",
+          "json_pointer": "/native_ui/10",
+          "variant": "B",
+          "run_id": "ea329404f3d644c58d12a33503ad6c2e",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-media-ui-validation.json",
+          "json_pointer": "/native_ui/11",
+          "variant": "C",
+          "run_id": "31188d29895f42cb8e06a35954b2fe30",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 27,
@@ -604,11 +665,55 @@
     },
     {
       "task_id": 34,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-media-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "A",
+          "run_id": "6eb33a30977c443b89c3bffa510c4995",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-media-ui-validation.json",
+          "json_pointer": "/native_ui/5",
+          "variant": "B",
+          "run_id": "e6b5e615f00642dfb30b46556bc4f60b",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-media-ui-validation.json",
+          "json_pointer": "/native_ui/6",
+          "variant": "C",
+          "run_id": "21478a61b5f346fe9fbbe96579759efd",
+          "reported_episode_count": 1
+        }
+      ]
     },
     {
       "task_id": 35,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-media-ui-validation.json",
+          "json_pointer": "/native_ui/12",
+          "variant": "A",
+          "run_id": "0003b227e6c14ae9b14903560c81de20",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-media-ui-validation.json",
+          "json_pointer": "/native_ui/13",
+          "variant": "B",
+          "run_id": "86fd1cd9f7d84b108e497cfb083c1eb1",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-media-ui-validation.json",
+          "json_pointer": "/native_ui/14",
+          "variant": "C",
+          "run_id": "9b59905019b84ab9b7216293468c4688",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 36,

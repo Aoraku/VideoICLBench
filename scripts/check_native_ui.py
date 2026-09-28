@@ -7,7 +7,7 @@ same persisted domain records as the production evaluator.
 import asyncio, json, os, secrets, sys, time, re
 from pathlib import Path
 import httpx, uvicorn
-from playwright.async_api import async_playwright
+from playwright.async_api import async_playwright, expect
 from vic.config import ROOT
 from vic.business import generate, expected_effect
 from vic_apps.domain import initialize
@@ -182,7 +182,13 @@ async def main():
            else:
             await click(page.get_by_text('林若宁',exact=True).first);await page.wait_for_timeout(300)
             for target,value in effect['actions']:
+             # Ant menus remain visible during their closing animation. Wait for
+             # the prior popup before locating the next message's menu item.
+             await expect(page.get_by_role('menu')).to_have_count(0)
              bubble=page.get_by_text(initial['domain']['objects'][target]['text'],exact=True);await bubble.scroll_into_view_if_needed();box=await bubble.bounding_box();await page.mouse.click(box['x']+15,box['y']+15,button='right');await click(page.get_by_role('menuitem',name={'已读':'确认已读','星标':'星标消息','回复':'回复'}[value],exact=True))
+             await expect(page.get_by_role('menu')).to_have_count(0)
+             if value in ('已读','星标'):
+              await bubble.locator('..').get_by_text('✓ 已确认阅读' if value=='已读' else '★ 已星标',exact=True).wait_for()
              if value=='回复':await text(page.locator('textarea:not([aria-hidden="true"])'),s['source']['fixed_reply']);await click(page.get_by_role('button',name=re.compile(r'发\s*送')))
           elif module=='code':
            if t in (59,60,65):

@@ -12,6 +12,18 @@ from test_api import admin
 from test_direct_applications import credential
 
 
+@pytest.mark.parametrize('task_id', [12, 28, 35])
+@pytest.mark.parametrize('base_seed', [0, 10, 37, 1000, 10000])
+def test_sorting_lessons_require_an_observable_rearrangement(task_id, base_seed):
+    for seed in range(base_seed, base_seed + 6):
+        initial = business.generate(task_id, seed)
+        for variant in 'ABC':
+            desired = business.expected_effect(task_id, variant, initial)['order']
+            assert desired != initial['order']
+            state = business.apply_mutation(initial, 'order', ids=desired)
+            assert business.evaluate(initial, state, variant, [{'op':'order'}])['success']
+
+
 @pytest.mark.parametrize('task_id', [31, 47, 51])
 @pytest.mark.parametrize('base_seed', [0, 10, 20, 37, 1000])
 def test_shortest_duration_lessons_rule_out_constant_values_and_thresholds(task_id, base_seed):

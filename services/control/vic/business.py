@@ -644,6 +644,12 @@ def generate(id_, seed):
         signatures = [
             json.dumps(expected_effect(id_, v, public), sort_keys=True) for v in "ABC"
         ]
+        # A sorting demonstration needs an actual rearrangement. An already
+        # solved queue teaches nothing and cannot satisfy the action evidence.
+        if id_ in (12, 28, 35) and any(
+            ordering(id_, v, items) == public["order"] for v in range(3)
+        ):
+            continue
         from .teaching import BATCH_TASKS
         if seed < 1000 and id_ in BATCH_TASKS and id_ != 30:
             effects = [expected_effect(id_, v, public) for v in "ABC"]

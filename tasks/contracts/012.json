@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 12,
-  "task_version": "3.1.0",
+  "task_version": "3.1.1",
   "title": "通讯 A：整理会话列表顺序",
   "app": "chat",
   "type": "S",

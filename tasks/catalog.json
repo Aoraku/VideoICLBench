@@ -586,7 +586,7 @@
         "C": "按会话名反向字母序"
       },
       "original_rules": "A：按未读数降序；B：按最近消息升序；C：按会话名反向字母序",
-      "version": "3.1.0",
+      "version": "3.1.1",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -1418,7 +1418,7 @@
         "C": "按歌手名反向排序"
       },
       "original_rules": "A：按发行年份升序；B：按时长降序；C：按歌手名反向排序",
-      "version": "3.0.0",
+      "version": "3.0.1",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -1782,7 +1782,7 @@
         "C": "按指定标签交替插入"
       },
       "original_rules": "A：每个短视频后插入一个长视频；B：每个长视频后插入一个短视频；C：按指定标签交替插入",
-      "version": "3.0.0",
+      "version": "3.0.1",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
