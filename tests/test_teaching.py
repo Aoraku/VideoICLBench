@@ -12,6 +12,20 @@ from test_api import admin
 from test_direct_applications import credential
 
 
+@pytest.mark.parametrize('task_id', [31, 47, 51])
+@pytest.mark.parametrize('base_seed', [0, 10, 20, 37, 1000])
+def test_shortest_duration_lessons_rule_out_constant_values_and_thresholds(task_id, base_seed):
+    choices, others = [], []
+    for seed in range(base_seed, base_seed + 6):
+        values = [item['duration'] for item in business.generate(task_id, seed)['items']]
+        assert len(values) == len(set(values)) == 6
+        assert all(0 < value < 1200 for value in values)
+        choices.append(min(values))
+        others.extend(value for value in values if value != min(values))
+    assert len(set(choices)) == 6
+    assert max(choices) > min(others)
+
+
 @pytest.mark.parametrize('task_id', sorted(BATCH_TASKS))
 def test_demonstrations_are_larger_than_queries(task_id):
     for seed in (0, 1, 2):

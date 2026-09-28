@@ -61,6 +61,15 @@ def inspect_lesson(task, base_seed):
         if task_id in (37,59) and min(coverage['line_counts']) < 6:
             risks.append('insufficient_multiline_examples')
     if task_id < 66:
+        if task_id in (31, 47, 51):
+            minima = [min(item['duration'] for item in state['items']) for state in states]
+            distractors = [item['duration'] for state, minimum in zip(states, minima)
+                           for item in state['items'] if item['duration'] != minimum]
+            report['minimum_duration_series'] = minima
+            if len(set(minima)) < 3:
+                risks.append('fixed_or_near_fixed_shortest_duration')
+            if max(minima) < min(distractors):
+                risks.append('fixed_duration_threshold_explains_minimum')
         material_field = {5:'text',13:'text',16:'text',39:'text',42:'name',43:'code',49:'text',56:'name',65:'code'}.get(task_id)
         if material_field:
             counts = [len({item[material_field] for item in state['items']}) for state in states]

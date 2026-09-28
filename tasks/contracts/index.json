@@ -2865,7 +2865,7 @@
     {
       "schema_version": 1,
       "task_id": 31,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "视频：从推荐列表选择视频",
       "app": "media",
       "type": "S",
@@ -4398,7 +4398,7 @@
     {
       "schema_version": 1,
       "task_id": 47,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "旅游：给出行方案分类",
       "app": "travel",
       "type": "C",
@@ -4778,7 +4778,7 @@
     {
       "schema_version": 1,
       "task_id": 51,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "旅游：从路线列表选择方案",
       "app": "travel",
       "type": "S",

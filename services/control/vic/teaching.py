@@ -92,6 +92,15 @@ def enrich(id_, seed, items, source, rng):
     assign('unread', [0, 3, 0, 7, 2, 0])
     assign('members', [4, 5, 6, 3, 8, 9])
     assign('duration', [119, 240, 301, 599, 600, 721])
+    if id_ in (31, 47, 51):
+        # Across a lesson, a chosen minimum must exceed distractors in other
+        # episodes so that a fixed value or threshold cannot explain selection.
+        durations_rng = random.Random(81000 + id_ * 100000 + seed)
+        minimum = [90, 450, 210, 630, 300, 150][seed % 6] + durations_rng.randrange(30)
+        durations = [minimum] + [minimum + offset for offset in durations_rng.sample(range(1, 241), 5)]
+        durations_rng.shuffle(durations)
+        for item, duration in zip(items, durations):
+            item['duration'] = duration
     assign('age_days', [0, 3, 4, 7, 1, 5])
     assign('transfers', [0, 1, 2, 3, 4, 5])
     assign('tag_count', [0, 1, 2, 3, 4, 5])

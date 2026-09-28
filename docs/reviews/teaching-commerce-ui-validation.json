@@ -1,0 +1,737 @@
+{
+  "scope": "Local native browser actions and independent evaluation for travel, shop, bank and minimum-duration media lessons. Not recorded-video or human inference acceptance.",
+  "tests": {
+    "passed": 945,
+    "failed": 0,
+    "portal_build": true
+  },
+  "native_ui": [
+    {
+      "task_id": 44,
+      "variant": "C",
+      "run_id": "68cc215d12dd441a928fcf52da49a091",
+      "epoch": 0,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "15f795e01b4e91e89e7569379456c7c22d45c32188e7090855d904f2eabf5b3b",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "LIN MEI"
+        },
+        {
+          "index": 1,
+          "sha256": "8d8c5d0fda7ab30fa44fda5abe51ace3fb662c38b08bd7ec46e404370b72e516",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "WANG RUO NING"
+        },
+        {
+          "index": 2,
+          "sha256": "3742ef5cc40c4742eb742032587dd2497319a9319ac6f5f2dc974e224b6e6598",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "ZHANG ZI AN"
+        },
+        {
+          "index": 3,
+          "sha256": "3ed9504cdfc6889ce84eaf100f9c63efc5491ee84afb5cb8011e188caf748bd2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "LIN YU CHEN"
+        },
+        {
+          "index": 4,
+          "sha256": "aa5665421a965e72cd81382a15706b66a3f72290184ec476e970ec3cfccd0a8e",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "WANG XIAO MAN"
+        },
+        {
+          "index": 5,
+          "sha256": "6a2208842e2ec87ab71932ae54c5419cfd9b1921a141aee01dbdbb6ff67a66c3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "ZHANG JIA HE"
+        }
+      ],
+      "episode_count": 6
+    },
+    {
+      "task_id": 45,
+      "variant": "A",
+      "run_id": "2bfa1d7dbbb94c18b3ea0877569af82d",
+      "epoch": 0,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "fb34a67691eab27f58d8171d9ff5be136391dce34dc8cf14a3deb9f4982b45a6",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "2帆布通勤背包"
+        },
+        {
+          "index": 1,
+          "sha256": "01690c8b4ac5a9e758b018238ba11e679d21143f830b00408fb62cd00bbbcf47",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "3不锈钢保温杯"
+        },
+        {
+          "index": 2,
+          "sha256": "ef58bc81663faf359871a2aba037aa6956ac02d17248671064a550ef2ef839c7",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "4桌面阅读灯"
+        },
+        {
+          "index": 3,
+          "sha256": "292aef0b2daadd3e01be5b6e206d3101dfa6b2d473a5352be54829d22bf917d4",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "5帆布通勤背包"
+        },
+        {
+          "index": 4,
+          "sha256": "631bf90993d3c278ec08c7309adec1e002b84c3d04c23e62eb3ce9c5fe325d74",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "6不锈钢保温杯"
+        },
+        {
+          "index": 5,
+          "sha256": "6fe812574d62bf2f71653010b1b1a09064e7718a2ef8f995400c43db6e98a1ad",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "7桌面阅读灯"
+        }
+      ],
+      "episode_count": 6
+    },
+    {
+      "task_id": 46,
+      "variant": "C",
+      "run_id": "b404f908e9114694825a10e164e867dc",
+      "epoch": 0,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "a6223b4029e7361f3daf2da4d355924c5208b261baa48c4323ae60928b015285",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "4357**7980"
+        },
+        {
+          "index": 1,
+          "sha256": "26d0fa69ec3fb009f30c2dc85e6f319ce31f554e9c1e59c122c1e3944c30ffb9",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "5405****2188"
+        },
+        {
+          "index": 2,
+          "sha256": "688b99e4b0a62c0a108f7424b958ca5f7f8c1c832b85e0017b1587a84c8990dc",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "2729********0287"
+        },
+        {
+          "index": 3,
+          "sha256": "b63cdde09baa4768f1deb74ae76591b00aaec2efb9d1a9933167aabe0cd6c228",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "4204***********7984"
+        },
+        {
+          "index": 4,
+          "sha256": "6c740138f3bf8797fe3869d0cab1afc862f83c1f1fcf3d6abc99a79dcd0b3bf9",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "6833******9820"
+        },
+        {
+          "index": 5,
+          "sha256": "8392789968d47a5ae4294d0592635d9aaac39e41eb96d07a2371339fa96d3c3d",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "saved_output": "6195**********5283"
+        }
+      ],
+      "episode_count": 6
+    },
+    {
+      "task_id": 47,
+      "variant": "A",
+      "run_id": "c9533e0aa4834305955e8cc0164b7ac7",
+      "epoch": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "eaa901f52665d1df7822571b9ea6f53cb1356af4e4c919e0c97cdd0d6295342a",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            195,
+            111,
+            160,
+            138,
+            171,
+            102
+          ]
+        },
+        {
+          "index": 1,
+          "sha256": "1833d24303a9cc83c9f52bc8eb5b0c1178fb2a74b8504eb7a798f5a4d1213a57",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            469,
+            509,
+            674,
+            668,
+            663,
+            630
+          ]
+        },
+        {
+          "index": 2,
+          "sha256": "6559e4d6e46e761c997bedd476e8462cd339dcbaa2d0b0e7f36ca86f71e2b21f",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            444,
+            213,
+            265,
+            336,
+            415,
+            216
+          ]
+        },
+        {
+          "index": 3,
+          "sha256": "21c4d6fe05ffc6ffa26bb430baa0f9e5ad6bc8bb3d95c90f278fb19dfeb941ca",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            820,
+            714,
+            636,
+            709,
+            785,
+            665
+          ]
+        },
+        {
+          "index": 4,
+          "sha256": "fa09f6b61bc77d525b23f598b5b08b5318c9fd062c97d06f460643593034a27b",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            322,
+            330,
+            333,
+            545,
+            412,
+            385
+          ]
+        },
+        {
+          "index": 5,
+          "sha256": "04584de7b22d37ba9429a7ea130a427f4fc1f5439aa10d0a58d5916952cbea7b",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            388,
+            342,
+            176,
+            387,
+            291,
+            286
+          ]
+        }
+      ],
+      "episode_count": 6
+    },
+    {
+      "task_id": 48,
+      "variant": "B",
+      "run_id": "34e1a0b123c6463aa485ff646c2dc868",
+      "epoch": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "fefa0a9172124135a7e80ff5fa1363ef73aee00a9335111c762dd4eff1f29b06",
+          "evaluation_success": true,
+          "object_count": 24,
+          "event_count": 14,
+          "labeled_count": 14
+        }
+      ],
+      "episode_count": 1
+    },
+    {
+      "task_id": 49,
+      "variant": "C",
+      "run_id": "a39bdb326cd94caeab3577585041075f",
+      "epoch": 0,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "7693c7b2c2136e976b01a7d07067e3b61b486359ab3c23f10b91ba19c29ff839",
+          "evaluation_success": true,
+          "object_count": 24,
+          "event_count": 8,
+          "labeled_count": 8
+        }
+      ],
+      "episode_count": 1
+    },
+    {
+      "task_id": 50,
+      "variant": "C",
+      "run_id": "4b6df15cad814892b1053fb7518d705f",
+      "epoch": 0,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "c2241f609f123945f3268375788fb5743dd13ad150bb6e7707b93aa6020ae2ac",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "labeled_count": 1
+        },
+        {
+          "index": 1,
+          "sha256": "60ccb847185440e1fc858a31aae9e4868bc3833cf76d524e4fde575b113909db",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "labeled_count": 1
+        },
+        {
+          "index": 2,
+          "sha256": "43c6685e64a9481cce20d6c9cebba857e1cd4d56ed7d53976e4232b1d22e6a68",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "labeled_count": 1
+        },
+        {
+          "index": 3,
+          "sha256": "74534636d8c6d23085d352ae30f7254355f93d5cd7ab4646f262868b9cbef94c",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "labeled_count": 1
+        },
+        {
+          "index": 4,
+          "sha256": "874e1bf301adc65e4c0b91a7c78c3f0fb963df2fcb9ec9f616ad956882e4184a",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "labeled_count": 1
+        },
+        {
+          "index": 5,
+          "sha256": "6dde1d5d57900c468cbf853c005edc19a1300c448801e0bffb0ad777f990cc4b",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "labeled_count": 1
+        }
+      ],
+      "episode_count": 6
+    },
+    {
+      "task_id": 51,
+      "variant": "C",
+      "run_id": "eebb1efa80944d8598b644e82944d9ff",
+      "epoch": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "424fca25e70c30c79a536052b3dbe5ae519ef03821e58a384e3976f218272809",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            328,
+            242,
+            93,
+            142,
+            285,
+            199
+          ]
+        },
+        {
+          "index": 1,
+          "sha256": "b640d88aafbc951dc1a20a62ff047fdad6ef8ce6d7da78af4efd0c1285f4d082",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            577,
+            460,
+            580,
+            583,
+            652,
+            582
+          ]
+        },
+        {
+          "index": 2,
+          "sha256": "ee20591bd0227c2da73220ffad050ef5531122df83d311e617330c003b8baf19",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            284,
+            393,
+            321,
+            459,
+            296,
+            229
+          ]
+        },
+        {
+          "index": 3,
+          "sha256": "27962f5c0afd3e987ece5b9b6e40985ac71c070af48bc379e5a97dc3299804c2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            871,
+            772,
+            635,
+            678,
+            663,
+            812
+          ]
+        },
+        {
+          "index": 4,
+          "sha256": "b6fcb9f063d78ec225fb9d27993fb66da9e092a119d63f0a7f65efdb6d5c3ba6",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            316,
+            374,
+            365,
+            501,
+            444,
+            519
+          ]
+        },
+        {
+          "index": 5,
+          "sha256": "5732ee43febcc1a229a0b1b12eaf4d60fc7df61f5eb06e85a57780a3a941bcb7",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            158,
+            266,
+            273,
+            305,
+            384,
+            232
+          ]
+        }
+      ],
+      "episode_count": 6
+    },
+    {
+      "task_id": 52,
+      "variant": "C",
+      "run_id": "200de47c2e4b4e02ad7d4d2d162827fe",
+      "epoch": 0,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "4f5d2243a47eda40463644184a3207422cf88ae27af890ce652e82b41e9e8993",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1
+        },
+        {
+          "index": 1,
+          "sha256": "accffbd4c5b49934be6afa9779731304d3fb3f3b027e838244d4886482b9ebdc",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1
+        },
+        {
+          "index": 2,
+          "sha256": "22426419d6e3f6e067ab8d99a50f9996a7508e8bbe5245089dc99ddb91704dc5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1
+        },
+        {
+          "index": 3,
+          "sha256": "3f13fbe9e9813e4add4a490ef35d1d3525917eab15a6e4907ed7725589791c74",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1
+        },
+        {
+          "index": 4,
+          "sha256": "2827915cfd75deb187030f773c4b04830c4d356cdc8ecbb4f0a989f4132b856f",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1
+        },
+        {
+          "index": 5,
+          "sha256": "72b744dc028d4ade0ec2f2b6a7c302952ab13ee1af0bb01554aec1c918f50008",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1
+        }
+      ],
+      "episode_count": 6
+    },
+    {
+      "task_id": 54,
+      "variant": "A",
+      "run_id": "28f96935cbfb438aa049e8de9f377847",
+      "epoch": 0,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "d1a63c9b542965efadba6871eb81a02c3c85196b352fd5786b180fa0c770092b",
+          "evaluation_success": true,
+          "object_count": 24,
+          "event_count": 10
+        }
+      ],
+      "episode_count": 1
+    },
+    {
+      "task_id": 56,
+      "variant": "A",
+      "run_id": "e1c8772bdf03418580f49f33501ee044",
+      "epoch": 0,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "b98de19f281cad96adbf34d6b7d9f450ac18aa22851e3588f1418d0d640bcb72",
+          "evaluation_success": true,
+          "object_count": 24,
+          "event_count": 8
+        }
+      ],
+      "episode_count": 1
+    },
+    {
+      "task_id": 48,
+      "variant": "C",
+      "run_id": "eb25d3d1a3b3400c93391e405925b2b4",
+      "epoch": 0,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "d656c12b74c87df9b32ba3c12593037c420d23eee9555e02340123004ece9d63",
+          "evaluation_success": true,
+          "object_count": 24,
+          "event_count": 12,
+          "labeled_count": 12
+        }
+      ],
+      "episode_count": 1
+    },
+    {
+      "task_id": 31,
+      "variant": "A",
+      "run_id": "b88ced90db8c46bda8cc097e29f9d37c",
+      "epoch": 0,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "evaluation_success": true,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "362531a82ed286dac623195803e330d4d10588ff22576deca77ce8908b35f22d",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            106,
+            100,
+            211,
+            139,
+            281,
+            331
+          ]
+        },
+        {
+          "index": 1,
+          "sha256": "ac58b0e15f7caa95a40fd6fac35ee4d4b71e4689d97c9c7f6fbecef3d448e755",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            487,
+            597,
+            539,
+            471,
+            600,
+            525
+          ]
+        },
+        {
+          "index": 2,
+          "sha256": "947022513453eec05a179010ad6cc2895cc5b4e6819c382a0decba49e6afd4b0",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            459,
+            415,
+            387,
+            437,
+            236,
+            321
+          ]
+        },
+        {
+          "index": 3,
+          "sha256": "1f5a9d2179f4f2dead51778c84bde4fbef554ba2f98a9390fbfcefc10c61001e",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            786,
+            772,
+            653,
+            723,
+            853,
+            640
+          ]
+        },
+        {
+          "index": 4,
+          "sha256": "bcf9f46e0a4f232606712c1d0abf5ebc738c374cf64e872a0decd0d4e8a15884",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            420,
+            309,
+            338,
+            376,
+            370,
+            549
+          ]
+        },
+        {
+          "index": 5,
+          "sha256": "71ad75427c331ef4d1a9c3d622b9bf5981b5805e8b1e27ad7f5fe2433a3071f3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "event_count": 1,
+          "durations": [
+            206,
+            190,
+            209,
+            274,
+            179,
+            154
+          ]
+        }
+      ],
+      "episode_count": 6
+    }
+  ],
+  "observations": {
+    "classification_menu": "Bottom-row menu opens above its trigger to avoid the lesson controls; selecting the option saves a visible label.",
+    "travel_arrivals": [
+      "22:30 + 199 minutes = 次日 01:49",
+      "22:00 + 812 minutes = 次日 11:32"
+    ],
+    "order_notes": "Only the specified product exposes its order-note form; six quantities from 2 through 7 were saved.",
+    "transaction_details": "Transaction rows open transaction details, with matching character counts in list and detail.",
+    "transfers": {
+      "targets": 8,
+      "candidates": 24,
+      "self_balance_before": 10000,
+      "self_balance_after": 9575,
+      "recipient_balances_consistent": true,
+      "duplicate_buttons_disabled": true
+    },
+    "bookings": {
+      "targets": 10,
+      "candidates": 24,
+      "boundary_prices": [
+        49,
+        50,
+        51
+      ],
+      "orders_visible": 10,
+      "duplicate_buttons_disabled": true
+    }
+  },
+  "remaining_gate": "Actual recorded frames, all 75 native paths, and human rule-inference acceptance."
+}

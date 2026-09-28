@@ -254,7 +254,7 @@ export function Shop({ api }: { api: ProductAPI }) {
                 <Tags item={active} api={api} />
                 {s.task_id === 48 && <Classify item={active} api={api} />}{" "}
                 {cartAction(active)}
-                {s.task_id === 45 && (
+                {s.task_id === 45 && active.name === s.source.text && (
                   <section className="shop-note">
                     <h3>订单备注</h3>
                     <p>
@@ -318,6 +318,9 @@ export function Shop({ api }: { api: ProductAPI }) {
                     </button>
                     <div>
                       <small>{item.tags.join(" · ") || "日用精选"}</small>
+                      {s.task_id === 45 && item.name === s.source.text && (
+                        <p className="product-ok">待填写订单备注 · 数量 {s.source.quantity}</p>
+                      )}
                       <button
                         className="product-text-link"
                         onClick={() => open(item.id)}

@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { Frame, PageHead, Notice, Classify, type ProductAPI } from "./kit";
-const time = (n: number) =>
-  `${String(6 + Math.floor(n / 6)).padStart(2, "0")}:${String((n % 6) * 10).padStart(2, "0")}`;
+const time = (departure: number, duration = 0) => {
+  const total = 360 + departure * 10 + duration;
+  const day = Math.floor(total / 1440);
+  const clock = `${String(Math.floor(total / 60) % 24).padStart(2, "0")}:${String(total % 60).padStart(2, "0")}`;
+  return `${day ? (day === 1 ? "次日 " : `${day} 天后 `) : ""}${clock}`;
+};
 export function Travel({ api }: { api: ProductAPI }) {
   const { s, d } = api,
     [page, setPage] = useState("home"),
@@ -10,6 +14,7 @@ export function Travel({ api }: { api: ProductAPI }) {
     [query, setQuery] = useState("");
   const rows = s.items.map((x: any) => d.objects[x.id]),
     active = d.objects[selected];
+  const booked = (id: string) => d.artifacts.some((a: any) => a.kind === "booking" && a.target === id);
   function open(id: string) {
     setSelected(id);
     setPage("details");
@@ -155,7 +160,7 @@ export function Travel({ api }: { api: ProductAPI }) {
                 </div>
                 <div>
                   <b>
-                    {time(active.departure + Math.floor(active.duration / 10))}
+                    {time(active.departure, active.duration)}
                   </b>
                   <span>上海虹桥</span>
                 </div>
@@ -164,19 +169,19 @@ export function Travel({ api }: { api: ProductAPI }) {
               {s.task_id === 47 && <Classify item={active} api={api} />}
               <button
                 className="product-primary"
-                disabled={api.busy || ![51, 54].includes(s.task_id)}
+                disabled={api.busy || ![51, 54].includes(s.task_id) || booked(active.id)}
                 onClick={() =>
                   s.task_id === 54
                     ? api.mutate("action", active.id, "确认预订")
                     : api.mutate("select", "", "", [active.id])
                 }
               >
-                {s.task_id === 51 ? "选择此行程" : "确认预订"}
+                {s.task_id === 51 ? "选择此行程" : booked(active.id) ? "✓ 已预订" : "确认预订"}
               </button>
               {s.selection.includes(active.id) && (
                 <p className="product-ok">✓ 已选择此行程</p>
               )}
-              {d.artifacts.some((a: any) => a.target === active.id) && (
+              {booked(active.id) && (
                 <p className="product-ok">✓ 预订成功，可在我的订单查看</p>
               )}
             </section>
@@ -186,7 +191,7 @@ export function Travel({ api }: { api: ProductAPI }) {
             <PageHead
               eyebrow="TRAIN SEARCH"
               title="北京 → 上海"
-              description="2026-01-15 · 共 6 个行程方案"
+              description={`2026-01-15 · 共 ${rows.length} 个行程方案`}
               action={
                 <input
                   placeholder="搜索车次"
@@ -231,6 +236,8 @@ export function Travel({ api }: { api: ProductAPI }) {
                     <small>二等座 · 有票</small>
                   </div>
                   <div>
+                    {booked(item.id) && <p className="product-ok">✓ 已预订</p>}
+                    {s.selection.includes(item.id) && <p className="product-ok">✓ 已选择</p>}
                     {s.task_id === 47 ? (
                       <Classify item={item} api={api} />
                     ) : (

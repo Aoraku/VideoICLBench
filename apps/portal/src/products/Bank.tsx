@@ -21,9 +21,11 @@ export function Bank({ api }: { api: ProductAPI }) {
     [query, setQuery] = useState("");
   const rows = s.items.map((x: any) => d.objects[x.id]),
     active = d.objects[selected];
+  const balance = (item: any) => d.balances[item.id] / 100;
+  const transferred = (id: string) => d.ledger.some((x: any) => x.account === "self" && x.counterparty === id);
   function open(id: string) {
     setSelected(id);
-    setPage(s.task_id === 53 ? "transaction" : "account");
+    setPage([49, 53].includes(s.task_id) ? "transaction" : "account");
     if (s.task_id === 53) void api.mutate("select", "", "", [id]);
   }
   return (
@@ -88,7 +90,7 @@ export function Bank({ api }: { api: ProductAPI }) {
                   <small>QINGHE · SAVINGS</small>
                   <h3>{x.name}</h3>
                   <span>•••• {x.account.slice(-4)}</span>
-                  <strong>¥{money(x.balance)}</strong>
+                  <strong>¥{money(balance(x))}</strong>
                 </button>
               ))}
             </div>
@@ -139,13 +141,13 @@ export function Bank({ api }: { api: ProductAPI }) {
                   renderActions={(x) => (
                     <button
                       className="product-primary"
-                      disabled={s.task_id !== 56}
+                      disabled={api.busy || s.task_id !== 56 || transferred(x.id)}
                       onClick={() => {
                         setSelected(x.id);
                         setPage("confirm");
                       }}
                     >
-                      核对并转账
+                      {transferred(x.id) ? "✓ 已转账" : "核对并转账"}
                     </button>
                   )}
                 />
@@ -186,11 +188,11 @@ export function Bank({ api }: { api: ProductAPI }) {
                 className="product-primary"
                 disabled={
                   api.busy ||
-                  d.ledger.some((x: any) => x.counterparty === active.id)
+                  transferred(active.id)
                 }
                 onClick={() => api.mutate("action", active.id, "转账")}
               >
-                {d.ledger.some((x: any) => x.counterparty === active.id)
+                {transferred(active.id)
                   ? "✓ 转账成功"
                   : "确认转账"}
               </button>
@@ -214,6 +216,7 @@ export function Bank({ api }: { api: ProductAPI }) {
                 <dd>{active.name}</dd>
                 <dt>交易备注</dt>
                 <dd>{active.text}</dd>
+                {s.task_id === 49 && <><dt>备注字符数</dt><dd>{Array.from(active.text).length}</dd></>}
                 <dt>交易时间</dt>
                 <dd>
                   {dateTime(active.created_at)}
@@ -240,7 +243,7 @@ export function Bank({ api }: { api: ProductAPI }) {
             />
             <section className="bank-form">
               <span>账户余额</span>
-              <h1>¥{money(active.balance)}</h1>
+              <h1>¥{money(balance(active))}</h1>
               <p>最近 30 天交易笔数：{active.transactions}</p>
               <p>{s.source.transaction_window.start} 至 {s.source.transaction_window.end}</p>
               <p>
@@ -283,7 +286,7 @@ export function Bank({ api }: { api: ProductAPI }) {
               open={open}
               columns={[
                 ["name", "交易对象", (x) => x.name],
-                ["text", "备注", (x) => x.text],
+                ["text", "备注", (x) => <span>{x.text}{s.task_id === 49 && <small style={{display:"block"}}>{Array.from(x.text).length} 个字符</small>}</span>],
                 ["time", "交易时间", (x) => dateTime(x.created_at)],
                 ["amount", "金额", (x) => `¥${money(x.amount)}`],
               ]}
@@ -301,7 +304,7 @@ export function Bank({ api }: { api: ProductAPI }) {
             <PageHead
               eyebrow="ACCOUNTS"
               title={page === "reminders" ? "余额提醒" : "我的账户"}
-              description="关注账户余额与使用情况。"
+              description={`交易统计区间：${s.source.transaction_window.start} 至 ${s.source.transaction_window.end}`}
             />
             <DataRows
               items={rows}
@@ -309,7 +312,7 @@ export function Bank({ api }: { api: ProductAPI }) {
               columns={[
                 ["name", "账户名称", (x) => x.name],
                 ["account", "账号", (x) => x.account],
-                ["balance", "余额", (x) => `¥${money(x.balance)}`],
+                ["balance", "余额", (x) => `¥${money(balance(x))}`],
                 ["transactions", "最近30天交易笔数", (x) => x.transactions],
                 [
                   "date",
