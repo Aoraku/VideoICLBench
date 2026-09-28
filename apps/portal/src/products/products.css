@@ -1692,3 +1692,24 @@
 .shop-art svg {
   min-width: 240px;
 }
+
+.studio-project-layout aside .studio-file-status {
+  display: block;
+  padding: 4px 0 0;
+  line-height: 1.5;
+}
+.studio-progress {
+  color: #645b73;
+  font-size: 13px;
+  margin: 0 0 18px;
+}
+.studio-paragraph h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #645b73;
+}
+.studio-project-layout > aside {
+  max-height: max(280px, calc(100vh - 220px));
+  overflow-y: auto;
+  align-self: start;
+}

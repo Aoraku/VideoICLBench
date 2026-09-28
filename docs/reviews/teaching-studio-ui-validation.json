@@ -1,0 +1,374 @@
+{
+  "scope": "Native browser observations and persisted task evaluation for Studio. Not recorded-video verification or human rule-inference acceptance.",
+  "tests": {
+    "passed": 1055,
+    "failed": 0,
+    "portal_build": true
+  },
+  "native_ui": [
+    {
+      "task_id": 39,
+      "variant": "A",
+      "run_id": "e9e9e91791a84e5f9e54de3088bbe999",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "c3773c372df4b71f12fdc9064889f399c8f0fbc7755fab18b0076af2aa1c12de",
+          "evidence_ref": "/v1/runs/e9e9e91791a84e5f9e54de3088bbe999/evidence",
+          "evaluation_success": true,
+          "object_count": 24,
+          "saved_output": null
+        }
+      ]
+    },
+    {
+      "task_id": 39,
+      "variant": "C",
+      "run_id": "773a811cce8148688cf6253e2b6b687b",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "059cf31c14482095f499ba7d0eeb2c53b90948b3485dd445a0a4c751bcf53a1e",
+          "evidence_ref": "/v1/runs/773a811cce8148688cf6253e2b6b687b/evidence",
+          "evaluation_success": true,
+          "object_count": 24,
+          "saved_output": null
+        }
+      ]
+    },
+    {
+      "task_id": 41,
+      "variant": "A",
+      "run_id": "369ca26eb80647598f82a248a1c7902a",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "29db8dee12828a67f2b87b6f7efb7384bf68d2a6af5ee91890d5484fc9739208",
+          "evidence_ref": "/v1/runs/369ca26eb80647598f82a248a1c7902a/lesson/evidence/1/0",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Orion Pro"
+        },
+        {
+          "index": 1,
+          "sha256": "247aae5c6afce4980b594f079ef0fcdf19f2b2670aaa7742638f54f70f001755",
+          "evidence_ref": "/v1/runs/369ca26eb80647598f82a248a1c7902a/lesson/evidence/1/1",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Nova Lite"
+        },
+        {
+          "index": 2,
+          "sha256": "2cf8cf10fd040367c3eb480b9773ac67a4ba72534ad3f758125d31a6712f7429",
+          "evidence_ref": "/v1/runs/369ca26eb80647598f82a248a1c7902a/lesson/evidence/1/2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Aurora Long"
+        },
+        {
+          "index": 3,
+          "sha256": "1ff8f6e07be560a94d661d926044bf46fe0b8ce71249e2643400753a9a785db3",
+          "evidence_ref": "/v1/runs/369ca26eb80647598f82a248a1c7902a/lesson/evidence/1/3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Aster"
+        },
+        {
+          "index": 4,
+          "sha256": "fbd2151bf8072c7e03e9f918101f2b3d6e3e84edc8ccd4a3873b6016562e89a0",
+          "evidence_ref": "/v1/runs/369ca26eb80647598f82a248a1c7902a/lesson/evidence/1/4",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Dahlia Pro"
+        },
+        {
+          "index": 5,
+          "sha256": "77021927fbbef9985595cf344a1be270791587e7de874f8f0d70d13635ed8166",
+          "evidence_ref": "/v1/runs/369ca26eb80647598f82a248a1c7902a/lesson/evidence/1/5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Coral Lite"
+        }
+      ]
+    },
+    {
+      "task_id": 41,
+      "variant": "B",
+      "run_id": "a303f21587ff4713a3f5670958724376",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "f34e0bff4b7579e9c8a6a2301ba837b0fb9ce8b332a4c95e270bb449d15bcd99",
+          "evidence_ref": "/v1/runs/a303f21587ff4713a3f5670958724376/lesson/evidence/1/0",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Echo Small"
+        },
+        {
+          "index": 1,
+          "sha256": "4b61dd5151129408a4fbdc7742e83224b0678f65814d947a07dd56dfbcf02e2b",
+          "evidence_ref": "/v1/runs/a303f21587ff4713a3f5670958724376/lesson/evidence/1/1",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Iris Max"
+        },
+        {
+          "index": 2,
+          "sha256": "9f3f501aa3e13763149e3ec69692fcb2fe2a474326c86f5f198656822468935f",
+          "evidence_ref": "/v1/runs/a303f21587ff4713a3f5670958724376/lesson/evidence/1/2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Nova Lite"
+        },
+        {
+          "index": 3,
+          "sha256": "beb3d70422ad401795ca903fa4dcee3d6a135bf816224810ccc6a03454952bab",
+          "evidence_ref": "/v1/runs/a303f21587ff4713a3f5670958724376/lesson/evidence/1/3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Quartz"
+        },
+        {
+          "index": 4,
+          "sha256": "3142582ab2a370b72a5f5eaf7fa6804287f30f445927832ecde6506d6cf08241",
+          "evidence_ref": "/v1/runs/a303f21587ff4713a3f5670958724376/lesson/evidence/1/4",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Orion Pro"
+        },
+        {
+          "index": 5,
+          "sha256": "c20ce1b4299e42580e215b2435b2982603a9ed2f90f332d3477e41753cd3bb1a",
+          "evidence_ref": "/v1/runs/a303f21587ff4713a3f5670958724376/lesson/evidence/1/5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Amber Max"
+        }
+      ]
+    },
+    {
+      "task_id": 41,
+      "variant": "C",
+      "run_id": "af00bc85a9c940ba84682a15bac18ca2",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "6e0b552fcaa7f0f820865adc9816a75f3b0f5117f9f2879d0dddd65e3096ff39",
+          "evidence_ref": "/v1/runs/af00bc85a9c940ba84682a15bac18ca2/lesson/evidence/1/0",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Tern"
+        },
+        {
+          "index": 1,
+          "sha256": "19fe372dc91ddc826e65b4ad2bddcef087f77e9c1a01992fcf6d3db69eddb764",
+          "evidence_ref": "/v1/runs/af00bc85a9c940ba84682a15bac18ca2/lesson/evidence/1/1",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Cedar"
+        },
+        {
+          "index": 2,
+          "sha256": "9579f40faae9aed9f49571ba275be2f31f06f97def7137fb03d3ca75ff894eec",
+          "evidence_ref": "/v1/runs/af00bc85a9c940ba84682a15bac18ca2/lesson/evidence/1/2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Indigo"
+        },
+        {
+          "index": 3,
+          "sha256": "9d1c980a89bed4954182725b247e6740af228610d19b75f7e68c424a8e4e2c2e",
+          "evidence_ref": "/v1/runs/af00bc85a9c940ba84682a15bac18ca2/lesson/evidence/1/3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Aria"
+        },
+        {
+          "index": 4,
+          "sha256": "e380f9402a732a61ae60df3e14eb885919d588c8d742bb1dda749d5a5d12f912",
+          "evidence_ref": "/v1/runs/af00bc85a9c940ba84682a15bac18ca2/lesson/evidence/1/4",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Aster"
+        },
+        {
+          "index": 5,
+          "sha256": "17a32f0fd66142fa538da830f9bed5eb48f8480a0d54bce5e845a79f181b9552",
+          "evidence_ref": "/v1/runs/af00bc85a9c940ba84682a15bac18ca2/lesson/evidence/1/5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null,
+          "unique_shortest_name": true,
+          "selected_model": "Indigo"
+        }
+      ]
+    },
+    {
+      "task_id": 43,
+      "variant": "A",
+      "run_id": "df83ea931cd946eaadc707b5cfc7aafa",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "5868de1047a8dc2828f490f27247d3609d046d7695601a3b3a4df04fb03cb5f7",
+          "evidence_ref": "/v1/runs/df83ea931cd946eaadc707b5cfc7aafa/evidence",
+          "evaluation_success": true,
+          "object_count": 24,
+          "saved_output": null
+        }
+      ]
+    },
+    {
+      "task_id": 43,
+      "variant": "B",
+      "run_id": "8b7ced6bad5a46c09f16eb10dc9b7868",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "ed303854268b00f9cdef3bc7092343fc75213ca67089247fec309cc4cbe6f365",
+          "evidence_ref": "/v1/runs/8b7ced6bad5a46c09f16eb10dc9b7868/evidence",
+          "evaluation_success": true,
+          "object_count": 24,
+          "saved_output": null
+        }
+      ]
+    },
+    {
+      "task_id": 43,
+      "variant": "C",
+      "run_id": "be9eb0355c4e4dc6af842ea15f549a3b",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "033ef0650084238cb0cb85a9373f14ad1078c7c07709aa968a7b36e8f425b204",
+          "evidence_ref": "/v1/runs/be9eb0355c4e4dc6af842ea15f549a3b/evidence",
+          "evaluation_success": true,
+          "object_count": 24,
+          "saved_output": null
+        }
+      ]
+    }
+  ],
+  "observations": {
+    "39": {
+      "paragraph_count": 24,
+      "numeric_positives": 8,
+      "quoted_positives": 8,
+      "bracket_only_negatives": 4,
+      "sidebar_navigation_reaches_corresponding_paragraph": true
+    },
+    "41": {
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "episodes_per_variant": 6,
+      "shortest_names_C": [
+        "Tern",
+        "Cedar",
+        "Indigo",
+        "Aria",
+        "Aster",
+        "Indigo"
+      ],
+      "shortest_lengths_C": [
+        4,
+        5,
+        6,
+        4,
+        5,
+        6
+      ],
+      "chosen_model_feedback_visible": true
+    },
+    "43": {
+      "files": 24,
+      "syntax_passed": 17,
+      "syntax_failed": 7,
+      "checked_all_files_in_each_variant": true,
+      "saved_files_match_visible_code": true,
+      "saved_state_survives_reload": true,
+      "copied_files_verified_by_actual_paste": 17,
+      "recopy_allowed_and_evaluated": true,
+      "sent_records_match_visible_code": true,
+      "recipient_visible": "林若宁",
+      "status_counts_and_per_file_state_visible": true,
+      "recorded_video": false
+    }
+  }
+}

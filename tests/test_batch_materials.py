@@ -143,3 +143,55 @@ def test_transaction_remarks_keep_both_sides_and_equality_with_distinct_texts():
     state=business.generate(49,0)
     groups={length:{item['text'] for item in state['items'] if len(item['text'])==length} for length in (14,15,16)}
     assert all(len(values)>=4 for values in groups.values())
+
+
+@pytest.mark.parametrize('seed', [0, 1, 2, 3, 4, 5, 20, 999, 1000, 1001, 1002, 10001])
+def test_model_choice_has_unique_shortest_name_and_visible_lengths(seed):
+    items = business.generate(41, seed)['items']
+    assert all(x['name_length'] == len(x['name']) for x in items)
+    shortest = min(x['name_length'] for x in items)
+    assert sum(x['name_length'] == shortest for x in items) == 1
+
+
+@pytest.mark.parametrize('base_seed', [0, 6, 1000, 10000])
+def test_shortest_model_name_is_relative_and_varies_across_lessons(base_seed):
+    groups = [business.generate(41, base_seed + index)['items'] for index in range(6)]
+    minima = [min(group, key=lambda x: len(x['name'])) for group in groups]
+    assert len({len(x['name']) for x in minima}) >= 2
+    assert len({x['name'] for x in minima}) >= 3
+    assert max(len(x['name']) for x in minima) > min(len(x['name']) for group, winner in zip(groups, minima) for x in group if x['id'] != winner['id'])
+
+
+@pytest.mark.parametrize('seed', [0, 1, 2, 1000, 1001, 10001])
+def test_studio_code_has_distinct_file_names_and_saved_content_matches(seed, tmp_path):
+    from vic import application_eval
+    from vic_apps.domain import initialize
+    from vic_apps.store import ApplicationStore
+    from vic.schemas import Mutation
+    initial = initialize(business.generate(43, seed))
+    assert len({x['name'] for x in initial['items']}) == len(initial['items'])
+    assert all(x['name'].endswith('.py') for x in initial['items'])
+    store = ApplicationStore(tmp_path)
+    for variant, action in [('A', '保存'), ('B', '复制'), ('C', '发送')]:
+        store.initialize('studio', initial)
+        for index, item in enumerate(initial['items']):
+            store.mutate('studio', Mutation(epoch=0, action_id=f'check-{index}', op='action', target=item['id'], value='检查'))
+            if item['check_pass']:
+                store.mutate('studio', Mutation(epoch=0, action_id=f'act-{index}', op='action', target=item['id'], value=action))
+        final = store.snapshot('studio'); domain = final['domain']
+        if variant == 'A':
+            records = [(x['target'], x['body']) for x in domain['artifacts']]
+        elif variant == 'B':
+            records = [(x['target'], x['text']) for x in domain['clipboard_history']]
+        else:
+            records = [(x['reference'], x['body']) for x in domain['messages']]
+            assert all(x['recipient'] == 'contact-a' for x in domain['messages'])
+        assert all(body == domain['objects'][target]['code'] for target, body in records)
+        result = application_eval.evaluate(initial, final, variant, store.events('studio'), records[-1][1] if variant == 'B' else None)
+        assert result['success'], result
+        if variant == 'B':
+            target, body = records[0]
+            store.mutate('studio', Mutation(epoch=0, action_id='copy-again', op='action', target=target, value='复制'))
+            final = store.snapshot('studio')
+            assert application_eval.evaluate(initial, final, variant, store.events('studio'), body)['success']
+            assert not application_eval.evaluate(initial, final, variant, store.events('studio'), 'wrong clipboard')['success']

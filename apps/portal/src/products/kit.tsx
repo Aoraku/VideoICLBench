@@ -6,6 +6,7 @@ export type ProductAPI = {
   d: any;
   busy: boolean;
   notice: string;
+  clearNotice?: () => void;
   mutate: (
     op: string,
     target?: string,

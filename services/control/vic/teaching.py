@@ -191,11 +191,18 @@ def enrich(id_, seed, items, source, rng):
         assign('text', teaching_materials.transaction_notes(seed >= 1000))
         assign('amount', [12, 25, 46, 57, 78, 91])
     if id_ == 41:
-        assign('name', rng.sample(['Birch', 'Lumen Plus', 'Pine', 'Vale Ultra', 'Elm', 'Maple Studio', 'Fern Pro', 'Willow', 'Clover Max', 'Aspen Lite', 'Oak', 'Ivy'] if seed >= 1000 else ['Atlas', 'Orion Pro', 'Nova Lite', 'Cedar', 'Aurora Long', 'Vela', 'Aria', 'Echo Small', 'Lynx', 'Cobalt XL', 'Quartz', 'Beryl', 'Coral Lite', 'Amber Max', 'Sage', 'Indigo', 'Reed', 'Aster', 'Dahlia Pro', 'Dove', 'Finch', 'Jade', 'Iris Max', 'Tern'], n))
+        models = ['Birch', 'Lumen Plus', 'Pine', 'Vale Ultra', 'Elm', 'Maple Studio', 'Fern Pro', 'Willow', 'Clover Max', 'Aspen Lite', 'Oak', 'Ivy'] if seed >= 1000 else ['Atlas', 'Orion Pro', 'Nova Lite', 'Cedar', 'Aurora Long', 'Vela', 'Aria', 'Echo Small', 'Lynx', 'Cobalt XL', 'Quartz', 'Beryl', 'Coral Lite', 'Amber Max', 'Sage', 'Indigo', 'Reed', 'Aster', 'Dahlia Pro', 'Dove', 'Finch', 'Jade', 'Iris Max', 'Tern']
+        shortest = (3 if seed >= 1000 else 4) + seed % 3
+        winner = rng.choice([name for name in models if len(name) == shortest])
+        assign('name', [winner] + rng.sample([name for name in models if len(name) > shortest], n - 1))
     if id_ == 35:
         assign('duration', [120, 300, 599, 600, 720, 901])
     if id_ in (43, 65):
         assign('code', teaching_materials.code_snippets(seed))
+    if id_ == 43:
+        file_names = teaching_materials.code_file_names(seed)
+        for item in items:
+            item['name'] = file_names[item['code']]
 
     tags = ['focus', 'blue', 'weekly', 'travel', 'ideas']
     account_prefixes = rng.sample(range(1000000, 9999999), n)

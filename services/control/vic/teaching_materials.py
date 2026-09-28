@@ -147,6 +147,19 @@ def code_snippets(seed):
     ]
 
 
+def code_file_names(seed):
+    names = (['检查数值.py', '平方输出.py', '倍率计算.py', '差值函数.py', '整数分组.py', '名单遍历.py']
+             if seed >= 1000 else [
+        '输出数值.py', '加一输出.py', '变量赋值.py', '列表求和.py',
+        '常量函数.py', '增量函数.py', '参数加法.py', '分行函数.py',
+        '幂运算.py', '合计调整.py', '最大值调整.py', '加法计算.py',
+        '辅助常量.py', '累加函数.py', '偏移函数.py', '结果输出.py',
+        '批量倍增.py', '条件打印.py', '输出调用.py', '预算变量.py',
+        '成绩换算.py', '循环遍历.py', '条件输出.py', '列表统计.py',
+    ])
+    return dict(zip(code_snippets(seed), names, strict=True))
+
+
 # Complete short posts. Character counts include punctuation and exclude the title.
 BLOG_POSTS = {
     "我的城市散步路线": "清晨从旧车站出发，沿河走到图书馆。途中经过菜市场和一座石桥，最后在街角吃早餐。这条路线适合慢慢观察城市。",

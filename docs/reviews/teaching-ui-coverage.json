@@ -1,7 +1,7 @@
 {
   "scope": "Index of task-specific browser observations recorded in review artifacts. Presence does not imply complete A/B/C coverage, current-version replay, recorded-video verification, or human inference acceptance. Null episode counts mean the source has no explicit episode count.",
   "task_count": 75,
-  "tasks_with_indexed_browser_evidence": 41,
+  "tasks_with_indexed_browser_evidence": 44,
   "tasks_without_indexed_browser_evidence": [
     3,
     4,
@@ -24,9 +24,6 @@
     32,
     34,
     35,
-    39,
-    41,
-    43,
     59,
     61,
     62,
@@ -364,7 +361,22 @@
     },
     {
       "task_id": 39,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-studio-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "e9e9e91791a84e5f9e54de3088bbe999",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-studio-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "C",
+          "run_id": "773a811cce8148688cf6253e2b6b687b",
+          "reported_episode_count": 1
+        }
+      ]
     },
     {
       "task_id": 40,
@@ -387,7 +399,29 @@
     },
     {
       "task_id": 41,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-studio-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "A",
+          "run_id": "369ca26eb80647598f82a248a1c7902a",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-studio-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "B",
+          "run_id": "a303f21587ff4713a3f5670958724376",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-studio-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "C",
+          "run_id": "af00bc85a9c940ba84682a15bac18ca2",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 42,
@@ -403,7 +437,29 @@
     },
     {
       "task_id": 43,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-studio-ui-validation.json",
+          "json_pointer": "/native_ui/5",
+          "variant": "A",
+          "run_id": "df83ea931cd946eaadc707b5cfc7aafa",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-studio-ui-validation.json",
+          "json_pointer": "/native_ui/6",
+          "variant": "B",
+          "run_id": "8b7ced6bad5a46c09f16eb10dc9b7868",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-studio-ui-validation.json",
+          "json_pointer": "/native_ui/7",
+          "variant": "C",
+          "run_id": "be9eb0355c4e4dc6af842ea15f549a3b",
+          "reported_episode_count": 1
+        }
+      ]
     },
     {
       "task_id": 44,

@@ -728,6 +728,10 @@ def evaluate(initial, state, variant, events):
     actual = state[key]
     if key == "actions":
         actual = sorted(tuple(x) for x in actual)
+        if id_ == 43 and variant == "B":
+            # Re-copying an already checked result changes the clipboard,
+            # not which results the user has processed.
+            actual = sorted(set(actual))
     want = expected[key]
     if isinstance(want, dict):
         checks = [

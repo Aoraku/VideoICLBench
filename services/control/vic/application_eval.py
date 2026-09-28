@@ -202,6 +202,8 @@ def evaluate(initial, state, variant, events, clipboard=None):
     base = business.evaluate(initial, state, variant, events)
     actual = canonical(state["domain"])
     want = canonical(expected_domain(initial, variant))
+    if t == 43 and variant == "B":
+        actual["clipboard_history"] = list({json.dumps(x, sort_keys=True): x for x in actual["clipboard_history"]}.values())
     if t in (58, 60):
         field = "code"
         submitted = actual["objects"]["target"].get(field, "")

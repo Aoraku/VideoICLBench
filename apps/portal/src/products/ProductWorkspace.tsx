@@ -75,7 +75,7 @@ export function ProductWorkspace({
             : op === "save"
               ? "内容已保存"
               : op === "action"
-                ? `${value}成功`
+                ? (value === "检查" ? "检查已完成" : `${value}成功`)
                 : "操作已保存",
       );
       return true;
@@ -109,7 +109,7 @@ export function ProductWorkspace({
     return <p role="alert">应用与会话不匹配</p>;
   return (
     <Component
-      api={{ s: data.state, d: data.state.domain, busy, notice, mutate,
+      api={{ s: data.state, d: data.state.domain, busy, notice, mutate, clearNotice: () => setNotice(""),
              mediaUrl: target => `/api/runs/${id}/media/${encodeURIComponent(target)}` }}
     />
   );
