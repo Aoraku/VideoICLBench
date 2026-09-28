@@ -52,6 +52,8 @@
 
 ## 验证证据
 
+- [交易、预订与账户操作验收](teaching-commerce-tail-ui-validation.json)：第 53 题 A／B／C 各六组，第 54 题 B／C、第 55 题 A／B／C、第 56 题 B／C、第 57 题 A／B／C 各 24 个对象；完整交易时间、初始购物车成员、模拟转账余额及跨午夜提醒反例。
+- [代码编辑与提交补充验收](teaching-code-complete-ui-validation.json)：第 58、64 题 A／B／C、第 60 题 A／C 各六组，第 65 题 B／C 各 24 份代码；空白字符显示、变量定义与引用、实际代码行数、长度边界及保存状态。
 - [内容应用补充操作验收](teaching-middle-content-ui-validation.json)：第 31 题 B、第 36 题 C、第 37 题 A／B／C、第 40 题 B 各六组；第 38、39 题 B 与第 42 题 A／B 各 24 个对象。正文字符数、模板换行、分类、发布时间与已发布成员核对。
 - [旅游、购物与银行补充操作验收](teaching-commerce-complete-ui-validation.json)：第 44 题 A／B、第 45 题 B／C、第 46 题 A／B、第 47 题 B／C、第 50–52 题 A／B 各六组；第 48 题 A、第 49 题 A／B 各 24 个对象。记录格式、阈值边界、分类、选择反馈与刷新持久性。
 - [聊天文本与联系人备注](teaching-chat-text-ui-validation.json)：第 1、2 题 A／B／C 各六组原生界面操作与独立判分；多词消息的版本区分、连续空格处理、联系人身份、保存及刷新持久化。

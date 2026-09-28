@@ -1,0 +1,1258 @@
+{
+  "scope": "Native UI operations and independent evaluations. Full recording and human inference acceptance remain pending.",
+  "native_ui": [
+    {
+      "task_id": 58,
+      "task_version": "3.0.0",
+      "variant": "A",
+      "run_id": "c1dca6e66bed49c4ad23655fbe422fe2",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/c1dca6e66bed49c4ad23655fbe422fe2/evidence",
+      "sha256": "7654e81561cce1d8fd3a9b16e323489f2f52742a6d9b6a256ac2418ca8c6fdad",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "limit = 2\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 2\nfor index in range(limit):\n  if index % 2 == 0:\n    print(index)\n  else:\n    print(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/c1dca6e66bed49c4ad23655fbe422fe2/lesson/evidence/0/0",
+          "sha256": "e5d92843e9c219e2caac99a118d3b7a0d1d1f9df7385c9536a6b315b5cd7a352"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "limit = 3\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 3\nfor index in range(limit):\n  if index % 2 == 0:\n    print(index)\n  else:\n    print(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/c1dca6e66bed49c4ad23655fbe422fe2/lesson/evidence/0/1",
+          "sha256": "7d456a12ff475cdfb4a2dd5e750dadc67fc7ac90f6773bbc93f373c288b510f0"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "limit = 4\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 4\nfor index in range(limit):\n  if index % 2 == 0:\n    print(index)\n  else:\n    print(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/c1dca6e66bed49c4ad23655fbe422fe2/lesson/evidence/0/2",
+          "sha256": "7b5422f2613175ab217da682c4899e934e00dfe2715af3265705af012dbea94d"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "limit = 5\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 5\nfor index in range(limit):\n  if index % 2 == 0:\n    print(index)\n  else:\n    print(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/c1dca6e66bed49c4ad23655fbe422fe2/lesson/evidence/0/3",
+          "sha256": "a65311c51955b3c1618422789e93c5afc7eaed6c64e7601a8676e67c2ea8119a"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "limit = 6\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 6\nfor index in range(limit):\n  if index % 2 == 0:\n    print(index)\n  else:\n    print(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/c1dca6e66bed49c4ad23655fbe422fe2/lesson/evidence/0/4",
+          "sha256": "4ef5b04ce397a08f0bf3204387ebac7101a67ad1de22829144ac3750a0ae7e42"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "limit = 7\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 7\nfor index in range(limit):\n  if index % 2 == 0:\n    print(index)\n  else:\n    print(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/c1dca6e66bed49c4ad23655fbe422fe2/lesson/evidence/0/5",
+          "sha256": "500b2d311a09dd61d31219a248a6fdea0f8048c51482424511f650afae6ccb8f"
+        }
+      ],
+      "observations": [
+        "All six sources and outputs show explicit whitespace glyphs and line-by-line counts; exact code characters are independently evaluated.",
+        "Two fast navigation attempts in A/C episode 4 remained on problem details; clicking the visible submit-code button again reached the editor. Reload persistence was not checked."
+      ]
+    },
+    {
+      "task_id": 58,
+      "task_version": "3.0.0",
+      "variant": "B",
+      "run_id": "37f7b562c054458c9f9ba09c08912453",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/37f7b562c054458c9f9ba09c08912453/evidence",
+      "sha256": "48f65cd77dc52270b9fd899fc27bb19ee19098f6deb2845712cb2e695668d20f",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "limit = 2\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 2\nfor index in range(limit):\n    if index % 2 == 0:\n        print(index)\n    else:\n        print(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/37f7b562c054458c9f9ba09c08912453/lesson/evidence/0/0",
+          "sha256": "3e207a57cf18efe89c28176e39ae2a42718b93d22f03b27edfe039833ad55246"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "limit = 3\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 3\nfor index in range(limit):\n    if index % 2 == 0:\n        print(index)\n    else:\n        print(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/37f7b562c054458c9f9ba09c08912453/lesson/evidence/0/1",
+          "sha256": "516bcf4692731f404367a3c17d8d76372c86fdb4243c69da4be8033c3bd022bb"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "limit = 4\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 4\nfor index in range(limit):\n    if index % 2 == 0:\n        print(index)\n    else:\n        print(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/37f7b562c054458c9f9ba09c08912453/lesson/evidence/0/2",
+          "sha256": "9b3879956723bc76ade3f1694364fe72b21d03824f3d8de1416a28e738d8b613"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "limit = 5\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 5\nfor index in range(limit):\n    if index % 2 == 0:\n        print(index)\n    else:\n        print(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/37f7b562c054458c9f9ba09c08912453/lesson/evidence/0/3",
+          "sha256": "896e6477962b8f0f0e6a74050a98b8a360eba550a3f05ef6e9a9801a9da881d0"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "limit = 6\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 6\nfor index in range(limit):\n    if index % 2 == 0:\n        print(index)\n    else:\n        print(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/37f7b562c054458c9f9ba09c08912453/lesson/evidence/0/4",
+          "sha256": "b02e1ed362fb9a73d48cf8fb90e5a4b45b37cae23bdb6365abed1b9345d013cb"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "limit = 7\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 7\nfor index in range(limit):\n    if index % 2 == 0:\n        print(index)\n    else:\n        print(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/37f7b562c054458c9f9ba09c08912453/lesson/evidence/0/5",
+          "sha256": "5be143f1478b38069d4c604d887414b02701c2211379e938c19bf6daa4dc189a"
+        }
+      ],
+      "observations": [
+        "All six sources and outputs show explicit whitespace glyphs and line-by-line counts; exact code characters are independently evaluated.",
+        "Two fast navigation attempts in A/C episode 4 remained on problem details; clicking the visible submit-code button again reached the editor. Reload persistence was not checked."
+      ]
+    },
+    {
+      "task_id": 58,
+      "task_version": "3.0.0",
+      "variant": "C",
+      "run_id": "fed26d722b6e491990d19b0212dc7975",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/fed26d722b6e491990d19b0212dc7975/evidence",
+      "sha256": "c3826371ab438ee6e1bf0892516d2687df1a36a0de42bfc3207b12eee4059530",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "limit = 2\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 2\nfor index in range(limit):\n\tif index % 2 == 0:\n\t\tprint(index)\n\telse:\n\t\tprint(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fed26d722b6e491990d19b0212dc7975/lesson/evidence/0/0",
+          "sha256": "49a07761178be44d0d7d8a787602cd42f0030e19af10b784a29f40401c98d78e"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "limit = 3\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 3\nfor index in range(limit):\n\tif index % 2 == 0:\n\t\tprint(index)\n\telse:\n\t\tprint(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fed26d722b6e491990d19b0212dc7975/lesson/evidence/0/1",
+          "sha256": "dae0a8a16c5b8ab32aca0c94f5897c95d873aecc25e5f0a9381f0d46bfa93e1d"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "limit = 4\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 4\nfor index in range(limit):\n\tif index % 2 == 0:\n\t\tprint(index)\n\telse:\n\t\tprint(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fed26d722b6e491990d19b0212dc7975/lesson/evidence/0/2",
+          "sha256": "ab9c3f084bba629faf8d76c26e6b348bdf55ca6d8ebaa84ead8a0970034bd748"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "limit = 5\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 5\nfor index in range(limit):\n\tif index % 2 == 0:\n\t\tprint(index)\n\telse:\n\t\tprint(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fed26d722b6e491990d19b0212dc7975/lesson/evidence/0/3",
+          "sha256": "fda3d55b02b71dd3e82130dd47a73a656ac5af2aeefb93a152b411db58fa0773"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "limit = 6\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 6\nfor index in range(limit):\n\tif index % 2 == 0:\n\t\tprint(index)\n\telse:\n\t\tprint(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fed26d722b6e491990d19b0212dc7975/lesson/evidence/0/4",
+          "sha256": "0b5bad41ef2ea7d4963bbb6094abc0deb47db98e99db7f00965e31102e3e1cbb"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "limit = 7\nfor index in range(limit):\n   if index % 2 == 0:\n      print(index)\n   else:\n      print(-index)",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "limit = 7\nfor index in range(limit):\n\tif index % 2 == 0:\n\t\tprint(index)\n\telse:\n\t\tprint(-index)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fed26d722b6e491990d19b0212dc7975/lesson/evidence/0/5",
+          "sha256": "2c82f7ce0debcf0c6f1c7b76cc7d1ff5c7f4506432f79eb8ee1f3a1ded43a18d"
+        }
+      ],
+      "observations": [
+        "All six sources and outputs show explicit whitespace glyphs and line-by-line counts; exact code characters are independently evaluated.",
+        "Two fast navigation attempts in A/C episode 4 remained on problem details; clicking the visible submit-code button again reached the editor. Reload persistence was not checked."
+      ]
+    },
+    {
+      "task_id": 60,
+      "task_version": "3.0.0",
+      "variant": "A",
+      "run_id": "0b7fb64a815e4ed3a3d9a7507f1375ae",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/0b7fb64a815e4ed3a3d9a7507f1375ae/evidence",
+      "sha256": "6f20a12f50e3934881008b35e678986631db5dcab7d84bae8e3697ce5c669890",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "value = 7\nif value > 0:\n   total = value + 1\n   print(total)",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "x_value = 7\nif x_value > 0:\n   x_total = x_value + 1\n   print(x_total)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0b7fb64a815e4ed3a3d9a7507f1375ae/lesson/evidence/0/0",
+          "sha256": "436133e77a65bbad427b8609c95651d25bc34a8e162d8b4387caa3ca76c8d236"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "length = 4\narea = length * length\nprint(area, length)",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "x_length = 4\nx_area = x_length * x_length\nprint(x_area, x_length)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0b7fb64a815e4ed3a3d9a7507f1375ae/lesson/evidence/0/1",
+          "sha256": "842df04b6aac112e19888af344f36b59a11989242489420f7da4910849956899"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "price = [7, 12, 5]\ncost = sum(price)\nif cost > 20:\n   print(cost - min(price))",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "x_price = [7, 12, 5]\nx_cost = sum(x_price)\nif x_cost > 20:\n   print(x_cost - min(x_price))"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0b7fb64a815e4ed3a3d9a7507f1375ae/lesson/evidence/0/2",
+          "sha256": "c466f7d5c14bc85838891aec191621f3264929013a88287a31eb206971ee88f7"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "result = 0\nfor count in range(7):\n   result += count\nprint(result)",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "x_result = 0\nfor x_count in range(7):\n   x_result += x_count\nprint(x_result)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0b7fb64a815e4ed3a3d9a7507f1375ae/lesson/evidence/0/3",
+          "sha256": "de682db30636d06a7fb8a0c45bae32ae385705bef137e4d2e9bc39999add3d0a"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "limit = 6\nanswer = 1\nwhile answer < limit:\n   answer *= 2\nprint(answer, limit)",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "x_limit = 6\nx_answer = 1\nwhile x_answer < x_limit:\n   x_answer *= 2\nprint(x_answer, x_limit)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0b7fb64a815e4ed3a3d9a7507f1375ae/lesson/evidence/0/4",
+          "sha256": "9615b88fb323525388805957ccf1c56be06b8a29d70997bc127b902a1dce630c"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "scores = [6, 8, 10]\naverage = sum(scores) / len(scores)\nprint(round(average, 2))",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "x_scores = [6, 8, 10]\nx_average = sum(x_scores) / len(x_scores)\nprint(round(x_average, 2))"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0b7fb64a815e4ed3a3d9a7507f1375ae/lesson/evidence/0/5",
+          "sha256": "2e4be2701ab33059d1835ad86ede431803d3e330ec8f1d203b50b7ffd6231648"
+        }
+      ],
+      "observations": [
+        "Six visible variable-name pairs occur in assignments, conditional blocks, for/while loops, list operations and aggregation. Definitions and references are renamed together.",
+        "Saved source persists after navigating to the problem list and back to My Code and Notes.",
+        "A episode 0 first attempted the unrelated problem-submission route; it was rejected as unsupported and no submission was created. The file-save route succeeded."
+      ]
+    },
+    {
+      "task_id": 60,
+      "task_version": "3.0.0",
+      "variant": "C",
+      "run_id": "6cac2c975a86438297480e30ed2be4e0",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/6cac2c975a86438297480e30ed2be4e0/evidence",
+      "sha256": "31a0ea766fdd616fede797bb1f7a14dda703bb1089d22262530ca1be2d2ca19f",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "value = 7\nif value > 0:\n   total = value + 1\n   print(total)",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "VALUE = 7\nif VALUE > 0:\n   TOTAL = VALUE + 1\n   print(TOTAL)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/6cac2c975a86438297480e30ed2be4e0/lesson/evidence/0/0",
+          "sha256": "f3678fb77b96e09311913c519d4cc3a29a5e9e6de8a351a4f2e101d01aa0c82f"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "length = 4\narea = length * length\nprint(area, length)",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "LENGTH = 4\nAREA = LENGTH * LENGTH\nprint(AREA, LENGTH)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/6cac2c975a86438297480e30ed2be4e0/lesson/evidence/0/1",
+          "sha256": "30b17a485dbc7e1af97d3b5f6f6992cdabc33d676d8aa3677c0fa3a4c3a08bdf"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "price = [7, 12, 5]\ncost = sum(price)\nif cost > 20:\n   print(cost - min(price))",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "PRICE = [7, 12, 5]\nCOST = sum(PRICE)\nif COST > 20:\n   print(COST - min(PRICE))"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/6cac2c975a86438297480e30ed2be4e0/lesson/evidence/0/2",
+          "sha256": "1f611fbf9749c97e52c750cecea36d1c97547e9c8355d28f1f5d8b74c0314cfd"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "result = 0\nfor count in range(7):\n   result += count\nprint(result)",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "RESULT = 0\nfor COUNT in range(7):\n   RESULT += COUNT\nprint(RESULT)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/6cac2c975a86438297480e30ed2be4e0/lesson/evidence/0/3",
+          "sha256": "93882acf339fad2dfa05374ea7663770b37187d73a9befe914f105c31598e441"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "limit = 6\nanswer = 1\nwhile answer < limit:\n   answer *= 2\nprint(answer, limit)",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "LIMIT = 6\nANSWER = 1\nwhile ANSWER < LIMIT:\n   ANSWER *= 2\nprint(ANSWER, LIMIT)"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/6cac2c975a86438297480e30ed2be4e0/lesson/evidence/0/4",
+          "sha256": "fceba08924d0db4810c833674cc2fd002368e9bdc3857c96f43661e7dbee7585"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "scores = [6, 8, 10]\naverage = sum(scores) / len(scores)\nprint(round(average, 2))",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "SCORES = [6, 8, 10]\nAVERAGE = sum(SCORES) / len(SCORES)\nprint(round(AVERAGE, 2))"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/6cac2c975a86438297480e30ed2be4e0/lesson/evidence/0/5",
+          "sha256": "57aed088e47ec04d1f42a65f3f8f3be4c378c14c3695b3b12287fef192cc690d"
+        }
+      ],
+      "observations": [
+        "Six visible variable-name pairs occur in assignments, conditional blocks, for/while loops, list operations and aggregation. Definitions and references are renamed together.",
+        "Saved source persists after navigating to the problem list and back to My Code and Notes.",
+        "A episode 0 first attempted the unrelated problem-submission route; it was rejected as unsupported and no submission was created. The file-save route succeeded."
+      ]
+    },
+    {
+      "task_id": 64,
+      "task_version": "3.1.0",
+      "variant": "A",
+      "run_id": "b4371e2ca5d1461591566bbc97417a26",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/b4371e2ca5d1461591566bbc97417a26/evidence",
+      "sha256": "f626a36fdf3d459dfbac8d2a5139486e98d60d86e207f794fa8c4ec28d72c8d6",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-239ffcfe71"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b4371e2ca5d1461591566bbc97417a26/lesson/evidence/0/0",
+          "sha256": "df2af8d38fcc50b34013dae27b404af7ed8d515978d11ea1a53640c164d278d4"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-fb5f16fbe1"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b4371e2ca5d1461591566bbc97417a26/lesson/evidence/0/1",
+          "sha256": "52dc67952cb57dfe416d4e7971db0c0f7c883eef09b4e58cb9cb049c40740840"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-4c3ca84fb8"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b4371e2ca5d1461591566bbc97417a26/lesson/evidence/0/2",
+          "sha256": "659d79ff4c12107397df8c5662025908f326b4b6cc0e637a727b876b88a7af33"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-56b4346c8f"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b4371e2ca5d1461591566bbc97417a26/lesson/evidence/0/3",
+          "sha256": "96ff3342db9951883f172f67c8262dbae315d7a546b373a3b18aee8f209dffe3"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-35c430abd8"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b4371e2ca5d1461591566bbc97417a26/lesson/evidence/0/4",
+          "sha256": "005acb2950cecb3c0264453f3db5da7e3076cee9d8a570dbaff129ff1f3a9676"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-cf4541688b"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b4371e2ca5d1461591566bbc97417a26/lesson/evidence/0/5",
+          "sha256": "35b507c88b5b58c7a349480d8c70041451721998954a4d821a28523e96e318cd"
+        }
+      ],
+      "observations": [
+        "Six complete UTC date comparisons or line-count comparisons choose the record through View Code.",
+        "Each selected expanded code block has exactly the number of lines displayed in the list. Reload persistence was not checked."
+      ]
+    },
+    {
+      "task_id": 64,
+      "task_version": "3.1.0",
+      "variant": "B",
+      "run_id": "921ac337d07842d6b4758325bb170250",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/921ac337d07842d6b4758325bb170250/evidence",
+      "sha256": "228752c76b828ad4b3412696496c8b41d994f1bb2098a90b34d13517cec2cfd8",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-7dbfeb3841"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/921ac337d07842d6b4758325bb170250/lesson/evidence/0/0",
+          "sha256": "a26a81904093dc6d8020460859f8264fc02371a9aad8b8bc33d25c647c026c6c"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-9303d8f987"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/921ac337d07842d6b4758325bb170250/lesson/evidence/0/1",
+          "sha256": "97fe559794089b2f4c2bce2502a6c522073d504f5ac1edf5869b1d4dd5ed70a4"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-fa99a08831"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/921ac337d07842d6b4758325bb170250/lesson/evidence/0/2",
+          "sha256": "2b9ce4c91531bbfb6c7db73528ec309e809483158d6e64f63d2a113b86a11fd7"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-ab2f2791e7"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/921ac337d07842d6b4758325bb170250/lesson/evidence/0/3",
+          "sha256": "618385ff89748f6f0e71c0b47c7b04b7f227ba5d7c091db3a96fc6ff6ae4463f"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-4d8b51bd35"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/921ac337d07842d6b4758325bb170250/lesson/evidence/0/4",
+          "sha256": "51e2fe3870a45424a2d650ce7d201ab6aa52fa103c9fcdc444c90b95ce6b561d"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-9672688a0c"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/921ac337d07842d6b4758325bb170250/lesson/evidence/0/5",
+          "sha256": "7ca99dbfd1f8fb38e3e5c7000d6b518ee9793e7e186c43505e304ca1a77e2940"
+        }
+      ],
+      "observations": [
+        "Six complete UTC date comparisons or line-count comparisons choose the record through View Code.",
+        "Each selected expanded code block has exactly the number of lines displayed in the list. Reload persistence was not checked."
+      ]
+    },
+    {
+      "task_id": 64,
+      "task_version": "3.1.0",
+      "variant": "C",
+      "run_id": "7bf060570f6e4beeb82c5e2bc3e5ae2f",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/7bf060570f6e4beeb82c5e2bc3e5ae2f/evidence",
+      "sha256": "02b48e590946d17f89fdac76d67a9e475985f8a80e692929aadda95a7f5632fd",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-7e24cdc063"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/7bf060570f6e4beeb82c5e2bc3e5ae2f/lesson/evidence/0/0",
+          "sha256": "cc28af7ca49063a90859f287ee39a74ac85fabed6b39ba189d501c1c3e5cde53"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-e75a004273"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/7bf060570f6e4beeb82c5e2bc3e5ae2f/lesson/evidence/0/1",
+          "sha256": "f1e7753734c8ca3bf5bf62310bcd611277b82b995ddc0c44aa8680794ae9fbb7"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-482e1de3c4"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/7bf060570f6e4beeb82c5e2bc3e5ae2f/lesson/evidence/0/2",
+          "sha256": "d70b4876ccbb475c7034001e8b0d445cf5a89c765bad4c8c4f4c747045ec711c"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-25965c5abc"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/7bf060570f6e4beeb82c5e2bc3e5ae2f/lesson/evidence/0/3",
+          "sha256": "239cbd5d245bdaa62d5a616f4fcff19b5765afe461d5df970d6283a7eb519f95"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-4b05c14a22"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/7bf060570f6e4beeb82c5e2bc3e5ae2f/lesson/evidence/0/4",
+          "sha256": "8854c957ff9df582b0e46a06f10dbc7255ca054b207d9725f3bfe702c6ad298b"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-6a0b9a1498"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/7bf060570f6e4beeb82c5e2bc3e5ae2f/lesson/evidence/0/5",
+          "sha256": "ed684056833a924944042dd371d882b4f0250e18db93fe474b7dfe2d939d09da"
+        }
+      ],
+      "observations": [
+        "Six complete UTC date comparisons or line-count comparisons choose the record through View Code.",
+        "Each selected expanded code block has exactly the number of lines displayed in the list. Reload persistence was not checked."
+      ]
+    },
+    {
+      "task_id": 65,
+      "task_version": "3.1.0",
+      "variant": "B",
+      "run_id": "6be0fa5581a4452789c2ad2a6197b4c6",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/6be0fa5581a4452789c2ad2a6197b4c6/evidence",
+      "sha256": "2802f3ebaad1b32565fe80b05f5024900a327c3f6b150d5d4ab1f25608f1f592",
+      "object_count": 24,
+      "submitted_count": 8,
+      "persisted_across_navigation": true,
+      "observations": [
+        "All 24 files are opened and their visible character counts equal the actual displayed source, including spaces and newlines.",
+        "All 24 submitted or untouched states persist after navigating away and returning.",
+        "The 24-character examples are included and the 25/26-character examples excluded in variant C."
+      ]
+    },
+    {
+      "task_id": 65,
+      "task_version": "3.1.0",
+      "variant": "C",
+      "run_id": "d060231909a94c9dac2f18db27f2b622",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/d060231909a94c9dac2f18db27f2b622/evidence",
+      "sha256": "4931fbd064fa5eefc9c775a6fc0787a364140748af6fe68dddc7cc524bce1674",
+      "object_count": 24,
+      "submitted_count": 13,
+      "persisted_across_navigation": true,
+      "observations": [
+        "All 24 files are opened and their visible character counts equal the actual displayed source, including spaces and newlines.",
+        "All 24 submitted or untouched states persist after navigating away and returning.",
+        "The 24-character examples are included and the 25/26-character examples excluded in variant C."
+      ]
+    }
+  ],
+  "verified_at": "2026-09-28T07:59:18.895915+00:00"
+}

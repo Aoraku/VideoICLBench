@@ -1,0 +1,664 @@
+{
+  "scope": "Native UI operations and independent evaluations. Full recording and human inference acceptance remain pending.",
+  "native_ui": [
+    {
+      "task_id": 53,
+      "task_version": "3.0.0",
+      "variant": "A",
+      "run_id": "6c3395cd856e461099c5bbd6f4bc577f",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/6c3395cd856e461099c5bbd6f4bc577f/evidence",
+      "sha256": "a0069790b090daa110b1988bc25ce1408f61444c1882f6a7858ca6cae78952c5",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-c3ac2a1089"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/6c3395cd856e461099c5bbd6f4bc577f/lesson/evidence/0/0",
+          "sha256": "9393179be6f3efc7d333acad59e2e71299bf0ae88652e82bfda4e7951ac976ec"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-4108669310"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/6c3395cd856e461099c5bbd6f4bc577f/lesson/evidence/0/1",
+          "sha256": "22991f48a32a58301c33f42f9c9bec75c4d9221e14317e1c427b109d96091007"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-4033c2cacf"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/6c3395cd856e461099c5bbd6f4bc577f/lesson/evidence/0/2",
+          "sha256": "45bae35ae4e0bffda878973b3a2c12e87556cd15b28e5f4382e1e83b3c9a1742"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-ad8585c0f7"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/6c3395cd856e461099c5bbd6f4bc577f/lesson/evidence/0/3",
+          "sha256": "4b198f22e1500731ebf38d7f5db1e58d4fb5c6ba1256e20545861f1bb0c23a50"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-e1123cfddf"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/6c3395cd856e461099c5bbd6f4bc577f/lesson/evidence/0/4",
+          "sha256": "46e7f21e51ff33d219fe8fa91ab2a1c92722c8dc6e4359d85b2ee0365273bbf4"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-4ff905d262"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/6c3395cd856e461099c5bbd6f4bc577f/lesson/evidence/0/5",
+          "sha256": "0de31812718061f884271582c902c5317551efaf2f592ed68920a98a4e85e762"
+        }
+      ],
+      "observations": [
+        "Each of six selections compares the complete UTC timestamp or amount in the transaction list; detail timestamps match the list.",
+        "Opening a transaction is the selection action. Reload persistence was not independently checked."
+      ]
+    },
+    {
+      "task_id": 53,
+      "task_version": "3.0.0",
+      "variant": "B",
+      "run_id": "ec2ba9bd601243bd80fb4fd335050a07",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/ec2ba9bd601243bd80fb4fd335050a07/evidence",
+      "sha256": "0ddd27e35fa086beb5fad74d4b5a28355fd2335ac2184ad3bad0b8104ea87253",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-2f67dd4bcd"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ec2ba9bd601243bd80fb4fd335050a07/lesson/evidence/0/0",
+          "sha256": "765b18a74c3177f9b6c355d9952328abc2c319b0001c1e3272f2f2675c070cf4"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-8ecf141707"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ec2ba9bd601243bd80fb4fd335050a07/lesson/evidence/0/1",
+          "sha256": "03db5159eaf2986f8830bf4cf9250e0a8795d73233515e61fa5e79af1cb074f3"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-499d6fd8b4"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ec2ba9bd601243bd80fb4fd335050a07/lesson/evidence/0/2",
+          "sha256": "ff6ab0dd347ffd2ed529a8309c3e0937e5d63c0851361149cf33f8a83dcca46a"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-9bfd4560fd"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ec2ba9bd601243bd80fb4fd335050a07/lesson/evidence/0/3",
+          "sha256": "51e3a472b470a1c08dea56e4dd98daad50d3eba8ca16a1db024e0d642d1cdd98"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-f0728a78c1"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ec2ba9bd601243bd80fb4fd335050a07/lesson/evidence/0/4",
+          "sha256": "5923e10840fde633eb6369dd7dfa44b00dc8bedc8f25ec26baaf398fa59909fc"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-b2f1b089a3"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ec2ba9bd601243bd80fb4fd335050a07/lesson/evidence/0/5",
+          "sha256": "73bd8eb5899a06bebcf8aaa0b0f726587d521780039647a81184727f57ef5f04"
+        }
+      ],
+      "observations": [
+        "Each of six selections compares the complete UTC timestamp or amount in the transaction list; detail timestamps match the list.",
+        "Opening a transaction is the selection action. Reload persistence was not independently checked."
+      ]
+    },
+    {
+      "task_id": 53,
+      "task_version": "3.0.0",
+      "variant": "C",
+      "run_id": "eafa94aa79da462d82deb8b3715075c8",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/eafa94aa79da462d82deb8b3715075c8/evidence",
+      "sha256": "b90bd1996d872a42d52ad5b419cc9075dce656d4d3a3236ea83e1dad76094114",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-3aacff41ae"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eafa94aa79da462d82deb8b3715075c8/lesson/evidence/0/0",
+          "sha256": "707f9312b3830c6d5e07564c505b485f35d5665267d3260fc3795a045d6ab9f8"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-af238651e1"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eafa94aa79da462d82deb8b3715075c8/lesson/evidence/0/1",
+          "sha256": "5bbe6b8eb3ced54fdf668b9ac481d36092ef5b789905681e67e52760971bcda2"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-84bed11d6a"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eafa94aa79da462d82deb8b3715075c8/lesson/evidence/0/2",
+          "sha256": "046f476f33c5a9f687491a7367e0ff2fc4702d93a595d7305c07a4ab63b9e6c8"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-749dc6d6e7"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eafa94aa79da462d82deb8b3715075c8/lesson/evidence/0/3",
+          "sha256": "4f23e1891f89a061ea6fefb018be3d9bd20bcc3dc9ec954510d3585bbba63c84"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-50b671c60f"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eafa94aa79da462d82deb8b3715075c8/lesson/evidence/0/4",
+          "sha256": "8ac311f2235045fc03c9ea01550e2df39f8ef1d7c8fbd8e3508d1b02cb9a6675"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-1c6746b39e"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eafa94aa79da462d82deb8b3715075c8/lesson/evidence/0/5",
+          "sha256": "e34a31db29df3992a994ad142584d0703c06ca05f06c159c2eb655e02b5aeb4e"
+        }
+      ],
+      "observations": [
+        "Each of six selections compares the complete UTC timestamp or amount in the transaction list; detail timestamps match the list.",
+        "Opening a transaction is the selection action. Reload persistence was not independently checked."
+      ]
+    },
+    {
+      "task_id": 54,
+      "task_version": "3.0.0",
+      "variant": "B",
+      "run_id": "3ada271473c74899a39c4d7af023e471",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/3ada271473c74899a39c4d7af023e471/evidence",
+      "sha256": "63838c51e4f2f75baea8ba13b458311eedfaab2e0c2d38e7fa21e93e48e4fda5",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "positive_count": 10,
+      "observations": [
+        "The exact booked title set persists in My Trips after reload.",
+        "Variant B excludes all four exactly-50-price examples and includes the 51-price example. Variant C includes direct routes as zero transfers."
+      ]
+    },
+    {
+      "task_id": 54,
+      "task_version": "3.0.0",
+      "variant": "C",
+      "run_id": "9e49bf41a9844cc79c8f443f846bfe0a",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/9e49bf41a9844cc79c8f443f846bfe0a/evidence",
+      "sha256": "30a6ca0e36447a255d9e380bad4a04cfbab3e66d2138169147b7e0a22d0be0a1",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "positive_count": 12,
+      "observations": [
+        "The exact booked title set persists in My Trips after reload.",
+        "Variant B excludes all four exactly-50-price examples and includes the 51-price example. Variant C includes direct routes as zero transfers."
+      ]
+    },
+    {
+      "task_id": 55,
+      "task_version": "3.0.0",
+      "variant": "A",
+      "run_id": "83f951f049604e9996827a1c22e62725",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/83f951f049604e9996827a1c22e62725/evidence",
+      "sha256": "098055a2da8d258c612004be26b6d7d62816ea1828938bbf5ee58f0c521f456c",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "initial_cart_count": 9,
+      "added_count": 11,
+      "final_cart_count": 20,
+      "observations": [
+        "Only tagged items absent from the initial cart are added. All original members remain."
+      ]
+    },
+    {
+      "task_id": 55,
+      "task_version": "3.0.0",
+      "variant": "B",
+      "run_id": "1311f3674f58422a8a2b773076a46ecd",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/1311f3674f58422a8a2b773076a46ecd/evidence",
+      "sha256": "7c17189e991da12b7d71c64618aa00041dce5ff15d0b745ac081acdf56a3177f",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "initial_cart_count": 9,
+      "removed_count": 5,
+      "final_cart_count": 4,
+      "observations": [
+        "Only tagged initial cart members are removed. The four non-target original members remain."
+      ]
+    },
+    {
+      "task_id": 55,
+      "task_version": "3.0.0",
+      "variant": "C",
+      "run_id": "56838a86789342bc90e1b2f42b5cf78a",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/56838a86789342bc90e1b2f42b5cf78a/evidence",
+      "sha256": "96509785607f49491dcaab912c4f60b90e665940251f40fe6d18241886af8a62",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "initial_cart_count": 9,
+      "favorite_count": 16,
+      "final_cart_count": 9,
+      "observations": [
+        "The exact tagged favorite set persists; the initial cart remains unchanged."
+      ]
+    },
+    {
+      "task_id": 56,
+      "task_version": "3.1.0",
+      "variant": "B",
+      "run_id": "40b2435a8bf04fa389596f0db96265ba",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/40b2435a8bf04fa389596f0db96265ba/evidence",
+      "sha256": "26c312c59b41018f9b0223371791b530e87a75be4cadc7698a9decd6293aeed7",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "transfer_count": 12,
+      "remaining_balance": 9465,
+      "observations": [
+        "All 24 rows show the expected transferred or untouched state after reload.",
+        "Account numbers and amounts match the confirmation view; the overview balance equals 10000 minus the selected amounts. All accounts and transfers are simulated."
+      ]
+    },
+    {
+      "task_id": 56,
+      "task_version": "3.1.0",
+      "variant": "C",
+      "run_id": "dc6ababcd945441ba6dd8602b2630caf",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/dc6ababcd945441ba6dd8602b2630caf/evidence",
+      "sha256": "53180b06b09cf5e679cd4c77ae51b4da21ca13e0c29cfb3bdd49cbde0b9f5dd4",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "transfer_count": 10,
+      "remaining_balance": 9731,
+      "observations": [
+        "All 24 rows show the expected transferred or untouched state after reload.",
+        "Account numbers and amounts match the confirmation view; the overview balance equals 10000 minus the selected amounts. All accounts and transfers are simulated."
+      ]
+    },
+    {
+      "task_id": 57,
+      "task_version": "3.0.0",
+      "variant": "A",
+      "run_id": "52ee9913e6624a7baf224292b2fdb0cc",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/52ee9913e6624a7baf224292b2fdb0cc/evidence",
+      "sha256": "61e92cf650c2e6ca920e13085405f6c95f405a5bc55693da447fc1fb81a4060d",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "enabled_count": 10,
+      "observations": [
+        "All 24 reminder states persist after reload.",
+        "Variant C compares two complete visible UTC dates, including same-day distant times and two excluded cross-midnight 00:10/23:50 examples."
+      ]
+    },
+    {
+      "task_id": 57,
+      "task_version": "3.0.0",
+      "variant": "B",
+      "run_id": "6ce24c77e0f24f04913ab2e877a31825",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/6ce24c77e0f24f04913ab2e877a31825/evidence",
+      "sha256": "fedcb792d0c7862320016a24efbd683cfc9201d5bd4624f480f2035bac91ffdf",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "enabled_count": 10,
+      "observations": [
+        "All 24 reminder states persist after reload.",
+        "Variant C compares two complete visible UTC dates, including same-day distant times and two excluded cross-midnight 00:10/23:50 examples."
+      ]
+    },
+    {
+      "task_id": 57,
+      "task_version": "3.0.0",
+      "variant": "C",
+      "run_id": "f5bae875134b4753bdabeb75ffafcfc2",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/f5bae875134b4753bdabeb75ffafcfc2/evidence",
+      "sha256": "7ec13b8df03d7984c2571345104ab41b35023e59c71c765954b1c4890a82bf1d",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "enabled_count": 12,
+      "observations": [
+        "All 24 reminder states persist after reload.",
+        "Variant C compares two complete visible UTC dates, including same-day distant times and two excluded cross-midnight 00:10/23:50 examples."
+      ]
+    }
+  ],
+  "verified_at": "2026-09-28T07:38:59.706747+00:00"
+}
