@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 67,
-  "task_version": "3.0.0",
+  "task_version": "3.0.1",
   "title": "五子棋：从候选点选择落子",
   "app": "gomoku",
   "type": "S",

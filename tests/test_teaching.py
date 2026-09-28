@@ -172,6 +172,22 @@ def test_gomoku_block_prevents_immediate_white_win():
         assert not winning_moves(board,2)
 
 
+@pytest.mark.parametrize('task_id', [66, 67])
+def test_gomoku_practice_does_not_start_with_a_winner(task_id):
+    for seed in [*range(128), 1000, 10001]:
+        board = games.fixture(task_id, seed)['board']
+        for r in range(15):
+            for c in range(15):
+                if not board[r][c]:
+                    continue
+                for dr, dc in ((1, 0), (0, 1), (1, 1), (1, -1)):
+                    line = [(r + k * dr, c + k * dc) for k in range(5)]
+                    assert not all(
+                        0 <= a < 15 and 0 <= b < 15 and board[a][b] == board[r][c]
+                        for a, b in line
+                    ), (task_id, seed, line)
+
+
 def test_sudoku_middle_candidate_has_no_row_parity_requirement():
     for seed in range(10):
         state=games.fixture(71,seed)

@@ -1,12 +1,9 @@
 {
   "scope": "Index of task-specific browser observations recorded in review artifacts. Presence does not imply complete A/B/C coverage, current-version replay, recorded-video verification, or human inference acceptance. Null episode counts mean the source has no explicit episode count.",
   "task_count": 75,
-  "tasks_with_indexed_browser_evidence": 69,
+  "tasks_with_indexed_browser_evidence": 72,
   "tasks_without_indexed_browser_evidence": [
-    66,
     67,
-    68,
-    70,
     73,
     75
   ],
@@ -1241,7 +1238,15 @@
     },
     {
       "task_id": 66,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-games-additional-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "C",
+          "run_id": "3d14f3be56974888b1fc5f61295f47c3",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 67,
@@ -1249,7 +1254,29 @@
     },
     {
       "task_id": 68,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-games-additional-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "A",
+          "run_id": "6c0b746c3b8f40ff800399ac4fd875b7",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-games-additional-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "B",
+          "run_id": "39d763f6ea6f441986b7b281ef711dcb",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-games-additional-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "C",
+          "run_id": "0b1f76ae130a4cef9c8d3cd77370f4e7",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 69,
@@ -1265,7 +1292,15 @@
     },
     {
       "task_id": 70,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-games-additional-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "A",
+          "run_id": "37344b74894b48268837f7b9a4a15a2a",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 71,

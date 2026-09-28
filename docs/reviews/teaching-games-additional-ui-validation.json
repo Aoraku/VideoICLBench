@@ -1,0 +1,587 @@
+{
+  "scope": "Screenshot-grounded SDL and visible-DOM web interactions, six independent boards per lesson; no captured-video or human inference acceptance.",
+  "tests": {
+    "passed": 1253,
+    "failed": 0,
+    "seconds": 125.738
+  },
+  "native_ui": [
+    {
+      "task_id": 66,
+      "variant": "C",
+      "run_id": "3d14f3be56974888b1fc5f61295f47c3",
+      "epoch": 0,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": null,
+          "marks": [
+            [
+              9,
+              10
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "f2efe199ab6867eb72420e5e65b04363bdbbb20b8ef3bc362b137552ecdf44fb"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": null,
+          "marks": [
+            [
+              5,
+              10
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "8d3a2f87a3633a0d3ed312de7d63ec95c422ccafe7a9c61f8695343075945766"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": null,
+          "marks": [
+            [
+              4,
+              9
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "9fd031da66dc485136f0094541b8204a27c9861d8b91109ec3a4495f67965ccd"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": null,
+          "marks": [
+            [
+              5,
+              10
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "748ebb45a735300bdf02944a8de5f7f8bac01b6f854326313c800cf3306e5b21"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": null,
+          "marks": [
+            [
+              5,
+              4
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "6155228b4e25c8778d3cea36894a3e10572a98686e82e867946105495f368571"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": null,
+          "marks": [
+            [
+              4,
+              9
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "ebbe5e726b3076e77adbf774c46eacab0d5089a5881929799e26f300a7c0d474"
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "e66d1c2cc1ed59a66bb3cb2bbadf04f218f27b4ee1f69e3b051fb2019fe1c3b4",
+      "environment": "agentlab shared SDL desktop",
+      "task_version": "3.0.0",
+      "limitations": [
+        "Task 3.0.1 still requires replay after deployment."
+      ]
+    },
+    {
+      "task_id": 68,
+      "variant": "A",
+      "run_id": "6c0b746c3b8f40ff800399ac4fd875b7",
+      "epoch": 0,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": "up",
+          "marks": [],
+          "moves": [
+            "up"
+          ],
+          "score": 12,
+          "sha256": "8b708de0142bb1c55c9b8d42dfeb8f013ea54db2522aa263a89c5590e8fcb894"
+        },
+        {
+          "index": 1,
+          "seed": 92,
+          "selection": "left",
+          "marks": [],
+          "moves": [
+            "left"
+          ],
+          "score": 48,
+          "sha256": "13dfa614eb55a39510000143399f4be9110c750e2a57f00d7b2ec95e28cee640"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": "left",
+          "marks": [],
+          "moves": [
+            "left"
+          ],
+          "score": 36,
+          "sha256": "d3c81df95474a6583458b0edc45adba8e8f10bbfacb0454d885749c6cbd69bbd"
+        },
+        {
+          "index": 3,
+          "seed": 4,
+          "selection": "left",
+          "marks": [],
+          "moves": [
+            "left"
+          ],
+          "score": 36,
+          "sha256": "9a90140b996af9c211cade87f39bb2b68187ff8368bd4a4ca3a8bc53864d052f"
+        },
+        {
+          "index": 4,
+          "seed": 1,
+          "selection": "left",
+          "marks": [],
+          "moves": [
+            "left"
+          ],
+          "score": 36,
+          "sha256": "4d6cc3be2084cd100dbb30f452af904fb80cb13c6e14307257071cc78246a5c4"
+        },
+        {
+          "index": 5,
+          "seed": 3,
+          "selection": "left",
+          "marks": [],
+          "moves": [
+            "left"
+          ],
+          "score": 20,
+          "sha256": "ff7ce34e2a98ec065c661063ee1f9bec4ccb74185bbb3139f8915b702713d916"
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "a003aeb84ca7d4c5f13a72c26e2ef8c9db1ea6d50af1fa4423483308c8d85c37",
+      "environment": "local native web product"
+    },
+    {
+      "task_id": 68,
+      "variant": "B",
+      "run_id": "39d763f6ea6f441986b7b281ef711dcb",
+      "epoch": 0,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": "left",
+          "marks": [],
+          "moves": [
+            "left"
+          ],
+          "score": 36,
+          "sha256": "9cd8c2190dd9714aabbab2e765d6571412af404bf61184e7113227fc500f65ad"
+        },
+        {
+          "index": 1,
+          "seed": 92,
+          "selection": "up",
+          "marks": [],
+          "moves": [
+            "up"
+          ],
+          "score": 72,
+          "sha256": "ffb6eb6b53bd2bcf587ba20497eedb2425aea9fdf4b09d58cb6f705ad5841ef0"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": "left",
+          "marks": [],
+          "moves": [
+            "left"
+          ],
+          "score": 36,
+          "sha256": "68c5264bd04ba95c553efdadafc13f7cfd2e4d324c0a0e8a4e0134a27229768a"
+        },
+        {
+          "index": 3,
+          "seed": 4,
+          "selection": "left",
+          "marks": [],
+          "moves": [
+            "left"
+          ],
+          "score": 36,
+          "sha256": "d41f2797b14cddec72307df928792d0306a11bf628c09adb0583f15eb2f500be"
+        },
+        {
+          "index": 4,
+          "seed": 1,
+          "selection": "left",
+          "marks": [],
+          "moves": [
+            "left"
+          ],
+          "score": 36,
+          "sha256": "6997053b84828ef61273a611f89628d2a040c1208c2042883f0c1ecf1af393ce"
+        },
+        {
+          "index": 5,
+          "seed": 3,
+          "selection": "left",
+          "marks": [],
+          "moves": [
+            "left"
+          ],
+          "score": 20,
+          "sha256": "dc4ed164545e357b8732efd1caa9acc7a23d7c8c9752b0d5c8a478cddd71999d"
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "5f7d56976823d9aa53a7cb615d0a157565ec1da6563020e21cec1ca51742ca7b",
+      "environment": "local native web product"
+    },
+    {
+      "task_id": 68,
+      "variant": "C",
+      "run_id": "0b1f76ae130a4cef9c8d3cd77370f4e7",
+      "epoch": 0,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": "up",
+          "marks": [],
+          "moves": [
+            "up"
+          ],
+          "score": 12,
+          "sha256": "8d77c2bec4c062182623529dbb18afc66dbcd1a45561b1c1b3689bc3af4de175"
+        },
+        {
+          "index": 1,
+          "seed": 92,
+          "selection": "down",
+          "marks": [],
+          "moves": [
+            "down"
+          ],
+          "score": 72,
+          "sha256": "ff3c1a2c6b53467de252b1f1b448272c9200597f1934bc1ecbfa9fe9eabce5c7"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": "left",
+          "marks": [],
+          "moves": [
+            "left"
+          ],
+          "score": 36,
+          "sha256": "72e0de030f1518ae7c14b23472553850bc9462a3701e3ee76cb403cc83043e85"
+        },
+        {
+          "index": 3,
+          "seed": 4,
+          "selection": "right",
+          "marks": [],
+          "moves": [
+            "right"
+          ],
+          "score": 36,
+          "sha256": "2901bc5b7636f545f1af8744963095662228ccf494fdeacd30845c4986fca94b"
+        },
+        {
+          "index": 4,
+          "seed": 1,
+          "selection": "up",
+          "marks": [],
+          "moves": [
+            "up"
+          ],
+          "score": 4,
+          "sha256": "1cf111c2738db5313c913fe7cf67bc5cfcd4395975d821859d54da57d753d269"
+        },
+        {
+          "index": 5,
+          "seed": 3,
+          "selection": "left",
+          "marks": [],
+          "moves": [
+            "left"
+          ],
+          "score": 20,
+          "sha256": "ee4461c76560f44eb5e759fb8535d8c42fa59575575d56f302ac849d132ba220"
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "9ec8c37aa988b0c12f9e430c8fdde98c80d7ac508fc73b9ee2393e102411d36e",
+      "environment": "local native web product"
+    },
+    {
+      "task_id": 70,
+      "variant": "A",
+      "run_id": "37344b74894b48268837f7b9a4a15a2a",
+      "epoch": 0,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": null,
+          "marks": [
+            [
+              1,
+              2
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "12b4664e65dab974bce4bf4d5bc9651124cbf635efea015932f57ebce520d6dd"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": null,
+          "marks": [
+            [
+              2,
+              4
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "2971fe9180346d6777c5d6237a38f73a44791d09aeae6494472dc9d3f5212487"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": null,
+          "marks": [
+            [
+              2,
+              4
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "3b592fe46f38cc4c0a4d261e3442ae1ea274bcdc37de0fd1506c8eb976b9592b"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": null,
+          "marks": [
+            [
+              8,
+              2
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "dc30a7ea3466fe3ed20b6d33cdcfe55e3071b3586c57409f97fd1ac8838fd6d4"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": null,
+          "marks": [
+            [
+              1,
+              2
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "9f4535815374419c816c7d501896b99eb81c77290991cd97421cf239be905a34"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": null,
+          "marks": [
+            [
+              6,
+              5
+            ]
+          ],
+          "moves": [],
+          "score": 0,
+          "sha256": "535a74a57ced41aabf2f1eff83adcfdc424c9aeea208780261e61f2141445be0"
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "4cea26a0906dcddbd7d4dbaa9b23730e23490590b5019c9407dc4667dd7add82",
+      "environment": "local native web product"
+    }
+  ],
+  "fixture_regressions": {
+    "gomoku_initial_winner": {
+      "tasks": [
+        66,
+        67
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        1000,
+        10001
+      ],
+      "independent_five_stone_scan": true
+    }
+  },
+  "lesson_audit": "teaching-lessons-v17.json"
+}

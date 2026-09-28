@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 66,
-  "task_version": "3.0.0",
+  "task_version": "3.0.1",
   "title": "五子棋：识别并点击目标落子点",
   "app": "gomoku",
   "type": "C",

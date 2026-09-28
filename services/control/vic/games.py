@@ -216,7 +216,13 @@ def fixture(task_id, seed):
             and all(max(abs(r - a), abs(c - b)) > 1 for a, b in candidates)
         ]
         for r, c in rng.sample(available, 12):
-            board[r][c] = rng.choice([1, 2])
+            stone = rng.choice([1, 2])
+            # A practice position must still be in play. Background stones can
+            # otherwise extend a three-stone example into an existing five.
+            if any(gomoku_run(board, r, c, stone, dr, dc) >= 4
+                   for dr, dc in ((1, 0), (0, 1), (1, 1), (1, -1))):
+                continue
+            board[r][c] = stone
         state = dict(**base, game="gomoku", board=board, candidates=candidates, color=1)
         outcomes = [expected(task_id, v, state) for v in "ABC"]
         if not all(outcomes) or len(set(map(repr, outcomes))) != 3:
