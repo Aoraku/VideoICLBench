@@ -17,6 +17,32 @@ def grouped_contacts(query=False):
     ]
 
 
+def chat_groups(query=False):
+    """Group titles independent of size, with held-out query titles."""
+    if query:
+        return ['展览筹备', '天文观测', '街区志愿者', '摄影 2 组', '8 月读书会', '路线 16 调研']
+    return [
+        '设计协作', '周末徒步', '阅读分享', '社区园艺', '产品评审', '摄影交流',
+        '课程讨论', '预算核对', '河岸调查', '志愿服务', '午间跑步', '资料归档',
+        '产品 3 组', '研发 7 组', '项目 12 组', '路线 4 调研', '摄影 6 班', '第 9 次读书会',
+        '展厅 2 筹备', '实验 15 协作', '课程 8 答疑', '周报 21 汇总', '5 月活动', '演出 11 排练',
+    ]
+
+
+def search_messages(seed):
+    """All six search hits contain the requested term and distinct messages."""
+    topics = (['设计评审', '图书采购', '花园维护', '课程安排', '摄影展览', '徒步路线']
+              if seed < 1000 else ['博物馆导览', '河流调查', '音乐排练', '社区晚餐', '旧书交换', '公交改线'])
+    topic = topics[seed % 6]
+    templates = ['关于{topic}，资料已经整理好，请有空时查看。',
+                 '{topic}的时间需要确认，明天下午方便一起讨论吗？',
+                 '我补充了{topic}的预算明细，稍后发给你。',
+                 '今天收到{topic}的反馈，建议安排一次电话沟通。',
+                 '{topic}的场地已经落实，感谢大家帮忙。',
+                 '请核对{topic}的参与名单，缺少的信息可以直接补充。']
+    return topic, [text.format(topic=topic) for text in templates]
+
+
 def chat_files(seed):
     """Shared documents with independent filename lengths and actual byte sizes."""
     import random

@@ -1,12 +1,8 @@
 {
   "scope": "Index of task-specific browser observations recorded in review artifacts. Presence does not imply complete A/B/C coverage, current-version replay, recorded-video verification, or human inference acceptance. Null episode counts mean the source has no explicit episode count.",
   "task_count": 75,
-  "tasks_with_indexed_browser_evidence": 49,
+  "tasks_with_indexed_browser_evidence": 53,
   "tasks_without_indexed_browser_evidence": [
-    3,
-    7,
-    8,
-    10,
     12,
     13,
     14,
@@ -57,7 +53,29 @@
     },
     {
       "task_id": 3,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-chat-search-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "56cc6ca33ff743a08801aa1fb7f0d9c0",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-chat-search-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "bd4821d38ca340ac9c7a4c27c736ebf3",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-chat-search-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "C",
+          "run_id": "ddde53466ae046709f35f6c12d0e7441",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 4,
@@ -139,11 +157,55 @@
     },
     {
       "task_id": 7,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-chat-search-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "A",
+          "run_id": "3b61787983d44063b8427a5833d54d1c",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-chat-search-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "B",
+          "run_id": "f9f7a6c58a1341168303ac8cc3421aa0",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-chat-search-ui-validation.json",
+          "json_pointer": "/native_ui/5",
+          "variant": "C",
+          "run_id": "989c580787c54c84bac803a499ec8e11",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 8,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-chat-search-ui-validation.json",
+          "json_pointer": "/native_ui/6",
+          "variant": "A",
+          "run_id": "933815d2cf4044dbb25d80fc03c4246b",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-chat-search-ui-validation.json",
+          "json_pointer": "/native_ui/7",
+          "variant": "B",
+          "run_id": "d041b9c3ec7b44508bff4e071ed2fd13",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-chat-search-ui-validation.json",
+          "json_pointer": "/native_ui/8",
+          "variant": "C",
+          "run_id": "2da9dcfe82754d82854d6204d4163ef4",
+          "reported_episode_count": 1
+        }
+      ]
     },
     {
       "task_id": 9,
@@ -173,7 +235,36 @@
     },
     {
       "task_id": 10,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-chat-search-ui-validation.json",
+          "json_pointer": "/native_ui/9",
+          "variant": "A",
+          "run_id": "d8129d131bfa41438eeb18b8f07a71e1",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-chat-search-ui-validation.json",
+          "json_pointer": "/native_ui/10",
+          "variant": "B",
+          "run_id": "ef619181bcd44573b197cdc6cbdcb424",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-chat-search-ui-validation.json",
+          "json_pointer": "/native_ui/11",
+          "variant": "C",
+          "run_id": "9c2e280f03c94baa8fd0c3588bda9443",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-chat-search-ui-validation.json",
+          "json_pointer": "/native_ui/12",
+          "variant": "C",
+          "run_id": "df2bd4851269449cb60efa6769719089",
+          "reported_episode_count": 1
+        }
+      ]
     },
     {
       "task_id": 11,

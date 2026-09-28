@@ -136,10 +136,10 @@ def enrich(id_, seed, items, source, rng):
     assign('same_day', [True, False])
 
     if id_ == 7:
-        assign('unread', rng.sample(range(1, 90), n))
-        if seed % 3 == 0:
-            items[rng.randrange(n)]['unread'] = 0
-    if id_ == 9:
+        minimum = [0, 8, 3, 15, 5, 20][seed % 6]
+        maximum = [7, 30, 18, 50, 25, 80][seed % 6]
+        assign('unread', [minimum, maximum] + rng.sample(range(minimum + 1, maximum), n - 2))
+    if id_ in (9, 10):
         maximum = [7, 14, 24, 10, 18, 35][seed % 6]
         assign('unread', [maximum] + rng.sample(range(maximum), n - 1))
     if id_ in (47, 51):
@@ -160,9 +160,16 @@ def enrich(id_, seed, items, source, rng):
     if id_ == 6:
         assign('name', teaching_materials.grouped_contacts(seed >= 1000))
     if id_ == 8:
-        groups = ['设计协作组', '产品 3 组', '研发 7 组', '周末徒步', '阅读分享组', '项目 12 组']
-        for i, item in enumerate(items):
-            item['name'] = groups[i % 6] + (['', ' · 东区', ' · 西区', ' · 南区'][i // 6])
+        names = teaching_materials.chat_groups(seed >= 1000)
+        size_pools = ([[2, 5, 6], [4, 5, 8]] if seed >= 1000 else
+                      [[1, 2, 3, 4, 5, 5, 6, 7, 9, 12, 18, 24] for _ in range(2)])
+        for pool in size_pools:
+            rng.shuffle(pool)
+        for item, name, members in zip(items, names, sum(size_pools, [])):
+            item.update(name=name, members=members)
+    if id_ == 10:
+        source['search_keyword'], texts = teaching_materials.search_messages(seed)
+        assign('text', texts)
     if id_ == 23:
         # Balanced title-digit classes even in a six-object held-out query.
         pool = (QUERY_NAMES if seed >= 1000 else NAMES)['news']

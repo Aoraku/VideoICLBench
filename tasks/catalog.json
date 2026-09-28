@@ -326,7 +326,7 @@
         "C": "最近消息最新为高优先级"
       },
       "original_rules": "A：未读数最多为高优先级；B：未读数最少为高优先级；C：最近消息最新为高优先级",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -378,7 +378,7 @@
         "C": "群名含数字为大型"
       },
       "original_rules": "A：成员数大于 5 为大型；B：成员数不大于 5 为大型；C：群名含数字为大型",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -482,7 +482,7 @@
         "C": "选未读数最多一项"
       },
       "original_rules": "A：选结果第一项；B：选结果最后一项；C：选未读数最多一项",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,

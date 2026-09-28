@@ -575,7 +575,7 @@
     {
       "schema_version": 1,
       "task_id": 7,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "通讯 A：标记会话优先级",
       "app": "chat",
       "type": "C",
@@ -670,7 +670,7 @@
     {
       "schema_version": 1,
       "task_id": 8,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "通讯 A：给群聊添加状态标签",
       "app": "chat",
       "type": "C",
@@ -860,7 +860,7 @@
     {
       "schema_version": 1,
       "task_id": 10,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "通讯 A：从搜索结果打开目标会话",
       "app": "chat",
       "type": "S",

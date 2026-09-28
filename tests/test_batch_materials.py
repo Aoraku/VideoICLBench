@@ -290,3 +290,41 @@ def test_studio_code_has_distinct_file_names_and_saved_content_matches(seed, tmp
             final = store.snapshot('studio')
             assert application_eval.evaluate(initial, final, variant, store.events('studio'), body)['success']
             assert not application_eval.evaluate(initial, final, variant, store.events('studio'), 'wrong clipboard')['success']
+
+
+@pytest.mark.parametrize('seed', [*range(12), 999, 1000, 1001, 10001])
+def test_group_names_and_size_boundaries_are_independent(seed):
+    items = business.generate(8, seed)['items']
+    assert len({x['name'] for x in items}) == len(items)
+    cells = Counter((bool(re.search(r'\d', x['name'])), x['members'] > 5) for x in items)
+    assert set(cells) == {(digit, large) for digit in (False, True) for large in (False, True)}
+    assert min(cells.values()) >= (6 if seed < 1000 else 1)
+    assert {4, 5, 6} <= {x['members'] for x in items}
+    if seed < 1000:
+        assert len({x['members'] for x in items}) >= 10
+    assert set(teaching_materials.chat_groups()).isdisjoint(teaching_materials.chat_groups(True))
+
+
+@pytest.mark.parametrize('seed', [*range(12), 999, 1000, 1001, 10001])
+def test_search_request_matches_all_six_distinct_results(seed):
+    state = business.generate(10, seed)
+    assert state['source']['search_keyword']
+    texts = [x['text'] for x in state['items']]
+    assert len(set(texts)) == 6
+    assert all(state['source']['search_keyword'] in text for text in texts)
+    assert set(teaching_materials.search_messages(seed % 6)[1]).isdisjoint(
+        teaching_materials.search_messages(1000 + seed % 6)[1])
+
+
+@pytest.mark.parametrize('task_id,reverse', [(7, True), (7, False), (10, True)])
+def test_chat_relative_unread_selection_excludes_fixed_values_and_thresholds(task_id, reverse):
+    selected, others = [], []
+    for seed in range(6):
+        values = [x['unread'] for x in business.generate(task_id, seed)['items']]
+        assert len(set(values)) == 6
+        winner = (max if reverse else min)(values)
+        selected.append(winner)
+        others.extend(x for x in values if x != winner)
+    assert len(set(selected)) == 6
+    assert min(selected) < max(others)
+    assert max(selected) > min(others)

@@ -262,6 +262,7 @@ export async function nativeRequest(path, options = {}) {
             messages(state, c.conversation_id).map((m) => ({
               ...m,
               conversation_name: c.name || c.peer_user.username,
+              benchmark_unread: state.task_id === 10 ? c.unread_count : undefined,
             })),
           )
           .filter((m) =>
@@ -367,10 +368,6 @@ export async function nativeRequest(path, options = {}) {
       tokenKey + ":read",
       JSON.stringify([...readConversations]),
     );
-    if (state.task_id === 10) {
-      const item = state.items[Number(p.split("/")[2]) - 10];
-      if (item) await command("select", "", "", [item.id]);
-    }
     return { read: true };
   }
   const settings = p.match(/^\/conversations\/(\d+)$/);

@@ -40,6 +40,7 @@ export function recordingSteps(s:any, variant:string, rule:string):string[] {
   if(s.task_id>=66)completion='每组操作后停留片刻，让完成后的棋盘清晰可见。';
   if(s.task_id===43&&variant==='B')completion+=' 回到任务卡后，将实际复制的内容粘贴到核验框。';
   const details:Record<number,string>={
+    3:'保留原文已有的标点，在末尾追加本卡指定的一个英文标点。',
     4:variant==='C'?'每一位数字分别换为对应的英文单词，其他文字保留。':'每一位数字都按规则处理，其他文字保留。',
     15:variant==='B'?'比较显示的最近联系时间，选择时间最近的三人。':'比较所有联系人的信息，只选三人。',
     17:variant==='C'?'除最后一个字母大写外，其余字母全部小写。':'保留标题的数字和空格。',

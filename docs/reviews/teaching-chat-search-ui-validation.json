@@ -1,0 +1,592 @@
+{
+  "scope": "Native Chat tasks 3, 7, 8 and 10: all A/B/C versions, six episodes for 3/7/10 and 24 groups per task 8 version. Browser and evaluation evidence do not certify recorded-video continuity or human rule inference.",
+  "tests": {
+    "passed": 1181,
+    "failed": 0,
+    "chat_build": true,
+    "portal_build": true
+  },
+  "native_ui": [
+    {
+      "task_id": 3,
+      "variant": "A",
+      "run_id": "56cc6ca33ff743a08801aa1fb7f0d9c0",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "326b3299b1ab958c306d240ffff04e5fcd560ed127120c788d693abf65b1a91a",
+          "evidence_ref": "/v1/runs/56cc6ca33ff743a08801aa1fb7f0d9c0/lesson/evidence/0/0",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 1,
+          "sha256": "9b9f97265e5a48ccff5e586379366f20eabe63a4b07add9ab6efb10f6c39540e",
+          "evidence_ref": "/v1/runs/56cc6ca33ff743a08801aa1fb7f0d9c0/lesson/evidence/0/1",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 2,
+          "sha256": "313be1434c8c98f837d650289e0f472958647e2dc3000741a59d43e5ae0869d0",
+          "evidence_ref": "/v1/runs/56cc6ca33ff743a08801aa1fb7f0d9c0/lesson/evidence/0/2",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 3,
+          "sha256": "556542c5b9980aa32dd094b44b0c2fe5411e6aefe2324efb7e8679241a83afef",
+          "evidence_ref": "/v1/runs/56cc6ca33ff743a08801aa1fb7f0d9c0/lesson/evidence/0/3",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 4,
+          "sha256": "d621023e4fe9ec90a65f864dcfd9b0b9a493e3a1aa721446ad8b5acb3748042f",
+          "evidence_ref": "/v1/runs/56cc6ca33ff743a08801aa1fb7f0d9c0/lesson/evidence/0/4",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 5,
+          "sha256": "d754551f9162497f02197ee7ec36a59c9ffc2378cf8423ec2558549b352db092",
+          "evidence_ref": "/v1/runs/56cc6ca33ff743a08801aa1fb7f0d9c0/lesson/evidence/0/5",
+          "evaluation_success": true,
+          "object_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 3,
+      "variant": "B",
+      "run_id": "bd4821d38ca340ac9c7a4c27c736ebf3",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "1d052cfa464cdce4d9514dd518244f40d9347f1e42c364969bb5c56761e3b579",
+          "evidence_ref": "/v1/runs/bd4821d38ca340ac9c7a4c27c736ebf3/lesson/evidence/0/0",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 1,
+          "sha256": "6ea8f0095e16db65dccf80799684ce7dbcb40a272652fc244b081b54f1f802cb",
+          "evidence_ref": "/v1/runs/bd4821d38ca340ac9c7a4c27c736ebf3/lesson/evidence/0/1",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 2,
+          "sha256": "5a9351d405df40cdc08d5114eeb85551e03650a26d1051da8d5a0882e9679b64",
+          "evidence_ref": "/v1/runs/bd4821d38ca340ac9c7a4c27c736ebf3/lesson/evidence/0/2",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 3,
+          "sha256": "d50e4457b26294fe9327d387be1bc2b8ef5f14c86afe7a51b89a1a3377b43db8",
+          "evidence_ref": "/v1/runs/bd4821d38ca340ac9c7a4c27c736ebf3/lesson/evidence/0/3",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 4,
+          "sha256": "7062561102b64e345ab456e2d9084321fc4cf540a74ab2b7ec2205a7f7fe4535",
+          "evidence_ref": "/v1/runs/bd4821d38ca340ac9c7a4c27c736ebf3/lesson/evidence/0/4",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 5,
+          "sha256": "2b67f8626c4ecd5ea88687e1376efb69af7f9c0b02a7565ed9bdf9c60c9b9d5f",
+          "evidence_ref": "/v1/runs/bd4821d38ca340ac9c7a4c27c736ebf3/lesson/evidence/0/5",
+          "evaluation_success": true,
+          "object_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 3,
+      "variant": "C",
+      "run_id": "ddde53466ae046709f35f6c12d0e7441",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "24631dad6dc582a65766d2b410684494a704c5bdcb00a05d60eb57ae93d5ba55",
+          "evidence_ref": "/v1/runs/ddde53466ae046709f35f6c12d0e7441/lesson/evidence/0/0",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 1,
+          "sha256": "654b2ac262af7e4d7052f1e1c1d32a8c06347b4e77402ab7d32ea111fa11d340",
+          "evidence_ref": "/v1/runs/ddde53466ae046709f35f6c12d0e7441/lesson/evidence/0/1",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 2,
+          "sha256": "ca3ae240676e6fb73abb06e700ca33973e14f21b290c595d829a7502ac792c17",
+          "evidence_ref": "/v1/runs/ddde53466ae046709f35f6c12d0e7441/lesson/evidence/0/2",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 3,
+          "sha256": "19fa4206966107c8f7845b9fdfe626342cc500f090d5d8796f34ec73b7602073",
+          "evidence_ref": "/v1/runs/ddde53466ae046709f35f6c12d0e7441/lesson/evidence/0/3",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 4,
+          "sha256": "cd07f689b7e404198287d5392beb98db63dfe7c5288f466a4b32dbf311138725",
+          "evidence_ref": "/v1/runs/ddde53466ae046709f35f6c12d0e7441/lesson/evidence/0/4",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 5,
+          "sha256": "fd1b9821bfb7ba41f938bc17e88d1568d37e048e1ed9512e0e3f9e71fc5b9dd8",
+          "evidence_ref": "/v1/runs/ddde53466ae046709f35f6c12d0e7441/lesson/evidence/0/5",
+          "evaluation_success": true,
+          "object_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 7,
+      "variant": "A",
+      "run_id": "3b61787983d44063b8427a5833d54d1c",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "7eb6e2a25ce85c3341cda2698c7fea5c095d50cfb0e613e1da4e5fe30f00b838",
+          "evidence_ref": "/v1/runs/3b61787983d44063b8427a5833d54d1c/lesson/evidence/0/0",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 1,
+          "sha256": "08a7db5cb4ec60b055944e3e51cf4eacddf6ab2b4616576875c46684fb37a8c7",
+          "evidence_ref": "/v1/runs/3b61787983d44063b8427a5833d54d1c/lesson/evidence/0/1",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 2,
+          "sha256": "6dd44e84d4fef6522cb098b6d312a5c19830988202599dff8cc0a8b1ec47bd75",
+          "evidence_ref": "/v1/runs/3b61787983d44063b8427a5833d54d1c/lesson/evidence/0/2",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 3,
+          "sha256": "fccfb43ec492f5028db67a1cf981b4cc31382f4bf271340238a3bec5dacef217",
+          "evidence_ref": "/v1/runs/3b61787983d44063b8427a5833d54d1c/lesson/evidence/0/3",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 4,
+          "sha256": "3fee1380623959bcd7b32621904bc0426b261806e8ef9f250942aa1bc9d0f2b2",
+          "evidence_ref": "/v1/runs/3b61787983d44063b8427a5833d54d1c/lesson/evidence/0/4",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 5,
+          "sha256": "539c43c999207230219c536faad62c5a5f8c987b747ba00190e84435d3a6e626",
+          "evidence_ref": "/v1/runs/3b61787983d44063b8427a5833d54d1c/lesson/evidence/0/5",
+          "evaluation_success": true,
+          "object_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 7,
+      "variant": "B",
+      "run_id": "f9f7a6c58a1341168303ac8cc3421aa0",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "62bd65bf74e9300efde5875bda9e33d655689b1b31eaec78bc0c36b3129eb3e6",
+          "evidence_ref": "/v1/runs/f9f7a6c58a1341168303ac8cc3421aa0/lesson/evidence/0/0",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 1,
+          "sha256": "50242ed8955ea471a6f4084adb584a369b8946a2b20ea7a722442c1ff0a6373b",
+          "evidence_ref": "/v1/runs/f9f7a6c58a1341168303ac8cc3421aa0/lesson/evidence/0/1",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 2,
+          "sha256": "b46649f25247cb482389cd69505a1f7cab4a9f728dcba897771ab27dfc45ec0e",
+          "evidence_ref": "/v1/runs/f9f7a6c58a1341168303ac8cc3421aa0/lesson/evidence/0/2",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 3,
+          "sha256": "be1dc5b056d7b306b6067885b562e9c6e96367d1f9426c806e1049c1d5930f04",
+          "evidence_ref": "/v1/runs/f9f7a6c58a1341168303ac8cc3421aa0/lesson/evidence/0/3",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 4,
+          "sha256": "43beb4ee6fa30d2c269c85e6951f15fc623f303e33a7d754abdea0162b1f242b",
+          "evidence_ref": "/v1/runs/f9f7a6c58a1341168303ac8cc3421aa0/lesson/evidence/0/4",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 5,
+          "sha256": "a6699e999948db2ff38b71ca624985ddd1b5e7014b393dfe71252a78d8be0597",
+          "evidence_ref": "/v1/runs/f9f7a6c58a1341168303ac8cc3421aa0/lesson/evidence/0/5",
+          "evaluation_success": true,
+          "object_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 7,
+      "variant": "C",
+      "run_id": "989c580787c54c84bac803a499ec8e11",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "faee19519e50578b6f1cbd5ba497011d48765a7f81a45f9559829e02d08ab6ca",
+          "evidence_ref": "/v1/runs/989c580787c54c84bac803a499ec8e11/lesson/evidence/0/0",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 1,
+          "sha256": "ae5b2e4bfc7daa79f09a14bf6c779fdcb5f284ee83c98e233800f2b4f529f313",
+          "evidence_ref": "/v1/runs/989c580787c54c84bac803a499ec8e11/lesson/evidence/0/1",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 2,
+          "sha256": "efe74b141165844720149a203ee011d02a3b9583bcb347578288b493f7a838ac",
+          "evidence_ref": "/v1/runs/989c580787c54c84bac803a499ec8e11/lesson/evidence/0/2",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 3,
+          "sha256": "17ea4caf02e5096915d65c99bbd4dfedfa690c0e114c46f71f2d09432bef9dac",
+          "evidence_ref": "/v1/runs/989c580787c54c84bac803a499ec8e11/lesson/evidence/0/3",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 4,
+          "sha256": "05a817d2435fbc14f5dc95dc078236df5a86921617eed5ecf82bd9b324ab9351",
+          "evidence_ref": "/v1/runs/989c580787c54c84bac803a499ec8e11/lesson/evidence/0/4",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 5,
+          "sha256": "1f9d58156ae0838abe3d4596230101cabe334235692ba4736318add89aaca868",
+          "evidence_ref": "/v1/runs/989c580787c54c84bac803a499ec8e11/lesson/evidence/0/5",
+          "evaluation_success": true,
+          "object_count": 6
+        }
+      ],
+      "refresh_persistence": true
+    },
+    {
+      "task_id": 8,
+      "variant": "A",
+      "run_id": "933815d2cf4044dbb25d80fc03c4246b",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "611e4a32f518c8311df29a113d24e2b0f940dc06ac171a21291888a34a7a8b5c",
+          "evidence_ref": "/v1/runs/933815d2cf4044dbb25d80fc03c4246b/evidence",
+          "evaluation_success": true,
+          "object_count": 24
+        }
+      ],
+      "observed_labelled_count": 12,
+      "refresh_persistence": true
+    },
+    {
+      "task_id": 8,
+      "variant": "B",
+      "run_id": "d041b9c3ec7b44508bff4e071ed2fd13",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "37aadf8050ebd1b142053bca7af1f32a68d1a608ffbc62da9831d21e074f9ca7",
+          "evidence_ref": "/v1/runs/d041b9c3ec7b44508bff4e071ed2fd13/evidence",
+          "evaluation_success": true,
+          "object_count": 24
+        }
+      ],
+      "observed_labelled_count": 12,
+      "refresh_persistence": true
+    },
+    {
+      "task_id": 8,
+      "variant": "C",
+      "run_id": "2da9dcfe82754d82854d6204d4163ef4",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "4c81748c497514504163e585c7067214bff2d3d8eaa06d08b45d37f0056879de",
+          "evidence_ref": "/v1/runs/2da9dcfe82754d82854d6204d4163ef4/evidence",
+          "evaluation_success": true,
+          "object_count": 24
+        }
+      ],
+      "observed_labelled_count": 12,
+      "refresh_persistence": true
+    },
+    {
+      "task_id": 10,
+      "variant": "A",
+      "run_id": "d8129d131bfa41438eeb18b8f07a71e1",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "8a6adabe5bc1851240a93cea1633e5eb81a23514b62830473f44da0455abd039",
+          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/0/0",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 1,
+          "sha256": "0d56a54a5d92a63b6f1c966a2b498f82cc91d02e1da29b8f0bc4ebb5eea2eb96",
+          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/0/1",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 2,
+          "sha256": "25cf86a14705d73d806a35709790a688a39c607c66e2e1ffb12e45c028e68882",
+          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/0/2",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 3,
+          "sha256": "86c3a8ab2530b25b2b3aaa9b7de54db8ff1394524e105b740e83427b9b6d82e0",
+          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/0/3",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 4,
+          "sha256": "7f8aa21ffd9f8339706f9f97928d78954223cbc8b4d518fe2298dbc59b28af65",
+          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/0/4",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 5,
+          "sha256": "477a920517c0f61fa1c86960554e67720865de1928eae5f5889643a3302505dc",
+          "evidence_ref": "/v1/runs/d8129d131bfa41438eeb18b8f07a71e1/lesson/evidence/0/5",
+          "evaluation_success": true,
+          "object_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 10,
+      "variant": "B",
+      "run_id": "ef619181bcd44573b197cdc6cbdcb424",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "496bfc87e22f504fb653838c2474eeb9b637ddc342c666671962dde5aad4e2b6",
+          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/0/0",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 1,
+          "sha256": "d4cf2695838f84d4a12b333fa327f5a99f8b088099b72352622d3095c3d4645e",
+          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/0/1",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 2,
+          "sha256": "492ac447f218bbf0fbc94f3eb24f0bd6c6b6ece43cf74cc8130bdaf7414df5e6",
+          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/0/2",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 3,
+          "sha256": "20a02e119217956e4aa5c6491b21c40b7e23c38d7267af1918b0a6fe004819df",
+          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/0/3",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 4,
+          "sha256": "fe88c6331694fb8c9cb50efa923a79e45ef8bb17675bf94d8f969d791b951541",
+          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/0/4",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 5,
+          "sha256": "481acad3dab8f6a312605e0b4eb30eb130245727ed0feadda3b70e45020dd24a",
+          "evidence_ref": "/v1/runs/ef619181bcd44573b197cdc6cbdcb424/lesson/evidence/0/5",
+          "evaluation_success": true,
+          "object_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 10,
+      "variant": "C",
+      "run_id": "9c2e280f03c94baa8fd0c3588bda9443",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "5d9f7b10aff94a23d4e4f5558299bb1c718eb4ee8305264292dbfe90c6cd9f32",
+          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/0/0",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 1,
+          "sha256": "a6ff472b6937a377868760c1f5ccadec38f5a4c3e01a586e235b80f6b00816ef",
+          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/0/1",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 2,
+          "sha256": "57f23d0d88fb87810a4780504c93b51551fa7d1b0de32dd6672b09ce1f0f0a6b",
+          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/0/2",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 3,
+          "sha256": "c388a66794c1e78c6e44efd39d0ceb456178d409d098d5eb2ea69a959e9c945d",
+          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/0/3",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 4,
+          "sha256": "6fb71f9bfcecded026ad2bdeef24234d7ad0315888e9414d9dd933fd0f30ed94",
+          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/0/4",
+          "evaluation_success": true,
+          "object_count": 6
+        },
+        {
+          "index": 5,
+          "sha256": "71aaea9a6d6d304b65a27a2a6de617dbd470ca68b1e9775d93f79f25fd54835b",
+          "evidence_ref": "/v1/runs/9c2e280f03c94baa8fd0c3588bda9443/lesson/evidence/0/5",
+          "evaluation_success": true,
+          "object_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 10,
+      "variant": "C",
+      "mode": "eval",
+      "run_id": "df2bd4851269449cb60efa6769719089",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "39e905423c029e7e7e7229d0a7a542d6d6aac8bd158483dcdb663f609329ba44",
+          "evidence_ref": "/v1/runs/df2bd4851269449cb60efa6769719089/evidence",
+          "evaluation_success": true,
+          "object_count": 6
+        }
+      ],
+      "keyword": "旧书交换",
+      "selected": "Victor Bai"
+    }
+  ],
+  "observations": [
+    "Task 3 preserves existing punctuation and appends the selected ASCII punctuation. All six source endings and all three variants were sent and evaluated.",
+    "Task 7 lists full UTC recent-message time and explicit unread counts including zero. Maximum and minimum unread counts vary across all six episodes. Priority labels survive reload.",
+    "Task 8 presents 24 distinct group names, 11 distinct member counts including 4/5/6, and independent name-digit classes. Each variant labels 12 groups and preserves the remaining 12; labels survive reload. Query uses six held-out names.",
+    "Task 10 starts at the native homepage, opens record search, uses the visible episode keyword, shows six matching messages with unread counts, and opens the chosen search result. Marking a conversation read alone does not submit a search selection.",
+    "At 1280x720 the search result panel shows all six query hits. The toolbar fits within the sidebar.",
+    "Held-out task 10 C query uses 旧书交换 and selects Victor Bai (18 unread)."
+  ],
+  "recorded_video": false,
+  "human_inference_acceptance": "pending"
+}

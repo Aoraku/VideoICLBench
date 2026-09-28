@@ -188,6 +188,7 @@
 }
 
 .pane--list {
+  min-width: 0;
   display: grid;
   grid-template-rows: auto 1fr;
   min-height: 0;
@@ -202,10 +203,12 @@
 }
 
 .pane__search {
+  min-width: 0;
   padding: 14px 14px 10px;
 }
 .pane__searchRow {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
 }
@@ -2211,3 +2214,10 @@
   touch-action: none;
   background: #fff;
 }
+
+/* A record search uses the available sidebar height, with all results scrollable. */
+.pane--search-results { grid-template-rows: minmax(0, 1fr); }
+.pane--search-results .pane__search { display: flex; flex-direction: column; min-height: 0; }
+.pane--search-results .paneSearchResultWrap { flex-shrink: 0; }
+.pane--search-results .paneSearchResultWrap:last-child { flex: 1; min-height: 0; max-height: none; }
+.pane--search-results > .list { display: none; }

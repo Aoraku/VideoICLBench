@@ -871,6 +871,9 @@ export default function ChatPage() {
       if (!convId) return
       const target = conversations.find((c) => Number(c.conversation_id) === convId) || { conversation_id: convId, last_message: { msg_id: msgId } }
       await selectConversation(target)
+      if (nativeRun && currentBusiness()?.task_id === 10 && target.benchmark_object) {
+        await command('select', '', '', [target.benchmark_object])
+      }
       window.dispatchEvent(new CustomEvent(CHAT_EVENT_JUMP_TO_MESSAGE, { detail: { conversation_id: convId, msg_id: msgId } }))
       setConvSearch('')
       setConvSearchRows([])
@@ -1666,7 +1669,7 @@ export default function ChatPage() {
 
   return (
     <div className="workspace">
-      <section className="pane pane--list" aria-label="会话列表">
+      <section className={`pane pane--list${nativeRun && currentBusiness()?.task_id === 10 && searchOpen && convSearch.trim() ? " pane--search-results" : ""}`} aria-label="会话列表">
         <div className="pane__search">
           <div className="pane__searchRow" style={{ justifyContent: 'space-between' }}>
             <button
@@ -1698,6 +1701,7 @@ export default function ChatPage() {
               {readingAll ? '处理中…' : '全部已读'}
             </button>
           </div>
+          {nativeRun && currentBusiness()?.task_id === 10 && <p className="paneSearchResultHint">查找“{currentBusiness().source.search_keyword}”相关的聊天记录。</p>}
           {searchOpen ? (
             <div className="paneSearchResultWrap">
               <input
@@ -1731,6 +1735,7 @@ export default function ChatPage() {
                             `会话 ${item.conversation_id}`
                           )}
                         </div>
+                        {item.benchmark_unread !== undefined && <div className="paneSearchResultSub">未读 {item.benchmark_unread}</div>}
                         <div className="paneSearchResultSub">
                           {typeof item?.content?.text === 'string' && item.content.text
                             ? item.content.text
@@ -1810,7 +1815,8 @@ export default function ChatPage() {
                       </div>
                       <div className="list__sub">{lastPreview(last)}</div>
                       {c.benchmark_label && <div style={{fontSize:11,color:({'蓝色':'#3478db','红色':'#df5454','绿色':'#2c9c6a'})[c.benchmark_label]||'#317060'}}>● {c.benchmark_label}</div>}
-                      {nativeRun && [7,12,14].includes(currentBusiness()?.task_id) && <div style={{fontSize:10,color:'#718199'}}>时间序号 {c.benchmark_timestamp} · {c.benchmark_age_days} 天前</div>}
+                      {nativeRun && currentBusiness()?.task_id===7 && <div style={{fontSize:11,color:'#526477'}}>最近消息 {String(last?.created_at || '').replace('T',' ').slice(0,16)} UTC · 未读 {c.unread_count}</div>}
+                      {nativeRun && [12,14].includes(currentBusiness()?.task_id) && <div style={{fontSize:10,color:'#718199'}}>时间序号 {c.benchmark_timestamp} · {c.benchmark_age_days} 天前</div>}
                       {nativeRun && currentBusiness()?.task_id===8 && <div style={{fontSize:11,color:'#718199'}}>{c.member_count} 位成员</div>}
                     </div>
                     {c.unread_count > 0 ? (
