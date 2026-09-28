@@ -9,6 +9,50 @@ from vic import business
 FIELDS = {5:'text',13:'text',16:'text',39:'text',42:'name',43:'code',49:'text',56:'name',65:'code'}
 
 
+@pytest.mark.parametrize('task_id', [36, 38, 40, 42])
+@pytest.mark.parametrize('seed', [0, 1, 2, 999, 1000, 10001])
+def test_blog_counts_match_complete_visible_bodies(task_id, seed):
+    state = business.generate(task_id, seed)
+    for item in state['items']:
+        assert item['words'] == len(item['text'])
+        assert item['text'].endswith('。')
+        assert len(item['text']) >= 30
+    assert len({item['text'] for item in state['items']}) == len(state['items'])
+
+
+def test_blog_boundary_bodies_are_distinct_and_held_out():
+    demo = business.generate(38, 0)['items']
+    query = business.generate(38, 1000)['items']
+    assert {49, 50, 51} <= {len(x['text']) for x in demo}
+    assert {49, 50, 51} <= {len(x['text']) for x in query}
+    assert len({len(x['text']) for x in demo}) == 21
+    assert len([x for x in demo if len(x['text']) == 50]) == 4
+    assert {x['text'] for x in demo}.isdisjoint(x['text'] for x in query)
+
+
+@pytest.mark.parametrize('task_id', [38, 40])
+def test_blog_evaluation_uses_body_text_instead_of_stale_count_metadata(task_id):
+    state = business.generate(task_id, 0)
+    items = state['items']
+    if task_id == 38:
+        expected = {x['id'] for x in items if len(x['text']) > state['source']['threshold']}
+        variant = 0
+    else:
+        expected = {min(items, key=lambda x: len(x['text']))['id']}
+        variant = 2
+    for x in items:
+        x['words'] = 0 if x['id'] in expected else 10000
+    assert set(business.targets(task_id, variant, items, state['source'])) == expected
+
+
+def test_blog_query_shortest_post_varies_across_instances():
+    names = set()
+    for seed in range(1000, 1012):
+        items = business.generate(40, seed)['items']
+        names.add(min(items, key=lambda x: len(x['text']))['name'])
+    assert len(names) >= 3
+
+
 @pytest.mark.parametrize('task_id,field', FIELDS.items())
 def test_batch_materials_are_distinct_and_query_materials_are_held_out(task_id,field):
     for seed in (0,1,2,10,20,999):

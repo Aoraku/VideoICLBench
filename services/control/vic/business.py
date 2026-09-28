@@ -247,7 +247,7 @@ def targets(id_, v, items, source):
         )
     elif id_ == 38:
         chosen = [
-            x for x in items if [x["words"] > t, x["words"] <= t, "?" in x["name"]][v]
+            x for x in items if [len(x["text"]) > t, len(x["text"]) <= t, "?" in x["name"]][v]
         ]
     elif id_ == 39:
         chosen = [
@@ -260,9 +260,8 @@ def targets(id_, v, items, source):
             ][v]
         ]
     elif id_ == 40:
-        chosen = _top(
-            items, ["timestamp", "timestamp", "words"][v], [True, False, False][v]
-        )
+        chosen = ([min(items, key=lambda x: len(x["text"]))]
+                  if v == 2 else _top(items, "timestamp", v == 0))
     elif id_ == 41:
         chosen = _top(
             items, ["context", "price", "name_length"][v], [True, False, False][v]

@@ -3345,7 +3345,7 @@
     {
       "schema_version": 1,
       "task_id": 36,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "博客：编辑文章标题后保存",
       "app": "blog",
       "type": "T",
@@ -3535,7 +3535,7 @@
     {
       "schema_version": 1,
       "task_id": 38,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "博客：给文章添加类别",
       "app": "blog",
       "type": "C",
@@ -3725,7 +3725,7 @@
     {
       "schema_version": 1,
       "task_id": 40,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "博客：从草稿中选择文章发布",
       "app": "blog",
       "type": "S",
@@ -3916,7 +3916,7 @@
     {
       "schema_version": 1,
       "task_id": 42,
-      "task_version": "3.1.0",
+      "task_version": "3.2.0",
       "title": "博客：发布满足条件的文章",
       "app": "blog",
       "type": "A",

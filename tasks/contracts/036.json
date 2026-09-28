@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 36,
-  "task_version": "3.0.0",
+  "task_version": "3.1.0",
   "title": "博客：编辑文章标题后保存",
   "app": "blog",
   "type": "T",

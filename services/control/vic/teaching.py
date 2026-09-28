@@ -150,16 +150,30 @@ def enrich(id_, seed, items, source, rng):
         rng.shuffle(flags)
         for item, urgent in zip(items, flags):
             item['name'] = ('紧急：' if urgent else '') + item['name']
+    if app == 'blog':
+        for item in items:
+            item['text'] = teaching_materials.BLOG_POSTS[item['name']]
+            if id_ == 40:
+                additions = [
+                    '我把其中的细节记在本子里，准备下次再做比较。',
+                    '与朋友聊起这件事，才发现每个人在意的地方并不相同。',
+                    '有些想法还不成熟，先留在草稿里，等过几天再回头读一遍。',
+                ]
+                material_rng = random.Random(f'blog:{seed}:{item["name"]}')
+                item['text'] += ''.join(material_rng.sample(additions, material_rng.randrange(4)))
+            item['words'] = len(item['text'])
     if id_ == 38:
         flags = [True, False] * (n // 2)
         rng.shuffle(flags)
         for item, question in zip(items, flags):
             item['name'] = item['name'].rstrip('?') + ('?' if question else '')
-            item['text'] = ('我们沿着河岸记录社区的日常变化，整理居民的意见，并讨论公共空间的使用方式。' * 4)[:item['words']]
     if id_ == 39:
         assign('text', teaching_materials.generated_passages(seed >= 1000))
     if id_ == 42:
         assign('name', teaching_materials.article_titles(seed >= 1000))
+        for item in items:
+            item['text'] = teaching_materials.article_body(item['name'])
+            item['words'] = len(item['text'])
     if id_ == 56:
         assign('name', teaching_materials.account_names(seed >= 1000))
     if id_ == 49:

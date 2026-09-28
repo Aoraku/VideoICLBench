@@ -1,0 +1,373 @@
+{
+  "scope": "Native browser verification of blog bodies, visible character counts, classification, editing and publication. Not recorded-video or human rule-inference acceptance.",
+  "tests": {
+    "passed": 973,
+    "failed": 0,
+    "portal_build": true
+  },
+  "native_ui": [
+    {
+      "task_id": 36,
+      "variant": "B",
+      "run_id": "7184d17d329d47f98c82d3776de0e4a6",
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "bcf123a47bc3affd1d16a97b05c65dece4773c9d52ec7b02288e268cebeb2c50",
+          "evaluation_success": true,
+          "object_count": 6,
+          "body_lengths": [
+            53,
+            43,
+            50,
+            77,
+            83,
+            36
+          ],
+          "saved_output": "morning 3 WalK"
+        },
+        {
+          "index": 1,
+          "sha256": "d482e42b4e15b5fbe066d7ae56c49ba4a0235419aa792b46fc5c0fccf0d8c344",
+          "evaluation_success": true,
+          "object_count": 6,
+          "body_lengths": [
+            56,
+            65,
+            77,
+            49,
+            45,
+            50
+          ],
+          "saved_output": "summer 7 BreezE"
+        },
+        {
+          "index": 2,
+          "sha256": "0cd1e74f9626d7bc292d859de2a4c9f5e16f52181df2265086d62dcdc9473bf5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "body_lengths": [
+            43,
+            51,
+            50,
+            45,
+            77,
+            36
+          ],
+          "saved_output": "city 2 LightS"
+        },
+        {
+          "index": 3,
+          "sha256": "2d4a6402d7b6e98b0efd363d9d0b57d3c300a0ee13e708b93a1c09bd02fb06bf",
+          "evaluation_success": true,
+          "object_count": 6,
+          "body_lengths": [
+            56,
+            36,
+            35,
+            47,
+            50,
+            49
+          ],
+          "saved_output": "river 12 SonG"
+        },
+        {
+          "index": 4,
+          "sha256": "6a4cd5f2bc9f628e1020e81bd4f04d47a26e1b89e874e74e3e31e15d4214f769",
+          "evaluation_success": true,
+          "object_count": 6,
+          "body_lengths": [
+            52,
+            53,
+            50,
+            49,
+            65,
+            77
+          ],
+          "saved_output": "quiet 5 HourS"
+        },
+        {
+          "index": 5,
+          "sha256": "d2c0e3f6b2eeec6ded2b1f45cbf6920fcc361a8857464d0e7a1e7a8c827078c9",
+          "evaluation_success": true,
+          "object_count": 6,
+          "body_lengths": [
+            64,
+            34,
+            50,
+            52,
+            41,
+            83
+          ],
+          "saved_output": "open 14 WindowS"
+        }
+      ]
+    },
+    {
+      "task_id": 38,
+      "variant": "A",
+      "run_id": "be19da190b6c4e2ebc6b9ac5a5904cc7",
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "cd36fd1b5c5bcfe0e905bfd14cb6a84e03eed0abcaa66d8a3e6ffc4f4ab164f7",
+          "evaluation_success": true,
+          "object_count": 24,
+          "body_lengths": [
+            66,
+            37,
+            49,
+            52,
+            83,
+            43,
+            65,
+            41,
+            47,
+            50,
+            50,
+            53,
+            64,
+            50,
+            68,
+            77,
+            50,
+            40,
+            51,
+            56,
+            34,
+            35,
+            36,
+            45
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": 38,
+      "variant": "C",
+      "run_id": "3acc0c78baa34bdab045c71a79442c5a",
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "575c30bdad63c1d4cc555d6ce660f81e16a327c67a1052924c42b78ce1fe4b38",
+          "evaluation_success": true,
+          "object_count": 24,
+          "body_lengths": [
+            66,
+            37,
+            49,
+            52,
+            83,
+            43,
+            65,
+            41,
+            47,
+            50,
+            50,
+            53,
+            64,
+            50,
+            68,
+            77,
+            50,
+            40,
+            51,
+            56,
+            34,
+            35,
+            36,
+            45
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": 40,
+      "variant": "C",
+      "run_id": "aead69be0f264bb4b321ac77f5225eeb",
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "1030986692899ac133eb8c3269f0e27a623ea261a8694246c2b452aece600d7b",
+          "evaluation_success": true,
+          "object_count": 6,
+          "body_lengths": [
+            113,
+            37,
+            67,
+            97,
+            140,
+            99
+          ],
+          "selected_title": "公交车窗外",
+          "selected_body_length": 37
+        },
+        {
+          "index": 1,
+          "sha256": "880695289774fe6f4a4656815dc10a719a1254a03733ac7995f7e03906577fcd",
+          "evaluation_success": true,
+          "object_count": 6,
+          "body_lengths": [
+            116,
+            99,
+            119,
+            110,
+            40,
+            115
+          ],
+          "selected_title": "如何安排假期",
+          "selected_body_length": 40
+        },
+        {
+          "index": 2,
+          "sha256": "8665abc7228e1afddb30c5cfd128f899d711e79b21f11282fcacb284e4ed0d48",
+          "evaluation_success": true,
+          "object_count": 6,
+          "body_lengths": [
+            41,
+            117,
+            90,
+            151,
+            56,
+            37
+          ],
+          "selected_title": "公交车窗外",
+          "selected_body_length": 37
+        },
+        {
+          "index": 3,
+          "sha256": "7572f710f6450ee463421cb17491c98c4c923479b24d2c5834585619b96fd7d1",
+          "evaluation_success": true,
+          "object_count": 6,
+          "body_lengths": [
+            86,
+            82,
+            52,
+            69,
+            115,
+            64
+          ],
+          "selected_title": "我的城市散步路线",
+          "selected_body_length": 52
+        },
+        {
+          "index": 4,
+          "sha256": "d9b8477222fef3f048779eaaa4b18b1f1985e6c9e0865cd48ecbb6b1c8237da2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "body_lengths": [
+            72,
+            142,
+            37,
+            99,
+            103,
+            65
+          ],
+          "selected_title": "公交车窗外",
+          "selected_body_length": 37
+        },
+        {
+          "index": 5,
+          "sha256": "f9f195c1ca0e690afea0c53a84fe5808efcef495cef17ef0c89f3906db2a3725",
+          "evaluation_success": true,
+          "object_count": 6,
+          "body_lengths": [
+            45,
+            138,
+            52,
+            75,
+            140,
+            35
+          ],
+          "selected_title": "工作日的午餐",
+          "selected_body_length": 35
+        }
+      ]
+    },
+    {
+      "task_id": 42,
+      "variant": "C",
+      "run_id": "15c8dae386c94f6589d9d63e65fa41e9",
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "738a506614d02fd712a1482e483f0feaa97e7c48a009fed768f95cb8a53af093",
+          "evaluation_success": true,
+          "object_count": 24,
+          "body_lengths": [
+            45,
+            64,
+            46,
+            47,
+            68,
+            50,
+            46,
+            46,
+            48,
+            43,
+            52,
+            47,
+            46,
+            50,
+            47,
+            47,
+            47,
+            77,
+            66,
+            37,
+            46,
+            48,
+            45,
+            65
+          ]
+        }
+      ]
+    }
+  ],
+  "observations": {
+    "classification": {
+      "task_id": 38,
+      "objects": 24,
+      "distinct_bodies": 24,
+      "body_list_detail_lengths_match": true,
+      "boundary_editor_lengths": [
+        49,
+        50,
+        51
+      ],
+      "exactly_50_character_posts": 4,
+      "A_labeled": 10,
+      "C_labeled": 12
+    },
+    "publication": {
+      "task_id": 42,
+      "variant": "C",
+      "objects": 24,
+      "published": 8,
+      "excluded_latin_names_without_a": 8,
+      "excluded_chinese_names": 8
+    },
+    "count_definition": "Unicode code points in the body, including punctuation and spaces, excluding title. Evaluation reads body text."
+  },
+  "remaining_gate": "Complete all 75 native paths, inspect captured video frames, and conduct human inference acceptance."
+}

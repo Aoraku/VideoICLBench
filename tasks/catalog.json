@@ -1834,7 +1834,7 @@
         "C": "标题中每个数字加括号"
       },
       "original_rules": "A：标题首字母大写；B：标题末字母大写；C：标题中每个数字加括号",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -1938,7 +1938,7 @@
         "C": "标题含问号为“长文”"
       },
       "original_rules": "A：字数超过阈值为“长文”；B：字数不超过阈值为“长文”；C：标题含问号为“长文”",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -2042,7 +2042,7 @@
         "C": "选择字数最少者"
       },
       "original_rules": "A：选择更新时间最新者；B：选择更新时间最早者；C：选择字数最少者",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -2146,7 +2146,7 @@
         "C": "标题含指定字符的文章发布"
       },
       "original_rules": "A：带有两个以上标签的文章发布；B：没有标签的文章发布；C：标题含指定字符的文章发布",
-      "version": "3.1.0",
+      "version": "3.2.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,

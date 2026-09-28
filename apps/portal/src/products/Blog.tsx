@@ -8,6 +8,7 @@ import {
   dateOf,
   type ProductAPI,
 } from "./kit";
+const bodyLength = (item: any) => Array.from(item.text as string).length;
 export function Blog({ api }: { api: ProductAPI }) {
   const { s, d } = api,
     [page, setPage] = useState("home"),
@@ -35,7 +36,7 @@ export function Blog({ api }: { api: ProductAPI }) {
           </div>
           <div>
             <small>
-              {s.task_id === 40 ? "更新于" : "创建于"} {dateOf(item)} · {item.words} 字
+              {s.task_id === 40 ? "更新于" : "创建于"} {dateOf(item)} · {bodyLength(item)} 字
             </small>
             <button className="product-text-link" onClick={() => edit(item.id)}>
               <h2>{item.name}</h2>
@@ -153,8 +154,9 @@ export function Blog({ api }: { api: ProductAPI }) {
                   <div className="blog-editor-body">{current.text}</div>
                   <Tags item={current} api={api} />
                   <p className="product-muted">
-                    {current.words} 字 · {current.tag_count} 个标签
+                    {bodyLength(current)} 字 · {current.tag_count} 个标签
                   </p>
+                  <p className="product-muted">字数按正文字符统计，包含标点与空格，不包含标题。</p>
                   {s.task_id === 38 && <Classify item={current} api={api} />}
                 </>
               )}
