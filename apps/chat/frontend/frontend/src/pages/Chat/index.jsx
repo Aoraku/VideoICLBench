@@ -870,10 +870,15 @@ export default function ChatPage() {
       const msgId = Number(row?.msg_id)
       if (!convId) return
       const target = conversations.find((c) => Number(c.conversation_id) === convId) || { conversation_id: convId, last_message: { msg_id: msgId } }
-      await selectConversation(target)
       if (nativeRun && currentBusiness()?.task_id === 10 && target.benchmark_object) {
-        await command('select', '', '', [target.benchmark_object])
+        try {
+          await command('select', '', '', [target.benchmark_object])
+        } catch (error) {
+          setConvSearchError(userFacingError(error, '会话选择未能保存，请重试'))
+          return
+        }
       }
+      await selectConversation(target)
       window.dispatchEvent(new CustomEvent(CHAT_EVENT_JUMP_TO_MESSAGE, { detail: { conversation_id: convId, msg_id: msgId } }))
       setConvSearch('')
       setConvSearchRows([])
