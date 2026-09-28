@@ -1,0 +1,126 @@
+{
+  "scope": "Task 67 C, version 3.1.0: six native SDL interactions, lesson transitions and independent server evaluation. This is resource validation, not a recorded tutorial.",
+  "native_ui": [
+    {
+      "task_id": 67,
+      "task_version": "3.1.0",
+      "variant": "C",
+      "run_id": "dfd8e8d4581e4b81bce8c4810738fb1f",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/dfd8e8d4581e4b81bce8c4810738fb1f/evidence",
+      "sha256": "5dd0a28b4c98426d99ae55b27ad73a584a6ec5fd3e0c103acf69997f8d742285",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {},
+          "selection": [
+            8,
+            8
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dfd8e8d4581e4b81bce8c4810738fb1f/lesson/evidence/0/0",
+          "sha256": "af0f4f36b6a559d882a3d0d003660dc5371a8eca7fd42fff46207d8d7a4a5121"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {},
+          "selection": [
+            9,
+            8
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dfd8e8d4581e4b81bce8c4810738fb1f/lesson/evidence/0/1",
+          "sha256": "e26d947ad276a8fdfb89f36c9e17b05b7b0e8bdfb5029468aa3a0dd5a2fa9ee8"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {},
+          "selection": [
+            9,
+            9
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dfd8e8d4581e4b81bce8c4810738fb1f/lesson/evidence/0/2",
+          "sha256": "ee11e6502ccb1535b4579a082d368a003c5bb9c9e50bd8b6654634710522b525"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {},
+          "selection": [
+            5,
+            6
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dfd8e8d4581e4b81bce8c4810738fb1f/lesson/evidence/0/3",
+          "sha256": "eae79af24799d0114f7fd1e0a667e2298117ff135e5c30c433f8dcb1ea7a7303"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {},
+          "selection": [
+            6,
+            7
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dfd8e8d4581e4b81bce8c4810738fb1f/lesson/evidence/0/4",
+          "sha256": "7b8756610a50d1fb1066c2212c9fb59ad83aee170bb2c9a2bd1d442af6e3adf7"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {},
+          "selection": [
+            7,
+            9
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/dfd8e8d4581e4b81bce8c4810738fb1f/lesson/evidence/0/5",
+          "sha256": "be80708c7069362f2239a9cf2158a6440b815eb65cf0e854492263a7d4cc1002"
+        }
+      ],
+      "clicked_cells_zero_based": [
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "first_episode_survived_tab_reopen": true
+    }
+  ],
+  "verified_at": "2026-09-28T09:07:57.496038+00:00"
+}

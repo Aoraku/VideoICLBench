@@ -1,12 +1,14 @@
 {
-  "scope": "Task 67 fixture design and automated validation; native UI verification of task version 3.1.0 remains pending.",
+  "scope": "Task 67 version 3.1.0 fixture design and automated validation, with six native C episodes on the shared deployment.",
   "task_version": "3.1.0",
   "tests": {
     "initial_passed": 1258,
     "initial_failed_due_to_local_disk_exhaustion": 9,
     "affected_tests_retry_passed": 9,
     "total_tests_passing_across_runs": 1267,
-    "games_tests_passed": 82
+    "games_tests_passed": 82,
+    "ci_full_suite_passed": 1267,
+    "ci_url": "https://github.com/Aoraku/VideoICLBench/actions/runs/36399378412"
   },
   "lesson_audit": {
     "task_id": 67,
@@ -332,5 +334,6 @@
       }
     ],
     "acceptance": "pending_ui_and_human_video_review"
-  }
+  },
+  "native_ui_evidence": "teaching-gomoku-final-ui-validation.json"
 }

@@ -1,146 +1,166 @@
 {
-  "verified_at": "2026-09-28T07:12:20.482367+00:00",
-  "source_commit": "b7f5cd4c94c58f379229e0392e319ac5cf8519d5",
-  "image": "sha256:998a5576bc8e6ab6a5c8bf128695eacf356cf7d976ce832b7101e923b3e5eff7",
-  "image_tag": "videoicl-native:teaching-v20",
+  "verified_at": "2026-09-28T09:10:04.830864+00:00",
+  "source_commit": "c00be182a58e5292f3aeec5e71c8430cc83a50c3",
+  "image": "sha256:ef212b8181f56f7405eb4cadf6778b372891212caa1afa8c3c6291e142951669",
+  "image_tag": "videoicl-native:teaching-v22",
   "deployed": true,
   "services": "healthy",
-  "base_validation": "teaching-v19-release.json",
+  "base_validation": "teaching-v20-release.json",
   "validation": {
-    "full_suite_passed": 1255,
+    "full_suite_passed": 1267,
     "failed": 0,
-    "ci_url": "https://github.com/Aoraku/VideoICLBench/actions/runs/36387847640",
+    "ci_url": "https://github.com/Aoraku/VideoICLBench/actions/runs/36399378412",
     "ci_conclusion": "success",
     "ci_diagnostic_task_variants": 225,
-    "ci_native_tasks": [
-      1,
-      5,
-      17,
-      23,
-      31,
-      38,
-      43,
-      48,
-      57,
-      68
-    ],
-    "ci_native_variant": "A",
-    "ci_im_tasks": [
-      15,
-      16
-    ],
-    "ci_im_variants": [
-      "A",
-      "B",
-      "C"
-    ],
-    "ci_oj_tasks": [
-      61,
-      62,
-      63
-    ],
-    "ci_oj_variants": [
-      "A",
-      "B",
-      "C"
-    ],
-    "ci_pixel_recording_smoke": true,
-    "human_recording_verified": false
+    "lesson_audit": "teaching-lessons-v22.json",
+    "native_ui_index": "teaching-ui-coverage.json",
+    "native_ui_indexed_abc_tasks": 75,
+    "human_recording": "Performed by colleagues; excluded from resource delivery per user instruction"
   },
   "image_checks": {
-    "files": {
-      "tasks/contracts/030.json": "43009314b1c19ad655026c590cb77d9e19f678f076cce8b8f5f679348024f095",
-      "services/control/vic/teaching.py": "39e2ffd4e1b1724844b5c78f4721840b25f4855f66cb9d92ccf0cc2f4b29e325",
-      "services/control/vic/business.py": "13372ab952cf6f8cd42b03683dab57c97ab3fe0066a15e618e19253fa70291ed",
-      "services/control/vic/lessons.py": "e655ee611dc40c6ac167a4a6ef8b4568dfa38f47ea135a0a1ef2859948536514",
-      "tasks/catalog.json": "7067f1b7fc86b63648b4481e395c548df9b273ad198e330b296b7d1e6262f559",
-      "tasks/contracts/018.json": "ef1d956a5bd270b1bbf2c23714287751e76202e7e4941b3800811654566d46ae"
-    },
-    "playlist_fields_crossed": true,
-    "reading_list_extrema_crossed": true,
-    "installed_source_matches": true
+    "games_sha256": "e3d5be987fc5c28c65e0dc1c57449cb3610cf4d2854fb6ea7b8323ae82de19cc",
+    "installed_source_matches": true,
+    "task_versions": {
+      "67": "3.1.0",
+      "74": "3.1.0"
+    }
   },
   "live_checks": {
     "services_healthy": true,
     "native_ui": [
       {
-        "task_id": 30,
-        "task_version": "3.2.0",
-        "variant": "B",
-        "run_id": "a529ef4991384f6b8a985231833337e8",
+        "task_id": 67,
+        "task_version": "3.1.0",
+        "variant": "C",
+        "run_id": "dfd8e8d4581e4b81bce8c4810738fb1f",
+        "epoch": 0,
         "episode_count": 6,
         "all_actions_via_browser": true,
         "entered_via_homepage_each_episode": true,
-        "persisted_after_reload_each_episode": true,
-        "selected_tag_counts": [
-          0,
-          2,
-          4,
-          1,
-          3,
-          5
-        ],
         "evaluation_success": true,
+        "evidence_ref": "/v1/runs/dfd8e8d4581e4b81bce8c4810738fb1f/evidence",
+        "sha256": "5dd0a28b4c98426d99ae55b27ad73a584a6ec5fd3e0c103acf69997f8d742285",
         "episodes": [
           {
             "index": 0,
             "seed": 0,
+            "source": {},
+            "selection": [
+              8,
+              8
+            ],
+            "saved_outputs": null,
             "evaluation_success": true,
-            "evidence_ref": "/v1/runs/a529ef4991384f6b8a985231833337e8/lesson/evidence/0/0",
-            "sha256": "07b155ecf4c66d6292e7fab85bef6904b5d06a5b724fd5105e1b03981e8068c7"
+            "evidence_ref": "/v1/runs/dfd8e8d4581e4b81bce8c4810738fb1f/lesson/evidence/0/0",
+            "sha256": "af0f4f36b6a559d882a3d0d003660dc5371a8eca7fd42fff46207d8d7a4a5121"
           },
           {
             "index": 1,
             "seed": 1,
+            "source": {},
+            "selection": [
+              9,
+              8
+            ],
+            "saved_outputs": null,
             "evaluation_success": true,
-            "evidence_ref": "/v1/runs/a529ef4991384f6b8a985231833337e8/lesson/evidence/0/1",
-            "sha256": "3fd85192848927a3ea0cf8cf24199a2ad30b481a145299c259bba9a6e8b34176"
+            "evidence_ref": "/v1/runs/dfd8e8d4581e4b81bce8c4810738fb1f/lesson/evidence/0/1",
+            "sha256": "e26d947ad276a8fdfb89f36c9e17b05b7b0e8bdfb5029468aa3a0dd5a2fa9ee8"
           },
           {
             "index": 2,
             "seed": 2,
+            "source": {},
+            "selection": [
+              9,
+              9
+            ],
+            "saved_outputs": null,
             "evaluation_success": true,
-            "evidence_ref": "/v1/runs/a529ef4991384f6b8a985231833337e8/lesson/evidence/0/2",
-            "sha256": "7e9ad2370cdeb0c065071cc8aefa5fddc8a3bde8299376a6c3160ae45c6cf559"
+            "evidence_ref": "/v1/runs/dfd8e8d4581e4b81bce8c4810738fb1f/lesson/evidence/0/2",
+            "sha256": "ee11e6502ccb1535b4579a082d368a003c5bb9c9e50bd8b6654634710522b525"
           },
           {
             "index": 3,
             "seed": 3,
+            "source": {},
+            "selection": [
+              5,
+              6
+            ],
+            "saved_outputs": null,
             "evaluation_success": true,
-            "evidence_ref": "/v1/runs/a529ef4991384f6b8a985231833337e8/lesson/evidence/0/3",
-            "sha256": "bdd8ddf2068874bebf1f0a0166efe3b540b9d13b442d0e23163595a6ff023b22"
+            "evidence_ref": "/v1/runs/dfd8e8d4581e4b81bce8c4810738fb1f/lesson/evidence/0/3",
+            "sha256": "eae79af24799d0114f7fd1e0a667e2298117ff135e5c30c433f8dcb1ea7a7303"
           },
           {
             "index": 4,
             "seed": 4,
+            "source": {},
+            "selection": [
+              6,
+              7
+            ],
+            "saved_outputs": null,
             "evaluation_success": true,
-            "evidence_ref": "/v1/runs/a529ef4991384f6b8a985231833337e8/lesson/evidence/0/4",
-            "sha256": "9b502308b1c960c3afaab35b4478e89375e36e19f8001c4c4a9d21807d9eb81d"
+            "evidence_ref": "/v1/runs/dfd8e8d4581e4b81bce8c4810738fb1f/lesson/evidence/0/4",
+            "sha256": "7b8756610a50d1fb1066c2212c9fb59ad83aee170bb2c9a2bd1d442af6e3adf7"
           },
           {
             "index": 5,
             "seed": 5,
+            "source": {},
+            "selection": [
+              7,
+              9
+            ],
+            "saved_outputs": null,
             "evaluation_success": true,
-            "evidence_ref": "/v1/runs/a529ef4991384f6b8a985231833337e8/lesson/evidence/0/5",
-            "sha256": "59cfe98127d486618feeba327a00fda69ec5a9fffe3b9584245f51d8d244af6f"
+            "evidence_ref": "/v1/runs/dfd8e8d4581e4b81bce8c4810738fb1f/lesson/evidence/0/5",
+            "sha256": "be80708c7069362f2239a9cf2158a6440b815eb65cf0e854492263a7d4cc1002"
           }
         ],
-        "evidence_ref": "/v1/runs/a529ef4991384f6b8a985231833337e8/evidence",
-        "sha256": "26c1714fab66e6d643d57b99f92eb5bbbb4431e6524874126758963d14f79fc3"
+        "clicked_cells_zero_based": [
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            7,
+            9
+          ]
+        ],
+        "first_episode_survived_tab_reopen": true
       }
     ]
   },
   "backup": {
-    "database": "/home/qingle/services/videoicl/.local/pre-teaching-v20-database.sql",
+    "database": "/home/qingle/services/videoicl/.local/pre-teaching-v22-database.sql",
     "mode": "600",
-    "size": 5116542,
+    "size": 5190735,
     "rollback_images": [
-      "videoicl-control:before-teaching-v20",
-      "videoicl-applications:before-teaching-v20"
+      "videoicl-control:before-teaching-v22",
+      "videoicl-applications:before-teaching-v22"
     ]
   },
-  "limitations": [
-    "Indexed UI evidence does not certify complete current-version A/B/C recording or human inference acceptance.",
-    "Actual getDisplayMedia frames remain unverified while native UI access reports the Mac locked."
+  "limits": [
+    "UI evidence records its own fixture versions; indexed A/B/C coverage is not a claim of full current-version human recording.",
+    "Resource design checks cover documented competing rules and boundary cases; recordings and human inference trials are performed by colleagues."
   ]
 }

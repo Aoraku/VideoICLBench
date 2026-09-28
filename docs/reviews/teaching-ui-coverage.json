@@ -1849,6 +1849,13 @@
           "variant": "B",
           "run_id": "dc6afa0d66ad4d198c93b687a23b5019",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-gomoku-final-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "C",
+          "run_id": "dfd8e8d4581e4b81bce8c4810738fb1f",
+          "reported_episode_count": 6
         }
       ]
     },
