@@ -52,6 +52,7 @@
 - [视频收藏夹、分类与队列](teaching-media-ui-validation.json)：第 21、26、35 题 A／B／C 各六组，第 25、34 题 A／B／C 各 24 个对象的界面操作与独立判分。
 - [音乐列表操作](teaching-music-ui-validation.json)：第 28 题 A／B／C 各六组排序，第 32 题各 24 首歌曲的添加、刷新和判分。
 - [OJ 多行答案](teaching-oj-text-ui-validation.json)：第 59 题 A／B／C 各六组、每组七行的编辑、保存与判分。
+- [OJ 提交结果标注](teaching-oj-results-ui-validation.json)：第 61 题 A／B／C 各六组可见状态、运行时间、标签保存与独立判分。
 - [逐题界面证据索引](teaching-ui-coverage.json)：75 题对应的浏览器观察来源与尚缺记录的题号；有记录不代表所有版本或录像已验收。
 - [逐题审阅](2026-09-28.md)：用户提供的反馈与设计原则。
 - [75 题教学规格](../../tasks/teaching-specs.json)：每题的设计要求、演示规模和待验收项。

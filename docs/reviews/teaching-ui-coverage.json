@@ -1,9 +1,8 @@
 {
   "scope": "Index of task-specific browser observations recorded in review artifacts. Presence does not imply complete A/B/C coverage, current-version replay, recorded-video verification, or human inference acceptance. Null episode counts mean the source has no explicit episode count.",
   "task_count": 75,
-  "tasks_with_indexed_browser_evidence": 66,
+  "tasks_with_indexed_browser_evidence": 67,
   "tasks_without_indexed_browser_evidence": [
-    61,
     62,
     63,
     66,
@@ -1142,7 +1141,29 @@
     },
     {
       "task_id": 61,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-oj-results-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "9afe5eaaaa694721b9f6965a54074dec",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-oj-results-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "448fbd3aa60644ccba342c3de7a1e0e0",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-oj-results-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "C",
+          "run_id": "32e0827e28e042d3af6d3acb94b89055",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 62,
