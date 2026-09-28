@@ -856,6 +856,13 @@
           "variant": "A",
           "run_id": "b88ced90db8c46bda8cc097e29f9d37c",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-middle-content-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "B",
+          "run_id": "772ec2de71954184bf2f81b39f7082d2",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -979,6 +986,13 @@
           "variant": "B",
           "run_id": "7184d17d329d47f98c82d3776de0e4a6",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-middle-content-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "C",
+          "run_id": "ffd5f7b6e44d411e82d26a65cf7ade68",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -991,6 +1005,27 @@
           "variant": "B",
           "run_id": "239d323425d74c008cabbcc1133f976b",
           "reported_episode_count": null
+        },
+        {
+          "file": "teaching-middle-content-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "A",
+          "run_id": "f6247de76684450c8dbe880b68a875a2",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-middle-content-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "B",
+          "run_id": "eaec938d43964c64bb6906ec278d9a06",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-middle-content-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "C",
+          "run_id": "76f86c78ea2948fa9a32fb849aaef2f5",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -1009,6 +1044,13 @@
           "json_pointer": "/native_ui/2",
           "variant": "C",
           "run_id": "3acc0c78baa34bdab045c71a79442c5a",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-middle-content-ui-validation.json",
+          "json_pointer": "/native_ui/5",
+          "variant": "B",
+          "run_id": "909ea8eb34aa40a8abbde7a0417d7e77",
           "reported_episode_count": 1
         }
       ]
@@ -1029,6 +1071,13 @@
           "variant": "C",
           "run_id": "773a811cce8148688cf6253e2b6b687b",
           "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-middle-content-ui-validation.json",
+          "json_pointer": "/native_ui/6",
+          "variant": "B",
+          "run_id": "d6c18c7bcf7c4f47926c8c2096ef4be8",
+          "reported_episode_count": 1
         }
       ]
     },
@@ -1047,6 +1096,13 @@
           "json_pointer": "/native_ui/3",
           "variant": "C",
           "run_id": "aead69be0f264bb4b321ac77f5225eeb",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-middle-content-ui-validation.json",
+          "json_pointer": "/native_ui/7",
+          "variant": "B",
+          "run_id": "b415a1034e3c4917ad2818954d44394a",
           "reported_episode_count": 6
         }
       ]
@@ -1086,6 +1142,20 @@
           "variant": "C",
           "run_id": "15c8dae386c94f6589d9d63e65fa41e9",
           "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-middle-content-ui-validation.json",
+          "json_pointer": "/native_ui/8",
+          "variant": "A",
+          "run_id": "0b47f04da4ad4f398a2c5366d2b39a56",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-middle-content-ui-validation.json",
+          "json_pointer": "/native_ui/9",
+          "variant": "B",
+          "run_id": "79ea811c06534ef0a668fe3782d5db2f",
+          "reported_episode_count": 1
         }
       ]
     },
@@ -1124,6 +1194,20 @@
           "variant": "C",
           "run_id": "68cc215d12dd441a928fcf52da49a091",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "0caba5bd982e446eae56291ca488f022",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "3c01687e01254b8b95331d2fc90cbbe1",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -1135,6 +1219,20 @@
           "json_pointer": "/native_ui/1",
           "variant": "A",
           "run_id": "2bfa1d7dbbb94c18b3ea0877569af82d",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "B",
+          "run_id": "2df8c430652d42df9c542a6f2f2acaa9",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "C",
+          "run_id": "fbc6ce597723414aab525f097d98aeba",
           "reported_episode_count": 6
         }
       ]
@@ -1148,6 +1246,20 @@
           "variant": "C",
           "run_id": "b404f908e9114694825a10e164e867dc",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "A",
+          "run_id": "0e7f98f0410846ff8c729ebb099ed586",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/5",
+          "variant": "B",
+          "run_id": "395f7d57f06e408eb91253fe9bd6910c",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -1159,6 +1271,20 @@
           "json_pointer": "/native_ui/3",
           "variant": "A",
           "run_id": "c9533e0aa4834305955e8cc0164b7ac7",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/6",
+          "variant": "B",
+          "run_id": "5eb18b17c1e54999b7633bb7cc5a4a8a",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/7",
+          "variant": "C",
+          "run_id": "5d90bcb1762c46df9bdf6ba3294460de",
           "reported_episode_count": 6
         }
       ]
@@ -1179,6 +1305,13 @@
           "variant": "C",
           "run_id": "eb25d3d1a3b3400c93391e405925b2b4",
           "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/8",
+          "variant": "A",
+          "run_id": "505ab47403f64b79993ba3316a994fdb",
+          "reported_episode_count": 1
         }
       ]
     },
@@ -1190,6 +1323,20 @@
           "json_pointer": "/native_ui/5",
           "variant": "C",
           "run_id": "a39bdb326cd94caeab3577585041075f",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/9",
+          "variant": "A",
+          "run_id": "774dd93f72d447c085385cf35214a8c4",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/10",
+          "variant": "B",
+          "run_id": "cf52bdd57a384d2aae0f8666e639c4c9",
           "reported_episode_count": 1
         }
       ]
@@ -1203,6 +1350,20 @@
           "variant": "C",
           "run_id": "4b6df15cad814892b1053fb7518d705f",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/11",
+          "variant": "A",
+          "run_id": "01f6a0751da84546b773b0a506989ab0",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/12",
+          "variant": "B",
+          "run_id": "b7879bc75a2d47c9abb643fd3a57c0dd",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -1215,6 +1376,20 @@
           "variant": "C",
           "run_id": "eebb1efa80944d8598b644e82944d9ff",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/13",
+          "variant": "A",
+          "run_id": "fd4ce9c0587f45aebdb723251efabea6",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/14",
+          "variant": "B",
+          "run_id": "5bdebc9b732e44f49286ace46a4179ae",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -1226,6 +1401,20 @@
           "json_pointer": "/native_ui/8",
           "variant": "C",
           "run_id": "200de47c2e4b4e02ad7d4d2d162827fe",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/15",
+          "variant": "A",
+          "run_id": "eb3ea5bdca044407bd210383ad50469e",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-commerce-complete-ui-validation.json",
+          "json_pointer": "/native_ui/16",
+          "variant": "B",
+          "run_id": "5a7b8f7d0af545318aa940da7852302a",
           "reported_episode_count": 6
         }
       ]

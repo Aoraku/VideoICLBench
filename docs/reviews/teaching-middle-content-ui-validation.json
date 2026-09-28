@@ -1,0 +1,990 @@
+{
+  "scope": "Native UI operations and independent evaluations. Full recording and human inference acceptance remain pending.",
+  "native_ui": [
+    {
+      "task_id": 31,
+      "task_version": "3.1.0",
+      "variant": "B",
+      "run_id": "772ec2de71954184bf2f81b39f7082d2",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/772ec2de71954184bf2f81b39f7082d2/evidence",
+      "sha256": "82430bf3130364f77d742264a1a6aff794fda742d033286837c03439fcc4891b",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-9eb14ce70e"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/772ec2de71954184bf2f81b39f7082d2/lesson/evidence/0/0",
+          "sha256": "b1c13fd6b6ba319b504d754aac8579969417903f3f71d408900c787ae0ed328d"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-fc89c826c6"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/772ec2de71954184bf2f81b39f7082d2/lesson/evidence/0/1",
+          "sha256": "410679f6f8b0639b1fcbc8031de4ed6124f895cf8d816073d7fd6486d5afd354"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-7b2421a26c"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/772ec2de71954184bf2f81b39f7082d2/lesson/evidence/0/2",
+          "sha256": "e8fa7dbd853b9b045ecf2c016abc7f9541d01bd67d4d58110a8511285f4dc17f"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-b976692d02"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/772ec2de71954184bf2f81b39f7082d2/lesson/evidence/0/3",
+          "sha256": "69231ebe00c2e3b958836fca6584177aa94e20108e8a5a5801865c7139101bd3"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-18d0da6bdc"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/772ec2de71954184bf2f81b39f7082d2/lesson/evidence/0/4",
+          "sha256": "9a6852aa6a2c78604be563e9cfe148c484b5f3b688f10956d4bd4c0608127cb7"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-aae3cc323a"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/772ec2de71954184bf2f81b39f7082d2/lesson/evidence/0/5",
+          "sha256": "da95e042d58ea3dd7f3b9d3b31ffe1f86cef9b859e39aef2ec57a5b543437a68"
+        }
+      ],
+      "observations": [
+        "Six comparisons use the visible like-rate percentages; choosing a title opens its detail and selection feedback."
+      ]
+    },
+    {
+      "task_id": 36,
+      "task_version": "3.1.0",
+      "variant": "C",
+      "run_id": "ffd5f7b6e44d411e82d26a65cf7ade68",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/ffd5f7b6e44d411e82d26a65cf7ade68/evidence",
+      "sha256": "f86a40c67daed376b507cc3696acd7bb04a111dbf26517b8fb340b1cfaec39d7",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "morning 3 Walk",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "morning (3) Walk"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ffd5f7b6e44d411e82d26a65cf7ade68/lesson/evidence/0/0",
+          "sha256": "cef3e2fda7dd59228e0d7d8509e63b867acb30a7e09956e1fe9986395b1b03a5"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "summer 7 Breeze",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "summer (7) Breeze"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ffd5f7b6e44d411e82d26a65cf7ade68/lesson/evidence/0/1",
+          "sha256": "d3bd96c8604953e3885d125e1b55b41a9e863646665a716f9a812d73521121b8"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "city 2 Lights",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "city (2) Lights"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ffd5f7b6e44d411e82d26a65cf7ade68/lesson/evidence/0/2",
+          "sha256": "a0e79080724bd666b61badf31aa45a9350dd3b910dd22651cd02a7188a43c651"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "river 12 Song",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "river (1)(2) Song"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ffd5f7b6e44d411e82d26a65cf7ade68/lesson/evidence/0/3",
+          "sha256": "135dbc4274ba7b2eb3b4a7a06c307991d83b34f66f6001dca42df6c0327cd37d"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "quiet 5 Hours",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "quiet (5) Hours"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ffd5f7b6e44d411e82d26a65cf7ade68/lesson/evidence/0/4",
+          "sha256": "3a0739d9ad45b22a6595c6a7a52c6dd090bfbbda91fed0457d1bab8e4ee60179"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "open 14 Windows",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "open (1)(4) Windows"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ffd5f7b6e44d411e82d26a65cf7ade68/lesson/evidence/0/5",
+          "sha256": "13251a770597446f4dc269b964fd67569f3ccdeef029b5377ff986c6664a506e"
+        }
+      ],
+      "observations": [
+        "Each digit in two-digit titles is wrapped separately; all six saved titles persist after reload."
+      ]
+    },
+    {
+      "task_id": 37,
+      "task_version": "3.1.0",
+      "variant": "A",
+      "run_id": "f6247de76684450c8dbe880b68a875a2",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/f6247de76684450c8dbe880b68a875a2/evidence",
+      "sha256": "7b6ddb348a2d8b86f68d0a12d198a711844fdf90413f7c700f9ca5830fdfefdf",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Summarize the community research report\nUse short sentences\nList the key findings\nSeparate facts from opinions\nMention open questions\nEnd with a brief conclusion",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "-Summarize the community research report\n-Use short sentences\n-List the key findings\n-Separate facts from opinions\n-Mention open questions\n-End with a brief conclusion"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/f6247de76684450c8dbe880b68a875a2/lesson/evidence/0/0",
+          "sha256": "adcfd98b1e057ec9cb6e0aac4feb7ef433edc2520c17a4bdf168f240d9cc2eb5"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Prepare a design review outline\nState the purpose\nDescribe the audience\nInclude three sections\nGive one practical example\nKeep the tone friendly",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "-Prepare a design review outline\n-State the purpose\n-Describe the audience\n-Include three sections\n-Give one practical example\n-Keep the tone friendly"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/f6247de76684450c8dbe880b68a875a2/lesson/evidence/0/1",
+          "sha256": "041f87e601dedcf3ffd6b25cc25cf9f9f594236f435af93dc7f63a923305db6d"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Review the travel planning notes\nGroup related ideas\nPreserve important names\nIdentify missing details\nSuggest two follow-up questions\nUse plain language",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "-Review the travel planning notes\n-Group related ideas\n-Preserve important names\n-Identify missing details\n-Suggest two follow-up questions\n-Use plain language"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/f6247de76684450c8dbe880b68a875a2/lesson/evidence/0/2",
+          "sha256": "fb4a930c6a95099db5d322f5d4d6ffd0752bb5ccf9b5c5e6d7015b709663234f"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Draft a book discussion invitation\nExplain the meeting time\nIntroduce the activity\nList what to bring\nInclude a contact person\nClose with a welcome",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "-Draft a book discussion invitation\n-Explain the meeting time\n-Introduce the activity\n-List what to bring\n-Include a contact person\n-Close with a welcome"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/f6247de76684450c8dbe880b68a875a2/lesson/evidence/0/3",
+          "sha256": "df946d842f75bdaa021a9d65d00339bfcea71ba346980f72244774c51a225ebe"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Compare the garden survey options\nUse the same criteria\nDescribe each benefit\nExplain the limitations\nCheck the available budget\nProvide a short recommendation",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "-Compare the garden survey options\n-Use the same criteria\n-Describe each benefit\n-Explain the limitations\n-Check the available budget\n-Provide a short recommendation"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/f6247de76684450c8dbe880b68a875a2/lesson/evidence/0/4",
+          "sha256": "5bdf1282c2a70a0899b89565e8993597f4367cb19c6d8551298149e6d877cdf7"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Create a music workshop checklist\nStart with preparation\nInclude the main activity\nAdd a review step\nAssign clear responsibilities\nFinish with next actions",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "-Create a music workshop checklist\n-Start with preparation\n-Include the main activity\n-Add a review step\n-Assign clear responsibilities\n-Finish with next actions"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/f6247de76684450c8dbe880b68a875a2/lesson/evidence/0/5",
+          "sha256": "56db3993279374148fc49fb6da8fb5ddea50520144f82992058b4bea84f8c970"
+        }
+      ],
+      "observations": [
+        "Each source template has six distinct lines; line breaks and exact saved content are retained.",
+        "Reload persistence checked for all six episodes, except A episode 0 which has visible save feedback only."
+      ]
+    },
+    {
+      "task_id": 37,
+      "task_version": "3.1.0",
+      "variant": "B",
+      "run_id": "eaec938d43964c64bb6906ec278d9a06",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/eaec938d43964c64bb6906ec278d9a06/evidence",
+      "sha256": "87bd95d2efa4e1d89163f79b2082047327f34d20ca766a91ea3167bad040bf63",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Summarize the community research report\nUse short sentences\nList the key findings\nSeparate facts from opinions\nMention open questions\nEnd with a brief conclusion",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "1. Summarize the community research report\n2. Use short sentences\n3. List the key findings\n4. Separate facts from opinions\n5. Mention open questions\n6. End with a brief conclusion"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eaec938d43964c64bb6906ec278d9a06/lesson/evidence/0/0",
+          "sha256": "7ee2478904104ceaeac9d978513e51c8a372303439ecedced3fa385691ff0dd6"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Prepare a design review outline\nState the purpose\nDescribe the audience\nInclude three sections\nGive one practical example\nKeep the tone friendly",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "1. Prepare a design review outline\n2. State the purpose\n3. Describe the audience\n4. Include three sections\n5. Give one practical example\n6. Keep the tone friendly"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eaec938d43964c64bb6906ec278d9a06/lesson/evidence/0/1",
+          "sha256": "80ab13765a497ec0930cd37a50c3a2b5254e55f241b51921aea52599e9812f13"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Review the travel planning notes\nGroup related ideas\nPreserve important names\nIdentify missing details\nSuggest two follow-up questions\nUse plain language",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "1. Review the travel planning notes\n2. Group related ideas\n3. Preserve important names\n4. Identify missing details\n5. Suggest two follow-up questions\n6. Use plain language"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eaec938d43964c64bb6906ec278d9a06/lesson/evidence/0/2",
+          "sha256": "6b2b7ba26c0cff45db7c76f5a0518eedabedc14a1fb8bb22bf02326a00191a41"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Draft a book discussion invitation\nExplain the meeting time\nIntroduce the activity\nList what to bring\nInclude a contact person\nClose with a welcome",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "1. Draft a book discussion invitation\n2. Explain the meeting time\n3. Introduce the activity\n4. List what to bring\n5. Include a contact person\n6. Close with a welcome"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eaec938d43964c64bb6906ec278d9a06/lesson/evidence/0/3",
+          "sha256": "852ec973f62b1368c6e8e9b1067f9b6181707ea18f62e2a8cda2e4dd7cb71e3a"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Compare the garden survey options\nUse the same criteria\nDescribe each benefit\nExplain the limitations\nCheck the available budget\nProvide a short recommendation",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "1. Compare the garden survey options\n2. Use the same criteria\n3. Describe each benefit\n4. Explain the limitations\n5. Check the available budget\n6. Provide a short recommendation"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eaec938d43964c64bb6906ec278d9a06/lesson/evidence/0/4",
+          "sha256": "b4b0b2cf6e74709cd97bf06d13e3205fb8500064d2c53bf1ee0502d12118a669"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Create a music workshop checklist\nStart with preparation\nInclude the main activity\nAdd a review step\nAssign clear responsibilities\nFinish with next actions",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "1. Create a music workshop checklist\n2. Start with preparation\n3. Include the main activity\n4. Add a review step\n5. Assign clear responsibilities\n6. Finish with next actions"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eaec938d43964c64bb6906ec278d9a06/lesson/evidence/0/5",
+          "sha256": "1c16bc8914dc9100289d0647902f5cec393dea59836a27315b531c9ceac42297"
+        }
+      ],
+      "observations": [
+        "Each source template has six distinct lines; line breaks and exact saved content are retained.",
+        "Reload persistence checked for all six episodes, except A episode 0 which has visible save feedback only."
+      ]
+    },
+    {
+      "task_id": 37,
+      "task_version": "3.1.0",
+      "variant": "C",
+      "run_id": "76f86c78ea2948fa9a32fb849aaef2f5",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/76f86c78ea2948fa9a32fb849aaef2f5/evidence",
+      "sha256": "d21c141c50e389965112419b44109c38fb959ebd7741dbea3e8c7cc835e90620",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Summarize the community research report\nUse short sentences\nList the key findings\nSeparate facts from opinions\nMention open questions\nEnd with a brief conclusion",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Summarize the community research report;\nUse short sentences;\nList the key findings;\nSeparate facts from opinions;\nMention open questions;\nEnd with a brief conclusion;"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/76f86c78ea2948fa9a32fb849aaef2f5/lesson/evidence/0/0",
+          "sha256": "bc593bdf21611002f057464c474c952d880108d2a0c61ed49027badb602bce2c"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Prepare a design review outline\nState the purpose\nDescribe the audience\nInclude three sections\nGive one practical example\nKeep the tone friendly",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Prepare a design review outline;\nState the purpose;\nDescribe the audience;\nInclude three sections;\nGive one practical example;\nKeep the tone friendly;"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/76f86c78ea2948fa9a32fb849aaef2f5/lesson/evidence/0/1",
+          "sha256": "8c50024efec66a5dd55e755f4d25c8dc707b92e498a0a6905a1ca8d83a2b2193"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Review the travel planning notes\nGroup related ideas\nPreserve important names\nIdentify missing details\nSuggest two follow-up questions\nUse plain language",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Review the travel planning notes;\nGroup related ideas;\nPreserve important names;\nIdentify missing details;\nSuggest two follow-up questions;\nUse plain language;"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/76f86c78ea2948fa9a32fb849aaef2f5/lesson/evidence/0/2",
+          "sha256": "1aba28969e753eba4ceae636d34037cb28474e84abf3749a84a592ee3e3cd63c"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Draft a book discussion invitation\nExplain the meeting time\nIntroduce the activity\nList what to bring\nInclude a contact person\nClose with a welcome",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Draft a book discussion invitation;\nExplain the meeting time;\nIntroduce the activity;\nList what to bring;\nInclude a contact person;\nClose with a welcome;"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/76f86c78ea2948fa9a32fb849aaef2f5/lesson/evidence/0/3",
+          "sha256": "f85a1f1e77447dda7819d91453e675d9e92124a19c0263d1ff4e165a0db19c7d"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Compare the garden survey options\nUse the same criteria\nDescribe each benefit\nExplain the limitations\nCheck the available budget\nProvide a short recommendation",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Compare the garden survey options;\nUse the same criteria;\nDescribe each benefit;\nExplain the limitations;\nCheck the available budget;\nProvide a short recommendation;"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/76f86c78ea2948fa9a32fb849aaef2f5/lesson/evidence/0/4",
+          "sha256": "bf5d051605a19da74c2f41c5a364c371b6cf488fedd4ee25f131ae61f0b19c52"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Create a music workshop checklist\nStart with preparation\nInclude the main activity\nAdd a review step\nAssign clear responsibilities\nFinish with next actions",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Create a music workshop checklist;\nStart with preparation;\nInclude the main activity;\nAdd a review step;\nAssign clear responsibilities;\nFinish with next actions;"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/76f86c78ea2948fa9a32fb849aaef2f5/lesson/evidence/0/5",
+          "sha256": "a55c447469267aa76eba0b5e3b9704af01c764d5eb56cc0d220c8ffa251a73e5"
+        }
+      ],
+      "observations": [
+        "Each source template has six distinct lines; line breaks and exact saved content are retained.",
+        "Reload persistence checked for all six episodes, except A episode 0 which has visible save feedback only."
+      ]
+    },
+    {
+      "task_id": 38,
+      "task_version": "3.1.0",
+      "variant": "B",
+      "run_id": "909ea8eb34aa40a8abbde7a0417d7e77",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/909ea8eb34aa40a8abbde7a0417d7e77/evidence",
+      "sha256": "f5bc38fca66aa2474086e3b4f6a148da51c2a3e92a5541e3cf157c96de60afec",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "positive_count": 14,
+      "negative_count": 10,
+      "observations": [
+        "All 24 displayed character counts match the complete visible body. The 49/50/51 boundary is present."
+      ]
+    },
+    {
+      "task_id": 39,
+      "task_version": "3.1.0",
+      "variant": "B",
+      "run_id": "d6c18c7bcf7c4f47926c8c2096ef4be8",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/d6c18c7bcf7c4f47926c8c2096ef4be8/evidence",
+      "sha256": "005caae7d5974fcd3ea2b8798f02aa5a1ab18fe93cc275b969dd17164755440d",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "positive_count": 16,
+      "negative_count": 8,
+      "observations": [
+        "The digit-absence label is applied using visible paragraph text; all 24 labels match after reload."
+      ]
+    },
+    {
+      "task_id": 40,
+      "task_version": "3.1.0",
+      "variant": "B",
+      "run_id": "b415a1034e3c4917ad2818954d44394a",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/b415a1034e3c4917ad2818954d44394a/evidence",
+      "sha256": "eaf8f949e6fa676724c129594e1291aa840e14586f9e4013396d4001ccf3d760",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-18c0e1bfbd"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b415a1034e3c4917ad2818954d44394a/lesson/evidence/0/0",
+          "sha256": "4f52014977e637d9d1981897f437f7573ace0f55f037f511afc9611eaffb0bcc"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-60203ce35a"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b415a1034e3c4917ad2818954d44394a/lesson/evidence/0/1",
+          "sha256": "4054e28ddb262cfeec8baf21fe5555c051717e25a02c0a3525d092db4bfabae5"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-2d09ef753e"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b415a1034e3c4917ad2818954d44394a/lesson/evidence/0/2",
+          "sha256": "512ecaf06850c14d4849942ecf9a1209e8c6973c3efafe1fd83eb787050228d4"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-d7398d22ce"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b415a1034e3c4917ad2818954d44394a/lesson/evidence/0/3",
+          "sha256": "dcfb3e6d738dcdf34ce4a307687cad10f7238de0381fe5c891ccc849a2f565e6"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-b47c89b68c"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b415a1034e3c4917ad2818954d44394a/lesson/evidence/0/4",
+          "sha256": "02a0be9324d3d3e46a23397a13ca5a7cfe405fd47406bd996d9dc5642172802a"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-9c12f7d527"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b415a1034e3c4917ad2818954d44394a/lesson/evidence/0/5",
+          "sha256": "f8acb06b086710d5b8921919878f162befcc4b14cb6c26e70e2297051a220114"
+        }
+      ],
+      "observations": [
+        "The earliest complete updated-at UTC timestamp determines the draft. Publication is confirmed with the disabled published button.",
+        "Episodes 1–5 show exactly one selected title in the published list after reload. Episode 0 has visible publication feedback only."
+      ]
+    },
+    {
+      "task_id": 42,
+      "task_version": "3.2.0",
+      "variant": "A",
+      "run_id": "0b47f04da4ad4f398a2c5366d2b39a56",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/0b47f04da4ad4f398a2c5366d2b39a56/evidence",
+      "sha256": "a7f321131b519182af4bba0794e2516bf83afbe2aa939b7cb6a27a85e4b72a82",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "positive_count": 12,
+      "negative_count": 12,
+      "observations": [
+        "The published list after reload exactly matches the titles selected by visible tag count."
+      ]
+    },
+    {
+      "task_id": 42,
+      "task_version": "3.2.0",
+      "variant": "B",
+      "run_id": "79ea811c06534ef0a668fe3782d5db2f",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/79ea811c06534ef0a668fe3782d5db2f/evidence",
+      "sha256": "61c296312f3152443bb579b9edeec762c28a1fbecb5f5dbf91392da27b4deea5",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "positive_count": 4,
+      "negative_count": 20,
+      "observations": [
+        "The published list after reload exactly matches the titles selected by visible tag count."
+      ]
+    }
+  ],
+  "verified_at": "2026-09-28T07:10:06.894843+00:00"
+}

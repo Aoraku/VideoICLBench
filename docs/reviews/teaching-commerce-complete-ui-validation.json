@@ -1,0 +1,2138 @@
+{
+  "scope": "Native UI operations and independent evaluations. Full recording and human inference acceptance remain pending.",
+  "native_ui": [
+    {
+      "task_id": 44,
+      "task_version": "3.0.0",
+      "variant": "A",
+      "run_id": "0caba5bd982e446eae56291ca488f022",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/0caba5bd982e446eae56291ca488f022/evidence",
+      "sha256": "fe554c2564354c90207da026f389d45aa0eaf6198bc82c1267a0d6ef851dd4b1",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Lin Mei"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0caba5bd982e446eae56291ca488f022/lesson/evidence/0/0",
+          "sha256": "ea471bbb6d3e9e202894abebdb1d8a83a34b87da24d1fc26377e2b6a509c188d"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Wang Ruo Ning"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0caba5bd982e446eae56291ca488f022/lesson/evidence/0/1",
+          "sha256": "894ce9bb63bb8e8dafb3e5dae4c56b1b80ee569c7ae6cf7a1d1c8af483e05845"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Zhang Zi An"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0caba5bd982e446eae56291ca488f022/lesson/evidence/0/2",
+          "sha256": "1796e5168e35d3ee4265fa73941f52b05659073540568f4a46a3ee14ceb828d0"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Lin Yu Chen"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0caba5bd982e446eae56291ca488f022/lesson/evidence/0/3",
+          "sha256": "1b2784f377f42aa6fae4994fa4907006ac719937ae1dc7ca8ceef76d72c8839f"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Wang Xiao Man"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0caba5bd982e446eae56291ca488f022/lesson/evidence/0/4",
+          "sha256": "f95bafe324a4beabdfd65c86ac84ad7032370535b61d4294f58d0699c25db0c6"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Zhang Jia He"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0caba5bd982e446eae56291ca488f022/lesson/evidence/0/5",
+          "sha256": "a6728cb71b8efc65c7c7b250a84b440a4e519b38ad757b5c697ddace34cf367f"
+        }
+      ],
+      "persisted_after_reload": true,
+      "observations": [
+        "Surname and given name are read from separate visible fields. Spaces inside the given name are preserved; all six outputs persist after reload."
+      ]
+    },
+    {
+      "task_id": 44,
+      "task_version": "3.0.0",
+      "variant": "B",
+      "run_id": "3c01687e01254b8b95331d2fc90cbbe1",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/3c01687e01254b8b95331d2fc90cbbe1/evidence",
+      "sha256": "409429c227d32019b70d08eb18a854e1f30ddccb36e56f21286ee740ad996f3c",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Lin-Mei"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/3c01687e01254b8b95331d2fc90cbbe1/lesson/evidence/0/0",
+          "sha256": "847ce786362f7edcdd035b7a92500ba049d046ec2e10785e53baa3dfc845509e"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Wang-Ruo Ning"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/3c01687e01254b8b95331d2fc90cbbe1/lesson/evidence/0/1",
+          "sha256": "d253750a009247b8ff702b41ef0a4e52601720294c48f4e3ae1fd9ec61bfae38"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Zhang-Zi An"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/3c01687e01254b8b95331d2fc90cbbe1/lesson/evidence/0/2",
+          "sha256": "83a392f959c53729314020348a2da19bbbd2d9b736e144184d0b864f6326fe3c"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Lin-Yu Chen"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/3c01687e01254b8b95331d2fc90cbbe1/lesson/evidence/0/3",
+          "sha256": "2af90dfe68f01310bf5986d975539dfe3eaad4d40cf2c2c4a70e1ccba8f9ee5f"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Wang-Xiao Man"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/3c01687e01254b8b95331d2fc90cbbe1/lesson/evidence/0/4",
+          "sha256": "309a5bd3dd48ecc3b9e7bb1150951a64ff13be09feb0e174a61446c004e193e9"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "Zhang-Jia He"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/3c01687e01254b8b95331d2fc90cbbe1/lesson/evidence/0/5",
+          "sha256": "1f929e114cd72c8d2bf59aacacee22fa1c33d57c457921a3000c642bae0c704b"
+        }
+      ],
+      "persisted_after_reload": true,
+      "observations": [
+        "Surname and given name are read from separate visible fields. Spaces inside the given name are preserved; all six outputs persist after reload."
+      ]
+    },
+    {
+      "task_id": 45,
+      "task_version": "3.0.0",
+      "variant": "B",
+      "run_id": "2df8c430652d42df9c542a6f2f2acaa9",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/2df8c430652d42df9c542a6f2f2acaa9/evidence",
+      "sha256": "1774acf9e549160b70a5548c69343179838ae1987cb660a233f48d8939979e39",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "帆布通勤背包",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "帆布通勤背包2"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/2df8c430652d42df9c542a6f2f2acaa9/lesson/evidence/0/0",
+          "sha256": "1a3e327b14e90abca4ad49e678a079e1c02fc60e6a533a91fbc526a62d071cf4"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "不锈钢保温杯",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "不锈钢保温杯3"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/2df8c430652d42df9c542a6f2f2acaa9/lesson/evidence/0/1",
+          "sha256": "9b9cb3073313f150ff58e539feb52e9ed2b44233b7dbf06759126bde65825bdf"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "桌面阅读灯",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "桌面阅读灯4"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/2df8c430652d42df9c542a6f2f2acaa9/lesson/evidence/0/2",
+          "sha256": "3c05ce884948860f5a28fa34ac734f9e2ccdaed3f6d0973f961fa36458da88c0"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "帆布通勤背包",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "帆布通勤背包5"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/2df8c430652d42df9c542a6f2f2acaa9/lesson/evidence/0/3",
+          "sha256": "9c2d1819fb83e180c2615b9ba36dd56cdad5f65aafad03ee271550bef7ca7413"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "不锈钢保温杯",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "不锈钢保温杯6"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/2df8c430652d42df9c542a6f2f2acaa9/lesson/evidence/0/4",
+          "sha256": "c4577b888a41bcdaf9073bc8de5d5c17fc630009a4fe69eb50c7cc1c84ffe019"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "桌面阅读灯",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "桌面阅读灯7"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/2df8c430652d42df9c542a6f2f2acaa9/lesson/evidence/0/5",
+          "sha256": "7d681e2a210038b64fd9a6521e81a141abb061c8b6448cc87427bb47932b17b3"
+        }
+      ],
+      "persisted_after_reload": false,
+      "observations": [
+        "The target product is identified by the visible order-note marker and quantity. Quantities vary from 2 to 7.",
+        "All six C outputs and B episodes 1–5 persist after reload. B episode 0 has confirmed save feedback; its reload check did not read the textarea value."
+      ]
+    },
+    {
+      "task_id": 45,
+      "task_version": "3.0.0",
+      "variant": "C",
+      "run_id": "fbc6ce597723414aab525f097d98aeba",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/fbc6ce597723414aab525f097d98aeba/evidence",
+      "sha256": "2ee321cc04453fc7e57e0442c08ad33c40c861ea46b70e66f08fcec4bf90fc3c",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "帆布通勤背包",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "二帆布通勤背包"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fbc6ce597723414aab525f097d98aeba/lesson/evidence/0/0",
+          "sha256": "abf3757c958b49ccf15a8f662f5d7e7c317e8564d1c0de5dc0f083d331080301"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "不锈钢保温杯",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "三不锈钢保温杯"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fbc6ce597723414aab525f097d98aeba/lesson/evidence/0/1",
+          "sha256": "226e0ec05e7bdb3f3160fd4d2b3bc23e3005f7086425d5695b43ac3e821b38a8"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "桌面阅读灯",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "四桌面阅读灯"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fbc6ce597723414aab525f097d98aeba/lesson/evidence/0/2",
+          "sha256": "31e3f1380d398dc955a1bc3ea8edf16c0fa315cd4eb0c37be4815f144122788f"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "帆布通勤背包",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "五帆布通勤背包"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fbc6ce597723414aab525f097d98aeba/lesson/evidence/0/3",
+          "sha256": "271a45efc005a91c5b8838c378ff422db9a6673a5e10dd0e48573fcdf9145951"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "不锈钢保温杯",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "六不锈钢保温杯"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fbc6ce597723414aab525f097d98aeba/lesson/evidence/0/4",
+          "sha256": "2a53ab9314892ffc11bca3f8c605c8fc05128f54df93f7665cd57b2b7a8115fd"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "桌面阅读灯",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "七桌面阅读灯"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fbc6ce597723414aab525f097d98aeba/lesson/evidence/0/5",
+          "sha256": "8c09e77aca608f77e7159138fbc079ed6fd5b3ef7b1b0a611ccb26a97f2e352c"
+        }
+      ],
+      "persisted_after_reload": true,
+      "observations": [
+        "The target product is identified by the visible order-note marker and quantity. Quantities vary from 2 to 7.",
+        "All six C outputs and B episodes 1–5 persist after reload. B episode 0 has confirmed save feedback; its reload check did not read the textarea value."
+      ]
+    },
+    {
+      "task_id": 46,
+      "task_version": "3.0.0",
+      "variant": "A",
+      "run_id": "0e7f98f0410846ff8c729ebb099ed586",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/0e7f98f0410846ff8c729ebb099ed586/evidence",
+      "sha256": "18d76dce7ddba5b66a08229d77d4633f4e389915e3de73e73f459bdf6f9924de",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "4357477980",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "7980"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0e7f98f0410846ff8c729ebb099ed586/lesson/evidence/0/0",
+          "sha256": "18f7e5648743d737dfb8bf0bc6524da19130394d4ecdc239d3714dc0f08f5c76"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "540591892188",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "2188"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0e7f98f0410846ff8c729ebb099ed586/lesson/evidence/0/1",
+          "sha256": "1fb20096d654981b010967f2c3fa5ca35ba5337fe08fb790b2f72d7141af4c67"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "2729277365680287",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "0287"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0e7f98f0410846ff8c729ebb099ed586/lesson/evidence/0/2",
+          "sha256": "b29b12321ba25e7402526d19b281736b61d166a1a8276e688ce68a668bbb3953"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "4204839997101617984",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "7984"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0e7f98f0410846ff8c729ebb099ed586/lesson/evidence/0/3",
+          "sha256": "bb4d7c7954fe0bda3ce6a92e055faaccc2974fc65d6952f10d85453b81f145f9"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "68337332169820",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "9820"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0e7f98f0410846ff8c729ebb099ed586/lesson/evidence/0/4",
+          "sha256": "a3ac1942fbae43ba85a75c2b79d5c9400a0c2d5d1fee661a90e63d6df336e13a"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "619530690032605283",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "5283"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0e7f98f0410846ff8c729ebb099ed586/lesson/evidence/0/5",
+          "sha256": "90a6d6506c0acd5b84dcd40e8743c9a4030c1f8ceb508241fdff29bb987a8c2e"
+        }
+      ],
+      "persisted_after_reload": true,
+      "observations": [
+        "Simulated account lengths vary across 10, 12, 16, 19, 14 and 18 digits. Saved four-character outputs persist, including a leading zero in variant A."
+      ]
+    },
+    {
+      "task_id": 46,
+      "task_version": "3.0.0",
+      "variant": "B",
+      "run_id": "395f7d57f06e408eb91253fe9bd6910c",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/395f7d57f06e408eb91253fe9bd6910c/evidence",
+      "sha256": "c81a1989d83e1180d1365474c1b931ce8fd9b76d4a46c8ee52a8818365933b46",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "4357477980",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "4357"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/395f7d57f06e408eb91253fe9bd6910c/lesson/evidence/0/0",
+          "sha256": "e99e0817b7b72375cc881cd4f745f1f307520630b4bc9c25a079e1a6f2f4e197"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "540591892188",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "5405"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/395f7d57f06e408eb91253fe9bd6910c/lesson/evidence/0/1",
+          "sha256": "93d5b1fe48de088894757274c14f325d5949041be2a3b1a5cf21a945dd198769"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "2729277365680287",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "2729"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/395f7d57f06e408eb91253fe9bd6910c/lesson/evidence/0/2",
+          "sha256": "54922bc6b8bd881ffc78fb6be340aa9746bd450d9467f5de708d931a401e6caf"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "4204839997101617984",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "4204"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/395f7d57f06e408eb91253fe9bd6910c/lesson/evidence/0/3",
+          "sha256": "2940ab8315c740f9d7bace23552fa5ba93898b1a68811d45ac4a174bd8504a2b"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "68337332169820",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "6833"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/395f7d57f06e408eb91253fe9bd6910c/lesson/evidence/0/4",
+          "sha256": "f4d7c73fe3394f11a6696f14cdc40f524ac5216d268add0af134b563bf645c07"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "619530690032605283",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {
+            "target": "6195"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/395f7d57f06e408eb91253fe9bd6910c/lesson/evidence/0/5",
+          "sha256": "0158342ac0cc0fc61e38672d9b3f17bd047ed4383b4a5aadb400cc8d12e4b5b5"
+        }
+      ],
+      "persisted_after_reload": true,
+      "observations": [
+        "Simulated account lengths vary across 10, 12, 16, 19, 14 and 18 digits. Saved four-character outputs persist, including a leading zero in variant A."
+      ]
+    },
+    {
+      "task_id": 47,
+      "task_version": "3.1.0",
+      "variant": "B",
+      "run_id": "5eb18b17c1e54999b7633bb7cc5a4a8a",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/5eb18b17c1e54999b7633bb7cc5a4a8a/evidence",
+      "sha256": "87a310aee6b258bba8185b7477e42b3bdf1e7f29b5157eff2939263fe5e56f7e",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5eb18b17c1e54999b7633bb7cc5a4a8a/lesson/evidence/0/0",
+          "sha256": "19e53444514dab67deb8c9edfbdc1c4fb648db0c430af04ec5da9817339f62eb"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5eb18b17c1e54999b7633bb7cc5a4a8a/lesson/evidence/0/1",
+          "sha256": "c22831a7addbe7141dfe71925668da1b7a32961ab58a86fba2945f60aa2145a7"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5eb18b17c1e54999b7633bb7cc5a4a8a/lesson/evidence/0/2",
+          "sha256": "72afa4b1fb92e92c54afde99a6c0a26b329797e977aa485a7fb034b9a147b710"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5eb18b17c1e54999b7633bb7cc5a4a8a/lesson/evidence/0/3",
+          "sha256": "3ca45ce489f5d1e90f7ddc962f6824e7e8e268628133faf8df00ba8bdb57a9bc"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5eb18b17c1e54999b7633bb7cc5a4a8a/lesson/evidence/0/4",
+          "sha256": "74a89d9a14a0501a8f85ab84cced653b39be52ee6391cdeaf85a2d520726d19b"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5eb18b17c1e54999b7633bb7cc5a4a8a/lesson/evidence/0/5",
+          "sha256": "30004fcd0eb4d7b4d64709363f649537b879f9629dca64cb2bf6a88474da810a"
+        }
+      ],
+      "persisted_after_reload": true,
+      "observations": [
+        "Six visible route comparisons and classification menus are exercised; target and non-target labels are checked after reload.",
+        "Variant C minimum transfer counts are 0, 1, 2, 0, 1, 2; target positions vary."
+      ]
+    },
+    {
+      "task_id": 47,
+      "task_version": "3.1.0",
+      "variant": "C",
+      "run_id": "5d90bcb1762c46df9bdf6ba3294460de",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/5d90bcb1762c46df9bdf6ba3294460de/evidence",
+      "sha256": "f20af3f7e4efe84ecfa40820e917829ca059e340e8bcb8a794dd3489ec94719d",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5d90bcb1762c46df9bdf6ba3294460de/lesson/evidence/0/0",
+          "sha256": "923750fff8b2f7ef47878fa867f011b4c542a576b303641a417813ab79d3a409"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5d90bcb1762c46df9bdf6ba3294460de/lesson/evidence/0/1",
+          "sha256": "0b43624534a8fda2e74ee9b89e3744cd0bb5cad0542dc84aa8e55eb502d214b7"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5d90bcb1762c46df9bdf6ba3294460de/lesson/evidence/0/2",
+          "sha256": "6bb43dc5e91d9035115094e8cd57db3f939a146c73f321d7e69ee299d5949260"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5d90bcb1762c46df9bdf6ba3294460de/lesson/evidence/0/3",
+          "sha256": "4e8687a385575519990cd5b95bb0d64c1fa07793067fe1d03455c415884fb8b1"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5d90bcb1762c46df9bdf6ba3294460de/lesson/evidence/0/4",
+          "sha256": "9df797a9f5fa34a49b322547da3074ce40c1a0fcacd279dfe6c90cc6f55e0795"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5d90bcb1762c46df9bdf6ba3294460de/lesson/evidence/0/5",
+          "sha256": "02fb6f56591ed092502609ef525d498afa38e88bc411709c939d4a0e5c652057"
+        }
+      ],
+      "persisted_after_reload": true,
+      "observations": [
+        "Six visible route comparisons and classification menus are exercised; target and non-target labels are checked after reload.",
+        "Variant C minimum transfer counts are 0, 1, 2, 0, 1, 2; target positions vary."
+      ]
+    },
+    {
+      "task_id": 48,
+      "task_version": "3.0.0",
+      "variant": "A",
+      "run_id": "505ab47403f64b79993ba3316a994fdb",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/505ab47403f64b79993ba3316a994fdb/evidence",
+      "sha256": "54228a08e562646dc0e6fa3962e6954372df80a746d04277435f1fd819b0da74",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "positive_count": 14,
+      "negative_count": 10,
+      "observations": [
+        "Displayed ratings include 49, four examples of 50, and 51; all 24 labels persist after reload."
+      ]
+    },
+    {
+      "task_id": 49,
+      "task_version": "3.1.0",
+      "variant": "A",
+      "run_id": "774dd93f72d447c085385cf35214a8c4",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/774dd93f72d447c085385cf35214a8c4/evidence",
+      "sha256": "f9e30ba8c1dcdf07b19dcdf1c4389198dc78c49010ff8fb44c91abe7d6e51d85",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "positive_count": 12,
+      "negative_count": 12,
+      "observations": [
+        "All 24 transaction amounts are read from the table; the 12 target and 12 non-target labels persist after reload."
+      ]
+    },
+    {
+      "task_id": 49,
+      "task_version": "3.1.0",
+      "variant": "B",
+      "run_id": "cf52bdd57a384d2aae0f8666e639c4c9",
+      "epoch": 0,
+      "episode_count": 1,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/cf52bdd57a384d2aae0f8666e639c4c9/evidence",
+      "sha256": "9b18f8ebc2f9b358534cca1e1353679aac01cceb927423962a9de1aa4d148bfb",
+      "object_count": 24,
+      "persisted_after_reload": true,
+      "positive_count": 12,
+      "negative_count": 12,
+      "observations": [
+        "All 24 transaction amounts are read from the table; the 12 target and 12 non-target labels persist after reload."
+      ]
+    },
+    {
+      "task_id": 50,
+      "task_version": "3.0.0",
+      "variant": "A",
+      "run_id": "01f6a0751da84546b773b0a506989ab0",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/01f6a0751da84546b773b0a506989ab0/evidence",
+      "sha256": "7b1ed59fe97e27b9b8d35a675d5bf3683484f3e8acf2c95ae796c98bcbf48556",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/01f6a0751da84546b773b0a506989ab0/lesson/evidence/0/0",
+          "sha256": "41cabcd1406592f0ca9fbe371ce4f7efd9b5245367630b0b321490c5959f64a0"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/01f6a0751da84546b773b0a506989ab0/lesson/evidence/0/1",
+          "sha256": "502583176e04ee7826fbcedccf406de0cb494faa652f451303f71f68773c4a6d"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/01f6a0751da84546b773b0a506989ab0/lesson/evidence/0/2",
+          "sha256": "6d2a274f39b106782ad81b8cb27f03b11c6bdd1900a584da1a20cbce28fbb475"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/01f6a0751da84546b773b0a506989ab0/lesson/evidence/0/3",
+          "sha256": "44bde59bd3eb2345f7388a63ded5fed687952f69267f130fc97e6189eb94fbe5"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/01f6a0751da84546b773b0a506989ab0/lesson/evidence/0/4",
+          "sha256": "365f6963bb2bd397692419ef7431bd1b8622c3bc33b07cce5028f04fd0440c47"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/01f6a0751da84546b773b0a506989ab0/lesson/evidence/0/5",
+          "sha256": "fa455e72c7469a28d2d794c3a615c829b4b47bb77f7e0c29f941dd398672244c"
+        }
+      ],
+      "persisted_after_reload": true,
+      "observations": [
+        "Six distinct balance comparisons use the visible account table. The transaction window and two latest timestamps are visible; chosen labels persist after reload."
+      ]
+    },
+    {
+      "task_id": 50,
+      "task_version": "3.0.0",
+      "variant": "B",
+      "run_id": "b7879bc75a2d47c9abb643fd3a57c0dd",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/b7879bc75a2d47c9abb643fd3a57c0dd/evidence",
+      "sha256": "c1bacfd152f0239901a44ebaefa112542641b46b87ee067148920194ea05d20a",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b7879bc75a2d47c9abb643fd3a57c0dd/lesson/evidence/0/0",
+          "sha256": "7373dca168ab1f26b53008a4136d904e6ba1a57fe2961150735237a1071f968c"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b7879bc75a2d47c9abb643fd3a57c0dd/lesson/evidence/0/1",
+          "sha256": "4f8160f4c416a47f5366f1b5c1f6c36ccd2dc1ed85f1e08b02a4a920e9604c27"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b7879bc75a2d47c9abb643fd3a57c0dd/lesson/evidence/0/2",
+          "sha256": "0b8239e131e12c5ab03f460b1e4f5c752a888d9debb79510c87d7360cea6b14a"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b7879bc75a2d47c9abb643fd3a57c0dd/lesson/evidence/0/3",
+          "sha256": "e1975f4ca7ebb8ced890cd188973bb71ef80b664492091f3b7955e6bba4f6d43"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b7879bc75a2d47c9abb643fd3a57c0dd/lesson/evidence/0/4",
+          "sha256": "c255ec9b6bea84fc3c3da0723379cbfd905b2c3d15d4debef641e1c3ab96bf9b"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/b7879bc75a2d47c9abb643fd3a57c0dd/lesson/evidence/0/5",
+          "sha256": "241f0ced3648150a613ef00dd7cfc140b5aa79d533d207b938a58fcf49bac4a3"
+        }
+      ],
+      "persisted_after_reload": true,
+      "observations": [
+        "Six distinct balance comparisons use the visible account table. The transaction window and two latest timestamps are visible; chosen labels persist after reload."
+      ]
+    },
+    {
+      "task_id": 51,
+      "task_version": "3.1.0",
+      "variant": "A",
+      "run_id": "fd4ce9c0587f45aebdb723251efabea6",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/fd4ce9c0587f45aebdb723251efabea6/evidence",
+      "sha256": "f707b708c59e8bf7dfb7933b54e46df1e65b664acf32159cb5946765a38a8677",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-ce5f4b2eca"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd4ce9c0587f45aebdb723251efabea6/lesson/evidence/0/0",
+          "sha256": "a23c67df1a199f777132e71035a0f65f3cd2cbea51b585fa028bcca309d35dd7"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-eb1699b27f"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd4ce9c0587f45aebdb723251efabea6/lesson/evidence/0/1",
+          "sha256": "210c99bf778f87664f1c5c9572fe8f7199fda8fcc29c1f0c0da45ee6e75fc407"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-8daa7e39bc"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd4ce9c0587f45aebdb723251efabea6/lesson/evidence/0/2",
+          "sha256": "f20393a5b9af53225d86bd3b732c1d36a172a310b33a7ba9db0ae649dac7d124"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-9c1e219559"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd4ce9c0587f45aebdb723251efabea6/lesson/evidence/0/3",
+          "sha256": "603392cccf316dce27b506881b8e9c36a556189409c4ab49b4853eb79a5340be"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-45e626d502"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd4ce9c0587f45aebdb723251efabea6/lesson/evidence/0/4",
+          "sha256": "de1d677d4eb7702ff6a1f8411abe92b968c4216e321306d306753450f707610d"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-ba6200b4f6"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/fd4ce9c0587f45aebdb723251efabea6/lesson/evidence/0/5",
+          "sha256": "99a2387e8699e6ba11f60f23b7da2bb233bcff81317f170b2a331fcf94c3e60d"
+        }
+      ],
+      "persisted_after_reload": true,
+      "observations": [
+        "The selected route is confirmed in its detail page after reload. Selection does not create an order.",
+        "Variant B selected durations are 93, 460, 229, 635, 316 and 158 minutes."
+      ]
+    },
+    {
+      "task_id": 51,
+      "task_version": "3.1.0",
+      "variant": "B",
+      "run_id": "5bdebc9b732e44f49286ace46a4179ae",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/5bdebc9b732e44f49286ace46a4179ae/evidence",
+      "sha256": "010872b83a74c40bc889d3383bab377928cb805efbbf9b799fe174d5407d65c7",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-68102364a8"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5bdebc9b732e44f49286ace46a4179ae/lesson/evidence/0/0",
+          "sha256": "8cccfe0df74d11d423b6236f4411565074cc83c2846f50be8debb0be109d7cd4"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-8a4832c80f"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5bdebc9b732e44f49286ace46a4179ae/lesson/evidence/0/1",
+          "sha256": "63033b0d35109a663108669770c21a64bcae35a98a51cc10149f597c163f4cf6"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-c0e38c70a5"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5bdebc9b732e44f49286ace46a4179ae/lesson/evidence/0/2",
+          "sha256": "33898b8df25c8a820b27c5ba4039ff228015e82a6738f5301a685d674a53176f"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-c41795d250"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5bdebc9b732e44f49286ace46a4179ae/lesson/evidence/0/3",
+          "sha256": "501098b166c70e4f358cbf0a95a278092bb0347316d1345a0d05a37c8e40ee7a"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-b323464081"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5bdebc9b732e44f49286ace46a4179ae/lesson/evidence/0/4",
+          "sha256": "e56e1070bda610e8cd6b7323748aa667c6db11a7a8cdc106fba0e7b149aa3985"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-64b1a9d31c"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5bdebc9b732e44f49286ace46a4179ae/lesson/evidence/0/5",
+          "sha256": "cfbfe1fbdda24b542955a5fc0b6d46389344d99c420e1cd070095551238ac0f0"
+        }
+      ],
+      "persisted_after_reload": true,
+      "observations": [
+        "The selected route is confirmed in its detail page after reload. Selection does not create an order.",
+        "Variant B selected durations are 93, 460, 229, 635, 316 and 158 minutes."
+      ]
+    },
+    {
+      "task_id": 52,
+      "task_version": "3.0.0",
+      "variant": "A",
+      "run_id": "eb3ea5bdca044407bd210383ad50469e",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/eb3ea5bdca044407bd210383ad50469e/evidence",
+      "sha256": "2418ea6f5a66dbfc7ed65fb87b4fc731de044a8687c5592f23abdbe7f2f195fb",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-9b98fcaab5"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eb3ea5bdca044407bd210383ad50469e/lesson/evidence/0/0",
+          "sha256": "f057379dfe8fa451bf82b045260fb333549e9a8da6270f9b2eeae317542f855b"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-9ce8091496"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eb3ea5bdca044407bd210383ad50469e/lesson/evidence/0/1",
+          "sha256": "7cab6a2e7f2e64e941587c99ca3ff4fcdefd75a448b3a30e1fb95d9cb19d8c4f"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-d46fae8799"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eb3ea5bdca044407bd210383ad50469e/lesson/evidence/0/2",
+          "sha256": "da184ac499ec7fe163fc644ad2b8270914588637f0125f03f84f1cdc2c4087be"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-28ebb4de5d"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eb3ea5bdca044407bd210383ad50469e/lesson/evidence/0/3",
+          "sha256": "dcb8e3290001e80424a034747a67ce4035085f15885b8a7c097637359f08b9a3"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-041ad688ae"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eb3ea5bdca044407bd210383ad50469e/lesson/evidence/0/4",
+          "sha256": "05c2c65d19324e8d402ba5fc7ed3b4edf0cc320703f3b0415f5ce9f5691a743e"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-703f8df301"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/eb3ea5bdca044407bd210383ad50469e/lesson/evidence/0/5",
+          "sha256": "c12e8b26d8ac45c06406f82962e7074bc02db0865dc1fb0b5fba866614a58d2b"
+        }
+      ],
+      "persisted_after_reload": true,
+      "observations": [
+        "Six product comparisons use visible rating or price. Selection shows the selected button after reload in product detail."
+      ]
+    },
+    {
+      "task_id": 52,
+      "task_version": "3.0.0",
+      "variant": "B",
+      "run_id": "5a7b8f7d0af545318aa940da7852302a",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/5a7b8f7d0af545318aa940da7852302a/evidence",
+      "sha256": "01d01458d55df954dcea98b65aed5316900672fa1732eaea83169c965a583f12",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 3,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-58548ade7b"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5a7b8f7d0af545318aa940da7852302a/lesson/evidence/0/0",
+          "sha256": "d6f9d054536c66112fea07a885fa0debcc77fb49f565c369e2838269de835900"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 4,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-e0184d447f"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5a7b8f7d0af545318aa940da7852302a/lesson/evidence/0/1",
+          "sha256": "536929a4fc5910291914462d57c886954276b8f68dfbd7ec91d2734a9830386f"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 5,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-fdf22513f4"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5a7b8f7d0af545318aa940da7852302a/lesson/evidence/0/2",
+          "sha256": "46ca6cd3750462dcf602b4f88c1628933a9a81e7d7c6de63f33beadb89e560ca"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "Please Review the Design Draft",
+            "artist": "陈绮贞",
+            "count": 6,
+            "date": "2026-01-15",
+            "tags": [
+              "research",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-33fbe1ed5a"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5a7b8f7d0af545318aa940da7852302a/lesson/evidence/0/3",
+          "sha256": "cb2d895ad2d1960ca844e456208de519de49a27a5d347a55699e8662194a058a"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "Please Confirm the Meeting Room",
+            "artist": "坂本龙一",
+            "count": 7,
+            "date": "2026-01-15",
+            "tags": [
+              "design",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-5f14b8fe9c"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5a7b8f7d0af545318aa940da7852302a/lesson/evidence/0/4",
+          "sha256": "fea688ce790b9c5d5bed634fdc8b34c96d33d4db5cf18906f9b747a48b21449b"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "Please Share the Weekly Report",
+            "artist": "林生祥",
+            "count": 8,
+            "date": "2026-01-15",
+            "tags": [
+              "travel",
+              "weekly",
+              "focus"
+            ]
+          },
+          "selection": [
+            "object-e10ac35f22"
+          ],
+          "saved_outputs": {},
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/5a7b8f7d0af545318aa940da7852302a/lesson/evidence/0/5",
+          "sha256": "b1611b9aa70af4940c2fabbb1ae56811d702add1e43f5c7e77c3dcabc2501420"
+        }
+      ],
+      "persisted_after_reload": true,
+      "observations": [
+        "Six product comparisons use visible rating or price. Selection shows the selected button after reload in product detail."
+      ]
+    }
+  ],
+  "verified_at": "2026-09-28T07:28:40.580464+00:00"
+}

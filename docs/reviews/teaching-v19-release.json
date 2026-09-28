@@ -1,0 +1,93 @@
+{
+  "verified_at": "2026-09-28T06:42:24.216294+00:00",
+  "source_commit": "8ebdc9fa6d3dee15ccde6e62aabc3018e59cbf33",
+  "image": "sha256:3b85a6fbe6b64e666388962fbfc1540d303036fda2f2460cde0d2717c0e8bbd4",
+  "image_tag": "videoicl-native:teaching-v19",
+  "deployed": true,
+  "services": "healthy",
+  "base_validation": "teaching-v18-release.json",
+  "validation": {
+    "full_suite_passed": 1254,
+    "failed": 0,
+    "ci_url": "https://github.com/Aoraku/VideoICLBench/actions/runs/36386072613",
+    "ci_conclusion": "success",
+    "ci_diagnostic_task_variants": 225,
+    "ci_native_tasks": [
+      1,
+      5,
+      17,
+      23,
+      31,
+      38,
+      43,
+      48,
+      57,
+      68
+    ],
+    "ci_native_variant": "A",
+    "ci_im_tasks": [
+      15,
+      16
+    ],
+    "ci_im_variants": [
+      "A",
+      "B",
+      "C"
+    ],
+    "ci_oj_tasks": [
+      61,
+      62,
+      63
+    ],
+    "ci_oj_variants": [
+      "A",
+      "B",
+      "C"
+    ],
+    "ci_pixel_recording_smoke": true,
+    "human_recording_verified": false
+  },
+  "image_checks": {
+    "files": {
+      "services/control/vic/teaching.py": "f077852031b7499b3ed1c6b9177c0d8e0c5eb40772cd62f93205468dc2d0a952",
+      "services/control/vic/business.py": "13372ab952cf6f8cd42b03683dab57c97ab3fe0066a15e618e19253fa70291ed",
+      "services/control/vic/lessons.py": "e655ee611dc40c6ac167a4a6ef8b4568dfa38f47ea135a0a1ef2859948536514",
+      "tasks/catalog.json": "6ce33b7d39212c5ceeb6c78db5908b75d75f2854d78a87ce34a1fd88331d07da",
+      "tasks/contracts/018.json": "ef1d956a5bd270b1bbf2c23714287751e76202e7e4941b3800811654566d46ae"
+    },
+    "playlist_fields_crossed": true,
+    "installed_source_matches": true
+  },
+  "live_checks": {
+    "services_healthy": true,
+    "native_ui": [
+      {
+        "task_id": 18,
+        "variant": "C",
+        "mode": "eval",
+        "seed": 10001,
+        "run_id": "3865cbfd91e443ba8850ee4b8b952224",
+        "all_actions_via_browser": true,
+        "persisted_after_reload": true,
+        "saved_output": "2026-02-26_久石让_6",
+        "evaluation_success": true,
+        "evidence_ref": "/v1/runs/3865cbfd91e443ba8850ee4b8b952224/evidence",
+        "sha256": "44c1b007fe38f0b583093e7ebdb8b4a150cba04799484820f1dde6a545c2c8f4"
+      }
+    ]
+  },
+  "backup": {
+    "database": "/home/qingle/services/videoicl/.local/pre-teaching-v19-database.sql",
+    "mode": "600",
+    "size": 5096106,
+    "rollback_images": [
+      "videoicl-control:before-teaching-v19",
+      "videoicl-applications:before-teaching-v19"
+    ]
+  },
+  "limitations": [
+    "Indexed UI evidence does not certify complete current-version A/B/C recording or human inference acceptance.",
+    "Actual getDisplayMedia frames remain unverified while native UI access reports the Mac locked.",
+    "Task 30 version 3.2.0 requires a separate CI gate and deployment."
+  ]
+}
