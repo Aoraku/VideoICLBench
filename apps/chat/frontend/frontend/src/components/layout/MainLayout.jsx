@@ -1,3 +1,4 @@
+import {nativeRun} from '../../benchmark/bridge.js'
 import { useEffect, useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { updateStatus } from '../../api/users.js'
@@ -9,7 +10,7 @@ const iconItems = [
   { to: '/chat', label: '会话', icon: 'chat' },
   { to: '/contacts', label: '通讯录', icon: 'contacts' },
   { to: '/groups', label: '群聊', icon: 'groups' },
-  { to: '/bookmarks', label: '待办', icon: 'todo' },
+  { to: '/bookmarks', label: nativeRun ? '收藏' : '待办', icon: 'todo' },
   { to: '/calendar', label: '日历', icon: 'calendar' },
   { to: '/settings/profile', label: '设置', icon: 'settings' },
 ]

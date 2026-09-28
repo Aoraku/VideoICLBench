@@ -16,7 +16,7 @@ export function recordingSteps(s:any, variant:string, rule:string):string[] {
   };
   const a=s.source||{};
   const targeted:Record<number,string>={
-    13:`打开${a.recipient}的会话，对含“${a.keyword}”的消息执行${{A:'转发',B:'收藏',C:'归档'}[variant]}。${variant==='A'?`转发收件人为${a.recipient}。`:''}`,
+    13:`打开${a.sender||a.recipient}的会话，对含“${a.keyword}”的消息执行${{A:'转发',B:'收藏',C:'归档'}[variant]}。${variant==='A'?`转发收件人为${a.recipient}。`:''}`,
     16:`打开${a.recipient}的会话，对含“收到”的消息执行本卡规则的操作。${variant==='C'?`回复内容为“${a.fixed_reply}”。`:''}`,
     22:`从音乐首页进入我的音乐，逐首查看${variant==='C'?`播放次数，阈值为 ${a.threshold}`:'时长'}，为符合规则的歌曲设置“长”分类。`,
     23:`从新闻首页进入全部文章，查看${variant==='C'?`媒体来源（指定媒体为 ${a.publisher}）`:'标题中是否含数字'}，为符合规则的文章设置“数据”分类。`,

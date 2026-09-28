@@ -1,3 +1,4 @@
+import {nativeRun} from '../../benchmark/bridge.js'
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { addBookmark, deleteBookmark, listBookmarks, reorderBookmarks, updateBookmark } from '../../api/messages.js'
@@ -164,8 +165,8 @@ export default function BookmarksPage() {
             ‹
           </Link>
           <div>
-            <div className="wxTitle">我的待办</div>
-            <div className="wxSub">{items.length ? `${items.length} 项待办` : '从消息菜单加入待办'}</div>
+            <div className="wxTitle">{nativeRun ? "收藏与归档" : "我的待办"}</div>
+            <div className="wxSub">{nativeRun ? `${items.length} 条收藏消息 · ${archivedItems.length} 条归档消息` : items.length ? `${items.length} 项待办` : '从消息菜单加入待办'}</div>
           </div>
         </div>
         <div className="wxActions">
@@ -176,7 +177,7 @@ export default function BookmarksPage() {
       </div>
 
       <div className="wxCard">
-        <form className="wxTodoComposer" onSubmit={onManualAdd}>
+        {!nativeRun && <form className="wxTodoComposer" onSubmit={onManualAdd}>
           <input
             className="wxSearchInput"
             value={manualTitle}
@@ -192,10 +193,10 @@ export default function BookmarksPage() {
           <button type="submit" className="wxBtn wxBtn--primary" disabled={manualSaving}>
             {manualSaving ? '添加中…' : '添加'}
           </button>
-        </form>
+        </form>}
         <div className="wxTabs">
           <button type="button" className={`wxTab${tab === 'active' ? ' is-active' : ''}`} onClick={() => setTab('active')}>
-            待办
+            {nativeRun ? '收藏' : '待办'}
           </button>
           <button type="button" className={`wxTab${tab === 'archived' ? ' is-active' : ''}`} onClick={() => setTab('archived')}>
             已归档
@@ -203,7 +204,7 @@ export default function BookmarksPage() {
         </div>
         {error ? <div className="wxNotice is-err">{error}</div> : null}
         {loading && rows.length === 0 ? <div className="wxNotice">加载中…</div> : null}
-        {!loading && rows.length === 0 ? <div className="wxNotice">{tab === 'active' ? '暂无待办' : '暂无已归档待办'}</div> : null}
+        {!loading && rows.length === 0 ? <div className="wxNotice">{nativeRun ? (tab === 'active' ? '暂无收藏消息' : '暂无归档消息') : (tab === 'active' ? '暂无待办' : '暂无已归档待办')}</div> : null}
 
         <ul className="wxList">
           {rows.map((item) => {
@@ -213,7 +214,7 @@ export default function BookmarksPage() {
               <li
                 key={bookmarkId}
                 className={`wxItem wxBookmarkItem${draggingId === bookmarkId ? ' is-dragging' : ''}`}
-                draggable={tab === 'active'}
+                draggable={!nativeRun && tab === 'active'}
                 onDragStart={() => setDraggingId(bookmarkId)}
                 onDragEnd={() => setDraggingId(null)}
                 onDragOver={(e) => {
@@ -221,7 +222,7 @@ export default function BookmarksPage() {
                 }}
                 onDrop={() => void onDropOn(bookmarkId)}
               >
-                <span className="wxBookmarkItem__drag" aria-hidden>{tab === 'active' ? '☰' : ''}</span>
+                <span className="wxBookmarkItem__drag" aria-hidden>{!nativeRun && tab === 'active' ? '☰' : ''}</span>
                 <button type="button" className="wxBookmarkItem__main" onClick={() => openTodo(item)}>
                   <span className="wxBookmarkItem__title">{item.conversation_name || (item.conversation_id ? '聊天消息' : '待办')}</span>
                   <span className="wxBookmarkItem__summary">{messageSummary(item)}</span>
@@ -231,7 +232,7 @@ export default function BookmarksPage() {
                     {formatTime(message.created_at || item.created_at)}
                   </span>
                 </button>
-                <div className="wxActions">
+                {!nativeRun && <div className="wxActions">
                   {tab === 'active' ? (
                     <button type="button" className="wxBtn wxBtn--primary" onClick={() => void onArchive(item, true)} disabled={pendingId === bookmarkId}>
                       完成
@@ -244,7 +245,7 @@ export default function BookmarksPage() {
                   <button type="button" className="wxBtn wxBtn--danger" onClick={() => void onDelete(bookmarkId)} disabled={pendingId === bookmarkId}>
                     删除
                   </button>
-                </div>
+                </div>}
               </li>
             )
           })}

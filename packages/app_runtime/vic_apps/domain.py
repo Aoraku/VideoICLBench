@@ -148,6 +148,8 @@ def initialize(state):
         "kind": "contacts",
         "name": state["source"]["recipient"],
     }
+    if t == 13:
+        objects["contact-b"] = dict(id="contact-b", kind="contacts", name=state["source"]["sender"])
     d = dict(
         objects=objects,
         messages=[],

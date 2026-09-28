@@ -678,7 +678,7 @@ export default function MessageList({
           {['',...menu.row.benchmark_options].map(label=><button type="button" role="menuitem" className="popMenu__item" key={label} onClick={async()=>{const object=menu.row.benchmark_object;try{await command('label',object,label);setSavedLabels(prev=>({...prev,[object]:label}));setLabelError('');closeMenu()}catch(e){setLabelError(e.message)}}}><span style={{color:({'蓝色':'#3478db','红色':'#df5454','绿色':'#2c9c6a'})[label]||'#8c96a3'}}>●</span> {label||'清除标签'}</button>)}
           {labelError&&<div role="alert">{labelError}</div>}
         </>}
-        {nativeRun && currentBusiness()?.task_id===13 && menu?.row?.benchmark_object && <button type="button" role="menuitem" className="popMenu__item" onClick={async()=>{try{await command('action',menu.row.benchmark_object,'归档');closeMenu()}catch(e){setLabelError(e.message)}}}>归档消息</button>}
+        {nativeRun && currentBusiness()?.task_id===13 && menu?.row?.benchmark_object && <button type="button" role="menuitem" className="popMenu__item" onClick={async()=>{const objectId=menu.row.benchmark_object;closeMenu();try{await command('action',objectId,'归档')}catch(e){setLabelError(e.message)}}}>归档消息</button>}
         <div className="popMenu__emojiRow" role="group" aria-label="快速表情">
           {['👍', '❤️', '😂', '😮', '🙏'].map((emoji) => (
             <button

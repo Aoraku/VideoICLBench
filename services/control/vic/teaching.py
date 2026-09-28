@@ -139,6 +139,19 @@ def enrich(id_, seed, items, source, rng):
         minimum = [0, 8, 3, 15, 5, 20][seed % 6]
         maximum = [7, 30, 18, 50, 25, 80][seed % 6]
         assign('unread', [minimum, maximum] + rng.sample(range(minimum + 1, maximum), n - 2))
+    if id_ == 12:
+        minimum = [0, 4, 1, 8, 2, 15][seed % 6]
+        assign('unread', [minimum, minimum, minimum + 1, minimum + 7, minimum + 10, minimum + 10])
+    if id_ == 14:
+        ages = [2, 3, 4, 1, 3, 7] if seed >= 1000 else [0, 1, 2, 3, 3, 3, 4, 5, 7, 10, 14, 20] * 2
+        half = n // 2
+        read_ages, unread_ages = ages[:half], ages[half:]
+        rng.shuffle(read_ages)
+        rng.shuffle(unread_ages)
+        for item, age, unread in zip(items, read_ages + unread_ages, [0] * half + rng.sample(range(1, 90), half)):
+            item.update(age_days=age, unread=unread)
+    if id_ == 13:
+        source['sender'] = '陈子安' if seed < 1000 else '许知远'
     if id_ in (9, 10):
         maximum = [7, 14, 24, 10, 18, 35][seed % 6]
         assign('unread', [maximum] + rng.sample(range(maximum), n - 1))

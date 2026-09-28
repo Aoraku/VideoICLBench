@@ -586,7 +586,7 @@
         "C": "按会话名反向字母序"
       },
       "original_rules": "A：按未读数降序；B：按最近消息升序；C：按会话名反向字母序",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -633,12 +633,12 @@
       "runtime": "windows",
       "status": "application-ready",
       "variants": {
-        "A": "含“紧急”的消息转发给联系人甲",
+        "A": "含“紧急”的消息转发给指定联系人",
         "B": "含“紧急”的消息收藏",
         "C": "含“紧急”的消息归档"
       },
       "original_rules": "A：含“紧急”的消息转发给联系人甲；B：含“紧急”的消息收藏；C：含“紧急”的消息归档",
-      "version": "3.1.0",
+      "version": "3.2.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -665,7 +665,7 @@
       "qa": {
         "A": {
           "question": "请说明教程中的选择、变换或操作规则。",
-          "answer": "含“紧急”的消息转发给联系人甲"
+          "answer": "含“紧急”的消息转发给指定联系人"
         },
         "B": {
           "question": "请说明教程中的选择、变换或操作规则。",
@@ -690,7 +690,7 @@
         "C": "超过 3 天的会话全部静音"
       },
       "original_rules": "A：已读会话全部归档；B：未读会话全部置顶；C：超过 3 天的会话全部静音",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,

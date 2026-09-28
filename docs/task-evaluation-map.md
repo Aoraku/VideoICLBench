@@ -22,7 +22,7 @@
 | [010](../tasks/contracts/010.json) | chat | 通讯 A：从搜索结果打开目标会话 | 选结果第一项 | 选结果最后一项 | 选未读数最多一项 | `settings` |
 | [011](../tasks/contracts/011.json) | chat | 通讯 A：从附件列表选择文件发送 | 选体积最小者 | 选体积最大者 | 选名称最短者 | `messages.attachment` |
 | [012](../tasks/contracts/012.json) | chat | 通讯 A：整理会话列表顺序 | 按未读数降序 | 按最近消息升序 | 按会话名反向字母序 | `orders.main` |
-| [013](../tasks/contracts/013.json) | chat | 通讯 A：处理一组待办消息 | 含“紧急”的消息转发给联系人甲 | 含“紧急”的消息收藏 | 含“紧急”的消息归档 | `objects`、`messages`、`collections`、`artifacts` |
+| [013](../tasks/contracts/013.json) | chat | 通讯 A：处理一组待办消息 | 含“紧急”的消息转发给指定联系人 | 含“紧急”的消息收藏 | 含“紧急”的消息归档 | `objects`、`messages`、`collections`、`artifacts` |
 | [014](../tasks/contracts/014.json) | chat | 通讯 A：清理会话状态 | 已读会话全部归档 | 未读会话全部置顶 | 超过 3 天的会话全部静音 | `objects`、`messages`、`collections`、`artifacts` |
 | [015](../tasks/contracts/015.json) | im | 通讯 B：创建群聊并邀请成员 | 邀请名字最短的 3 人 | 邀请最近联系的 3 人 | 邀请未读数最高的 3 人 | `memberships` |
 | [016](../tasks/contracts/016.json) | im | 通讯 B：处理消息回执 | 看到“收到”就标记已读 | 看到“收到”就添加星标 | 看到“收到”就回复固定文本 | `objects`、`messages`、`collections`、`artifacts` |

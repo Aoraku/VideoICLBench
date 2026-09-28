@@ -71,7 +71,7 @@ function user(state, id) {
       ? "周予安"
       : id === 2
         ? state.source.recipient
-        : item?.name || "联系人";
+        : id === 3 && state.task_id === 13 ? state.source.sender : item?.name || "联系人";
   return {
     id,
     user_id: id,
@@ -124,12 +124,21 @@ function message(
     benchmark_object: object?.id,
     benchmark_label:
       object?.label ||
-      (object?.archived ? "已归档" : object?.starred ? "已收藏" : ""),
+      (object?.archived ? "已归档" : object?.starred ? "已收藏" :
+        state.task_id === 13 && object && state.domain.messages.some(m => m.sender === "self" && m.reference === object.id) ? "已转发" : ""),
     benchmark_options: state.type === "C" ? state.options : [],
   };
 }
 function messages(state, conv) {
   conv = Number(conv);
+  if (state.task_id === 13) {
+    if (conv === 3) return state.items.map((item, i) =>
+      message(state, 100 + i, item.text, 3, 3, state.domain.objects[item.id]))
+      .sort((a, b) => a.created_at.localeCompare(b.created_at));
+    if (conv === 2) return state.domain.messages.filter(m => m.sender === "self").map((m, i) =>
+      message(state, 1000 + i, m.body, 1, 2));
+    return [];
+  }
   if (conv === 2) {
     if (state.task_id === 11) {
       return [
@@ -180,6 +189,12 @@ function messages(state, conv) {
     : [];
 }
 function conversations(state) {
+  if (state.task_id === 13) return [3, 2].map(id => ({
+    conversation_id: id, type: "private", peer_user: user(state, id),
+    unread_count: id === 3 && !readConversations.has(3) ? state.items.length : 0,
+    last_message: messages(state, id).at(-1) || null,
+    updated_at: state.source.reference_time,
+  }));
   const rows = (state.task_id === 11 ? [] : state.items).map((item, i) => {
     const object = state.domain.objects[item.id];
     return {
@@ -226,6 +241,7 @@ export async function nativeRequest(path, options = {}) {
   if (method === "GET") {
     if (p === "/users/me") return user(state, 1);
     if (/^\/users\/\d+$/.test(p)) return user(state, p.split("/").at(-1));
+    if (p === "/friends" && state.task_id === 13) return pageOf([user(state, 2), user(state, 3)]);
     if (p === "/friends")
       return pageOf([
         ...([1, 2, 3, 4, 5, 11, 13].includes(state.task_id)
@@ -292,15 +308,23 @@ export async function nativeRequest(path, options = {}) {
         has_more: false,
         sync_timestamp: state.source.reference_time,
       };
-    if (p === "/bookmarks")
-      return pageOf(
-        (state.domain.collections.favorites || []).map((id, i) => ({
-          bookmark_id: i + 1,
-          title: state.domain.objects[id].name,
-          note: state.domain.objects[id].text,
-          message: message(state, 100 + i, state.domain.objects[id].text),
-        })),
-      );
+    if (p === "/bookmarks") {
+      const archived = url.searchParams.get("archived") === "true";
+      const ids = archived
+        ? state.items.filter(item => state.domain.objects[item.id].archived).map(item => item.id)
+        : (state.domain.collections.favorites || []);
+      return pageOf(ids.map(id => {
+        const item = state.domain.objects[id];
+        const index = state.items.findIndex(row => row.id === id);
+        const conversation = state.task_id === 13 ? 3 : 2;
+        return {
+          bookmark_id: 100 + index, conversation_id: conversation,
+          conversation_name: state.task_id === 13 ? state.source.sender : state.source.recipient,
+          title: item.text, note: "", is_archived: archived,
+          message: message(state, 100 + index, item.text, conversation, conversation, item),
+        };
+      }));
+    }
     if (p === "/groups")
       return {
         groups: conversations(state)
@@ -344,7 +368,8 @@ export async function nativeRequest(path, options = {}) {
     return { success: true };
   }
   if (method === "POST" && p === "/messages/forward" && state.task_id === 13) {
-    if (!body.target_conv_ids?.includes(2))
+    if (body.source_conv_id !== 3) throw new Error("请从原消息会话中转发");
+    if (body.target_conv_ids?.length !== 1 || body.target_conv_ids[0] !== 2)
       throw new Error(`请转发至 ${state.source.recipient}`);
     for (const mid of body.msg_ids || []) {
       const item = state.items[Number(mid) - 100];

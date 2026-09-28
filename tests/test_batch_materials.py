@@ -328,3 +328,38 @@ def test_chat_relative_unread_selection_excludes_fixed_values_and_thresholds(tas
     assert len(set(selected)) == 6
     assert min(selected) < max(others)
     assert max(selected) > min(others)
+
+
+@pytest.mark.parametrize('seed', [*range(12), 999, 1000, 1001, 10001])
+def test_conversation_cleanup_crosses_read_status_and_age_boundary(seed):
+    from datetime import datetime
+    state = business.generate(14, seed)
+    items = state['items']
+    cells = Counter((x['unread'] == 0, x['age_days'] > 3) for x in items)
+    assert set(cells) == {(read, old) for read in (False, True) for old in (False, True)}
+    assert min(cells.values()) >= (6 if seed < 1000 else 1)
+    assert {2, 3, 4} <= {x['age_days'] for x in items}
+    for x in items:
+        assert (datetime.fromisoformat(state['source']['reference_time']) - datetime.fromisoformat(x['created_at'])).days == x['age_days']
+        assert x['timestamp'] == int(datetime.fromisoformat(x['created_at']).timestamp())
+
+
+@pytest.mark.parametrize('seed', [*range(6), 1000, 10001])
+def test_conversation_ordering_preserves_tied_unread_order(seed):
+    state = business.generate(12, seed)
+    items = state['items']
+    counts = Counter(x['unread'] for x in items)
+    assert sorted(counts.values()) == [1, 1, 2, 2]
+    ordered = business.ordering(12, 0, items)
+    for count in counts:
+        original = [x['id'] for x in items if x['unread'] == count]
+        assert [id_ for id_ in ordered if id_ in original] == original
+
+
+def test_forwarded_messages_have_distinct_source_and_destination_contacts():
+    from vic_apps.domain import initialize
+    for seed in (0, 1000):
+        state = initialize(business.generate(13, seed))
+        assert state['source']['sender'] != state['source']['recipient']
+        assert state['domain']['objects']['contact-b']['name'] == state['source']['sender']
+        assert state['domain']['objects']['contact-a']['name'] == state['source']['recipient']

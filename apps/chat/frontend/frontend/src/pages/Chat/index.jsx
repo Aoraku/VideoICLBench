@@ -1324,7 +1324,7 @@ export default function ChatPage() {
         setTodoDialogOpen(false)
         setTodoTargetRow(null)
         setTodoNote('')
-        setSendHint('已加入待办')
+        setSendHint(nativeRun ? '已收藏' : '已加入待办')
         window.setTimeout(() => setSendHint(''), 1800)
       } catch (e) {
         setSendHint(userFacingError(e, '加入待办失败'))
@@ -1706,6 +1706,7 @@ export default function ChatPage() {
               {readingAll ? '处理中…' : '全部已读'}
             </button>
           </div>
+          {nativeRun && currentBusiness()?.task_id === 14 && <p className="paneSearchResultHint">记录截至 {String(currentBusiness().source.reference_time).replace('T',' ').slice(0,16)} UTC</p>}
           {nativeRun && currentBusiness()?.task_id === 10 && <p className="paneSearchResultHint">查找“{currentBusiness().source.search_keyword}”相关的聊天记录。</p>}
           {searchOpen ? (
             <div className="paneSearchResultWrap">
@@ -1776,7 +1777,9 @@ export default function ChatPage() {
               const active = String(selectedId) === String(id)
               const av = convListAvatar(c)
               const last = c.last_message
-              const time = last?.created_at ? formatListTime(last.created_at) : ''
+              const time = last?.created_at ? (nativeRun && [7,12,14].includes(currentBusiness()?.task_id)
+                ? String(last.created_at).slice(0,10).replaceAll('-', '/')
+                : formatListTime(last.created_at)) : ''
               return (
                 <div
                   key={String(id)}
@@ -1820,8 +1823,8 @@ export default function ChatPage() {
                       </div>
                       <div className="list__sub">{lastPreview(last)}</div>
                       {c.benchmark_label && <div style={{fontSize:11,color:({'蓝色':'#3478db','红色':'#df5454','绿色':'#2c9c6a'})[c.benchmark_label]||'#317060'}}>● {c.benchmark_label}</div>}
-                      {nativeRun && currentBusiness()?.task_id===7 && <div style={{fontSize:11,color:'#526477'}}>最近消息 {String(last?.created_at || '').replace('T',' ').slice(0,16)} UTC · 未读 {c.unread_count}</div>}
-                      {nativeRun && [12,14].includes(currentBusiness()?.task_id) && <div style={{fontSize:10,color:'#718199'}}>时间序号 {c.benchmark_timestamp} · {c.benchmark_age_days} 天前</div>}
+                      {nativeRun && [7,12,14].includes(currentBusiness()?.task_id) && <div style={{fontSize:11,color:'#526477'}}>最近消息 {String(last?.created_at || '').replace('T',' ').slice(0,16)} UTC · 未读 {c.unread_count}</div>}
+                      {nativeRun && currentBusiness()?.task_id===14 && <div style={{fontSize:11,color:'#526477'}}>{c.benchmark_age_days} 天前</div>}
                       {nativeRun && currentBusiness()?.task_id===8 && <div style={{fontSize:11,color:'#718199'}}>{c.member_count} 位成员</div>}
                     </div>
                     {c.unread_count > 0 ? (
@@ -2459,8 +2462,8 @@ export default function ChatPage() {
         onClose={() => setConvMenu(null)}
       >
         {nativeRun && [7,8].includes(currentBusiness()?.task_id) && ['',...currentBusiness().options].map(label=><button type="button" role="menuitem" className="popMenu__item" key={label} onClick={async()=>{const objectId=convMenu.conv.benchmark_object;setConvMenu(null);try{await command('label',objectId,label);await refreshConversationList()}catch(e){setSendError(e.message)}}}>{label||'清除标签'}</button>)}
-        {nativeRun && currentBusiness()?.task_id===14 && <button type="button" role="menuitem" className="popMenu__item" onClick={async()=>{try{await command('action',convMenu.conv.benchmark_object,'归档');await refreshConversationList();setConvMenu(null)}catch(e){setSendError(e.message)}}}>归档会话</button>}
-        {nativeRun && currentBusiness()?.task_id===12 && [-1,1].map(delta=><button type="button" role="menuitem" className="popMenu__item" key={delta} onClick={async()=>{const ids=[...currentBusiness().domain.orders.main],i=ids.indexOf(convMenu.conv.benchmark_object),j=i+delta;if(j<0||j>=ids.length)return;[ids[i],ids[j]]=[ids[j],ids[i]];try{await command('order','','',ids);await refreshConversationList();setConvMenu(null)}catch(e){setSendError(e.message)}}}>{delta<0?'上移会话':'下移会话'}</button>)}
+        {nativeRun && currentBusiness()?.task_id===14 && <button type="button" role="menuitem" className="popMenu__item" onClick={async()=>{const objectId=convMenu.conv.benchmark_object;setConvMenu(null);try{await command('action',objectId,'归档');await refreshConversationList()}catch(e){setSendError(e.message)}}}>归档会话</button>}
+        {nativeRun && currentBusiness()?.task_id===12 && [-1,1].map(delta=><button type="button" role="menuitem" className="popMenu__item" key={delta} onClick={async()=>{const objectId=convMenu.conv.benchmark_object;setConvMenu(null);const ids=[...currentBusiness().domain.orders.main],i=ids.indexOf(objectId),j=i+delta;if(j<0||j>=ids.length)return;[ids[i],ids[j]]=[ids[j],ids[i]];try{await command('order','','',ids);await refreshConversationList()}catch(e){setSendError(e.message)}}}>{delta<0?'上移会话':'下移会话'}</button>)}
         <button
           type="button"
           role="menuitem"
