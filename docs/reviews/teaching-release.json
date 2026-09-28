@@ -1,16 +1,16 @@
 {
-  "verified_at": "2026-09-28T01:12:32.614720+00:00",
-  "source_commit": "4986c7b89c59f817bdaea353fd1d678e71351ba4",
-  "image": "sha256:e2a4a0c1f5848a03e5933a00be66f2565a09a80e21192dcbb1ddf25ed9b2c002",
-  "image_tag": "videoicl-native:teaching-v11",
+  "verified_at": "2026-09-28T01:33:05.546083+00:00",
+  "source_commit": "f90933ee71f157359d105f8b319d2f8d3c589364",
+  "image": "sha256:1f892174cdb253c2837cb718a518461697f4f707a7e7daf701124e7713d6e905",
+  "image_tag": "videoicl-native:teaching-v12",
   "deployed": true,
   "services": "healthy",
-  "base_image": "videoicl-native:teaching-v10",
-  "base_source_commit": "18bf7458c83a6f38eef5c70b66c97d5c13f66c1f",
+  "base_image": "videoicl-native:teaching-v11",
+  "base_validation": "teaching-v11-release.json",
   "validation": {
-    "full_suite_passed": 1033,
+    "full_suite_passed": 1055,
     "failed": 0,
-    "lesson_regression_after_layout_change": 168,
+    "portal_build": true,
     "local_ui_versions": 8,
     "local_multi_episode_lessons": 3,
     "local_multi_episode_total": 18,
@@ -18,24 +18,22 @@
     "objects_per_batch": 24,
     "local_evaluation_success": true,
     "recorded_video": false,
-    "detail": "teaching-news-ui-validation.json"
+    "detail": "teaching-studio-ui-validation.json"
   },
   "image_checks": {
     "files": {
-      "apps/news/src/main/resources/web/native.js": "154f95456372852d8920f79453c719750775de765f8bbaa6952e250ca22384ba",
-      "apps/news/src/main/resources/web/native.css": "839e0dd0ac95b97a2d27b88da6ef664d7c8b4d9f2b41b4b6bbe088459c6a2dac",
-      "packages/app_runtime/vic_apps/lesson_controls.js": "9650b8c03538212b9a2e4899532527488c45de3e46733f4f2b8c003f596387be",
-      "services/control/vic/application_eval.py": "897cc5722aae6462923e82ac06a8a4d5565f2ccfe4d429d2862770c396633c1c",
-      "services/control/vic/teaching.py": "121b2abdf0584b52dc8070798e9f67828a6cd39e261746ff880a9390ac141f3d",
-      "services/control/vic/teaching_materials.py": "f00269fbd190d2f04c81e75ffe19670bfbd93d78baa96471e00c17471ef5d06e",
-      "tasks/catalog.json": "f6fc819547cbcda74963eecb1b6ac4b55a4c831472e5b93bed7f2b5c362aaf57"
+      "apps/portal/dist/index.html": "b93f6b30a8d09494aef58fe26a19ed5b5a4d948ef4f955ee830b3e7c31845320",
+      "services/control/vic/business.py": "3b6811ff5502fc71c484dce3ddae734e1163f84318a3684fcd84a7aa36504332",
+      "services/control/vic/application_eval.py": "e8a28f95078f3131ef7fdb2bfdf4d2b1f58aeb16418695a642c70ff0247c8a40",
+      "services/control/vic/teaching.py": "4c9674123822233c7566ae90945463e8b1850ed4569a3dff72203ad9ba6afa86",
+      "services/control/vic/teaching_materials.py": "8eb02f41608749c6b222d45539851c16c2ecbd18aec57a7e4968e1f118edbb2a",
+      "tasks/catalog.json": "ab2841c802a990a0e8cc2a746240526ad96a9d84bda135a28ef4e30c49b510c2"
     },
-    "news_materials_and_boundaries": true,
-    "reading_list_order_independent": true,
+    "unique_shortest_model_and_code_payload_checks": true,
     "installed_source_matches": true
   },
   "live_checks": {
-    "source_commit": "4986c7b89c59f817bdaea353fd1d678e71351ba4",
+    "source_commit": "f90933ee71f157359d105f8b319d2f8d3c589364",
     "services": {
       "http://127.0.0.1:18765": {
         "status": "ok",
@@ -61,58 +59,103 @@
       }
     },
     "files": {
-      "index.html": "cafbf60b1d78283df91f8504b23a782c3c10e18785f21f9444a235bdf020cf79",
-      "/assets/index-BjDTHAch.js": "4461c5ce0dd2697c728d8cd2cbd54def68a1d7fc6b1ae70d9a373339e3658453",
-      "/assets/index-BBHTa132.css": "d53667b719ba44c4174e3b56d7f9c5bc911a01d530a631b31ad7735d0490a06d",
+      "index.html": "b93f6b30a8d09494aef58fe26a19ed5b5a4d948ef4f955ee830b3e7c31845320",
+      "/assets/index-4rvYav5Y.js": "b51d1d2215f40f84ae001d1d2cd344607e8e83ecbb42fec2190e08d30ca14227",
+      "/assets/index-4j7drIhk.css": "022982c23730bcc002f7af78490513212c8b901e64bb72113ca53ec80b40997d",
       "/native-assets/news/native.js": "154f95456372852d8920f79453c719750775de765f8bbaa6952e250ca22384ba",
-      "/native-assets/news/native.css": "839e0dd0ac95b97a2d27b88da6ef664d7c8b4d9f2b41b4b6bbe088459c6a2dac",
-      "/lesson-controls.js": "9650b8c03538212b9a2e4899532527488c45de3e46733f4f2b8c003f596387be",
       "/native-assets/music/native.js": "8cb513dc186546a0ebbf655a188db42c1798d3379da6a88503922bf21c2659ad"
     },
-    "verified_at": "2026-09-28T01:11:38.368559+00:00",
+    "verified_at": "2026-09-28T01:30:53.924903+00:00",
     "native_ui": [
       {
-        "task_id": 24,
+        "task_id": 41,
         "variant": "C",
-        "run_id": "e875e9a59e7a4c729a972486143dbed9",
-        "objects": 24,
-        "labeled": 12,
+        "run_id": "cafee423de1e42919bdb195517f48b94",
         "entered_via_homepage": true,
-        "evaluation_success": true
+        "all_actions_via_browser": true,
+        "evaluation_success": true,
+        "episodes": [
+          {
+            "index": 0,
+            "sha256": "c244f9971c0e2d36e819ff31a5b5665793242f6f6a15ad08d2940b7973c8b2e5",
+            "object_count": 6,
+            "evaluation_success": true
+          },
+          {
+            "index": 1,
+            "sha256": "83842cf1a273b10ebedfcfc7cbb58717421b56bd1ed57adbb9c76b3f95a8fda1",
+            "object_count": 6,
+            "evaluation_success": true
+          },
+          {
+            "index": 2,
+            "sha256": "33e37fa3521dffbf6a546476aaca4b5e0b6490cae31a2158c5fee824160a199e",
+            "object_count": 6,
+            "evaluation_success": true
+          },
+          {
+            "index": 3,
+            "sha256": "40f14f46883f24fb4619471ee08d933dd4a66544523e286c1170e91e4ab0fc68",
+            "object_count": 6,
+            "evaluation_success": true
+          },
+          {
+            "index": 4,
+            "sha256": "622aa729ea445f96a1bae155bb081a560efe3e42009346d9c048b4dec7f82735",
+            "object_count": 6,
+            "evaluation_success": true
+          },
+          {
+            "index": 5,
+            "sha256": "25827f4d3f8f15e81c866c2d0b7c1dafc5d4729cba16200c1d74f4718b92d9e8",
+            "object_count": 6,
+            "evaluation_success": true
+          }
+        ],
+        "unique_shortest_each_episode": true,
+        "selected_names": [
+          "Tern",
+          "Cedar",
+          "Indigo",
+          "Aria",
+          "Aster",
+          "Indigo"
+        ]
       },
       {
-        "task_id": 30,
+        "task_id": 43,
         "variant": "C",
-        "run_id": "d91f95333bcb4093bd5f078128ca8397",
-        "completed_episodes": 1,
-        "total_episodes": 6,
-        "saved_selections_restored_after_reload": 4,
-        "reverse_click_order": true,
-        "repeated_save": true,
-        "first_click_save_succeeds": true,
-        "viewport": [
-          1280,
-          720
+        "run_id": "72f586ab9a9d45989e5da1aad536c47f",
+        "entered_via_homepage": true,
+        "all_actions_via_browser": true,
+        "evaluation_success": true,
+        "episodes": [
+          {
+            "index": 0,
+            "sha256": "7c323ba257a9a0268d46422b705920be2772a5229b279f208c7dc71792712853",
+            "object_count": 24,
+            "evaluation_success": true
+          }
         ],
-        "save_button_bottom": 619,
-        "lesson_controls_top": 650,
-        "next_episode_visible": true,
-        "episode_evidence_sha256": "416ad083850fc1c9877e43366e74268a73841562501214a589578bc926bc9f3a",
-        "evaluation_success_first_episode": true
+        "checked": 24,
+        "syntax_passed": 17,
+        "syntax_failed": 7,
+        "sent": 17,
+        "delivery_records_match_visible_code": true,
+        "recipient_visible": "林若宁"
       }
     ]
   },
   "backup": {
-    "database": "/home/qingle/services/videoicl/.local/pre-teaching-v10-database.sql",
+    "database": "/home/qingle/services/videoicl/.local/pre-teaching-v12-database.sql",
     "mode": "600",
-    "bytes": 4447268,
     "rollback_images": [
-      "videoicl-control:before-teaching-v11",
-      "videoicl-applications:before-teaching-v11"
+      "videoicl-control:before-teaching-v12",
+      "videoicl-applications:before-teaching-v12"
     ]
   },
   "limitations": [
     "Browser and API results do not certify recorded-video continuity or human inference across all 75 cases.",
-    "Live task 30 verification covers its first episode; all six episodes were verified in the local environment."
+    "Clipboard contents were verified by actual paste in the local browser environment; live Studio validation covers model selection and checked delivery."
   ]
 }

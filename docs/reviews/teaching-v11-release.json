@@ -1,0 +1,118 @@
+{
+  "verified_at": "2026-09-28T01:12:32.614720+00:00",
+  "source_commit": "4986c7b89c59f817bdaea353fd1d678e71351ba4",
+  "image": "sha256:e2a4a0c1f5848a03e5933a00be66f2565a09a80e21192dcbb1ddf25ed9b2c002",
+  "image_tag": "videoicl-native:teaching-v11",
+  "deployed": true,
+  "services": "healthy",
+  "base_image": "videoicl-native:teaching-v10",
+  "base_source_commit": "18bf7458c83a6f38eef5c70b66c97d5c13f66c1f",
+  "validation": {
+    "full_suite_passed": 1033,
+    "failed": 0,
+    "lesson_regression_after_layout_change": 168,
+    "local_ui_versions": 8,
+    "local_multi_episode_lessons": 3,
+    "local_multi_episode_total": 18,
+    "local_batch_runs": 5,
+    "objects_per_batch": 24,
+    "local_evaluation_success": true,
+    "recorded_video": false,
+    "detail": "teaching-news-ui-validation.json"
+  },
+  "image_checks": {
+    "files": {
+      "apps/news/src/main/resources/web/native.js": "154f95456372852d8920f79453c719750775de765f8bbaa6952e250ca22384ba",
+      "apps/news/src/main/resources/web/native.css": "839e0dd0ac95b97a2d27b88da6ef664d7c8b4d9f2b41b4b6bbe088459c6a2dac",
+      "packages/app_runtime/vic_apps/lesson_controls.js": "9650b8c03538212b9a2e4899532527488c45de3e46733f4f2b8c003f596387be",
+      "services/control/vic/application_eval.py": "897cc5722aae6462923e82ac06a8a4d5565f2ccfe4d429d2862770c396633c1c",
+      "services/control/vic/teaching.py": "121b2abdf0584b52dc8070798e9f67828a6cd39e261746ff880a9390ac141f3d",
+      "services/control/vic/teaching_materials.py": "f00269fbd190d2f04c81e75ffe19670bfbd93d78baa96471e00c17471ef5d06e",
+      "tasks/catalog.json": "f6fc819547cbcda74963eecb1b6ac4b55a4c831472e5b93bed7f2b5c362aaf57"
+    },
+    "news_materials_and_boundaries": true,
+    "reading_list_order_independent": true,
+    "installed_source_matches": true
+  },
+  "live_checks": {
+    "source_commit": "4986c7b89c59f817bdaea353fd1d678e71351ba4",
+    "services": {
+      "http://127.0.0.1:18765": {
+        "status": "ok",
+        "service": "videoicl-control"
+      },
+      "http://127.0.0.1:18766": {
+        "status": "ok",
+        "modules": [
+          "bank",
+          "blog",
+          "chat",
+          "code",
+          "games",
+          "gomoku",
+          "im",
+          "media",
+          "music",
+          "news",
+          "shop",
+          "studio",
+          "travel"
+        ]
+      }
+    },
+    "files": {
+      "index.html": "cafbf60b1d78283df91f8504b23a782c3c10e18785f21f9444a235bdf020cf79",
+      "/assets/index-BjDTHAch.js": "4461c5ce0dd2697c728d8cd2cbd54def68a1d7fc6b1ae70d9a373339e3658453",
+      "/assets/index-BBHTa132.css": "d53667b719ba44c4174e3b56d7f9c5bc911a01d530a631b31ad7735d0490a06d",
+      "/native-assets/news/native.js": "154f95456372852d8920f79453c719750775de765f8bbaa6952e250ca22384ba",
+      "/native-assets/news/native.css": "839e0dd0ac95b97a2d27b88da6ef664d7c8b4d9f2b41b4b6bbe088459c6a2dac",
+      "/lesson-controls.js": "9650b8c03538212b9a2e4899532527488c45de3e46733f4f2b8c003f596387be",
+      "/native-assets/music/native.js": "8cb513dc186546a0ebbf655a188db42c1798d3379da6a88503922bf21c2659ad"
+    },
+    "verified_at": "2026-09-28T01:11:38.368559+00:00",
+    "native_ui": [
+      {
+        "task_id": 24,
+        "variant": "C",
+        "run_id": "e875e9a59e7a4c729a972486143dbed9",
+        "objects": 24,
+        "labeled": 12,
+        "entered_via_homepage": true,
+        "evaluation_success": true
+      },
+      {
+        "task_id": 30,
+        "variant": "C",
+        "run_id": "d91f95333bcb4093bd5f078128ca8397",
+        "completed_episodes": 1,
+        "total_episodes": 6,
+        "saved_selections_restored_after_reload": 4,
+        "reverse_click_order": true,
+        "repeated_save": true,
+        "first_click_save_succeeds": true,
+        "viewport": [
+          1280,
+          720
+        ],
+        "save_button_bottom": 619,
+        "lesson_controls_top": 650,
+        "next_episode_visible": true,
+        "episode_evidence_sha256": "416ad083850fc1c9877e43366e74268a73841562501214a589578bc926bc9f3a",
+        "evaluation_success_first_episode": true
+      }
+    ]
+  },
+  "backup": {
+    "database": "/home/qingle/services/videoicl/.local/pre-teaching-v10-database.sql",
+    "mode": "600",
+    "bytes": 4447268,
+    "rollback_images": [
+      "videoicl-control:before-teaching-v11",
+      "videoicl-applications:before-teaching-v11"
+    ]
+  },
+  "limitations": [
+    "Browser and API results do not certify recorded-video continuity or human inference across all 75 cases.",
+    "Live task 30 verification covers its first episode; all six episodes were verified in the local environment."
+  ]
+}
