@@ -3,7 +3,8 @@
   "tests": {
     "passed": 1033,
     "failed": 0,
-    "javascript_syntax": true
+    "javascript_syntax": true,
+    "lesson_regression_after_layout_change": 168
   },
   "native_ui": [
     {
@@ -347,6 +348,19 @@
     "33C": {
       "hidden": 12,
       "remaining_after_reload": 12
+    },
+    "layout": {
+      "viewport": [
+        1280,
+        720
+      ],
+      "saved_button_bottom": 619,
+      "lesson_controls_top": 650,
+      "first_click_save_works_after_reload": true,
+      "save_works_with_lesson_error_message": true,
+      "local_recheck_run": "55a0503a0c1846e78ebc583874291d60",
+      "epoch": 2,
+      "first_episode_passed": true
     }
   }
 }

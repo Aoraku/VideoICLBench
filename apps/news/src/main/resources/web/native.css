@@ -369,7 +369,7 @@ body:has(.news-header) {
 }
 .news-reading-save {
   position: sticky;
-  bottom: 15px;
+  bottom: calc(15px + var(--vic-lesson-bottom-inset, 0px));
   padding: 15px 24px;
   background: #fff;
   border: 1px solid #d7dfd7;

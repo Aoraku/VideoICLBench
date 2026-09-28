@@ -64,6 +64,12 @@
     };
     bar.append(status, button, message);
     document.body.append(bar);
+    // Sticky application actions can reserve the control's actual height,
+    // including wrapped status messages and viewport changes.
+    const reserveSpace = () => document.documentElement.style.setProperty(
+      '--vic-lesson-bottom-inset', `${Math.ceil(bar.getBoundingClientRect().height) + 12}px`);
+    reserveSpace();
+    new ResizeObserver(reserveSpace).observe(bar);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',setup,{once:true});
   else void setup();
