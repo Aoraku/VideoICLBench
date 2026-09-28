@@ -4,9 +4,40 @@ import re
 from collections import Counter
 import pytest
 from vic import business
+from vic import teaching, teaching_materials
 
 
-FIELDS = {5:'text',13:'text',16:'text',39:'text',42:'name',43:'code',49:'text',56:'name',65:'code'}
+@pytest.mark.parametrize('task_id', [19, 20, 23, 24, 29, 30, 33])
+@pytest.mark.parametrize('seed', [0, 1, 2, 999, 1000, 10001])
+def test_news_bodies_follow_titles_and_remain_distinct(task_id, seed):
+    items = business.generate(task_id, seed)['items']
+    for item in items:
+        title = item['name'].removeprefix('紧急：')
+        assert item['text'] == teaching_materials.NEWS_ARTICLES[title]
+        assert len(item['text']) >= 50
+        assert item['text'].endswith('。')
+    assert len({x['text'] for x in items}) == len(items)
+
+
+def test_news_materials_cover_titles_and_keep_query_bodies_held_out():
+    demo = teaching.NAMES['news']
+    query = teaching.QUERY_NAMES['news']
+    assert set(teaching_materials.NEWS_ARTICLES) == set(demo + query)
+    assert {teaching_materials.NEWS_ARTICLES[x] for x in demo}.isdisjoint(
+        teaching_materials.NEWS_ARTICLES[x] for x in query)
+
+
+FIELDS = {5:'text',13:'text',16:'text',24:'publisher',38:'text',39:'text',42:'name',43:'code',49:'text',56:'name',65:'code'}
+
+
+@pytest.mark.parametrize('seed', [0, 1, 2, 999, 1000, 1001, 10001])
+def test_news_source_lengths_have_close_boundaries_and_independent_initials(seed):
+    items = business.generate(24, seed)['items']
+    assert {4, 5, 6} <= {len(x['publisher']) for x in items}
+    contrasts = Counter((x['publisher'][0].lower() in 'aeiou', len(x['publisher']) > 5) for x in items)
+    assert set(contrasts) == {(a, b) for a in (False, True) for b in (False, True)}
+    if seed < 1000:
+        assert min(contrasts.values()) >= 4
 
 
 @pytest.mark.parametrize('task_id', [36, 38, 40, 42])

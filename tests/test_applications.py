@@ -162,3 +162,19 @@ def test_title_punctuation_demonstration_contains_a_visible_change():
     state = business.generate(19, 0)
     assert business.transform(19, 0, state) != state["source"]["text"]
     assert all(ch not in business.transform(19, 0, state) for ch in ",!?")
+
+
+@pytest.mark.parametrize('order', ['visible', 'reverse'])
+@pytest.mark.parametrize('seed', [0, 1, 2, 1000])
+def test_reading_list_accepts_click_order_but_rejects_incorrect_membership(tmp_path, seed, order):
+    initial = initialize(business.generate(30, seed))
+    expected = set(business.expected_effect(30, 'C', initial)['selection'])
+    selected = [x['id'] for x in initial['items'] if x['id'] in expected]
+    if order == 'reverse':
+        selected.reverse()
+    store = ApplicationStore(tmp_path)
+    store.initialize('reading', initial)
+    for index, ids in enumerate([selected, selected, selected[:-1], selected + [next(x['id'] for x in initial['items'] if x['id'] not in expected)] ]):
+        store.mutate('reading', Mutation(epoch=0, action_id=str(index), op='select', ids=ids))
+        result = application_eval.evaluate(initial, store.snapshot('reading'), 'C', store.events('reading'))
+        assert result['success'] == (index < 2)

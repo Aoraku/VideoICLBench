@@ -1725,7 +1725,7 @@
     {
       "schema_version": 1,
       "task_id": 19,
-      "task_version": "3.1.0",
+      "task_version": "3.2.0",
       "title": "新闻：规范化文章标题",
       "app": "news",
       "type": "T",
@@ -1820,7 +1820,7 @@
     {
       "schema_version": 1,
       "task_id": 20,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "新闻：修改文章标签文本",
       "app": "news",
       "type": "T",
@@ -2105,7 +2105,7 @@
     {
       "schema_version": 1,
       "task_id": 23,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "新闻：给文章标注内容类别",
       "app": "news",
       "type": "C",
@@ -2200,7 +2200,7 @@
     {
       "schema_version": 1,
       "task_id": 24,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "新闻：给文章标注来源类型",
       "app": "news",
       "type": "C",
@@ -2675,7 +2675,7 @@
     {
       "schema_version": 1,
       "task_id": 29,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "新闻：从列表选择文章阅读",
       "app": "news",
       "type": "S",
@@ -2770,7 +2770,7 @@
     {
       "schema_version": 1,
       "task_id": 30,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "新闻：筛选需要阅读的文章",
       "app": "news",
       "type": "S",
@@ -3055,7 +3055,7 @@
     {
       "schema_version": 1,
       "task_id": 33,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "新闻：批量处理文章状态",
       "app": "news",
       "type": "A",

@@ -1,0 +1,352 @@
+{
+  "scope": "Native browser observations and persisted task evaluation for news. Not recorded-video verification or human rule-inference acceptance.",
+  "tests": {
+    "passed": 1033,
+    "failed": 0,
+    "javascript_syntax": true
+  },
+  "native_ui": [
+    {
+      "task_id": 19,
+      "variant": "C",
+      "run_id": "4cbd1725251b4b53a72506e41777c0ec",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "e0a72c52c54626b039314210090c9effb25854f6629af12f852f64fb992b8fc0",
+          "evidence_ref": "/v1/runs/4cbd1725251b4b53a72506e41777c0ec/lesson/evidence/1/0",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": "EC:城市更新观察：街区如何变得更宜居？"
+        },
+        {
+          "index": 1,
+          "sha256": "943d90505d072fc8f1022431554ff57a4ad132a1c0855a05ea10bb95ee18f812",
+          "evidence_ref": "/v1/runs/4cbd1725251b4b53a72506e41777c0ec/lesson/evidence/1/1",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": "NO:周末书单 (2026)：阅读与城市。"
+        },
+        {
+          "index": 2,
+          "sha256": "0fc3a6107637b83d9f388606533548ab59d1798784634c3ece251e54637105f3",
+          "evidence_ref": "/v1/runs/4cbd1725251b4b53a72506e41777c0ec/lesson/evidence/1/2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": "OR:Night Walk! 老街新增 3 处照明"
+        },
+        {
+          "index": 3,
+          "sha256": "a6ba274148f3e30c3d47603b9ef07769a01a6c3a9b22492166f8f7f753836782",
+          "evidence_ref": "/v1/runs/4cbd1725251b4b53a72506e41777c0ec/lesson/evidence/1/3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": "SK:社区手记——一起种花"
+        },
+        {
+          "index": 4,
+          "sha256": "bebd94f7db8946232f9ac18f86908184312af3536010180b1f1914d01d825e37",
+          "evidence_ref": "/v1/runs/4cbd1725251b4b53a72506e41777c0ec/lesson/evidence/1/4",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": "AN:开放日：「图书馆」的夜晚！"
+        },
+        {
+          "index": 5,
+          "sha256": "10c6a6a8a920beae07eb4b03cfea2a5f37dc7bdac24807637838826afddf08b4",
+          "evidence_ref": "/v1/runs/4cbd1725251b4b53a72506e41777c0ec/lesson/evidence/1/5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": "DA:2026/01/15, 城市声音采集计划."
+        }
+      ]
+    },
+    {
+      "task_id": 20,
+      "variant": "B",
+      "run_id": "df745e0c73fe4ac89dde41fc65404e15",
+      "epoch": 2,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "8e988f2848b695ad13752bfee9dc109ce9ecf3daac30eefae8d29a8cadc8c9c5",
+          "evidence_ref": "/v1/runs/df745e0c73fe4ac89dde41fc65404e15/lesson/evidence/2/0",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": "writing|community"
+        },
+        {
+          "index": 1,
+          "sha256": "989fa5038b855814cd06cf1ff4c9e8d4ba2c044ab62dc5a6d7ca599e58266d40",
+          "evidence_ref": "/v1/runs/df745e0c73fe4ac89dde41fc65404e15/lesson/evidence/2/1",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": "research|community|travel"
+        },
+        {
+          "index": 2,
+          "sha256": "28b160bc8ec05fb0901b829ec48c40a2c185ec96e6a6123a43d6cb46ae353fd4",
+          "evidence_ref": "/v1/runs/df745e0c73fe4ac89dde41fc65404e15/lesson/evidence/2/2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": "community|research|travel|writing"
+        },
+        {
+          "index": 3,
+          "sha256": "387c8813eabffa3382d8c11ff08ad395a55bd55d447dd1046870a7878e577ff4",
+          "evidence_ref": "/v1/runs/df745e0c73fe4ac89dde41fc65404e15/lesson/evidence/2/3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": "history|writing"
+        },
+        {
+          "index": 4,
+          "sha256": "3f9a84473a2a7cd8bf8436cb85c2e3426f46e227a6d8504a4aa75d5e9ee07b97",
+          "evidence_ref": "/v1/runs/df745e0c73fe4ac89dde41fc65404e15/lesson/evidence/2/4",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": "community|history|research"
+        },
+        {
+          "index": 5,
+          "sha256": "1c689160ef00bd329fca1db264148fba1769fc1a11126c979859844d17268393",
+          "evidence_ref": "/v1/runs/df745e0c73fe4ac89dde41fc65404e15/lesson/evidence/2/5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": "travel|history|music|writing"
+        }
+      ]
+    },
+    {
+      "task_id": 23,
+      "variant": "B",
+      "run_id": "aade4fbd89e048b2bac58893cd6e8e8b",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "b0ab9632a3780caf2d86e8cb034ce3704d68e2aef559e6ada4c075431fca484d",
+          "evidence_ref": "/v1/runs/aade4fbd89e048b2bac58893cd6e8e8b/evidence",
+          "evaluation_success": true,
+          "object_count": 24,
+          "saved_output": null
+        }
+      ]
+    },
+    {
+      "task_id": 24,
+      "variant": "C",
+      "run_id": "00e549915beb405ab030c570322a2560",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "3f742a76bf8e673bbd80d2f4cf879fcd5814f535c1f59d43aa52511c5253abbe",
+          "evidence_ref": "/v1/runs/00e549915beb405ab030c570322a2560/evidence",
+          "evaluation_success": true,
+          "object_count": 24,
+          "saved_output": null
+        }
+      ]
+    },
+    {
+      "task_id": 30,
+      "variant": "C",
+      "run_id": "55a0503a0c1846e78ebc583874291d60",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "cbec732caf91022d21dcf903fe991f9d71cc17a11555ff47dddd43a37a4b3a40",
+          "evidence_ref": "/v1/runs/55a0503a0c1846e78ebc583874291d60/lesson/evidence/1/0",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null
+        },
+        {
+          "index": 1,
+          "sha256": "ca6a9e2e8db2de712afc8c5db623e7f675d2d9db6423899f08110cdac2181e01",
+          "evidence_ref": "/v1/runs/55a0503a0c1846e78ebc583874291d60/lesson/evidence/1/1",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null
+        },
+        {
+          "index": 2,
+          "sha256": "4c2388f42eeaa0cb044a311b6bd4d237b69b017ba6b52468b0bd3e726682eda3",
+          "evidence_ref": "/v1/runs/55a0503a0c1846e78ebc583874291d60/lesson/evidence/1/2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null
+        },
+        {
+          "index": 3,
+          "sha256": "77aa19688a8ae4b5a6c86df79b929064a04b73b5e6d412bba832b7d1d690e64c",
+          "evidence_ref": "/v1/runs/55a0503a0c1846e78ebc583874291d60/lesson/evidence/1/3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null
+        },
+        {
+          "index": 4,
+          "sha256": "e742b26a9e6945aeb7ddbb93adfe068e26c878ff3b816f7b8f4294127a3a3af7",
+          "evidence_ref": "/v1/runs/55a0503a0c1846e78ebc583874291d60/lesson/evidence/1/4",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null
+        },
+        {
+          "index": 5,
+          "sha256": "03bf44bd9ab31f8779401947fc7aea9b754a50d0f0e67070ff618d0554572894",
+          "evidence_ref": "/v1/runs/55a0503a0c1846e78ebc583874291d60/lesson/evidence/1/5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": null
+        }
+      ]
+    },
+    {
+      "task_id": 33,
+      "variant": "A",
+      "run_id": "8beb210bf8ea4d0db74b5d198344d2f6",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "7a5d7919d02afde30a1cb214877aa6060a7af350eb5178a4b555515961fba050",
+          "evidence_ref": "/v1/runs/8beb210bf8ea4d0db74b5d198344d2f6/evidence",
+          "evaluation_success": true,
+          "object_count": 24,
+          "saved_output": null
+        }
+      ]
+    },
+    {
+      "task_id": 33,
+      "variant": "B",
+      "run_id": "5963f4e4b3154dad87a82e9d354d775b",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "c24f17ca84fbf66075301113bbb1bae245f11bd3424e0ac90ce4b0054d3a1bd8",
+          "evidence_ref": "/v1/runs/5963f4e4b3154dad87a82e9d354d775b/evidence",
+          "evaluation_success": true,
+          "object_count": 24,
+          "saved_output": null
+        }
+      ]
+    },
+    {
+      "task_id": 33,
+      "variant": "C",
+      "run_id": "f79bd6c96b2d439a945bd79a234e822f",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "5fb835a1dd89170036228e99617ce5d1a152a9955e88a67e59c5b0744c4a17b7",
+          "evidence_ref": "/v1/runs/f79bd6c96b2d439a945bd79a234e822f/evidence",
+          "evaluation_success": true,
+          "object_count": 24,
+          "saved_output": null
+        }
+      ]
+    }
+  ],
+  "observations": {
+    "30C": {
+      "refresh_restores_four_saved_choices": true,
+      "saving_again_preserves_membership": true,
+      "reverse_click_order_passes": true,
+      "next_episode_starts_without_prior_choices": true
+    },
+    "19C": {
+      "six_visible_publisher_prefixes": [
+        "EC:",
+        "NO:",
+        "OR:",
+        "SK:",
+        "AN:",
+        "DA:"
+      ],
+      "saved_feedback_visible": true
+    },
+    "20B": {
+      "tag_counts": [
+        2,
+        3,
+        4,
+        2,
+        3,
+        4
+      ],
+      "saved_feedback_visible": true,
+      "initial_input_empty": true
+    },
+    "23B": {
+      "distinct_articles": 24,
+      "labeled": 13,
+      "refresh_restores_labels": true
+    },
+    "24C": {
+      "distinct_publishers": 24,
+      "lengths": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "labeled": 12
+    },
+    "33A": {
+      "marked_read": 12,
+      "untouched": 12,
+      "completed_buttons_disabled": true
+    },
+    "33B": {
+      "favorites_visible_in_collection": 12,
+      "completed_buttons_disabled": true
+    },
+    "33C": {
+      "hidden": 12,
+      "remaining_after_reload": 12
+    }
+  }
+}

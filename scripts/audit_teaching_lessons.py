@@ -9,7 +9,7 @@ from pathlib import Path
 from vic import business, games, lessons
 from vic.catalog import catalog
 from vic_apps.domain import initialize
-from audit_teaching_cases import BOUNDARIES, NUMERIC, selected
+from audit_teaching_cases import BOUNDARIES, NUMERIC, selected, boundary_value
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -70,7 +70,7 @@ def inspect_lesson(task, base_seed):
                 risks.append('fixed_or_near_fixed_shortest_duration')
             if max(minima) < min(distractors):
                 risks.append('fixed_duration_threshold_explains_minimum')
-        material_field = {5:'text',13:'text',16:'text',39:'text',42:'name',43:'code',49:'text',56:'name',65:'code'}.get(task_id)
+        material_field = {5:'text',13:'text',16:'text',24:'publisher',38:'text',39:'text',42:'name',43:'code',49:'text',56:'name',65:'code'}.get(task_id)
         if material_field:
             counts = [len({item[material_field] for item in state['items']}) for state in states]
             report['distinct_batch_materials'] = dict(field=material_field, counts=counts)
@@ -94,7 +94,7 @@ def inspect_lesson(task, base_seed):
                     risks.append(f'fixed_selected_position_{v}')
         if task_id in BOUNDARIES:
             field, threshold = BOUNDARIES[task_id]
-            observed = {len(i['text']) if field == 'text_length' else len(i['code']) if field == 'code_length' else i[field]
+            observed = {boundary_value(i, field)
                         for s in states for i in s['items']}
             report['threshold'] = dict(field=field, value=threshold, observed=sorted(observed),
                                        missing=[n for n in (threshold-1, threshold, threshold+1) if n not in observed])

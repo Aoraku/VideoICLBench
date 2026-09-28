@@ -49,6 +49,9 @@ def canonical(domain):
         d[key] = sorted(d[key], key=lambda x: json.dumps(x, sort_keys=True))
     for key in ("collections", "memberships"):
         d[key] = {name: sorted(values) for name, values in d[key].items()}
+    # Reading-list membership is unordered; users may select cards in any order.
+    if "reading_list" in d["settings"]:
+        d["settings"]["reading_list"] = sorted(d["settings"]["reading_list"])
     d.pop("checks", None)
     return d
 

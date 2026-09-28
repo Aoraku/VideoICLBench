@@ -1,7 +1,7 @@
 {
   "scope": "Index of task-specific browser observations recorded in review artifacts. Presence does not imply complete A/B/C coverage, current-version replay, recorded-video verification, or human inference acceptance. Null episode counts mean the source has no explicit episode count.",
   "task_count": 75,
-  "tasks_with_indexed_browser_evidence": 35,
+  "tasks_with_indexed_browser_evidence": 41,
   "tasks_without_indexed_browser_evidence": [
     3,
     4,
@@ -17,17 +17,11 @@
     14,
     15,
     16,
-    19,
-    20,
     21,
-    23,
-    24,
     25,
     26,
     28,
-    30,
     32,
-    33,
     34,
     35,
     39,
@@ -151,11 +145,27 @@
     },
     {
       "task_id": 19,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-news-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "C",
+          "run_id": "4cbd1725251b4b53a72506e41777c0ec",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 20,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-news-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "df745e0c73fe4ac89dde41fc65404e15",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 21,
@@ -175,11 +185,27 @@
     },
     {
       "task_id": 23,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-news-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "B",
+          "run_id": "aade4fbd89e048b2bac58893cd6e8e8b",
+          "reported_episode_count": 1
+        }
+      ]
     },
     {
       "task_id": 24,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-news-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "C",
+          "run_id": "00e549915beb405ab030c570322a2560",
+          "reported_episode_count": 1
+        }
+      ]
     },
     {
       "task_id": 25,
@@ -219,7 +245,15 @@
     },
     {
       "task_id": 30,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-news-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "C",
+          "run_id": "55a0503a0c1846e78ebc583874291d60",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 31,
@@ -246,7 +280,29 @@
     },
     {
       "task_id": 33,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-news-ui-validation.json",
+          "json_pointer": "/native_ui/5",
+          "variant": "A",
+          "run_id": "8beb210bf8ea4d0db74b5d198344d2f6",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-news-ui-validation.json",
+          "json_pointer": "/native_ui/6",
+          "variant": "B",
+          "run_id": "5963f4e4b3154dad87a82e9d354d775b",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-news-ui-validation.json",
+          "json_pointer": "/native_ui/7",
+          "variant": "C",
+          "run_id": "f79bd6c96b2d439a945bd79a234e822f",
+          "reported_episode_count": 1
+        }
+      ]
     },
     {
       "task_id": 34,

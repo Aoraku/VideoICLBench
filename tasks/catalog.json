@@ -950,7 +950,7 @@
         "C": "在标题前加来源简称"
       },
       "original_rules": "A：删除标点；B：保留标点并加句号；C：在标题前加来源简称",
-      "version": "3.1.0",
+      "version": "3.2.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -1002,7 +1002,7 @@
         "C": "标签之间用“,”"
       },
       "original_rules": "A：标签之间用“/”；B：标签之间用“|”；C：标签之间用“,”",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -1158,7 +1158,7 @@
         "C": "来源为指定媒体为“数据”"
       },
       "original_rules": "A：标题含数字为“数据”；B：标题不含数字为“数据”；C：来源为指定媒体为“数据”",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -1210,7 +1210,7 @@
         "C": "来源名长度超过 5 为“甲”"
       },
       "original_rules": "A：来源名以元音开头为“甲”；B：以辅音开头为“甲”；C：来源名长度超过 5 为“甲”",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -1470,7 +1470,7 @@
         "C": "选标题最长者"
       },
       "original_rules": "A：选发布时间最新者；B：选发布时间最早者；C：选标题最长者",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -1522,7 +1522,7 @@
         "C": "保留评论数为偶数的文章"
       },
       "original_rules": "A：保留标签数最多的文章；B：保留标签数最少的文章；C：保留评论数为偶数的文章",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -1678,7 +1678,7 @@
         "C": "标题含指定词的文章隐藏"
       },
       "original_rules": "A：标题含指定词的文章标记已读；B：标题含指定词的文章收藏；C：标题含指定词的文章隐藏",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,

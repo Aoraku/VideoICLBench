@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 20,
-  "task_version": "3.0.0",
+  "task_version": "3.1.0",
   "title": "新闻：修改文章标签文本",
   "app": "news",
   "type": "T",

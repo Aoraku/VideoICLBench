@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 33,
-  "task_version": "3.0.0",
+  "task_version": "3.1.0",
   "title": "新闻：批量处理文章状态",
   "app": "news",
   "type": "A",

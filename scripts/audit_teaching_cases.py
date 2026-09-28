@@ -13,7 +13,7 @@ from vic_apps.domain import initialize
 
 ROOT = Path(__file__).resolve().parents[1]
 SEEDS = (0, 1, 2, 1000, 1001, 1002)
-BOUNDARIES = {8:('members',5),22:('duration',240),25:('duration',600),
+BOUNDARIES = {8:('members',5),22:('duration',240),24:('publisher_length',5),25:('duration',600),
               32:('rating',50),38:('words',50),48:('rating',50),
               49:('text_length',15),54:('price',50),57:('balance',50),65:('code_length',25)}
 # Observable rival rules that a single selected object cannot distinguish.
@@ -21,6 +21,11 @@ NUMERIC = ('unread','contact_time','timestamp','size','duration','rating','plays
            'comments','words','tag_count','price','context','sales','stock',
            'amount','balance','transactions','departure','transfers','number',
            'samples','lines','runtime_ms','pass_rate','name_length','like_rate')
+
+
+def boundary_value(item, field):
+    source = {'text_length': 'text', 'code_length': 'code', 'publisher_length': 'publisher'}.get(field)
+    return len(item[source]) if source else item[field]
 
 
 def selected(effect):
@@ -64,7 +69,7 @@ def audit():
                         if sorted(items,key=lambda x:x[field],reverse=direction=='max')[0]['id']==chosen[0]]
                 if task_id in BOUNDARIES:
                     field,value=BOUNDARIES[task_id]
-                    values=[len(x['text']) if field=='text_length' else len(x['code']) if field=='code_length' else x[field] for x in items]
+                    values=[boundary_value(x,field) for x in items]
                     row['boundary']={'field':field,'threshold':value,'observed':sorted(set(values)),
                                      'missing':[x for x in (value-1,value,value+1) if x not in values]}
                 row['source_digest']=hashlib.sha256(json.dumps(state['source'],sort_keys=True).encode()).hexdigest()

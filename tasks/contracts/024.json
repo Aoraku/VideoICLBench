@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 24,
-  "task_version": "3.0.0",
+  "task_version": "3.1.0",
   "title": "新闻：给文章标注来源类型",
   "app": "news",
   "type": "C",

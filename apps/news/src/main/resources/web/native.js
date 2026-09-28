@@ -43,7 +43,9 @@ async function start(id) {
     epoch = d.epoch;
   }
   async function command(op, target = "", value = "", ids = []) {
+    if (busy) return;
     busy = true;
+    document.querySelectorAll("#news-app button").forEach((b) => (b.disabled = true));
     try {
       await call("/commands", {
         epoch,
@@ -63,6 +65,7 @@ async function start(id) {
     }
   }
   await call();
+  for (const articleId of state.domain.collections.reading_list || []) reading.add(articleId);
   history.replaceState({}, "", location.pathname);
   const names = {
     home: "首页",
@@ -80,7 +83,7 @@ async function start(id) {
   }
   function actions(item) {
     const obj = state.domain.objects[item.id];
-    return `<div class="news-tools">${[23, 24].includes(state.task_id) ? `<div class="news-dropdown"><button data-menu="${item.id}" aria-haspopup="listbox" aria-expanded="${menu === item.id}">${obj.label ? esc(obj.label) : "设置分类"} ▾</button>${menu === item.id ? `<div class="news-options" role="listbox">${["", ...state.options].map((label) => `<button role="option" data-label="${esc(label)}" data-target="${item.id}">${esc(label || "清除分类")}</button>`).join("")}</div>` : ""}</div>` : ""}${state.task_id === 30 ? `<button data-reading="${item.id}">${reading.has(item.id) ? "✓ 已加入待选" : "加入阅读清单"}</button>` : ""}${state.task_id === 33 ? state.options.map((op) => `<button data-action="${esc(op)}" data-target="${item.id}">${esc(op)}</button>`).join("") : ""}</div>`;
+    return `<div class="news-tools">${[23, 24].includes(state.task_id) ? `<div class="news-dropdown"><button data-menu="${item.id}" aria-haspopup="listbox" aria-expanded="${menu === item.id}">${obj.label ? esc(obj.label) : "设置分类"} ▾</button>${menu === item.id ? `<div class="news-options" role="listbox">${["", ...state.options].map((label) => `<button role="option" data-label="${esc(label)}" data-target="${item.id}">${esc(label || "清除分类")}</button>`).join("")}</div>` : ""}</div>` : ""}${state.task_id === 30 ? `<button data-reading="${item.id}">${reading.has(item.id) ? "✓ 已加入待选" : "加入阅读清单"}</button>` : ""}${state.task_id === 33 ? state.options.map((op) => { const done = (op === "已读" && obj.read) || (op === "收藏" && obj.starred); const label = op === "已读" ? (done ? "✓ 已读" : "标为已读") : (done ? "✓ 已收藏" : op); return `<button data-action="${esc(op)}" data-target="${item.id}" data-done="${done}" ${done ? "disabled" : ""}>${esc(label)}</button>`; }).join("") : ""}</div>`;
   }
   function render() {
     const all = state.items.filter((x) => !state.domain.objects[x.id].hidden),
@@ -102,7 +105,7 @@ async function start(id) {
       : page === "detail" && obj
         ? `<article class="news-detail"><button data-page="articles" class="news-back">← 返回文章列表</button><div class="meta">${esc(obj.publisher)} · 发布于 ${publishedAt(obj)}</div>${state.domain.settings.reading_article?.includes(obj.id) ? '<p class="news-saved" role="status">✓ 已选择阅读</p>' : ""}<h1>${esc(obj.name)}</h1><p class="news-deck">${esc(obj.text)}</p>${cover(state.items.findIndex((x) => x.id === selected))}<p>${esc(obj.text)}</p><p>报道围绕社区公共服务展开，结合实地观察与居民反馈，呈现日常生活中的具体需求。完整的后续安排将由相关服务机构通过公开渠道发布。</p>${actions(obj)}</article>`
         : page === "editor"
-          ? `<section class="news-editor"><aside><h2>内容管理</h2><p>文章草稿</p><button data-edit="target">${esc(state.source.text)}</button></aside><form id="editorForm"><span class="news-overline">ARTICLE DRAFT</span><h1>编辑文章资料</h1><p>来源：${esc(state.source.publisher)} · 简称 ${esc(state.source.publisher_short)}</p><label>原始标题<div class="news-source">${esc(state.source.text)}</div></label>${state.task_id === 20 ? `<p>待整理标签：${state.source.tags.map(esc).join("、")}</p>` : ""}<label>${state.task_id === 20 ? "文章标签" : "文章标题"}<textarea name="text" rows="4">${esc(state.outputs.target ?? state.source.text)}</textarea></label><button type="submit">保存草稿</button>${state.outputs.target !== undefined ? '<span class="news-saved">✓ 草稿已保存</span>' : ""}</form></section>`
+          ? `<section class="news-editor"><aside><h2>内容管理</h2><p>文章草稿</p><button data-edit="target">${esc(state.source.text)}</button></aside><form id="editorForm"><span class="news-overline">ARTICLE DRAFT</span><h1>编辑文章资料</h1><p>来源：${esc(state.source.publisher)} · 简称 ${esc(state.source.publisher_short)}</p><label>原始标题<div class="news-source">${esc(state.source.text)}</div></label>${state.task_id === 20 ? `<p>待整理标签：${state.source.tags.map(esc).join("、")}</p>` : ""}<label>${state.task_id === 20 ? "文章标签" : "文章标题"}<textarea name="text" rows="4">${esc(state.outputs.target ?? (state.task_id === 20 ? "" : state.source.text))}</textarea></label><button type="submit">保存草稿</button>${state.outputs.target !== undefined ? '<span class="news-saved">✓ 草稿已保存</span>' : ""}</form></section>`
           : `<div class="news-section-title"><div><span class="news-overline">YOUR READING DESK</span><h1>${names[page] || "全部文章"}</h1></div><form id="newsSearch"><input aria-label="搜索文章" name="q" value="${esc(query)}" placeholder="搜索标题或正文"><button>搜索</button></form></div><div class="news-grid">${(page === "reading" ? items.filter((x) => state.domain.collections.reading_list?.includes(x.id)) : page === "favorites" ? items.filter((x) => state.domain.collections.favorites?.includes(x.id)) : items).map(articleCard).join("") || '<div class="news-empty">这里还没有文章。前往全部文章浏览与整理。</div>'}</div>${state.task_id === 30 && page === "articles" ? `<div class="news-reading-save"><span>待加入 ${reading.size} 篇文章</span><button id="saveReading">保存阅读清单</button></div>` : ""}`
   }
   <footer class="news-footer">VIC News　·　阅读与记录</footer></main>`;
@@ -173,7 +176,7 @@ async function start(id) {
       };
     const save = document.querySelector("#saveReading");
     if (save) save.onclick = () => command("select", "", "", [...reading]);
-    document.querySelectorAll("button").forEach((b) => (b.disabled = busy));
+    document.querySelectorAll("#news-app button").forEach((b) => (b.disabled = busy || b.dataset.done === "true"));
   }
   render();
 }

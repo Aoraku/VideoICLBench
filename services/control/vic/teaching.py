@@ -144,12 +144,23 @@ def enrich(id_, seed, items, source, rng):
         plain = [x for x in pool if not any(c.isdigit() for c in x)]
         rng.shuffle(digits)
         rng.shuffle(plain)
-        assign('name', digits[:n//2] + plain[:n//2])
+        digit_examples = digits[:n//2]
+        assign('name', digit_examples + plain[:n-len(digit_examples)])
+    if id_ == 24:
+        assign('publisher', ['Iris', 'Aspen', 'Upland', 'Pine', 'Brook', 'Willow'] if seed >= 1000 else [
+            'Echo', 'Atlas', 'Orbit', 'Elm', 'Aria', 'Opal',
+            'Aurora', 'Indigo', 'Alpine', 'Outlook', 'Avenue', 'Evergreen',
+            'Sky', 'North', 'Daily', 'Cedar', 'Mica', 'Nova',
+            'Beacon', 'Harbor', 'Summit', 'Lantern', 'Chronicle', 'CityPost',
+        ])
     if id_ == 33:
         flags = [True, False, True, False, False, True] * (n // 6)
         rng.shuffle(flags)
         for item, urgent in zip(items, flags):
             item['name'] = ('紧急：' if urgent else '') + item['name']
+    if app == 'news':
+        for item in items:
+            item['text'] = teaching_materials.NEWS_ARTICLES[item['name'].removeprefix('紧急：')]
     if app == 'blog':
         for item in items:
             item['text'] = teaching_materials.BLOG_POSTS[item['name']]
@@ -267,6 +278,7 @@ def enrich(id_, seed, items, source, rng):
             [('Field Notes','FN:'),('Garden Post','GP:'),('Coast Review','CR:'),('City Voice','CV:'),('Open Press','OP:'),('Park Journal','PJ:')]
         )[seed % 6]
     if id_ == 20:
+        source['text'] = (NAMES if demo else QUERY_NAMES)['news'][seed % 6]
         vocabulary = ['research','design','travel','writing','music','community','science','history'] if demo else ['nature','reading','photography','gardening','cooking','hiking','architecture','education']
         source['tags'] = random.Random(seed + 4020).sample(vocabulary, 2 + seed % 3)
     if id_ == 21:
