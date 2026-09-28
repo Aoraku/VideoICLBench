@@ -157,7 +157,12 @@ def render_problems_page():
                 "medium-hard": "普及+/提高", "hard": "提高+/省选-",
                 "hard-expert": "省选/NOI-", "expert": "NOI/NOI+"
             }
-            for problem in sorted(problems, key=lambda x: x.get('id', '')):
+            # Practice libraries supply an independent presentation order. Sorting
+            # it by ID would turn "choose the smallest ID" into "choose first".
+            ordered_problems = problems if benchmark.ACTIVE else sorted(problems, key=lambda x: x.get('id', ''))
+            if benchmark.ACTIVE:
+                st.caption("同等条件时，选择列表中靠前的题目。")
+            for problem in ordered_problems:
                 with st.container(border=True):
                     # 题号和标题
                     c1, c2 = st.columns([0.8, 4])

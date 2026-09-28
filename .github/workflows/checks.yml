@@ -34,3 +34,4 @@ jobs:
           python scripts/check_application_ui.py
           python scripts/check_native_ui.py 1,5,17,23,31,38,43,48,57,68 A
           python scripts/check_native_ui.py 15,16 ABC
+          python scripts/check_native_ui.py 61,62,63 ABC

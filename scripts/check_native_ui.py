@@ -203,7 +203,7 @@ async def main():
             if t==62:
              for target,value in effect['labels'].items():
               if value:
-               idx=next(i for i,x in enumerate(s['items']) if x['id']==target);await click(page.get_by_role('radio',name=value,exact=True).nth(idx));await click(page.get_by_role('button',name='保存标签',exact=True).nth(idx))
+               idx=next(i for i,x in enumerate(s['items']) if x['id']==target);await click(page.get_by_role('radiogroup',name='难度标签',exact=True).nth(idx).get_by_text(value,exact=True));await click(page.get_by_role('button',name='保存标签',exact=True).nth(idx));await page.get_by_text('标签已保存',exact=True).wait_for()
             else:
              idx=next(i for i,x in enumerate(s['items']) if x['id']==effect['selection'][0]);await click(page.get_by_role('button',name='选择这道题').nth(idx))
            else:
@@ -211,7 +211,7 @@ async def main():
             if t==61:
              for target,value in effect['labels'].items():
               if value:
-               idx=next(i for i,x in enumerate(s['items']) if x['id']==target);await click(page.get_by_role('radio',name=value,exact=True).nth(idx));await click(page.get_by_role('button',name='保存结果标签').nth(idx))
+               idx=next(i for i,x in enumerate(s['items']) if x['id']==target);await click(page.get_by_role('radiogroup',name='结果标签',exact=True).nth(idx).get_by_text(value,exact=True));await click(page.get_by_role('button',name='保存结果标签').nth(idx));await page.get_by_text('标签已保存',exact=True).wait_for()
             else:
              idx=next(i for i,x in enumerate(s['items']) if x['id']==effect['selection'][0]);await click(page.get_by_role('button',name='查看代码').nth(idx))
           elif module=='gomoku':

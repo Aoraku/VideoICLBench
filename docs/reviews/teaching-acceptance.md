@@ -45,6 +45,8 @@
 
 - 第 32 题使用 24 个不同的时长值，奇偶各 12 个，包含 238–243 秒；偶数秒与整分钟不能等同解释选择结果。
 
+- OJ 题库保留独立的展示顺序，最小题号不能由固定首项位置解释；同等条件时按页面显示的列表顺序选取。
+
 ## 验证证据
 
 - [会话排序、转发与清理](teaching-chat-cleanup-ui-validation.json)：第 12 题 A／B／C 各六组排序，第 13、14 题 A／B／C 各 24 条材料的原生操作、保存状态与独立判分。
@@ -53,6 +55,7 @@
 - [音乐列表操作](teaching-music-ui-validation.json)：第 28 题 A／B／C 各六组排序，第 32 题各 24 首歌曲的添加、刷新和判分。
 - [OJ 多行答案](teaching-oj-text-ui-validation.json)：第 59 题 A／B／C 各六组、每组七行的编辑、保存与判分。
 - [OJ 提交结果标注](teaching-oj-results-ui-validation.json)：第 61 题 A／B／C 各六组可见状态、运行时间、标签保存与独立判分。
+- [OJ 难度标注与选题](teaching-oj-problems-ui-validation.json)：第 62、63 题 A／B／C 各六组界面操作、目标位置变化与独立判分。
 - [逐题界面证据索引](teaching-ui-coverage.json)：75 题对应的浏览器观察来源与尚缺记录的题号；有记录不代表所有版本或录像已验收。
 - [逐题审阅](2026-09-28.md)：用户提供的反馈与设计原则。
 - [75 题教学规格](../../tasks/teaching-specs.json)：每题的设计要求、演示规模和待验收项。

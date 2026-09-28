@@ -5923,7 +5923,7 @@
     {
       "schema_version": 1,
       "task_id": 63,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "OJ：从题库选择题目",
       "app": "code",
       "type": "S",
