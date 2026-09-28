@@ -1,0 +1,168 @@
+{
+  "verified_at": "2026-09-28T02:35:39.907386+00:00",
+  "source_commit": "1b5dc1e37b5a1e84f345cf11f9ce0e28aabca909",
+  "image": "sha256:76210e29f6f214670b02075e3c2268df7fad1cc8541b40ef9158830c98179829",
+  "image_tag": "videoicl-native:teaching-v14",
+  "deployed": true,
+  "services": "healthy",
+  "base_image": "videoicl-native:teaching-v13",
+  "base_validation": "teaching-v13-release.json",
+  "validation": {
+    "full_suite_passed": 1146,
+    "failed": 0,
+    "chat_build": true,
+    "local_ui_versions": 6,
+    "local_multi_episode_lessons": 3,
+    "local_multi_episode_total": 18,
+    "local_batch_runs": 3,
+    "objects_per_batch": 24,
+    "local_evaluation_success": true,
+    "recorded_video": false,
+    "detail": "teaching-contacts-ui-validation.json"
+  },
+  "image_checks": {
+    "files": {
+      "apps/chat/frontend/frontend/dist/index.html": "ed88a6b73edafaa5ac0d499c62846b36c65c5361ecf132f1dda7fcaa6c2f0336",
+      "services/control/vic/teaching.py": "b70bae0023b9f4ab6c48794a988799b5bd14bd8d82b18c766d5e807bbb768f17",
+      "services/control/vic/teaching_materials.py": "5185eb012143f13a373a5421e78da574139d9168de537a33ba15006a85371853",
+      "tasks/catalog.json": "553492964d9ad437ad05b6a44affae359a18539b1f832d16b9a14e3d35f332f2",
+      "tasks/contracts/006.json": "4da60eb391e5af26065ae5ad9455884b89f4d1acddc089db596e678fcd615be4",
+      "tasks/contracts/009.json": "663c134ebd41156085d3c6c2dcad543fdbb46aa0cd079ae5ac96638a540d1650",
+      "apps/chat/frontend/frontend/dist/assets/index-iRIYhsGn.js": "9a201838c77fd9d2e6d7cc46bca6836be7b47cb78c12b39ee56224c371226efe",
+      "apps/chat/frontend/frontend/dist/assets/index-CENXyEWF.css": "79a375ffa9efc78d58239cef425bb4d318a58380a72e066a962bc5a2782dca70"
+    },
+    "contact_fixture_checks": true,
+    "installed_source_matches": true
+  },
+  "live_checks": {
+    "services": {
+      "http://127.0.0.1:18765": {
+        "status": "ok",
+        "service": "videoicl-control"
+      },
+      "http://127.0.0.1:18766": {
+        "status": "ok",
+        "modules": [
+          "bank",
+          "blog",
+          "chat",
+          "code",
+          "games",
+          "gomoku",
+          "im",
+          "media",
+          "music",
+          "news",
+          "shop",
+          "studio",
+          "travel"
+        ]
+      }
+    },
+    "files": {
+      "/native-assets/chat/index.html": "ed88a6b73edafaa5ac0d499c62846b36c65c5361ecf132f1dda7fcaa6c2f0336",
+      "/native-assets/chat/vite.svg": "4a748afd443918bb16591c834c401dae33e87861ab5dbad0811c3a3b4a9214fb",
+      "/native-assets/chat/assets/index-CENXyEWF.css": "79a375ffa9efc78d58239cef425bb4d318a58380a72e066a962bc5a2782dca70",
+      "/native-assets/chat/assets/index-iRIYhsGn.js": "9a201838c77fd9d2e6d7cc46bca6836be7b47cb78c12b39ee56224c371226efe"
+    },
+    "native_ui": [
+      {
+        "task_id": 6,
+        "variant": "C",
+        "mode": "demo",
+        "run_id": "d420bfd8fcf74bfea782c61f972da297",
+        "entered_via_homepage_each_episode": true,
+        "all_actions_via_browser": true,
+        "evaluation_success": true,
+        "episodes": [
+          {
+            "index": 0,
+            "sha256": "8c6f2bbe4f82e5a86393921afaf007d656082836f20f4d3ce5e645bed3ca9b66",
+            "evidence_ref": "/v1/runs/d420bfd8fcf74bfea782c61f972da297/evidence",
+            "evaluation_success": true,
+            "object_count": 24
+          }
+        ],
+        "observed_grouped_count": 12,
+        "observed_ungrouped_count": 12,
+        "refresh_persistence": true
+      },
+      {
+        "task_id": 9,
+        "variant": "C",
+        "mode": "demo",
+        "run_id": "11ccebad639b44fc8fc5deb099dfead1",
+        "entered_via_homepage_each_episode": true,
+        "all_actions_via_browser": true,
+        "evaluation_success": true,
+        "episodes": [
+          {
+            "index": 0,
+            "sha256": "4b0b3f1d7a0bb070175a6a11a20ad203b83f8ecc123724d9c273d47ad4a9d54b",
+            "evidence_ref": "/v1/runs/11ccebad639b44fc8fc5deb099dfead1/lesson/evidence/0/0",
+            "evaluation_success": true,
+            "object_count": 6
+          },
+          {
+            "index": 1,
+            "sha256": "68bcb35929845c1310d576152167f15d90a7572fb8484d06d432c40cce4b8f0c",
+            "evidence_ref": "/v1/runs/11ccebad639b44fc8fc5deb099dfead1/lesson/evidence/0/1",
+            "evaluation_success": true,
+            "object_count": 6
+          },
+          {
+            "index": 2,
+            "sha256": "a4e12cd0505f35dc7fa800e8c2f8b6e43c0a6c081a2543dd81af3b0493c2c335",
+            "evidence_ref": "/v1/runs/11ccebad639b44fc8fc5deb099dfead1/lesson/evidence/0/2",
+            "evaluation_success": true,
+            "object_count": 6
+          },
+          {
+            "index": 3,
+            "sha256": "64bdcb4cd57fc606a264cbf4e4115ec176b9b731ca254e97c15c21ccd15718d5",
+            "evidence_ref": "/v1/runs/11ccebad639b44fc8fc5deb099dfead1/lesson/evidence/0/3",
+            "evaluation_success": true,
+            "object_count": 6
+          },
+          {
+            "index": 4,
+            "sha256": "b0d396a1f5a641b5bff5536137b1bfb56ed211adc2d0aed8dd31b76e162039be",
+            "evidence_ref": "/v1/runs/11ccebad639b44fc8fc5deb099dfead1/lesson/evidence/0/4",
+            "evaluation_success": true,
+            "object_count": 6
+          },
+          {
+            "index": 5,
+            "sha256": "9fe51cc562f9fa9c54637249383437f0712951087bace419f55a2b034f055d89",
+            "evidence_ref": "/v1/runs/11ccebad639b44fc8fc5deb099dfead1/lesson/evidence/0/5",
+            "evaluation_success": true,
+            "object_count": 6
+          }
+        ],
+        "observed_unread_maxima": [
+          7,
+          14,
+          24,
+          10,
+          18,
+          35
+        ]
+      }
+    ],
+    "source_commit": "1b5dc1e37b5a1e84f345cf11f9ce0e28aabca909",
+    "verified_at": "2026-09-28T02:35:39.907386+00:00"
+  },
+  "backup": {
+    "database": "/home/qingle/services/videoicl/.local/pre-teaching-v14-database.sql",
+    "mode": "600",
+    "size": 4787637,
+    "rollback_images": [
+      "videoicl-control:before-teaching-v14",
+      "videoicl-applications:before-teaching-v14"
+    ]
+  },
+  "limitations": [
+    "Browser and API results do not certify recorded-video continuity or human inference across all 75 cases.",
+    "Live browser validation covers task 6 C with all 24 contacts and task 9 C all six demo episodes. A and B have local browser evidence."
+  ]
+}

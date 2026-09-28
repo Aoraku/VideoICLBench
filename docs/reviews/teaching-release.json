@@ -1,37 +1,43 @@
 {
-  "verified_at": "2026-09-28T02:35:39.907386+00:00",
-  "source_commit": "1b5dc1e37b5a1e84f345cf11f9ce0e28aabca909",
-  "image": "sha256:76210e29f6f214670b02075e3c2268df7fad1cc8541b40ef9158830c98179829",
-  "image_tag": "videoicl-native:teaching-v14",
+  "verified_at": "2026-09-28T03:05:19.912072+00:00",
+  "source_commit": "1e214eb508e7d0cb1c5e93da090630d4848096d1",
+  "image": "sha256:4518fae445dbbd3647743cbc1ad9056022c4eb4c1e634d2356771eff0253afd2",
+  "image_tag": "videoicl-native:teaching-v15.2",
   "deployed": true,
   "services": "healthy",
-  "base_image": "videoicl-native:teaching-v13",
-  "base_validation": "teaching-v13-release.json",
+  "base_image": "videoicl-native:teaching-v14",
+  "base_validation": "teaching-v14-release.json",
   "validation": {
-    "full_suite_passed": 1146,
+    "full_suite_passed": 1181,
     "failed": 0,
     "chat_build": true,
-    "local_ui_versions": 6,
-    "local_multi_episode_lessons": 3,
-    "local_multi_episode_total": 18,
+    "portal_build": true,
+    "local_ui_versions": 12,
+    "local_multi_episode_lessons": 9,
+    "local_multi_episode_total": 54,
     "local_batch_runs": 3,
     "objects_per_batch": 24,
     "local_evaluation_success": true,
     "recorded_video": false,
-    "detail": "teaching-contacts-ui-validation.json"
+    "detail": "teaching-chat-search-ui-validation.json"
   },
   "image_checks": {
     "files": {
-      "apps/chat/frontend/frontend/dist/index.html": "ed88a6b73edafaa5ac0d499c62846b36c65c5361ecf132f1dda7fcaa6c2f0336",
-      "services/control/vic/teaching.py": "b70bae0023b9f4ab6c48794a988799b5bd14bd8d82b18c766d5e807bbb768f17",
-      "services/control/vic/teaching_materials.py": "5185eb012143f13a373a5421e78da574139d9168de537a33ba15006a85371853",
-      "tasks/catalog.json": "553492964d9ad437ad05b6a44affae359a18539b1f832d16b9a14e3d35f332f2",
-      "tasks/contracts/006.json": "4da60eb391e5af26065ae5ad9455884b89f4d1acddc089db596e678fcd615be4",
-      "tasks/contracts/009.json": "663c134ebd41156085d3c6c2dcad543fdbb46aa0cd079ae5ac96638a540d1650",
-      "apps/chat/frontend/frontend/dist/assets/index-iRIYhsGn.js": "9a201838c77fd9d2e6d7cc46bca6836be7b47cb78c12b39ee56224c371226efe",
-      "apps/chat/frontend/frontend/dist/assets/index-CENXyEWF.css": "79a375ffa9efc78d58239cef425bb4d318a58380a72e066a962bc5a2782dca70"
+      "services/control/vic/teaching.py": "8431e0321428855f66cedd3f52041ad3e2e4c13d7b5beb8ca85528af8c171632",
+      "services/control/vic/teaching_materials.py": "ca313f21545ad0148aab7b902ef947aac880f844f77213e37e6e84e0caa9614d",
+      "tasks/catalog.json": "f06ca041e8356468c896cee4771ac12bf0d00cbfc73b784204bad124b7f79bdf",
+      "tasks/contracts/007.json": "e58203d2c092243b52165fb21a9681e5645b11dd699d9146a19b8e99384e91db",
+      "tasks/contracts/008.json": "8bcb26b024aaaa45fd6a165e2017799b62a336c5510e41dcee8d681f1677e18e",
+      "tasks/contracts/010.json": "8f0a16a61cb01499a649a1dc199cb8e80b8d6440f04b0ae8c083831c4f1e195a",
+      "apps/chat/frontend/frontend/dist/vite.svg": "4a748afd443918bb16591c834c401dae33e87861ab5dbad0811c3a3b4a9214fb",
+      "apps/chat/frontend/frontend/dist/index.html": "df0d9f757a33757c5e9f36d089f55617953d4ebce5283809fc6fb6181661c6a4",
+      "apps/chat/frontend/frontend/dist/assets/index-CB-DbEfQ.css": "ce783a74ab2e7d37318cdea3e990968edad872aa95af9224f3f852576542025d",
+      "apps/chat/frontend/frontend/dist/assets/index-Btybj3qU.js": "7e0ea261c6905a643cacaba4fcdd2f32eea0af99989816a7539358fd341ed45b",
+      "apps/portal/dist/index.html": "19ea0624448587fd3ea07c2e2f30924a22c083f593d1ab85be859562e4aaf7ff",
+      "apps/portal/dist/assets/index-4j7drIhk.css": "022982c23730bcc002f7af78490513212c8b901e64bb72113ca53ec80b40997d",
+      "apps/portal/dist/assets/index-o1TziYbQ.js": "c80e8ff76d90a914c2442190abf6135cf97d6c991e014d724cf962743d74587c"
     },
-    "contact_fixture_checks": true,
+    "search_and_group_fixtures": true,
     "installed_source_matches": true
   },
   "live_checks": {
@@ -60,109 +66,106 @@
       }
     },
     "files": {
-      "/native-assets/chat/index.html": "ed88a6b73edafaa5ac0d499c62846b36c65c5361ecf132f1dda7fcaa6c2f0336",
-      "/native-assets/chat/vite.svg": "4a748afd443918bb16591c834c401dae33e87861ab5dbad0811c3a3b4a9214fb",
-      "/native-assets/chat/assets/index-CENXyEWF.css": "79a375ffa9efc78d58239cef425bb4d318a58380a72e066a962bc5a2782dca70",
-      "/native-assets/chat/assets/index-iRIYhsGn.js": "9a201838c77fd9d2e6d7cc46bca6836be7b47cb78c12b39ee56224c371226efe"
+      "http://127.0.0.1:18766/native-assets/chat/index.html": "df0d9f757a33757c5e9f36d089f55617953d4ebce5283809fc6fb6181661c6a4",
+      "http://127.0.0.1:18766/native-assets/chat/vite.svg": "4a748afd443918bb16591c834c401dae33e87861ab5dbad0811c3a3b4a9214fb",
+      "http://127.0.0.1:18766/native-assets/chat/assets/index-CB-DbEfQ.css": "ce783a74ab2e7d37318cdea3e990968edad872aa95af9224f3f852576542025d",
+      "http://127.0.0.1:18766/native-assets/chat/assets/index-Btybj3qU.js": "7e0ea261c6905a643cacaba4fcdd2f32eea0af99989816a7539358fd341ed45b",
+      "http://127.0.0.1:18765/": "19ea0624448587fd3ea07c2e2f30924a22c083f593d1ab85be859562e4aaf7ff",
+      "http://127.0.0.1:18765/assets/index-o1TziYbQ.js": "c80e8ff76d90a914c2442190abf6135cf97d6c991e014d724cf962743d74587c",
+      "http://127.0.0.1:18765/assets/index-4j7drIhk.css": "022982c23730bcc002f7af78490513212c8b901e64bb72113ca53ec80b40997d"
     },
     "native_ui": [
       {
-        "task_id": 6,
+        "task_id": 10,
         "variant": "C",
         "mode": "demo",
-        "run_id": "d420bfd8fcf74bfea782c61f972da297",
+        "run_id": "40a42f17ac2f49f88106841402dfce48",
+        "epoch": 2,
         "entered_via_homepage_each_episode": true,
         "all_actions_via_browser": true,
         "evaluation_success": true,
         "episodes": [
           {
             "index": 0,
-            "sha256": "8c6f2bbe4f82e5a86393921afaf007d656082836f20f4d3ce5e645bed3ca9b66",
-            "evidence_ref": "/v1/runs/d420bfd8fcf74bfea782c61f972da297/evidence",
-            "evaluation_success": true,
-            "object_count": 24
-          }
-        ],
-        "observed_grouped_count": 12,
-        "observed_ungrouped_count": 12,
-        "refresh_persistence": true
-      },
-      {
-        "task_id": 9,
-        "variant": "C",
-        "mode": "demo",
-        "run_id": "11ccebad639b44fc8fc5deb099dfead1",
-        "entered_via_homepage_each_episode": true,
-        "all_actions_via_browser": true,
-        "evaluation_success": true,
-        "episodes": [
-          {
-            "index": 0,
-            "sha256": "4b0b3f1d7a0bb070175a6a11a20ad203b83f8ecc123724d9c273d47ad4a9d54b",
-            "evidence_ref": "/v1/runs/11ccebad639b44fc8fc5deb099dfead1/lesson/evidence/0/0",
+            "sha256": "c14fce1c651566fff2505a6ef8b2eb540a6cc0cda85eba5515c1ebf106e7b3d5",
+            "evidence_ref": "/v1/runs/40a42f17ac2f49f88106841402dfce48/lesson/evidence/2/0",
             "evaluation_success": true,
             "object_count": 6
           },
           {
             "index": 1,
-            "sha256": "68bcb35929845c1310d576152167f15d90a7572fb8484d06d432c40cce4b8f0c",
-            "evidence_ref": "/v1/runs/11ccebad639b44fc8fc5deb099dfead1/lesson/evidence/0/1",
+            "sha256": "f26b44f72bb523aa78b62082b9d7ddf1d5eaab09bccbf3d5555db311168dd0e2",
+            "evidence_ref": "/v1/runs/40a42f17ac2f49f88106841402dfce48/lesson/evidence/2/1",
             "evaluation_success": true,
             "object_count": 6
           },
           {
             "index": 2,
-            "sha256": "a4e12cd0505f35dc7fa800e8c2f8b6e43c0a6c081a2543dd81af3b0493c2c335",
-            "evidence_ref": "/v1/runs/11ccebad639b44fc8fc5deb099dfead1/lesson/evidence/0/2",
+            "sha256": "ba45390521605b80844cbea42badfb74bcca6f34ea7ba2cd4f41f067dc864ce3",
+            "evidence_ref": "/v1/runs/40a42f17ac2f49f88106841402dfce48/lesson/evidence/2/2",
             "evaluation_success": true,
             "object_count": 6
           },
           {
             "index": 3,
-            "sha256": "64bdcb4cd57fc606a264cbf4e4115ec176b9b731ca254e97c15c21ccd15718d5",
-            "evidence_ref": "/v1/runs/11ccebad639b44fc8fc5deb099dfead1/lesson/evidence/0/3",
+            "sha256": "46bc17b5de2b376797cc6b0ed36b93fa021488bb760fd2cf37cd1abb40469fab",
+            "evidence_ref": "/v1/runs/40a42f17ac2f49f88106841402dfce48/lesson/evidence/2/3",
             "evaluation_success": true,
             "object_count": 6
           },
           {
             "index": 4,
-            "sha256": "b0d396a1f5a641b5bff5536137b1bfb56ed211adc2d0aed8dd31b76e162039be",
-            "evidence_ref": "/v1/runs/11ccebad639b44fc8fc5deb099dfead1/lesson/evidence/0/4",
+            "sha256": "dbd1543446e00879e730a02708a44482e688b57e33bc09620c72b03cfcb25cef",
+            "evidence_ref": "/v1/runs/40a42f17ac2f49f88106841402dfce48/lesson/evidence/2/4",
             "evaluation_success": true,
             "object_count": 6
           },
           {
             "index": 5,
-            "sha256": "9fe51cc562f9fa9c54637249383437f0712951087bace419f55a2b034f055d89",
-            "evidence_ref": "/v1/runs/11ccebad639b44fc8fc5deb099dfead1/lesson/evidence/0/5",
+            "sha256": "d0594b6830394ad56a5a5ce4ade2fd3811365bf2ccabdf2afa4ebb7011b8d311",
+            "evidence_ref": "/v1/runs/40a42f17ac2f49f88106841402dfce48/lesson/evidence/2/5",
+            "evaluation_success": true,
+            "object_count": 6
+          }
+        ]
+      },
+      {
+        "task_id": 8,
+        "variant": "B",
+        "mode": "eval",
+        "run_id": "2e175d8741814f47b5535221b554cb94",
+        "epoch": 1,
+        "entered_via_homepage_each_episode": true,
+        "all_actions_via_browser": true,
+        "evaluation_success": true,
+        "episodes": [
+          {
+            "index": 0,
+            "sha256": "7673aaf92abc0d2411a4b77c2958708700a9f7d668f2bd08f543da4dd2b138d7",
+            "evidence_ref": "/v1/runs/2e175d8741814f47b5535221b554cb94/evidence",
             "evaluation_success": true,
             "object_count": 6
           }
         ],
-        "observed_unread_maxima": [
-          7,
-          14,
-          24,
-          10,
-          18,
-          35
-        ]
+        "observed_labelled_count": 4,
+        "refresh_persistence": true
       }
     ],
-    "source_commit": "1b5dc1e37b5a1e84f345cf11f9ce0e28aabca909",
-    "verified_at": "2026-09-28T02:35:39.907386+00:00"
+    "source_commit": "1e214eb508e7d0cb1c5e93da090630d4848096d1",
+    "verified_at": "2026-09-28T03:05:19.912072+00:00",
+    "portal_task10_guidance": "Browser verified search entry, first-episode keyword, six-episode instructions and A/B/C task card."
   },
   "backup": {
-    "database": "/home/qingle/services/videoicl/.local/pre-teaching-v14-database.sql",
+    "database": "/home/qingle/services/videoicl/.local/pre-teaching-v15.2-database.sql",
     "mode": "600",
-    "size": 4787637,
+    "size": 4933585,
     "rollback_images": [
-      "videoicl-control:before-teaching-v14",
-      "videoicl-applications:before-teaching-v14"
+      "videoicl-control:before-teaching-v15",
+      "videoicl-applications:before-teaching-v15"
     ]
   },
   "limitations": [
-    "Browser and API results do not certify recorded-video continuity or human inference across all 75 cases.",
-    "Live browser validation covers task 6 C with all 24 contacts and task 9 C all six demo episodes. A and B have local browser evidence."
+    "Browser and API evidence does not certify full recordings or human rule inference across 75 cases.",
+    "Final live native validation covers task 10 C all six demo episodes and task 8 B held-out query. Task 3/7 and the other versions have local browser evidence."
   ]
 }
