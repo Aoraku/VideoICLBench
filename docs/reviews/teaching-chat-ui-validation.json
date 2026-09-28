@@ -1,0 +1,543 @@
+{
+  "scope": "Native browser observations and persisted evaluation for Chat tasks 4, 5, and 11. Not recorded-video verification or human rule-inference acceptance.",
+  "tests": {
+    "passed": 1082,
+    "failed": 0,
+    "chat_build": true
+  },
+  "native_ui": [
+    {
+      "task_id": 11,
+      "variant": "A",
+      "run_id": "68e4d051e15741ee87bf42ff7ff6669a",
+      "epoch": 2,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "2249d44243bf45e68aedfde0f339def24b73fbc5918ab457f5f636f69cb4fcbb",
+          "evidence_ref": "/v1/runs/68e4d051e15741ee87bf42ff7ff6669a/lesson/evidence/2/0",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "宣传材料评审记录.md",
+            "size": 258
+          }
+        },
+        {
+          "index": 1,
+          "sha256": "5217834cc60fe3971143dcc7db06cf89d3080afbdcb28d9c94ae6be344b90376",
+          "evidence_ref": "/v1/runs/68e4d051e15741ee87bf42ff7ff6669a/lesson/evidence/2/1",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "资料借阅登记.md",
+            "size": 549
+          }
+        },
+        {
+          "index": 2,
+          "sha256": "5410a487c4fcef707445e0616410cb01024a47bd9b85ea8a1ced105ce4818bfb",
+          "evidence_ref": "/v1/runs/68e4d051e15741ee87bf42ff7ff6669a/lesson/evidence/2/2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "项目周报汇总.md",
+            "size": 855
+          }
+        },
+        {
+          "index": 3,
+          "sha256": "c6b5bc9b8db2f0ce40841d644c0712e731a42f715fdfa4ce3caedfc1d47a830a",
+          "evidence_ref": "/v1/runs/68e4d051e15741ee87bf42ff7ff6669a/lesson/evidence/2/3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "图书采购建议.md",
+            "size": 249
+          }
+        },
+        {
+          "index": 4,
+          "sha256": "e40aaf48085d72836b1e1f5db9bf038fc89242b34ba19798824ed70eb1789991",
+          "evidence_ref": "/v1/runs/68e4d051e15741ee87bf42ff7ff6669a/lesson/evidence/2/4",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "场地布置方案.md",
+            "size": 549
+          }
+        },
+        {
+          "index": 5,
+          "sha256": "51c7354f4ffbe56c3c8f0d6c7e2625ad9ba612a0576d46f0669d00588da3df24",
+          "evidence_ref": "/v1/runs/68e4d051e15741ee87bf42ff7ff6669a/lesson/evidence/2/5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "访谈计划书.md",
+            "size": 852
+          }
+        }
+      ]
+    },
+    {
+      "task_id": 11,
+      "variant": "B",
+      "run_id": "cff4a0d6781546879a7be962be8e9c06",
+      "epoch": 1,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "b1ad2d04916df9d74c36aaff69563917ed1925c51d30222d8e482836254d28ff",
+          "evidence_ref": "/v1/runs/cff4a0d6781546879a7be962be8e9c06/lesson/evidence/1/0",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "志愿者值班安排.md",
+            "size": 864
+          }
+        },
+        {
+          "index": 1,
+          "sha256": "bf986bd66053a17fcf08f2847d629ee8fd9d8ffd3815658971ba33e08be127e6",
+          "evidence_ref": "/v1/runs/cff4a0d6781546879a7be962be8e9c06/lesson/evidence/1/1",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "周末分享会通知.md",
+            "size": 1185
+          }
+        },
+        {
+          "index": 2,
+          "sha256": "8bcfd23d599d0fff59a1f0a091b980397428e55335fc4781a8ffc792e5b547b9",
+          "evidence_ref": "/v1/runs/cff4a0d6781546879a7be962be8e9c06/lesson/evidence/1/2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "场地布置方案.md",
+            "size": 1482
+          }
+        },
+        {
+          "index": 3,
+          "sha256": "2a7bade1943dd71337d546df77aa958df9127b4d23c841a871e537e7e6424f09",
+          "evidence_ref": "/v1/runs/cff4a0d6781546879a7be962be8e9c06/lesson/evidence/1/3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "参会确认.md",
+            "size": 858
+          }
+        },
+        {
+          "index": 4,
+          "sha256": "08cbcb1ed87c155d8c49f4673eaf0f1009e4e2e6527cbc0f48a64dc2f5ce4794",
+          "evidence_ref": "/v1/runs/cff4a0d6781546879a7be962be8e9c06/lesson/evidence/1/4",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "工作坊准备事项.md",
+            "size": 1182
+          }
+        },
+        {
+          "index": 5,
+          "sha256": "6dc136475b460b08de710bc098989e04e480b0113480976fa6420f6885c97d3b",
+          "evidence_ref": "/v1/runs/cff4a0d6781546879a7be962be8e9c06/lesson/evidence/1/5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "交付验收检查清单.md",
+            "size": 1488
+          }
+        }
+      ]
+    },
+    {
+      "task_id": 11,
+      "variant": "C",
+      "run_id": "3513fb39a72a4ab69c5564f685620d58",
+      "epoch": 2,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "b398c9ad3fb0a9cbcf989e2d4f27eceef82148ba118303bdfea459a2ea82559a",
+          "evidence_ref": "/v1/runs/3513fb39a72a4ab69c5564f685620d58/lesson/evidence/2/0",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "路线.md",
+            "size": 438
+          }
+        },
+        {
+          "index": 1,
+          "sha256": "eb10864ba7534275874bfe7aefcee14291a45c5466e428cb2fb85ac2998136e5",
+          "evidence_ref": "/v1/runs/3513fb39a72a4ab69c5564f685620d58/lesson/evidence/2/1",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "预算表.md",
+            "size": 960
+          }
+        },
+        {
+          "index": 2,
+          "sha256": "fb686e9809209a96836e547d4a9ea0e495ec721bd2e4a955e112c3bd43290eca",
+          "evidence_ref": "/v1/runs/3513fb39a72a4ab69c5564f685620d58/lesson/evidence/2/2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "会议议程.md",
+            "size": 1062
+          }
+        },
+        {
+          "index": 3,
+          "sha256": "b3249d45c3676c6c49fd21e3aca6d165f0c6aa4eab0067754f8bad5a4064e376",
+          "evidence_ref": "/v1/runs/3513fb39a72a4ab69c5564f685620d58/lesson/evidence/2/3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "预算表.md",
+            "size": 444
+          }
+        },
+        {
+          "index": 4,
+          "sha256": "f1625284fea8f996601c3b54e1aeff4c71e2754f5f86f8ed3077f913a514a3a3",
+          "evidence_ref": "/v1/runs/3513fb39a72a4ab69c5564f685620d58/lesson/evidence/2/4",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "设备清单.md",
+            "size": 771
+          }
+        },
+        {
+          "index": 5,
+          "sha256": "8ba33403be9fde462836d8ba07d181c9e04a1552e814e56547cece7bee2677e5",
+          "evidence_ref": "/v1/runs/3513fb39a72a4ab69c5564f685620d58/lesson/evidence/2/5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": {
+            "name": "纪要.md",
+            "size": 1053
+          }
+        }
+      ]
+    },
+    {
+      "task_id": 4,
+      "variant": "A",
+      "run_id": "fc1c015bc9db41448baf68060bbddeb6",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "015b344ec4d2a0f3c5ab3d8de716e9f48e55edee9c92926249109391d486cd51",
+          "evidence_ref": "/v1/runs/fc1c015bc9db41448baf68060bbddeb6/lesson/evidence/0/0",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "评审改到会议室#3，请在下午#1#4点前确认"
+          ]
+        },
+        {
+          "index": 1,
+          "sha256": "3043b3cdc97d351b301fa036e289ce7213557f11b24e426325a2f3e830d08250",
+          "evidence_ref": "/v1/runs/fc1c015bc9db41448baf68060bbddeb6/lesson/evidence/0/1",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "请准备#2#5份会议资料，送到会议室#8"
+          ]
+        },
+        {
+          "index": 2,
+          "sha256": "d520e647a247a5336499536fc7611fb7b93afb13e8c9b103dd3237f114280fea",
+          "evidence_ref": "/v1/runs/fc1c015bc9db41448baf68060bbddeb6/lesson/evidence/0/2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "周五到楼栋#1#7参加讨论，请提前#2小时确认"
+          ]
+        },
+        {
+          "index": 3,
+          "sha256": "1ad5d6b8db173e73c7d85950c03497d6d257ea1e5adf7fc02f9a3e4f06baacc7",
+          "evidence_ref": "/v1/runs/fc1c015bc9db41448baf68060bbddeb6/lesson/evidence/0/3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "请核对#1#0份预算表并打印#6份备份"
+          ]
+        },
+        {
+          "index": 4,
+          "sha256": "91f62ab558edda6960dfb080745a9954177324dae0406eed35713eb0e16c5913",
+          "evidence_ref": "/v1/runs/fc1c015bc9db41448baf68060bbddeb6/lesson/evidence/0/4",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "会议安排在楼层#2#0，请联系工位#4"
+          ]
+        },
+        {
+          "index": 5,
+          "sha256": "98141c97cedd25112f6a3aa1e33b04678700ffd1987e9b9bac3f9b58faf3acac",
+          "evidence_ref": "/v1/runs/fc1c015bc9db41448baf68060bbddeb6/lesson/evidence/0/5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "活动分为#1#2组，集合时间为上午#9点"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": 4,
+      "variant": "B",
+      "run_id": "bf24fb8190694326b1b809aeca9a286d",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "6edbb54021752c7f38da8bd578c8c2e54d93544245d8cd9c49b8152358379a8f",
+          "evidence_ref": "/v1/runs/bf24fb8190694326b1b809aeca9a286d/lesson/evidence/0/0",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "评审改到会议室3号，请在下午1号4号点前确认"
+          ]
+        },
+        {
+          "index": 1,
+          "sha256": "1b0d604276f44cc4725b8d14f86fa1ee5b5841f91546471a047bcb79482e5ccb",
+          "evidence_ref": "/v1/runs/bf24fb8190694326b1b809aeca9a286d/lesson/evidence/0/1",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "请准备2号5号份会议资料，送到会议室8号"
+          ]
+        },
+        {
+          "index": 2,
+          "sha256": "b27ea79df9fdecb09ff0b801193dd5c1dff0b3974261f1de1c3fcfecfee7f7ac",
+          "evidence_ref": "/v1/runs/bf24fb8190694326b1b809aeca9a286d/lesson/evidence/0/2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "周五到楼栋1号7号参加讨论，请提前2号小时确认"
+          ]
+        },
+        {
+          "index": 3,
+          "sha256": "ed72c2f8939a4703ea292be1f4edbbc68b5dc410bdf8d6a45013286f0320d5fb",
+          "evidence_ref": "/v1/runs/bf24fb8190694326b1b809aeca9a286d/lesson/evidence/0/3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "请核对1号0号份预算表并打印6号份备份"
+          ]
+        },
+        {
+          "index": 4,
+          "sha256": "f88f656cb14f65008e16437538e9e33e46ca0d5a46717b26422f123c571d44a9",
+          "evidence_ref": "/v1/runs/bf24fb8190694326b1b809aeca9a286d/lesson/evidence/0/4",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "会议安排在楼层2号0号，请联系工位4号"
+          ]
+        },
+        {
+          "index": 5,
+          "sha256": "83fd6ec0f48cd33c6248042b8e722a6479ba75d26c63ab44a104aa22e0c77442",
+          "evidence_ref": "/v1/runs/bf24fb8190694326b1b809aeca9a286d/lesson/evidence/0/5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "活动分为1号2号组，集合时间为上午9号点"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": 4,
+      "variant": "C",
+      "run_id": "6dea54459a7d48f9a4ee67b38c6ac6c3",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "82995cc6930605019c068ad61f2daee86ebddb5f2d4ff1b980e2d7be00ebfb64",
+          "evidence_ref": "/v1/runs/6dea54459a7d48f9a4ee67b38c6ac6c3/lesson/evidence/0/0",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "评审改到会议室three，请在下午onefour点前确认"
+          ]
+        },
+        {
+          "index": 1,
+          "sha256": "816f99151cae771a570525d93d0a95b1541de3038c6ee401b77bd350ea4528a6",
+          "evidence_ref": "/v1/runs/6dea54459a7d48f9a4ee67b38c6ac6c3/lesson/evidence/0/1",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "请准备twofive份会议资料，送到会议室eight"
+          ]
+        },
+        {
+          "index": 2,
+          "sha256": "3b0da27731c90c1f790da88a357de9bf041497684cf038b5de0cf34831a4e647",
+          "evidence_ref": "/v1/runs/6dea54459a7d48f9a4ee67b38c6ac6c3/lesson/evidence/0/2",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "周五到楼栋oneseven参加讨论，请提前two小时确认"
+          ]
+        },
+        {
+          "index": 3,
+          "sha256": "dce5513791639e749bff1996ad79c5c3a3fbe4b8254921a81bd6ebaf134ffaac",
+          "evidence_ref": "/v1/runs/6dea54459a7d48f9a4ee67b38c6ac6c3/lesson/evidence/0/3",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "请核对onezero份预算表并打印six份备份"
+          ]
+        },
+        {
+          "index": 4,
+          "sha256": "54abd714ccb5a3c283307d3c5e9f60054450444d00c156dbd61c456ce94146ee",
+          "evidence_ref": "/v1/runs/6dea54459a7d48f9a4ee67b38c6ac6c3/lesson/evidence/0/4",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "会议安排在楼层twozero，请联系工位four"
+          ]
+        },
+        {
+          "index": 5,
+          "sha256": "3af6d8135ab044ecc85459b337e2c3139ed943df4f5ecd3f58e80ac066b0ad62",
+          "evidence_ref": "/v1/runs/6dea54459a7d48f9a4ee67b38c6ac6c3/lesson/evidence/0/5",
+          "evaluation_success": true,
+          "object_count": 6,
+          "saved_output": [
+            "活动分为onetwo组，集合时间为上午nine点"
+          ]
+        }
+      ]
+    },
+    {
+      "task_id": 5,
+      "variant": "A",
+      "run_id": "9340145afb58498e9e725aed308f8253",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "c826ba84b4ef0bf8c99006c1c4ee7caa16ccaf2c36effec777b8e3e7e687989a",
+          "evidence_ref": "/v1/runs/9340145afb58498e9e725aed308f8253/evidence",
+          "evaluation_success": true,
+          "object_count": 24,
+          "saved_output": null
+        }
+      ]
+    },
+    {
+      "task_id": 5,
+      "variant": "B",
+      "run_id": "0e35e53fa7b9420ba0b5faffa082f088",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "37351cdd464207ee1721b4f1fa90c772284e6e29e6e33c0fa4def0145d3d5a1e",
+          "evidence_ref": "/v1/runs/0e35e53fa7b9420ba0b5faffa082f088/evidence",
+          "evaluation_success": true,
+          "object_count": 24,
+          "saved_output": null
+        }
+      ]
+    },
+    {
+      "task_id": 5,
+      "variant": "C",
+      "run_id": "aa5f48b0aa4d430a888eef42b17c833d",
+      "epoch": 0,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "sha256": "f04d2d37f85c46507d9cb8f63041c9a4b94c587aed8ef99e20b537dc7666385a",
+          "evidence_ref": "/v1/runs/aa5f48b0aa4d430a888eef42b17c833d/evidence",
+          "evaluation_success": true,
+          "object_count": 24,
+          "saved_output": null
+        }
+      ]
+    }
+  ],
+  "observations": {
+    "task4": "A/B/C each completed six homepage-to-conversation episodes, with multiple numbers and multi-digit strings; each digit is transformed independently.",
+    "task5": "A/B/C each reviewed 24 messages, labeled all 10 question messages and left 14 without labels; all labels verified after reload.",
+    "task11": "A/B/C each completed six homepage-to-conversation-to-file-library episodes. Each episode contains six distinct documents with real UTF-8 byte sizes, previews and persisted attachment messages.",
+    "attachment_layout": {
+      "viewport": [
+        1280,
+        720
+      ],
+      "expanded_preview_close_button_y": 60.34375,
+      "expanded_preview_send_button_y": 560,
+      "expanded_preview_send_button_bottom": 602,
+      "reload_sent_marker": true,
+      "duplicate_send_disabled": true,
+      "native_message_preview": true
+    },
+    "materials": "Filename minima and byte minima/maxima vary across six episodes; positive/negative ranges overlap between episodes, and held-out query filenames differ from demo filenames."
+  },
+  "limitations": [
+    "No recorded video was captured in this validation.",
+    "Browser evidence does not certify human rule inference or all 75 cases.",
+    "Task 6 and 9 browser runs remain pending."
+  ]
+}

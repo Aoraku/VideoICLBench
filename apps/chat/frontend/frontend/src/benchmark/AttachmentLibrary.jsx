@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { command, currentBusiness } from "./bridge.js";
 export default function AttachmentLibrary({ open, onClose }) {
   const [selected, setSelected] = useState(""),
     [error, setError] = useState(""),
-    [sent, setSent] = useState(false);
+    [busy, setBusy] = useState(false);
+  const sending = useRef(false);
   const state = currentBusiness();
   if (!open || !state) return null;
+  const sentIds = new Set(state.domain.messages.filter(m => m.sender === "self" && m.attachment).map(m => m.attachment));
+  const sent = sentIds.has(selected);
   return (
     <div
       style={{
@@ -15,13 +18,19 @@ export default function AttachmentLibrary({ open, onClose }) {
         zIndex: 9000,
         display: "grid",
         placeItems: "center",
+        padding: "16px 16px calc(16px + var(--vic-lesson-bottom-inset, 0px))",
       }}
     >
       <section
+        role="dialog"
+        aria-modal="true"
+        aria-label="聊天文件"
         style={{
-          width: 740,
-          maxHeight: 860,
-          overflowY: "auto",
+          width: "min(740px, 100%)",
+          maxHeight: "calc(100dvh - 32px - var(--vic-lesson-bottom-inset, 0px))",
+          boxSizing: "border-box",
+          display: "flex",
+          flexDirection: "column",
           background: "#fff",
           borderRadius: 20,
           padding: 32,
@@ -36,11 +45,12 @@ export default function AttachmentLibrary({ open, onClose }) {
           }}
         >
           <h2 style={{ fontSize: 20 }}>聊天文件</h2>
-          <button onClick={onClose} aria-label="关闭文件窗口">
+          <button onClick={onClose} disabled={busy} aria-label="关闭文件窗口">
             ×
           </button>
         </header>
         <p style={{ color: "#8290a3", fontSize: 13 }}>林若宁 · 共享文件</p>
+        <div style={{ overflowY: "auto", minHeight: 0 }}>
         <div
           style={{
             border: "1px solid #e5ebf2",
@@ -53,8 +63,10 @@ export default function AttachmentLibrary({ open, onClose }) {
               key={item.id}
               onClick={() => {
                 setSelected(item.id);
-                setSent(false);
+                setError("");
               }}
+              disabled={busy}
+              aria-pressed={selected === item.id}
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -76,7 +88,7 @@ export default function AttachmentLibrary({ open, onClose }) {
                   来自共享资料 · {item.size} 字节
                 </small>
               </span>
-              <span>{selected === item.id ? "✓" : ""}</span>
+              <span>{sentIds.has(item.id) ? "已发送" : selected === item.id ? "✓" : ""}</span>
             </button>
           ))}
         </div>
@@ -99,6 +111,7 @@ export default function AttachmentLibrary({ open, onClose }) {
             </pre>
           </details>
         )}
+        </div>
         {error && (
           <p role="alert" style={{ color: "#c44" }}>
             {error}
@@ -112,7 +125,7 @@ export default function AttachmentLibrary({ open, onClose }) {
             marginTop: 24,
           }}
         >
-          <span style={{ fontSize: 13, color: "#718295" }}>
+          <span role="status" style={{ fontSize: 13, color: "#718295" }}>
             {sent
               ? "✓ 附件已发送至林若宁"
               : selected
@@ -121,18 +134,23 @@ export default function AttachmentLibrary({ open, onClose }) {
           </span>
           <button
             className="primary"
-            disabled={!selected}
+            disabled={!selected || busy || sent}
             onClick={async () => {
+              if (sending.current || sent) return;
+              sending.current = true;
+              setBusy(true);
               try {
                 await command("select", "", "", [selected]);
-                setSent(true);
                 setError("");
               } catch (e) {
                 setError(e.message);
+              } finally {
+                sending.current = false;
+                setBusy(false);
               }
             }}
           >
-            发送给林若宁
+            {busy ? "发送中…" : sent ? "已发送给林若宁" : "发送给林若宁"}
           </button>
         </footer>
       </section>

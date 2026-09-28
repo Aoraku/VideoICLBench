@@ -203,6 +203,9 @@ def enrich(id_, seed, items, source, rng):
         file_names = teaching_materials.code_file_names(seed)
         for item in items:
             item['name'] = file_names[item['code']]
+    if id_ == 11:
+        for item, file in zip(items, teaching_materials.chat_files(seed)):
+            item.update(file)
 
     tags = ['focus', 'blue', 'weekly', 'travel', 'ideas']
     account_prefixes = rng.sample(range(1000000, 9999999), n)
@@ -248,7 +251,6 @@ def enrich(id_, seed, items, source, rng):
         except SyntaxError:
             item['check_pass'] = False
         if id_ == 11:
-            item['file_text'] += '\n' + '请确认相关资料与负责人。\n' * rng.randrange(1, 50)
             item['size'] = len(item['file_text'].encode('utf-8'))
     rng.shuffle(items)
     source.pop('_app')

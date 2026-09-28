@@ -1,5 +1,57 @@
 """Distinct visible materials for batch lessons, without rules or answers."""
 
+
+def chat_files(seed):
+    """Shared documents with independent filename lengths and actual byte sizes."""
+    import random
+    rng = random.Random(seed + 71103)
+    titles = ([
+        '纪要', '预算表', '会议议程', '设计规范', '访谈计划书', '项目周报汇总',
+        '产品需求说明书', '活动报名名单', '研发排期', '交付验收检查清单',
+        '设备清单', '场地布置方案', '宣传材料评审记录', '志愿者值班安排',
+        '周末分享会通知', '资料借阅登记', '成员联系表', '路线',
+        '工作坊准备事项', '图书采购建议', '参会确认', '会务交通指引',
+    ] if seed < 1000 else [
+        '提纲', '账目表', '露营日程', '展厅地图', '观鸟活动计划', '花园维护记录',
+        '博物馆志愿服务安排', '阅读讨论会邀请函', '摄影课程', '骑行路线安全检查表',
+        '食材采购', '雨天活动备用方案', '海边调查资料汇总', '公园设施维护计划',
+        '咖啡品鉴报名说明', '植物养护手册', '借用清单', '草图',
+    ])
+    # Vary the shortest length across episodes, including overlapping positive
+    # and negative lengths; avoid ties without placing the answer at a fixed row.
+    shortest = (2, 3, 4, 3, 4, 2)[seed % 6]
+    chosen = [rng.choice([t for t in titles if len(t) == shortest])]
+    chosen += rng.sample([t for t in titles if len(t) > shortest], 5)
+    rng.shuffle(chosen)
+    sections = [
+        ('时间安排', '请在周五例会前确认时间，并将可参加的时段登记到共享日历。'),
+        ('材料准备', '纸质资料由会务组统一印制，电子文档请放入对应的共享目录。'),
+        ('负责人', '每项工作需要登记一位联系人，遇到调整时及时通知协作成员。'),
+        ('现场安排', '提前检查投影和音响设备，在入口放置签到表与座位指引。'),
+        ('检查事项', '提交前核对日期、联系人和数量，暂未确认的内容请写明原因。'),
+        ('后续跟进', '活动结束后收集参与者的意见，下次讨论时逐项确认处理结果。'),
+        ('物资管理', '借用的物品应登记数量和归还时间，消耗品由值班成员及时补充。'),
+        ('协作记录', '保留关键决定与讨论结论，方便未能到场的成员了解安排。'),
+        ('反馈渠道', '需要补充的信息请集中写在讨论区，会务组每天汇总一次并回复。'),
+        ('备选方案', '如果原定场地无法使用，先联系前台，再在群内发布新的集合地点。'),
+        ('资料存档', '最终文件按日期归档，未完成的草稿保留在个人目录供后续整理。'),
+        ('参与确认', '参加人员请提前填写登记表，临时取消也请通知对应的活动联系人。'),
+        ('交接说明', '值班结束前核对物资和待办事项，并向接班成员说明未完成的工作。'),
+        ('复盘讨论', '下次会议先回顾本次的完成情况，再讨论需要继续跟进的问题。'),
+    ]
+    minimum = 2 + (seed % 3) * 3
+    counts = rng.sample(range(minimum, minimum + 7), 6)
+    shortest_index = next(i for i, title in enumerate(chosen) if len(title) == shortest)
+    middle_index = counts.index(sorted(counts)[rng.choice([2, 3])])
+    counts[shortest_index], counts[middle_index] = counts[middle_index], counts[shortest_index]
+    files = []
+    for title, count in zip(chosen, counts):
+        body = f'# {title}\n\n日期：2026-{1 if seed < 1000 else 2:02d}-{1 + seed % 27:02d}\n'
+        for heading, text in rng.sample(sections, count):
+            body += f'\n## {heading}\n{text}\n'
+        files.append({'name': title + '.md', 'file_text': body})
+    return files
+
 NEWS_ARTICLES = {
     '城市图书馆延长夜间开放时间': '城市图书馆将延长阅览区和自助借还区的夜间服务时间。读者可通过预约系统查询座位，少儿阅览室仍按原时段开放。馆方将根据到馆人数调整晚间值班安排。',
     '2026 年公共交通服务报告': '交通部门发布了 2026 年公共交通服务报告，介绍公交与地铁的客流变化、接驳站点和无障碍设施。报告附有线路调查问卷，市民可以提交日常通勤建议。',

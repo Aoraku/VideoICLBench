@@ -1,17 +1,14 @@
 {
   "scope": "Index of task-specific browser observations recorded in review artifacts. Presence does not imply complete A/B/C coverage, current-version replay, recorded-video verification, or human inference acceptance. Null episode counts mean the source has no explicit episode count.",
   "task_count": 75,
-  "tasks_with_indexed_browser_evidence": 44,
+  "tasks_with_indexed_browser_evidence": 47,
   "tasks_without_indexed_browser_evidence": [
     3,
-    4,
-    5,
     6,
     7,
     8,
     9,
     10,
-    11,
     12,
     13,
     14,
@@ -66,11 +63,55 @@
     },
     {
       "task_id": 4,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-chat-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "A",
+          "run_id": "fc1c015bc9db41448baf68060bbddeb6",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-chat-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "B",
+          "run_id": "bf24fb8190694326b1b809aeca9a286d",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-chat-ui-validation.json",
+          "json_pointer": "/native_ui/5",
+          "variant": "C",
+          "run_id": "6dea54459a7d48f9a4ee67b38c6ac6c3",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 5,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-chat-ui-validation.json",
+          "json_pointer": "/native_ui/6",
+          "variant": "A",
+          "run_id": "9340145afb58498e9e725aed308f8253",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-chat-ui-validation.json",
+          "json_pointer": "/native_ui/7",
+          "variant": "B",
+          "run_id": "0e35e53fa7b9420ba0b5faffa082f088",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-chat-ui-validation.json",
+          "json_pointer": "/native_ui/8",
+          "variant": "C",
+          "run_id": "aa5f48b0aa4d430a888eef42b17c833d",
+          "reported_episode_count": 1
+        }
+      ]
     },
     {
       "task_id": 6,
@@ -94,7 +135,29 @@
     },
     {
       "task_id": 11,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-chat-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "68e4d051e15741ee87bf42ff7ff6669a",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-chat-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "cff4a0d6781546879a7be962be8e9c06",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-chat-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "C",
+          "run_id": "3513fb39a72a4ab69c5564f685620d58",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 12,

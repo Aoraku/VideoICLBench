@@ -908,6 +908,16 @@ export default function ChatPage() {
     }
   }, [])
 
+  useEffect(() => {
+    if (!nativeRun) return
+    const onBusinessUpdate = () => {
+      void refreshConversationList()
+      if (selectedId) void refetchMessages()
+    }
+    window.addEventListener('vic-chat-updated', onBusinessUpdate)
+    return () => window.removeEventListener('vic-chat-updated', onBusinessUpdate)
+  }, [refreshConversationList, refetchMessages, selectedId])
+
   const onOpenAIConversation = useCallback(async () => {
     setListError('')
     try {
@@ -2065,7 +2075,7 @@ export default function ChatPage() {
               type="button"
               className="chatToolBtn"
               disabled={!selectedId || fileUploading || sending}
-              onClick={() => fileInputRef.current?.click()}
+              onClick={() => nativeRun && currentBusiness()?.task_id === 11 ? setFilesOpen(true) : fileInputRef.current?.click()}
               title="发送文件"
               aria-label="发送文件"
             >

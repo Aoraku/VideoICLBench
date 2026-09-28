@@ -7,6 +7,48 @@ from vic import business
 from vic import teaching, teaching_materials
 
 
+@pytest.mark.parametrize('seed', [*range(12), 999, *range(1000, 1012), 10001])
+def test_chat_files_have_real_sizes_and_distinct_selection_rules(seed):
+    import base64
+    from vic_apps.domain import initialize
+    state = initialize(business.generate(11, seed))
+    items = state['items']
+    assert len({x['file_text'] for x in items}) == 6
+    for item in items:
+        assert item['file_text'].startswith('# ' + item['name'][:-3] + '\n')
+        assert item['name_length'] == len(item['name'])
+        assert item['size'] == len(item['file_text'].encode('utf-8'))
+        assert base64.b64decode(state['domain']['files'][item['id']]['content']) == item['file_text'].encode('utf-8')
+    smallest = min(items, key=lambda x: x['size'])
+    largest = max(items, key=lambda x: x['size'])
+    shortest = min(items, key=lambda x: x['name_length'])
+    assert len({x['id'] for x in (smallest, largest, shortest)}) == 3
+    assert sum(x['name_length'] == shortest['name_length'] for x in items) == 1
+    assert len({x['size'] for x in items}) == 6
+
+
+def test_chat_file_lesson_cannot_be_solved_by_fixed_name_or_absolute_length():
+    episodes = [business.generate(11, seed)['items'] for seed in range(6)]
+    positives, negatives = set(), set()
+    for key, reverse in [('size', False), ('size', True), ('name_length', False)]:
+        winners = [sorted(items, key=lambda x: x[key], reverse=reverse)[0] for items in episodes]
+        assert len({x['name'] for x in winners}) >= 4
+        assert len({next(i for i, x in enumerate(items) if x['id'] == win['id']) for items, win in zip(episodes, winners)}) >= 3
+        if key == 'size':
+            other_sizes = [x['size'] for items, win in zip(episodes, winners) for x in items if x['id'] != win['id']]
+            # No single byte threshold should reproduce the relative choice.
+            assert min(other_sizes) < max(x['size'] for x in winners)
+            assert max(other_sizes) > min(x['size'] for x in winners)
+        if key == 'name_length':
+            positives = {x[key] for x in winners}
+            negatives = {x[key] for items, win in zip(episodes, winners) for x in items if x['id'] != win['id']}
+    assert len(positives) >= 3
+    assert positives & negatives
+    demo_names = {x['name'] for items in episodes for x in items}
+    query_names = {x['name'] for seed in range(1000, 1006) for x in business.generate(11, seed)['items']}
+    assert demo_names.isdisjoint(query_names)
+
+
 @pytest.mark.parametrize('task_id', [19, 20, 23, 24, 29, 30, 33])
 @pytest.mark.parametrize('seed', [0, 1, 2, 999, 1000, 10001])
 def test_news_bodies_follow_titles_and_remain_distinct(task_id, seed):

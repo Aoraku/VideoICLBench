@@ -128,6 +128,20 @@ function message(
 function messages(state, conv) {
   conv = Number(conv);
   if (conv === 2) {
+    if (state.task_id === 11) {
+      return [
+        message(state, 1, "共享资料已放在聊天文件中，请把需要的附件发给我。"),
+        ...state.domain.messages.filter(m => m.sender === "self" && m.attachment).map((m, i) => {
+          const file = state.domain.files[m.attachment];
+          return {
+            ...message(state, 1000 + i, "", 1, 2),
+            type: "file",
+            content: { filename: file.name, size: file.size, mime_type: "text/plain",
+              url: `data:text/plain;base64,${file.content}` },
+          };
+        }),
+      ];
+    }
     const rows = [
       message(
         state,
@@ -163,7 +177,7 @@ function messages(state, conv) {
     : [];
 }
 function conversations(state) {
-  const rows = state.items.map((item, i) => {
+  const rows = (state.task_id === 11 ? [] : state.items).map((item, i) => {
     const object = state.domain.objects[item.id];
     return {
       conversation_id: 10 + i,
@@ -189,7 +203,7 @@ function conversations(state) {
       benchmark_age_days: item.age_days,
     };
   });
-  if ([1, 2, 3, 4, 5, 13].includes(state.task_id))
+  if ([1, 2, 3, 4, 5, 11, 13].includes(state.task_id))
     rows.unshift({
       conversation_id: 2,
       type: "private",
@@ -211,10 +225,10 @@ export async function nativeRequest(path, options = {}) {
     if (/^\/users\/\d+$/.test(p)) return user(state, p.split("/").at(-1));
     if (p === "/friends")
       return pageOf([
-        ...([1, 2, 3, 4, 5, 13].includes(state.task_id)
+        ...([1, 2, 3, 4, 5, 11, 13].includes(state.task_id)
           ? [user(state, 2)]
           : []),
-        ...state.items.map((_, i) => user(state, 10 + i)),
+        ...(state.task_id === 11 ? [] : state.items).map((_, i) => user(state, 10 + i)),
       ]);
     if (p === "/friends/groups")
       return {
