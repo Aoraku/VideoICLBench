@@ -1,0 +1,123 @@
+{
+  "verified_at": "2026-09-28T00:20:21.413034+00:00",
+  "source_commit": "373f9873836f889931e43a142925485b29ec21bf",
+  "image": "sha256:9fc4a06e9fde6504e58eab17fab8f03913269cef74f4eb60cf2189137146dfae",
+  "image_tag": "videoicl-native:teaching-v8",
+  "deployed": true,
+  "services": "healthy",
+  "base_image": "videoicl-native:teaching-v7",
+  "base_validation": "teaching-v7-release.json",
+  "validation": {
+    "full_suite_passed": 945,
+    "failed": 0,
+    "local_ui_versions": 13,
+    "local_multi_episode_lessons": 8,
+    "local_multi_episode_total": 48,
+    "local_batch_runs": 5,
+    "objects_per_batch": 24,
+    "local_evaluation_success": true,
+    "recorded_video": false,
+    "detail": "teaching-commerce-ui-validation.json"
+  },
+  "image_checks": {
+    "files": {
+      "apps/portal/dist/index.html": "21f6f64aa603d8c832f5d95f26e7a08389be847ae952b527e3892d258fd85fc4",
+      "services/control/vic/teaching.py": "3c26fd1e11a6098bc2ea269eff697ceff660200d925a6c013a67e967ca8fbfa7",
+      "tasks/catalog.json": "34a22a99a4b93c9e9b1a00261b23e021eae19019c1157e04efdae1ca12eb9d55"
+    },
+    "minimum_series": {
+      "31": [
+        100,
+        471,
+        236,
+        640,
+        309,
+        154
+      ],
+      "47": [
+        102,
+        469,
+        213,
+        636,
+        322,
+        176
+      ],
+      "51": [
+        93,
+        460,
+        229,
+        635,
+        316,
+        158
+      ]
+    },
+    "installed_source_matches": true
+  },
+  "live_checks": {
+    "source_commit": "373f9873836f889931e43a142925485b29ec21bf",
+    "services": {
+      "http://127.0.0.1:18765": {
+        "status": "ok",
+        "service": "videoicl-control"
+      },
+      "http://127.0.0.1:18766": {
+        "status": "ok",
+        "modules": [
+          "bank",
+          "blog",
+          "chat",
+          "code",
+          "games",
+          "gomoku",
+          "im",
+          "media",
+          "music",
+          "news",
+          "shop",
+          "studio",
+          "travel"
+        ]
+      }
+    },
+    "files": {
+      "index.html": "21f6f64aa603d8c832f5d95f26e7a08389be847ae952b527e3892d258fd85fc4",
+      "/assets/index-BXJCZ3Zi.js": "088130eb88d298395c4ca54216156defef2fa2c7df76aa4319372a8f4c11958b",
+      "/assets/index-BBHTa132.css": "d53667b719ba44c4174e3b56d7f9c5bc911a01d530a631b31ad7735d0490a06d",
+      "/native-assets/news/native.js": "3291689c5559db126edd77a60eb3a10bf38efd7dae656964fe70807f1474c22b",
+      "/native-assets/music/native.js": "8cb513dc186546a0ebbf655a188db42c1798d3379da6a88503922bf21c2659ad"
+    },
+    "verified_at": "2026-09-28T00:20:21.413034+00:00",
+    "native_ui": [
+      {
+        "task_id": 47,
+        "variant": "A",
+        "run_id": "c9a1caf5b4d34a60aa5cabae9b6edad4",
+        "episodes_completed": 1,
+        "total_episodes": 6,
+        "entered_via_homepage": true,
+        "bottom_menu_click_saved": true,
+        "next_episode_homepage": true,
+        "episode_evaluation_success": true,
+        "evidence_sha256": "000095cba8596834da1c42e1921a3dacd8e1232ecfed481e5bdc830aab992cab"
+      },
+      {
+        "task_id": 56,
+        "variant": "A",
+        "run_id": "654cf6d2605e43029f5e168da67fb4c7",
+        "objects": 24,
+        "transfers": 8,
+        "entered_via_homepage": true,
+        "evaluation_success": true,
+        "balance_after_reload": 9575,
+        "duplicate_transfer_disabled": true,
+        "evidence_sha256": "005eea873a0137f0bb515593d01734a30e3a9aada1e90ab36f0ed71231107f62"
+      }
+    ]
+  },
+  "rollback_tags": [
+    "videoicl-control:before-teaching-v8",
+    "videoicl-applications:before-teaching-v8"
+  ],
+  "database_backup_present": true,
+  "remaining_gate": "Complete 75-case native UI/video checks and human rule-inference acceptance; actual capture frames including episode transitions must not contain private rules."
+}

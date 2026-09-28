@@ -1,0 +1,671 @@
+{
+  "scope": "Index of task-specific browser observations recorded in review artifacts. Presence does not imply complete A/B/C coverage, current-version replay, recorded-video verification, or human inference acceptance. Null episode counts mean the source has no explicit episode count.",
+  "task_count": 75,
+  "tasks_with_indexed_browser_evidence": 35,
+  "tasks_without_indexed_browser_evidence": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    19,
+    20,
+    21,
+    23,
+    24,
+    25,
+    26,
+    28,
+    30,
+    32,
+    33,
+    34,
+    35,
+    39,
+    41,
+    43,
+    59,
+    61,
+    62,
+    63,
+    66,
+    67,
+    68,
+    70,
+    73,
+    75
+  ],
+  "cases": [
+    {
+      "task_id": 1,
+      "evidence": [
+        {
+          "file": "teaching-browser-evidence.json",
+          "json_pointer": "/cases/4",
+          "variant": "A",
+          "run_id": "8ec0778802914ec6a5c37c01513bb08a",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 2,
+      "evidence": [
+        {
+          "file": "teaching-text-validation.json",
+          "json_pointer": "/cases/0",
+          "variant": "B",
+          "run_id": "ad792ae39c714feeb1bf8611f8310283",
+          "reported_episode_count": null
+        }
+      ]
+    },
+    {
+      "task_id": 3,
+      "evidence": []
+    },
+    {
+      "task_id": 4,
+      "evidence": []
+    },
+    {
+      "task_id": 5,
+      "evidence": []
+    },
+    {
+      "task_id": 6,
+      "evidence": []
+    },
+    {
+      "task_id": 7,
+      "evidence": []
+    },
+    {
+      "task_id": 8,
+      "evidence": []
+    },
+    {
+      "task_id": 9,
+      "evidence": []
+    },
+    {
+      "task_id": 10,
+      "evidence": []
+    },
+    {
+      "task_id": 11,
+      "evidence": []
+    },
+    {
+      "task_id": 12,
+      "evidence": []
+    },
+    {
+      "task_id": 13,
+      "evidence": []
+    },
+    {
+      "task_id": 14,
+      "evidence": []
+    },
+    {
+      "task_id": 15,
+      "evidence": []
+    },
+    {
+      "task_id": 16,
+      "evidence": []
+    },
+    {
+      "task_id": 17,
+      "evidence": [
+        {
+          "file": "teaching-content-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "C",
+          "run_id": "7de6947d1b004961a2987e39262df690",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 18,
+      "evidence": [
+        {
+          "file": "teaching-content-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "c64194b706a84128a91a787a29b19bae",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 19,
+      "evidence": []
+    },
+    {
+      "task_id": 20,
+      "evidence": []
+    },
+    {
+      "task_id": 21,
+      "evidence": []
+    },
+    {
+      "task_id": 22,
+      "evidence": [
+        {
+          "file": "teaching-browser-evidence.json",
+          "json_pointer": "/cases/0",
+          "variant": null,
+          "run_id": "112772d187b74f12a3807c7f0e1492c4",
+          "reported_episode_count": null
+        }
+      ]
+    },
+    {
+      "task_id": 23,
+      "evidence": []
+    },
+    {
+      "task_id": 24,
+      "evidence": []
+    },
+    {
+      "task_id": 25,
+      "evidence": []
+    },
+    {
+      "task_id": 26,
+      "evidence": []
+    },
+    {
+      "task_id": 27,
+      "evidence": [
+        {
+          "file": "teaching-content-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "A",
+          "run_id": "f2e341a0211e45f7a8098bae2e3f96f2",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 28,
+      "evidence": []
+    },
+    {
+      "task_id": 29,
+      "evidence": [
+        {
+          "file": "teaching-content-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "B",
+          "run_id": "2a2f84c8cb2f4f5c9ccc3c15cc58d9cd",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 30,
+      "evidence": []
+    },
+    {
+      "task_id": 31,
+      "evidence": [
+        {
+          "file": "teaching-content-ui-validation.json",
+          "json_pointer": "/native_ui/5",
+          "variant": "C",
+          "run_id": "23af07d9df234a1581d6b7eefbca52d5",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-commerce-ui-validation.json",
+          "json_pointer": "/native_ui/12",
+          "variant": "A",
+          "run_id": "b88ced90db8c46bda8cc097e29f9d37c",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 32,
+      "evidence": []
+    },
+    {
+      "task_id": 33,
+      "evidence": []
+    },
+    {
+      "task_id": 34,
+      "evidence": []
+    },
+    {
+      "task_id": 35,
+      "evidence": []
+    },
+    {
+      "task_id": 36,
+      "evidence": [
+        {
+          "file": "teaching-content-ui-validation.json",
+          "json_pointer": "/adjacent_task_check",
+          "variant": "A",
+          "run_id": "af402c45675c4094bedacc722a11c49a",
+          "reported_episode_count": null
+        },
+        {
+          "file": "teaching-blog-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "B",
+          "run_id": "7184d17d329d47f98c82d3776de0e4a6",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 37,
+      "evidence": [
+        {
+          "file": "teaching-text-validation.json",
+          "json_pointer": "/cases/1",
+          "variant": "B",
+          "run_id": "239d323425d74c008cabbcc1133f976b",
+          "reported_episode_count": null
+        }
+      ]
+    },
+    {
+      "task_id": 38,
+      "evidence": [
+        {
+          "file": "teaching-blog-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "A",
+          "run_id": "be19da190b6c4e2ebc6b9ac5a5904cc7",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-blog-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "C",
+          "run_id": "3acc0c78baa34bdab045c71a79442c5a",
+          "reported_episode_count": 1
+        }
+      ]
+    },
+    {
+      "task_id": 39,
+      "evidence": []
+    },
+    {
+      "task_id": 40,
+      "evidence": [
+        {
+          "file": "teaching-content-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "A",
+          "run_id": "c2edd0dbc2d34c3282424978bf3644e0",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-blog-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "C",
+          "run_id": "aead69be0f264bb4b321ac77f5225eeb",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 41,
+      "evidence": []
+    },
+    {
+      "task_id": 42,
+      "evidence": [
+        {
+          "file": "teaching-blog-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "C",
+          "run_id": "15c8dae386c94f6589d9d63e65fa41e9",
+          "reported_episode_count": 1
+        }
+      ]
+    },
+    {
+      "task_id": 43,
+      "evidence": []
+    },
+    {
+      "task_id": 44,
+      "evidence": [
+        {
+          "file": "teaching-commerce-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "C",
+          "run_id": "68cc215d12dd441a928fcf52da49a091",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 45,
+      "evidence": [
+        {
+          "file": "teaching-commerce-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "A",
+          "run_id": "2bfa1d7dbbb94c18b3ea0877569af82d",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 46,
+      "evidence": [
+        {
+          "file": "teaching-commerce-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "C",
+          "run_id": "b404f908e9114694825a10e164e867dc",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 47,
+      "evidence": [
+        {
+          "file": "teaching-commerce-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "A",
+          "run_id": "c9533e0aa4834305955e8cc0164b7ac7",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 48,
+      "evidence": [
+        {
+          "file": "teaching-commerce-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "B",
+          "run_id": "34e1a0b123c6463aa485ff646c2dc868",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-commerce-ui-validation.json",
+          "json_pointer": "/native_ui/11",
+          "variant": "C",
+          "run_id": "eb25d3d1a3b3400c93391e405925b2b4",
+          "reported_episode_count": 1
+        }
+      ]
+    },
+    {
+      "task_id": 49,
+      "evidence": [
+        {
+          "file": "teaching-commerce-ui-validation.json",
+          "json_pointer": "/native_ui/5",
+          "variant": "C",
+          "run_id": "a39bdb326cd94caeab3577585041075f",
+          "reported_episode_count": 1
+        }
+      ]
+    },
+    {
+      "task_id": 50,
+      "evidence": [
+        {
+          "file": "teaching-commerce-ui-validation.json",
+          "json_pointer": "/native_ui/6",
+          "variant": "C",
+          "run_id": "4b6df15cad814892b1053fb7518d705f",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 51,
+      "evidence": [
+        {
+          "file": "teaching-commerce-ui-validation.json",
+          "json_pointer": "/native_ui/7",
+          "variant": "C",
+          "run_id": "eebb1efa80944d8598b644e82944d9ff",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 52,
+      "evidence": [
+        {
+          "file": "teaching-commerce-ui-validation.json",
+          "json_pointer": "/native_ui/8",
+          "variant": "C",
+          "run_id": "200de47c2e4b4e02ad7d4d2d162827fe",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 53,
+      "evidence": [
+        {
+          "file": "teaching-browser-evidence.json",
+          "json_pointer": "/cases/1",
+          "variant": null,
+          "run_id": "b792d5f299534158b699848f1134eae1",
+          "reported_episode_count": null
+        }
+      ]
+    },
+    {
+      "task_id": 54,
+      "evidence": [
+        {
+          "file": "teaching-commerce-ui-validation.json",
+          "json_pointer": "/native_ui/9",
+          "variant": "A",
+          "run_id": "28f96935cbfb438aa049e8de9f377847",
+          "reported_episode_count": 1
+        }
+      ]
+    },
+    {
+      "task_id": 55,
+      "evidence": [
+        {
+          "file": "teaching-browser-evidence.json",
+          "json_pointer": "/cases/2",
+          "variant": null,
+          "run_id": "aebbbc3097a1477d9fd6aaee49863a6c",
+          "reported_episode_count": null
+        }
+      ]
+    },
+    {
+      "task_id": 56,
+      "evidence": [
+        {
+          "file": "teaching-commerce-ui-validation.json",
+          "json_pointer": "/native_ui/10",
+          "variant": "A",
+          "run_id": "e1c8772bdf03418580f49f33501ee044",
+          "reported_episode_count": 1
+        }
+      ]
+    },
+    {
+      "task_id": 57,
+      "evidence": [
+        {
+          "file": "teaching-browser-evidence.json",
+          "json_pointer": "/cases/3",
+          "variant": null,
+          "run_id": "f5b9d9ad627b40119f27e15f70be9420",
+          "reported_episode_count": null
+        }
+      ]
+    },
+    {
+      "task_id": 58,
+      "evidence": [
+        {
+          "file": "teaching-browser-evidence.json",
+          "json_pointer": "/cases/5",
+          "variant": "C",
+          "run_id": "a92e74ce56074cb7aea2fa09c5d63f8c",
+          "reported_episode_count": null
+        },
+        {
+          "file": "teaching-resource-validation.json",
+          "json_pointer": "/oj/ui",
+          "variant": null,
+          "run_id": "a92e74ce56074cb7aea2fa09c5d63f8c",
+          "reported_episode_count": null
+        }
+      ]
+    },
+    {
+      "task_id": 59,
+      "evidence": []
+    },
+    {
+      "task_id": 60,
+      "evidence": [
+        {
+          "file": "teaching-recording-guidance-validation.json",
+          "json_pointer": "/",
+          "variant": "B",
+          "run_id": "fe625644ef19499ca4ca22626bc98f6a",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 61,
+      "evidence": []
+    },
+    {
+      "task_id": 62,
+      "evidence": []
+    },
+    {
+      "task_id": 63,
+      "evidence": []
+    },
+    {
+      "task_id": 64,
+      "evidence": [
+        {
+          "file": "teaching-text-validation.json",
+          "json_pointer": "/cases/2",
+          "variant": "C",
+          "run_id": "c78d76b3ab5d422d92e2a60cfccb4cbf",
+          "reported_episode_count": null
+        }
+      ]
+    },
+    {
+      "task_id": 65,
+      "evidence": [
+        {
+          "file": "teaching-batch-materials-validation.json",
+          "json_pointer": "/native_ui",
+          "variant": "A",
+          "run_id": "83a444cff9884591befe25d96d1d6ef1",
+          "reported_episode_count": null
+        }
+      ]
+    },
+    {
+      "task_id": 66,
+      "evidence": []
+    },
+    {
+      "task_id": 67,
+      "evidence": []
+    },
+    {
+      "task_id": 68,
+      "evidence": []
+    },
+    {
+      "task_id": 69,
+      "evidence": [
+        {
+          "file": "teaching-game-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "B",
+          "run_id": "5bedf690de384562b3a95c751202dd50",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 70,
+      "evidence": []
+    },
+    {
+      "task_id": 71,
+      "evidence": [
+        {
+          "file": "teaching-game-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "C",
+          "run_id": "95a0e8204363496480a1b56a53471434",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 72,
+      "evidence": [
+        {
+          "file": "teaching-game-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "C",
+          "run_id": "5606a8bfb8a54380a87be50c6c6fb89a",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 73,
+      "evidence": []
+    },
+    {
+      "task_id": 74,
+      "evidence": [
+        {
+          "file": "teaching-game-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "A",
+          "run_id": "dce02e2645ee4b78885b7666a03eef6d",
+          "reported_episode_count": 6
+        }
+      ]
+    },
+    {
+      "task_id": 75,
+      "evidence": []
+    }
+  ]
+}

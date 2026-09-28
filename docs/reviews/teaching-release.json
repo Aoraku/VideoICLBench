@@ -1,60 +1,42 @@
 {
-  "verified_at": "2026-09-28T00:20:21.413034+00:00",
-  "source_commit": "373f9873836f889931e43a142925485b29ec21bf",
-  "image": "sha256:9fc4a06e9fde6504e58eab17fab8f03913269cef74f4eb60cf2189137146dfae",
-  "image_tag": "videoicl-native:teaching-v8",
+  "verified_at": "2026-09-28T00:37:07.773646+00:00",
+  "source_commit": "79fc2e5b105c1f079e90920a044535f3228838e6",
+  "image": "sha256:72c743e26b8230c0859b065c566324211d2a105557bf8c27f8f6e5376cafa5c4",
+  "image_tag": "videoicl-native:teaching-v9",
   "deployed": true,
   "services": "healthy",
-  "base_image": "videoicl-native:teaching-v7",
-  "base_validation": "teaching-v7-release.json",
+  "base_image": "videoicl-native:teaching-v8",
+  "base_validation": "teaching-v8-release.json",
   "validation": {
-    "full_suite_passed": 945,
+    "full_suite_passed": 973,
     "failed": 0,
-    "local_ui_versions": 13,
-    "local_multi_episode_lessons": 8,
-    "local_multi_episode_total": 48,
-    "local_batch_runs": 5,
+    "local_ui_versions": 5,
+    "local_multi_episode_lessons": 2,
+    "local_multi_episode_total": 12,
+    "local_batch_runs": 3,
     "objects_per_batch": 24,
     "local_evaluation_success": true,
     "recorded_video": false,
-    "detail": "teaching-commerce-ui-validation.json"
+    "detail": "teaching-blog-ui-validation.json"
   },
   "image_checks": {
     "files": {
-      "apps/portal/dist/index.html": "21f6f64aa603d8c832f5d95f26e7a08389be847ae952b527e3892d258fd85fc4",
-      "services/control/vic/teaching.py": "3c26fd1e11a6098bc2ea269eff697ceff660200d925a6c013a67e967ca8fbfa7",
-      "tasks/catalog.json": "34a22a99a4b93c9e9b1a00261b23e021eae19019c1157e04efdae1ca12eb9d55"
+      "apps/portal/dist/index.html": "cafbf60b1d78283df91f8504b23a782c3c10e18785f21f9444a235bdf020cf79",
+      "services/control/vic/business.py": "c1a595faef45f7e195e5840bca5fbe8794c087d0dc69c553b822e088d2626649",
+      "services/control/vic/teaching.py": "6abb2755bd253ac3a577f001b4b5794909acc8605e8fd6d23b08e7b32dc79b62",
+      "services/control/vic/teaching_materials.py": "013326b208e687bed4a89ae03ad3659610920f8c60c868e4c5c37e2b9c637983",
+      "tasks/catalog.json": "8b99b7b7268b1a8c078db7f20e7841f3c5f07c212c78d41045c1837220f69ec7"
     },
-    "minimum_series": {
-      "31": [
-        100,
-        471,
-        236,
-        640,
-        309,
-        154
-      ],
-      "47": [
-        102,
-        469,
-        213,
-        636,
-        322,
-        176
-      ],
-      "51": [
-        93,
-        460,
-        229,
-        635,
-        316,
-        158
-      ]
+    "body_count_checks": {
+      "36": true,
+      "38": true,
+      "40": true,
+      "42": true
     },
     "installed_source_matches": true
   },
   "live_checks": {
-    "source_commit": "373f9873836f889931e43a142925485b29ec21bf",
+    "source_commit": "79fc2e5b105c1f079e90920a044535f3228838e6",
     "services": {
       "http://127.0.0.1:18765": {
         "status": "ok",
@@ -80,43 +62,44 @@
       }
     },
     "files": {
-      "index.html": "21f6f64aa603d8c832f5d95f26e7a08389be847ae952b527e3892d258fd85fc4",
-      "/assets/index-BXJCZ3Zi.js": "088130eb88d298395c4ca54216156defef2fa2c7df76aa4319372a8f4c11958b",
+      "index.html": "cafbf60b1d78283df91f8504b23a782c3c10e18785f21f9444a235bdf020cf79",
+      "/assets/index-BjDTHAch.js": "4461c5ce0dd2697c728d8cd2cbd54def68a1d7fc6b1ae70d9a373339e3658453",
       "/assets/index-BBHTa132.css": "d53667b719ba44c4174e3b56d7f9c5bc911a01d530a631b31ad7735d0490a06d",
       "/native-assets/news/native.js": "3291689c5559db126edd77a60eb3a10bf38efd7dae656964fe70807f1474c22b",
       "/native-assets/music/native.js": "8cb513dc186546a0ebbf655a188db42c1798d3379da6a88503922bf21c2659ad"
     },
-    "verified_at": "2026-09-28T00:20:21.413034+00:00",
+    "verified_at": "2026-09-28T00:37:07.773646+00:00",
     "native_ui": [
       {
-        "task_id": 47,
+        "task_id": 38,
         "variant": "A",
-        "run_id": "c9a1caf5b4d34a60aa5cabae9b6edad4",
+        "run_id": "3e536e4a886748a1a2dbe83d8abf90d4",
+        "objects": 24,
+        "labeled": 10,
+        "entered_via_homepage": true,
+        "all_visible_counts_match_bodies": true,
+        "fifty_character_post_remains_unlabeled": true,
+        "evaluation_success": true,
+        "evidence_sha256": "5180850a868793818aaf9cc1999e59ec8b914ee550043c8e5cc96f0d93fd1e19"
+      },
+      {
+        "task_id": 40,
+        "variant": "C",
+        "run_id": "3d817c69f5c84997a764db6ec75fa3c1",
         "episodes_completed": 1,
         "total_episodes": 6,
         "entered_via_homepage": true,
-        "bottom_menu_click_saved": true,
+        "selected_title": "公交车窗外",
+        "actual_body_length": 37,
         "next_episode_homepage": true,
         "episode_evaluation_success": true,
-        "evidence_sha256": "000095cba8596834da1c42e1921a3dacd8e1232ecfed481e5bdc830aab992cab"
-      },
-      {
-        "task_id": 56,
-        "variant": "A",
-        "run_id": "654cf6d2605e43029f5e168da67fb4c7",
-        "objects": 24,
-        "transfers": 8,
-        "entered_via_homepage": true,
-        "evaluation_success": true,
-        "balance_after_reload": 9575,
-        "duplicate_transfer_disabled": true,
-        "evidence_sha256": "005eea873a0137f0bb515593d01734a30e3a9aada1e90ab36f0ed71231107f62"
+        "evidence_sha256": "a8e3dcbfad1407208aaf684fbc373cc89b7d188365dd13af70e38a3d72255c68"
       }
     ]
   },
   "rollback_tags": [
-    "videoicl-control:before-teaching-v8",
-    "videoicl-applications:before-teaching-v8"
+    "videoicl-control:before-teaching-v9",
+    "videoicl-applications:before-teaching-v9"
   ],
   "database_backup_present": true,
   "remaining_gate": "Complete 75-case native UI/video checks and human rule-inference acceptance; actual capture frames including episode transitions must not contain private rules."
