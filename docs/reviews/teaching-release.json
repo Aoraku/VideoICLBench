@@ -1,15 +1,16 @@
 {
-  "verified_at": "2026-09-28T04:56:06.826298+00:00",
-  "source_commit": "b8798b6f164b6632e0cce7606138a2fb9e63ee4e",
-  "image": "sha256:1f5ad5bf4b86f5e1647a8effcc06b061ac861a7fe22609734b80b57b2d4d62cd",
-  "image_tag": "videoicl-native:teaching-v17.2",
+  "verified_at": "2026-09-28T05:45:20.039911+00:00",
+  "source_commit": "d1154f6b13e92508310bb4169dfc91df175834da",
+  "image": "sha256:a7dc6f41f1724389d97a9ab5f9f75b43cd4992fe5072c97e80831f21b39d96e1",
+  "image_tag": "videoicl-native:teaching-v18",
   "deployed": true,
   "services": "healthy",
-  "base_validation": "teaching-v17.1-release.json",
+  "base_validation": "teaching-v17.2-release.json",
   "validation": {
-    "full_suite_passed": 1251,
+    "full_suite_passed": 1253,
     "failed": 0,
-    "ci_url": "https://github.com/Aoraku/VideoICLBench/actions/runs/36378766373",
+    "local_suite_seconds": 125.738,
+    "ci_url": "https://github.com/Aoraku/VideoICLBench/actions/runs/36381576863",
     "ci_conclusion": "success",
     "ci_diagnostic_task_variants": 225,
     "ci_native_tasks": [
@@ -34,101 +35,82 @@
       "B",
       "C"
     ],
+    "ci_oj_tasks": [
+      61,
+      62,
+      63
+    ],
+    "ci_oj_variants": [
+      "A",
+      "B",
+      "C"
+    ],
     "ci_pixel_recording_smoke": true,
     "human_recording_verified": false,
-    "local_music": "teaching-music-ui-validation.json",
-    "local_oj_text": "teaching-oj-text-ui-validation.json",
-    "local_oj_results": "teaching-oj-results-ui-validation.json"
+    "game_lessons": "teaching-games-additional-ui-validation.json",
+    "oj_problems": "teaching-oj-problems-ui-validation.json"
   },
   "image_checks": {
     "files": {
-      "services/control/vic/business.py": "13372ab952cf6f8cd42b03683dab57c97ab3fe0066a15e618e19253fa70291ed",
-      "services/control/vic/teaching.py": "4c21e7714e0e52cebc3c0059dc852108c6096613cd8e51d8d1f0975bccaed1ac",
-      "tasks/catalog.json": "a3529f4db487dd9eb1b4989e014f92b22e7157d7924d55b447cc15540d598975",
-      "tasks/contracts/015.json": "106caad75e914df074393d6efea3720e6c69fc9190f496cfbf91c029054d1eeb",
-      "tasks/contracts/016.json": "5dea528431708de6d302905e4c20624108217644c848e62cd18f7997a907b9ef",
-      "tasks/contracts/012.json": "13287e20c87948ae0b64fd9dd5ce8d0497f8735055cb360d2d859fedb7762e1a",
-      "tasks/contracts/028.json": "83e117c12d579650e8f1b292078e2b4dfa80674dc61a7deac445365312118871",
-      "tasks/contracts/035.json": "b9596b848c47c3b15a50b069846aea9a31f36297e8490bfe5bef33eee0e2636e",
-      "tasks/contracts/032.json": "a8fccfcfd08dab1570b1f4227a630f2ef9d9f6500f4ae0cc7a30e300fc256273",
-      "apps/im/Frontend/out/group_build.html": "f03f802148c459b2a5320f7f2da62f2b361e0844dfa8c2885c91a6e50d2d0061",
-      "apps/im/Frontend/out/vercel.svg": "c0fbce0cd5cd0d3c7b88981acd068d13b961460bb94d3c4ba4a0ec5c28051fd1",
-      "apps/im/Frontend/out/login.html": "ea56d1c55799da73cd97bf0e3f151952260ee325ba80b1d05f97ddac4b52b3b4",
-      "apps/im/Frontend/out/index.html": "c0b18a227230cdc83ff9f851bd5e34f79ac7ddbf815fc6e03dfdaf795e83f9d7",
-      "apps/im/Frontend/out/message_select.html": "4d2c07f80eb32a452c0036df13509dd22f4e20277b4ce7f60d3fac3513965546",
-      "apps/im/Frontend/out/404.html": "ebc15b587729c31e0864437a0981148ff77d5bcdd2ba2179f79db0e414663b1f",
-      "apps/im/Frontend/out/profile.html": "d634b217a85e6fd32122176100ff0264d8ef20c48fc232a220fe7a76c5e72981",
-      "apps/im/Frontend/out/add_friend.html": "2b457f96b25481a2ba792489cec81cc2119908f61e1dd1bf5f9385d913306584",
-      "apps/im/Frontend/out/favicon.ico": "2b8ad2d33455a8f736fc3a8ebf8f0bdea8848ad4c0db48a2833bd0f9cd775932",
-      "apps/im/Frontend/out/list.html": "95412fe122d0955248830db7bd91b5a8d90fbbd6f0d6f1c98ff1dd0c8c8a549f",
-      "apps/im/Frontend/out/friends.html": "f63ddbe0d3410993d197f80b21046535ef437add2f0e104aa8a7612897b34498",
-      "apps/im/Frontend/out/_next/static/chunks/framework-720ca6621891fbd6.js": "a38a517c0cde748956ff360f06bb811b235d283306f1e4d4548682bf489da004",
-      "apps/im/Frontend/out/_next/static/chunks/199-d03b68458389da01.js": "486e733bc2a39400fa0581516d4e66dd62cee491149dee8ab6ee852a6e5fb709",
-      "apps/im/Frontend/out/_next/static/chunks/9-e6bbca27147522b7.js": "36a695c01b92b6b5ae7448e2a98a44890cdcecba1bf9fd01a416f88b20724caa",
-      "apps/im/Frontend/out/_next/static/chunks/974-f135f73a0d5841b7.js": "a30b44383d4c3abd35e01fb310b21491bf0743bdc37020d3fb72757416eee27e",
-      "apps/im/Frontend/out/_next/static/chunks/697-008686db14e3ec0f.js": "74437d66b3eda8d599d81ad6146ab1826fe12e548b472edd4643f5b452b9a549",
-      "apps/im/Frontend/out/_next/static/chunks/polyfills-42372ed130431b0a.js": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
-      "apps/im/Frontend/out/_next/static/chunks/939-1bd7e77482cfd29e.js": "4a7475c548cb32df63b5f4d5b4ca91f2b4d13a982287f5c1510fec61be744186",
-      "apps/im/Frontend/out/_next/static/chunks/854-62e7b8ad1ae06ca9.js": "af5aee22a723a6674efd9484646a127cbf8df9f090d91382b32c09efaf514b67",
-      "apps/im/Frontend/out/_next/static/chunks/787-a5308a78f58f6318.js": "bb0626872cab099aa71ff1e49ca9c30283b8a0d8e2c38aaa41844faf4a845f37",
-      "apps/im/Frontend/out/_next/static/chunks/973-56844b9bb8b26b95.js": "552fbf82db1d17fc4c9fc9b57222f8f292feb7a8851f9da55b54674e99158d84",
-      "apps/im/Frontend/out/_next/static/chunks/main-53ad37a38258ee5a.js": "dac615015b4828e19e7d7af75fb75c8aafb6d879e85e06e4ddeb6a01d0d220e0",
-      "apps/im/Frontend/out/_next/static/chunks/610-7f51f36178ac7daf.js": "7c02a0dbed90629ded6163477ef5ae37f282f604da3a644ee2599b5d82edda63",
-      "apps/im/Frontend/out/_next/static/chunks/114-329af24043660f14.js": "dbd6fa42a3d007381c36fd333eb55c28b6e0d940a216319bb19e2ae63e7a8a9c",
-      "apps/im/Frontend/out/_next/static/chunks/191-55502f96fc8eab4e.js": "2cb87e4f1cc22fcc4ae44ab25bf1781b6213e56fedc0e87451eba588e0b1f34e",
-      "apps/im/Frontend/out/_next/static/chunks/webpack-8e0759c99321fced.js": "26bcf756ccafd794a7faa799632598f301306c351df0234a5d6914cc8bbdd127",
-      "apps/im/Frontend/out/_next/static/chunks/319-4fdd444513163a9b.js": "c7772768fbd989484469c8548c8c8f372d63946a8764506fb59f6fc55f4de9d0",
-      "apps/im/Frontend/out/_next/static/chunks/954-e76afb37812f0863.js": "326d447341e3832f724accdf5aa672de55741fb13c9d4a5f6fe3c57ce4a52015",
-      "apps/im/Frontend/out/_next/static/chunks/43-210fee5150c3b933.js": "d46e6c2ed6d9b823d62fe85b88bbefb06607db94d93d5ba3038142e931c2e6b4",
-      "apps/im/Frontend/out/_next/static/chunks/503-6d7cac02c065e6c4.js": "3dd5e1e233998733cd2fbdbc7c832a55027661243fb04cad4d1f25799b999ac8",
-      "apps/im/Frontend/out/_next/static/chunks/154-137ccd700be22cdf.js": "b00d587a46c65bee9315aa16aabc5f1b035459fc7e6d9a7b7f4173090648803c",
-      "apps/im/Frontend/out/_next/static/css/27d177a30947857b.css": "a634be59afb8f7b0d775c9521c40fe005bcbb176f1fcfdf3ad7e25d0c91d6741",
-      "apps/im/Frontend/out/_next/static/UYfPYDicHU-iuXxrywmnr/_ssgManifest.js": "6f5b4aa00d2f8d6aed9935b471806bf7acef464d0c1d390260e5fe27f800c67e",
-      "apps/im/Frontend/out/_next/static/UYfPYDicHU-iuXxrywmnr/_buildManifest.js": "d97f89a2ae0c81e77dc55fc067bbdff904333cf698eed5f3284f78b91646eb76",
-      "apps/im/Frontend/out/_next/static/chunks/pages/index-c052cc1380cec373.js": "8b7a410bff6a9c1415ef23f608f05a1013370601b4eea4d8c8ee8f02d676e3f0",
-      "apps/im/Frontend/out/_next/static/chunks/pages/_error-77de0cfaf8a1c5d4.js": "bd8d3c9f1c3799229de98d033f4ad6d6a5c8302574f698d5b04ded8fe73fd55d",
-      "apps/im/Frontend/out/_next/static/chunks/pages/list-7717b9980dd981fe.js": "591320e134807fa0383e89dbd107546d6d405782b19451a7aa312b5ad685d586",
-      "apps/im/Frontend/out/_next/static/chunks/pages/add_friend-dcb3270d806378d2.js": "d6f059374bb01c14e7601efd3374cfc7e84d21cd6f690fc53d7952881eef7a4f",
-      "apps/im/Frontend/out/_next/static/chunks/pages/_app-418ba7f219862daf.js": "be311a57e8d1f8f9d336fcf186fa67c07789d80ae14be0d68652d36472377b98",
-      "apps/im/Frontend/out/_next/static/chunks/pages/friends-3a33bc06cfc0bf74.js": "64029612befb341b455010eb30dca334fbe8ad5cd1d4e8cbc4c7d51f64e408b3",
-      "apps/im/Frontend/out/_next/static/chunks/pages/login-c9ecb72462084477.js": "1aa6c13a729c78d96712d1178450ed62a3b6affdf7b82ee8bb23205c7f5aede0",
-      "apps/im/Frontend/out/_next/static/chunks/pages/group_build-fd8ab926a47e37af.js": "5a9aec5a4f5f3ae4fe3c3bd5f619e1d9ed4a5f547e25d34c54f5da3b3fcfa3d4",
-      "apps/im/Frontend/out/_next/static/chunks/pages/profile-561fd9fe48d0d9eb.js": "6f40942be3035422ec06c6024b8834660e2920c568f19c9c57ee1dab5069414e",
-      "apps/im/Frontend/out/_next/static/chunks/pages/message_select-43720f64e3f80e16.js": "e704cb1ae2cbe259958b5678d59d164e50299d6a55d33728bb0e1f371ba239f1"
+      "services/control/vic/games.py": "08d5f72047a02293675f0de4567b4fd967b7f3afacde511b3e5d89eab2605be0",
+      "services/control/vic/lessons.py": "e655ee611dc40c6ac167a4a6ef8b4568dfa38f47ea135a0a1ef2859948536514",
+      "apps/code/app/frontend.py": "46bed5e821bfb08bec5720fa3dd797027526e0848a402bd4c458a137f0f4a852",
+      "tasks/catalog.json": "cd2f19eea1f363410f1db1b7d4cbee2ebc6d7b2bed6cc91694ef86158f515f30",
+      "tasks/contracts/063.json": "8427e0864c545f42449dcebf23b213b8001e7284c07acc83eda0981b9c582948",
+      "tasks/contracts/066.json": "e4030deebd17dda97339bb62ff424f2dd5a3cbce41ec159030c388c425c32e65",
+      "tasks/contracts/067.json": "1cc24e9f6f96e49a134d0b8cb24263c34375d99a5b49b7689d496f8f52075d72"
     },
-    "group_cutoff_fixtures": true,
+    "no_initial_gomoku_winner": true,
     "installed_source_matches": true
   },
   "live_checks": {
     "services_healthy": true,
     "native_ui": [
       {
-        "task_id": 32,
-        "variant": "C",
-        "mode": "eval",
-        "run_id": "9a805862aa9b40c58a3a33249e667667",
+        "task_id": 67,
+        "variant": "A",
+        "mode": "demo",
+        "run_id": "2de89c5378bf4886bb07426633a19795",
+        "epoch": 1,
+        "episode_count": 6,
         "all_actions_via_browser": true,
-        "source_objects": 6,
-        "selected_count": 3,
-        "refresh_verified": true,
         "evaluation_success": true,
-        "evidence_ref": "/v1/runs/9a805862aa9b40c58a3a33249e667667/evidence",
-        "sha256": "254d7a5f2803930eeebdf464499409cde551718502faa47379ff4ffde135c3ac"
+        "evidence_report": "teaching-games-additional-ui-validation.json"
+      },
+      {
+        "task_id": 63,
+        "variant": "A",
+        "mode": "eval",
+        "run_id": "9c5ebfda5ecb4564b150161c90d6b12b",
+        "all_actions_via_browser": true,
+        "visible_problem_numbers": [
+          267,
+          201,
+          239,
+          183,
+          214,
+          217
+        ],
+        "selected_number": 183,
+        "selected_position": 4,
+        "evaluation_success": true,
+        "evidence_ref": "/v1/runs/9c5ebfda5ecb4564b150161c90d6b12b/evidence",
+        "sha256": "49a718397d14a4e184248fe88f8e089b6b416d6c5d7450739f8351e349bee23c"
       }
     ]
   },
   "backup": {
-    "database": "/home/qingle/services/videoicl/.local/pre-teaching-v17.2-database.sql",
+    "database": "/home/qingle/services/videoicl/.local/pre-teaching-v18-database.sql",
     "mode": "600",
-    "size": 5047652,
+    "size": 5075410,
     "rollback_images": [
-      "videoicl-control:before-teaching-v17.2",
-      "videoicl-applications:before-teaching-v17.2"
+      "videoicl-control:before-teaching-v18",
+      "videoicl-applications:before-teaching-v18"
     ]
   },
   "limitations": [
-    "Captured human getDisplayMedia frames and human inference acceptance across all 75 cases are pending.",
-    "67 indexed tasks does not imply complete current-version A/B/C or full video acceptance.",
-    "Tasks without indexed browser evidence: 62,63,66,67,68,70,73,75."
+    "75 indexed tasks does not imply complete current-version A/B/C or full video acceptance.",
+    "Captured human getDisplayMedia frames remain unverified; native UI access reported the Mac locked during the capture check.",
+    "Human inference acceptance across all 75 cases remains pending."
   ]
 }

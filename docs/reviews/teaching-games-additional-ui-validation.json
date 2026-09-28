@@ -104,8 +104,25 @@
       "environment": "agentlab shared SDL desktop",
       "task_version": "3.0.0",
       "limitations": [
-        "Task 3.0.1 still requires replay after deployment."
-      ]
+        "Native browser replay is for task version 3.0.0, epoch 0; task version 3.0.1 has identical boards, candidates and colors for these six seeds."
+      ],
+      "current_fixture_comparison": {
+        "task_version": "3.0.1",
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "fields": [
+          "board",
+          "candidates",
+          "color"
+        ],
+        "identical": true
+      }
     },
     {
       "task_id": 68,
@@ -1288,6 +1305,92 @@
       "evaluation_success": true,
       "evaluation_sha256": "1677744068a23567b6dbe24aff45453ffcc9566d7d562bf3360fa3f610f316cd",
       "environment": "local native web product"
+    },
+    {
+      "task_id": 67,
+      "variant": "A",
+      "run_id": "2de89c5378bf4886bb07426633a19795",
+      "epoch": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": [
+            1,
+            4
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "b836d16cac5a562408ce14ab79bbf2c36cbe7f3bbf2a54c4aecd1fc479909de7"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": [
+            1,
+            4
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "45ebd7fd48745debb3097e4c2e31f2e369e0f37fabd80502af2ba3f978dd089f"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": [
+            1,
+            4
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "4d69e275912beb3ec946c2c8ae269c3f2bdeeefa913b594e0b4def86c1765e36"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": [
+            12,
+            3
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "f10c76ab8c10b348b177512f90672910863c5723878ec3c1ab0bde30ed56f06e"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": [
+            1,
+            4
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "8963c6f0cdf4a3f6315bb6fbd26b65c9caa6bae5915bec1c24b9b8ffc7c31d7a"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": [
+            13,
+            4
+          ],
+          "marks": [],
+          "moves": [],
+          "score": 0,
+          "sha256": "10baef30dfcc15f02e85d4106128cba667b5d2949ed38f7fd077761a61355313"
+        }
+      ],
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "2e7c4849dd5302bfe82b67a8de6b84fbb76955f77fb8a5c214abaada918228ea",
+      "environment": "agentlab shared SDL desktop",
+      "task_version": "3.0.1"
     }
   ],
   "fixture_regressions": {

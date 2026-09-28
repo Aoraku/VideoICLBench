@@ -81,7 +81,7 @@
 
 - [共享服务部署验证](teaching-release.json)：运行镜像、前端文件一致性、六组练习切换、旧凭证隔离与音乐资源读取。
 
-- [五子棋、2048 与数独操作](teaching-games-additional-ui-validation.json)：第 66 题 C 的 SDL 棋盘六组标记，第 68 题 A／B／C 的六组移动与可见得分，第 70、73、75 题 A／B／C 的六组候选数标记、旗标、执子颜色、棋子翻转与逐组判分。
+- [五子棋、2048 与数独操作](teaching-games-additional-ui-validation.json)：第 66 题 C 的 SDL 棋盘六组标记、第 67 题 A 的六组原生落子，第 68 题 A／B／C 的六组移动与可见得分，第 70、73、75 题 A／B／C 的六组候选数标记、旗标、执子颜色、棋子翻转与逐组判分。
 
 ## 连续录制协议
 

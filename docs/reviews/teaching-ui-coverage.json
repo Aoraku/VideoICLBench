@@ -1,10 +1,8 @@
 {
   "scope": "Index of task-specific browser observations recorded in review artifacts. Presence does not imply complete A/B/C coverage, current-version replay, recorded-video verification, or human inference acceptance. Null episode counts mean the source has no explicit episode count.",
   "task_count": 75,
-  "tasks_with_indexed_browser_evidence": 74,
-  "tasks_without_indexed_browser_evidence": [
-    67
-  ],
+  "tasks_with_indexed_browser_evidence": 75,
+  "tasks_without_indexed_browser_evidence": [],
   "cases": [
     {
       "task_id": 1,
@@ -1248,7 +1246,16 @@
     },
     {
       "task_id": 67,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-games-additional-ui-validation.json",
+          "json_pointer": "/native_ui/13",
+          "variant": "A",
+          "run_id": "2de89c5378bf4886bb07426633a19795",
+          "epoch": 1,
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 68,
