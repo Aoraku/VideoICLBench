@@ -93,6 +93,8 @@ GET  /v1/runs/{run_id}/evidence
 
 [逐题应用与评测索引](docs/task-evaluation-map.md) 汇总全部任务、规则与读取字段。逐题契约位于 `tasks/contracts/001.json` 至 `100.json`。系统题返回明确的未接入错误，不生成模拟成功结果。
 
+任务定义由 `VideoICL_100_tasks.md` 和 `tasks/catalog-overrides.json` 共同生成。审阅后的规则、版本及参数写入 overrides；`original_rules` 保留清单原文，问答答案与生效规则一致。运行 `python scripts/build_catalog.py && python scripts/build_contracts.py && python scripts/build_app_modules.py` 生成目录、契约及应用索引，并将输入与生成文件一起提交。CI 校验这些文件可重复生成。
+
 ## 验证
 
 ```bash
