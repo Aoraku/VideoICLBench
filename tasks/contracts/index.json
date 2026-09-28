@@ -7010,7 +7010,7 @@
     {
       "schema_version": 1,
       "task_id": 74,
-      "task_version": "3.0.0",
+      "task_version": "3.1.0",
       "title": "黑白棋：选择落子位置",
       "app": "games",
       "type": "S",

@@ -8,6 +8,7 @@ from vic.games import (
     move_2048,
     reversi_moves,
     reversi_move,
+    reversi_flips,
     stopping_paths,
     sudoku_candidates,
 )
@@ -33,6 +34,23 @@ def test_reversi_opening_and_illegal_move():
     assert moved[3][3] == 1 and board[3][3] == 2
     with pytest.raises(ValueError):
         reversi_move(board, 0, 0, 1)
+
+
+@pytest.mark.parametrize('base_seed', [0, 10, 20, 1000])
+def test_reversi_relative_minima_cannot_be_replaced_by_fixed_count_or_threshold(base_seed):
+    states = [fixture(74, seed) for seed in range(base_seed, base_seed + 6)]
+    selected, other = [], []
+    for state in states:
+        board, color = state['board'], state['color']
+        assert set(state['candidates']) == set(reversi_moves(board, color))
+        counts = [len(reversi_flips(board, *p, color)) for p in state['candidates']]
+        selected.append(min(counts))
+        other.extend(n for n in counts if n != min(counts))
+        assert len({expected(74, v, state) for v in 'ABC'}) == 3
+        chosen = expected(74, 'C', state)
+        assert len(reversi_flips(board, *chosen, color)) == min(counts)
+    assert len(set(selected)) >= 3
+    assert max(selected) >= min(other)
 
 
 def test_sudoku_row_column_and_box():

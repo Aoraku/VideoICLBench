@@ -124,6 +124,16 @@ def inspect_lesson(task, base_seed):
                 risks.append('spatially_concentrated_mines_candidates')
         if task_id in (74,75):
             report['player_colors'] = [state['color'] for state in states]
+        if task_id == 74:
+            counts = [[len(games.reversi_flips(state['board'], *p, state['color']))
+                       for p in state['candidates']] for state in states]
+            minima = [min(row) for row in counts]
+            report['reversi_flip_counts'] = counts
+            report['reversi_minima'] = minima
+            if len(set(minima)) < 3:
+                risks.append('fixed_reversi_minimum_flip_count')
+            if max(minima) < min(value for row in counts for value in row if value != min(row)):
+                risks.append('reversi_minimum_matches_fixed_threshold')
         if task_id == 68:
             report['distinct_directions'] = {v: len(set(series[v])) for v in 'ABC'}
             if any(n < 2 for n in report['distinct_directions'].values()):

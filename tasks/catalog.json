@@ -3810,7 +3810,7 @@
         "C": "选择可翻转棋子最少的位置"
       },
       "original_rules": "A：选择可翻转棋子最多的位置；B：选择靠近角落的位置；C：选择可翻转棋子最少的位置",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,

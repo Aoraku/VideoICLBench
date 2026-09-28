@@ -1801,7 +1801,7 @@
       "title": "黑白棋：选择落子位置",
       "app": "games",
       "review_comments": [],
-      "design_requirements": "多局合法棋盘，可翻转数量与角落距离独立，落子及翻转反馈明确。",
+      "design_requirements": "多局合法棋盘，可翻转数量与角落距离独立，落子及翻转反馈明确。六组可翻转数量的最小值至少包含三个不同数值，且目标数量与其他局的非目标数量交错，排除固定翻转数量和固定阈值解释。",
       "demo": {
         "episodes": 6,
         "objects_per_episode": 1

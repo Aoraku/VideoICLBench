@@ -1859,6 +1859,20 @@
           "variant": "B",
           "run_id": "5bedf690de384562b3a95c751202dd50",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-games-complete-ui-validation.json",
+          "json_pointer": "/native_ui/6",
+          "variant": "A",
+          "run_id": "ad0c9abca8a24b60a9ee76829e49e10b",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-games-complete-ui-validation.json",
+          "json_pointer": "/native_ui/7",
+          "variant": "C",
+          "run_id": "27b1aed5e4b847beb8d734502c9c71c8",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -1897,6 +1911,20 @@
           "variant": "C",
           "run_id": "95a0e8204363496480a1b56a53471434",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-games-complete-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "0caef362fc85479f9568e859aabbe68a",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-games-complete-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "a47a430a214342a48648b373f186104c",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -1908,6 +1936,20 @@
           "json_pointer": "/native_ui/2",
           "variant": "C",
           "run_id": "5606a8bfb8a54380a87be50c6c6fb89a",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-games-complete-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "A",
+          "run_id": "cb9808febb0445358cdee9d62e98cf1c",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-games-complete-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "B",
+          "run_id": "1530d991a18b4db6b6c8f30fe8b042f8",
           "reported_episode_count": 6
         }
       ]
@@ -1946,6 +1988,41 @@
           "json_pointer": "/native_ui/3",
           "variant": "A",
           "run_id": "dce02e2645ee4b78885b7666a03eef6d",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-games-complete-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "B",
+          "run_id": "df2cf59cbc974612a76613bf91010a1e",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-games-complete-ui-validation.json",
+          "json_pointer": "/native_ui/5",
+          "variant": "C",
+          "run_id": "cd2b2b358d7146058ebfed7956ec9040",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-reversi-crossed-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "442dab30d24c4f9aa86be26b683ad4ba",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-reversi-crossed-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "d3d74895cc7947078785e49da643b1d7",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-reversi-crossed-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "C",
+          "run_id": "a8c3688e580843d489a5a20baacbfe31",
           "reported_episode_count": 6
         }
       ]

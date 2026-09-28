@@ -1,0 +1,360 @@
+{
+  "scope": "Native UI operations and independent evaluations. Full recording and human inference acceptance remain pending.",
+  "native_ui": [
+    {
+      "task_id": 74,
+      "task_version": "3.1.0",
+      "variant": "A",
+      "run_id": "442dab30d24c4f9aa86be26b683ad4ba",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/442dab30d24c4f9aa86be26b683ad4ba/evidence",
+      "sha256": "8716b17435386892879b9c18a0c2c8c43e4a178f7acc1571bcb99f2b372f837b",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {},
+          "selection": [
+            1,
+            0
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/442dab30d24c4f9aa86be26b683ad4ba/lesson/evidence/0/0",
+          "sha256": "787b8f3c35f7763045d118dce0a384076d12f4436b66514885f3a43f874f2d71"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {},
+          "selection": [
+            2,
+            7
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/442dab30d24c4f9aa86be26b683ad4ba/lesson/evidence/0/1",
+          "sha256": "64589b4bf5a603c9a135a1760c5fd5118263d9ee8fca77c81fc880414b532e9a"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {},
+          "selection": [
+            2,
+            3
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/442dab30d24c4f9aa86be26b683ad4ba/lesson/evidence/0/2",
+          "sha256": "243ce7e9e0f9d2c37f9b2af523171a266527150c73e17087dcd4bb146538803e"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {},
+          "selection": [
+            5,
+            0
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/442dab30d24c4f9aa86be26b683ad4ba/lesson/evidence/0/3",
+          "sha256": "ca74e4e5d28227dccba7a0d854418faa1ed1c364fb7e5c020b51b4e6bee18d5a"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {},
+          "selection": [
+            0,
+            2
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/442dab30d24c4f9aa86be26b683ad4ba/lesson/evidence/0/4",
+          "sha256": "3a7823dbad0109af6d0eea6d79001af9945b0ae36e1f74787c221770d4b4d9b0"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {},
+          "selection": [
+            7,
+            3
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/442dab30d24c4f9aa86be26b683ad4ba/lesson/evidence/0/5",
+          "sha256": "9c2a3e9a3111b89131c17cc697dd3aefb69c5d34de35bd8189055566fa18906f"
+        }
+      ],
+      "persisted_after_reload_each_episode": true,
+      "all_flipped_and_unchanged_cells_verified": true,
+      "minimum_flip_counts": [
+        1,
+        2,
+        3,
+        1,
+        3,
+        2
+      ],
+      "selected_flip_counts": [
+        3,
+        6,
+        8,
+        6,
+        8,
+        8
+      ],
+      "observations": [
+        "Choices calculated from visible stone colors, current player and highlighted legal positions. All changed and unchanged stones were checked after each move and after reload.",
+        "Each example starts at the game lobby; all six archives and aggregate evaluation pass.",
+        "Different minima and cross-example non-target counts exclude fixed-count and fixed-threshold explanations."
+      ]
+    },
+    {
+      "task_id": 74,
+      "task_version": "3.1.0",
+      "variant": "B",
+      "run_id": "d3d74895cc7947078785e49da643b1d7",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/d3d74895cc7947078785e49da643b1d7/evidence",
+      "sha256": "98c8c870122b06a330fd4a057d5ef1a70d096f0c30fd5307531073d905ccd682",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {},
+          "selection": [
+            7,
+            0
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/d3d74895cc7947078785e49da643b1d7/lesson/evidence/0/0",
+          "sha256": "e65f46ef494c51fb19817398aab649f3edc593cc9f0d825eec99567628b385c0"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {},
+          "selection": [
+            1,
+            0
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/d3d74895cc7947078785e49da643b1d7/lesson/evidence/0/1",
+          "sha256": "efca2c8136b01910e593429b48dfc79edbdc1f97aa46e34ab45bc344103743ab"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {},
+          "selection": [
+            0,
+            6
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/d3d74895cc7947078785e49da643b1d7/lesson/evidence/0/2",
+          "sha256": "5a175ae338d2a5fa3893057fcdb56f5f5416ad172ce06b977b3c81128859fa5a"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {},
+          "selection": [
+            0,
+            7
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/d3d74895cc7947078785e49da643b1d7/lesson/evidence/0/3",
+          "sha256": "15795179b14c76a95c38be68f60d7a92d7e8fceb7a38eaa5bca5dfca1d06645d"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {},
+          "selection": [
+            7,
+            0
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/d3d74895cc7947078785e49da643b1d7/lesson/evidence/0/4",
+          "sha256": "99393a2d9412a0f88d2d3345900cb8bbc8514489aea9e820c6b76c4dc4f7e0d2"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {},
+          "selection": [
+            1,
+            1
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/d3d74895cc7947078785e49da643b1d7/lesson/evidence/0/5",
+          "sha256": "ff55f8e7fec13022b8da479fb6fa83841e98722bd2e3dcf3e8ea147272071648"
+        }
+      ],
+      "persisted_after_reload_each_episode": true,
+      "all_flipped_and_unchanged_cells_verified": true,
+      "minimum_flip_counts": [
+        1,
+        2,
+        3,
+        1,
+        3,
+        2
+      ],
+      "selected_flip_counts": [
+        1,
+        3,
+        4,
+        4,
+        5,
+        2
+      ],
+      "observations": [
+        "Choices calculated from visible stone colors, current player and highlighted legal positions. All changed and unchanged stones were checked after each move and after reload.",
+        "Each example starts at the game lobby; all six archives and aggregate evaluation pass.",
+        "Different minima and cross-example non-target counts exclude fixed-count and fixed-threshold explanations."
+      ]
+    },
+    {
+      "task_id": 74,
+      "task_version": "3.1.0",
+      "variant": "C",
+      "run_id": "a8c3688e580843d489a5a20baacbfe31",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/a8c3688e580843d489a5a20baacbfe31/evidence",
+      "sha256": "41ec73303a7553c99fc0c52779a56476c576f00117ce29b1f5bd69f7a015fac5",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {},
+          "selection": [
+            1,
+            2
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/a8c3688e580843d489a5a20baacbfe31/lesson/evidence/0/0",
+          "sha256": "58e045d5c864b78839389b0814caa92366e63bc4f10bf2d441f975f6af1fa618"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {},
+          "selection": [
+            2,
+            0
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/a8c3688e580843d489a5a20baacbfe31/lesson/evidence/0/1",
+          "sha256": "d072dc25fa65479ef3cd298742ab5b3ca407ffdce8f12a4fbfae5b459fad9f14"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {},
+          "selection": [
+            0,
+            3
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/a8c3688e580843d489a5a20baacbfe31/lesson/evidence/0/2",
+          "sha256": "c13f6589d9317f87d4156b5be9e92748ab28c02f9f3cd6e33eb921271e30031c"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {},
+          "selection": [
+            2,
+            2
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/a8c3688e580843d489a5a20baacbfe31/lesson/evidence/0/3",
+          "sha256": "f066c6104a88b4ce0cfeec667ec11b4caf59c2f64a534262a7237d127271f87d"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {},
+          "selection": [
+            6,
+            1
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/a8c3688e580843d489a5a20baacbfe31/lesson/evidence/0/4",
+          "sha256": "9d2b9756abe4b888813f89b2a6cfcec4e3e97e6e5c0f6248b6502ba09e5dbd4f"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {},
+          "selection": [
+            0,
+            3
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/a8c3688e580843d489a5a20baacbfe31/lesson/evidence/0/5",
+          "sha256": "168fcf0311e93d191f51b96e9cd2f4ad14571ea756b93588a982cac91a53e13e"
+        }
+      ],
+      "persisted_after_reload_each_episode": true,
+      "all_flipped_and_unchanged_cells_verified": true,
+      "minimum_flip_counts": [
+        1,
+        2,
+        3,
+        1,
+        3,
+        2
+      ],
+      "selected_flip_counts": [
+        1,
+        2,
+        3,
+        1,
+        3,
+        2
+      ],
+      "observations": [
+        "Choices calculated from visible stone colors, current player and highlighted legal positions. All changed and unchanged stones were checked after each move and after reload.",
+        "Each example starts at the game lobby; all six archives and aggregate evaluation pass.",
+        "Different minima and cross-example non-target counts exclude fixed-count and fixed-threshold explanations."
+      ]
+    }
+  ],
+  "verified_at": "2026-09-28T08:20:29.671036+00:00",
+  "validation": {
+    "pytest_passed": 1259,
+    "pytest_failed": 0,
+    "lesson_audit_cases": 75,
+    "lesson_audit_risks": {}
+  }
+}

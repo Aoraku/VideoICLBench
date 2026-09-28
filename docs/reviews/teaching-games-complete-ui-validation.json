@@ -1,0 +1,864 @@
+{
+  "scope": "Native UI operations and independent evaluations. Full recording and human inference acceptance remain pending.",
+  "native_ui": [
+    {
+      "task_id": 71,
+      "task_version": "3.0.0",
+      "variant": "A",
+      "run_id": "0caef362fc85479f9568e859aabbe68a",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/0caef362fc85479f9568e859aabbe68a/evidence",
+      "sha256": "d35164a14f36acc6d37ecc54413c5a51bbba8915293c0fa0fa8ff7640bf591e0",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {},
+          "selection": 3,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0caef362fc85479f9568e859aabbe68a/lesson/evidence/0/0",
+          "sha256": "8603b8c95bce3c6cc6855c2b82c62e99083d16b6924e9344d30dc67abf1de340"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {},
+          "selection": 2,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0caef362fc85479f9568e859aabbe68a/lesson/evidence/0/1",
+          "sha256": "fe9f0bd9ac072761c31b82c466fe1dfaee6c93e104b7840d1b9a52656a6efbda"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {},
+          "selection": 3,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0caef362fc85479f9568e859aabbe68a/lesson/evidence/0/2",
+          "sha256": "0971e6439ca979141fbb75297f96a384291f9101905a38d314f444751bf2bddb"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {},
+          "selection": 2,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0caef362fc85479f9568e859aabbe68a/lesson/evidence/0/3",
+          "sha256": "912d69c3518fa0d5dc9ee39946552a350c340e29c52437c306b25e3af634ef82"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {},
+          "selection": 3,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0caef362fc85479f9568e859aabbe68a/lesson/evidence/0/4",
+          "sha256": "104e874c319d5b22976693dda8b28c79c1bc51274f21aeb071a31af18c3dfb4d"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {},
+          "selection": 1,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0caef362fc85479f9568e859aabbe68a/lesson/evidence/0/5",
+          "sha256": "89737f034566e67e0aa8b6dba26d1554518fe6abb92accf133233222654418c0"
+        }
+      ],
+      "persisted_after_reload_each_episode": true,
+      "observed_candidates": [
+        [
+          3,
+          4,
+          9
+        ],
+        [
+          2,
+          5,
+          8
+        ],
+        [
+          3,
+          4,
+          6,
+          7,
+          9
+        ],
+        [
+          2,
+          8,
+          9
+        ],
+        [
+          3,
+          5,
+          9
+        ],
+        [
+          1,
+          2,
+          3,
+          7,
+          8
+        ]
+      ],
+      "chosen_digits": [
+        3,
+        2,
+        3,
+        2,
+        3,
+        1
+      ],
+      "observations": [
+        "Candidate digits read from visible grid; click the candidate cell then the chosen number. Filled value and disabled cell persist after reload."
+      ]
+    },
+    {
+      "task_id": 71,
+      "task_version": "3.0.0",
+      "variant": "B",
+      "run_id": "a47a430a214342a48648b373f186104c",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/a47a430a214342a48648b373f186104c/evidence",
+      "sha256": "31a729e85dd6bb3312b8fd0deb59e80f09ce73f866040f7ee86f864bd2099b53",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {},
+          "selection": 9,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/a47a430a214342a48648b373f186104c/lesson/evidence/0/0",
+          "sha256": "7107a06ccb25c05ae8267383245a7cbc3aad660f11230705319fcf5968d27923"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {},
+          "selection": 8,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/a47a430a214342a48648b373f186104c/lesson/evidence/0/1",
+          "sha256": "36e845dacf816e9c9109a7b825ff674e5fa03af3a3a597ddd6e4555b59653c90"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {},
+          "selection": 9,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/a47a430a214342a48648b373f186104c/lesson/evidence/0/2",
+          "sha256": "be57c63aac64a61b0bef58fef68dcab7351004f96fc0e3f206ff1cd949001848"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {},
+          "selection": 9,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/a47a430a214342a48648b373f186104c/lesson/evidence/0/3",
+          "sha256": "c9f0d801050eb49847c16f54ac0436d666ffc70d754d145d6db0561a258ffbe4"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {},
+          "selection": 9,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/a47a430a214342a48648b373f186104c/lesson/evidence/0/4",
+          "sha256": "10a11b2e57f72d54cde99a9b03012406571932296c62659963f37162b33f1213"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {},
+          "selection": 8,
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/a47a430a214342a48648b373f186104c/lesson/evidence/0/5",
+          "sha256": "ad4fd4625e47689046c900fc014df54a8b992777857036a273f8bc94a5d4d9fc"
+        }
+      ],
+      "persisted_after_reload_each_episode": true,
+      "observed_candidates": [
+        [
+          3,
+          4,
+          9
+        ],
+        [
+          2,
+          5,
+          8
+        ],
+        [
+          3,
+          4,
+          6,
+          7,
+          9
+        ],
+        [
+          2,
+          8,
+          9
+        ],
+        [
+          3,
+          5,
+          9
+        ],
+        [
+          1,
+          2,
+          3,
+          7,
+          8
+        ]
+      ],
+      "chosen_digits": [
+        9,
+        8,
+        9,
+        9,
+        9,
+        8
+      ],
+      "observations": [
+        "Candidate digits read from visible grid; click the candidate cell then the chosen number. Filled value and disabled cell persist after reload."
+      ]
+    },
+    {
+      "task_id": 72,
+      "task_version": "3.1.0",
+      "variant": "A",
+      "run_id": "cb9808febb0445358cdee9d62e98cf1c",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/cb9808febb0445358cdee9d62e98cf1c/evidence",
+      "sha256": "ae508968d40e5d1086f45a5ffe068e219381d811e43fc20661f597b8446c9bd5",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {},
+          "selection": [
+            1,
+            6
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/cb9808febb0445358cdee9d62e98cf1c/lesson/evidence/0/0",
+          "sha256": "a78e510997a47aa4e6e7a23017f720a7e9b619c45da19cc35dd4863f98da702f"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {},
+          "selection": [
+            7,
+            0
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/cb9808febb0445358cdee9d62e98cf1c/lesson/evidence/0/1",
+          "sha256": "358b6faba884f30109c962c2bbf148a8797427cd723fe6d07d4a2e5a686fc55a"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {},
+          "selection": [
+            3,
+            5
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/cb9808febb0445358cdee9d62e98cf1c/lesson/evidence/0/2",
+          "sha256": "dd3dad9eccbd38a44b189db44f7deff521ad2e7fd2e4897c5c0558d8263b1bf4"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {},
+          "selection": [
+            0,
+            4
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/cb9808febb0445358cdee9d62e98cf1c/lesson/evidence/0/3",
+          "sha256": "30ab6fc23497334d09d1dd159b2cb1063111950e795c455e5235f4043eac87c0"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {},
+          "selection": [
+            6,
+            0
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/cb9808febb0445358cdee9d62e98cf1c/lesson/evidence/0/4",
+          "sha256": "4075c4f625e741d9158f2507cf3f6ee6c4996b220625b478c95a8f18fba54966"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {},
+          "selection": [
+            0,
+            7
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/cb9808febb0445358cdee9d62e98cf1c/lesson/evidence/0/5",
+          "sha256": "19870630b5236e081b04022371548c1ea1bff94d9554a5a22fdbe5a35bbcb023"
+        }
+      ],
+      "persisted_after_reload_each_episode": true,
+      "selected_neighbor_metric": [
+        0,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "observations": [
+        "Compared all eight highlighted candidates using only visible neighboring clue values and unopened cells. Ties use displayed row-column order. Saved location persists after reload."
+      ]
+    },
+    {
+      "task_id": 72,
+      "task_version": "3.1.0",
+      "variant": "B",
+      "run_id": "1530d991a18b4db6b6c8f30fe8b042f8",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/1530d991a18b4db6b6c8f30fe8b042f8/evidence",
+      "sha256": "1bd10cc01af94a62f83460398896ab3749191e4e24807daf5e597b5bf13f1e73",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {},
+          "selection": [
+            5,
+            4
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/1530d991a18b4db6b6c8f30fe8b042f8/lesson/evidence/0/0",
+          "sha256": "a813fe4a7a0d8e194ff2281b135ca848c670e10c86dfccc9779bae8b9e602512"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {},
+          "selection": [
+            4,
+            6
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/1530d991a18b4db6b6c8f30fe8b042f8/lesson/evidence/0/1",
+          "sha256": "a92280798806db54b416c6cd81e0ab34fc78cf6533abb1d764f74cf4491f6044"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {},
+          "selection": [
+            4,
+            6
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/1530d991a18b4db6b6c8f30fe8b042f8/lesson/evidence/0/2",
+          "sha256": "9a7072412b9035f6595356b33badc8b5e42357c1b4fc482a07ed6a7f95e8894b"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {},
+          "selection": [
+            5,
+            6
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/1530d991a18b4db6b6c8f30fe8b042f8/lesson/evidence/0/3",
+          "sha256": "b1d759713fc5eaab0a595f2aa941d83d4ed04b37d83b286e1f01dad1c7dd08e5"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {},
+          "selection": [
+            2,
+            4
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/1530d991a18b4db6b6c8f30fe8b042f8/lesson/evidence/0/4",
+          "sha256": "67285cd98728635e7c6efd0ea4589c889cf8e93bbb023f6874feb0673356eead"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {},
+          "selection": [
+            4,
+            2
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/1530d991a18b4db6b6c8f30fe8b042f8/lesson/evidence/0/5",
+          "sha256": "fcfc10d0c413cc6da6a4dfb67766e2268b84c9239857741c83655d392c3f213b"
+        }
+      ],
+      "persisted_after_reload_each_episode": true,
+      "selected_neighbor_metric": [
+        5,
+        5,
+        5,
+        6,
+        4,
+        4
+      ],
+      "observations": [
+        "Compared all eight highlighted candidates using only visible neighboring clue values and unopened cells. Ties use displayed row-column order. Saved location persists after reload."
+      ]
+    },
+    {
+      "task_id": 74,
+      "task_version": "3.0.0",
+      "variant": "B",
+      "run_id": "df2cf59cbc974612a76613bf91010a1e",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/df2cf59cbc974612a76613bf91010a1e/evidence",
+      "sha256": "5adee3754a5e4972be5e5b117abaf2ac96639b40e4a3a79b9855aeff8cbdba7a",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {},
+          "selection": [
+            7,
+            1
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/df2cf59cbc974612a76613bf91010a1e/lesson/evidence/0/0",
+          "sha256": "6da1d538568d754572840eb5bc767372d515616920156d9453402b02d1e2c07c"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {},
+          "selection": [
+            6,
+            7
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/df2cf59cbc974612a76613bf91010a1e/lesson/evidence/0/1",
+          "sha256": "90e1709279bc8db2d5d8ecf542c86ebd9026a042c37724f4275a34da8419dd0e"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {},
+          "selection": [
+            0,
+            7
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/df2cf59cbc974612a76613bf91010a1e/lesson/evidence/0/2",
+          "sha256": "934c1f7d1eba73121b98f05bf5534e8f101dd3891bb15cf1567976e124d93877"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {},
+          "selection": [
+            0,
+            6
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/df2cf59cbc974612a76613bf91010a1e/lesson/evidence/0/3",
+          "sha256": "b81001c1eab22bb2bcb36d16761682d7268e23063669b5bf49e163ed2942cf55"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {},
+          "selection": [
+            1,
+            7
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/df2cf59cbc974612a76613bf91010a1e/lesson/evidence/0/4",
+          "sha256": "70cca2b8eb02fc6340c8d8d6ce528080cf99ab0966c88510cfb63d514e7fca33"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {},
+          "selection": [
+            0,
+            6
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/df2cf59cbc974612a76613bf91010a1e/lesson/evidence/0/5",
+          "sha256": "1a5965ffaf2139f0f571610832c4dd8309acbea81fb2b68cdf5eaf62e6bca22b"
+        }
+      ],
+      "persisted_after_reload_each_episode": true,
+      "selected_flip_counts": [
+        2,
+        1,
+        1,
+        1,
+        4,
+        3
+      ],
+      "observations": [
+        "Read stone colors from rendered board; computed bracketed opponent stones along all eight directions. Verified every changed and unchanged cell after the move and reload."
+      ],
+      "teaching_limitation": "Version 3.0.0 has a constant minimum of one flip in all six examples; this UI record does not establish teaching sufficiency for the relative-minimum rule."
+    },
+    {
+      "task_id": 74,
+      "task_version": "3.0.0",
+      "variant": "C",
+      "run_id": "cd2b2b358d7146058ebfed7956ec9040",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/cd2b2b358d7146058ebfed7956ec9040/evidence",
+      "sha256": "8bb89eaa85a1504ed76dc8518c76035bc62e9394f4b3ad4248c87b8c6a1ca0bb",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {},
+          "selection": [
+            0,
+            4
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/cd2b2b358d7146058ebfed7956ec9040/lesson/evidence/0/0",
+          "sha256": "2069c1b1176fa60a7f3ac4e7c16397f5e316c304509b69225e528fcfcfc3f9a2"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {},
+          "selection": [
+            0,
+            3
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/cd2b2b358d7146058ebfed7956ec9040/lesson/evidence/0/1",
+          "sha256": "9ff8db2bd370b8b01f096e46b59a2888bebff1dda86f47f6066eb925130b7b82"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {},
+          "selection": [
+            0,
+            5
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/cd2b2b358d7146058ebfed7956ec9040/lesson/evidence/0/2",
+          "sha256": "1b0955d4fd8e4f1b4b17a8804a1c5834198e3471dd0a0aeed3eeb1b602826f31"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {},
+          "selection": [
+            0,
+            4
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/cd2b2b358d7146058ebfed7956ec9040/lesson/evidence/0/3",
+          "sha256": "74a58bdd4c8c331a5bd8077afe06e62023b52c762a91adae22fca680cca87f4e"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {},
+          "selection": [
+            0,
+            4
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/cd2b2b358d7146058ebfed7956ec9040/lesson/evidence/0/4",
+          "sha256": "4f84add2822fa839f8def1ffacba9d3ee3c649bb5d30de7b5460d8ab904bbc71"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {},
+          "selection": [
+            1,
+            5
+          ],
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/cd2b2b358d7146058ebfed7956ec9040/lesson/evidence/0/5",
+          "sha256": "724f6b8a63db2c9c57f77717a5c1283ebe264defe91d37f8eddcb63a3cd613c7"
+        }
+      ],
+      "persisted_after_reload_each_episode": true,
+      "selected_flip_counts": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "observations": [
+        "Read stone colors from rendered board; computed bracketed opponent stones along all eight directions. Verified every changed and unchanged cell after the move and reload."
+      ],
+      "teaching_limitation": "Version 3.0.0 has a constant minimum of one flip in all six examples; this UI record does not establish teaching sufficiency for the relative-minimum rule."
+    },
+    {
+      "task_id": 69,
+      "task_version": "3.0.0",
+      "variant": "A",
+      "run_id": "ad0c9abca8a24b60a9ee76829e49e10b",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/ad0c9abca8a24b60a9ee76829e49e10b/evidence",
+      "sha256": "01c98a8acf2ecd556f83c1d1e239aadfcd51ecb520d8710475a7ff4906b6ed56",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {},
+          "selection": "left",
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ad0c9abca8a24b60a9ee76829e49e10b/lesson/evidence/0/0",
+          "sha256": "e466658267a066cd16b0992a3037cb373fe18913fd8edf619a8f2490ada6f334"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {},
+          "selection": "left",
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ad0c9abca8a24b60a9ee76829e49e10b/lesson/evidence/0/1",
+          "sha256": "43d29171414d764fa8f98554eaf8b8bb1323c51ab93ece65e2d53c6cc811e61b"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {},
+          "selection": "left",
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ad0c9abca8a24b60a9ee76829e49e10b/lesson/evidence/0/2",
+          "sha256": "7c430e8a764d316540e236f4c7a6e0ad25ba4640753707a799ee1aa0c9b72955"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {},
+          "selection": "up",
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ad0c9abca8a24b60a9ee76829e49e10b/lesson/evidence/0/3",
+          "sha256": "3bd9b4835d4229c11b7a0fa936b31a21d62b3026642bd3332fbe610626b1552d"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {},
+          "selection": "left",
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ad0c9abca8a24b60a9ee76829e49e10b/lesson/evidence/0/4",
+          "sha256": "56913218abadb9ce0d8558bd4bd9ed41821809cab19bf8fbc004d3d03480db99"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {},
+          "selection": "up",
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/ad0c9abca8a24b60a9ee76829e49e10b/lesson/evidence/0/5",
+          "sha256": "1b56efe5c2a871b0daeb5ff8b16832e239b62d722946cd5a86d00e7a50d4f99e"
+        }
+      ],
+      "persisted_after_reload_each_episode": true,
+      "stopping_steps": [
+        1,
+        1,
+        1,
+        16,
+        1,
+        2
+      ],
+      "stopping_scores": [
+        36,
+        36,
+        36,
+        132,
+        40,
+        32
+      ],
+      "observations": [
+        "Directions chosen from visible board only; checked merged score and step count after every action. Stop immediately on the version condition; stopped controls, board and score persist after reload."
+      ]
+    },
+    {
+      "task_id": 69,
+      "task_version": "3.0.0",
+      "variant": "C",
+      "run_id": "27b1aed5e4b847beb8d734502c9c71c8",
+      "epoch": 0,
+      "episode_count": 6,
+      "all_actions_via_browser": true,
+      "entered_via_homepage_each_episode": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/27b1aed5e4b847beb8d734502c9c71c8/evidence",
+      "sha256": "b582c05385d6837e7c39b847340eca9f995ea33b8ae006ebe54376d592ce9989",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {},
+          "selection": "left",
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/27b1aed5e4b847beb8d734502c9c71c8/lesson/evidence/0/0",
+          "sha256": "7cc384c574c9d14da459e885a22ef7e4f0def33b7e953921194ba28a81f874ef"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {},
+          "selection": "up",
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/27b1aed5e4b847beb8d734502c9c71c8/lesson/evidence/0/1",
+          "sha256": "47e8e3391fbf4679c6a40c56a12e686e19841dfa1c9253dd4d59a0ca4de3b961"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {},
+          "selection": "up",
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/27b1aed5e4b847beb8d734502c9c71c8/lesson/evidence/0/2",
+          "sha256": "3fa829899003fa241c6d2a07cf50a47f3d6add8b58c081b874c6e22fd57da3e3"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {},
+          "selection": "up",
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/27b1aed5e4b847beb8d734502c9c71c8/lesson/evidence/0/3",
+          "sha256": "dd253e12127af33433dd98470c66cb5b59f0bd2aff8629ac12c53147cf4c81e7"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {},
+          "selection": "up",
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/27b1aed5e4b847beb8d734502c9c71c8/lesson/evidence/0/4",
+          "sha256": "55bbce874f1b3d05cdd4c8b632030072fd83d74d39689b02a8984db366a13507"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {},
+          "selection": "right",
+          "saved_outputs": null,
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/27b1aed5e4b847beb8d734502c9c71c8/lesson/evidence/0/5",
+          "sha256": "0dd1d9fb2b76a9a54b3212c243f4cda8941c30a21fe5b31fa9bab56e458e0559"
+        }
+      ],
+      "persisted_after_reload_each_episode": true,
+      "stopping_steps": [
+        7,
+        8,
+        6,
+        5,
+        13,
+        2
+      ],
+      "stopping_scores": [
+        52,
+        20,
+        4,
+        8,
+        52,
+        0
+      ],
+      "observations": [
+        "Directions chosen from visible board only; checked merged score and step count after every action. Stop immediately on the version condition; stopped controls, board and score persist after reload."
+      ]
+    }
+  ],
+  "verified_at": "2026-09-28T08:18:17.186628+00:00"
+}

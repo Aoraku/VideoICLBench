@@ -271,12 +271,13 @@ def fixture(task_id, seed):
         return dict(**base, game='mines', board=deepcopy(board),
                     candidates=deepcopy(candidates), color=1)
     if task_id in (74, 75):
-        for attempt in range(200):
+        minimum_flips = (1, 2, 3, 1, 3, 2)[seed % 6]
+        for attempt in range(3000 if task_id == 74 else 200):
             board = [[0] * 8 for _ in range(8)]
             board[3][3] = board[4][4] = 2
             board[3][4] = board[4][3] = 1
             color = 1
-            for _ in range(rng.randrange(18, 48)):
+            for _ in range(rng.randrange(36, 59) if task_id == 74 else rng.randrange(18, 48)):
                 moves = reversi_moves(board, color)
                 if moves:
                     board = reversi_move(board, *rng.choice(moves), color)
@@ -287,6 +288,14 @@ def fixture(task_id, seed):
                 board=board,
                 candidates=reversi_moves(board, color),
             )
+            # Use reachable positions with different relative minima. Otherwise
+            # "fewest flips" is indistinguishable from "flip exactly one".
+            if task_id == 74 and (
+                len(state["candidates"]) < 3
+                or min(len(reversi_flips(board, *p, color))
+                       for p in state["candidates"]) != minimum_flips
+            ):
+                continue
             signatures = [expected(task_id, v, state) for v in "ABC"]
             if (
                 all(s is not None for s in signatures)
