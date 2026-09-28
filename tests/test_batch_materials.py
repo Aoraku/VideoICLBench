@@ -363,3 +363,36 @@ def test_forwarded_messages_have_distinct_source_and_destination_contacts():
         assert state['source']['sender'] != state['source']['recipient']
         assert state['domain']['objects']['contact-b']['name'] == state['source']['sender']
         assert state['domain']['objects']['contact-a']['name'] == state['source']['recipient']
+
+
+@pytest.mark.parametrize('seed', [*range(12), 999, *range(1000, 1006), 10001])
+def test_group_invitation_has_unambiguous_cutoff_and_visible_time(seed):
+    from datetime import datetime
+    state = business.generate(15, seed)
+    items = state['items']
+    lengths = sorted(x['name_length'] for x in items)
+    assert lengths[2] < lengths[3]
+    assert all(x['name_length'] == len(x['name']) for x in items)
+    assert len({x['name'] for x in items}) == 6
+    assert len({x['unread'] for x in items}) == 6
+    assert len({x['contact_time'] for x in items}) == 6
+    assert [x['id'] for x in sorted(items, key=lambda x: x['contact_time'])] == [
+        x['id'] for x in sorted(items, key=lambda x: datetime.fromisoformat(x['last_contact_at']))]
+    assert all(len(business.expected_effect(15, v, state)['members']) == 3 for v in 'ABC')
+
+
+def test_group_invitation_lesson_requires_relative_comparison_and_unseen_names():
+    episodes = [business.generate(15, seed) for seed in range(6)]
+    selected_lengths, excluded_lengths, selected_unread, excluded_unread = set(), set(), set(), set()
+    for state in episodes:
+        name_ids = business.expected_effect(15, 'A', state)['members']
+        unread_ids = business.expected_effect(15, 'C', state)['members']
+        for item in state['items']:
+            (selected_lengths if item['id'] in name_ids else excluded_lengths).add(item['name_length'])
+            (selected_unread if item['id'] in unread_ids else excluded_unread).add(item['unread'])
+    assert selected_lengths & excluded_lengths
+    assert selected_unread & excluded_unread
+    assert min(selected_unread) < max(excluded_unread)
+    demo_names = {item['name'] for state in episodes for item in state['items']}
+    query_names = {item['name'] for seed in range(1000,1006) for item in business.generate(15, seed)['items']}
+    assert demo_names.isdisjoint(query_names)

@@ -172,6 +172,13 @@ async def main():
             await click(page.get_by_title('新建',exact=True));await click(page.get_by_text('发起群聊',exact=True));await page.wait_for_timeout(400)
             for target in effect['members']:await button(initial['domain']['objects'][target]['name'],False)
             await click(page.get_by_role('button',name=re.compile(r'完\s*成')))
+            await click(page.get_by_title('群聊设置',exact=True))
+            details=page.get_by_role('dialog',name='群聊信息')
+            await details.get_by_text('群成员 (4)',exact=True).wait_for()
+            for target in effect['members']:
+             await details.get_by_text(initial['domain']['objects'][target]['name'],exact=True).wait_for()
+            assert 'Invalid Date' not in await details.inner_text()
+            await click(details.get_by_role('button',name='Close',exact=True))
            else:
             await click(page.get_by_text('林若宁',exact=True).first);await page.wait_for_timeout(300)
             for target,value in effect['actions']:

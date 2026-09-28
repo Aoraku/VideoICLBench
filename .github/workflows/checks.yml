@@ -15,6 +15,11 @@ jobs:
       - run: pip install -c requirements.lock.txt -e '.[test]'
       - run: npm --prefix apps/portal ci && npm --prefix apps/portal run build
       - run: npm --prefix apps/chat/frontend/frontend ci && VITE_BASE_PATH=/native-assets/chat/ npm --prefix apps/chat/frontend/frontend run build
+      - name: Build native IM frontend
+        run: |
+          npm install --global pnpm@10.4.1
+          pnpm --dir apps/im/Frontend install --frozen-lockfile
+          NEXT_PUBLIC_VIC_BENCHMARK=1 pnpm --dir apps/im/Frontend build
       - run: python scripts/build_catalog.py && python scripts/build_contracts.py && python scripts/build_app_modules.py && git diff --exit-code -- tasks apps/portal/src/applicationModules.ts packages/app_runtime/vic_apps/modules.json docs/task-evaluation-map.md
       - run: python -m pytest
       - run: python -m playwright install --with-deps chromium
@@ -28,3 +33,4 @@ jobs:
           python scripts/smoke_application_pixels.py
           python scripts/check_application_ui.py
           python scripts/check_native_ui.py 1,5,17,23,31,38,43,48,57,68 A
+          python scripts/check_native_ui.py 15,16 ABC

@@ -512,6 +512,7 @@ const markConversationCleared = (conversationId: number, clearedAt: number) => {
 
 const getLastConversationStorageKey = () => {
   if (typeof window === 'undefined') return 'im_last_conversation:server';
+  if (nativeIM) return `im_last_conversation:${sessionStorage.getItem('vic-im-run')}:${sessionStorage.getItem('vic-im-epoch')}`;
   const userKey = localStorage.getItem('user_id') || localStorage.getItem('username') || 'current';
   return `im_last_conversation:${userKey}`;
 };
@@ -866,18 +867,6 @@ export default function Home() {
     }
 
 
-    const { conversation_id } = router.query;
-    if (conversation_id) {
-      routerParamHandledRef.current = true;
-      const targetConvId = Number(conversation_id);
-      const existing = conversations.find(c => c.conversation_id === targetConvId);
-      if (existing) {
-        handleSelectConv(existing);
-      }
-      router.replace('/', undefined, { shallow: true });
-      return;
-    }
-
     setUserName(storedName ?? undefined);
     if (storedUserId) {
       const parsedId = Number(storedUserId);
@@ -946,7 +935,15 @@ export default function Home() {
     if (!router.isReady || !initialFetched) return;
     if (routerParamHandledRef.current) return;
 
-    const { to_user_id: toUserId, name } = router.query;
+    const { conversation_id: conversationId, to_user_id: toUserId, name } = router.query;
+    if (conversationId) {
+      const existing = conversations.find(c => c.conversation_id === Number(conversationId));
+      if (!existing) return;
+      routerParamHandledRef.current = true;
+      handleSelectConv(existing);
+      router.replace('/', undefined, { shallow: true });
+      return;
+    }
     if (!toUserId || !name) return;
 
     routerParamHandledRef.current = true;
@@ -1044,7 +1041,7 @@ export default function Home() {
       if (data.code === 0) {
         const msgs = (data.messages || []).reverse();
         setMessages(msgs);
-        scrollToBottom();
+        if (!silent) scrollToBottom();
       }
     } catch {
       if (!silent) message.error('消息同步失败');
@@ -1534,9 +1531,9 @@ export default function Home() {
   };
 
   const scrollToBottom = () => {
-    setTimeout(() => {
-      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
+    requestAnimationFrame(() => {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'auto', block: 'end' });
+    });
   };
 
 

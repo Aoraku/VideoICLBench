@@ -308,7 +308,7 @@ export default function GroupBuildPage() {
                   {items.map((item) => {
                     const selected = selectedKeys.includes(item.key);
                     return (
-                      <button key={item.key} type="button" style={styles.contactRow} onClick={() => toggleFriend(item.key)}>
+                      <button key={item.key} type="button" style={{...styles.contactRow, ...(nativeIM ? {height: 68} : {})}} onClick={() => toggleFriend(item.key)}>
                         <span style={{ ...styles.checkCircle, ...(selected ? styles.selectedCheck : undefined) }}>
                           {selected && <CheckOutlined />}
                         </span>

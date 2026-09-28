@@ -31,6 +31,7 @@ async function business(path = "", body?: object) {
   });
   const data = await response.json();
   if (!response.ok) throw Error(data.detail);
+  if (typeof data.epoch === 'number') sessionStorage.setItem('vic-im-epoch', String(data.epoch));
   return data;
 }
 export async function imCommand(
@@ -72,7 +73,7 @@ export async function nativeFetch(
       user_id: 10 + i,
       username: s.items[i].name,
       avatar: undefined,
-      group: `最近联系 ${s.items[i].contact_time} · 未读 ${s.items[i].unread}`,
+      group: `最近联系 ${String(s.items[i].last_contact_at).replace('T', ' ').slice(0, 16)} UTC · 未读 ${s.items[i].unread}`,
     });
     const msg = (item: any, i: number) => ({
       msg_id: 100 + i,
@@ -80,7 +81,7 @@ export async function nativeFetch(
       sender_name: "林若宁",
       sender_avatar: undefined,
       content: item.text,
-      created_at: 1768471200 + i * 60,
+      created_at: Date.parse(item.created_at) / 1000,
       benchmark_object: item.id,
       benchmark_read: s.domain.objects[item.id].read,
       benchmark_starred: s.domain.objects[item.id].starred,
@@ -90,7 +91,9 @@ export async function nativeFetch(
         return respond({ user_id: 1, username: "周予安", avatar: undefined });
       if (path === "/api/friends")
         return respond({
-          friends: s.items.map((_: any, i: number) => user(i)),
+          friends: s.task_id === 16
+            ? [{user_id: 2, username: s.source.recipient, group: '联系人'}]
+            : s.items.map((_: any, i: number) => user(i)),
         });
       if (path === "/api/conversations") {
         const conversations = [
@@ -123,6 +126,8 @@ export async function nativeFetch(
         return respond({ conversations });
       }
       if (/\/conversations\/\d+\/messages$/.test(path)) {
+        const conversationId = Number(path.split('/')[3]);
+        if (conversationId !== 2) return respond({messages: []});
         const rows = s.task_id === 16 ? s.items.map(msg) : [];
         rows.push(
           ...s.domain.messages
@@ -132,7 +137,7 @@ export async function nativeFetch(
               sender_id: 1,
               sender_name: "周予安",
               content: m.body,
-              created_at: 1768471900 + i,
+              created_at: Date.parse(s.source.reference_time) / 1000 + i,
               reply_to: m.reference
                 ? {
                     msg_id:
@@ -143,12 +148,17 @@ export async function nativeFetch(
                 : undefined,
             })),
         );
-        return respond({ messages: rows.reverse() });
+        return respond({ messages: rows.sort((a: any, b: any) => b.created_at - a.created_at) });
       }
-      if (/\/conversations\/\d+\/group$/.test(path))
+      if (/\/conversations\/\d+\/group$/.test(path)) {
+        if (path !== '/api/conversations/20/group' || !s.domain.memberships['group-1'])
+          throw Error('该会话不是群聊');
         return respond({
           name: "项目讨论组",
           owner_id: 1,
+          created_at: Date.parse(s.source.reference_time) / 1000,
+          announcements: [],
+          description: '',
           members: [
             { user_id: 1, username: "周予安" },
             ...s.items
@@ -160,6 +170,7 @@ export async function nativeFetch(
               ),
           ],
         });
+      }
       if (path.includes("/user/"))
         return respond({
           user_id: 2,

@@ -742,7 +742,7 @@
         "C": "邀请未读数最高的 3 人"
       },
       "original_rules": "A：邀请名字最短的 3 人；B：邀请最近联系的 3 人；C：邀请未读数最高的 3 人",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,
@@ -794,7 +794,7 @@
         "C": "看到“收到”就回复固定文本"
       },
       "original_rules": "A：看到“收到”就标记已读；B：看到“收到”就添加星标；C：看到“收到”就回复固定文本",
-      "version": "3.1.0",
+      "version": "3.2.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,

@@ -1,10 +1,8 @@
 {
   "scope": "Index of task-specific browser observations recorded in review artifacts. Presence does not imply complete A/B/C coverage, current-version replay, recorded-video verification, or human inference acceptance. Null episode counts mean the source has no explicit episode count.",
   "task_count": 75,
-  "tasks_with_indexed_browser_evidence": 56,
+  "tasks_with_indexed_browser_evidence": 58,
   "tasks_without_indexed_browser_evidence": [
-    15,
-    16,
     21,
     25,
     26,
@@ -369,11 +367,55 @@
     },
     {
       "task_id": 15,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-im-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "8407bd6ab31d47b2b6bf727b77230ce2",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-im-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "d8098706da3e4f6991b48bc068b04a46",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-im-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "C",
+          "run_id": "9bcdb4a1448b4cdc84566f7d935c9ed1",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 16,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-im-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "A",
+          "run_id": "cc2f48af72244ff0a8359f0d69ddf51c",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-im-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "B",
+          "run_id": "c6ddfea55ecb4faa955d357895a5b56f",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-im-ui-validation.json",
+          "json_pointer": "/native_ui/5",
+          "variant": "C",
+          "run_id": "8b84f208962c45218da8fcf22b368e13",
+          "reported_episode_count": 1
+        }
+      ]
     },
     {
       "task_id": 17,

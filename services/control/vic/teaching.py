@@ -152,6 +152,23 @@ def enrich(id_, seed, items, source, rng):
             item.update(age_days=age, unread=unread)
     if id_ == 13:
         source['sender'] = '陈子安' if seed < 1000 else '许知远'
+    if id_ == 15:
+        # Exactly three shortest names, with a clear cutoff in every episode.
+        # A three-character name is selected in some episodes and excluded in others.
+        pools = ({2: ['方宁', '江夏', '陶然', '顾川', '沈悦', '韩清'],
+                  3: ['白景川', '邓嘉禾', '魏星河', '余清越', '姜予墨', '孟书遥'],
+                  4: ['南宫星澜', '夏侯沐辰', '宇文景宁', '公孙若水', '皇甫明泽', '端木清和']}
+                 if seed >= 1000 else
+                 {2: ['许安', '李可', '张宁', '王悦', '刘晨', '赵然', '顾安', '苏晴', '陆洲', '秦朗', '宋雨', '江林'],
+                  3: ['林若宁', '陈子安', '欧阳晓', '周思远', '沈一舟', '陈明远', '李知夏', '周小满', '许知远', '唐可心', '吴书言', '程小禾'],
+                  4: ['欧阳若宁', '司徒景云', '司马知夏', '上官云舟', '诸葛明远', '东方予安', '欧阳书言', '司徒清和', '上官知远', '东方雨晴', '诸葛星河', '司马嘉禾']})
+        lengths = [(2,2,2,3,3,4), (3,3,3,4,4,4), (2,3,3,4,4,4),
+                   (2,2,3,4,4,4), (3,3,3,4,4,4), (2,2,2,3,4,4)][seed % 6]
+        for pool in pools.values():
+            rng.shuffle(pool)
+        assign('name', [pools[length].pop() for length in lengths])
+        minimum = [0, 20, 3, 40, 10, 5][seed % 6]
+        assign('unread', [minimum + offset for offset in (0, 1, 2, 4, 7, 10)])
     if id_ in (9, 10):
         maximum = [7, 14, 24, 10, 18, 35][seed % 6]
         assign('unread', [maximum] + rng.sample(range(maximum), n - 1))
