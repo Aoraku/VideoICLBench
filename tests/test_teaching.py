@@ -12,6 +12,19 @@ from test_api import admin
 from test_direct_applications import credential
 
 
+@pytest.mark.parametrize('seed', [0, 1, 2, 3, 4, 5, 1000, 10001])
+def test_playlist_duration_parity_is_not_whole_minutes(seed):
+    state = business.generate(32, seed)
+    values = [x['duration'] for x in state['items']]
+    assert len(set(values)) == len(values)
+    assert {238,239,240,241,242,243} <= set(values)
+    assert sum(x % 2 == 0 for x in values) == len(values) // 2
+    assert any(x % 2 == 0 and x % 60 != 0 for x in values)
+    assert any(x % 2 == 1 and (x // 60) % 2 == 0 for x in values)
+    selected = business.action_targets(32, 2, state['items'], state['source'])[0]
+    assert set(selected) == {x['id'] for x in state['items'] if x['duration'] % 2 == 0}
+
+
 @pytest.mark.parametrize('task_id', [12, 28, 35])
 @pytest.mark.parametrize('base_seed', [0, 10, 37, 1000, 10000])
 def test_sorting_lessons_require_an_observable_rearrangement(task_id, base_seed):

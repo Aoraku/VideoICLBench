@@ -185,6 +185,12 @@ def enrich(id_, seed, items, source, rng):
         if id_ == 48:
             threshold_examples('sales', 50)
             assign('comments', [12, 25, 46, 57, 78, 91])
+    if id_ == 32:
+        # Seconds parity must not be confused with whole-minute durations.
+        # Keep distinct even and odd durations on both sides of minute edges.
+        evens = [238, 240, 242] + rng.sample([x for x in range(60, 1200, 2) if x not in (238,240,242)], n // 2 - 3)
+        odds = [239, 241, 243] + rng.sample([x for x in range(61, 1200, 2) if x not in (239,241,243)], n // 2 - 3)
+        assign('duration', evens + odds)
     if id_ in (5, 13, 16):
         assign('text', teaching_materials.messages(seed >= 1000))
     if id_ == 6:

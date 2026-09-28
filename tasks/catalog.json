@@ -1626,7 +1626,7 @@
         "C": "时长为偶数的歌曲加入列表甲"
       },
       "original_rules": "A：评分高于阈值的歌曲加入列表甲；B：评分低于阈值的歌曲加入列表甲；C：时长为偶数的歌曲加入列表甲",
-      "version": "3.0.0",
+      "version": "3.1.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,

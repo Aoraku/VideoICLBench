@@ -1,0 +1,201 @@
+{
+  "scope": "Task-specific native UI evidence; full recordings and human inference acceptance remain pending.",
+  "native_ui": [
+    {
+      "task_id": 28,
+      "variant": "A",
+      "run_id": "01adad6ba84548ca96a7a4b4247255da",
+      "epoch": 0,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "evidence_ref": "/v1/runs/01adad6ba84548ca96a7a4b4247255da/lesson/evidence/0/0",
+          "sha256": "2aa012d076d8049dbfd6f71f4f2c214ba101237d149cebe8713dfab44707d5ab",
+          "evaluation_success": true
+        },
+        {
+          "index": 1,
+          "evidence_ref": "/v1/runs/01adad6ba84548ca96a7a4b4247255da/lesson/evidence/0/1",
+          "sha256": "08065fb58962137658a761a672ac7ad4e032d160ec4178a95634475c092f15bc",
+          "evaluation_success": true
+        },
+        {
+          "index": 2,
+          "evidence_ref": "/v1/runs/01adad6ba84548ca96a7a4b4247255da/lesson/evidence/0/2",
+          "sha256": "ae0d5a918d5df60e50fe3b49e7d615f8f508b423ff5ad8e22d86bf239ce49893",
+          "evaluation_success": true
+        },
+        {
+          "index": 3,
+          "evidence_ref": "/v1/runs/01adad6ba84548ca96a7a4b4247255da/lesson/evidence/0/3",
+          "sha256": "4336b6a97a6f60a149e6ba46629811a91c3dbfae4c2bd9b9384c13275e663d7f",
+          "evaluation_success": true
+        },
+        {
+          "index": 4,
+          "evidence_ref": "/v1/runs/01adad6ba84548ca96a7a4b4247255da/lesson/evidence/0/4",
+          "sha256": "40b697be46b6daf0b7b33469c7ec538227cf283f9cfa525243a2bbe040043013",
+          "evaluation_success": true
+        },
+        {
+          "index": 5,
+          "evidence_ref": "/v1/runs/01adad6ba84548ca96a7a4b4247255da/lesson/evidence/0/5",
+          "sha256": "d267790a8bd680552c9a3cda5480cd7bb51c8f713a8e2f26191062226292fadb",
+          "evaluation_success": true
+        }
+      ]
+    },
+    {
+      "task_id": 28,
+      "variant": "B",
+      "run_id": "29ecd59fd263450594c7acddb40655be",
+      "epoch": 0,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "evidence_ref": "/v1/runs/29ecd59fd263450594c7acddb40655be/lesson/evidence/0/0",
+          "sha256": "39b0644b92d6e901777c8dc844b1cffe6f843f34da35a8f1e06721b7b0257c38",
+          "evaluation_success": true
+        },
+        {
+          "index": 1,
+          "evidence_ref": "/v1/runs/29ecd59fd263450594c7acddb40655be/lesson/evidence/0/1",
+          "sha256": "595f4c999613475c9ee0a4cbe005eb8ea00e13bab3b55aa9eb8a02b345fecc1c",
+          "evaluation_success": true
+        },
+        {
+          "index": 2,
+          "evidence_ref": "/v1/runs/29ecd59fd263450594c7acddb40655be/lesson/evidence/0/2",
+          "sha256": "2662e424bc7626929534b8ef8c5e13e03646868e0e131d9bfbe902d4aeb9391b",
+          "evaluation_success": true
+        },
+        {
+          "index": 3,
+          "evidence_ref": "/v1/runs/29ecd59fd263450594c7acddb40655be/lesson/evidence/0/3",
+          "sha256": "cd2b89a5dcbe0ce92317ac55183010facaaa9aba369255e6cd137a641af48ef3",
+          "evaluation_success": true
+        },
+        {
+          "index": 4,
+          "evidence_ref": "/v1/runs/29ecd59fd263450594c7acddb40655be/lesson/evidence/0/4",
+          "sha256": "d7a995dcc953ca3282eda2cde9a794199b19ecf7c6a64a9c7b819be42cf6e7ab",
+          "evaluation_success": true
+        },
+        {
+          "index": 5,
+          "evidence_ref": "/v1/runs/29ecd59fd263450594c7acddb40655be/lesson/evidence/0/5",
+          "sha256": "48977499138d36c6d4bccdaed25d4cdce1d94b357c0b1d38060fea9bc9c3bd95",
+          "evaluation_success": true
+        }
+      ]
+    },
+    {
+      "task_id": 28,
+      "variant": "C",
+      "run_id": "048c83e0210d43f8a2efe3b35f540534",
+      "epoch": 0,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 6,
+      "episodes": [
+        {
+          "index": 0,
+          "evidence_ref": "/v1/runs/048c83e0210d43f8a2efe3b35f540534/lesson/evidence/0/0",
+          "sha256": "74671b5538abe676611ad726519cf64d6cb2148d27cdc259af3b7f226caf9cc9",
+          "evaluation_success": true
+        },
+        {
+          "index": 1,
+          "evidence_ref": "/v1/runs/048c83e0210d43f8a2efe3b35f540534/lesson/evidence/0/1",
+          "sha256": "a4b3645a7ab6472d345441d8e49c6fe7c65faa685d7fc3b49801148a65d97b3d",
+          "evaluation_success": true
+        },
+        {
+          "index": 2,
+          "evidence_ref": "/v1/runs/048c83e0210d43f8a2efe3b35f540534/lesson/evidence/0/2",
+          "sha256": "997b821eb4b853e44370bae27a62b2eca84177299486e358575b8213d78e608d",
+          "evaluation_success": true
+        },
+        {
+          "index": 3,
+          "evidence_ref": "/v1/runs/048c83e0210d43f8a2efe3b35f540534/lesson/evidence/0/3",
+          "sha256": "20ffb5a96e7593310452e226e6ad6765dc0daacc70d48f9c3b5c3f49335d790c",
+          "evaluation_success": true
+        },
+        {
+          "index": 4,
+          "evidence_ref": "/v1/runs/048c83e0210d43f8a2efe3b35f540534/lesson/evidence/0/4",
+          "sha256": "d969f2383b28bd566de210881c616be0bee606df7a088010a1d2686eb38e24c7",
+          "evaluation_success": true
+        },
+        {
+          "index": 5,
+          "evidence_ref": "/v1/runs/048c83e0210d43f8a2efe3b35f540534/lesson/evidence/0/5",
+          "sha256": "bfa638450499ac93cb2037f74e89cc38b2b05b32e3ab334ba320e2a00c74fde6",
+          "evaluation_success": true
+        }
+      ]
+    },
+    {
+      "task_id": 32,
+      "variant": "A",
+      "run_id": "79649dc7d22b49e881b2a85b6dc82fd5",
+      "epoch": 1,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "evidence_ref": "/v1/runs/79649dc7d22b49e881b2a85b6dc82fd5/evidence",
+          "sha256": "f520fcc75eeba227577edcf6464149ca915271206388cab3bca986fc57078ef2",
+          "evaluation_success": true
+        }
+      ]
+    },
+    {
+      "task_id": 32,
+      "variant": "B",
+      "run_id": "fb092536c62940649e077824c11f431b",
+      "epoch": 1,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "evidence_ref": "/v1/runs/fb092536c62940649e077824c11f431b/evidence",
+          "sha256": "7745483e5ff465ce968a7d932e81ba4297266cc461c47b003201c01468a98b98",
+          "evaluation_success": true
+        }
+      ]
+    },
+    {
+      "task_id": 32,
+      "variant": "C",
+      "run_id": "5f685afab59c4da396ef2bfaaf92f79a",
+      "epoch": 1,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "episode_count": 1,
+      "episodes": [
+        {
+          "index": 0,
+          "evidence_ref": "/v1/runs/5f685afab59c4da396ef2bfaaf92f79a/evidence",
+          "sha256": "07a3c901ba87d8cae347d149876084c13ff789c51b61713986aaba592c7d6d77",
+          "evaluation_success": true
+        }
+      ]
+    }
+  ],
+  "observations": {
+    "28": "A/B/C each contains six ordered lists. Visible year, duration and artist determine ordering. Every arrow click is checked against visible row order; final C order survives reload.",
+    "32": "A/B/C each uses 24 songs with distinct durations; 12 even and 12 odd seconds, including 238 through 243. Ratings include 49,50,51. A/B/C add 10/10/12 songs. Playlist membership and disabled added buttons persist after reload."
+  }
+}

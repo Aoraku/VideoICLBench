@@ -1,11 +1,8 @@
 {
   "scope": "Index of task-specific browser observations recorded in review artifacts. Presence does not imply complete A/B/C coverage, current-version replay, recorded-video verification, or human inference acceptance. Null episode counts mean the source has no explicit episode count.",
   "task_count": 75,
-  "tasks_with_indexed_browser_evidence": 63,
+  "tasks_with_indexed_browser_evidence": 66,
   "tasks_without_indexed_browser_evidence": [
-    28,
-    32,
-    59,
     61,
     62,
     63,
@@ -588,7 +585,29 @@
     },
     {
       "task_id": 28,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-music-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "01adad6ba84548ca96a7a4b4247255da",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-music-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "29ecd59fd263450594c7acddb40655be",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-music-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "C",
+          "run_id": "048c83e0210d43f8a2efe3b35f540534",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 29,
@@ -635,7 +654,29 @@
     },
     {
       "task_id": 32,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-music-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "A",
+          "run_id": "79649dc7d22b49e881b2a85b6dc82fd5",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-music-ui-validation.json",
+          "json_pointer": "/native_ui/4",
+          "variant": "B",
+          "run_id": "fb092536c62940649e077824c11f431b",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-music-ui-validation.json",
+          "json_pointer": "/native_ui/5",
+          "variant": "C",
+          "run_id": "5f685afab59c4da396ef2bfaaf92f79a",
+          "reported_episode_count": 1
+        }
+      ]
     },
     {
       "task_id": 33,
@@ -1063,7 +1104,29 @@
     },
     {
       "task_id": 59,
-      "evidence": []
+      "evidence": [
+        {
+          "file": "teaching-oj-text-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "f935568e5363481b802ea572ad1ed3d1",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-oj-text-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "5277d77f16a44530af2d82f1557f2757",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-oj-text-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "C",
+          "run_id": "4d23d9c37ebc48e790bb50d6fd4fde88",
+          "reported_episode_count": 6
+        }
+      ]
     },
     {
       "task_id": 60,
