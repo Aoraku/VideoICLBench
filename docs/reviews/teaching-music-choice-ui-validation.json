@@ -1,0 +1,536 @@
+{
+  "scope": "Task 27 B/C six native UI selections each, with saved state visible and independent evaluation. Full recording and human inference acceptance remain pending.",
+  "verified_at": "2026-09-28T06:33:11.050221+00:00",
+  "native_ui": [
+    {
+      "task_id": 27,
+      "variant": "B",
+      "run_id": "600ad6fa28044da3a7f369a08616cf9f",
+      "epoch": 0,
+      "episode_count": 6,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "5c700f4d52de680d58cedfbe15802d5eeefc26328af0a6d184749d750f2ea261",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": [
+            "object-1465dddafe"
+          ],
+          "candidates": [
+            {
+              "id": "object-86f1b5fb11",
+              "name": "Night Train 22",
+              "plays": 11
+            },
+            {
+              "id": "object-14bf32d240",
+              "name": "Lost Postcard",
+              "plays": 41
+            },
+            {
+              "id": "object-d7194eca96",
+              "name": "Silver Lining",
+              "plays": 83
+            },
+            {
+              "id": "object-0971f60ae9",
+              "name": "Distant Stars",
+              "plays": 94
+            },
+            {
+              "id": "object-6a250d6066",
+              "name": "Green Fields",
+              "plays": 28
+            },
+            {
+              "id": "object-1465dddafe",
+              "name": "Morning Walk",
+              "plays": 5
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/600ad6fa28044da3a7f369a08616cf9f/lesson/evidence/0/0",
+          "sha256": "1cb00f6cc1ec720de42c4ac4b3b1c8e8486d3d6b7eecdb23af4865b36a56e9c5"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": [
+            "object-2589ebdebb"
+          ],
+          "candidates": [
+            {
+              "id": "object-06a09d8523",
+              "name": "Blue Hour",
+              "plays": 29
+            },
+            {
+              "id": "object-10b3073ff2",
+              "name": "Window Seat",
+              "plays": 65
+            },
+            {
+              "id": "object-c93003205b",
+              "name": "Silver Lining",
+              "plays": 50
+            },
+            {
+              "id": "object-5faee60cdd",
+              "name": "After the Rain",
+              "plays": 32
+            },
+            {
+              "id": "object-d19ab7b8a9",
+              "name": "Paper Boats",
+              "plays": 20
+            },
+            {
+              "id": "object-2589ebdebb",
+              "name": "Distant Stars",
+              "plays": 1
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/600ad6fa28044da3a7f369a08616cf9f/lesson/evidence/0/1",
+          "sha256": "60c41abaeab7e58005bccd5bd838b076c8136d8a640126198693339dc51f7b01"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": [
+            "object-7b3a287ea3"
+          ],
+          "candidates": [
+            {
+              "id": "object-7b3a287ea3",
+              "name": "Lost Postcard",
+              "plays": 31
+            },
+            {
+              "id": "object-c00ca6186c",
+              "name": "Small Hours",
+              "plays": 62
+            },
+            {
+              "id": "object-901214e396",
+              "name": "Green Fields",
+              "plays": 64
+            },
+            {
+              "id": "object-a1cf197e2a",
+              "name": "Amber Sky",
+              "plays": 93
+            },
+            {
+              "id": "object-349b09b8e3",
+              "name": "Summer Breeze",
+              "plays": 35
+            },
+            {
+              "id": "object-2f7e2815af",
+              "name": "River Song",
+              "plays": 40
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/600ad6fa28044da3a7f369a08616cf9f/lesson/evidence/0/2",
+          "sha256": "0bba5b763ccf2183b74c9b2f177e155930281ebc6451ead49b8d76fe07d589c6"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": [
+            "object-8e223482af"
+          ],
+          "candidates": [
+            {
+              "id": "object-87683d2aa1",
+              "name": "Northbound",
+              "plays": 48
+            },
+            {
+              "id": "object-8e223482af",
+              "name": "Lost Postcard",
+              "plays": 24
+            },
+            {
+              "id": "object-c1f77d7a50",
+              "name": "Ocean Drive",
+              "plays": 77
+            },
+            {
+              "id": "object-cdb975d0c6",
+              "name": "After the Rain",
+              "plays": 69
+            },
+            {
+              "id": "object-6629b81690",
+              "name": "Morning Walk",
+              "plays": 35
+            },
+            {
+              "id": "object-765092f12f",
+              "name": "Night Train 22",
+              "plays": 83
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/600ad6fa28044da3a7f369a08616cf9f/lesson/evidence/0/3",
+          "sha256": "fdc8f7d9592277d341b0193848885a1285fcfe178144318caca092403371e48c"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": [
+            "object-e8cfc9caf7"
+          ],
+          "candidates": [
+            {
+              "id": "object-294a3abf58",
+              "name": "Ocean Drive",
+              "plays": 24
+            },
+            {
+              "id": "object-dd40e597c2",
+              "name": "Second Sunrise",
+              "plays": 61
+            },
+            {
+              "id": "object-2bfb003daa",
+              "name": "Late Coffee",
+              "plays": 26
+            },
+            {
+              "id": "object-275ca77cbb",
+              "name": "Home Again",
+              "plays": 27
+            },
+            {
+              "id": "object-e8cfc9caf7",
+              "name": "Paper Boats",
+              "plays": 10
+            },
+            {
+              "id": "object-c21a194113",
+              "name": "Sunday Radio",
+              "plays": 15
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/600ad6fa28044da3a7f369a08616cf9f/lesson/evidence/0/4",
+          "sha256": "d7324e9a832b3bf95bbb2e1dcb046c728ae71403481bd9c604fe3686cd156905"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": [
+            "object-f4c7c480d5"
+          ],
+          "candidates": [
+            {
+              "id": "object-210195750d",
+              "name": "Lost Postcard",
+              "plays": 71
+            },
+            {
+              "id": "object-1644b817ed",
+              "name": "River Song",
+              "plays": 95
+            },
+            {
+              "id": "object-54e8397f7f",
+              "name": "Ocean Drive",
+              "plays": 84
+            },
+            {
+              "id": "object-6e05c152e7",
+              "name": "Summer Breeze",
+              "plays": 46
+            },
+            {
+              "id": "object-7564979c2b",
+              "name": "After the Rain",
+              "plays": 86
+            },
+            {
+              "id": "object-f4c7c480d5",
+              "name": "Northbound",
+              "plays": 39
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/600ad6fa28044da3a7f369a08616cf9f/lesson/evidence/0/5",
+          "sha256": "332bc71b146ec11cd5955011d945bdc2ce126ccba9922dd303300f821d4a0925"
+        }
+      ]
+    },
+    {
+      "task_id": 27,
+      "variant": "C",
+      "run_id": "36cf902c630e488c850a24cf601ab02e",
+      "epoch": 0,
+      "episode_count": 6,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "7e200655642e64bd379c0962acb97dbe0bd6e286da3de63e357a5ea61d5c6b4b",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": [
+            "object-6a250d6066"
+          ],
+          "candidates": [
+            {
+              "id": "object-86f1b5fb11",
+              "name": "Night Train 22",
+              "plays": 11
+            },
+            {
+              "id": "object-14bf32d240",
+              "name": "Lost Postcard",
+              "plays": 41
+            },
+            {
+              "id": "object-d7194eca96",
+              "name": "Silver Lining",
+              "plays": 83
+            },
+            {
+              "id": "object-0971f60ae9",
+              "name": "Distant Stars",
+              "plays": 94
+            },
+            {
+              "id": "object-6a250d6066",
+              "name": "Green Fields",
+              "plays": 28
+            },
+            {
+              "id": "object-1465dddafe",
+              "name": "Morning Walk",
+              "plays": 5
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/36cf902c630e488c850a24cf601ab02e/lesson/evidence/0/0",
+          "sha256": "d3bbdd2449e7f3f6b5d7931ff1f533c439bd6c99f3c9f8ba8b488100689b6f5a"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": [
+            "object-06a09d8523"
+          ],
+          "candidates": [
+            {
+              "id": "object-06a09d8523",
+              "name": "Blue Hour",
+              "plays": 29
+            },
+            {
+              "id": "object-10b3073ff2",
+              "name": "Window Seat",
+              "plays": 65
+            },
+            {
+              "id": "object-c93003205b",
+              "name": "Silver Lining",
+              "plays": 50
+            },
+            {
+              "id": "object-5faee60cdd",
+              "name": "After the Rain",
+              "plays": 32
+            },
+            {
+              "id": "object-d19ab7b8a9",
+              "name": "Paper Boats",
+              "plays": 20
+            },
+            {
+              "id": "object-2589ebdebb",
+              "name": "Distant Stars",
+              "plays": 1
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/36cf902c630e488c850a24cf601ab02e/lesson/evidence/0/1",
+          "sha256": "6084a56bdb45e200fe2ca5891f76812e1e131e82064a552b5774724da6581275"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": [
+            "object-a1cf197e2a"
+          ],
+          "candidates": [
+            {
+              "id": "object-7b3a287ea3",
+              "name": "Lost Postcard",
+              "plays": 31
+            },
+            {
+              "id": "object-c00ca6186c",
+              "name": "Small Hours",
+              "plays": 62
+            },
+            {
+              "id": "object-901214e396",
+              "name": "Green Fields",
+              "plays": 64
+            },
+            {
+              "id": "object-a1cf197e2a",
+              "name": "Amber Sky",
+              "plays": 93
+            },
+            {
+              "id": "object-349b09b8e3",
+              "name": "Summer Breeze",
+              "plays": 35
+            },
+            {
+              "id": "object-2f7e2815af",
+              "name": "River Song",
+              "plays": 40
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/36cf902c630e488c850a24cf601ab02e/lesson/evidence/0/2",
+          "sha256": "58c9079ce771a82a00bdfa487f3c8fa6a78b4685ed122f89a6e517c0a55da32d"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": [
+            "object-87683d2aa1"
+          ],
+          "candidates": [
+            {
+              "id": "object-87683d2aa1",
+              "name": "Northbound",
+              "plays": 48
+            },
+            {
+              "id": "object-8e223482af",
+              "name": "Lost Postcard",
+              "plays": 24
+            },
+            {
+              "id": "object-c1f77d7a50",
+              "name": "Ocean Drive",
+              "plays": 77
+            },
+            {
+              "id": "object-cdb975d0c6",
+              "name": "After the Rain",
+              "plays": 69
+            },
+            {
+              "id": "object-6629b81690",
+              "name": "Morning Walk",
+              "plays": 35
+            },
+            {
+              "id": "object-765092f12f",
+              "name": "Night Train 22",
+              "plays": 83
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/36cf902c630e488c850a24cf601ab02e/lesson/evidence/0/3",
+          "sha256": "c644f424097b09ed1fbd9f06701f08f6f6746b04d879b06ea2c4d0b545743960"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": [
+            "object-275ca77cbb"
+          ],
+          "candidates": [
+            {
+              "id": "object-294a3abf58",
+              "name": "Ocean Drive",
+              "plays": 24
+            },
+            {
+              "id": "object-dd40e597c2",
+              "name": "Second Sunrise",
+              "plays": 61
+            },
+            {
+              "id": "object-2bfb003daa",
+              "name": "Late Coffee",
+              "plays": 26
+            },
+            {
+              "id": "object-275ca77cbb",
+              "name": "Home Again",
+              "plays": 27
+            },
+            {
+              "id": "object-e8cfc9caf7",
+              "name": "Paper Boats",
+              "plays": 10
+            },
+            {
+              "id": "object-c21a194113",
+              "name": "Sunday Radio",
+              "plays": 15
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/36cf902c630e488c850a24cf601ab02e/lesson/evidence/0/4",
+          "sha256": "7e4fa9dd21871fd7aad96594177e2285613ac5baefbbac7a10b2e47c7174c97c"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": [
+            "object-1644b817ed"
+          ],
+          "candidates": [
+            {
+              "id": "object-210195750d",
+              "name": "Lost Postcard",
+              "plays": 71
+            },
+            {
+              "id": "object-1644b817ed",
+              "name": "River Song",
+              "plays": 95
+            },
+            {
+              "id": "object-54e8397f7f",
+              "name": "Ocean Drive",
+              "plays": 84
+            },
+            {
+              "id": "object-6e05c152e7",
+              "name": "Summer Breeze",
+              "plays": 46
+            },
+            {
+              "id": "object-7564979c2b",
+              "name": "After the Rain",
+              "plays": 86
+            },
+            {
+              "id": "object-f4c7c480d5",
+              "name": "Northbound",
+              "plays": 39
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/36cf902c630e488c850a24cf601ab02e/lesson/evidence/0/5",
+          "sha256": "87a55c568a9dc33edbd3b15ea506c5f206f80288f6134a2b5ebe300c272a05be"
+        }
+      ]
+    }
+  ]
+}

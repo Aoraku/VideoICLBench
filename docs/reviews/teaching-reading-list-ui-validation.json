@@ -1,0 +1,1808 @@
+{
+  "scope": "Task 30 A/B/C, six native UI reading lists per variant. Tag extrema vary across episodes, and saved membership is checked on the reading-list page. Full recording and human inference acceptance remain pending.",
+  "verified_at": "2026-09-28T06:40:40.271433+00:00",
+  "native_ui": [
+    {
+      "task_id": 30,
+      "task_version": "3.2.0",
+      "variant": "A",
+      "run_id": "06b386ea4933460e880bc8b894a81357",
+      "epoch": 0,
+      "episode_count": 6,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "reload_persistence_episodes": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "evaluation_sha256": "17d24680a9e8d9a0b104ecdb029961b1be93eb50228312d9d1d354053c515973",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": [
+            "object-a826fa9064"
+          ],
+          "candidates": [
+            {
+              "id": "object-a003d0df3b",
+              "name": "社区食堂征集居民意见",
+              "tag_count": 2,
+              "tags": [
+                "community",
+                "education"
+              ],
+              "comments": 89
+            },
+            {
+              "id": "object-e47cdcb820",
+              "name": "老街修缮方案开始公示",
+              "tag_count": 1,
+              "tags": [
+                "ideas"
+              ],
+              "comments": 54
+            },
+            {
+              "id": "object-a4ae79bfaa",
+              "name": "2026 年公共交通服务报告",
+              "tag_count": 5,
+              "tags": [
+                "reading",
+                "design",
+                "history",
+                "community",
+                "blue"
+              ],
+              "comments": 64
+            },
+            {
+              "id": "object-8d90ee871d",
+              "name": "步行地图收录 14 条路线",
+              "tag_count": 4,
+              "tags": [
+                "history",
+                "focus",
+                "transport",
+                "nature"
+              ],
+              "comments": 65
+            },
+            {
+              "id": "object-a826fa9064",
+              "name": "河流监测新增 6 个站点",
+              "tag_count": 6,
+              "tags": [
+                "focus",
+                "blue",
+                "education",
+                "weekly",
+                "community",
+                "nature"
+              ],
+              "comments": 96
+            },
+            {
+              "id": "object-d0725341fb",
+              "name": "35 位居民参与口述历史",
+              "tag_count": 0,
+              "tags": [],
+              "comments": 76
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/06b386ea4933460e880bc8b894a81357/lesson/evidence/0/0",
+          "sha256": "8df032fb55d7d639e09ad1089326ce21f540d680ee9719ea8b7619409a51a8b4"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": [
+            "object-d8102dd733"
+          ],
+          "candidates": [
+            {
+              "id": "object-9c0332d9d1",
+              "name": "步行地图收录 14 条路线",
+              "tag_count": 4,
+              "tags": [
+                "education",
+                "reading",
+                "weekly",
+                "travel"
+              ],
+              "comments": 1
+            },
+            {
+              "id": "object-91de711e7e",
+              "name": "2026 年公共交通服务报告",
+              "tag_count": 8,
+              "tags": [
+                "nature",
+                "blue",
+                "weekly",
+                "design",
+                "focus",
+                "history",
+                "reading",
+                "ideas"
+              ],
+              "comments": 26
+            },
+            {
+              "id": "object-bc17b0cb85",
+              "name": "城市夜行摄影展开放",
+              "tag_count": 3,
+              "tags": [
+                "transport",
+                "reading",
+                "culture"
+              ],
+              "comments": 40
+            },
+            {
+              "id": "object-270951036c",
+              "name": "老街修缮方案开始公示",
+              "tag_count": 7,
+              "tags": [
+                "blue",
+                "nature",
+                "reading",
+                "ideas",
+                "culture",
+                "travel",
+                "education"
+              ],
+              "comments": 11
+            },
+            {
+              "id": "object-49e1fbe9bd",
+              "name": "社区合唱团开启排练",
+              "tag_count": 2,
+              "tags": [
+                "history",
+                "travel"
+              ],
+              "comments": 28
+            },
+            {
+              "id": "object-d8102dd733",
+              "name": "街角书店发起旧书交换",
+              "tag_count": 10,
+              "tags": [
+                "transport",
+                "reading",
+                "design",
+                "focus",
+                "history",
+                "education",
+                "community",
+                "weekly",
+                "nature",
+                "culture"
+              ],
+              "comments": 65
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/06b386ea4933460e880bc8b894a81357/lesson/evidence/0/1",
+          "sha256": "1ee8aa5760318f2b27f3b887b4290d7f14e90ebe0f588b8d46e3fbb4be76eada"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": [
+            "object-3099e0f950"
+          ],
+          "candidates": [
+            {
+              "id": "object-f9224eecb9",
+              "name": "社区合唱团开启排练",
+              "tag_count": 6,
+              "tags": [
+                "education",
+                "ideas",
+                "community",
+                "reading",
+                "travel",
+                "history"
+              ],
+              "comments": 57
+            },
+            {
+              "id": "object-52a809e4b9",
+              "name": "35 位居民参与口述历史",
+              "tag_count": 5,
+              "tags": [
+                "ideas",
+                "travel",
+                "weekly",
+                "design",
+                "transport"
+              ],
+              "comments": 20
+            },
+            {
+              "id": "object-4186c52933",
+              "name": "社区食堂征集居民意见",
+              "tag_count": 7,
+              "tags": [
+                "history",
+                "transport",
+                "weekly",
+                "design",
+                "culture",
+                "community",
+                "reading"
+              ],
+              "comments": 28
+            },
+            {
+              "id": "object-64fb2cfbed",
+              "name": "周末市集迎来手工艺人",
+              "tag_count": 4,
+              "tags": [
+                "community",
+                "blue",
+                "history",
+                "culture"
+              ],
+              "comments": 46
+            },
+            {
+              "id": "object-3099e0f950",
+              "name": "新建 5 处社区休息亭",
+              "tag_count": 9,
+              "tags": [
+                "community",
+                "ideas",
+                "reading",
+                "blue",
+                "history",
+                "transport",
+                "education",
+                "design",
+                "culture"
+              ],
+              "comments": 10
+            },
+            {
+              "id": "object-93705af170",
+              "name": "9 月文化活动指南发布",
+              "tag_count": 8,
+              "tags": [
+                "culture",
+                "travel",
+                "education",
+                "transport",
+                "history",
+                "ideas",
+                "blue",
+                "focus"
+              ],
+              "comments": 9
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/06b386ea4933460e880bc8b894a81357/lesson/evidence/0/2",
+          "sha256": "0b2bda6cf59cef8724276d7d9bc533198d005cf7a1f9ceeb7453f51c36698d1e"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": [
+            "object-57a4d6aaf0"
+          ],
+          "candidates": [
+            {
+              "id": "object-661e14d8c9",
+              "name": "城市夜行摄影展开放",
+              "tag_count": 4,
+              "tags": [
+                "focus",
+                "transport",
+                "education",
+                "reading"
+              ],
+              "comments": 24
+            },
+            {
+              "id": "object-ccf2f53798",
+              "name": "35 位居民参与口述历史",
+              "tag_count": 1,
+              "tags": [
+                "community"
+              ],
+              "comments": 72
+            },
+            {
+              "id": "object-75c0ca3c1a",
+              "name": "第 8 届城市读书节开幕",
+              "tag_count": 5,
+              "tags": [
+                "blue",
+                "reading",
+                "history",
+                "ideas",
+                "culture"
+              ],
+              "comments": 30
+            },
+            {
+              "id": "object-01b2d9d0b9",
+              "name": "青年设计师分享街区实践",
+              "tag_count": 6,
+              "tags": [
+                "history",
+                "community",
+                "blue",
+                "culture",
+                "nature",
+                "weekly"
+              ],
+              "comments": 12
+            },
+            {
+              "id": "object-57a4d6aaf0",
+              "name": "地铁 7 号线增加班次",
+              "tag_count": 7,
+              "tags": [
+                "focus",
+                "blue",
+                "design",
+                "culture",
+                "history",
+                "community",
+                "weekly"
+              ],
+              "comments": 61
+            },
+            {
+              "id": "object-7c38ba7338",
+              "name": "9 月文化活动指南发布",
+              "tag_count": 3,
+              "tags": [
+                "culture",
+                "nature",
+                "focus"
+              ],
+              "comments": 21
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/06b386ea4933460e880bc8b894a81357/lesson/evidence/0/3",
+          "sha256": "6a2e985390a426e6f89fba036f4f456964d99dadcff8c606d12c6a16afeb12ed"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": [
+            "object-7916682778"
+          ],
+          "candidates": [
+            {
+              "id": "object-173113487b",
+              "name": "街角书店发起旧书交换",
+              "tag_count": 4,
+              "tags": [
+                "ideas",
+                "focus",
+                "blue",
+                "history"
+              ],
+              "comments": 15
+            },
+            {
+              "id": "object-ab98075903",
+              "name": "地铁 7 号线增加班次",
+              "tag_count": 9,
+              "tags": [
+                "ideas",
+                "weekly",
+                "travel",
+                "community",
+                "education",
+                "design",
+                "reading",
+                "focus",
+                "history"
+              ],
+              "comments": 40
+            },
+            {
+              "id": "object-a0ec79be3f",
+              "name": "河岸步道完成无障碍改造",
+              "tag_count": 6,
+              "tags": [
+                "nature",
+                "history",
+                "reading",
+                "ideas",
+                "education",
+                "travel"
+              ],
+              "comments": 11
+            },
+            {
+              "id": "object-5213b72d43",
+              "name": "老街修缮方案开始公示",
+              "tag_count": 3,
+              "tags": [
+                "education",
+                "nature",
+                "travel"
+              ],
+              "comments": 82
+            },
+            {
+              "id": "object-7916682778",
+              "name": "12 个街区开展环境调查",
+              "tag_count": 11,
+              "tags": [
+                "travel",
+                "ideas",
+                "focus",
+                "reading",
+                "education",
+                "history",
+                "community",
+                "transport",
+                "weekly",
+                "culture",
+                "blue"
+              ],
+              "comments": 48
+            },
+            {
+              "id": "object-cb51f6fc5a",
+              "name": "社区花园迎来收获季",
+              "tag_count": 10,
+              "tags": [
+                "ideas",
+                "education",
+                "culture",
+                "travel",
+                "transport",
+                "nature",
+                "history",
+                "focus",
+                "weekly",
+                "blue"
+              ],
+              "comments": 51
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/06b386ea4933460e880bc8b894a81357/lesson/evidence/0/4",
+          "sha256": "a51c9219474ecc74cf1955125dfd38b6b426f3fbb97d73c38f933fae3e24ec09"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": [
+            "object-da7f2d9dbb"
+          ],
+          "candidates": [
+            {
+              "id": "object-addcb43e79",
+              "name": "社区合唱团开启排练",
+              "tag_count": 11,
+              "tags": [
+                "weekly",
+                "design",
+                "travel",
+                "focus",
+                "nature",
+                "community",
+                "blue",
+                "education",
+                "history",
+                "transport",
+                "culture"
+              ],
+              "comments": 40
+            },
+            {
+              "id": "object-da7f2d9dbb",
+              "name": "2026 年公共交通服务报告",
+              "tag_count": 13,
+              "tags": [
+                "history",
+                "blue",
+                "reading",
+                "nature",
+                "focus",
+                "ideas",
+                "design",
+                "education",
+                "travel",
+                "weekly",
+                "culture",
+                "transport",
+                "community"
+              ],
+              "comments": 31
+            },
+            {
+              "id": "object-b7f1e0c527",
+              "name": "第 8 届城市读书节开幕",
+              "tag_count": 9,
+              "tags": [
+                "travel",
+                "design",
+                "education",
+                "ideas",
+                "blue",
+                "history",
+                "weekly",
+                "transport",
+                "community"
+              ],
+              "comments": 11
+            },
+            {
+              "id": "object-24e39741ab",
+              "name": "12 个街区开展环境调查",
+              "tag_count": 8,
+              "tags": [
+                "community",
+                "travel",
+                "transport",
+                "design",
+                "focus",
+                "culture",
+                "ideas",
+                "blue"
+              ],
+              "comments": 9
+            },
+            {
+              "id": "object-57cd59c172",
+              "name": "街角书店发起旧书交换",
+              "tag_count": 5,
+              "tags": [
+                "community",
+                "ideas",
+                "weekly",
+                "reading",
+                "transport"
+              ],
+              "comments": 73
+            },
+            {
+              "id": "object-d6c81f74a8",
+              "name": "地铁 7 号线增加班次",
+              "tag_count": 7,
+              "tags": [
+                "focus",
+                "design",
+                "blue",
+                "education",
+                "weekly",
+                "reading",
+                "history"
+              ],
+              "comments": 14
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/06b386ea4933460e880bc8b894a81357/lesson/evidence/0/5",
+          "sha256": "067ea5ff6b535638f469f3562b45985ac539b562ba73f0137f7913223f3f47c5"
+        }
+      ]
+    },
+    {
+      "task_id": 30,
+      "task_version": "3.2.0",
+      "variant": "B",
+      "run_id": "4ad638f0d05042c790a80bb63133eaae",
+      "epoch": 0,
+      "episode_count": 6,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "reload_persistence_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "evaluation_sha256": "7ad4d9e1c02b2936db3eed7c2b21ed9ec75402389165303406c93bf8d5d4fead",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": [
+            "object-d0725341fb"
+          ],
+          "candidates": [
+            {
+              "id": "object-a003d0df3b",
+              "name": "社区食堂征集居民意见",
+              "tag_count": 2,
+              "tags": [
+                "community",
+                "education"
+              ],
+              "comments": 89
+            },
+            {
+              "id": "object-e47cdcb820",
+              "name": "老街修缮方案开始公示",
+              "tag_count": 1,
+              "tags": [
+                "ideas"
+              ],
+              "comments": 54
+            },
+            {
+              "id": "object-a4ae79bfaa",
+              "name": "2026 年公共交通服务报告",
+              "tag_count": 5,
+              "tags": [
+                "reading",
+                "design",
+                "history",
+                "community",
+                "blue"
+              ],
+              "comments": 64
+            },
+            {
+              "id": "object-8d90ee871d",
+              "name": "步行地图收录 14 条路线",
+              "tag_count": 4,
+              "tags": [
+                "history",
+                "focus",
+                "transport",
+                "nature"
+              ],
+              "comments": 65
+            },
+            {
+              "id": "object-a826fa9064",
+              "name": "河流监测新增 6 个站点",
+              "tag_count": 6,
+              "tags": [
+                "focus",
+                "blue",
+                "education",
+                "weekly",
+                "community",
+                "nature"
+              ],
+              "comments": 96
+            },
+            {
+              "id": "object-d0725341fb",
+              "name": "35 位居民参与口述历史",
+              "tag_count": 0,
+              "tags": [],
+              "comments": 76
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/4ad638f0d05042c790a80bb63133eaae/lesson/evidence/0/0",
+          "sha256": "13317a025aad38b87965384fc0ab9c788a8a66dda40322ccc8023458ec559233"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": [
+            "object-49e1fbe9bd"
+          ],
+          "candidates": [
+            {
+              "id": "object-9c0332d9d1",
+              "name": "步行地图收录 14 条路线",
+              "tag_count": 4,
+              "tags": [
+                "education",
+                "reading",
+                "weekly",
+                "travel"
+              ],
+              "comments": 1
+            },
+            {
+              "id": "object-91de711e7e",
+              "name": "2026 年公共交通服务报告",
+              "tag_count": 8,
+              "tags": [
+                "nature",
+                "blue",
+                "weekly",
+                "design",
+                "focus",
+                "history",
+                "reading",
+                "ideas"
+              ],
+              "comments": 26
+            },
+            {
+              "id": "object-bc17b0cb85",
+              "name": "城市夜行摄影展开放",
+              "tag_count": 3,
+              "tags": [
+                "transport",
+                "reading",
+                "culture"
+              ],
+              "comments": 40
+            },
+            {
+              "id": "object-270951036c",
+              "name": "老街修缮方案开始公示",
+              "tag_count": 7,
+              "tags": [
+                "blue",
+                "nature",
+                "reading",
+                "ideas",
+                "culture",
+                "travel",
+                "education"
+              ],
+              "comments": 11
+            },
+            {
+              "id": "object-49e1fbe9bd",
+              "name": "社区合唱团开启排练",
+              "tag_count": 2,
+              "tags": [
+                "history",
+                "travel"
+              ],
+              "comments": 28
+            },
+            {
+              "id": "object-d8102dd733",
+              "name": "街角书店发起旧书交换",
+              "tag_count": 10,
+              "tags": [
+                "transport",
+                "reading",
+                "design",
+                "focus",
+                "history",
+                "education",
+                "community",
+                "weekly",
+                "nature",
+                "culture"
+              ],
+              "comments": 65
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/4ad638f0d05042c790a80bb63133eaae/lesson/evidence/0/1",
+          "sha256": "2f5c055eb64502f5757d81fa43210440dbcfdea481038c48d18aaeaa0fd35639"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": [
+            "object-64fb2cfbed"
+          ],
+          "candidates": [
+            {
+              "id": "object-f9224eecb9",
+              "name": "社区合唱团开启排练",
+              "tag_count": 6,
+              "tags": [
+                "education",
+                "ideas",
+                "community",
+                "reading",
+                "travel",
+                "history"
+              ],
+              "comments": 57
+            },
+            {
+              "id": "object-52a809e4b9",
+              "name": "35 位居民参与口述历史",
+              "tag_count": 5,
+              "tags": [
+                "ideas",
+                "travel",
+                "weekly",
+                "design",
+                "transport"
+              ],
+              "comments": 20
+            },
+            {
+              "id": "object-4186c52933",
+              "name": "社区食堂征集居民意见",
+              "tag_count": 7,
+              "tags": [
+                "history",
+                "transport",
+                "weekly",
+                "design",
+                "culture",
+                "community",
+                "reading"
+              ],
+              "comments": 28
+            },
+            {
+              "id": "object-64fb2cfbed",
+              "name": "周末市集迎来手工艺人",
+              "tag_count": 4,
+              "tags": [
+                "community",
+                "blue",
+                "history",
+                "culture"
+              ],
+              "comments": 46
+            },
+            {
+              "id": "object-3099e0f950",
+              "name": "新建 5 处社区休息亭",
+              "tag_count": 9,
+              "tags": [
+                "community",
+                "ideas",
+                "reading",
+                "blue",
+                "history",
+                "transport",
+                "education",
+                "design",
+                "culture"
+              ],
+              "comments": 10
+            },
+            {
+              "id": "object-93705af170",
+              "name": "9 月文化活动指南发布",
+              "tag_count": 8,
+              "tags": [
+                "culture",
+                "travel",
+                "education",
+                "transport",
+                "history",
+                "ideas",
+                "blue",
+                "focus"
+              ],
+              "comments": 9
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/4ad638f0d05042c790a80bb63133eaae/lesson/evidence/0/2",
+          "sha256": "95a61c3fefc4eb1a696e4dfacbc2f896e5bbef905b1622413e88cf61b3480fc8"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": [
+            "object-ccf2f53798"
+          ],
+          "candidates": [
+            {
+              "id": "object-661e14d8c9",
+              "name": "城市夜行摄影展开放",
+              "tag_count": 4,
+              "tags": [
+                "focus",
+                "transport",
+                "education",
+                "reading"
+              ],
+              "comments": 24
+            },
+            {
+              "id": "object-ccf2f53798",
+              "name": "35 位居民参与口述历史",
+              "tag_count": 1,
+              "tags": [
+                "community"
+              ],
+              "comments": 72
+            },
+            {
+              "id": "object-75c0ca3c1a",
+              "name": "第 8 届城市读书节开幕",
+              "tag_count": 5,
+              "tags": [
+                "blue",
+                "reading",
+                "history",
+                "ideas",
+                "culture"
+              ],
+              "comments": 30
+            },
+            {
+              "id": "object-01b2d9d0b9",
+              "name": "青年设计师分享街区实践",
+              "tag_count": 6,
+              "tags": [
+                "history",
+                "community",
+                "blue",
+                "culture",
+                "nature",
+                "weekly"
+              ],
+              "comments": 12
+            },
+            {
+              "id": "object-57a4d6aaf0",
+              "name": "地铁 7 号线增加班次",
+              "tag_count": 7,
+              "tags": [
+                "focus",
+                "blue",
+                "design",
+                "culture",
+                "history",
+                "community",
+                "weekly"
+              ],
+              "comments": 61
+            },
+            {
+              "id": "object-7c38ba7338",
+              "name": "9 月文化活动指南发布",
+              "tag_count": 3,
+              "tags": [
+                "culture",
+                "nature",
+                "focus"
+              ],
+              "comments": 21
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/4ad638f0d05042c790a80bb63133eaae/lesson/evidence/0/3",
+          "sha256": "da5bc34d7d503c8e3b2839e3647067ef6d772c8c9313d9430b03df71f66a7e47"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": [
+            "object-5213b72d43"
+          ],
+          "candidates": [
+            {
+              "id": "object-173113487b",
+              "name": "街角书店发起旧书交换",
+              "tag_count": 4,
+              "tags": [
+                "ideas",
+                "focus",
+                "blue",
+                "history"
+              ],
+              "comments": 15
+            },
+            {
+              "id": "object-ab98075903",
+              "name": "地铁 7 号线增加班次",
+              "tag_count": 9,
+              "tags": [
+                "ideas",
+                "weekly",
+                "travel",
+                "community",
+                "education",
+                "design",
+                "reading",
+                "focus",
+                "history"
+              ],
+              "comments": 40
+            },
+            {
+              "id": "object-a0ec79be3f",
+              "name": "河岸步道完成无障碍改造",
+              "tag_count": 6,
+              "tags": [
+                "nature",
+                "history",
+                "reading",
+                "ideas",
+                "education",
+                "travel"
+              ],
+              "comments": 11
+            },
+            {
+              "id": "object-5213b72d43",
+              "name": "老街修缮方案开始公示",
+              "tag_count": 3,
+              "tags": [
+                "education",
+                "nature",
+                "travel"
+              ],
+              "comments": 82
+            },
+            {
+              "id": "object-7916682778",
+              "name": "12 个街区开展环境调查",
+              "tag_count": 11,
+              "tags": [
+                "travel",
+                "ideas",
+                "focus",
+                "reading",
+                "education",
+                "history",
+                "community",
+                "transport",
+                "weekly",
+                "culture",
+                "blue"
+              ],
+              "comments": 48
+            },
+            {
+              "id": "object-cb51f6fc5a",
+              "name": "社区花园迎来收获季",
+              "tag_count": 10,
+              "tags": [
+                "ideas",
+                "education",
+                "culture",
+                "travel",
+                "transport",
+                "nature",
+                "history",
+                "focus",
+                "weekly",
+                "blue"
+              ],
+              "comments": 51
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/4ad638f0d05042c790a80bb63133eaae/lesson/evidence/0/4",
+          "sha256": "5f0dec9ccb2a1b214dff293977e5c2b78832fd9dc897a7a867d7150e0778be82"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": [
+            "object-57cd59c172"
+          ],
+          "candidates": [
+            {
+              "id": "object-addcb43e79",
+              "name": "社区合唱团开启排练",
+              "tag_count": 11,
+              "tags": [
+                "weekly",
+                "design",
+                "travel",
+                "focus",
+                "nature",
+                "community",
+                "blue",
+                "education",
+                "history",
+                "transport",
+                "culture"
+              ],
+              "comments": 40
+            },
+            {
+              "id": "object-da7f2d9dbb",
+              "name": "2026 年公共交通服务报告",
+              "tag_count": 13,
+              "tags": [
+                "history",
+                "blue",
+                "reading",
+                "nature",
+                "focus",
+                "ideas",
+                "design",
+                "education",
+                "travel",
+                "weekly",
+                "culture",
+                "transport",
+                "community"
+              ],
+              "comments": 31
+            },
+            {
+              "id": "object-b7f1e0c527",
+              "name": "第 8 届城市读书节开幕",
+              "tag_count": 9,
+              "tags": [
+                "travel",
+                "design",
+                "education",
+                "ideas",
+                "blue",
+                "history",
+                "weekly",
+                "transport",
+                "community"
+              ],
+              "comments": 11
+            },
+            {
+              "id": "object-24e39741ab",
+              "name": "12 个街区开展环境调查",
+              "tag_count": 8,
+              "tags": [
+                "community",
+                "travel",
+                "transport",
+                "design",
+                "focus",
+                "culture",
+                "ideas",
+                "blue"
+              ],
+              "comments": 9
+            },
+            {
+              "id": "object-57cd59c172",
+              "name": "街角书店发起旧书交换",
+              "tag_count": 5,
+              "tags": [
+                "community",
+                "ideas",
+                "weekly",
+                "reading",
+                "transport"
+              ],
+              "comments": 73
+            },
+            {
+              "id": "object-d6c81f74a8",
+              "name": "地铁 7 号线增加班次",
+              "tag_count": 7,
+              "tags": [
+                "focus",
+                "design",
+                "blue",
+                "education",
+                "weekly",
+                "reading",
+                "history"
+              ],
+              "comments": 14
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/4ad638f0d05042c790a80bb63133eaae/lesson/evidence/0/5",
+          "sha256": "433ba9f523756d1c04462b255f71d2266df3cd4c663dc4cec3f14df7c2147b31"
+        }
+      ]
+    },
+    {
+      "task_id": 30,
+      "task_version": "3.2.0",
+      "variant": "C",
+      "run_id": "8741d27bb51e40f7af43b2be00a57431",
+      "epoch": 0,
+      "episode_count": 6,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "reload_persistence_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "evaluation_sha256": "1527755a2a3f518bb1ef3f7d89c007e00f6942f2316b66484d39727d1a5bad86",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": [
+            "object-a4ae79bfaa",
+            "object-a826fa9064",
+            "object-d0725341fb",
+            "object-e47cdcb820"
+          ],
+          "candidates": [
+            {
+              "id": "object-a003d0df3b",
+              "name": "社区食堂征集居民意见",
+              "tag_count": 2,
+              "tags": [
+                "community",
+                "education"
+              ],
+              "comments": 89
+            },
+            {
+              "id": "object-e47cdcb820",
+              "name": "老街修缮方案开始公示",
+              "tag_count": 1,
+              "tags": [
+                "ideas"
+              ],
+              "comments": 54
+            },
+            {
+              "id": "object-a4ae79bfaa",
+              "name": "2026 年公共交通服务报告",
+              "tag_count": 5,
+              "tags": [
+                "reading",
+                "design",
+                "history",
+                "community",
+                "blue"
+              ],
+              "comments": 64
+            },
+            {
+              "id": "object-8d90ee871d",
+              "name": "步行地图收录 14 条路线",
+              "tag_count": 4,
+              "tags": [
+                "history",
+                "focus",
+                "transport",
+                "nature"
+              ],
+              "comments": 65
+            },
+            {
+              "id": "object-a826fa9064",
+              "name": "河流监测新增 6 个站点",
+              "tag_count": 6,
+              "tags": [
+                "focus",
+                "blue",
+                "education",
+                "weekly",
+                "community",
+                "nature"
+              ],
+              "comments": 96
+            },
+            {
+              "id": "object-d0725341fb",
+              "name": "35 位居民参与口述历史",
+              "tag_count": 0,
+              "tags": [],
+              "comments": 76
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/8741d27bb51e40f7af43b2be00a57431/lesson/evidence/0/0",
+          "sha256": "b22bd4f723587957f53538478433abb4f6284fc9bfa157ca0bd58ba7cff3992a"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": [
+            "object-49e1fbe9bd",
+            "object-91de711e7e",
+            "object-bc17b0cb85"
+          ],
+          "candidates": [
+            {
+              "id": "object-9c0332d9d1",
+              "name": "步行地图收录 14 条路线",
+              "tag_count": 4,
+              "tags": [
+                "education",
+                "reading",
+                "weekly",
+                "travel"
+              ],
+              "comments": 1
+            },
+            {
+              "id": "object-91de711e7e",
+              "name": "2026 年公共交通服务报告",
+              "tag_count": 8,
+              "tags": [
+                "nature",
+                "blue",
+                "weekly",
+                "design",
+                "focus",
+                "history",
+                "reading",
+                "ideas"
+              ],
+              "comments": 26
+            },
+            {
+              "id": "object-bc17b0cb85",
+              "name": "城市夜行摄影展开放",
+              "tag_count": 3,
+              "tags": [
+                "transport",
+                "reading",
+                "culture"
+              ],
+              "comments": 40
+            },
+            {
+              "id": "object-270951036c",
+              "name": "老街修缮方案开始公示",
+              "tag_count": 7,
+              "tags": [
+                "blue",
+                "nature",
+                "reading",
+                "ideas",
+                "culture",
+                "travel",
+                "education"
+              ],
+              "comments": 11
+            },
+            {
+              "id": "object-49e1fbe9bd",
+              "name": "社区合唱团开启排练",
+              "tag_count": 2,
+              "tags": [
+                "history",
+                "travel"
+              ],
+              "comments": 28
+            },
+            {
+              "id": "object-d8102dd733",
+              "name": "街角书店发起旧书交换",
+              "tag_count": 10,
+              "tags": [
+                "transport",
+                "reading",
+                "design",
+                "focus",
+                "history",
+                "education",
+                "community",
+                "weekly",
+                "nature",
+                "culture"
+              ],
+              "comments": 65
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/8741d27bb51e40f7af43b2be00a57431/lesson/evidence/0/1",
+          "sha256": "716715108006583990ec26183408e536eb7de6f9747947b97b0ff49d1e9d3c4d"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": [
+            "object-3099e0f950",
+            "object-4186c52933",
+            "object-52a809e4b9",
+            "object-64fb2cfbed"
+          ],
+          "candidates": [
+            {
+              "id": "object-f9224eecb9",
+              "name": "社区合唱团开启排练",
+              "tag_count": 6,
+              "tags": [
+                "education",
+                "ideas",
+                "community",
+                "reading",
+                "travel",
+                "history"
+              ],
+              "comments": 57
+            },
+            {
+              "id": "object-52a809e4b9",
+              "name": "35 位居民参与口述历史",
+              "tag_count": 5,
+              "tags": [
+                "ideas",
+                "travel",
+                "weekly",
+                "design",
+                "transport"
+              ],
+              "comments": 20
+            },
+            {
+              "id": "object-4186c52933",
+              "name": "社区食堂征集居民意见",
+              "tag_count": 7,
+              "tags": [
+                "history",
+                "transport",
+                "weekly",
+                "design",
+                "culture",
+                "community",
+                "reading"
+              ],
+              "comments": 28
+            },
+            {
+              "id": "object-64fb2cfbed",
+              "name": "周末市集迎来手工艺人",
+              "tag_count": 4,
+              "tags": [
+                "community",
+                "blue",
+                "history",
+                "culture"
+              ],
+              "comments": 46
+            },
+            {
+              "id": "object-3099e0f950",
+              "name": "新建 5 处社区休息亭",
+              "tag_count": 9,
+              "tags": [
+                "community",
+                "ideas",
+                "reading",
+                "blue",
+                "history",
+                "transport",
+                "education",
+                "design",
+                "culture"
+              ],
+              "comments": 10
+            },
+            {
+              "id": "object-93705af170",
+              "name": "9 月文化活动指南发布",
+              "tag_count": 8,
+              "tags": [
+                "culture",
+                "travel",
+                "education",
+                "transport",
+                "history",
+                "ideas",
+                "blue",
+                "focus"
+              ],
+              "comments": 9
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/8741d27bb51e40f7af43b2be00a57431/lesson/evidence/0/2",
+          "sha256": "21cf26d3d8c5bddffa0688f5a31c1eb63115744eeadbbbd1916b8501e2add6ed"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": [
+            "object-01b2d9d0b9",
+            "object-661e14d8c9",
+            "object-75c0ca3c1a",
+            "object-ccf2f53798"
+          ],
+          "candidates": [
+            {
+              "id": "object-661e14d8c9",
+              "name": "城市夜行摄影展开放",
+              "tag_count": 4,
+              "tags": [
+                "focus",
+                "transport",
+                "education",
+                "reading"
+              ],
+              "comments": 24
+            },
+            {
+              "id": "object-ccf2f53798",
+              "name": "35 位居民参与口述历史",
+              "tag_count": 1,
+              "tags": [
+                "community"
+              ],
+              "comments": 72
+            },
+            {
+              "id": "object-75c0ca3c1a",
+              "name": "第 8 届城市读书节开幕",
+              "tag_count": 5,
+              "tags": [
+                "blue",
+                "reading",
+                "history",
+                "ideas",
+                "culture"
+              ],
+              "comments": 30
+            },
+            {
+              "id": "object-01b2d9d0b9",
+              "name": "青年设计师分享街区实践",
+              "tag_count": 6,
+              "tags": [
+                "history",
+                "community",
+                "blue",
+                "culture",
+                "nature",
+                "weekly"
+              ],
+              "comments": 12
+            },
+            {
+              "id": "object-57a4d6aaf0",
+              "name": "地铁 7 号线增加班次",
+              "tag_count": 7,
+              "tags": [
+                "focus",
+                "blue",
+                "design",
+                "culture",
+                "history",
+                "community",
+                "weekly"
+              ],
+              "comments": 61
+            },
+            {
+              "id": "object-7c38ba7338",
+              "name": "9 月文化活动指南发布",
+              "tag_count": 3,
+              "tags": [
+                "culture",
+                "nature",
+                "focus"
+              ],
+              "comments": 21
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/8741d27bb51e40f7af43b2be00a57431/lesson/evidence/0/3",
+          "sha256": "dc84e54431270e34aabe804a2abd8d750c81fe58da3e3a30bf32f228f4c257f9"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": [
+            "object-5213b72d43",
+            "object-7916682778",
+            "object-ab98075903"
+          ],
+          "candidates": [
+            {
+              "id": "object-173113487b",
+              "name": "街角书店发起旧书交换",
+              "tag_count": 4,
+              "tags": [
+                "ideas",
+                "focus",
+                "blue",
+                "history"
+              ],
+              "comments": 15
+            },
+            {
+              "id": "object-ab98075903",
+              "name": "地铁 7 号线增加班次",
+              "tag_count": 9,
+              "tags": [
+                "ideas",
+                "weekly",
+                "travel",
+                "community",
+                "education",
+                "design",
+                "reading",
+                "focus",
+                "history"
+              ],
+              "comments": 40
+            },
+            {
+              "id": "object-a0ec79be3f",
+              "name": "河岸步道完成无障碍改造",
+              "tag_count": 6,
+              "tags": [
+                "nature",
+                "history",
+                "reading",
+                "ideas",
+                "education",
+                "travel"
+              ],
+              "comments": 11
+            },
+            {
+              "id": "object-5213b72d43",
+              "name": "老街修缮方案开始公示",
+              "tag_count": 3,
+              "tags": [
+                "education",
+                "nature",
+                "travel"
+              ],
+              "comments": 82
+            },
+            {
+              "id": "object-7916682778",
+              "name": "12 个街区开展环境调查",
+              "tag_count": 11,
+              "tags": [
+                "travel",
+                "ideas",
+                "focus",
+                "reading",
+                "education",
+                "history",
+                "community",
+                "transport",
+                "weekly",
+                "culture",
+                "blue"
+              ],
+              "comments": 48
+            },
+            {
+              "id": "object-cb51f6fc5a",
+              "name": "社区花园迎来收获季",
+              "tag_count": 10,
+              "tags": [
+                "ideas",
+                "education",
+                "culture",
+                "travel",
+                "transport",
+                "nature",
+                "history",
+                "focus",
+                "weekly",
+                "blue"
+              ],
+              "comments": 51
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/8741d27bb51e40f7af43b2be00a57431/lesson/evidence/0/4",
+          "sha256": "5e41aa7a6c61ed7a860dfd390d5f94f50f030103efbc9dee2c8c9e4a420a64b3"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": [
+            "object-addcb43e79",
+            "object-d6c81f74a8"
+          ],
+          "candidates": [
+            {
+              "id": "object-addcb43e79",
+              "name": "社区合唱团开启排练",
+              "tag_count": 11,
+              "tags": [
+                "weekly",
+                "design",
+                "travel",
+                "focus",
+                "nature",
+                "community",
+                "blue",
+                "education",
+                "history",
+                "transport",
+                "culture"
+              ],
+              "comments": 40
+            },
+            {
+              "id": "object-da7f2d9dbb",
+              "name": "2026 年公共交通服务报告",
+              "tag_count": 13,
+              "tags": [
+                "history",
+                "blue",
+                "reading",
+                "nature",
+                "focus",
+                "ideas",
+                "design",
+                "education",
+                "travel",
+                "weekly",
+                "culture",
+                "transport",
+                "community"
+              ],
+              "comments": 31
+            },
+            {
+              "id": "object-b7f1e0c527",
+              "name": "第 8 届城市读书节开幕",
+              "tag_count": 9,
+              "tags": [
+                "travel",
+                "design",
+                "education",
+                "ideas",
+                "blue",
+                "history",
+                "weekly",
+                "transport",
+                "community"
+              ],
+              "comments": 11
+            },
+            {
+              "id": "object-24e39741ab",
+              "name": "12 个街区开展环境调查",
+              "tag_count": 8,
+              "tags": [
+                "community",
+                "travel",
+                "transport",
+                "design",
+                "focus",
+                "culture",
+                "ideas",
+                "blue"
+              ],
+              "comments": 9
+            },
+            {
+              "id": "object-57cd59c172",
+              "name": "街角书店发起旧书交换",
+              "tag_count": 5,
+              "tags": [
+                "community",
+                "ideas",
+                "weekly",
+                "reading",
+                "transport"
+              ],
+              "comments": 73
+            },
+            {
+              "id": "object-d6c81f74a8",
+              "name": "地铁 7 号线增加班次",
+              "tag_count": 7,
+              "tags": [
+                "focus",
+                "design",
+                "blue",
+                "education",
+                "weekly",
+                "reading",
+                "history"
+              ],
+              "comments": 14
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/8741d27bb51e40f7af43b2be00a57431/lesson/evidence/0/5",
+          "sha256": "4276f9927911ab643f55d837399fc07dfc8c46767b0d97fecba6ff9b5c618cce"
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "full_suite_passed": 1255,
+    "full_suite_failed": 0,
+    "regression": "tests/test_lessons.py::test_reading_list_extrema_cannot_be_replaced_by_fixed_tag_thresholds",
+    "lesson_audit_cases": 75,
+    "measured_risks": 0
+  }
+}

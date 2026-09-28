@@ -1,0 +1,116 @@
+{
+  "verified_at": "2026-09-28T05:45:20.039911+00:00",
+  "source_commit": "d1154f6b13e92508310bb4169dfc91df175834da",
+  "image": "sha256:a7dc6f41f1724389d97a9ab5f9f75b43cd4992fe5072c97e80831f21b39d96e1",
+  "image_tag": "videoicl-native:teaching-v18",
+  "deployed": true,
+  "services": "healthy",
+  "base_validation": "teaching-v17.2-release.json",
+  "validation": {
+    "full_suite_passed": 1253,
+    "failed": 0,
+    "local_suite_seconds": 125.738,
+    "ci_url": "https://github.com/Aoraku/VideoICLBench/actions/runs/36381576863",
+    "ci_conclusion": "success",
+    "ci_diagnostic_task_variants": 225,
+    "ci_native_tasks": [
+      1,
+      5,
+      17,
+      23,
+      31,
+      38,
+      43,
+      48,
+      57,
+      68
+    ],
+    "ci_native_variant": "A",
+    "ci_im_tasks": [
+      15,
+      16
+    ],
+    "ci_im_variants": [
+      "A",
+      "B",
+      "C"
+    ],
+    "ci_oj_tasks": [
+      61,
+      62,
+      63
+    ],
+    "ci_oj_variants": [
+      "A",
+      "B",
+      "C"
+    ],
+    "ci_pixel_recording_smoke": true,
+    "human_recording_verified": false,
+    "game_lessons": "teaching-games-additional-ui-validation.json",
+    "oj_problems": "teaching-oj-problems-ui-validation.json"
+  },
+  "image_checks": {
+    "files": {
+      "services/control/vic/games.py": "08d5f72047a02293675f0de4567b4fd967b7f3afacde511b3e5d89eab2605be0",
+      "services/control/vic/lessons.py": "e655ee611dc40c6ac167a4a6ef8b4568dfa38f47ea135a0a1ef2859948536514",
+      "apps/code/app/frontend.py": "46bed5e821bfb08bec5720fa3dd797027526e0848a402bd4c458a137f0f4a852",
+      "tasks/catalog.json": "cd2f19eea1f363410f1db1b7d4cbee2ebc6d7b2bed6cc91694ef86158f515f30",
+      "tasks/contracts/063.json": "8427e0864c545f42449dcebf23b213b8001e7284c07acc83eda0981b9c582948",
+      "tasks/contracts/066.json": "e4030deebd17dda97339bb62ff424f2dd5a3cbce41ec159030c388c425c32e65",
+      "tasks/contracts/067.json": "1cc24e9f6f96e49a134d0b8cb24263c34375d99a5b49b7689d496f8f52075d72"
+    },
+    "no_initial_gomoku_winner": true,
+    "installed_source_matches": true
+  },
+  "live_checks": {
+    "services_healthy": true,
+    "native_ui": [
+      {
+        "task_id": 67,
+        "variant": "A",
+        "mode": "demo",
+        "run_id": "2de89c5378bf4886bb07426633a19795",
+        "epoch": 1,
+        "episode_count": 6,
+        "all_actions_via_browser": true,
+        "evaluation_success": true,
+        "evidence_report": "teaching-games-additional-ui-validation.json"
+      },
+      {
+        "task_id": 63,
+        "variant": "A",
+        "mode": "eval",
+        "run_id": "9c5ebfda5ecb4564b150161c90d6b12b",
+        "all_actions_via_browser": true,
+        "visible_problem_numbers": [
+          267,
+          201,
+          239,
+          183,
+          214,
+          217
+        ],
+        "selected_number": 183,
+        "selected_position": 4,
+        "evaluation_success": true,
+        "evidence_ref": "/v1/runs/9c5ebfda5ecb4564b150161c90d6b12b/evidence",
+        "sha256": "49a718397d14a4e184248fe88f8e089b6b416d6c5d7450739f8351e349bee23c"
+      }
+    ]
+  },
+  "backup": {
+    "database": "/home/qingle/services/videoicl/.local/pre-teaching-v18-database.sql",
+    "mode": "600",
+    "size": 5075410,
+    "rollback_images": [
+      "videoicl-control:before-teaching-v18",
+      "videoicl-applications:before-teaching-v18"
+    ]
+  },
+  "limitations": [
+    "75 indexed tasks does not imply complete current-version A/B/C or full video acceptance.",
+    "Captured human getDisplayMedia frames remain unverified; native UI access reported the Mac locked during the capture check.",
+    "Human inference acceptance across all 75 cases remains pending."
+  ]
+}

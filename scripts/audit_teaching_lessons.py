@@ -61,6 +61,18 @@ def inspect_lesson(task, base_seed):
         if task_id in (37,59) and min(coverage['line_counts']) < 6:
             risks.append('insufficient_multiline_examples')
     if task_id < 66:
+        if task_id == 30:
+            counts = [[item['tag_count'] for item in state['items']] for state in states]
+            minima, maxima = [min(row) for row in counts], [max(row) for row in counts]
+            report['tag_count_extrema'] = dict(minima=minima, maxima=maxima)
+            if len(set(minima)) < 3 or len(set(maxima)) < 3:
+                risks.append('fixed_reading_list_tag_extrema')
+            if max(minima) < min(value for row in counts for value in row if value != min(row)):
+                risks.append('reading_list_minimum_matches_fixed_threshold')
+            if min(maxima) > max(value for row in counts for value in row if value != max(row)):
+                risks.append('reading_list_maximum_matches_fixed_threshold')
+            if any(item['tag_count'] != len(set(item['tags'])) for state in states for item in state['items']):
+                risks.append('reading_list_tag_count_mismatch')
         if task_id in (31, 47, 51):
             minima = [min(item['duration'] for item in state['items']) for state in states]
             distractors = [item['duration'] for state, minimum in zip(states, minima)

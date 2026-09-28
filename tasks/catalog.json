@@ -1522,7 +1522,7 @@
         "C": "保留评论数为偶数的文章"
       },
       "original_rules": "A：保留标签数最多的文章；B：保留标签数最少的文章；C：保留评论数为偶数的文章",
-      "version": "3.1.0",
+      "version": "3.2.0",
       "parameters": {
         "reference_time": "2026-01-15T12:00:00Z",
         "threshold": 50,

@@ -1,0 +1,45 @@
+{
+  "scope": "Task 22 A/B/C native library classification with 24 songs per variant; all labels checked after reload. Full recording and human inference acceptance remain pending.",
+  "verified_at": "2026-09-28T06:27:03.564244+00:00",
+  "native_ui": [
+    {
+      "task_id": 22,
+      "variant": "A",
+      "run_id": "9d9b778b41654e3fad73a66fcb7f6075",
+      "episode_count": 1,
+      "object_count": 24,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "persisted_after_reload": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/9d9b778b41654e3fad73a66fcb7f6075/evidence",
+      "evidence_sha256": "cb3f156edf214d1ce057f2e6cdb47ec00be0abe6b83b3ee252213dfcff162dcd"
+    },
+    {
+      "task_id": 22,
+      "variant": "B",
+      "run_id": "ef10181eb75d45b18ad11c37e74e7c21",
+      "episode_count": 1,
+      "object_count": 24,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "persisted_after_reload": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/ef10181eb75d45b18ad11c37e74e7c21/evidence",
+      "evidence_sha256": "a4000a9f426f67d23e20d88895c804a2b00cded9602e63f92dc381f771c54804"
+    },
+    {
+      "task_id": 22,
+      "variant": "C",
+      "run_id": "e492a5cfc0b34e2dacbf9c1f5ba541ea",
+      "episode_count": 1,
+      "object_count": 24,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "persisted_after_reload": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/e492a5cfc0b34e2dacbf9c1f5ba541ea/evidence",
+      "evidence_sha256": "71fc4a3fa2fa5f62f64316ba55ffc15c86c2736b2eca2d995fa694e7808cb2d5"
+    }
+  ]
+}

@@ -1,0 +1,536 @@
+{
+  "scope": "Task 29 A/C six native UI selections each, with selection status visible and independent evaluation. Full recording and human inference acceptance remain pending.",
+  "verified_at": "2026-09-28T06:37:13.284682+00:00",
+  "native_ui": [
+    {
+      "task_id": 29,
+      "variant": "A",
+      "run_id": "18303076edba474384f9321c08ac03c5",
+      "epoch": 0,
+      "episode_count": 6,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "59332f62161f9d113f8c806c615567c69a126581dd69fb25d368426a0962eaa9",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": [
+            "object-b57686ce11"
+          ],
+          "candidates": [
+            {
+              "id": "object-b57686ce11",
+              "name": "社区花园迎来收获季",
+              "created_at": "2026-01-05T02:32:00+00:00"
+            },
+            {
+              "id": "object-e46f13b9e1",
+              "name": "社区合唱团开启排练",
+              "created_at": "2026-01-03T05:16:00+00:00"
+            },
+            {
+              "id": "object-e2bf58b65d",
+              "name": "老街修缮方案开始公示",
+              "created_at": "2026-01-05T00:55:00+00:00"
+            },
+            {
+              "id": "object-17fa2a778d",
+              "name": "地铁 7 号线增加班次",
+              "created_at": "2026-01-03T11:44:00+00:00"
+            },
+            {
+              "id": "object-e3dde8bf56",
+              "name": "2 家剧院推出公益演出",
+              "created_at": "2026-01-04T16:50:00+00:00"
+            },
+            {
+              "id": "object-35a99fe24c",
+              "name": "9 月文化活动指南发布",
+              "created_at": "2026-01-01T19:19:00+00:00"
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/18303076edba474384f9321c08ac03c5/lesson/evidence/0/0",
+          "sha256": "eca626ef7863d3014f44177e0f7a5929ea67f9f803838c5c95e5a565cf55c1b3"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": [
+            "object-b62026102f"
+          ],
+          "candidates": [
+            {
+              "id": "object-2713ad06eb",
+              "name": "35 位居民参与口述历史",
+              "created_at": "2026-01-04T02:17:00+00:00"
+            },
+            {
+              "id": "object-a9716f50e7",
+              "name": "城市图书馆延长夜间开放时间",
+              "created_at": "2026-01-05T00:55:00+00:00"
+            },
+            {
+              "id": "object-71b5f85d05",
+              "name": "青年设计师分享街区实践",
+              "created_at": "2026-01-02T08:15:00+00:00"
+            },
+            {
+              "id": "object-fe9d7b3818",
+              "name": "街角书店发起旧书交换",
+              "created_at": "2026-01-03T08:30:00+00:00"
+            },
+            {
+              "id": "object-813b430995",
+              "name": "园艺志愿者举办交流会",
+              "created_at": "2026-01-02T06:38:00+00:00"
+            },
+            {
+              "id": "object-b62026102f",
+              "name": "博物馆推出夜间导览",
+              "created_at": "2026-01-06T14:06:00+00:00"
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/18303076edba474384f9321c08ac03c5/lesson/evidence/0/1",
+          "sha256": "252a99424b138c250c891ac960b0f0a75cec0389d2a427af38eb054f0fbec492"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": [
+            "object-05604ba56c"
+          ],
+          "candidates": [
+            {
+              "id": "object-05604ba56c",
+              "name": "老街修缮方案开始公示",
+              "created_at": "2026-01-06T02:47:00+00:00"
+            },
+            {
+              "id": "object-9830d587cb",
+              "name": "9 月文化活动指南发布",
+              "created_at": "2026-01-04T10:22:00+00:00"
+            },
+            {
+              "id": "object-e949747ab5",
+              "name": "社区花园迎来收获季",
+              "created_at": "2026-01-03T19:49:00+00:00"
+            },
+            {
+              "id": "object-2fb0a5bc1b",
+              "name": "城市夜行摄影展开放",
+              "created_at": "2026-01-05T23:33:00+00:00"
+            },
+            {
+              "id": "object-478698bc10",
+              "name": "周末市集迎来手工艺人",
+              "created_at": "2026-01-03T00:25:00+00:00"
+            },
+            {
+              "id": "object-05aa6f87fa",
+              "name": "街角书店发起旧书交换",
+              "created_at": "2026-01-02T21:11:00+00:00"
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/18303076edba474384f9321c08ac03c5/lesson/evidence/0/2",
+          "sha256": "4ad91949a15a0022b03dddcc4e5368335e19f5f126af894ca3597d0207b934b1"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": [
+            "object-2766c16e2d"
+          ],
+          "candidates": [
+            {
+              "id": "object-2766c16e2d",
+              "name": "城市夜行摄影展开放",
+              "created_at": "2026-01-07T17:35:00+00:00"
+            },
+            {
+              "id": "object-b044592916",
+              "name": "步行地图收录 14 条路线",
+              "created_at": "2026-01-04T16:50:00+00:00"
+            },
+            {
+              "id": "object-ec54e1c131",
+              "name": "园艺志愿者举办交流会",
+              "created_at": "2026-01-06T17:20:00+00:00"
+            },
+            {
+              "id": "object-d69c664b5a",
+              "name": "12 个街区开展环境调查",
+              "created_at": "2026-01-02T06:38:00+00:00"
+            },
+            {
+              "id": "object-10aaa9094c",
+              "name": "第 8 届城市读书节开幕",
+              "created_at": "2026-01-03T14:58:00+00:00"
+            },
+            {
+              "id": "object-a0512e64e6",
+              "name": "社区食堂征集居民意见",
+              "created_at": "2026-01-06T22:11:00+00:00"
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/18303076edba474384f9321c08ac03c5/lesson/evidence/0/3",
+          "sha256": "8a13b891b1c939ff30ff9482ebfb4096a6c5f230b843ca2105148d39684cb354"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": [
+            "object-1082a89570"
+          ],
+          "candidates": [
+            {
+              "id": "object-01a2a68057",
+              "name": "周末市集迎来手工艺人",
+              "created_at": "2026-01-05T21:56:00+00:00"
+            },
+            {
+              "id": "object-850b765cee",
+              "name": "公交驾驶员讲述沿途故事",
+              "created_at": "2026-01-04T02:17:00+00:00"
+            },
+            {
+              "id": "object-ec6724b78f",
+              "name": "河流监测新增 6 个站点",
+              "created_at": "2026-01-04T18:27:00+00:00"
+            },
+            {
+              "id": "object-9dc297af47",
+              "name": "12 个街区开展环境调查",
+              "created_at": "2026-01-06T04:24:00+00:00"
+            },
+            {
+              "id": "object-1082a89570",
+              "name": "社区合唱团开启排练",
+              "created_at": "2026-01-07T07:53:00+00:00"
+            },
+            {
+              "id": "object-094723cc38",
+              "name": "35 位居民参与口述历史",
+              "created_at": "2026-01-02T17:57:00+00:00"
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/18303076edba474384f9321c08ac03c5/lesson/evidence/0/4",
+          "sha256": "e16ce6e0ff88c33795a8822f682f6f9fecaa49ef4bcd4419effce93aa28b6aab"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": [
+            "object-e58643e8ec"
+          ],
+          "candidates": [
+            {
+              "id": "object-767a4ace3f",
+              "name": "2026 年公共交通服务报告",
+              "created_at": "2026-01-04T02:17:00+00:00"
+            },
+            {
+              "id": "object-3df9435d6c",
+              "name": "新建 5 处社区休息亭",
+              "created_at": "2026-01-04T11:59:00+00:00"
+            },
+            {
+              "id": "object-ddbfd4c140",
+              "name": "地铁 7 号线增加班次",
+              "created_at": "2026-01-02T03:24:00+00:00"
+            },
+            {
+              "id": "object-e7569c6019",
+              "name": "2 家剧院推出公益演出",
+              "created_at": "2026-01-05T21:56:00+00:00"
+            },
+            {
+              "id": "object-e98c54d730",
+              "name": "社区合唱团开启排练",
+              "created_at": "2026-01-02T16:20:00+00:00"
+            },
+            {
+              "id": "object-e58643e8ec",
+              "name": "9 月文化活动指南发布",
+              "created_at": "2026-01-07T04:39:00+00:00"
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/18303076edba474384f9321c08ac03c5/lesson/evidence/0/5",
+          "sha256": "744d89ef7658f5132fde25c36ba7d771d810c600560e35dca73094727df3c8d0"
+        }
+      ]
+    },
+    {
+      "task_id": 29,
+      "variant": "C",
+      "run_id": "050b1df2c5fd4515afb10d75deb67440",
+      "epoch": 0,
+      "episode_count": 6,
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "evaluation_sha256": "8cc118b47ab40724f563f1c9b422913646ace35af704e2c654e3ef89a60f4dd9",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "selection": [
+            "object-17fa2a778d"
+          ],
+          "candidates": [
+            {
+              "id": "object-b57686ce11",
+              "name": "社区花园迎来收获季",
+              "created_at": "2026-01-05T02:32:00+00:00"
+            },
+            {
+              "id": "object-e46f13b9e1",
+              "name": "社区合唱团开启排练",
+              "created_at": "2026-01-03T05:16:00+00:00"
+            },
+            {
+              "id": "object-e2bf58b65d",
+              "name": "老街修缮方案开始公示",
+              "created_at": "2026-01-05T00:55:00+00:00"
+            },
+            {
+              "id": "object-17fa2a778d",
+              "name": "地铁 7 号线增加班次",
+              "created_at": "2026-01-03T11:44:00+00:00"
+            },
+            {
+              "id": "object-e3dde8bf56",
+              "name": "2 家剧院推出公益演出",
+              "created_at": "2026-01-04T16:50:00+00:00"
+            },
+            {
+              "id": "object-35a99fe24c",
+              "name": "9 月文化活动指南发布",
+              "created_at": "2026-01-01T19:19:00+00:00"
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/050b1df2c5fd4515afb10d75deb67440/lesson/evidence/0/0",
+          "sha256": "d8360f7a578864a09cb06a36d8d9c866fc916f24023816c738718813cf463230"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "selection": [
+            "object-a9716f50e7"
+          ],
+          "candidates": [
+            {
+              "id": "object-2713ad06eb",
+              "name": "35 位居民参与口述历史",
+              "created_at": "2026-01-04T02:17:00+00:00"
+            },
+            {
+              "id": "object-a9716f50e7",
+              "name": "城市图书馆延长夜间开放时间",
+              "created_at": "2026-01-05T00:55:00+00:00"
+            },
+            {
+              "id": "object-71b5f85d05",
+              "name": "青年设计师分享街区实践",
+              "created_at": "2026-01-02T08:15:00+00:00"
+            },
+            {
+              "id": "object-fe9d7b3818",
+              "name": "街角书店发起旧书交换",
+              "created_at": "2026-01-03T08:30:00+00:00"
+            },
+            {
+              "id": "object-813b430995",
+              "name": "园艺志愿者举办交流会",
+              "created_at": "2026-01-02T06:38:00+00:00"
+            },
+            {
+              "id": "object-b62026102f",
+              "name": "博物馆推出夜间导览",
+              "created_at": "2026-01-06T14:06:00+00:00"
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/050b1df2c5fd4515afb10d75deb67440/lesson/evidence/0/1",
+          "sha256": "c18915641f82384a9176c70c7a34442c0a8048fa0b5593cc260fb8f815b527f2"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "selection": [
+            "object-9830d587cb"
+          ],
+          "candidates": [
+            {
+              "id": "object-05604ba56c",
+              "name": "老街修缮方案开始公示",
+              "created_at": "2026-01-06T02:47:00+00:00"
+            },
+            {
+              "id": "object-9830d587cb",
+              "name": "9 月文化活动指南发布",
+              "created_at": "2026-01-04T10:22:00+00:00"
+            },
+            {
+              "id": "object-e949747ab5",
+              "name": "社区花园迎来收获季",
+              "created_at": "2026-01-03T19:49:00+00:00"
+            },
+            {
+              "id": "object-2fb0a5bc1b",
+              "name": "城市夜行摄影展开放",
+              "created_at": "2026-01-05T23:33:00+00:00"
+            },
+            {
+              "id": "object-478698bc10",
+              "name": "周末市集迎来手工艺人",
+              "created_at": "2026-01-03T00:25:00+00:00"
+            },
+            {
+              "id": "object-05aa6f87fa",
+              "name": "街角书店发起旧书交换",
+              "created_at": "2026-01-02T21:11:00+00:00"
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/050b1df2c5fd4515afb10d75deb67440/lesson/evidence/0/2",
+          "sha256": "be740f638257a297f052bb46ea1f49928ff06e1fd151dd1ecf41908205fe0b90"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "selection": [
+            "object-b044592916"
+          ],
+          "candidates": [
+            {
+              "id": "object-2766c16e2d",
+              "name": "城市夜行摄影展开放",
+              "created_at": "2026-01-07T17:35:00+00:00"
+            },
+            {
+              "id": "object-b044592916",
+              "name": "步行地图收录 14 条路线",
+              "created_at": "2026-01-04T16:50:00+00:00"
+            },
+            {
+              "id": "object-ec54e1c131",
+              "name": "园艺志愿者举办交流会",
+              "created_at": "2026-01-06T17:20:00+00:00"
+            },
+            {
+              "id": "object-d69c664b5a",
+              "name": "12 个街区开展环境调查",
+              "created_at": "2026-01-02T06:38:00+00:00"
+            },
+            {
+              "id": "object-10aaa9094c",
+              "name": "第 8 届城市读书节开幕",
+              "created_at": "2026-01-03T14:58:00+00:00"
+            },
+            {
+              "id": "object-a0512e64e6",
+              "name": "社区食堂征集居民意见",
+              "created_at": "2026-01-06T22:11:00+00:00"
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/050b1df2c5fd4515afb10d75deb67440/lesson/evidence/0/3",
+          "sha256": "71972d9a17afe27a5e62ef112ab69ec949067e70288792f5c00c83d7278f15a2"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "selection": [
+            "object-ec6724b78f"
+          ],
+          "candidates": [
+            {
+              "id": "object-01a2a68057",
+              "name": "周末市集迎来手工艺人",
+              "created_at": "2026-01-05T21:56:00+00:00"
+            },
+            {
+              "id": "object-850b765cee",
+              "name": "公交驾驶员讲述沿途故事",
+              "created_at": "2026-01-04T02:17:00+00:00"
+            },
+            {
+              "id": "object-ec6724b78f",
+              "name": "河流监测新增 6 个站点",
+              "created_at": "2026-01-04T18:27:00+00:00"
+            },
+            {
+              "id": "object-9dc297af47",
+              "name": "12 个街区开展环境调查",
+              "created_at": "2026-01-06T04:24:00+00:00"
+            },
+            {
+              "id": "object-1082a89570",
+              "name": "社区合唱团开启排练",
+              "created_at": "2026-01-07T07:53:00+00:00"
+            },
+            {
+              "id": "object-094723cc38",
+              "name": "35 位居民参与口述历史",
+              "created_at": "2026-01-02T17:57:00+00:00"
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/050b1df2c5fd4515afb10d75deb67440/lesson/evidence/0/4",
+          "sha256": "641eebb00e563a40f4ecbe46a879301fc564c1c5ec68be54f5e9f73c3eeb39fa"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "selection": [
+            "object-767a4ace3f"
+          ],
+          "candidates": [
+            {
+              "id": "object-767a4ace3f",
+              "name": "2026 年公共交通服务报告",
+              "created_at": "2026-01-04T02:17:00+00:00"
+            },
+            {
+              "id": "object-3df9435d6c",
+              "name": "新建 5 处社区休息亭",
+              "created_at": "2026-01-04T11:59:00+00:00"
+            },
+            {
+              "id": "object-ddbfd4c140",
+              "name": "地铁 7 号线增加班次",
+              "created_at": "2026-01-02T03:24:00+00:00"
+            },
+            {
+              "id": "object-e7569c6019",
+              "name": "2 家剧院推出公益演出",
+              "created_at": "2026-01-05T21:56:00+00:00"
+            },
+            {
+              "id": "object-e98c54d730",
+              "name": "社区合唱团开启排练",
+              "created_at": "2026-01-02T16:20:00+00:00"
+            },
+            {
+              "id": "object-e58643e8ec",
+              "name": "9 月文化活动指南发布",
+              "created_at": "2026-01-07T04:39:00+00:00"
+            }
+          ],
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/050b1df2c5fd4515afb10d75deb67440/lesson/evidence/0/5",
+          "sha256": "f20bd9a70cc441cd92917bdae9eaa877efdb36da949cb1ea2cf8a78cb7212523"
+        }
+      ]
+    }
+  ]
+}

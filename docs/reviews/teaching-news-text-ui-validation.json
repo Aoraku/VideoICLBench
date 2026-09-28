@@ -1,0 +1,477 @@
+{
+  "scope": "Task 19 A/B and task 20 A/C, six native UI episodes each. This evidence does not certify complete video or human inference acceptance.",
+  "verified_at": "2026-09-28T06:24:28.359053+00:00",
+  "native_ui": [
+    {
+      "task_id": 19,
+      "variant": "A",
+      "run_id": "283886f9817f4098b4821f8e2b5984af",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC News preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "reload_persistence_episodes": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "evaluation_sha256": "be6e1d042f610280f1df894f9417784d6dfac29e7346d0f74da6cd23c8cc6eb2",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "城市更新观察：街区如何变得更宜居？",
+            "publisher_short": "EC:"
+          },
+          "saved_outputs": {
+            "target": "城市更新观察街区如何变得更宜居"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/283886f9817f4098b4821f8e2b5984af/lesson/evidence/0/0",
+          "sha256": "dddae3fe9c85a0dce793742faa266fe987efa17881ae659d803aa2732282b9ad"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "周末书单 (2026)：阅读与城市。",
+            "publisher_short": "NO:"
+          },
+          "saved_outputs": {
+            "target": "周末书单 2026阅读与城市"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/283886f9817f4098b4821f8e2b5984af/lesson/evidence/0/1",
+          "sha256": "5286fe014e968e575817e5c6ab7267abebe4c14e5ca4d80b8c5f57137d982121"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Night Walk! 老街新增 3 处照明",
+            "publisher_short": "OR:"
+          },
+          "saved_outputs": {
+            "target": "Night Walk 老街新增 3 处照明"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/283886f9817f4098b4821f8e2b5984af/lesson/evidence/0/2",
+          "sha256": "cd3df3f3124333892a9114595a0fd5da74c2b48b65288626148aa2610139f8ce"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "社区手记——一起种花",
+            "publisher_short": "SK:"
+          },
+          "saved_outputs": {
+            "target": "社区手记一起种花"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/283886f9817f4098b4821f8e2b5984af/lesson/evidence/0/3",
+          "sha256": "8a76728042c57e231af56d99fba2d074b87afd11bad976174606c8c70fd1692a"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "开放日：「图书馆」的夜晚！",
+            "publisher_short": "AN:"
+          },
+          "saved_outputs": {
+            "target": "开放日图书馆的夜晚"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/283886f9817f4098b4821f8e2b5984af/lesson/evidence/0/4",
+          "sha256": "8e896747dfc04ad27823df7e034e739da69ef4d691a1a206fc0583c1e2fc8e6b"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "2026/01/15, 城市声音采集计划.",
+            "publisher_short": "DA:"
+          },
+          "saved_outputs": {
+            "target": "20260115 城市声音采集计划"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/283886f9817f4098b4821f8e2b5984af/lesson/evidence/0/5",
+          "sha256": "ee16d84731d387f77acd6f1d5cd868cbb6789545294b041f9c10557e79e9d3da"
+        }
+      ]
+    },
+    {
+      "task_id": 19,
+      "variant": "B",
+      "run_id": "0dc525b8d1644936bcc46891deef4666",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC News preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "reload_persistence_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "evaluation_sha256": "92dbb6964806520d78e7e5db07d140d3ec508623aa817e9ad6a8944a223b6260",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "城市更新观察：街区如何变得更宜居？",
+            "publisher_short": "EC:"
+          },
+          "saved_outputs": {
+            "target": "城市更新观察：街区如何变得更宜居？."
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0dc525b8d1644936bcc46891deef4666/lesson/evidence/0/0",
+          "sha256": "ac1ac9bafaf34751253b13d3b580ffee21c5659313d4d204eed7542f6396e462"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "周末书单 (2026)：阅读与城市。",
+            "publisher_short": "NO:"
+          },
+          "saved_outputs": {
+            "target": "周末书单 (2026)：阅读与城市。."
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0dc525b8d1644936bcc46891deef4666/lesson/evidence/0/1",
+          "sha256": "dba61f15303eb55a9fa1dab8dceae91d94cb5b83063f02273124c5ed097118d2"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "Night Walk! 老街新增 3 处照明",
+            "publisher_short": "OR:"
+          },
+          "saved_outputs": {
+            "target": "Night Walk! 老街新增 3 处照明."
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0dc525b8d1644936bcc46891deef4666/lesson/evidence/0/2",
+          "sha256": "cb779eaa1cd06de369ca09521d6a99a71130bcf2b350839fe6e333da4442c8b3"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "社区手记——一起种花",
+            "publisher_short": "SK:"
+          },
+          "saved_outputs": {
+            "target": "社区手记——一起种花."
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0dc525b8d1644936bcc46891deef4666/lesson/evidence/0/3",
+          "sha256": "7c6d081704bdf6afa32c52385a07b38ef37fdf8afe6187abb91b6a450fc886cd"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "开放日：「图书馆」的夜晚！",
+            "publisher_short": "AN:"
+          },
+          "saved_outputs": {
+            "target": "开放日：「图书馆」的夜晚！."
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0dc525b8d1644936bcc46891deef4666/lesson/evidence/0/4",
+          "sha256": "54f108963be8d6dc40f23b40abbb0e0ed2e257ccd53db9dffdb07e8f3c18af8a"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "2026/01/15, 城市声音采集计划.",
+            "publisher_short": "DA:"
+          },
+          "saved_outputs": {
+            "target": "2026/01/15, 城市声音采集计划.."
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/0dc525b8d1644936bcc46891deef4666/lesson/evidence/0/5",
+          "sha256": "1b1f6de1a8669052e1a5b84d3ca113a20d224be13c5298992330b107ef2b036c"
+        }
+      ]
+    },
+    {
+      "task_id": 20,
+      "variant": "A",
+      "run_id": "29b55b38381446af8156f9d5abb5a369",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC News preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "reload_persistence_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "evaluation_sha256": "19f0197356d7416c2d02363c32275edf75d3654daa69f50b29701612ea42702c",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "城市图书馆延长夜间开放时间",
+            "tags": [
+              "writing",
+              "community"
+            ]
+          },
+          "saved_outputs": {
+            "target": "writing/community"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/29b55b38381446af8156f9d5abb5a369/lesson/evidence/0/0",
+          "sha256": "e394d7096149ed5d4a8accdc59c229c945b14ed6dad9b2f2147f0c2027c282ef"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "2026 年公共交通服务报告",
+            "tags": [
+              "research",
+              "community",
+              "travel"
+            ]
+          },
+          "saved_outputs": {
+            "target": "research/community/travel"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/29b55b38381446af8156f9d5abb5a369/lesson/evidence/0/1",
+          "sha256": "a121fa5c272c399728cd0d2e1ab027db6a9f08eab05ca658b95804d78d364ceb"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "社区花园迎来收获季",
+            "tags": [
+              "community",
+              "research",
+              "travel",
+              "writing"
+            ]
+          },
+          "saved_outputs": {
+            "target": "community/research/travel/writing"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/29b55b38381446af8156f9d5abb5a369/lesson/evidence/0/2",
+          "sha256": "ce0af74e62d7bec88cd915f0fcf27aba6fc917243984048411efc9da304007f1"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "地铁 7 号线增加班次",
+            "tags": [
+              "history",
+              "writing"
+            ]
+          },
+          "saved_outputs": {
+            "target": "history/writing"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/29b55b38381446af8156f9d5abb5a369/lesson/evidence/0/3",
+          "sha256": "12efe58fdcdfcceaa6f690683152f97fcf91fbbee4cbcab0ba3ef18f76943f2b"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "河岸步道完成无障碍改造",
+            "tags": [
+              "community",
+              "history",
+              "research"
+            ]
+          },
+          "saved_outputs": {
+            "target": "community/history/research"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/29b55b38381446af8156f9d5abb5a369/lesson/evidence/0/4",
+          "sha256": "1d7eb742ab8f24c26936c9215a7d92a51d7b12aae0dcab4938572bd1dbfdbe57"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "青年设计师分享街区实践",
+            "tags": [
+              "travel",
+              "history",
+              "music",
+              "writing"
+            ]
+          },
+          "saved_outputs": {
+            "target": "travel/history/music/writing"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/29b55b38381446af8156f9d5abb5a369/lesson/evidence/0/5",
+          "sha256": "a11e2eecfcc813048d4aa3c8a13881e12697a212f1cd3a0d53ff9192d40a95ef"
+        }
+      ]
+    },
+    {
+      "task_id": 20,
+      "variant": "C",
+      "run_id": "3fc9115c06154a1a9c67075dd59f67a5",
+      "epoch": 0,
+      "episode_count": 6,
+      "environment": "local native VIC News preview",
+      "entered_via_homepage_each_episode": true,
+      "all_actions_via_browser": true,
+      "evaluation_success": true,
+      "reload_persistence_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "evaluation_sha256": "c3b6bfc927cb35103d813fd52ec4c2eb9ba06e856e33fc69cbc755f915239970",
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "source": {
+            "text": "城市图书馆延长夜间开放时间",
+            "tags": [
+              "writing",
+              "community"
+            ]
+          },
+          "saved_outputs": {
+            "target": "writing,community"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/3fc9115c06154a1a9c67075dd59f67a5/lesson/evidence/0/0",
+          "sha256": "63c0ac6469d4f2fc1bc527fa965d6644bc7a9be0f18ea06fe255c183ff90cab6"
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "source": {
+            "text": "2026 年公共交通服务报告",
+            "tags": [
+              "research",
+              "community",
+              "travel"
+            ]
+          },
+          "saved_outputs": {
+            "target": "research,community,travel"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/3fc9115c06154a1a9c67075dd59f67a5/lesson/evidence/0/1",
+          "sha256": "4cf754701cc7a5e367bde7c778b30a7f0cf10d5211719d081af3680065e0192b"
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "source": {
+            "text": "社区花园迎来收获季",
+            "tags": [
+              "community",
+              "research",
+              "travel",
+              "writing"
+            ]
+          },
+          "saved_outputs": {
+            "target": "community,research,travel,writing"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/3fc9115c06154a1a9c67075dd59f67a5/lesson/evidence/0/2",
+          "sha256": "ff8c9e6336af97650dbfe0c797bdb5a76a52e9ed5242c0bf14076827197db376"
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "source": {
+            "text": "地铁 7 号线增加班次",
+            "tags": [
+              "history",
+              "writing"
+            ]
+          },
+          "saved_outputs": {
+            "target": "history,writing"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/3fc9115c06154a1a9c67075dd59f67a5/lesson/evidence/0/3",
+          "sha256": "e4054fa4e0b62c846785005f5fca706bb74a47b4712ad496bccb5f8a84cdeef6"
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "source": {
+            "text": "河岸步道完成无障碍改造",
+            "tags": [
+              "community",
+              "history",
+              "research"
+            ]
+          },
+          "saved_outputs": {
+            "target": "community,history,research"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/3fc9115c06154a1a9c67075dd59f67a5/lesson/evidence/0/4",
+          "sha256": "cd482f95e98b9935d00ca8b3b333ca3a3261af4211a21cae930ad7eb69c68c2d"
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "source": {
+            "text": "青年设计师分享街区实践",
+            "tags": [
+              "travel",
+              "history",
+              "music",
+              "writing"
+            ]
+          },
+          "saved_outputs": {
+            "target": "travel,history,music,writing"
+          },
+          "evaluation_success": true,
+          "evidence_ref": "/v1/runs/3fc9115c06154a1a9c67075dd59f67a5/lesson/evidence/0/5",
+          "sha256": "6042a1cb7782432decfe92fc17c3081bccccd38604e83cbba3e138644c383752"
+        }
+      ]
+    }
+  ]
+}

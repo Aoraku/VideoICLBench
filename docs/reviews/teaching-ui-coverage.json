@@ -523,6 +523,20 @@
           "variant": "C",
           "run_id": "4cbd1725251b4b53a72506e41777c0ec",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-news-text-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "283886f9817f4098b4821f8e2b5984af",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-news-text-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "0dc525b8d1644936bcc46891deef4666",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -534,6 +548,20 @@
           "json_pointer": "/native_ui/1",
           "variant": "B",
           "run_id": "df745e0c73fe4ac89dde41fc65404e15",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-news-text-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "A",
+          "run_id": "29b55b38381446af8156f9d5abb5a369",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-news-text-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "C",
+          "run_id": "3fc9115c06154a1a9c67075dd59f67a5",
           "reported_episode_count": 6
         }
       ]
@@ -573,6 +601,27 @@
           "variant": null,
           "run_id": "112772d187b74f12a3807c7f0e1492c4",
           "reported_episode_count": null
+        },
+        {
+          "file": "teaching-music-label-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "9d9b778b41654e3fad73a66fcb7f6075",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-music-label-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "ef10181eb75d45b18ad11c37e74e7c21",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-music-label-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "C",
+          "run_id": "e492a5cfc0b34e2dacbf9c1f5ba541ea",
+          "reported_episode_count": 1
         }
       ]
     },
@@ -585,6 +634,20 @@
           "variant": "B",
           "run_id": "aade4fbd89e048b2bac58893cd6e8e8b",
           "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-news-label-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "62f71082e8f247399c83f6a9af2fa99f",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-news-label-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "C",
+          "run_id": "ff645e0cfc344379bc8a69aece978fc0",
+          "reported_episode_count": 1
         }
       ]
     },
@@ -596,6 +659,20 @@
           "json_pointer": "/native_ui/3",
           "variant": "C",
           "run_id": "00e549915beb405ab030c570322a2560",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-news-label-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "A",
+          "run_id": "fae5e9706fd846d6b4e22b69718b03d5",
+          "reported_episode_count": 1
+        },
+        {
+          "file": "teaching-news-label-ui-validation.json",
+          "json_pointer": "/native_ui/3",
+          "variant": "B",
+          "run_id": "936d82e156b14a708990e67b28a5caac",
           "reported_episode_count": 1
         }
       ]
@@ -661,6 +738,20 @@
           "variant": "A",
           "run_id": "f2e341a0211e45f7a8098bae2e3f96f2",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-music-choice-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "B",
+          "run_id": "600ad6fa28044da3a7f369a08616cf9f",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-music-choice-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "C",
+          "run_id": "36cf902c630e488c850a24cf601ab02e",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -699,6 +790,20 @@
           "variant": "B",
           "run_id": "2a2f84c8cb2f4f5c9ccc3c15cc58d9cd",
           "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-news-choice-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "18303076edba474384f9321c08ac03c5",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-news-choice-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "C",
+          "run_id": "050b1df2c5fd4515afb10d75deb67440",
+          "reported_episode_count": 6
         }
       ]
     },
@@ -710,6 +815,27 @@
           "json_pointer": "/native_ui/4",
           "variant": "C",
           "run_id": "55a0503a0c1846e78ebc583874291d60",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-reading-list-ui-validation.json",
+          "json_pointer": "/native_ui/0",
+          "variant": "A",
+          "run_id": "06b386ea4933460e880bc8b894a81357",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-reading-list-ui-validation.json",
+          "json_pointer": "/native_ui/1",
+          "variant": "B",
+          "run_id": "4ad638f0d05042c790a80bb63133eaae",
+          "reported_episode_count": 6
+        },
+        {
+          "file": "teaching-reading-list-ui-validation.json",
+          "json_pointer": "/native_ui/2",
+          "variant": "C",
+          "run_id": "8741d27bb51e40f7af43b2be00a57431",
           "reported_episode_count": 6
         }
       ]

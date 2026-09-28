@@ -125,6 +125,10 @@ def enrich(id_, seed, items, source, rng):
     assign('age_days', [0, 3, 4, 7, 1, 5])
     assign('transfers', [0, 1, 2, 3, 4, 5])
     assign('tag_count', [0, 1, 2, 3, 4, 5])
+    if id_ == 30:
+        minimum = [0, 2, 4, 1, 3, 5][seed % 6]
+        maximum = [6, 10, 9, 7, 11, 13][seed % 6]
+        assign('tag_count', [minimum, maximum] + rng.sample(range(minimum + 1, maximum), n - 2))
     assign('completed', [True, False])
     assign('category', ['甲', '乙'])
     assign('samples', rng.sample(range(1, 40), n))
@@ -277,6 +281,8 @@ def enrich(id_, seed, items, source, rng):
             item.update(file)
 
     tags = ['focus', 'blue', 'weekly', 'travel', 'ideas']
+    if id_ == 30:
+        tags += ['community', 'culture', 'design', 'history', 'nature', 'education', 'transport', 'reading']
     account_prefixes = rng.sample(range(1000000, 9999999), n)
     endings = list(range(6)) * (n // 6)
     rng.shuffle(endings)

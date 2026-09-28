@@ -232,3 +232,21 @@ def test_playlist_naming_examples_separate_date_count_and_artist():
     demos = {generate(18, seed)['source']['artist'] for seed in range(6)}
     queries = {generate(18, seed)['source']['artist'] for seed in range(1000, 1006)}
     assert demos.isdisjoint(queries)
+
+
+def test_reading_list_extrema_cannot_be_replaced_by_fixed_tag_thresholds():
+    from vic.business import generate
+    for first_seed in (0, 10, 20, 1000, 10000):
+        series = [generate(30, first_seed + index)['items'] for index in range(6)]
+        for rows in series:
+            assert len({row['tag_count'] for row in rows}) == len(rows)
+            assert all(row['tag_count'] == len(set(row['tags'])) for row in rows)
+        minima = [min(row['tag_count'] for row in rows) for rows in series]
+        maxima = [max(row['tag_count'] for row in rows) for rows in series]
+        assert len(set(minima)) >= 3 and len(set(maxima)) >= 3
+        non_minima = [row['tag_count'] for rows, minimum in zip(series, minima)
+                      for row in rows if row['tag_count'] != minimum]
+        non_maxima = [row['tag_count'] for rows, maximum in zip(series, maxima)
+                      for row in rows if row['tag_count'] != maximum]
+        assert max(minima) > min(non_minima)
+        assert min(maxima) < max(non_maxima)

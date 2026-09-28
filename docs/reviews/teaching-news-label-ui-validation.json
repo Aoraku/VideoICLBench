@@ -1,0 +1,58 @@
+{
+  "scope": "Task 23 A/C and task 24 A/B, 24 articles per native UI run, with every label checked after reload. Full recording and human inference acceptance remain pending.",
+  "verified_at": "2026-09-28T06:29:47.103445+00:00",
+  "native_ui": [
+    {
+      "task_id": 23,
+      "variant": "A",
+      "run_id": "62f71082e8f247399c83f6a9af2fa99f",
+      "episode_count": 1,
+      "object_count": 24,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "persisted_after_reload": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/62f71082e8f247399c83f6a9af2fa99f/evidence",
+      "evidence_sha256": "d372cf62df4290ff67c5257034353beb8c3389fbfda51eb871ffe29dec517657"
+    },
+    {
+      "task_id": 23,
+      "variant": "C",
+      "run_id": "ff645e0cfc344379bc8a69aece978fc0",
+      "episode_count": 1,
+      "object_count": 24,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "persisted_after_reload": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/ff645e0cfc344379bc8a69aece978fc0/evidence",
+      "evidence_sha256": "2992fc04adbe17f686e07b3912942211d198f825ced2ed6c4808b33f9151ae29"
+    },
+    {
+      "task_id": 24,
+      "variant": "A",
+      "run_id": "fae5e9706fd846d6b4e22b69718b03d5",
+      "episode_count": 1,
+      "object_count": 24,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "persisted_after_reload": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/fae5e9706fd846d6b4e22b69718b03d5/evidence",
+      "evidence_sha256": "b98e961e38dbfd38b00a5d91fbbff5687400eda8736e4ba9465ba02382f8c988"
+    },
+    {
+      "task_id": 24,
+      "variant": "B",
+      "run_id": "936d82e156b14a708990e67b28a5caac",
+      "episode_count": 1,
+      "object_count": 24,
+      "all_actions_via_browser": true,
+      "entered_via_homepage": true,
+      "persisted_after_reload": true,
+      "evaluation_success": true,
+      "evidence_ref": "/v1/runs/936d82e156b14a708990e67b28a5caac/evidence",
+      "evidence_sha256": "d180e4ffff6ec4ef5a008cde2ffb427cd7bb0fc0a7e739e14d4a38e44aadebcb"
+    }
+  ]
+}
