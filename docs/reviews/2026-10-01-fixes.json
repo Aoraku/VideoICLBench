@@ -1,12 +1,7 @@
 {
   "verified_at": "2026-09-30T20:15:49.190881+00:00",
   "source_commit": "c85405cc77cd0ae7f8cb4bd82e3ef447cf61d510",
-  "image": "sha256:5cc661000b54857e23ac343730c65038766300fcb7a9a76637aaf06c754e9aa0",
-  "image_tag": "videoicl-native:review-oct1",
-  "deployed": true,
-  "services": "healthy",
-  "base_validation": "teaching-v22-release.json",
-  "validation": {
+  "checks": {
     "full_suite_passed": 1270,
     "full_suite_failed": 0,
     "native_ui": {
@@ -64,18 +59,25 @@
     },
     "recording_performed": false
   },
-  "review_evidence": "2026-10-01-fixes.json",
+  "task_mapping": {
+    "conversation_sorting": 12,
+    "gomoku_reported_two_completed_episodes": {
+      "task": 66,
+      "variant": "C"
+    },
+    "task_9": "Select recipient through contacts"
+  },
+  "behavior": {
+    "1": "Whole-text versus per-word scope is explicit; next-episode validation feedback is visible.",
+    "2": "Each episode requester matches the displayed name being edited.",
+    "12": "Visible move-up/move-down controls persist conversation order.",
+    "13": "Selected messages support forwarding, bookmarking and archiving; partial failures retain remaining selection.",
+    "17C": "Uppercase the final letter of the whole title, lowercase the other letters.",
+    "31": "Video selection persists; rejected selections can be changed from the library; six UI transitions verified.",
+    "66": "Episode preparation clears prior SDL input and offsets together; desktop restart preserves the current input stream."
+  },
   "ci": {
     "url": "https://github.com/Aoraku/VideoICLBench/actions/runs/36770699770",
     "status_at_verification": "in_progress"
-  },
-  "backup": {
-    "database": "/home/qingle/services/videoicl/.local/pre-review-oct1-database.sql",
-    "mode": "600",
-    "size": 6926526,
-    "rollback_images": [
-      "videoicl-control:before-review-oct1",
-      "videoicl-applications:before-review-oct1"
-    ]
   }
 }
