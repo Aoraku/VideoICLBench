@@ -5,6 +5,25 @@ from .teaching import BATCH_TASKS
 VERSION = 1
 
 
+def incomplete_message(state, result):
+    """Explain the failed operation without revealing the private rule."""
+    task_id = state['task_id']
+    if task_id in (1, 3, 4):
+        sent = [m for m in state.get('domain', {}).get('messages', []) if m.get('sender') == 'self']
+        if not sent:
+            return '尚未收到发送结果。请在目标会话发送消息，再点击下一组。'
+        if len(sent) > 1:
+            return '本组要求发送一条消息，但已发送多条。请重置环境后重新完成；录制前请核对版本规则。'
+        return '消息已发送，但文本格式不符合本组要求。请核对整段文本与单词的处理范围；需要重做时在任务卡重置环境。'
+    if task_id == 31:
+        if not state.get('selection'):
+            return '尚未选择视频。请从视频资料库打开要选择的视频，再点击下一组。'
+        return '视频选择已保存，但不符合本组要求。请返回视频资料库重新选择，再点击下一组。'
+    if task_id in (66, 67) and 'no_action' in result.get('violations', []):
+        return '尚未收到棋盘操作。请打开练习棋谱，点击绿色边框候选点，确认出现已保存标记或已落子后继续。'
+    return '本组操作已检查，但尚未满足完成要求。请检查操作及保存状态，再点击下一组。'
+
+
 def episode_count(task_id):
     # Task 30 has single-choice variants even though C is a batch operation.
     return 1 if task_id in BATCH_TASKS and task_id != 30 else 6

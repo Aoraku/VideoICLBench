@@ -341,6 +341,7 @@ def enrich(id_, seed, items, source, rng):
     if id_ == 2:
         source['text'] = (['Anna Wen','Chloe  Lin','eMMA','Noah   Li','Mia  Chen Han','LILY HE'] if demo else
                           ['Alice Qiu','Victor  Bai','jUNE','May   Deng','Rose  Su Mei','ERIC LUO'])[seed % 6]
+        source['recipient'] = ' '.join(source['text'].split())
     if id_ == 3:
         source['text'] = (['Please review the design draft', 'Can you confirm the room?',
                            'The weekly report is ready.', 'Bring the budget!',

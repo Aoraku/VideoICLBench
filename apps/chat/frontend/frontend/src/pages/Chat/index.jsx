@@ -1835,6 +1835,9 @@ export default function ChatPage() {
                       <span className="list__badgeSpacer" aria-hidden />
                     )}
                   </button>
+                  {nativeRun && currentBusiness()?.task_id===12 && <div aria-label={`调整${convTitle(c)}的顺序`} style={{display:'flex',gap:6,padding:'0 12px 8px'}}>
+                    {[-1,1].map(delta=>{const ids=currentBusiness().domain.orders.main;const position=ids.indexOf(c.benchmark_object);return <button type="button" key={delta} disabled={position+delta<0 || position+delta>=ids.length} onClick={async()=>{const order=[...currentBusiness().domain.orders.main],i=order.indexOf(c.benchmark_object),j=i+delta;if(i<0||j<0||j>=order.length)return;[order[i],order[j]]=[order[j],order[i]];try{await command('order','','',order);await refreshConversationList()}catch(error){setSendError(error.message)}}}>{delta<0?'↑ 上移':'↓ 下移'}</button>})}
+                  </div>}
                   <button
                     type="button"
                     className="list__itemMore"

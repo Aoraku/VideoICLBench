@@ -21,7 +21,7 @@
     const bar = document.createElement('aside');
     bar.id = 'vic-lesson-controls';
     bar.setAttribute('aria-label', '连续练习');
-    Object.assign(bar.style, {position:'fixed',bottom:'12px',right:'16px',zIndex:'2147483000',display:'flex',alignItems:'center',gap:'12px',padding:'10px 14px',background:'#fff',border:'1px solid #ccd5d0',borderRadius:'12px',boxShadow:'0 3px 18px #0002',font:'14px system-ui',color:'#18392f',maxWidth:'min(620px,90vw)'});
+    Object.assign(bar.style, {position:'fixed',bottom:'12px',right:'16px',zIndex:'2147483000',display:'flex',flexWrap:'wrap',alignItems:'center',gap:'12px',padding:'10px 14px',background:'#fff',border:'1px solid #ccd5d0',borderRadius:'12px',boxShadow:'0 3px 18px #0002',font:'14px system-ui',color:'#18392f',maxWidth:'min(620px,90vw)'});
     const status = document.createElement('span');
     status.textContent = `练习 ${lesson.index + 1} / ${lesson.total}`;
     const button = document.createElement('button');
@@ -29,6 +29,8 @@
     Object.assign(button.style,{padding:'8px 16px',border:'0',borderRadius:'8px',background:'#256953',color:'#fff',cursor:'pointer',whiteSpace:'nowrap'});
     const message = document.createElement('span');
     message.setAttribute('role','status');
+    message.setAttribute('aria-live','polite');
+    Object.assign(message.style, {maxWidth:'min(440px,65vw)',whiteSpace:'normal'});
     if (lesson.finished) {
       status.textContent = `已完成 ${lesson.total} 组练习`;
       button.hidden = true;
@@ -37,9 +39,12 @@
     button.onclick = async () => {
       button.disabled = true;
       message.textContent = '正在保存本组操作…';
+      message.style.color = '#18392f';
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 30000);
       try {
         const response = await fetch('/api/runs/' + run + '/lesson/next', {
-          method:'POST',headers,body:JSON.stringify({epoch:envelope.epoch,index:lesson.index}),
+          method:'POST',headers,signal:controller.signal,body:JSON.stringify({epoch:envelope.epoch,index:lesson.index}),
         });
         const data = await response.json();
         if (!response.ok) throw Error(typeof data.detail === 'string' ? data.detail : '暂时无法继续，请重试。');
@@ -58,9 +63,10 @@
           location.reload();
         } else location.replace(data.application_url);
       } catch (error) {
-        message.textContent = error.message || '暂时无法继续，请重试。';
+        message.style.color = '#a62b28';
+        message.textContent = error.name === 'AbortError' ? '连接超时，请重试；已经完成的练习会保留。' : error.message || '暂时无法继续，请重试。';
         button.disabled = false;
-      }
+      } finally { clearTimeout(timeout); }
     };
     bar.append(status, button, message);
     document.body.append(bar);

@@ -4,7 +4,7 @@
     {
       "schema_version": 1,
       "task_id": 1,
-      "task_version": "3.1.0",
+      "task_version": "3.1.1",
       "title": "通讯 A：发送一条指定文本",
       "app": "chat",
       "type": "T",
@@ -12,17 +12,17 @@
       "execution_surface": "application-benchmark",
       "variants": {
         "A": {
-          "rule": "首字母小写、其余大写",
+          "rule": "整段文本的第一个字母小写，其余字母全部大写（不是每个单词分别处理）",
           "evaluator": "task_001_A",
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         },
         "B": {
-          "rule": "首字母大写、其余小写",
+          "rule": "整段文本的第一个字母大写，其余字母全部小写",
           "evaluator": "task_001_B",
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         },
         "C": {
-          "rule": "每个单词首字母大写",
+          "rule": "每个单词的首字母大写，其余字母小写",
           "evaluator": "task_001_C",
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         }
@@ -100,7 +100,7 @@
     {
       "schema_version": 1,
       "task_id": 2,
-      "task_version": "3.1.0",
+      "task_version": "3.2.0",
       "title": "通讯 A：修改联系人昵称",
       "app": "chat",
       "type": "T",
@@ -1534,7 +1534,7 @@
     {
       "schema_version": 1,
       "task_id": 17,
-      "task_version": "3.0.0",
+      "task_version": "3.0.1",
       "title": "音乐：修改歌曲显示名称",
       "app": "music",
       "type": "T",
@@ -1552,7 +1552,7 @@
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         },
         "C": {
-          "rule": "只大写最后一个字母",
+          "rule": "整个标题的最后一个字母大写，其余字母全部小写（不是每个单词的最后一个字母）",
           "evaluator": "task_017_C",
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         }

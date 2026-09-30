@@ -62,7 +62,9 @@ class NativeProcesses:
             if len(self.code) + len(self.gomoku) >= 12:
                 raise ValueError("Native application capacity reached; close another run")
             directory = self.directory / run_id
-            (directory / "gomoku-intents.txt").write_text("")
+            # Input is cleared at episode preparation, together with its read
+            # offset. Restarting the desktop must not truncate that live stream.
+            (directory / "gomoku-intents.txt").touch(exist_ok=True)
             binary = ROOT / "apps/gomoku/build/gomoku_benchmark"
             if not binary.exists():
                 raise ValueError("Original SDL application requires the Linux desktop image")

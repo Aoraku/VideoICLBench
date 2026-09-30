@@ -29,7 +29,7 @@ async def main():
       try:
        for task in subset:
         for variant in variants:
-         rid=secrets.token_hex(16);token=secrets.token_hex(32);initial=initialize(generate(task,10001));module=initial['app']
+         rid=secrets.token_hex(16);token=secrets.token_hex(32);initial=initialize(generate(task,int(os.environ.get('VIC_UI_SEED','10001'))));module=initial['app']
          response=await client.post('/internal/prepare',json=dict(run_id=rid,token=token,app=module,epoch=0,state=initial));response.raise_for_status()
          context=await browser.new_context(viewport={'width':1280,'height':960},permissions=['clipboard-read','clipboard-write']);page=await context.new_page();page.set_default_timeout(12000)
          errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
@@ -133,7 +133,7 @@ async def main():
             return page.locator('.list__itemWrap').filter(has=page.locator('.list__title',has_text=initial['domain']['objects'][target]['name']))
            async def message_menu(target):
             index=next(i for i,x in enumerate(initial['items']) if x['id']==target);bubble=page.locator(f'#msg-{100+index} .bubbleWrap');await bubble.scroll_into_view_if_needed();box=await bubble.bounding_box();await page.mouse.click(box['x']+20,box['y']+20,button='right');await page.wait_for_timeout(100)
-           if t in (1,3,4,5,13):await click(page.locator('.list__item').filter(has_text=s['source']['recipient']).first)
+           if t in (1,3,4,5,13):await click(page.locator('.list__item').filter(has_text=s['source']['sender' if t==13 else 'recipient']).first)
            if t in (1,3,4):
             await text(page.locator('.chatInput textarea'),effect['outputs']['target']);await click(page.locator('.sendBtn'))
            elif t in (2,6,9):
@@ -158,12 +158,14 @@ async def main():
            elif t==12:
             for dest,target in enumerate(effect['order']):
              current=(await persisted())['state']['domain']['orders']['main']
-             for _ in range(current.index(target)-dest):await click((await conversation(target)).get_by_role('button',name='会话操作'));await click(page.get_by_role('menuitem',name='上移会话'))
+             for _ in range(current.index(target)-dest):await click((await conversation(target)).get_by_role('button',name='↑ 上移',exact=True))
            elif t==13:
             for target,value in effect['actions']:
-             await message_menu(target);await click(page.get_by_role('menuitem',name=value,exact=False))
-             if value=='转发':await click(page.get_by_role('dialog',name='转发消息').get_by_role('button',name=s['source']['recipient'],exact=False))
-             if value=='收藏':await click(page.get_by_role('dialog').get_by_role('button',name='保存',exact=True))
+             item=next(x for x in s['items'] if x['id']==target)
+             await click(page.get_by_role('checkbox',name='选择消息：'+item['text'],exact=True))
+            operation={'A':'转发给'+s['source']['recipient'],'B':'批量收藏','C':'批量归档'}[variant]
+            await button(operation)
+            await expect(page.get_by_role('region',name='批量处理消息').get_by_role('status')).to_have_text(f"已{effect['actions'][0][1]} {len(effect['actions'])} 条消息")
            elif t==14:
             for target,value in effect['actions']:
              await click((await conversation(target)).get_by_role('button',name='会话操作'));await click(page.get_by_role('menuitem',name={'归档':'归档会话','置顶':'置顶会话','静音':'消息免打扰'}[value],exact=True))

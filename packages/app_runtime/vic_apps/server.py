@@ -102,6 +102,8 @@ def create_app():
         if body.state.get("app") != body.app:
             raise HTTPException(422, "Domain mismatch")
         stop_native(body.run_id)
+        if body.app == "gomoku":
+            gomoku.reset(body.run_id)
         store.initialize(body.run_id, body.state)
         save(
             body.run_id,

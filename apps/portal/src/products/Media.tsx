@@ -95,7 +95,7 @@ export function Media({ api }: { api: ProductAPI }) {
                 <span>OPEN MOVIE · BLENDER FOUNDATION</span>
                 <h1>走进一片有故事的森林。</h1>
                 <p>Big Buck Bunny · 开放电影精选片段</p>
-                <button onClick={() => play(rows[0].id)}>▶ 开始观看</button>
+                <button onClick={() => s.task_id===31 ? setPage('library') : play(rows[0].id)}>{s.task_id===31?'浏览推荐视频 →':'▶ 开始观看'}</button>
               </div>
             </section>
             <div className="product-section">
@@ -110,12 +110,13 @@ export function Media({ api }: { api: ProductAPI }) {
               ← 返回视频资料库
             </button>
             {s.task_id === 31 && d.settings.playing_video?.includes(active.id) && (
-              <p className="product-ok" role="status">✓ 已选择播放：{active.name}</p>
+              <p className="product-ok" role="status">✓ 已选择播放：{active.name}。选择已保存，可点击右下角“下一组”检查并继续；需要更换时返回视频资料库。</p>
             )}
             <video
               className="media-player"
               controls
               autoPlay
+              playsInline
               src={api.mediaUrl?.(active.id)}
               poster={`/native-assets/media/poster-${index(active.id)}.jpg`}
             />

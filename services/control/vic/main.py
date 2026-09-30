@@ -505,7 +505,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 raise HTTPException(503, "本组检查暂未完成，请重试；当前操作仍保留。") from exc
             if not result['success']:
                 applications.resume(run_id)
-                raise HTTPException(409, "本组操作尚未完成，请检查并保存后继续。")
+                raise HTTPException(409, lessons.incomplete_message(sealed['state'], result))
             archive = data / 'runs' / run_id / 'lesson' / f'epoch-{run.epoch}'
             archive.mkdir(parents=True, exist_ok=True)
             evidence_file = archive / f'episode-{lesson["index"]}.json'

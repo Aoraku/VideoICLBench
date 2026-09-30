@@ -9,6 +9,14 @@ class GomokuBridge:
         self.root, self.store, self.metadata = Path(root), store, metadata
         self.offsets = {}
 
+    def reset(self, run_id):
+        """Discard the previous board's input before the next board is readable."""
+        self.offsets.pop(run_id, None)
+        directory = self.root / run_id
+        directory.mkdir(parents=True, exist_ok=True)
+        (directory / "gomoku-intents.txt").write_text("")
+        (directory / "gomoku-error.txt").unlink(missing_ok=True)
+
     def export(self, run_id):
         state = self.store.snapshot(run_id)
         lines = [f"{state['task_id']} {state['color']} {int(state['selection'] is not None)}"]

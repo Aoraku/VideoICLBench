@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_id": 1,
-  "task_version": "3.1.0",
+  "task_version": "3.1.1",
   "title": "通讯 A：发送一条指定文本",
   "app": "chat",
   "type": "T",
@@ -9,17 +9,17 @@
   "execution_surface": "application-benchmark",
   "variants": {
     "A": {
-      "rule": "首字母小写、其余大写",
+      "rule": "整段文本的第一个字母小写，其余字母全部大写（不是每个单词分别处理）",
       "evaluator": "task_001_A",
       "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
     },
     "B": {
-      "rule": "首字母大写、其余小写",
+      "rule": "整段文本的第一个字母大写，其余字母全部小写",
       "evaluator": "task_001_B",
       "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
     },
     "C": {
-      "rule": "每个单词首字母大写",
+      "rule": "每个单词的首字母大写，其余字母小写",
       "evaluator": "task_001_C",
       "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
     }

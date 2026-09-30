@@ -41,6 +41,14 @@ def test_nickname_spacing_has_positive_negative_and_repeated_space_examples():
     assert [business.transform(2,v,s) for v in range(3)]==['eMMA','eMMA','emma']
 
 
+def test_nickname_requester_is_the_person_whose_name_is_edited():
+    for base in (0,1000):
+        states=[business.generate(2,base+i) for i in range(6)]
+        assert len({s['source']['recipient'] for s in states})==6
+        for s in states:
+            assert s['source']['recipient']==' '.join(s['source']['text'].split())
+
+
 def test_appending_punctuation_is_distinguishable_from_replacing_it():
     rows=texts(3,0)
     assert {'.','!','?','。'} <= {t[-1] for t in rows}

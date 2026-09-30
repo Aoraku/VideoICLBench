@@ -10,7 +10,7 @@
 
 | 题号／契约 | 应用 | 任务 | A | B | C | 判分读取字段 |
 |---|---|---|---|---|---|---|
-| [001](../tasks/contracts/001.json) | chat | 通讯 A：发送一条指定文本 | 首字母小写、其余大写 | 首字母大写、其余小写 | 每个单词首字母大写 | `messages.recipient`、`messages.body` |
+| [001](../tasks/contracts/001.json) | chat | 通讯 A：发送一条指定文本 | 整段文本的第一个字母小写，其余字母全部大写（不是每个单词分别处理） | 整段文本的第一个字母大写，其余字母全部小写 | 每个单词的首字母大写，其余字母小写 | `messages.recipient`、`messages.body` |
 | [002](../tasks/contracts/002.json) | chat | 通讯 A：修改联系人昵称 | 去掉所有空格 | 空格改为下划线 | 全部转为小写 | `objects.nickname` |
 | [003](../tasks/contracts/003.json) | chat | 通讯 A：编辑并发送模板消息 | 句末加“.” | 句末加“!” | 句末加“?” | `messages.body` |
 | [004](../tasks/contracts/004.json) | chat | 通讯 A：把草稿转换为指定格式后发送 | 数字前加“#” | 数字后加“号” | 数字改写为英文单词 | `messages.body` |
@@ -26,7 +26,7 @@
 | [014](../tasks/contracts/014.json) | chat | 通讯 A：清理会话状态 | 已读会话全部归档 | 未读会话全部置顶 | 超过 3 天的会话全部静音 | `objects`、`messages`、`collections`、`artifacts` |
 | [015](../tasks/contracts/015.json) | im | 通讯 B：创建群聊并邀请成员 | 邀请名字最短的 3 人 | 邀请最近联系的 3 人 | 邀请未读数最高的 3 人 | `memberships` |
 | [016](../tasks/contracts/016.json) | im | 通讯 B：处理消息回执 | 看到“收到”就标记已读 | 看到“收到”就添加星标 | 看到“收到”就回复固定文本 | `objects`、`messages`、`collections`、`artifacts` |
-| [017](../tasks/contracts/017.json) | music | 音乐：修改歌曲显示名称 | 标题全部大写 | 标题全部小写 | 只大写最后一个字母 | `objects.display_name` |
+| [017](../tasks/contracts/017.json) | music | 音乐：修改歌曲显示名称 | 标题全部大写 | 标题全部小写 | 整个标题的最后一个字母大写，其余字母全部小写（不是每个单词的最后一个字母） | `objects.display_name` |
 | [018](../tasks/contracts/018.json) | music | 音乐：生成播放列表名称 | 歌手名在前 | 歌曲数量在前 | 日期在前 | `objects.name` |
 | [019](../tasks/contracts/019.json) | news | 新闻：规范化文章标题 | 删除标点 | 保留标点并加句号 | 在标题前加来源简称 | `objects.title` |
 | [020](../tasks/contracts/020.json) | news | 新闻：修改文章标签文本 | 标签之间用“/” | 标签之间用“\|” | 标签之间用“,” | `objects.tags_text` |

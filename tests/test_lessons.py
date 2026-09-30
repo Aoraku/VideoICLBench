@@ -78,6 +78,39 @@ def test_wrong_episode_remains_editable_and_cannot_advance(clients):
     assert advance(c,run,0)['lesson']['index']==1
 
 
+def test_sdl_lesson_does_not_replay_previous_board_intents(clients, tmp_path):
+    from vic.games import expected
+    from test_api import SECRET
+    c,w=clients;run=create_lesson(c,66,'C')
+    path=tmp_path/'applications'/run['id']/'gomoku-intents.txt'
+    for index in range(6):
+        state=w.get('/api/runs/'+run['id'],headers=actor(run)).json()['state']
+        assert path.read_text()==''
+        snapshot=w.get('/internal/runs/'+run['id'],headers={'Authorization':'Bearer '+SECRET}).json()
+        assert snapshot['events']==[] and snapshot['state']['marks']==[]
+        r,col=expected(66,'C',state)[0]
+        path.write_text(f'mark {r} {col}\n')
+        next_=advance(c,run,index)
+        run={**run,**next_}
+    assert run['lesson']['finished']
+
+
+def test_incorrect_chat_and_video_show_actionable_non_answer_feedback(clients):
+    c,w=clients
+    for task in (1,31):
+        run=create_lesson(c,task,'A')
+        response=c.post('/v1/runs/'+run['id']+'/lesson/next',headers=actor(run),json=dict(epoch=0,index=0))
+        assert response.status_code==409
+        assert ('发送' if task==1 else '选择视频') in response.json()['detail']
+        state=w.get('/api/runs/'+run['id'],headers=actor(run)).json()['state']
+        for _,target,value,ids in reference(state,'B'):
+            op='save' if task==1 else 'select'
+            w.post('/api/runs/'+run['id']+'/commands',headers=actor(run),json=dict(epoch=0,action_id='wrong',op=op,target=target,value=value,ids=ids)).raise_for_status()
+        response=c.post('/v1/runs/'+run['id']+'/lesson/next',headers=actor(run),json=dict(epoch=0,index=0))
+        assert response.status_code==409
+        assert ('文本格式' if task==1 else '重新选择') in response.json()['detail']
+
+
 def test_failed_episode_check_preserves_editable_workspace(clients, monkeypatch):
     from vic import application_eval
     c,w=clients;run=create_lesson(c)

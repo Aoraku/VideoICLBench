@@ -287,6 +287,27 @@ export default function MessageList({
   const [menu, setMenu] = useState(null)
   const [savedLabels, setSavedLabels] = useState({})
   const [labelError, setLabelError] = useState('')
+  const [bulkSelection, setBulkSelection] = useState([])
+  const [bulkBusy, setBulkBusy] = useState(false)
+  const [bulkNotice, setBulkNotice] = useState('')
+  const bulkMessages = nativeRun && currentBusiness()?.task_id === 13
+    ? messages.filter(row => row.benchmark_object) : []
+  async function applyBulk(action) {
+    if (bulkBusy || !bulkSelection.length) return
+    setBulkBusy(true)
+    setBulkNotice('')
+    let completed = 0
+    try {
+      for (const id of bulkSelection) {
+        await command('action', id, action)
+        completed++
+        setBulkSelection(selected => selected.filter(value => value !== id))
+      }
+      setBulkNotice(`已${action} ${completed} 条消息`)
+    } catch (error) {
+      setBulkNotice(`已处理 ${completed} 条，其余仍勾选，可重试。${error.message}`)
+    } finally { setBulkBusy(false) }
+  }
   const [previewFile, setPreviewFile] = useState(null)
   /** 与 `messageAnchorId(row)` 一致，用于跳转后短时高亮 */
   const [highlightAnchorId, setHighlightAnchorId] = useState(/** @type {string|null} */ (null))
@@ -468,6 +489,13 @@ export default function MessageList({
 
   return (
     <>
+      {bulkMessages.length > 0 && <div role="region" aria-label="批量处理消息" style={{position:'sticky',top:0,zIndex:5,background:'#f5f8f6',padding:12,display:'flex',gap:8,alignItems:'center',flexWrap:'wrap',borderBottom:'1px solid #dce5df'}}>
+        <span>已选 {bulkSelection.length} 条</span>
+        <button type="button" disabled={bulkBusy} onClick={()=>setBulkSelection(bulkMessages.map(row=>row.benchmark_object))}>全选</button>
+        <button type="button" disabled={bulkBusy || !bulkSelection.length} onClick={()=>setBulkSelection([])}>取消选择</button>
+        {['转发','收藏','归档'].map(action=><button type="button" key={action} disabled={bulkBusy || !bulkSelection.length} onClick={()=>void applyBulk(action)}>{action==='转发'?`转发给${currentBusiness()?.source.recipient}`:`批量${action}`}</button>)}
+        <span role="status">{bulkBusy?'正在处理…':bulkNotice}</span>
+      </div>}
       {jumpHint ? (
         <div className="msgJumpHint" role="status">
           {jumpHint}
@@ -633,6 +661,7 @@ export default function MessageList({
             className={`msgRow${isMine ? ' msgRow--mine' : ''}${rowHighlight ? ' msgRow--highlight' : ''}`}
             onContextMenu={(e) => handleRowContextMenu(e, row)}
           >
+            {bulkMessages.length > 0 && row.benchmark_object && <input type="checkbox" aria-label={`选择消息：${text}`} checked={bulkSelection.includes(row.benchmark_object)} disabled={bulkBusy} onChange={e=>setBulkSelection(selected=>e.target.checked?[...selected,row.benchmark_object]:selected.filter(id=>id!==row.benchmark_object))} style={{alignSelf:'center',width:18,height:18,flexShrink:0}} />}
             {!isMine ? (
               <>
                 {avatar}
