@@ -1,0 +1,167 @@
+{
+  "verified_at": "2026-10-01T17:18:36.389000+00:00",
+  "video_recorded": false,
+  "tasks": [
+    40,
+    42
+  ],
+  "coverage": {
+    "inference_conditions": 6,
+    "demo_first_episode_conditions": 6,
+    "full_demo_api_episodes": 21,
+    "published_articles": 30
+  },
+  "browser": [
+    {
+      "task": 40,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "published_articles": 3,
+      "author_links": false
+    },
+    {
+      "task": 40,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "published_articles": 3,
+      "author_links": false
+    },
+    {
+      "task": 40,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "published_articles": 3,
+      "author_links": false
+    },
+    {
+      "task": 42,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "published_articles": 6,
+      "author_links": true
+    },
+    {
+      "task": 42,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "published_articles": 6,
+      "author_links": true
+    },
+    {
+      "task": 42,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "published_articles": 9,
+      "author_links": true
+    },
+    {
+      "task": 40,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 40,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 40,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 42,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 42,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 42,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    }
+  ],
+  "verification": {
+    "browser": "scripts/check_v2_publishing_ui.py",
+    "demo": "scripts/check_native_ui.py",
+    "api": "tests/test_v2_publishing.py",
+    "full_demo": "tests/test_v2.py::test_v2_demo_all_episodes_advance_and_final_eval",
+    "regression": "1823 full-suite tests passed. Portal and IM production builds passed. Final publishing API tests: 17 passed, including all six cover asset routes."
+  },
+  "verified_behaviors": [
+    "Three column-specific manuscript selections use immutable initial timestamps or actual body character counts; each published article carries its required cover, abstract and publication time.",
+    "Weekly scheduling publishes all qualifying current-batch drafts according to tags or title characters, including the exactly-two-tags boundary; nonqualifying, historical and personal drafts remain unpublished.",
+    "Saved publishing metadata, actual article bodies and cover images, withdrawal and republication, editable column indices, and working article links are verified through native Blog controls.",
+    "Publication notices are sent to the corresponding author’s native IM conversation. Notice links reopen the actual article in Blog, with matching body, abstract and publication time. Withdrawal and resend are reversible.",
+    "API reset and idempotency, multi-seed A/B/C separation, exact article/index/recipient checks, prevention of dangling links on withdrawal, rejection of non-manuscript targets, and preservation of input drafts."
+  ],
+  "limits": [
+    "Browser inference uses seed 10001; independent state and API tests cover additional seeds.",
+    "Browser demo verification covers the first teaching episode; all teaching episodes are verified through the API.",
+    "Agentlab v2 deployment is incomplete."
+  ]
+}

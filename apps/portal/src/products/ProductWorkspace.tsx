@@ -6,6 +6,7 @@ import { Shop } from "./Shop";
 import { Bank } from "./Bank";
 import { Media } from "./Media";
 import { Games } from "./Games";
+import { Publishing } from "./Publishing";
 import { Editorial } from "./Editorial";
 import { Procurement } from "./Procurement";
 import type { ProductAPI } from "./kit";
@@ -96,7 +97,7 @@ export function ProductWorkspace({
         <p>{notice || "正在载入你的个人工作区…"}</p>
       </div>
     );
-  const Component = data.state.workflow === 'editorial_projects' && module === 'blog' ? Editorial : data.state.workflow === 'procurement' ? Procurement : (
+  const Component = data.state.workflow === 'publishing' && module === 'blog' ? Publishing : data.state.workflow === 'editorial_projects' && module === 'blog' ? Editorial : data.state.workflow === 'procurement' ? Procurement : (
     {
       blog: Blog,
       studio: Studio,
@@ -113,7 +114,8 @@ export function ProductWorkspace({
     <Component
       api={{ s: data.state, d: data.state.domain, busy, notice, mutate, clearNotice: () => setNotice(""),
              applicationLink: (app, query = {}) => {
-               const path = app === 'news' ? `/native/news/${id}` : `/native/product/${app}/${id}`;
+               const path = app === 'im' ? '/native-assets/im/' : app === 'news' ? `/native/news/${id}` : `/native/product/${app}/${id}`;
+               if(app==='im') query={...query,run:id};
                const search = new URLSearchParams(query).toString();
                return `${path}${search ? '?'+search : ''}#${token.current}`;
              },

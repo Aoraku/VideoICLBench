@@ -330,6 +330,10 @@ fetch('/native/music/'+run+'/authorize',{method:'POST',headers:{Authorization:'B
             raise HTTPException(404, "Not found")
         return FileResponse(file)
 
+    blog_assets = ROOT / "apps/blog/assets"
+    if blog_assets.exists():
+        app.mount("/native-assets/blog", StaticFiles(directory=blog_assets), name="blog-assets")
+
     media_assets = ROOT / "apps/media/assets"
     if media_assets.exists():
         app.mount("/native-assets/media", StaticFiles(directory=media_assets), name="media-assets")

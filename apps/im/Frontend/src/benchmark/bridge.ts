@@ -69,6 +69,23 @@ export async function nativeFetch(
       ),
       method = init?.method || "GET",
       body = typeof init?.body === "string" ? JSON.parse(init.body) : {};
+    if(s.workflow==='publishing') {
+      const peerId=Number(path.match(/^\/api\/conversations\/(\d+)/)?.[1]);
+      const author=s.world.authors.find((a:any)=>a.id===peerId);
+      const stamp=Date.parse(s.world.reference_time)/1000;
+      if(method==='GET' && path==='/api/workspace')return respond({instructions:'栏目文章的发布回执与作者沟通。通知卡片中的链接打开实际发布正文。',blog:`/native/product/blog/${run}#${token}`});
+      if(method==='GET' && path==='/api/friends')return respond({friends:s.world.authors.map((a:any)=>({user_id:a.id,username:a.name,group:'稿件作者 · '+a.account}))});
+      if(method==='GET' && path==='/api/conversations')return respond({conversations:s.world.authors.map((a:any)=>({conversation_id:a.id,type:'private',name:a.name,peer_user:{user_id:a.id,username:a.name},other_user_id:a.id,unread_count:0,last_message:{content:s.world.notifications.filter((n:any)=>n.recipient===a.id).at(-1)?.title || '稿件发布沟通',created_at:stamp}}))});
+      if(method==='GET' && path.endsWith('/messages') && author) {
+        const notices=s.world.notifications.filter((n:any)=>n.recipient===peerId).map((n:any,i:number)=>({msg_id:10000+Number(n.id.split('-')[1]),sender_id:1,sender_name:'周予安',created_at:stamp+i+1,content:'文章已发布：'+n.title,
+          publication_share:{id:n.publication,title:n.title,summary:n.summary,publish_at:n.publish_at,url:`/native/product/blog/${run}?post=${encodeURIComponent(n.publication)}#${token}`}}));
+        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:'周予安',created_at:stamp+1000+m.id,content:m.body}));
+        return respond({messages:[...notices,...discussion].sort((a:any,b:any)=>b.created_at-a.created_at)});
+      }
+      const profile=s.world.authors.find((a:any)=>a.id===Number(path.match(/\/user\/(\d+)/)?.[1]));
+      if(method==='GET' && profile)return respond({user_id:profile.id,username:profile.name,bio:'稿件作者 · '+profile.account});
+      if(method==='POST' && path.endsWith('/messages') && author){await imCommand('message.send',String(peerId),JSON.stringify({text:body.content}));return respond({msg_id:20000+s.world.discussion.length+1});}
+    }
     if(s.workflow==='music_projects') {
       const groupId=Number(path.match(/^\/api\/conversations\/(\d+)/)?.[1]);
       const group=s.world.groups.find((g:any)=>g.id===groupId);
