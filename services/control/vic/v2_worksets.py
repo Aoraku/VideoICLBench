@@ -20,6 +20,13 @@ def generate(task_id, seed, spec):
             extra_filter = ('specification','规格','500ml','350ml') if index==0 else ('specification','规格','104键','87键')
         group = business.generate(task_id, seed + 137 * index)
         rows = group['items']
+        if task_id==2 and requested:rows=rows[:5]
+        if task_id in (6,14) and requested:
+            rows=deepcopy(rows)
+            for offset,title in enumerate(['Chris Bell','Sky Rhys'] if task_id==6 else ['项目验收','客户回访']):
+                extra=deepcopy(rows[offset]);extra['id']+='-extra';extra['name']=title
+                extra['surname']=title.split(' ')[-1]
+                extra['name_length']=len(title);rows.append(extra)
         if task_id == 63 and requested:
             topic_titles=[
                 ['两数之和','合并有序数组','区间合并','旋转数组','乘积最大子数组','窗口最大值'],
@@ -51,11 +58,22 @@ def generate(task_id, seed, spec):
                      filters={extra_filter[0]:extra_filter[2]} if extra_filter else {},
                      filter_label=extra_filter[1] if extra_filter else '', collection=collection)
         scopes.append(scope)
+        if task_id==9:
+            scope['notification']=f'{name}通知：请于 2026 年 1 月 {20+index} 日 14:00 参加项目说明会，地点为 {index+1} 号会议室。'
         for n, original in enumerate(rows):
             item = deepcopy(original)
             item.update(id=f's{index}-{item["id"]}', scope_id=scope['id'], scope_name=name,
                         record_code=f'{task_id:03d}-{index+1}{n+1:02d}')
             if extra_filter: item[extra_filter[0]] = extra_filter[2]
+            if task_id == 16:
+                item['receipt_sender_id'] = 1000 + index * 10 + n
+                item['created_at'] = f'2026-01-15T{8 + n // 2:02d}:{(n % 2) * 20 + index:02d}:00+00:00'
+                item['text'] = (f'收到，{name}通知已核对，我负责的材料正在整理。' if '收到' in item['text']
+                    else [f'{name}的会议地点需要再次确认。',f'{name}的材料清单在哪里查看？',
+                          f'{name}的负责人联系方式已更新。',f'{name}的进度表将在下午更新。'][n % 4])
+            if task_id==8:
+                item['group_members']=[dict(user_id=1 if j==0 else 10000+index*1000+n*20+j,username=person,role='owner' if j==0 else 'member')
+                    for j,person in enumerate(['周予安','林若宁','陈以安','许知遥','沈沐言','陆星河','宋清越','季云舟','方明远'][:item['members']])]
             if task_id in (61,63):
                 item['number'] += 1000 * index
                 item['samples'] = 3
@@ -89,14 +107,27 @@ def generate(task_id, seed, spec):
                 other = deepcopy(original)
                 other.update(id=original['id']+'-other', record_code=original['record_code']+'R')
                 other[extra_filter[0]] = extra_filter[3]
+                if task_id == 16: other['created_at'] = '2025-12-20' + other['created_at'][10:]
                 if task_id in (23,33,49, 53): other['created_at'] = '2025-12'+other['created_at'][7:]
                 items.append(other)
     initial['items'] = items
+    if task_id == 16:
+        for item in items:
+            item['notification_number'] = item['notification_batch'] + '-' + item['record_code']
+            item['text'] = f"通知 {item['notification_number']}\n{item['text']}"
     state = initialize(initial)
     state.update(v2_worksets=True, scopes=scopes,
         execution=dict(assignment=spec['assignment'], instructions=spec['inference']['instructions'], delivery=spec['delivery']))
     if task_id == 57: state['source']['notification_channel'] = '电子邮件'
     state['public_parameters']={
+        2:'春季发布组的五位成员已各自发来姓名。请从群成员名单确认身份，按视频格式修改各人的备注昵称；成员账号用于区分同名人员，群外人员不变。',
+        6:'只整理研发部的八位联系人。姓名长度不计空格；元音为 a/e/i/o/u，不区分大小写。非命中联系人保持未分组，其他部门不变。',
+        7:'每个部门独立比较并标注一个高优先级会话；以任务开始时的未读数和最近消息时间为准，并列保持初始顺序。',
+        8:'只整理星桥计划的六个项目群；打开群资料核对名称与实际成员，群号用于区分同名群。非命中群不加大型标签。',
+        9:'每个部门独立选择一名收件人，各发送一次对应部门通知；比较使用初始未读数和联系时间，姓氏按英文字母排序，并列保持初始顺序。',
+        12:'在产品协作、客户交付两个工作区分别排序；采用任务开始时的未读数、最近消息时间及会话名称，并列保持初始相对顺序。每次调整自动保存。',
+        14:'只处理星桥交接的八个会话。时间基准 2026-01-15 12:00 UTC，严格超过 3 天才满足时间条件；已读与未读采用任务开始快照。',
+        16:f'检查产品验收、官网发布、客户培训、运营交接四个项目会话；只处理通知批次 N2026-0115，历史批次和其他资料不变。每条回执对应正文中的通知编号；固定回复为“{state["source"]["fixed_reply"]}”，应关联原消息且每条只回复一次。',
         22:f'只处理两张专辑的录音室版，共六首歌曲；时长以秒计，播放量阈值为 {state["source"]["threshold"]} 次。',
         23:f'发布日期范围：2026-01-01 至 2026-01-31（UTC）；指定媒体：{state["source"]["publisher"]}；相同标题以文章编号区分。',
         26:'每个栏目独立比较，保存两项推荐；并列保持资料列表的初始顺序。',
@@ -151,9 +182,14 @@ def scope_effect(initial, variant, scope):
 
 def reference_commands(initial, variant):
     """Private reference for evaluator and offline QA; never served to clients."""
-    t = initial['task_id']; commands = []
+    t = initial['task_id']; commands = [];order=list(initial['domain']['orders']['main'])
     for scope in initial['scopes']:
         if not scope['requested']: continue
+        if t==2:
+            for item in worksets.members(initial,scope):
+                view=dict(initial,source={**initial['source'],'text':item['name']})
+                commands.append(('contact.nickname',item['id'],business.transform(2,'ABC'.index(variant),view),[]))
+            continue
         effect = scope_effect(initial, variant, scope)
         if 'labels' in effect:
             chosen = []
@@ -161,8 +197,13 @@ def reference_commands(initial, variant):
                 if label:
                     chosen.append(target); commands.append(('label', target, label, []))
             if t in worksets.SNAPSHOT_TASKS: commands.append(('workset.collect', scope['id'], '', chosen))
+        elif 'order' in effect:
+            eligible=set(effect['order']);positions=[i for i,key in enumerate(order) if key in eligible]
+            for i,key in zip(positions,effect['order']):order[i]=key
+            commands.append(('order','','',list(order)))
         elif 'selection' in effect:
-            if t == 63: commands.append(('course.add', effect['selection'][0], '', []))
+            if t == 9:commands.append(('message.send',effect['selection'][0],scope['notification'],[]))
+            elif t == 63: commands.append(('course.add', effect['selection'][0], '', []))
             else: commands.append(('workset.collect', scope['id'], '', effect['selection']))
         else:
             for target, action in effect['actions']:

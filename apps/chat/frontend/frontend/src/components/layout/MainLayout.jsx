@@ -1,4 +1,5 @@
 import {nativeRun} from '../../benchmark/bridge.js'
+import WorkspaceBar from '../../benchmark/WorkspaceBar.jsx'
 import { useEffect, useState } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { updateStatus } from '../../api/users.js'
@@ -180,6 +181,7 @@ export default function MainLayout() {
       </aside>
 
       <main className="main-content" aria-label="内容区">
+        <WorkspaceBar />
         <Outlet />
       </main>
     </div>

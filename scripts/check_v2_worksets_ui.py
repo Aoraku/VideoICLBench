@@ -2,6 +2,7 @@
 import asyncio
 import json
 import os
+import re
 import secrets
 import sys
 from pathlib import Path
@@ -59,7 +60,7 @@ async def main():
                         await expect(page.locator('[data-testid="stApp"]')).to_have_attribute('data-test-script-state','notRunning',timeout=30000)
                     try:
                         await page.goto('http://127.0.0.1:8782'+native_path(state['app'],rid)+'#'+token)
-                        region='专辑筛选' if task==22 else '资料筛选'
+                        region='工作范围' if state['app'] in ('chat','im') else '专辑筛选' if task==22 else '资料筛选'
                         if task in (61,63):
                             await page.get_by_role('heading',name='题目列表',exact=True).wait_for(timeout=60000)
                             await code_idle()
@@ -70,6 +71,105 @@ async def main():
                         for scope in state['scopes']:
                             if not scope['requested']:continue
                             effect=v2_worksets.scope_effect(state,variant,scope)
+                            if task==16:
+                                await page.locator('.ant-list-item').filter(has_text=scope['name']).click()
+                                await page.get_by_title('群聊设置',exact=True).click()
+                                details=page.get_by_role('dialog',name='群聊信息')
+                                await expect(details.get_by_text('群成员 (7)',exact=True)).to_be_visible()
+                                await details.get_by_role('button',name='Close',exact=True).click()
+                                for target,action in effect['actions']:
+                                    index=next(i for i,x in enumerate(state['items']) if x['id']==target)
+                                    row=page.locator(f'#msg-{100+index}')
+                                    bubble=row.get_by_text(state['domain']['objects'][target]['text'],exact=True)
+                                    await expect(page.get_by_role('menu')).to_have_count(0)
+                                    await bubble.click(button='right')
+                                    menu=page.get_by_role('menuitem',name={'已读':'确认已读','星标':'星标消息','回复':'回复'}[action],exact=True)
+                                    if action=='回复':
+                                        await menu.click()
+                                        await page.locator('textarea:not([aria-hidden="true"])').fill(state['source']['fixed_reply'])
+                                        await click_save(page.get_by_role('button',name=re.compile(r'发\s*送')))
+                                        quote_text=' '.join(state['domain']['objects'][target]['text'].split())
+                                        await expect(page.get_by_role('button',name=re.compile('：'+re.escape(quote_text)+'$'))).to_be_visible()
+                                        await expect(page.get_by_title('取消回复',exact=True)).to_have_count(0)
+                                    else:
+                                        await click_save(menu)
+                                        await expect(row.get_by_text('✓ 已确认阅读' if action=='已读' else '★ 已星标',exact=True)).to_be_visible()
+                                    await expect(page.get_by_role('menu')).to_have_count(0)
+                                continue
+                            if state['app']=='chat':
+                                await choose(page.get_by_role('combobox',name=scope['kind'],exact=True),scope['id'])
+                                if task==2:
+                                    targets=worksets.members(state,scope)
+                                    commands={target:value for op,target,value,ids in v2_worksets.reference_commands(state,variant)}
+                                    for item in targets:
+                                        await page.locator('a[title="会话"]').click()
+                                        await page.locator('.list__itemWrap').filter(has=page.locator('.list__title',has_text=scope['name'])).locator('.list__item').click()
+                                        await expect(page.locator('.chatBody').get_by_text(f"我是 {item['name']}，我的成员账号是 {item['record_code']}。请使用我的姓名整理通讯录备注。",exact=True)).to_be_visible()
+                                        await page.get_by_role('link',name='群资料',exact=True).click()
+                                        await expect(page.locator('.groupMemberList__row')).to_have_count(6)
+                                        await page.locator('.groupMemberList').get_by_role('link',name=item['name'],exact=True).click()
+                                        await page.get_by_placeholder('无备注则留空').fill(commands[item['id']])
+                                        await click_save(page.get_by_role('button',name='保存',exact=True))
+                                        await expect(page).to_have_url(re.compile('/contacts'))
+                                    continue
+                                if task in (6,9):
+                                    await page.locator('a[title="通讯录"]').click()
+                                    await page.get_by_role('button',name='联系人',exact=False).click()
+                                    await expect(page.locator('.wxAccRow')).to_have_count(len(worksets.members(state,scope)))
+                                    targets=[key for key,value in effect.get('labels',{}).items() if value] if task==6 else effect['selection']
+                                    for target in targets:
+                                        name=state['domain']['objects'][target]['name']
+                                        await page.locator('.wxAccRow').filter(has_text=name).click()
+                                        await expect(page.locator('.wxDetailPane')).to_contain_text(scope['name'])
+                                        if task==6:
+                                            await page.locator('.wxGroupPicker__trigger').click()
+                                            await page.get_by_role('option',name=effect['labels'][target],exact=True).click()
+                                            await click_save(page.locator('.wxGroupAssign__btn'))
+                                            await expect(page.locator('.wxGroupAssign__btn')).to_have_text('保存')
+                                            await expect(page.locator('.wxDetailPane__dl')).to_contain_text(effect['labels'][target])
+                                        else:
+                                            await page.get_by_role('button',name='发消息',exact=True).click()
+                                            await page.locator('textarea').fill(scope['notification'])
+                                            await click_save(page.locator('.sendBtn'))
+                                            await expect(page.get_by_text(scope['notification'],exact=True).last).to_be_visible()
+                                else:
+                                    await page.locator('a[title="会话"]').click()
+                                    await expect(page.locator('.list__itemWrap')).to_have_count(len(worksets.members(state,scope)))
+                                    if task in (7,8):
+                                        for target,value in effect['labels'].items():
+                                            if not value:continue
+                                            if task==8:
+                                                await page.locator(f'[data-object-id="{target}"] .list__item').click()
+                                                await page.get_by_role('link',name='群资料',exact=True).click()
+                                                await expect(page.get_by_text('成员数量',exact=True)).to_be_visible()
+                                                await page.get_by_role('link',name='返回',exact=True).click()
+                                            row=page.locator(f'[data-object-id="{target}"]')
+                                            await row.get_by_role('button',name='会话操作',exact=True).click()
+                                            await click_save(page.get_by_role('menuitem',name=value,exact=True))
+                                            await expect(row).to_contain_text(value)
+                                    elif task==12:
+                                        eligible={x['id'] for x in worksets.members(state,scope)}
+                                        for dest,target in enumerate(effect['order']):
+                                            snap=await snapshot();current=[key for key in snap['state']['domain']['orders']['main'] if key in eligible]
+                                            for _ in range(current.index(target)-dest):
+                                                await click_save(page.locator(f'[data-object-id="{target}"]').get_by_role('button',name='↑ 上移',exact=True))
+                                                await page.wait_for_timeout(100)
+                                        await expect(page.locator('.list__itemWrap')).to_have_count(len(eligible))
+                                        assert await page.locator('.list__itemWrap').evaluate_all('(rows)=>rows.map(row=>row.dataset.objectId)')==effect['order']
+                                    else:
+                                        for target,action in effect['actions']:
+                                            await page.locator(f'[data-object-id="{target}"]').get_by_role('button',name='会话操作',exact=True).click()
+                                            await click_save(page.get_by_role('menuitem',name={'归档':'归档会话','置顶':'置顶会话','静音':'消息免打扰'}[action],exact=True))
+                                        target,action=effect['actions'][0]
+                                        await page.locator(f'[data-object-id="{target}"]').get_by_role('button',name='会话操作',exact=True).click()
+                                        await click_save(page.get_by_role('menuitem',name={'归档':'取消归档','置顶':'取消置顶','静音':'关闭免打扰'}[action],exact=True))
+                                        field={'归档':'archived','置顶':'pinned','静音':'muted'}[action]
+                                        assert not (await snapshot())['state']['domain']['objects'][target][field]
+                                        await page.locator(f'[data-object-id="{target}"]').get_by_role('button',name='会话操作',exact=True).click()
+                                        await click_save(page.get_by_role('menuitem',name={'归档':'归档会话','置顶':'置顶会话','静音':'消息免打扰'}[action],exact=True))
+                                        await choose(page.get_by_role('combobox',name='会话状态',exact=True),{'A':'archived','B':'pinned','C':'muted'}[variant])
+                                        await expect(page.locator('.list__itemWrap')).to_have_count(len(effect['actions']))
+                                continue
                             if task in (61,63):
                                 sidebar=page.locator('[data-testid="stSidebar"]')
                                 await sidebar.get_by_role('combobox').click()
@@ -226,8 +326,8 @@ async def main():
                         results.append(dict(task=task,variant=variant,seed=10001,suite='v2',mode='eval',status='passed',surface='native',persisted=True,checks=result['checks']))
                         print(f'{task}{variant} PASS',flush=True)
                     except Exception as exc:
-                        results.append(dict(task=task,variant=variant,seed=10001,status='failed',error=str(exc)))
-                        print(f'{task}{variant} FAIL {exc}',flush=True)
+                        results.append(dict(task=task,variant=variant,seed=10001,status='failed',error=str(exc),page_errors=errors))
+                        print(f'{task}{variant} FAIL {exc} {errors}',flush=True)
                         await page.screenshot(path=str(out/f'{task}-{variant}-failed.png'))
                     finally:
                         with (out/'history.jsonl').open('a') as f:f.write(json.dumps(results[-1],ensure_ascii=False)+'\n')

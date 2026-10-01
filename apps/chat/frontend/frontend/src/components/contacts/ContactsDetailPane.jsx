@@ -137,6 +137,7 @@ export default function ContactsDetailPane({
           </div>
         </div>
         <dl className="wxDetailPane__dl">
+          {f.benchmark_scope&&<><dt>{f.benchmark_scope_kind || '部门'}</dt><dd>{f.benchmark_scope}</dd><dt>成员账号</dt><dd>{f.benchmark_account}</dd></>}
           {f.benchmark_surname && <><dt>名</dt><dd>{f.benchmark_given_name}</dd><dt>姓</dt><dd>{f.benchmark_surname}</dd></>}
           {f.remark && <><dt>备注</dt><dd style={{whiteSpace: 'pre-wrap'}}>{f.remark}</dd></>}
           <dt>分组</dt>

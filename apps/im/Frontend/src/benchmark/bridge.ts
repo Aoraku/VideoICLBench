@@ -69,6 +69,8 @@ export async function nativeFetch(
       ),
       method = init?.method || "GET",
       body = typeof init?.body === "string" ? JSON.parse(init.body) : {};
+    const projectReceipts = s.v2_worksets && s.task_id === 16;
+    const scopeForConversation = (id: number) => projectReceipts ? s.scopes[id - 10] : undefined;
     const user = (i: number) => ({
       user_id: 10 + i,
       username: s.items[i].name,
@@ -77,8 +79,8 @@ export async function nativeFetch(
     });
     const msg = (item: any, i: number) => ({
       msg_id: 100 + i,
-      sender_id: 2,
-      sender_name: "林若宁",
+      sender_id: projectReceipts ? item.receipt_sender_id : 2,
+      sender_name: projectReceipts ? item.name : "林若宁",
       sender_avatar: undefined,
       content: item.text,
       created_at: Date.parse(item.created_at) / 1000,
@@ -87,15 +89,24 @@ export async function nativeFetch(
       benchmark_starred: s.domain.objects[item.id].starred,
     });
     if (method === "GET") {
+      if (path === "/api/workspace")
+        return respond({ instructions: projectReceipts ? s.public_parameters : undefined });
       if (path === "/api/user/profile")
         return respond({ user_id: 1, username: "周予安", avatar: undefined });
       if (path === "/api/friends")
         return respond({
-          friends: s.task_id === 16
+          friends: projectReceipts
+            ? s.scopes.map((scope: any, i: number) => ({user_id:10+i,username:scope.name,group:'项目联络人'}))
+            : s.task_id === 16
             ? [{user_id: 2, username: s.source.recipient, group: '联系人'}]
             : s.items.map((_: any, i: number) => user(i)),
         });
       if (path === "/api/conversations") {
+        if (projectReceipts) return respond({conversations:s.scopes.map((scope: any, i: number) => ({
+          conversation_id:10+i,type:'group',name:scope.name,
+          peer_user:{user_id:10+i,username:scope.name},other_user_id:10+i,unread_count:0,
+          last_message:{content:'项目通知回执 · 请核对通知编号和批次',created_at:1768471200},
+        }))});
         const conversations = [
           {
             conversation_id: 2,
@@ -127,11 +138,12 @@ export async function nativeFetch(
       }
       if (/\/conversations\/\d+\/messages$/.test(path)) {
         const conversationId = Number(path.split('/')[3]);
-        if (conversationId !== 2) return respond({messages: []});
-        const rows = s.task_id === 16 ? s.items.map(msg) : [];
+        const scope = scopeForConversation(conversationId);
+        if (projectReceipts ? !scope : conversationId !== 2) return respond({messages: []});
+        const rows = s.task_id === 16 ? s.items.flatMap((item: any, i: number) => !projectReceipts || item.scope_id === scope.id ? [msg(item,i)] : []) : [];
         rows.push(
           ...s.domain.messages
-            .filter((m: any) => m.sender === "self")
+            .filter((m: any) => m.sender === "self" && (!projectReceipts || m.recipient === scope.id))
             .map((m: any, i: number) => ({
               msg_id: 1000 + i,
               sender_id: 1,
@@ -142,7 +154,7 @@ export async function nativeFetch(
                 ? {
                     msg_id:
                       100 + s.items.findIndex((x: any) => x.id === m.reference),
-                    sender_name: "林若宁",
+                    sender_name: projectReceipts ? s.domain.objects[m.reference].name : "林若宁",
                     content: s.domain.objects[m.reference].text,
                   }
                 : undefined,
@@ -151,6 +163,13 @@ export async function nativeFetch(
         return respond({ messages: rows.sort((a: any, b: any) => b.created_at - a.created_at) });
       }
       if (/\/conversations\/\d+\/group$/.test(path)) {
+        const scope = scopeForConversation(Number(path.split('/')[3]));
+        if (scope) {
+          const members = Array.from(new Map(s.items.filter((item: any) => item.scope_id === scope.id)
+            .map((item: any) => [item.receipt_sender_id, {user_id:item.receipt_sender_id,username:item.name}])).values());
+          return respond({name:scope.name,owner_id:1,created_at:Date.parse(s.source.reference_time)/1000,
+            description:'项目通知与回执',announcements:[],members:[{user_id:1,username:'周予安'},...members]});
+        }
         if (path !== '/api/conversations/20/group' || !s.domain.memberships['group-1'])
           throw Error('该会话不是群聊');
         return respond({
@@ -171,13 +190,17 @@ export async function nativeFetch(
           ],
         });
       }
-      if (path.includes("/user/"))
+      if (path.includes("/user/")) {
+        const id = Number(path.match(/\/user\/(\d+)/)?.[1]);
+        const scope = scopeForConversation(id);
+        const person = projectReceipts ? s.items.find((item: any) => item.receipt_sender_id === id) : undefined;
         return respond({
-          user_id: 2,
-          username: "林若宁",
+          user_id: person?.receipt_sender_id || (scope ? 10 + s.scopes.indexOf(scope) : 2),
+          username: person?.name || scope?.name || "林若宁",
           avatar: undefined,
           bio: "产品与设计协作",
         });
+      }
       if (path.includes("/friends/requests")) return respond({ requests: [] });
     }
     if (
@@ -195,6 +218,8 @@ export async function nativeFetch(
     if (method === "POST" && path.endsWith("/messages") && s.task_id === 16) {
       const item = s.items[Number(body.reply_to_id) - 100];
       if (!item) throw Error("请选择需要回复的原消息");
+      if (projectReceipts && scopeForConversation(Number(path.split('/')[3]))?.id !== item.scope_id)
+        throw Error("原消息不属于当前项目会话");
       if (body.content !== s.source.fixed_reply)
         throw Error(`回复内容应为“${s.source.fixed_reply}”`);
       await imCommand("action", item.id, "回复");

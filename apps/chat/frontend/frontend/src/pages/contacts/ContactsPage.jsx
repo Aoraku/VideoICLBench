@@ -70,6 +70,9 @@ export default function ContactsPage() {
 
   useEffect(() => {
     fetchContacts({ resetUi: false })
+    const scopeChanged=()=>{setSelection(null);fetchContacts({resetUi:false})};
+    window.addEventListener('vic-chat-scope',scopeChanged)
+    return()=>window.removeEventListener('vic-chat-scope',scopeChanged)
   }, [])
 
   useEffect(() => {

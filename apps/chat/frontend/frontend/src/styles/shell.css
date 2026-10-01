@@ -10,6 +10,9 @@
   height: 100vh;
   overflow: auto;
 }
+.main-content:has(> .workspace-bar) { display:flex; flex-direction:column; gap:12px; }
+.main-content:has(> .workspace-bar) > .workspace { height:auto; flex:1; min-height:0; padding:0; }
+.main-content:has(> .workspace-bar) > .wxPage { width:100%; overflow:auto; min-height:0; }
 
 .iconbar {
   height: 100vh;

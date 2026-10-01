@@ -1,4 +1,4 @@
-import {nativeRun, command, currentBusiness} from '../../benchmark/bridge.js'
+import {nativeRun, command, currentBusiness, adjacentConversation, moveConversation} from '../../benchmark/bridge.js'
 import AttachmentLibrary from '../../benchmark/AttachmentLibrary.jsx'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
@@ -418,6 +418,7 @@ export default function ChatPage() {
   const [convSearchLoading, setConvSearchLoading] = useState(false)
   const [convSearchError, setConvSearchError] = useState('')
   const [convSearchRows, setConvSearchRows] = useState([])
+  const [nativeStatus, setNativeStatus] = useState('all')
   const [filterDraft, setFilterDraft] = useState(() => ({ ...EMPTY_MSG_FILTER }))
   const [filterApplied, setFilterApplied] = useState(() => ({ ...EMPTY_MSG_FILTER }))
   const [msgFilterOpen, setMsgFilterOpen] = useState(false)
@@ -645,9 +646,8 @@ export default function ChatPage() {
 
   const filteredConversations = useMemo(() => {
     const q = searchOpen ? convSearch.trim().toLowerCase() : ''
-    if (!q) return conversations
-    return conversations.filter((c) => convTitle(c).toLowerCase().includes(q))
-  }, [conversations, convSearch, searchOpen])
+    return conversations.filter(c=>!q || convTitle(c).toLowerCase().includes(q)).filter(c=>nativeStatus==='all' || (nativeStatus==='archived' ? c.benchmark_archived : nativeStatus==='pinned' ? c.is_pinned : c.is_muted))
+  }, [conversations, convSearch, searchOpen, nativeStatus])
 
   const conversationTitleMap = useMemo(() => {
     const map = new Map()
@@ -918,9 +918,10 @@ export default function ChatPage() {
 
   useEffect(() => {
     if (!nativeRun) return
-    const onBusinessUpdate = () => {
+    const onBusinessUpdate = (event) => {
       void refreshConversationList()
-      if (selectedId) void refetchMessages()
+      if(event.detail?.scopeChanged){setSelectedId(null);setNativeStatus('all')}
+      else if (selectedId) void refetchMessages()
     }
     window.addEventListener('vic-chat-updated', onBusinessUpdate)
     return () => window.removeEventListener('vic-chat-updated', onBusinessUpdate)
@@ -1766,6 +1767,7 @@ export default function ChatPage() {
           {(currentBusiness().domain.collections.shortcuts||[]).length===0&&<p style={{fontSize:12,color:'#718199'}}>将需要继续跟进的会话加入这里。</p>}
           {(currentBusiness().domain.collections.shortcuts||[]).map(objectId=>{const c=conversations.find(row=>row.benchmark_object===objectId);return c&&<button key={objectId} type="button" className="pane__toolBtn" onClick={()=>void selectConversation(c)}>打开快捷会话 {convTitle(c)}</button>})}
         </section>}
+        {nativeRun && currentBusiness()?.v2_worksets && currentBusiness()?.task_id===14 && <label style={{padding:12}}>会话状态 <select aria-label="会话状态" value={nativeStatus} onChange={e=>setNativeStatus(e.target.value)}><option value="all">全部会话</option><option value="archived">已归档</option><option value="pinned">已置顶</option><option value="muted">已静音</option></select></label>}
         <div className="list">
           {listLoading ? (
             <div className="emptyState" style={{ border: 'none', margin: 8 }}>
@@ -1788,6 +1790,7 @@ export default function ChatPage() {
               return (
                 <div
                   key={String(id)}
+                  data-object-id={c.benchmark_object}
                   className={`list__itemWrap${active ? ' is-active' : ''}`}
                   onContextMenu={(e) => {
                     e.preventDefault()
@@ -1827,8 +1830,9 @@ export default function ChatPage() {
                         <div className="list__time">{time}</div>
                       </div>
                       <div className="list__sub">{lastPreview(last)}</div>
+                      {c.benchmark_scope && <div style={{fontSize:11,color:'#526477'}}>{c.benchmark_scope} · {c.benchmark_record}</div>}
                       {c.benchmark_label && <div style={{fontSize:11,color:({'蓝色':'#3478db','红色':'#df5454','绿色':'#2c9c6a'})[c.benchmark_label]||'#317060'}}>● {c.benchmark_label}</div>}
-                      {nativeRun && [7,12,14].includes(currentBusiness()?.task_id) && <div style={{fontSize:11,color:'#526477'}}>最近消息 {String(last?.created_at || '').replace('T',' ').slice(0,16)} UTC · 未读 {c.unread_count}</div>}
+                      {nativeRun && [7,12,14].includes(currentBusiness()?.task_id) && <div style={{fontSize:11,color:'#526477'}}>最近消息 {String(last?.created_at || '').replace('T',' ').slice(0,16)} UTC · {c.benchmark_snapshot_unread !== undefined ? '初始未读' : '未读'} {c.benchmark_snapshot_unread ?? c.unread_count}</div>}
                       {nativeRun && currentBusiness()?.task_id===14 && <div style={{fontSize:11,color:'#526477'}}>{c.benchmark_age_days} 天前</div>}
                       {nativeRun && currentBusiness()?.task_id===8 && <div style={{fontSize:11,color:'#718199'}}>{c.member_count} 位成员</div>}
                     </div>
@@ -1841,7 +1845,7 @@ export default function ChatPage() {
                     )}
                   </button>
                   {nativeRun && currentBusiness()?.task_id===12 && <div aria-label={`调整${convTitle(c)}的顺序`} style={{display:'flex',gap:6,padding:'0 12px 8px'}}>
-                    {[-1,1].map(delta=>{const ids=currentBusiness().domain.orders.main;const position=ids.indexOf(c.benchmark_object);return <button type="button" key={delta} disabled={position+delta<0 || position+delta>=ids.length} onClick={async()=>{const order=[...currentBusiness().domain.orders.main],i=order.indexOf(c.benchmark_object),j=i+delta;if(i<0||j<0||j>=order.length)return;[order[i],order[j]]=[order[j],order[i]];try{await command('order','','',order);await refreshConversationList()}catch(error){setSendError(error.message)}}}>{delta<0?'↑ 上移':'↓ 下移'}</button>})}
+                    {[-1,1].map(delta=><button type="button" key={delta} disabled={!adjacentConversation(c.benchmark_object,delta)} onClick={async()=>{try{await moveConversation(c.benchmark_object,delta);await refreshConversationList()}catch(error){setSendError(error.message)}}}>{delta<0?'↑ 上移':'↓ 下移'}</button>)}
                   </div>}
                   {nativeRun && currentBusiness()?.v2_atomic && currentBusiness()?.task_id===10 && <button type="button" style={{margin:'0 12px 8px'}} onClick={async()=>{try{const saved=currentBusiness().domain.collections.shortcuts.includes(c.benchmark_object);await command(saved?'shortcut.remove':'shortcut.add',c.benchmark_object);await refreshConversationList()}catch(error){setSendError(error.message)}}}>{currentBusiness().domain.collections.shortcuts.includes(c.benchmark_object)?'移除快捷入口':'加入快捷入口'} {convTitle(c)}</button>}
                   <button
@@ -2471,8 +2475,8 @@ export default function ChatPage() {
         onClose={() => setConvMenu(null)}
       >
         {nativeRun && [7,8].includes(currentBusiness()?.task_id) && ['',...currentBusiness().options].map(label=><button type="button" role="menuitem" className="popMenu__item" key={label} onClick={async()=>{const objectId=convMenu.conv.benchmark_object;setConvMenu(null);try{await command('label',objectId,label);await refreshConversationList()}catch(e){setSendError(e.message)}}}>{label||'清除标签'}</button>)}
-        {nativeRun && currentBusiness()?.task_id===14 && <button type="button" role="menuitem" className="popMenu__item" onClick={async()=>{const objectId=convMenu.conv.benchmark_object;setConvMenu(null);try{await command('action',objectId,'归档');await refreshConversationList()}catch(e){setSendError(e.message)}}}>归档会话</button>}
-        {nativeRun && currentBusiness()?.task_id===12 && [-1,1].map(delta=><button type="button" role="menuitem" className="popMenu__item" key={delta} onClick={async()=>{const objectId=convMenu.conv.benchmark_object;setConvMenu(null);const ids=[...currentBusiness().domain.orders.main],i=ids.indexOf(objectId),j=i+delta;if(j<0||j>=ids.length)return;[ids[i],ids[j]]=[ids[j],ids[i]];try{await command('order','','',ids);await refreshConversationList()}catch(e){setSendError(e.message)}}}>{delta<0?'上移会话':'下移会话'}</button>)}
+        {nativeRun && currentBusiness()?.task_id===14 && <button type="button" role="menuitem" className="popMenu__item" onClick={async()=>{const c=convMenu.conv;setConvMenu(null);try{if(currentBusiness().v2_worksets)await command('conversation.settings',c.benchmark_object,JSON.stringify({archived:!c.benchmark_archived}));else await command('action',c.benchmark_object,'归档');await refreshConversationList()}catch(e){setSendError(e.message)}}}>{currentBusiness()?.v2_worksets && convMenu?.conv?.benchmark_archived?'取消归档':'归档会话'}</button>}
+        {nativeRun && currentBusiness()?.task_id===12 && [-1,1].map(delta=><button type="button" role="menuitem" className="popMenu__item" key={delta} disabled={!adjacentConversation(convMenu?.conv?.benchmark_object,delta)} onClick={async()=>{const id=convMenu.conv.benchmark_object;setConvMenu(null);try{await moveConversation(id,delta);await refreshConversationList()}catch(e){setSendError(e.message)}}}>{delta<0?'上移会话':'下移会话'}</button>)}
         <button
           type="button"
           role="menuitem"

@@ -1,0 +1,519 @@
+{
+  "verified_at": "2026-10-01T15:56:53.018710+00:00",
+  "video_recorded": false,
+  "tasks": [
+    2,
+    6,
+    7,
+    8,
+    9,
+    12,
+    14,
+    16
+  ],
+  "coverage": {
+    "inference_conditions": 24,
+    "demo_first_episode_conditions": 24,
+    "full_demo_api_episodes": 84
+  },
+  "browser": [
+    {
+      "task": 2,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 2,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 2,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 6,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 6,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 6,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 7,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 7,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 7,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 8,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 8,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 8,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 9,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 9,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 9,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 12,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 12,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 12,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 14,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 14,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 14,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 16,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 16,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 16,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "eval",
+      "seed": 10001,
+      "suite": "v2"
+    },
+    {
+      "task": 2,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 2,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 2,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 6,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 6,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 6,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 7,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 7,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 7,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 8,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 8,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 8,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 9,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 9,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 9,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 12,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 12,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 12,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 14,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 14,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 14,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 16,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 16,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    },
+    {
+      "task": 16,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "mode": "demo",
+      "seed": 0,
+      "suite": "v2"
+    }
+  ],
+  "verification": {
+    "native_inference": "scripts/check_v2_worksets_ui.py",
+    "native_demo": "scripts/check_native_ui.py",
+    "delivery_tests": "tests/test_v2_worksets.py",
+    "all_demo_episodes": "tests/test_v2.py::test_v2_demo_all_episodes_advance_and_final_eval",
+    "regression": "1716 tests passed; native Chat and IM production builds passed.",
+    "checked_behaviors": [
+      "Five project members identify themselves and are reached from the group member list; individual contact remarks persist.",
+      "Department and project selection, contact grouping, actual group member counts, notifications to the selected recipient, scoped ordering and reversible archive/pin/mute controls.",
+      "Four IM project groups, current and historical notification batches, group member panels, read/star acknowledgments and quoted replies persisted to the correct original message.",
+      "Reload, reset, distinct A/B/C outcomes, unrelated-record preservation, wrong recipients, duplicate replies and wrong batch handling."
+    ]
+  },
+  "limits": [
+    "Browser demonstration checks use the initial teaching episode; all teaching episodes are covered by API tests.",
+    "Inference browser checks use seed 10001; fixture and API tests cover additional seeds.",
+    "No video recording. Agentlab v2 deployment is not complete."
+  ]
+}

@@ -216,7 +216,11 @@ async def main():
              # Ant menus remain visible during their closing animation. Wait for
              # the prior popup before locating the next message's menu item.
              await expect(page.get_by_role('menu')).to_have_count(0)
-             bubble=page.get_by_text(initial['domain']['objects'][target]['text'],exact=True);await bubble.scroll_into_view_if_needed();box=await bubble.bounding_box();await page.mouse.click(box['x']+15,box['y']+15,button='right');await click(page.get_by_role('menuitem',name={'已读':'确认已读','星标':'星标消息','回复':'回复'}[value],exact=True))
+             bubble=page.get_by_text(initial['domain']['objects'][target]['text'],exact=True)
+             # Ant context menus close on scrolling. Finish scrolling the long
+             # teaching list before opening the menu at its final position.
+             await bubble.scroll_into_view_if_needed();await page.wait_for_timeout(200)
+             await bubble.click(button='right');await click(page.get_by_role('menuitem',name={'已读':'确认已读','星标':'星标消息','回复':'回复'}[value],exact=True))
              await expect(page.get_by_role('menu')).to_have_count(0)
              if value in ('已读','星标'):
               await bubble.locator('..').get_by_text('✓ 已确认阅读' if value=='已读' else '★ 已星标',exact=True).wait_for()

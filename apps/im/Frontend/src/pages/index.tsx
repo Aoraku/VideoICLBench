@@ -622,6 +622,13 @@ export default function Home() {
   const [activeConv, setActiveConv] = useState<any>(undefined);
   const [messages, setMessages] = useState<any[]>([]);
   const [inputText, setInputText] = useState('');
+  const [workspaceInstructions, setWorkspaceInstructions] = useState<string | undefined>(undefined);
+  useEffect(() => {
+    if (!nativeIM) return;
+    fetch('/api/workspace').then(response => response.json()).then(data => {
+      if (data.code === 0) setWorkspaceInstructions(data.instructions || undefined);
+    }).catch(error => message.error(String(error)));
+  }, []);
   const [loadingMsg, setLoadingMsg] = useState(false);
   const [privateActionsOpen, setPrivateActionsOpen] = useState(false);
   const [privateActionLoading, setPrivateActionLoading] = useState<'clear' | 'friend' | undefined>(undefined);
@@ -1831,6 +1838,9 @@ export default function Home() {
       </div>
 
       <Content style={styles.chatPane}>
+          {workspaceInstructions && <section aria-label="工作范围" style={{padding:'14px 24px',background:'#f3f8ff',borderBottom:'1px solid #d6e6f7',color:'#395474',lineHeight:1.7}}>
+            <strong>项目通知回执</strong><div>{workspaceInstructions}</div>
+          </section>}
           {activeConv ? (
             <>
               <div style={styles.chatHeader}>

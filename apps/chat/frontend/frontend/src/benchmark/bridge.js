@@ -55,6 +55,25 @@ export async function command(op, target = "", value = "", ids = []) {
 export function currentBusiness() {
   return latest?.state;
 }
+export function currentScope() { return sessionStorage.getItem(tokenKey+':scope') || ''; }
+export function setCurrentScope(scope) {
+  sessionStorage.setItem(tokenKey+':scope',scope);
+  window.dispatchEvent(new CustomEvent('vic-chat-updated',{detail:{scopeChanged:true}}));
+  window.dispatchEvent(new CustomEvent('vic-chat-scope'));
+}
+function inScope(state,item) { return !state.v2_worksets || !currentScope() || item.scope_id===currentScope(); }
+export function adjacentConversation(objectId,delta) {
+  if(!objectId || !currentBusiness()?.domain?.objects[objectId])return undefined;
+  const state=currentBusiness(), order=state.domain.orders.main;
+  const ids=state.v2_worksets ? order.filter(id=>state.domain.objects[id].scope_id===state.domain.objects[objectId].scope_id) : order;
+  return ids[ids.indexOf(objectId)+delta];
+}
+export async function moveConversation(objectId,delta) {
+  const other=adjacentConversation(objectId,delta);if(!other)return;
+  const ids=[...currentBusiness().domain.orders.main],i=ids.indexOf(objectId),j=ids.indexOf(other);
+  [ids[i],ids[j]]=[ids[j],ids[i]];
+  return command('order','','',ids);
+}
 const pageOf = (rows) => ({
   results: rows,
   total: rows.length,
@@ -76,11 +95,11 @@ function user(state, id) {
     id,
     user_id: id,
     username: name,
-    benchmark_identity_name: id === 2 && state.task_id === 2 ? name : undefined,
+    benchmark_identity_name: state.task_id === 2 && (id === 2 || state.v2_worksets) ? name : undefined,
     remark:
       id === 2 && state.task_id === 2
         ? state.outputs.target || state.source.text
-        : "",
+        : state.v2_worksets && state.task_id===2 && item ? state.domain.objects[item.id].nickname || '' : "",
     avatar: null,
     status: "online",
     presence: "online",
@@ -97,6 +116,9 @@ function user(state, id) {
     benchmark_surname: item && [6, 9].includes(state.task_id) ? item.surname : undefined,
     benchmark_given_name: item && [6, 9].includes(state.task_id) ? item.name.split(" ").slice(0, -1).join(" ") : undefined,
     benchmark_contact_summary: state.task_id === 9,
+    benchmark_scope: item?.scope_name,
+    benchmark_scope_kind: state.scopes?.find(s=>s.id===item?.scope_id)?.kind,
+    benchmark_account: item?.record_code,
     group_name:
       state.task_id === 6 && item ? state.domain.objects[item.id].label : "",
   };
@@ -131,6 +153,11 @@ function message(
 }
 function messages(state, conv) {
   conv = Number(conv);
+  if(state.v2_worksets && state.task_id===2){
+    const identity=(item)=>`我是 ${item.name}，我的成员账号是 ${item.record_code}。请使用我的姓名整理通讯录备注。`;
+    if(conv===5)return state.items.flatMap((item,i)=>item.scope_id==='scope-1'?[message(state,500+i,identity(item),10+i,5)]:[]);
+    const item=state.items[conv-10];return item?[message(state,100+conv,identity(item),conv,conv)]:[];
+  }
   if (state.task_id === 13) {
     if (conv === 3) return state.items.map((item, i) =>
       message(state, 100 + i, item.text, 3, 3, state.domain.objects[item.id]))
@@ -175,6 +202,10 @@ function messages(state, conv) {
     ];
   }
   const item = state.items[conv - 10];
+  if(item && state.v2_worksets && state.task_id===9) return [
+    message(state,100+conv,item.text,conv,conv,state.domain.objects[item.id]),
+    ...state.domain.messages.filter(m=>m.sender==='self' && m.recipient===item.id).map((m,i)=>message(state,1000+i,m.body,1,conv))
+  ];
   return item
     ? [
         message(
@@ -188,7 +219,7 @@ function messages(state, conv) {
       ]
     : [];
 }
-function conversations(state) {
+function conversations(state, scoped=true) {
   if (state.task_id === 13) return [3, 2].map(id => ({
     conversation_id: id, type: "private", peer_user: user(state, id),
     unread_count: id === 3 && !readConversations.has(3) ? state.items.length : 0,
@@ -219,9 +250,14 @@ function conversations(state) {
       benchmark_label: object.label || (object.archived ? "已归档" : ""),
       benchmark_timestamp: item.timestamp,
       benchmark_age_days: item.age_days,
+      benchmark_scope: item.scope_name,
+      benchmark_scope_id: item.scope_id,
+      benchmark_record: item.record_code,
+      benchmark_snapshot_unread: state.v2_worksets ? item.unread : undefined,
+      benchmark_archived: object.archived,
     };
   });
-  if ([1, 2, 3, 4, 5, 11, 13].includes(state.task_id))
+  if ([1, 2, 3, 4, 5, 11, 13].includes(state.task_id) && !(state.v2_worksets && state.task_id===2))
     rows.unshift({
       conversation_id: 2,
       type: "private",
@@ -230,7 +266,9 @@ function conversations(state) {
       last_message: messages(state, 2).at(-1),
       updated_at: state.source.reference_time,
     });
-  return rows;
+  if(state.v2_worksets && state.task_id===2)rows.unshift({conversation_id:5,type:'group',name:state.scopes[0].name,
+    member_count:6,unread_count:5,last_message:messages(state,5).at(-1),updated_at:state.source.reference_time,benchmark_scope_id:'scope-1'});
+  return scoped && state.v2_worksets ? rows.filter(c=>!currentScope() || c.benchmark_scope_id===currentScope()) : rows;
 }
 export async function nativeRequest(path, options = {}) {
   const method = options.method || "GET",
@@ -244,10 +282,10 @@ export async function nativeRequest(path, options = {}) {
     if (p === "/friends" && state.task_id === 13) return pageOf([user(state, 2), user(state, 3)]);
     if (p === "/friends")
       return pageOf([
-        ...([1, 2, 3, 4, 5, 11, 13].includes(state.task_id)
+        ...([1, 2, 3, 4, 5, 11, 13].includes(state.task_id) && !(state.v2_worksets && state.task_id===2)
           ? [user(state, 2)]
           : []),
-        ...(state.task_id === 11 ? [] : state.items).map((_, i) => user(state, 10 + i)),
+        ...(state.task_id === 11 ? [] : state.items).flatMap((item,i)=>inScope(state,item)?[user(state,10+i)]:[]),
       ]);
     if (p === "/friends/groups")
       return {
@@ -257,7 +295,7 @@ export async function nativeRequest(path, options = {}) {
                 group_id: i + 1,
                 name,
                 friend_count: state.items.filter(
-                  (item) => state.domain.objects[item.id].label === name,
+                  (item) => inScope(state,item) && state.domain.objects[item.id].label === name,
                 ).length,
               }))
             : [],
@@ -297,9 +335,24 @@ export async function nativeRequest(path, options = {}) {
             m.content.text.includes(url.searchParams.get("keyword")),
         ),
       );
+    const groupInfo=p.match(/^\/conversations\/(\d+)\/group(?:\/(members|announcements))?$/);
+    if(groupInfo && state.v2_worksets && state.task_id===2 && Number(groupInfo[1])===5){
+      const members=[{...user(state,1),role:'owner'},...state.items.flatMap((item,i)=>item.scope_id==='scope-1'?[{...user(state,10+i),role:'member'}]:[])];
+      if(groupInfo[2]==='members')return pageOf(members);
+      if(groupInfo[2]==='announcements')return pageOf([]);
+      return {conversation_id:5,name:state.scopes[0].name,owner:members[0],member_count:members.length,
+        created_at:state.source.reference_time,my_group_nickname:'周予安',latest_announcement:null};
+    }
+    if(groupInfo && state.v2_worksets && state.task_id===8) {
+      const item=state.items[Number(groupInfo[1])-10];if(!item)throw new Error('群聊不存在');
+      if(groupInfo[2]==='members')return pageOf(item.group_members);
+      if(groupInfo[2]==='announcements')return pageOf([]);
+      return {conversation_id:Number(groupInfo[1]),name:item.name,owner:item.group_members[0],member_count:item.group_members.length,
+        created_at:item.created_at,my_group_nickname:'周予安',latest_announcement:null};
+    }
     const conv = p.match(/^\/conversations\/(\d+)$/);
     if (conv)
-      return conversations(state).find(
+      return conversations(state,false).find(
         (c) => c.conversation_id === Number(conv[1]),
       );
     if (p === "/sync/messages")
@@ -336,6 +389,12 @@ export async function nativeRequest(path, options = {}) {
     if (p.includes("privacy")) return { allow_friend_request: true };
   }
   const sending = p.match(/^\/conversations\/(\d+)\/messages$/);
+  if(method==='POST' && sending && state.v2_worksets && state.task_id===9) {
+    const item=state.items[Number(sending[1])-10];if(!item)throw new Error('收件人不存在');
+    if(body.type!=='text' || typeof body.content?.text!=='string')throw new Error('请发送文本通知');
+    const next=await command('message.send',item.id,body.content.text);
+    return {...messages(next,Number(sending[1])).at(-1),client_msg_id:body.client_msg_id};
+  }
   if (method === "POST" && sending && [1, 3, 4].includes(state.task_id)) {
     if (Number(sending[1]) !== 2)
       throw new Error(
@@ -347,7 +406,7 @@ export async function nativeRequest(path, options = {}) {
     return { ...messages(next, 2).at(-1), client_msg_id: body.client_msg_id };
   }
   if (method === "POST" && p === "/conversations") {
-    if (state.task_id === 9) {
+    if (state.task_id === 9 && !state.v2_worksets) {
       const item = state.items[Number(body.peer_user_id) - 10];
       if (!item) throw new Error("收件人不存在");
       await command("select", "", "", [item.id]);
@@ -378,6 +437,10 @@ export async function nativeRequest(path, options = {}) {
     return { success: true };
   }
   const remark = p.match(/^\/friends\/(\d+)\/remark$/);
+  if(method==='PUT' && remark && state.v2_worksets && state.task_id===2){
+    const item=state.items[Number(remark[1])-10];if(!item)throw new Error('联系人不存在');
+    await command('contact.nickname',item.id,body.remark);return {remark:body.remark};
+  }
   if (
     method === "PUT" &&
     remark &&
@@ -399,6 +462,11 @@ export async function nativeRequest(path, options = {}) {
   if (method === "PUT" && settings && state.task_id === 14) {
     const item = state.items[Number(settings[1]) - 10];
     if (!item) throw new Error("会话不存在");
+    if(state.v2_worksets){
+      const changes={};if('is_pinned' in body)changes.pinned=body.is_pinned;if('is_muted' in body)changes.muted=body.is_muted;
+      const next=await command('conversation.settings',item.id,JSON.stringify(changes));
+      const saved=next.domain.objects[item.id];return {is_pinned:saved.pinned,is_muted:saved.muted};
+    }
     if (body.is_pinned) await command("action", item.id, "置顶");
     else if (body.is_muted) await command("action", item.id, "静音");
     else throw new Error("此会话操作不适用于当前练习");

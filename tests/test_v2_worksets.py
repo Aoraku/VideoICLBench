@@ -117,3 +117,76 @@ def test_historical_submission_sources_support_the_shown_verdicts():
                 assert result.returncode==0
                 assert result.stdout.strip()==case['actual'].strip()
                 assert (result.stdout.strip()==case['expected'].strip())==(item['verdict']=='AC')
+
+
+def test_chat_notifications_require_correct_recipient_body_and_no_duplicates():
+    initial=v2.generate(9,10001,'eval');state=initial
+    for op,target,value,ids in v2_worksets.reference_commands(initial,'A'):
+        state=worksets.apply(state,op,target,value,ids)
+    assert len(state['domain']['messages'])==3
+    for field in ('recipient','body','reference','duplicate'):
+        wrong=deepcopy(state);messages=wrong['domain']['messages']
+        if field=='duplicate':messages.append(deepcopy(messages[0]))
+        else:messages[0][field]=messages[1][field]
+        assert not v2.evaluate(initial,wrong,'A',[{'op':'message.send'}])['success']
+
+
+def test_project_receipts_keep_notification_identity_and_reject_duplicates():
+    initial=v2.generate(16,10001,'eval');state=initial
+    assert len([s for s in initial['scopes'] if s['requested']])==4
+    assert len({item['notification_number'] for item in initial['items']})==len(initial['items'])
+    for op,target,value,ids in v2_worksets.reference_commands(initial,'C'):
+        state=worksets.apply(state,op,target,value,ids)
+    assert v2.evaluate(initial,state,'C',[{'op':'action'}])['success']
+    for reply in state['domain']['messages']:
+        if reply['sender']!='self':continue
+        item=state['domain']['objects'][reply['reference']]
+        assert reply['recipient']==item['scope_id']
+        assert item['notification_batch']=='N2026-0115'
+        assert reply['body']==state['source']['fixed_reply']
+    reply=next(m for m in state['domain']['messages'] if m['sender']=='self')
+    wrong=deepcopy(state);wrong['domain']['messages'].append(deepcopy(reply))
+    assert not v2.evaluate(initial,wrong,'C',[{'op':'action'}])['success']
+    wrong=deepcopy(state)
+    next(m for m in wrong['domain']['messages'] if m['sender']=='self')['recipient']='scope-5'
+    assert not v2.evaluate(initial,wrong,'C',[{'op':'action'}])['success']
+    old=next(item for item in state['items'] if item['notification_batch']=='N2025-1220' and '收到' in item['text'])
+    wrong=worksets.apply(state,'action',old['id'],'回复')
+    assert not v2.evaluate(initial,wrong,'C',[{'op':'action'}])['success']
+
+
+def test_chat_groups_members_and_workspace_order_are_real_scoped_records():
+    groups=v2.generate(8,10001,'eval')
+    assert all(len(x['group_members'])==x['members'] for x in groups['items'])
+    assert all(len({u['user_id'] for u in x['group_members']})==x['members'] for x in groups['items'])
+    contacts=v2.generate(6,10001,'eval')
+    assert len(worksets.members(contacts,contacts['scopes'][0]))==8
+    assert all(x['surname']==x['name'].split()[-1] for x in contacts['items'])
+    initial=v2.generate(12,10001,'eval');state=initial
+    for op,target,value,ids in v2_worksets.reference_commands(initial,'A'):state=worksets.apply(state,op,target,value,ids)
+    assert v2.evaluate(initial,state,'A',[{'op':'order'}])['success']
+    wrong=deepcopy(state);order=wrong['domain']['orders']['main'];order[0],order[6]=order[6],order[0]
+    assert not v2.evaluate(initial,wrong,'A',[{'op':'order'}])['success']
+
+
+def test_conversation_state_toggles_are_reversible_and_restricted():
+    state=v2.generate(14,10001,'eval');target=state['items'][0]['id']
+    enabled=worksets.apply(state,'conversation.settings',target,'{"pinned":true,"muted":true,"archived":true}')
+    assert all(enabled['domain']['objects'][target][key] for key in ('pinned','muted','archived'))
+    restored=worksets.apply(enabled,'conversation.settings',target,'{"pinned":false,"muted":false,"archived":false}')
+    assert restored==state
+    for bad in ('{"name":"different"}','{"pinned":"false"}','[]','{}'):
+        with pytest.raises(ValueError):worksets.apply(state,'conversation.settings',target,bad)
+
+
+@pytest.mark.parametrize('variant',list('ABC'))
+def test_each_project_member_gets_their_own_formatted_name(variant):
+    initial=v2.generate(2,10001,'eval');state=initial
+    requested=worksets.members(initial,initial['scopes'][0]);assert len(requested)==5
+    for op,target,value,ids in v2_worksets.reference_commands(initial,variant):state=worksets.apply(state,op,target,value,ids)
+    for item in requested:
+        name=item['name'];wanted={'A':name.replace(' ',''),'B':name.replace(' ','_'),'C':name.lower()}[variant]
+        assert state['domain']['objects'][item['id']]['nickname']==wanted
+    first,second=requested[:2]
+    state['domain']['objects'][first['id']]['nickname']=state['domain']['objects'][second['id']]['nickname']
+    assert not v2.evaluate(initial,state,variant,[{'op':'contact.nickname'}])['success']

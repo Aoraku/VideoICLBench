@@ -4,11 +4,20 @@ Scopes identify a department, date, project, or account. They never contain a
 learned rule, expected selection, or grading result.
 """
 from copy import deepcopy
+import json
 from vic import business
 from . import domain
 
 
 CONFIG = {
+    2: ('项目', ['春季发布组'], None, None),
+    6: ('部门', ['研发部'], None, None),
+    7: ('部门', ['研发部', '设计部', '运营部'], None, None),
+    8: ('项目', ['星桥计划'], None, None),
+    9: ('部门', ['研发部', '设计部', '运营部'], None, None),
+    12: ('工作区', ['产品协作', '客户交付'], None, None),
+    14: ('项目', ['星桥交接'], None, None),
+    16: ('项目', ['产品验收', '官网发布', '客户培训', '运营交接'], ('notification_batch', '通知批次', 'N2026-0115', 'N2025-1220'), None),
     22: ('专辑', ['山间来信', '夜行电台'], ('edition','版本','录音室版','现场版'), None),
     23: ('专题', ['城市公共空间'], ('period','发布月份','2026-01','2025-12'), None),
     26: ('栏目', ['纪录影像', '城市观察'], None, '栏目推荐位'),
@@ -37,7 +46,26 @@ def members(state, scope):
 
 def apply(state, op, target='', value='', ids=None):
     out = deepcopy(state); t = out['task_id']; d = out['domain']; ids = ids or []
-    if op.startswith('course.') and t == 63:
+    if op == 'contact.nickname' and t == 2:
+        if target not in {x['id'] for x in out['items']} or not isinstance(value,str) or len(value)>64:
+            raise ValueError('请选择有效联系人，备注昵称最多 64 个字符')
+        d['objects'][target]['nickname']=value
+    elif op == 'conversation.settings' and t == 14:
+        if target not in {x['id'] for x in out['items']}:raise ValueError('会话不存在')
+        changes=json.loads(value)
+        if not isinstance(changes,dict) or not changes or not set(changes)<={'pinned','muted','archived'} or not all(type(v) is bool for v in changes.values()):
+            raise ValueError('会话设置需要有效的开关状态')
+        d['objects'][target].update(changes)
+    elif op == 'order' and t == 12:
+        if len(ids)!=len(out['items']) or set(ids)!={x['id'] for x in out['items']}:
+            raise ValueError('列表顺序须包含全部会话且不重复')
+        d['orders']['main']=list(ids);out['order']=list(ids)
+    elif op == 'message.send' and t == 9:
+        if target not in {x['id'] for x in out['items']} or not isinstance(value,str) or not value.strip():
+            raise ValueError('请选择收件人并填写通知正文')
+        d['messages'].append(dict(id=f'sent-{len(d["messages"])+1}',sender='self',recipient=target,
+            body=value,reference=d['objects'][target]['scope_id'],attachment=None))
+    elif op.startswith('course.') and t == 63:
         order = d['orders']['course']
         if op == 'course.add':
             if target not in d['objects']:
@@ -80,6 +108,8 @@ def apply(state, op, target='', value='', ids=None):
     elif op in ('label', 'action'):
         out = business.apply_mutation(out, op, target, value, ids)
         out = domain.apply(out, op, target, value, ids)
+        if t == 16 and op == 'action' and value == '回复':
+            out['domain']['messages'][-1]['recipient'] = out['domain']['objects'][target]['scope_id']
     else:
         raise ValueError('请通过分类、业务操作或保存集合完成此任务')
     return out
