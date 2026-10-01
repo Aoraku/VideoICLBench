@@ -1,0 +1,20 @@
+[Unit]
+Description=VideoICL simulation and Hosted VLM dashboard
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/qingle/services/videoicl-simulator
+Environment=MUJOCO_GL=osmesa
+Environment=PYOPENGL_PLATFORM=osmesa
+Environment=LP_NUM_THREADS=4
+Environment=OPENBLAS_NUM_THREADS=1
+EnvironmentFile=-/home/qingle/services/videoicl-simulator/.env
+ExecStart=/home/qingle/services/videoicl-simulator/.venv/bin/python run_hosted.py --variant C --seed 31 --environment-port 18641 --port 18642
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+KillMode=control-group
+
+[Install]
+WantedBy=default.target

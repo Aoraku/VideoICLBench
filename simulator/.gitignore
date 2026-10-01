@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+simulation_b01/scene.xml
+simulation_b01/*.mp4
+simulation_b01/*.png
+simulation_b01/events.json
+simulation_b01/result.json
+embodied_icl/private_runs/
+*.log
+hosted/runs/
+.env
+.env.*
+recordings/
