@@ -3,11 +3,11 @@
   "design_file": "VideoICL_75_web_tasks.md",
   "catalog_file": "tasks/v2/catalog.json",
   "deployment": {
-    "v2_deployed": false,
+    "v2_deployed": true,
     "server": "agentlab",
-    "observed_source": "ef85710ade1ca8b7c1900df7759644f3fc2aefa8",
+    "observed_source": "217d98710beed2dc132816a1d8ff060c6f14c186",
     "services": "healthy",
-    "observed_at": "2026-10-01T19:32:31.911260+00:00"
+    "observed_at": "2026-10-01T20:35:34.192509+00:00"
   },
   "evidence": {
     "procurement_ui": "docs/reviews/v2-procurement-ui.json",
@@ -31,7 +31,11 @@
     "procurement_links_regression": "Nine targeted procurement API tests and all three native Shop/IM conditions passed after integration; both frontends built successfully.",
     "shop_projects_ui": "docs/reviews/v2-shop-projects-ui.json",
     "payment_projects_ui": "docs/reviews/v2-payment-projects-ui.json",
-    "code_projects_ui": "docs/reviews/v2-code-projects-ui.json"
+    "code_projects_ui": "docs/reviews/v2-code-projects-ui.json",
+    "agentlab_release": "docs/reviews/v2-agentlab-release.json",
+    "server_inference_conditions": 225,
+    "server_demo_conditions": 225,
+    "server_demo_episodes": 990
   },
   "tasks": [
     {
@@ -54,7 +58,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -89,7 +93,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -120,7 +124,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -151,7 +155,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -182,7 +186,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -217,7 +221,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -252,7 +256,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -283,7 +287,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -318,7 +322,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -349,7 +353,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -384,7 +388,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -415,7 +419,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -446,7 +450,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -481,7 +485,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -516,7 +520,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -547,7 +551,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -582,7 +586,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -613,7 +617,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -644,7 +648,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -675,7 +679,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -706,7 +710,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -737,7 +741,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -772,7 +776,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -807,7 +811,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -842,7 +846,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -877,7 +881,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -908,7 +912,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -939,7 +943,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -970,7 +974,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1001,7 +1005,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1032,7 +1036,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1063,7 +1067,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1094,7 +1098,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1129,7 +1133,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1164,7 +1168,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1195,7 +1199,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1226,7 +1230,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1257,7 +1261,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1292,7 +1296,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1327,7 +1331,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1358,7 +1362,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1389,7 +1393,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1420,7 +1424,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1451,7 +1455,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1482,7 +1486,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1513,7 +1517,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1544,7 +1548,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1575,7 +1579,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1610,7 +1614,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1645,7 +1649,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1676,7 +1680,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1707,7 +1711,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1738,7 +1742,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1769,7 +1773,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1800,7 +1804,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1831,7 +1835,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1862,7 +1866,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1897,7 +1901,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1928,7 +1932,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1959,7 +1963,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -1990,7 +1994,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -2021,7 +2025,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -2052,7 +2056,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -2083,7 +2087,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -2114,7 +2118,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -2145,7 +2149,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -2176,7 +2180,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -2207,7 +2211,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -2242,7 +2246,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -2273,7 +2277,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -2304,7 +2308,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -2335,7 +2339,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -2366,7 +2370,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -2397,7 +2401,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -2428,7 +2432,7 @@
         "B",
         "C"
       ],
-      "deployed": false,
+      "deployed": true,
       "demo_ui_seeds": [
         0
       ],
@@ -2441,8 +2445,7 @@
     }
   ],
   "next_work": [
-    "Deploy all 75 v2 tasks to agentlab and verify the v2 list tab, native application entry, task delivery, real files and reset on the server.",
-    "Confirm GitHub checks pass for the published release."
+    "Confirm GitHub checks pass after fixing the Streamlit success-banner selector in the native QA harness."
   ],
-  "verified_at": "2026-10-01T20:12:58.371019+00:00"
+  "verified_at": "2026-10-01T20:35:34.192509+00:00"
 }

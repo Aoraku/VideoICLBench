@@ -52,6 +52,15 @@ async def main():
           r=await client.get(f'/internal/runs/{rid}');r.raise_for_status();return r.json()
          async def label(row,value):
           await click(row.locator('.label-menu>button'));await click(page.get_by_role('option',name=value,exact=False))
+         async def saved_code_label(target,value):
+          # Streamlit can retain the prior success banner during a rerun.
+          # Verify this object's persisted label before accepting the banner.
+          for _ in range(100):
+           if (await persisted())['state']['labels'].get(target)==value:break
+           await asyncio.sleep(.1)
+          else:raise AssertionError('Code label was not persisted for '+target)
+          await expect(page.locator('[data-testid="stApp"]')).to_have_attribute('data-test-script-state','notRunning',timeout=30000)
+          await page.get_by_text('标签已保存',exact=True).first.wait_for()
          t=task;s=initial;effect=expected_effect(t,variant,s) if t<66 else None
          try:
           if suite=='v2':
@@ -251,7 +260,7 @@ async def main():
             if t==62:
              for target,value in effect['labels'].items():
               if value:
-               idx=next(i for i,x in enumerate(s['items']) if x['id']==target);await click(page.get_by_role('radiogroup',name='难度标签',exact=True).nth(idx).get_by_text(value,exact=True));await click(page.get_by_role('button',name='保存标签',exact=True).nth(idx));await page.get_by_text('标签已保存',exact=True).wait_for()
+               idx=next(i for i,x in enumerate(s['items']) if x['id']==target);await click(page.get_by_role('radiogroup',name='难度标签',exact=True).nth(idx).get_by_text(value,exact=True));await click(page.get_by_role('button',name='保存标签',exact=True).nth(idx));await saved_code_label(target,value)
             else:
              idx=next(i for i,x in enumerate(s['items']) if x['id']==effect['selection'][0]);await click(page.get_by_role('button',name='选择这道题').nth(idx))
            else:
@@ -259,7 +268,7 @@ async def main():
             if t==61:
              for target,value in effect['labels'].items():
               if value:
-               idx=next(i for i,x in enumerate(s['items']) if x['id']==target);await click(page.get_by_role('radiogroup',name='结果标签',exact=True).nth(idx).get_by_text(value,exact=True));await click(page.get_by_role('button',name='保存结果标签').nth(idx));await page.get_by_text('标签已保存',exact=True).wait_for()
+               idx=next(i for i,x in enumerate(s['items']) if x['id']==target);await click(page.get_by_role('radiogroup',name='结果标签',exact=True).nth(idx).get_by_text(value,exact=True));await click(page.get_by_role('button',name='保存结果标签').nth(idx));await saved_code_label(target,value)
             else:
              idx=next(i for i,x in enumerate(s['items']) if x['id']==effect['selection'][0]);await click(page.get_by_role('button',name='查看代码').nth(idx))
           elif module=='gomoku':
