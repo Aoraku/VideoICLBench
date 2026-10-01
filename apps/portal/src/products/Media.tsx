@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {useWorksets,WorksetBar,WorksetIdentity,CollectToWorkset,SavedWorksets} from './Worksets';
 import {
   Frame,
   PageHead,
@@ -14,11 +15,12 @@ export function Media({ api }: { api: ProductAPI }) {
     [selected, setSelected] = useState(""),
     [text, setText] = useState(s.outputs.target ?? s.source.text),
     [query, setQuery] = useState("");
-  const rows = s.items.map((x: any) => d.objects[x.id]).filter((x: any) => !x.hidden),
+  const view=useWorksets(api);
+  const rows = s.items.map((x: any) => d.objects[x.id]).filter((x: any) => !x.hidden).filter(view.visible),
     active = d.objects[selected];
   const index = (id: string) => s.items.find((x: any) => x.id === id)?.asset_index ?? 0;
   async function play(id: string) {
-    if (s.task_id === 31 && !(await api.mutate("select", "", "", [id]))) return;
+    if (s.task_id === 31 && !s.v2_worksets && !(await api.mutate("select", "", "", [id]))) return;
     setSelected(id);
     setPage("player");
   }
@@ -84,6 +86,8 @@ export function Media({ api }: { api: ProductAPI }) {
     >
       <main className="product-main">
         <Notice api={api} />
+        {page!=="player"&&<WorksetBar api={api} view={view}/>}
+        {page==='favorites'&&s.task_id===31&&<SavedWorksets api={api}/>}
         {page === "home" ? (
           <>
             <section className="media-hero">
@@ -123,6 +127,7 @@ export function Media({ api }: { api: ProductAPI }) {
             <div className="media-player-info">
               <div>
                 <h1>{active.name}</h1>
+                <WorksetIdentity item={active}/>
                 <p>{active.text}</p>
                 <p>
                   {minutes(active.duration)} · 评分 {active.rating}/100 · 点赞率{" "}
@@ -132,6 +137,7 @@ export function Media({ api }: { api: ProductAPI }) {
               </div>
               <div>{operations(active)}</div>
             </div>
+            {s.task_id===31&&<CollectToWorkset key={active.id} api={api} item={active} label="加入课程收藏夹"/>}
             <footer className="media-credit">
               Big Buck Bunny © 2008 Blender Foundation · CC BY 3.0 ·
               片段与循环剪辑{" "}
@@ -230,7 +236,7 @@ export function Media({ api }: { api: ProductAPI }) {
             ) : (
               <div className="media-grid">
                 {list
-                  .filter((x: any) => x.name.includes(query))
+                  .filter((x: any) => (x.name+' '+(x.scope_name||'')).includes(query))
                   .map((item: any) => (
                     <article key={item.id} data-object-id={item.id}>
                       <button
@@ -254,12 +260,14 @@ export function Media({ api }: { api: ProductAPI }) {
                         <p>
                           评分 {item.rating}/100 · {item.comments} 条评论
                         </p>
+                        <WorksetIdentity item={item}/>
                         <p>
                           点赞率 {item.like_rate}% · 发布时间 {item.created_at.replace("T", " ").slice(0, 16)} UTC
                         </p>
                         <p className="product-muted">
                           {item.completed ? "✓ 已看完" : "未看完"} ·{" "}
                           {item.category} 类
+                          {s.v2_worksets&&s.task_id===34&&` · ${item.progress_seconds} / ${item.duration} 秒`}
                         </p>
                         {s.task_id === 31 && d.settings.playing_video?.includes(item.id) && (
                           <p className="product-ok">✓ 已选择播放</p>

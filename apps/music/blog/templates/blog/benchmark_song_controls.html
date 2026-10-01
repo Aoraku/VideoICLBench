@@ -1,5 +1,6 @@
 <div class="music-controls" data-song="{{ song.id }}">
   <p class="music-stats">{{ song.duration }} 秒 · 播放 {{ song.plays }} 次 · 评分 {{ song.rating }} · {{ song.year }}</p>
+  {% if benchmark_state.v2_worksets %}<p>{{ song.scope_name }} · {{ song.edition }} · 歌曲编号 {{ song.record_code }}</p><a class="btn btn-outline-light" href="{% url 'music_library' %}?scope={{ song.scope_id }}&edition={{ song.edition|urlencode }}">返回所属专辑</a>{% endif %}
   {% if benchmark_state.task_id == 17 %}<button class="btn btn-outline-light" id="editName">编辑显示名称</button><form id="nameForm" hidden><label class="form-label">显示名称<input name="name" class="form-control" value="{{ song.name }}"></label><button class="btn btn-light">保存名称</button></form>{% endif %}
   {% if benchmark_state.task_id == 27 %}<button class="btn btn-light music-play" data-play="{{ song.id }}">▶ 选择这首歌</button>{% endif %}
   {% if benchmark_state.task_id == 27 and benchmark_state.v2_atomic %}<button class="btn btn-outline-light" data-favorite="{{ song.id }}">加入活动备选歌曲</button><a href="{% url 'music_library' %}?collection=favorites" class="btn btn-outline-light">查看活动备选歌曲</a>{% endif %}

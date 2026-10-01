@@ -221,6 +221,8 @@ def render_problem_detail_page():
         tags = problem_data.get('tags', [])
         tags_str = ", ".join(tags) if isinstance(tags, list) else ""
         meta_cols[2].markdown(f"**标签:** {tags_str or '无'}")
+        if benchmark.ACTIVE:
+            benchmark.extra_problem(problem_data)
         
         st.markdown("### 题目描述")
         st.markdown(problem_data.get("description", "无"))
@@ -392,7 +394,7 @@ def render_view_submissions_page():
     
     my_submissions_tab, filter_tab, id_query_tab = st.tabs(tab_options)
 
-    def render_submission_list(submissions):
+    def render_submission_list(submissions, prefix=''):
         if not submissions:
             st.info("没有符合条件的提交记录。")
             return
@@ -405,13 +407,13 @@ def render_view_submissions_page():
                 c1.markdown(f"**提交 ID:** `{sub.get('submission_id', 'N/A')}`")
                 c2.markdown(f"**题目 ID:** `{sub.get('problem_id', 'N/A')}`")
                 status = sub.get('status', 'N/A')
-                color = "green" if status == "success" else "orange" if status == "pending" else "red"
+                color = "green" if status in ("success", "AC") else "orange" if status == "pending" else "red"
                 c3.markdown(f"**状态:** <span style='color:{color};'>{status}</span>", unsafe_allow_html=True)
                 score = sub.get('score', 0)
                 counts = sub.get('counts', 10)
                 c4.metric("分数", f"{score}/{counts}")
                 if benchmark.ACTIVE:
-                    benchmark.extra_submission(sub)
+                    benchmark.extra_submission(sub,prefix)
 
     with my_submissions_tab:
         st.subheader("我的提交")
@@ -463,7 +465,7 @@ def render_view_submissions_page():
         if "filtered_submissions_data" in st.session_state: # 只有查询后才显示
             filtered_data = st.session_state.get("filtered_submissions_data", {})
             st.write(f"共找到 {filtered_data.get('total', 0)} 条记录")
-            render_submission_list(filtered_data.get("submissions", []))
+            render_submission_list(filtered_data.get("submissions", []),'filtered_')
     
     with id_query_tab:
         st.subheader("按ID查询提交")
@@ -478,7 +480,7 @@ def render_view_submissions_page():
                     # 显示题目ID和状态
                     st.markdown(f"**题目 ID:** `{data.get('problem_id', 'N/A')}`")
                     status = data.get('status', 'N/A')
-                    color = "green" if status == "success" else "orange" if status == "pending" else "red"
+                    color = "green" if status in ("success", "AC") else "orange" if status == "pending" else "red"
                     st.markdown(f"**状态:** <span style='color:{color}; font-weight:bold;'>{status}</span>", unsafe_allow_html=True)
 
                     st.metric(label="分数", value=f"{data.get('score', 'N/A')} / {data.get('counts', 'N/A')}")
@@ -726,6 +728,11 @@ def render_sidebar():
             if st.button("添加题目", use_container_width=True): navigate_to("add_problem")
             if st.button("查看提交", use_container_width=True): navigate_to("view_submissions")
             if benchmark.ACTIVE and st.button("我的代码与笔记", use_container_width=True): navigate_to("files")
+            if benchmark.ACTIVE:
+                current=benchmark.business()['state']
+                if current.get('v2_worksets') and current['task_id']==63:
+                    if st.button('课程练习列表',use_container_width=True):navigate_to('course')
+                benchmark.render_scope()
             if st.button("查看日志", use_container_width=True): navigate_to("submission_log")
             if st.button("支持的语言", use_container_width=True): navigate_to("languages")
             
@@ -753,6 +760,7 @@ def main():
     if not st.session_state.logged_in:
         render_login_page()
     elif page == "files" and benchmark.ACTIVE: benchmark.render_files()
+    elif page == "course" and benchmark.ACTIVE: benchmark.render_course()
     elif page == "problems": render_problems_page()
     elif page == "problem_detail": render_problem_detail_page()
     elif page == "add_problem": render_add_problem_page()

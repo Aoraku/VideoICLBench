@@ -157,7 +157,10 @@ class ApplicationStore(WorkspaceStore):
             state = self._read(db)
             from . import atomic_delivery
             is_delivery = mutation.op in atomic_delivery.COMMANDS
-            if state.get('v2_reversi'):
+            if state.get('v2_worksets'):
+                from .worksets import apply
+                state = apply(state, mutation.op, mutation.target, mutation.value, mutation.ids)
+            elif state.get('v2_reversi'):
                 from .reversi_training import apply
                 state = apply(state, mutation.op, mutation.target, mutation.value)
             elif state.get('workflow') == 'procurement':
@@ -169,7 +172,7 @@ class ApplicationStore(WorkspaceStore):
                 state = apply_mutation(
                     state, mutation.op, mutation.target, mutation.value, mutation.ids
                 )
-            if state["task_id"] < 66 and not state.get('workflow') and not is_delivery:
+            if state["task_id"] < 66 and not state.get('workflow') and not state.get('v2_worksets') and not is_delivery:
                 state = domain.apply(
                     state, mutation.op, mutation.target, mutation.value, mutation.ids
                 )

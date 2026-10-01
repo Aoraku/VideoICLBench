@@ -64,6 +64,9 @@ def render_music(run_id, state, route, query_string=""):
     context = dict(benchmark=True, benchmark_run=run_id, benchmark_state=state,
                    songs=songs, artists=artists, comments=[], lyrics=[],
                    request=Record(path=route, GET=query, resolver_match=Record(url_name="song_list")))
+    if state.get('v2_worksets'):
+        context.update(scope_id=query.get('scope',''),edition=query.get('edition',''),
+                       scope_options=state['scopes'],requested_scopes=[s for s in state['scopes'] if s['requested']])
     template = "blog/song_list.html"
     rows = songs
     if route.startswith("songs/"):
@@ -95,6 +98,8 @@ def render_music(run_id, state, route, query_string=""):
             songs = [s for s in songs if s.id in state["domain"]["collections"]["list-a"]]
         if context['favorites_page']:
             songs = [s for s in songs if s.id in state['domain']['collections']['favorites']]
+        if state.get('v2_worksets'):
+            songs=[s for s in songs if (not context['scope_id'] or s.scope_id==context['scope_id']) and (not context['edition'] or s.edition==context['edition'])]
         context["songs"] = sorted(songs, key=lambda s: ordered.index(s.id) if s.id in ordered else -1)
     elif route:
         raise ValueError("Page not found")

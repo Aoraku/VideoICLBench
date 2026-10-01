@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {useWorksets,WorksetBar,WorksetIdentity} from './Worksets';
 import { Frame, PageHead, Notice, Classify, type ProductAPI } from "./kit";
 const time = (departure: number, duration = 0) => {
   const total = 360 + departure * 10 + duration;
@@ -12,7 +13,8 @@ export function Travel({ api }: { api: ProductAPI }) {
     [text, setText] = useState(s.outputs.target ?? ""),
     [selected, setSelected] = useState(""),
     [query, setQuery] = useState("");
-  const rows = s.items.map((x: any) => d.objects[x.id]),
+  const view=useWorksets(api);
+  const rows = s.items.map((x: any) => d.objects[x.id]).filter(view.visible),
     active = d.objects[selected];
   const booked = (id: string) => d.artifacts.some((a: any) => a.kind === "booking" && a.target === id);
   function open(id: string) {
@@ -34,6 +36,7 @@ export function Travel({ api }: { api: ProductAPI }) {
     >
       <main className="product-main">
         <Notice api={api} />
+        <WorksetBar api={api} view={view}/>
         {page === "home" ? (
           <>
             <section className="travel-hero">
@@ -49,7 +52,7 @@ export function Travel({ api }: { api: ProductAPI }) {
                   到达城市<b>上海</b>
                 </label>
                 <label>
-                  出发日期<b>2026-01-15 · 周四</b>
+                  出发日期<b>{view.scope?.name || (s.v2_worksets?'请选择出发日期':'2026-01-15 · 周四')}</b>
                 </label>
                 <button
                   className="product-primary"
@@ -144,7 +147,7 @@ export function Travel({ api }: { api: ProductAPI }) {
             <PageHead
               eyebrow="ITINERARY"
               title={active.name}
-              description="2026-01-15 · 二等座"
+              description={`${active.travel_date||'2026-01-15'} · 二等座`}
             />
             <section className="travel-ticket">
               <div className="travel-stations">
@@ -166,6 +169,7 @@ export function Travel({ api }: { api: ProductAPI }) {
                 </div>
               </div>
               <h2>¥{active.price}</h2>
+              <WorksetIdentity item={active}/>
               {s.task_id === 47 && <Classify item={active} api={api} />}
               <button
                 className="product-primary"
@@ -191,7 +195,7 @@ export function Travel({ api }: { api: ProductAPI }) {
             <PageHead
               eyebrow="TRAIN SEARCH"
               title="北京 → 上海"
-              description={`2026-01-15 · 共 ${rows.length} 个行程方案`}
+              description={`${view.scope?.name || (s.v2_worksets?'全部日期':'2026-01-15')} · 共 ${rows.length} 个行程方案`}
               action={
                 <input
                   placeholder="搜索车次"
@@ -222,6 +226,7 @@ export function Travel({ api }: { api: ProductAPI }) {
                     <p>
                       {time(item.departure)} 北京南 <span>→</span> 上海虹桥
                     </p>
+                    <WorksetIdentity item={item}/>
                   </div>
                   <div>
                     <b>{item.duration} 分钟</b>

@@ -386,3 +386,5 @@ body:has(.news-header) {
   background: #fff;
   color: #859380;
 }
+
+.news-scope{margin:20px 0 28px;padding:20px 24px;background:#f4f5ef;border:1px solid #dce2d5;border-radius:8px}.news-scope p{font-size:14px;color:#536451}.news-scope form{display:flex;gap:18px;align-items:end}.news-scope label{display:flex;flex-direction:column;gap:6px;font-size:13px}.news-scope select{padding:9px 12px;min-width:160px;border:1px solid #c8d2bf;background:#fff;border-radius:6px}.news-scope button{padding:10px 18px;background:#354c39;color:#fff;border:0;border-radius:6px}

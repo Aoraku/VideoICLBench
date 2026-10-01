@@ -178,3 +178,4 @@ body {
 .music-playlist-create form button {
   margin-left: 15px;
 }
+.music-scope-filter{padding:20px 24px;margin-bottom:24px;border:1px solid #505653;border-radius:12px;background:#292d2a}.music-scope-filter p{font-size:14px;color:#d3dad5}.music-scope-filter label{font-size:13px;min-width:160px}.music-scope-filter select{margin-top:6px;background-color:#353a37;color:#fff;border-color:#657066}

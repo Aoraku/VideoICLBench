@@ -188,6 +188,7 @@
 
         <!-- 页面内容 -->
         <div class="container-fluid p-4">
+            {% if benchmark_state.v2_worksets %}{% include 'blog/workset_filters.html' %}{% endif %}
             {% block content %}
             {% endblock %}
         </div>

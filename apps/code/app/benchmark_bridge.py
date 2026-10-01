@@ -40,9 +40,10 @@ def command(op, target="", value="", ids=None):
 
 def problem(item):
     from vic_apps.oj_resources import problem_content, samples
-    content = problem_content(item["name"])
-    return dict(id=str(item["number"]), title=item["name"], difficulty="easy", author="课程组",
-                source="算法练习", tags=["基础算法"], time_limit=1000, memory_limit=128,
+    title=item.get('problem_title',item['name'])
+    content = problem_content(title)
+    return dict(id=str(item.get('problem_number',item["number"])), title=title, difficulty="easy", author="课程组",
+                source=item.get('scope_name',"算法练习"), tags=["基础算法"], time_limit=1000, memory_limit=128,
                 description=content["description"], input_description=content["input_description"], output_description=content["output_description"],
                 constraints=content["constraints"],
                 samples=samples(item["name"], item["samples"]),
@@ -54,22 +55,31 @@ def api_request(method, endpoint, data=None, params=None, **kwargs):
         state = business()["state"]
         route = endpoint.rstrip("/")
         items = [state["domain"]["objects"][x["id"]] for x in state["items"]]
+        scope_id=st.session_state.get('workset_scope','') if state.get('v2_worksets') else ''
+        scoped=[x for x in items if not scope_id or x.get('scope_id')==scope_id]
         value = None
         if method == "GET" and route == "/api/problems":
-            value = [problem(x) for x in items]
+            value = list({p['id']:p for p in [problem(x) for x in scoped]}.values())
         elif method == "GET" and route.startswith("/api/problems/"):
-            item = next(x for x in items if str(x["number"]) == route.split("/")[-1])
+            item = next(x for x in items if str(x.get('problem_number',x["number"])) == route.split("/")[-1])
             value = problem(item)
         elif method == "GET" and route == "/api/languages":
             value = [dict(name="python", file_ext=".py", time_limit=1000, memory_limit=128)]
         elif method == "GET" and route.startswith("/api/submissions"):
-            rows = [dict(submission_id=str(1000+i), problem_id=str(x["number"]), status=x["verdict"],
-                         score=100 if x["verdict"]=="AC" else 0, counts=100, code=x["code"],
+            rows = [dict(submission_id=str(x.get('submission_number',1000+i)), problem_id=str(x.get('problem_number',x["number"])), status=x["verdict"],
+                         score=sum(r['status']=='AC' for r in x['test_results']) if x.get('test_results') else (100 if x["verdict"]=="AC" else 0),
+                         counts=len(x['test_results']) if x.get('test_results') else 100, code=x["code"],
                          runtime_ms=x["runtime_ms"], lines=len(x["code"].splitlines()), created_at=x["created_at"],
-                         benchmark_object=x["id"], label=x["label"]) for i,x in enumerate(items)]
+                         benchmark_object=x["id"], label=x["label"], scope_id=x.get('scope_id'),
+                         record_code=x.get('record_code'),test_results=x.get('test_results',[])) for i,x in enumerate(items)]
             rows.extend(dict(submission_id=str(2000+i),problem_id="100",status="saved",score=0,counts=0,
                              code=x["body"]) for i,x in enumerate(state["domain"]["artifacts"]) if x["kind"]=="submission")
-            value = dict(total=len(rows), submissions=rows) if route=="/api/submissions" else next(x for x in rows if x["submission_id"] == route.split("/")[-1])
+            if route=="/api/submissions":
+                rows=[x for x in rows if (not scope_id or x.get('scope_id')==scope_id)
+                      and all(not (params or {}).get(k) or str(x.get(k))==str(params[k]) for k in ('problem_id','status'))]
+                total=len(rows);page=int((params or {}).get('page',1));size=int((params or {}).get('page_size',1000))
+                value=dict(total=total,submissions=rows[(page-1)*size:page*size])
+            else:value=next(x for x in rows if x['submission_id']==route.split('/')[-1])
         elif method == "POST" and route == "/api/submissions" and state["task_id"] == 58:
             command("save", "target", data["code"])
             value = dict(submission_id="2000")
@@ -89,24 +99,77 @@ def extra_problem(problem_data):
         if st.button("保存标签", key="label_"+problem_data["id"]):
             command("label", problem_data["benchmark_object"], "" if label=="未标注" else label)
             st.success("标签已保存")
-    if t == 63 and st.button("选择这道题", key="choose_"+problem_data["id"]):
-        command("select", ids=[problem_data["benchmark_object"]])
-        st.success("已选择题目")
+    if t == 63:
+        if state.get('v2_worksets'):
+            st.caption('课程专题：'+problem_data['source'])
+            if st.button('加入课程练习',key='course_add_'+problem_data['id']):
+                command('course.add',problem_data['benchmark_object']);st.success('已加入课程；可在课程练习列表中排序和保存')
+        elif st.button("选择这道题", key="choose_"+problem_data["id"]):
+            command("select", ids=[problem_data["benchmark_object"]])
+            st.success("已选择题目")
 
 
-def extra_submission(sub):
+def extra_submission(sub, prefix=''):
     if not sub.get("benchmark_object"):
         return
     state = business()["state"]
     submitted_at = sub['created_at'].replace('T', ' ').removesuffix('+00:00')
     st.caption(f"耗时 {sub['runtime_ms']} ms · 代码 {sub['lines']} 行 · 提交时间 {submitted_at} UTC")
     if state["task_id"] == 61:
+        if sub.get('test_results'):
+            st.caption('记录编号：'+sub['record_code'])
+            with st.expander('测试详情 · '+sub['submission_id']):
+                st.caption('历史判题结果 · 单测试点运行时间限制 1000 ms')
+                st.table([{'测试点':r['name'],'状态':r['status'],'输入':r['input'],
+                           '预期输出':r['expected'],'实际输出':r['actual'],'说明':r['detail']} for r in sub['test_results']])
+                st.code(sub['code'],language='python')
         options=[""]+state["options"]
-        label=st.radio("结果标签",["未标注"]+state["options"],index=options.index(state["labels"][sub["benchmark_object"]]),horizontal=True,key="sub_label_"+sub["submission_id"])
-        if st.button("保存结果标签", key="sub_save_"+sub["submission_id"]):
+        with st.form(prefix+'submission_label_form_'+sub['submission_id']):
+            label=st.radio("结果标签",["未标注"]+state["options"],index=options.index(state["labels"][sub["benchmark_object"]]),horizontal=True,key=prefix+"sub_label_"+sub["submission_id"])
+            submitted=st.form_submit_button("保存结果标签")
+        if submitted:
             command("label",sub["benchmark_object"],"" if label=="未标注" else label);st.success("标签已保存")
     if state["task_id"] == 64 and st.button("查看代码",key="sub_view_"+sub["submission_id"]):
         command("select",ids=[sub["benchmark_object"]]);st.code(sub["code"],language="python")
+
+
+def render_scope():
+    state=business()['state']
+    if not state.get('v2_worksets'): return
+    scopes={s['id']:s['name'] for s in state['scopes']}
+    st.caption(state['public_parameters'])
+    def changed():
+        for key in ('my_submissions_data','filtered_submissions_data','submission_filter'):
+            st.session_state.pop(key,None)
+    st.selectbox(state['scopes'][0]['kind'],['']+list(scopes),format_func=lambda key:scopes.get(key,'全部资料'),
+                 key='workset_scope',on_change=changed)
+
+
+def render_course():
+    state=business()['state'];d=state['domain'];order=d['orders']['course']
+    st.title('课程练习列表')
+    st.info(state['public_parameters'])
+    st.caption('每个专题保留一道练习；在题库选择同一专题的其他题目会替换该专题题目。')
+    if not order:st.info('请从题目列表选择课程练习。')
+    for i,key in enumerate(order):
+        item=d['objects'][key]
+        with st.container(border=True):
+            st.subheader(f"{i+1}. {item['number']} · {item['name']}")
+            st.caption('课程专题：'+item['scope_name'])
+            a,b,c=st.columns(3)
+            if a.button('上移',key='up_'+key,disabled=i==0):
+                ids=list(order);ids[i-1],ids[i]=ids[i],ids[i-1];command('course.order',ids=ids);st.rerun()
+            if b.button('下移',key='down_'+key,disabled=i==len(order)-1):
+                ids=list(order);ids[i],ids[i+1]=ids[i+1],ids[i];command('course.order',ids=ids);st.rerun()
+            if c.button('移除',key='remove_'+key):command('course.remove',key);st.rerun()
+    if st.button('保存课程练习列表',type='primary'):
+        command('course.save');st.rerun()
+    saved=next((a for a in d['artifacts'] if a.get('kind')=='course_list'),None)
+    if saved:
+        st.success('已保存的课程练习列表')
+        for i,key in enumerate(saved['items']):
+            item=d['objects'][key];st.write(f"{i+1}. {item['scope_name']} · {item['number']} · {item['name']}")
+        if saved['items']!=order:st.warning('列表有未保存的调整，请保存后交付。')
 
 
 def render_files():

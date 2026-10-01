@@ -1,0 +1,9 @@
+<section class="music-scope-filter" aria-label="专辑筛选">
+  <p><strong>本次整理：</strong>{% for scope in requested_scopes %}{{ scope.name }}{% if not forloop.last %}、{% endif %}{% endfor %}</p>
+  <p>{{ benchmark_state.public_parameters }}</p>
+  <form action="{% url 'music_library' %}" method="get" class="d-flex gap-3 align-items-end">
+    <label>专辑<select name="scope" aria-label="专辑" class="form-select"><option value="">全部专辑</option>{% for scope in scope_options %}<option value="{{ scope.id }}" {% if scope.id == scope_id %}selected{% endif %}>{{ scope.name }}</option>{% endfor %}</select></label>
+    <label>版本<select name="edition" aria-label="版本" class="form-select"><option value="">全部版本</option><option {% if edition == '录音室版' %}selected{% endif %}>录音室版</option><option {% if edition == '现场版' %}selected{% endif %}>现场版</option></select></label>
+    <button class="btn btn-light" type="submit">筛选专辑歌曲</button>
+  </form>
+</section>

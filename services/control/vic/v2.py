@@ -3,8 +3,9 @@ import hashlib
 import json
 from .config import ROOT
 from .v2_atomic import TASKS as ATOMIC_TASKS
+from .v2_worksets import TASKS as WORKSET_TASKS
 
-EXECUTABLE = {45,74} | ATOMIC_TASKS
+EXECUTABLE = {45,74} | ATOMIC_TASKS | WORKSET_TASKS
 
 
 def catalog():
@@ -32,6 +33,9 @@ def generate(task_id, seed, mode):
     if task_id in ATOMIC_TASKS:
         from .v2_atomic import generate as generate_atomic
         return generate_atomic(task_id,seed,task(task_id))
+    if task_id in WORKSET_TASKS:
+        from .v2_worksets import generate as generate_worksets
+        return generate_worksets(task_id,seed,task(task_id))
     if task_id == 74:
         from vic_apps.reversi_training import fixture
         return fixture(seed,task(task_id))
@@ -42,6 +46,9 @@ def generate(task_id, seed, mode):
 
 
 def evaluate(initial, state, variant, events):
+    if initial.get('v2_worksets'):
+        from .v2_worksets import evaluate as evaluate_worksets
+        return evaluate_worksets(initial,state,variant,events)
     if initial.get('v2_reversi'):
         from vic_apps.reversi_training import evaluate as evaluate_reversi
         return evaluate_reversi(initial,state,variant,events)

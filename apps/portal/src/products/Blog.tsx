@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {useWorksets,WorksetBar,WorksetIdentity} from './Worksets';
 import {
   Frame,
   PageHead,
@@ -15,7 +16,8 @@ export function Blog({ api }: { api: ProductAPI }) {
     [selected, setSelected] = useState(""),
     [text, setText] = useState(""),
     [query, setQuery] = useState("");
-  const rows = s.items.map((x: any) => d.objects[x.id]),
+  const view=useWorksets(api);
+  const rows = s.items.map((x: any) => d.objects[x.id]).filter(view.visible),
     current = selected === "target" ? d.objects.target : d.objects[selected];
   function edit(id: string) {
     setSelected(id);
@@ -42,6 +44,7 @@ export function Blog({ api }: { api: ProductAPI }) {
               <h2>{item.name}</h2>
             </button>
             <p>{item.text}</p>
+            <WorksetIdentity item={item}/>
             <Tags item={item} api={api} />
             {s.task_id === 38 && <Classify item={item} api={api} />}
           </div>
@@ -72,6 +75,7 @@ export function Blog({ api }: { api: ProductAPI }) {
     >
       <main className="product-main">
         <Notice api={api} />
+        {page!=='editor'&&<WorksetBar api={api} view={view}/>}
         {page === "home" ? (
           <>
             <PageHead
@@ -151,6 +155,7 @@ export function Blog({ api }: { api: ProductAPI }) {
               ) : (
                 <>
                   <h1>{current.name}</h1>
+                  <WorksetIdentity item={current}/>
                   <div className="blog-editor-body">{current.text}</div>
                   <Tags item={current} api={api} />
                   <p className="product-muted">

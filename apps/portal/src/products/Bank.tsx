@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {useWorksets,WorksetBar,WorksetIdentity,CollectToWorkset,SavedWorksets,ReminderChannel} from './Worksets';
 import {
   Frame,
   PageHead,
@@ -19,14 +20,15 @@ export function Bank({ api }: { api: ProductAPI }) {
     [selected, setSelected] = useState(""),
     [text, setText] = useState(s.outputs.target ?? ""),
     [query, setQuery] = useState("");
-  const rows = s.items.map((x: any) => d.objects[x.id]),
+  const view=useWorksets(api);
+  const rows = s.items.map((x: any) => d.objects[x.id]).filter(view.visible),
     active = d.objects[selected];
   const balance = (item: any) => d.balances[item.id] / 100;
   const transferred = (id: string) => d.ledger.some((x: any) => x.account === "self" && x.counterparty === id);
   function open(id: string) {
     setSelected(id);
     setPage([49, 53].includes(s.task_id) ? "transaction" : "account");
-    if (s.task_id === 53) void api.mutate("select", "", "", [id]);
+    if (s.task_id === 53 && !s.v2_worksets) void api.mutate("select", "", "", [id]);
   }
   return (
     <Frame
@@ -40,11 +42,13 @@ export function Bank({ api }: { api: ProductAPI }) {
         ["transactions", "交易明细"],
         ["transfer", "转账汇款"],
         ["reminders", "余额提醒"],
+        ...(s.v2_worksets&&s.task_id===53?[["statements","对账单"] as [string,string]]:[]),
       ]}
       tools={<span className="bank-sandbox">模拟账户 · 不连接真实资金</span>}
     >
       <main className="product-main">
         <Notice api={api} />
+        {!['account','transaction','confirm'].includes(page)&&<WorksetBar api={api} view={view}/>}
         {page === "home" ? (
           <>
             <PageHead
@@ -95,7 +99,7 @@ export function Bank({ api }: { api: ProductAPI }) {
               ))}
             </div>
           </>
-        ) : page === "transfer" ? (
+        ) : page === "statements" ? <><PageHead title="月度对账单"/><SavedWorksets api={api}/>{d.artifacts.filter((a:any)=>a.kind==='statement_voucher').map((a:any)=><article key={a.statement} className="bank-receipt"><b>{a.number}</b><span>账户 {a.account} · {dateTime(a.occurred_at)}</span><strong>¥{money(a.amount)}</strong></article>)}</> : page === "transfer" ? (
           <>
             <PageHead
               eyebrow="TRANSFER"
@@ -207,6 +211,7 @@ export function Bank({ api }: { api: ProductAPI }) {
               ← 交易明细
             </button>
             <PageHead title="交易详情" />
+            <WorksetIdentity item={active}/>
             <section className="bank-form">
               <div className="bank-transaction-amount">
                 ¥{money(active.amount)}
@@ -227,6 +232,7 @@ export function Bank({ api }: { api: ProductAPI }) {
                 <dd>已完成</dd>
               </dl>
               {s.task_id === 49 && <Classify item={active} api={api} />}
+              {s.task_id===53&&<CollectToWorkset key={active.id} api={api} item={active} label="保存到对账单"/>}
             </section>
           </>
         ) : page === "account" && active ? (
@@ -243,6 +249,7 @@ export function Bank({ api }: { api: ProductAPI }) {
             />
             <section className="bank-form">
               <span>账户余额</span>
+              <WorksetIdentity item={active}/>
               <h1>¥{money(balance(active))}</h1>
               <p>最近 30 天交易笔数：{active.transactions}</p>
               <p>{s.source.transaction_window.start} 至 {s.source.transaction_window.end}</p>
@@ -255,7 +262,11 @@ export function Bank({ api }: { api: ProductAPI }) {
                 ["occurred_at", "交易时间", (x) => dateTime(x.occurred_at)],
                 ["amount", "金额", (x) => `¥${money(x.amount)}`],
               ]} />
+              {active.transaction_history&&<details><summary>展开近 30 天全部 {active.transaction_history.length} 笔交易</summary><DataRows items={active.transaction_history.map((x:any)=>({...x,name:x.id}))} columns={[
+                ['id','流水编号',x=>x.id],['occurred_at','交易时间',x=>dateTime(x.occurred_at)],['amount','金额',x=>`¥${money(x.amount)}`],
+              ]}/></details>}
               {s.task_id === 50 && <Classify item={active} api={api} />}{" "}
+              <ReminderChannel api={api} item={active}/>
               {s.task_id === 57 && (
                 <button
                   className="product-primary"
@@ -285,7 +296,7 @@ export function Bank({ api }: { api: ProductAPI }) {
               items={rows.filter((x: any) => (x.name + x.text).includes(query))}
               open={open}
               columns={[
-                ["name", "交易对象", (x) => x.name],
+                ["name", "交易对象", (x) => <>{x.name}<WorksetIdentity item={x}/></>],
                 ["text", "备注", (x) => <span>{x.text}{s.task_id === 49 && <small style={{display:"block"}}>{Array.from(x.text).length} 个字符</small>}</span>],
                 ["time", "交易时间", (x) => dateTime(x.created_at)],
                 ["amount", "金额", (x) => `¥${money(x.amount)}`],
@@ -310,7 +321,7 @@ export function Bank({ api }: { api: ProductAPI }) {
               items={rows}
               open={open}
               columns={[
-                ["name", "账户名称", (x) => x.name],
+                ["name", "账户名称", (x) => <>{x.name}<WorksetIdentity item={x}/></>],
                 ["account", "账号", (x) => x.account],
                 ["balance", "余额", (x) => `¥${money(balance(x))}`],
                 ["transactions", "最近30天交易笔数", (x) => x.transactions],
@@ -324,12 +335,12 @@ export function Bank({ api }: { api: ProductAPI }) {
                 s.task_id === 50 ? (
                   <Classify item={x} api={api} />
                 ) : s.task_id === 57 ? (
-                  <button
+                  <><ReminderChannel api={api} item={x}/><button
                     disabled={api.busy || x.reminder}
                     onClick={() => api.mutate("action", x.id, "开启提醒")}
                   >
                     {x.reminder ? "✓ 已开启" : "开启提醒"}
-                  </button>
+                  </button></>
                 ) : (
                   <button onClick={() => open(x.id)}>详情 →</button>
                 )

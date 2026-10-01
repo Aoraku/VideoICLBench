@@ -1,0 +1,194 @@
+"""Versioned fixtures and private outcome evaluation for scoped work."""
+from copy import deepcopy
+from itertools import combinations
+from datetime import datetime, timedelta, timezone
+import json
+from . import business, application_eval
+from vic_apps.domain import initialize
+from vic_apps import worksets
+
+TASKS = worksets.TASKS
+
+
+def generate(task_id, seed, spec):
+    kind, names, extra_filter, collection = worksets.CONFIG[task_id]
+    initial = business.generate(task_id, seed)
+    items = []; scopes = []
+    for index, name in enumerate(names + ['其他资料']):
+        requested = index < len(names)
+        if task_id == 48 and requested:
+            extra_filter = ('specification','规格','500ml','350ml') if index==0 else ('specification','规格','104键','87键')
+        group = business.generate(task_id, seed + 137 * index)
+        rows = group['items']
+        if task_id == 63 and requested:
+            topic_titles=[
+                ['两数之和','合并有序数组','区间合并','旋转数组','乘积最大子数组','窗口最大值'],
+                ['最短路径','地图着色','课程安排','拓扑排序','航班路线规划','岛屿数量'],
+                ['字符串压缩','编辑距离','字母异位词','子序列匹配','前缀树查询','最长回文子串'],
+            ][index]
+            # Keep the independent attribute winners while giving each topic
+            # an appropriate, distinct problem library with real statements.
+            longest=max(range(len(rows)),key=lambda i:len(rows[i]['name']))
+            title=max(topic_titles,key=len);topic_titles.remove(title)
+            for position,item in enumerate(rows):
+                item['name']=title if position==longest else topic_titles.pop(0)
+                item['name_length']=len(item['name'])
+        if task_id == 22 and requested:
+            for subset in combinations(rows,3):
+                candidate=dict(group,items=list(subset))
+                effects=[business.expected_effect(task_id,v,candidate) for v in 'ABC']
+                if len({json.dumps(e,sort_keys=True) for e in effects})==3:
+                    rows=list(subset);break
+            else:raise ValueError('三首歌曲未区分三种分类条件')
+        if task_id == 57 and requested:
+            for subset in combinations(rows, 4):
+                candidate = dict(group, items=list(subset))
+                effects = [business.expected_effect(task_id, v, candidate) for v in 'ABC']
+                if len({json.dumps(e, sort_keys=True) for e in effects}) == 3 and all(e['actions'] for e in effects):
+                    rows = list(subset); break
+            else: raise ValueError('四个账户未覆盖三个不同提醒条件')
+        scope = dict(id=f'scope-{index+1}', name=name, kind=kind, requested=requested,
+                     filters={extra_filter[0]:extra_filter[2]} if extra_filter else {},
+                     filter_label=extra_filter[1] if extra_filter else '', collection=collection)
+        scopes.append(scope)
+        for n, original in enumerate(rows):
+            item = deepcopy(original)
+            item.update(id=f's{index}-{item["id"]}', scope_id=scope['id'], scope_name=name,
+                        record_code=f'{task_id:03d}-{index+1}{n+1:02d}')
+            if extra_filter: item[extra_filter[0]] = extra_filter[2]
+            if task_id in (61,63):
+                item['number'] += 1000 * index
+                item['samples'] = 3
+            if task_id == 61:
+                item['problem_number'] = 101 + index
+                item['problem_title'] = name if requested else '合并有序数组'
+                item['submission_number'] = 1000 + 100 * index + n
+                submission_fixture(item)
+            if task_id == 48 and requested:
+                product='不锈钢保温杯' if index==0 else '便携机械键盘'
+                item['name']=product+' · '+['星河','远山','青木','拾物','简行','杉川'][n%6]
+            if task_id == 34:
+                item['progress_seconds']=item['duration'] if item['completed'] else max(1,int(item['duration']*(0.15+0.1*(n%5))))
+            if task_id in (23,33,49, 53):
+                if task_id in (49,53):item['account'] = f'62220226000000{index+1:02d}'
+                item['created_at'] = '2026-01' + item['created_at'][7:]
+            if task_id == 47:
+                item.update(travel_date=name if requested else '2026-02-20', origin='北京南', destination='上海虹桥')
+            if task_id == 57: item['reminder_channel'] = '短信'
+            if task_id in (50,57): item['account']=f'6222{task_id:02d}{index+1:02d}{n+1:02d}{seed%1000000:06d}'
+            if task_id == 50:
+                end=datetime.fromisoformat(initial['source']['transaction_window']['end']).replace(hour=12,tzinfo=timezone.utc)
+                history=[dict(id=f'{item["record_code"]}-TX-{j+1:03d}',occurred_at=(end-timedelta(days=j%30,hours=j//30)).isoformat(),amount=(j*13+seed)%97+1) for j in range(item['transactions'])]
+                item['transaction_history']=sorted(history,key=lambda tx:tx['occurred_at'],reverse=True)
+                item['recent_transactions']=item['transaction_history'][:2]
+            items.append(item)
+        # Same-title records with the wrong specification or month remain in
+        # the same category/account, so the secondary filter has real meaning.
+        if extra_filter and requested:
+            for n, original in enumerate(items[-len(rows):][:2]):
+                other = deepcopy(original)
+                other.update(id=original['id']+'-other', record_code=original['record_code']+'R')
+                other[extra_filter[0]] = extra_filter[3]
+                if task_id in (23,33,49, 53): other['created_at'] = '2025-12'+other['created_at'][7:]
+                items.append(other)
+    initial['items'] = items
+    state = initialize(initial)
+    state.update(v2_worksets=True, scopes=scopes,
+        execution=dict(assignment=spec['assignment'], instructions=spec['inference']['instructions'], delivery=spec['delivery']))
+    if task_id == 57: state['source']['notification_channel'] = '电子邮件'
+    state['public_parameters']={
+        22:f'只处理两张专辑的录音室版，共六首歌曲；时长以秒计，播放量阈值为 {state["source"]["threshold"]} 次。',
+        23:f'发布日期范围：2026-01-01 至 2026-01-31（UTC）；指定媒体：{state["source"]["publisher"]}；相同标题以文章编号区分。',
+        26:'每个栏目独立比较，保存两项推荐；并列保持资料列表的初始顺序。',
+        31:'每个课程主题独立选择一项；时长按秒、点赞率按百分比、发布时间按 UTC 比较，并列保持初始顺序。',
+        33:f'发布日期范围：2026-01-01 至 2026-01-31（UTC）；标题指定词：{state["source"]["keyword"]}。',
+        34:'完成状态和进度以已有观看记录为准，无需等待播放。',
+        38:f'正文长度阈值 {state["source"]["threshold"]} 字，包含标点和空格，不包含标题。',
+        47:'北京南至上海虹桥；每个日期独立比较全程耗时、票价或换乘次数，并列保持初始顺序。',
+        48:f'评分阈值 {state["source"]["threshold"]}/100；销量阈值 {state["source"]["threshold"]}；只整理各类目指定规格。',
+        49:f'金额单位为整数元；备注长度阈值 {state["source"]["threshold"]} 个字符（包含标点和空格）。',
+        50:'每个账户组独立比较；最近 30 天的日期范围在账户页明确列出，并列保持初始顺序。',
+        53:'每个账户的 2026 年 1 月交易独立比较；金额以元、日期以 UTC 为准，并列保持初始顺序。',
+        57:f'余额阈值 {state["source"]["threshold"]} 元；日期判断只比较每个账户最近两笔交易的 UTC 日期；应开启账户的通知渠道设为电子邮件。',
+        61:'分别审核两数之和（101）与区间合并（102）的提交记录；每道题独立比较运行时间，单位为毫秒，并列保持初始顺序。所有提交均已判题完成。',
+        63:'课程专题顺序：数组与区间 → 图与路径 → 字符串；每个专题选择一道题，按该顺序排列并保存课程练习列表。并列选择专题列表中靠前的题目。',
+    }[task_id]
+    if task_id == 63: state['domain']['orders']['course'] = []
+    if collection:
+        for scope in scopes: state['domain']['collections']['scope:'+scope['id']] = []
+    return state
+
+
+def submission_fixture(item):
+    """Historical submissions contain source consistent with their verdict.
+
+    Fixed judge records are part of the exercise input, not fresh executions.
+    Correct solutions and failing outputs are checked against real OJ samples.
+    """
+    from vic_apps.oj_resources import samples
+    title=item['problem_title'];verdict=item['verdict']
+    solutions={
+        '两数之和':'n, target = map(int, input().split())\nvalues = list(map(int, input().split()))\nseen = {}\nfor j, value in enumerate(values):\n    if target - value in seen:\n        print(seen[target - value], j)\n        break\n    seen[value] = j\n',
+        '区间合并':'n = int(input())\nintervals = sorted(list(map(int, input().split())) for _ in range(n))\nmerged = []\nfor left, right in intervals:\n    if merged and left <= merged[-1][1]:\n        merged[-1][1] = max(merged[-1][1], right)\n    else:\n        merged.append([left, right])\nfor interval in merged:\n    print(*interval)\n',
+        '合并有序数组':'n, m = map(int, input().split())\na = list(map(int, input().split()))\nb = list(map(int, input().split()))\nprint(*sorted(a + b))\n',
+    }
+    item['code']={'AC':solutions[title], 'WA':'print(0)\n',
+                  'RE':'values = []\nprint(values[0])\n',
+                  'TLE':'total = 0\nfor i in range(10**12):\n    total += i\nprint(total)\n'}[verdict]
+    item['lines']=len(item['code'].splitlines())
+    if verdict=='TLE':item['runtime_ms']=1000
+    item['test_results']=[dict(name=f'测试点 {j+1}',status=verdict,input=case['input'],expected=case['output'],
+        actual=case['output'] if verdict=='AC' else '0' if verdict=='WA' else '',
+        detail={'AC':'通过','WA':'输出不匹配','RE':'IndexError: list index out of range','TLE':'超过 1000 ms 限制'}[verdict])
+        for j,case in enumerate(samples(title,5))]
+
+
+def scope_effect(initial, variant, scope):
+    subset = worksets.members(initial, scope)
+    view = dict(initial, items=subset, labels={x['id']:'' for x in subset}, order=[x['id'] for x in subset])
+    return business.expected_effect(initial['task_id'], variant, view)
+
+
+def reference_commands(initial, variant):
+    """Private reference for evaluator and offline QA; never served to clients."""
+    t = initial['task_id']; commands = []
+    for scope in initial['scopes']:
+        if not scope['requested']: continue
+        effect = scope_effect(initial, variant, scope)
+        if 'labels' in effect:
+            chosen = []
+            for target, label in effect['labels'].items():
+                if label:
+                    chosen.append(target); commands.append(('label', target, label, []))
+            if t in worksets.SNAPSHOT_TASKS: commands.append(('workset.collect', scope['id'], '', chosen))
+        elif 'selection' in effect:
+            if t == 63: commands.append(('course.add', effect['selection'][0], '', []))
+            else: commands.append(('workset.collect', scope['id'], '', effect['selection']))
+        else:
+            for target, action in effect['actions']:
+                commands.append(('action', target, action, []))
+                if t == 57: commands.append(('reminder.channel', target, initial['source']['notification_channel'], []))
+    if t == 63: commands.append(('course.save', '', '', []))
+    return commands
+
+
+def evaluate(initial, final, variant, events):
+    expected = deepcopy(initial)
+    for op, target, value, ids in reference_commands(initial, variant):
+        expected = worksets.apply(expected, op, target, value, ids)
+    checks = []
+    def check(name, passed): checks.append(dict(id=name, passed=bool(passed)))
+    for key in ('items','source','scopes','execution','public_parameters'):
+        check('input:'+key, initial[key] == final.get(key))
+    want = application_eval.canonical(expected['domain']); got = application_eval.canonical(final['domain'])
+    for key in want: check('business:'+key, got.get(key) == want[key])
+    for scope in initial['scopes']:
+        if not scope['requested']:continue
+        for item in worksets.members(initial,scope):
+            key=item['id'];check(scope['id']+':'+item['record_code'],got['objects'].get(key)==want['objects'][key])
+        if scope['collection']:
+            key='scope:'+scope['id'];check(scope['id']+':delivery',got['collections'].get(key)==want['collections'][key])
+    violations = [] if events else ['no_action']
+    return dict(success=all(c['passed'] for c in checks) and not violations,
+                completion=sum(c['passed'] for c in checks)/len(checks),checks=checks,
+                violations=violations+[c['id'] for c in checks if not c['passed']])

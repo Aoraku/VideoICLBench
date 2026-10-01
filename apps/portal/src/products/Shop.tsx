@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {useWorksets,WorksetBar,WorksetIdentity} from './Worksets';
 import {
   Frame,
   PageHead,
@@ -128,7 +129,8 @@ export function Shop({ api }: { api: ProductAPI }) {
     [selected, setSelected] = useState(""),
     [query, setQuery] = useState(""),
     [text, setText] = useState(s.outputs.target ?? "");
-  const rows = s.items.map((x: any) => d.objects[x.id]),
+  const view=useWorksets(api);
+  const rows = s.items.map((x: any) => d.objects[x.id]).filter(view.visible),
     active = d.objects[selected];
   function open(id: string) {
     setSelected(id);
@@ -201,6 +203,7 @@ export function Shop({ api }: { api: ProductAPI }) {
     >
       <main className="product-main">
         <Notice api={api} />
+        <WorksetBar api={api} view={view}/>
         {page === "home" ? (
           <>
             <section className="shop-hero">
@@ -243,6 +246,7 @@ export function Shop({ api }: { api: ProductAPI }) {
               <section>
                 <span className="product-eyebrow">EVERYDAY ESSENTIALS</span>
                 <h1>{active.name}</h1>
+                <WorksetIdentity item={active}/>
                 <p>{active.text}</p>
                 <strong className="shop-price">¥{active.price}.00</strong>
                 <div className="shop-metrics">
@@ -318,6 +322,7 @@ export function Shop({ api }: { api: ProductAPI }) {
                     </button>
                     <div>
                       <small>{item.tags.join(" · ") || "日用精选"}</small>
+                      <WorksetIdentity item={item}/>
                       {s.task_id === 45 && item.name === s.source.text && (
                         <p className="product-ok">待填写订单备注 · 数量 {s.source.quantity}</p>
                       )}
