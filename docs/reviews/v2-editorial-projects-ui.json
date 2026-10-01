@@ -1,0 +1,160 @@
+{
+  "verified_at": "2026-10-01T16:57:33.971675+00:00",
+  "video_recorded": false,
+  "tasks": [
+    29,
+    30
+  ],
+  "coverage": {
+    "inference_conditions": 6,
+    "demo_first_episode_conditions": 6,
+    "full_demo_api_episodes": 36
+  },
+  "browser": [
+    {
+      "task": 29,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "cross_app_links": true
+    },
+    {
+      "task": 29,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "cross_app_links": true
+    },
+    {
+      "task": 29,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "cross_app_links": true
+    },
+    {
+      "task": 30,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "cross_app_links": true
+    },
+    {
+      "task": 30,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "cross_app_links": true
+    },
+    {
+      "task": 30,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "cross_app_links": true
+    },
+    {
+      "task": 29,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 29,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 29,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 30,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 30,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 30,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    }
+  ],
+  "verification": {
+    "browser": "scripts/check_v2_editorial_projects_ui.py",
+    "demo": "scripts/check_native_ui.py",
+    "api": "tests/test_v2_editorial_projects.py",
+    "full_demo": "tests/test_v2.py::test_v2_demo_all_episodes_advance_and_final_eval",
+    "regression": "1800 full-suite tests passed. Portal production build passed."
+  },
+  "verified_behaviors": [
+    "Four ordered topics with a global two-article publisher quota; selection follows the learned criterion among remaining eligible sources and produces a saved four-section weekly briefing.",
+    "Three project source collections with overlaps and out-of-window articles; project/date filters support research and the resulting pages preserve all qualifying selected articles.",
+    "Native News selection and removal, Blog document creation and citation editing, given summaries and real source links, document save and preview, editable directory links and actual article counts.",
+    "Citation links open the corresponding native News article. Directory links open the corresponding saved Blog document. State persists after reload and resets through the common API.",
+    "Independent multi-seed checks distinguish A/B/C and reject quota violations, incorrect selected sets, mismatched summaries/links, unsaved content, stale directory counts and alterations to unrelated documents."
+  ],
+  "limits": [
+    "Browser inference uses seed 10001; independent state and API tests cover additional seeds.",
+    "Browser demo verification covers the first teaching episode; all teaching episodes are verified through the API.",
+    "Agentlab v2 deployment is incomplete."
+  ]
+}

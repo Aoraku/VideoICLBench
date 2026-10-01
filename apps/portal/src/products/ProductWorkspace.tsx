@@ -6,6 +6,7 @@ import { Shop } from "./Shop";
 import { Bank } from "./Bank";
 import { Media } from "./Media";
 import { Games } from "./Games";
+import { Editorial } from "./Editorial";
 import { Procurement } from "./Procurement";
 import type { ProductAPI } from "./kit";
 import "./products.css";
@@ -95,7 +96,7 @@ export function ProductWorkspace({
         <p>{notice || "正在载入你的个人工作区…"}</p>
       </div>
     );
-  const Component = data.state.workflow === 'procurement' ? Procurement : (
+  const Component = data.state.workflow === 'editorial_projects' && module === 'blog' ? Editorial : data.state.workflow === 'procurement' ? Procurement : (
     {
       blog: Blog,
       studio: Studio,
@@ -106,11 +107,16 @@ export function ProductWorkspace({
       games: Games,
     } as Record<string, React.ComponentType<{ api: ProductAPI }>>
   )[module];
-  if (!Component || data.state.app !== module)
+  if (!Component || (data.state.app !== module && !data.state.linked_apps?.includes(module)))
     return <p role="alert">应用与会话不匹配</p>;
   return (
     <Component
       api={{ s: data.state, d: data.state.domain, busy, notice, mutate, clearNotice: () => setNotice(""),
+             applicationLink: (app, query = {}) => {
+               const path = app === 'news' ? `/native/news/${id}` : `/native/product/${app}/${id}`;
+               const search = new URLSearchParams(query).toString();
+               return `${path}${search ? '?'+search : ''}#${token.current}`;
+             },
              mediaUrl: target => `/api/runs/${id}/media/${encodeURIComponent(target)}` }}
     />
   );

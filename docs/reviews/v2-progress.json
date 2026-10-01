@@ -12,14 +12,15 @@
     "procurement_ui": "docs/reviews/v2-procurement-ui.json",
     "unit_tests": "tests/test_v2.py",
     "browser_check": "scripts/check_v2_procurement_ui.py",
-    "regression": "1779 full-suite tests passed; 171 native inference conditions and 171 initial demo conditions verified across 57 tasks; 756 teaching episodes verified through API tests.",
+    "regression": "1800 full-suite tests passed; 177 native inference conditions and 177 initial demo conditions verified across 59 tasks; 792 teaching episodes verified through API tests.",
     "native_ui": "docs/reviews/v2-native-progress-ui.json",
     "worksets_ui": "docs/reviews/v2-worksets-ui.json",
     "stopping_ui": "docs/reviews/v2-stopping-ui.json",
     "stopping_regression": "272 v2 and stopping tests passed after 2048 integration.",
     "chat_im_worksets_ui": "docs/reviews/v2-chat-im-worksets-ui.json",
     "communications_ui": "docs/reviews/v2-communications-ui.json",
-    "music_projects_ui": "docs/reviews/v2-music-projects-ui.json"
+    "music_projects_ui": "docs/reviews/v2-music-projects-ui.json",
+    "editorial_projects_ui": "docs/reviews/v2-editorial-projects-ui.json"
   },
   "tasks": [
     {
@@ -942,21 +943,63 @@
       "id": 29,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 30,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 31,
@@ -2051,9 +2094,9 @@
     }
   ],
   "next_work": [
-    "Implement the remaining 18 hard tasks with actual linked business artifacts and public constraints.",
+    "Implement the remaining 16 hard tasks with actual linked business artifacts and public constraints.",
     "Verify all 75 tasks in A/B/C demo and inference environments without video recording.",
     "Deploy all tested v2 applications to agentlab and verify v2 list, native entry, reset and delivery evaluation on the server."
   ],
-  "verified_at": "2026-10-01T16:41:30.473657+00:00"
+  "verified_at": "2026-10-01T16:57:33.971675+00:00"
 }

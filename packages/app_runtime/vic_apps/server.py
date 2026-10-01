@@ -336,7 +336,7 @@ fetch('/native/music/'+run+'/authorize',{method:'POST',headers:{Authorization:'B
 
     @app.get("/native/product/{module}/{run_id}")
     async def product(module, run_id):
-        if module not in ("media", "blog", "studio", "travel", "shop", "bank", "games") or meta(run_id)["app"] != module:
+        if module not in ("media", "blog", "studio", "travel", "shop", "bank", "games") or (meta(run_id)["app"] != module and module not in store.snapshot(run_id).get("linked_apps", [])):
             raise HTTPException(404, "Application mismatch")
         return FileResponse(dist / "index.html")
 
