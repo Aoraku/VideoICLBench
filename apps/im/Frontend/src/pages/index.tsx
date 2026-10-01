@@ -623,10 +623,11 @@ export default function Home() {
   const [messages, setMessages] = useState<any[]>([]);
   const [inputText, setInputText] = useState('');
   const [workspaceInstructions, setWorkspaceInstructions] = useState<string | undefined>(undefined);
+  const [projectDirectory, setProjectDirectory] = useState(false);
   useEffect(() => {
     if (!nativeIM) return;
     fetch('/api/workspace').then(response => response.json()).then(data => {
-      if (data.code === 0) setWorkspaceInstructions(data.instructions || undefined);
+      if (data.code === 0) {setWorkspaceInstructions(data.instructions || undefined);setProjectDirectory(Boolean(data.projects));}
     }).catch(error => message.error(String(error)));
   }, []);
   const [loadingMsg, setLoadingMsg] = useState(false);
@@ -1201,9 +1202,10 @@ export default function Home() {
       });
       const data = await res.json();
       if (data.code === 0) {
-        message.success('邀请已发送，请等待管理员审核');
+        message.success(projectDirectory ? '成员已加入群聊' : '邀请已发送，请等待管理员审核');
         setIsInviteVisible(false);
         setSelectedFriendId(undefined);
+        if(projectDirectory) fetchGroupInfo();
       } else {
         message.error(`邀请失败: ${data.info}`);
       }
@@ -1839,7 +1841,7 @@ export default function Home() {
 
       <Content style={styles.chatPane}>
           {workspaceInstructions && <section aria-label="工作范围" style={{padding:'14px 24px',background:'#f3f8ff',borderBottom:'1px solid #d6e6f7',color:'#395474',lineHeight:1.7}}>
-            <strong>项目通知回执</strong><div>{workspaceInstructions}</div>
+            <strong>{projectDirectory?'项目启动安排':'项目通知回执'}</strong><div>{workspaceInstructions}</div>{projectDirectory&&<Button size="small" onClick={()=>router.push('/projects')}>项目通知与资料</Button>}
           </section>}
           {activeConv ? (
             <>
@@ -1963,7 +1965,7 @@ export default function Home() {
                                 ...(isMe ? styles.myBubble : styles.otherBubble),
                               }}
                             >
-                              <div>{msg.content}</div>
+                              <div>{typeof msg.content==='string'&&msg.content.startsWith('/native-assets/im/projects?project=')?<a href={msg.content} style={{color:isMe?'white':'#087db9',textDecoration:'underline'}}>打开项目资料 · {new URLSearchParams(msg.content.split('?')[1]).get('project')}</a>:msg.content}</div>
                               {msg.benchmark_read && <small style={{color:'#408964'}}>✓ 已确认阅读</small>}
                               {msg.benchmark_starred && <small style={{color:'#bc8b22'}}>★ 已星标</small>}
 

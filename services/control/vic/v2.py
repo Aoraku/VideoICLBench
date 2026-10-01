@@ -4,8 +4,9 @@ import json
 from .config import ROOT
 from .v2_atomic import TASKS as ATOMIC_TASKS
 from .v2_worksets import TASKS as WORKSET_TASKS
+from vic_apps.communications import TASKS as COMMUNICATION_TASKS
 
-EXECUTABLE = {45,69,74} | ATOMIC_TASKS | WORKSET_TASKS
+EXECUTABLE = {45,69,74} | ATOMIC_TASKS | WORKSET_TASKS | COMMUNICATION_TASKS
 
 
 def catalog():
@@ -33,6 +34,9 @@ def generate(task_id, seed, mode):
     if task_id in ATOMIC_TASKS:
         from .v2_atomic import generate as generate_atomic
         return generate_atomic(task_id,seed,task(task_id))
+    if task_id in COMMUNICATION_TASKS:
+        from vic_apps.communications import fixture
+        return fixture(task_id,seed,task(task_id))
     if task_id in WORKSET_TASKS:
         from .v2_worksets import generate as generate_worksets
         return generate_worksets(task_id,seed,task(task_id))
@@ -49,6 +53,9 @@ def generate(task_id, seed, mode):
 
 
 def evaluate(initial, state, variant, events):
+    if initial.get('workflow')=='communications':
+        from .v2_communications import evaluate as evaluate_communications
+        return evaluate_communications(initial,state,variant,events)
     if initial.get('v2_2048'):
         from vic_apps.stopping_training import evaluate as evaluate_stopping
         return evaluate_stopping(initial,state,variant,events)

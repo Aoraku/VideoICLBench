@@ -2,6 +2,7 @@ import {nativeBase} from '../benchmark/bridge.js'
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom'
 import AuthLayout from '../components/layout/AuthLayout.jsx'
 import MainLayout from '../components/layout/MainLayout.jsx'
+import HandoverPage from '../benchmark/HandoverPage.jsx'
 import ContactsPage from '../pages/contacts/ContactsPage.jsx'
 import SearchPage from '../pages/contacts/SearchPage.jsx'
 import FriendRequestsPage from '../pages/friends/FriendRequestsPage.jsx'
@@ -73,6 +74,7 @@ export default function AppRouter() {
             {/* 默认进入聊天页（真实会话列表 + 消息区） */}
             <Route index element={<Navigate to="/chat" replace />} />
             <Route path="chat" element={<ChatPage />} />
+            <Route path="handover" element={<HandoverPage />} />
             <Route path="bookmarks" element={<BookmarksPage />} />
             <Route path="calendar" element={<CalendarPage />} />
             <Route path="help" element={<HelpPage />} />

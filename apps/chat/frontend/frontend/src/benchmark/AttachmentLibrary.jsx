@@ -1,12 +1,14 @@
 import { useRef, useState } from "react";
 import { command, currentBusiness } from "./bridge.js";
-export default function AttachmentLibrary({ open, onClose }) {
+import ProjectFiles from './ProjectFiles.jsx';
+export default function AttachmentLibrary({ open, onClose, conversation }) {
   const [selected, setSelected] = useState(""),
     [error, setError] = useState(""),
     [busy, setBusy] = useState(false);
   const sending = useRef(false);
   const state = currentBusiness();
   if (!open || !state) return null;
+  if(state.workflow==='communications')return <ProjectFiles open={open} conversation={conversation} onClose={onClose}/>;
   const sentIds = new Set(state.domain.messages.filter(m => m.sender === "self" && m.attachment).map(m => m.attachment));
   const sent = sentIds.has(selected);
   return (

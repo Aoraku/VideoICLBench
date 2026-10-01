@@ -1,5 +1,6 @@
 import {useEffect,useState} from 'react';
 import {business,nativeRun,currentScope,setCurrentScope} from './bridge.js';
+import {Link} from 'react-router-dom';
 
 export default function WorkspaceBar(){
   const [state,setState]=useState(null),[scope,setScope]=useState(currentScope);
@@ -10,6 +11,7 @@ export default function WorkspaceBar(){
     refresh();window.addEventListener('vic-chat-updated',refresh);
     return()=>{active=false;window.removeEventListener('vic-chat-updated',refresh)};
   },[]);
+  if(state?.workflow==='communications')return <section className="workspace-bar" aria-label="工作范围" style={{padding:'12px 20px',borderBottom:'1px solid #dde5e1',background:'#f7faf8',flexShrink:0,display:'flex',alignItems:'center',gap:24}}><p style={{fontSize:13,lineHeight:1.7,margin:0,flex:1}}>{state.world.brief}</p>{state.task_id===13&&<Link className="wxBtn wxBtn--primary" to="/handover">交接单</Link>}</section>;
   if(!state?.v2_worksets)return null;
   const chosen=state.scopes.find(s=>s.id===scope);
   return <section className="workspace-bar" aria-label="工作范围" style={{padding:'12px 20px',borderBottom:'1px solid #dde5e1',background:'#f7faf8',flexShrink:0}}>

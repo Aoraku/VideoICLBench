@@ -69,6 +69,9 @@ class ApplicationClient:
             base = base.replace(
                 origin.netloc, f"application.localhost:{origin.port or 80}", 1
             )
+        if run.initial.get('workflow') == 'communications':
+            from .lessons import native_path
+            return f"{base}{native_path(run.initial['app'],run.id)}#{token}"
         if run.initial.get('workflow'):
             return f"{base}/native/product/{run.initial['app']}/{run.id}#{token}"
         return f"{base}/apps/{run.initial['app']}/{run.id}#{token}"

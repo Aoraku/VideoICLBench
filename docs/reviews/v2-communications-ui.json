@@ -1,0 +1,214 @@
+{
+  "verified_at": "2026-10-01T16:19:32.687268+00:00",
+  "video_recorded": false,
+  "tasks": [
+    11,
+    13,
+    15
+  ],
+  "coverage": {
+    "inference_conditions": 9,
+    "demo_first_episode_conditions": 9,
+    "full_demo_api_episodes": 39
+  },
+  "browser": [
+    {
+      "task": 11,
+      "variant": "A",
+      "status": "passed",
+      "mode": "eval",
+      "suite": "v2",
+      "seed": 10001,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 11,
+      "variant": "B",
+      "status": "passed",
+      "mode": "eval",
+      "suite": "v2",
+      "seed": 10001,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 11,
+      "variant": "C",
+      "status": "passed",
+      "mode": "eval",
+      "suite": "v2",
+      "seed": 10001,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 13,
+      "variant": "A",
+      "status": "passed",
+      "mode": "eval",
+      "suite": "v2",
+      "seed": 10001,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 13,
+      "variant": "B",
+      "status": "passed",
+      "mode": "eval",
+      "suite": "v2",
+      "seed": 10001,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 13,
+      "variant": "C",
+      "status": "passed",
+      "mode": "eval",
+      "suite": "v2",
+      "seed": 10001,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 15,
+      "variant": "A",
+      "status": "passed",
+      "mode": "eval",
+      "suite": "v2",
+      "seed": 10001,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 15,
+      "variant": "B",
+      "status": "passed",
+      "mode": "eval",
+      "suite": "v2",
+      "seed": 10001,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 15,
+      "variant": "C",
+      "status": "passed",
+      "mode": "eval",
+      "suite": "v2",
+      "seed": 10001,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 11,
+      "variant": "A",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "seed": 0,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 11,
+      "variant": "B",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "seed": 0,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 11,
+      "variant": "C",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "seed": 0,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 13,
+      "variant": "A",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "seed": 0,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 13,
+      "variant": "B",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "seed": 0,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 13,
+      "variant": "C",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "seed": 0,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 15,
+      "variant": "A",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "seed": 0,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 15,
+      "variant": "B",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "seed": 0,
+      "surface": "native",
+      "persisted": true
+    },
+    {
+      "task": 15,
+      "variant": "C",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "seed": 0,
+      "surface": "native",
+      "persisted": true
+    }
+  ],
+  "verification": {
+    "browser": "scripts/check_v2_communications_ui.py",
+    "demo": "scripts/check_native_ui.py",
+    "api": "tests/test_v2_communications.py",
+    "full_demo": "tests/test_v2.py::test_v2_demo_all_episodes_advance_and_final_eval",
+    "regression": "1748 full-suite tests passed. Chat and IM production builds passed."
+  },
+  "verified_behaviors": [
+    "Four request threads and project file sources; type/version filtering, actual file preview, request-linked attachment replies, exact recipients and preserved file bytes.",
+    "Four project message batches, bulk forwarding/favorites/archive, historical and unrelated preservation, editable handover rows, working source links and actual Markdown document delivery.",
+    "Three independent project candidate lists, stable member accounts, native group creation and name editing, published announcements, sent material links opening the corresponding project page.",
+    "Persistence after reload, API reset, command idempotency, distinct A/B/C results, rejection of wrong recipients, mismatched references, stale statuses, missing documents and duplicate deliveries."
+  ],
+  "limits": [
+    "Browser inference uses seed 10001; independent state and API tests cover additional seeds.",
+    "Browser demo verification covers the first teaching episode; all teaching episodes are verified through the API.",
+    "Agentlab v2 deployment is incomplete."
+  ]
+}

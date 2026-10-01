@@ -211,7 +211,7 @@ export default function GroupBuildPage() {
   );
   const filteredFriends = useMemo(() => {
     const text = keyword.trim().toLowerCase();
-    return text ? friends.filter((item) => item.title.toLowerCase().includes(text)) : friends;
+    return text ? friends.filter((item) => (item.title+' '+item.description).toLowerCase().includes(text)) : friends;
   }, [friends, keyword]);
   const filteredGroups = useMemo(() => {
     const text = keyword.trim().toLowerCase();

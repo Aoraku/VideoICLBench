@@ -2467,7 +2467,7 @@ export default function ChatPage() {
         </div>
       ) : null}
 
-      {nativeRun && <AttachmentLibrary open={filesOpen} onClose={()=>setFilesOpen(false)}/>}
+      {nativeRun && <AttachmentLibrary open={filesOpen} conversation={selectedId} onClose={()=>setFilesOpen(false)}/>}
       <PopMenu
         open={Boolean(convMenu)}
         anchorX={convMenu?.x ?? 0}

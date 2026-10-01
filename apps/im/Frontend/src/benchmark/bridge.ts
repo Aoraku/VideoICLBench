@@ -70,13 +70,58 @@ export async function nativeFetch(
       method = init?.method || "GET",
       body = typeof init?.body === "string" ? JSON.parse(init.body) : {};
     const projectReceipts = s.v2_worksets && s.task_id === 16;
+    const projectGroups = s.workflow === 'communications' && s.task_id === 15;
     const scopeForConversation = (id: number) => projectReceipts ? s.scopes[id - 10] : undefined;
     const user = (i: number) => ({
       user_id: 10 + i,
       username: s.items[i].name,
       avatar: undefined,
-      group: `最近联系 ${String(s.items[i].last_contact_at).replace('T', ' ').slice(0, 16)} UTC · 未读 ${s.items[i].unread}`,
+      group: `${projectGroups ? s.items[i].project_name+' · '+s.items[i].account+' · ' : ''}最近联系 ${String(s.items[i].last_contact_at).replace('T', ' ').slice(0, 16)} UTC · 初始未读 ${s.items[i].unread}`,
     });
+    if(projectGroups) {
+      const groupId=path.match(/^\/api\/conversations\/(\d+)/)?.[1];
+      const group=groupId ? s.world.groups[groupId] : undefined;
+      const stamp=Date.parse(s.source.reference_time)/1000;
+      if(method==='GET' && path==='/api/workspace')return respond({instructions:s.world.brief,projects:true});
+      if(method==='GET' && path==='/api/projects')return respond({projects:s.world.projects,candidates:s.items.map((item:any,i:number)=>({...user(i),object_id:item.id,project:item.project,account:item.account,unread:item.unread,last_contact_at:item.last_contact_at}))});
+      if(method==='GET' && path==='/api/conversations')return respond({conversations:[
+        {conversation_id:2,type:'private',name:'项目启动通知',peer_user:{user_id:2,username:'项目协调员'},other_user_id:2,unread_count:3,last_message:{content:'三个项目的工作群、公告和资料待准备',created_at:stamp}},
+        ...Object.values(s.world.groups).map((g:any)=>({conversation_id:g.id,type:'group',name:g.name,unread_count:0,last_message:{content:g.messages.at(-1)?.body || '工作群已创建',created_at:stamp}}))
+      ]});
+      if(method==='GET' && path.endsWith('/messages')) {
+        if(groupId==='2')return respond({messages:s.world.projects.map((p:any,i:number)=>({msg_id:5000+i,sender_id:2,sender_name:'项目协调员',created_at:stamp+i,
+          content:`项目 ${p.id}：${p.name}\n请从项目通知中的候选名单选择三人，建立“${p.group_name}”。\n群公告：${p.announcement}\n项目资料：${p.material_link}`})).reverse()});
+        return respond({messages:(group?.messages||[]).map((m:any)=>({msg_id:10000+m.id,sender_id:1,sender_name:'周予安',created_at:stamp+m.id,content:m.body})).reverse()});
+      }
+      if(method==='GET' && path.endsWith('/group') && group)return respond({name:group.name,owner_id:1,created_at:stamp,description:'项目工作群',
+        announcements:group.announcement?[{id:1,content:group.announcement,publisher_name:'周予安',created_at:stamp}]:[],
+        members:[{user_id:1,username:'周予安',role:'owner'},...s.items.flatMap((item:any,i:number)=>group.members.includes(item.id)?[{...user(i),role:'member'}]:[])]});
+      if(method==='POST' && path==='/api/conversations' && Array.isArray(body.member_ids)) {
+        const ids=body.member_ids.map((id:number)=>s.items[id-10]?.id);
+        if(ids.some((id:any)=>!id))throw Error('联系人不存在');
+        const next=await imCommand('group.create','',JSON.stringify({name:body.name,members:ids}));
+        return respond({conversation_id:100+next.state.next_group-1});
+      }
+      if(method==='PUT' && path.endsWith('/group') && group && typeof body.name==='string') {
+        await imCommand('group.name',groupId,JSON.stringify({text:body.name}));return respond({name:body.name});
+      }
+      if(method==='POST' && path.endsWith('/group/announcement') && group) {
+        await imCommand('group.announcement',groupId,JSON.stringify({text:body.content}));return respond({published:true});
+      }
+      if(method==='POST' && path.endsWith('/messages') && group) {
+        await imCommand('group.message',groupId,JSON.stringify({text:body.content}));return respond({msg_id:10000+group.messages.length+1});
+      }
+      if(group && ((method==='POST' && path.endsWith('/group/invite')) || (method==='DELETE' && path.endsWith('/group/members')))) {
+        const item=s.items[Number(body.user_id)-10];if(!item)throw Error('请选择有效成员');
+        const members=method==='POST' ? Array.from(new Set([...group.members,item.id])) : group.members.filter((id:string)=>id!==item.id);
+        await imCommand('group.members',groupId,JSON.stringify({members}));return respond({updated:true});
+      }
+      if(method==='POST' && path.endsWith('/group/leave') && group) {
+        await imCommand('group.delete',groupId);return respond({left:true});
+      }
+      const profileId=Number(path.match(/\/user\/(\d+)/)?.[1]);
+      if(method==='GET' && profileId>=10 && s.items[profileId-10])return respond({...user(profileId-10),bio:s.items[profileId-10].account});
+    }
     const msg = (item: any, i: number) => ({
       msg_id: 100 + i,
       sender_id: projectReceipts ? item.receipt_sender_id : 2,

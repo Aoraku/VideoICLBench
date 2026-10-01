@@ -83,6 +83,7 @@ const pageOf = (rows) => ({
 });
 function user(state, id) {
   id = Number(id);
+  if(state.workflow==='communications')return {id,user_id:id,username:id===1?'周予安':state.world.conversations.find(c=>c.user_id===id)?.name || '联系人',remark:'',avatar:null,is_friend:true,presence:'online',status:'online'};
   const index = id - 10,
     item = state.items[index];
   const name =
@@ -153,6 +154,20 @@ function message(
 }
 function messages(state, conv) {
   conv = Number(conv);
+  if(state.workflow==='communications') {
+    const fileMessage=(mid,fileId,sender,body,reference)=>{
+      const file=state.domain.files[fileId];
+      const row={...message(state,mid,body,sender,conv),type:'file',content:{filename:file.name,size:file.size,mime_type:'text/plain',url:`data:text/plain;base64,${file.content}`,text:body}};
+      const request=state.world.requests.find(r=>r.id===reference);
+      if(request)row.reply_to={msg_id:request.message_id,sender_name:user(state,request.requester).username,content:{text:request.body},type:'text'};
+      return row;
+    };
+    const rows=state.task_id===11 ? [
+      ...state.world.requests.filter(r=>r.conversation===conv).map(r=>message(state,r.message_id,r.body,r.requester,conv)),
+      ...state.items.filter(x=>x.conversation===conv).map(item=>fileMessage(item.message_id,item.id,conv,`${item.project} · ${item.file_type} · ${item.version}`))
+    ] : state.items.filter(x=>x.conversation===conv).map(item=>message(state,item.message_id,item.text,conv,conv,state.domain.objects[item.id]));
+    return [...rows,...state.domain.messages.flatMap((m,i)=>Number(m.recipient)!==conv?[]:[m.attachment?fileMessage(10000+i,m.attachment,1,m.body,m.reference):message(state,10000+i,m.body,1,conv)])];
+  }
   if(state.v2_worksets && state.task_id===2){
     const identity=(item)=>`我是 ${item.name}，我的成员账号是 ${item.record_code}。请使用我的姓名整理通讯录备注。`;
     if(conv===5)return state.items.flatMap((item,i)=>item.scope_id==='scope-1'?[message(state,500+i,identity(item),10+i,5)]:[]);
@@ -220,6 +235,7 @@ function messages(state, conv) {
     : [];
 }
 function conversations(state, scoped=true) {
+  if(state.workflow==='communications')return state.world.conversations.map(c=>({conversation_id:c.id,type:'private',name:c.name,peer_user:user(state,c.user_id),unread_count:0,last_message:messages(state,c.id).at(-1),updated_at:state.source.reference_time,benchmark_scope:c.project,benchmark_record:''}));
   if (state.task_id === 13) return [3, 2].map(id => ({
     conversation_id: id, type: "private", peer_user: user(state, id),
     unread_count: id === 3 && !readConversations.has(3) ? state.items.length : 0,
@@ -276,6 +292,29 @@ export async function nativeRequest(path, options = {}) {
     url = new URL(path, location.origin),
     p = url.pathname.replace(/\/$/, "");
   const { state } = await business();
+  if(state.workflow==='communications') {
+    if(method==='GET' && p==='/friends')return pageOf(state.world.conversations.map(c=>user(state,c.user_id)));
+    if(method==='GET' && p==='/bookmarks') {
+      const archived=url.searchParams.get('archived')==='true';
+      return pageOf(state.items.filter(x=>archived?state.domain.objects[x.id].archived:state.domain.objects[x.id].starred).map(item=>({
+        bookmark_id:item.message_id,conversation_id:item.conversation,conversation_name:user(state,item.conversation).username,
+        title:item.text,note:'',is_archived:archived,message:message(state,item.message_id,item.text,item.conversation,item.conversation,state.domain.objects[item.id])
+      })));
+    }
+    if(method==='POST' && p==='/messages/forward' && state.task_id===13) {
+      if(body.target_conv_ids?.length!==1 || body.target_conv_ids[0]!==2)throw new Error('本次转发收件人为程知夏');
+      for(const mid of body.msg_ids||[]) {
+        const item=state.items.find(x=>x.message_id===Number(mid)&&x.conversation===body.source_conv_id);
+        if(!item)throw new Error('请选择原会话中的消息');
+        await command('action',item.id,'转发');
+      }
+      return {success:true};
+    }
+    if(method==='POST' && p==='/bookmarks' && state.task_id===13) {
+      const item=state.items.find(x=>x.message_id===Number(body.msg_id));if(!item)throw new Error('消息不存在');
+      await command('action',item.id,'收藏');return {bookmark_id:item.message_id};
+    }
+  }
   if (method === "GET") {
     if (p === "/users/me") return user(state, 1);
     if (/^\/users\/\d+$/.test(p)) return user(state, p.split("/").at(-1));

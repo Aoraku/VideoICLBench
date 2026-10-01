@@ -99,7 +99,7 @@ class ApplicationStore(WorkspaceStore):
         if not row:
             raise ValueError("Application not initialized")
         state = json.loads(row[0])
-        if state["task_id"] >= 66 or state.get('workflow'):
+        if state["task_id"] >= 66 or state.get('workflow') == 'procurement':
             return state
         d = {
             name: json.loads(value)
@@ -169,6 +169,9 @@ class ApplicationStore(WorkspaceStore):
             elif state.get('workflow') == 'procurement':
                 from .procurement import apply
                 state = apply(state, mutation.op, mutation.target, mutation.value)
+            elif state.get('workflow') == 'communications':
+                from .communications import apply
+                state = apply(state, mutation.op, mutation.target, mutation.value, mutation.ids)
             elif is_delivery:
                 state = atomic_delivery.apply(state,mutation.op,mutation.target,mutation.value)
             else:
