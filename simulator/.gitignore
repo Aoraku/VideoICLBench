@@ -12,3 +12,4 @@ embodied_icl/private_runs/
 hosted/runs/
 .env
 .env.*
+recordings/

@@ -1,11 +1,34 @@
 <!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VideoICL · Hosted Operator</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#11151c;color:#e7edf7;font:14px system-ui}header{padding:18px 24px;border-bottom:1px solid #303947;display:flex;justify-content:space-between}h1{font-size:19px;margin:0}small,.muted{color:#9daec3}main{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(360px,1fr);height:calc(100vh - 65px)}section{padding:20px;overflow:auto}aside{padding:20px;background:#19212c;overflow:auto;border-left:1px solid #303947}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}figure{margin:0;background:#080c12;border-radius:10px;overflow:hidden}figcaption{padding:8px 12px;color:#bcd0e5;font-size:12px}figure img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain}h2{font-size:15px;margin:20px 0 12px}video{width:100%;max-height:280px;background:black;border-radius:8px}button{cursor:pointer;border:1px solid #51617a;border-radius:7px;background:#28364b;color:white;padding:10px 15px;font-weight:600}button:first-child{background:#386fe0}button:disabled{opacity:.4;cursor:default}.controls{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.badge{color:#96d9b4}.card{border:1px solid #3b485c;padding:12px;border-radius:9px;margin:10px 0;background:#131c28}pre{white-space:pre-wrap;word-break:break-word;font:12px/1.6 ui-monospace,monospace}summary{cursor:pointer;color:#b8cef5}.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.strip img{width:100%}.event{padding:12px;border-bottom:1px solid #344154}.event b{color:#9dc4ff}.error{color:#ffb3a5}#feedback{white-space:pre-wrap;color:#b6c8e0}#notice{color:#ffcf88;margin:10px 0}.pair{display:flex;gap:10px}.pair div{flex:1;background:#202f44;border-radius:8px;padding:12px} @media(max-width:900px){main{display:block;height:auto}aside{border-left:0}section{overflow:visible}}
+body{height:100vh;display:flex;flex-direction:column}header{gap:12px;flex-wrap:wrap;align-items:center;flex-shrink:0}main{height:auto;flex:1;min-height:0}figure img{height:clamp(140px,22vh,260px);aspect-ratio:auto}video{max-height:190px}#feedback{font-size:12px}@media(max-width:900px){main{overflow:auto}section,aside{overflow:visible}}
 </style>
-<header><h1>VideoICL <small> / Hosted VLM Operator</small></h1><span class="badge">HTTP ACTIONS · DEMO-ONLY</span></header>
+<header><h1>VideoICL <small> / Hosted VLM Operator</small></h1><span class="badge">HTTP ACTIONS · DEMO-ONLY</span><div><button id="record-window">录制整个浏览器窗口</button> <button id="stop-record" disabled>停止并保存录像</button><small id="record-status"></small></div></header>
 <main><section><div class="grid" id="live"></div><h2>当前动作</h2><div class="pair"><div>LEFT <strong id="left">—</strong></div><div>RIGHT <strong id="right">—</strong></div></div><p id="feedback">连接仿真环境…</p><h2>原始演示 · 仿真机器人视频</h2><video controls preload="metadata" src="/demo.mp4"></video><p class="muted">模型每轮收到同一组 12 张演示抽帧与 4 路当前相机图。HTTP operator 直接调用基础动作接口；本界面不是浏览器点击录制。</p></section>
 <aside><div id="model">模型未配置</div><h2 id="state">PAUSED</h2><div id="notice"></div><div class="controls"><button id="run" onclick="control('run')">Run</button><button onclick="control('pause')">Pause</button><button id="once" onclick="control('once')">Step once</button><button onclick="control('stop')">Stop</button></div><p class="muted">Pause 丢弃未执行回复；已提交的动作会完成。Stop 终止本运行器，环境不自动判为成功。模型 finish 才提交判分。</p><div class="card"><details><summary>模型实际收到的当前图片</summary><div class="strip" id="input"></div><pre id="inputstate"></pre></details><details><summary>实际发送的 12 张演示抽帧</summary><div class="strip" id="demo"></div></details><details><summary>固定 prompt（不含任务规则）</summary><pre id="prompt"></pre></details></div><h2>运行记录 <small>公开动作说明与执行反馈</small></h2><div id="events"><p class="muted">尚无模型调用。</p></div></aside></main>
 <script>
+let captureStream=null,recorder=null,chunks=[];
+document.getElementById('record-window').onclick=async()=>{
+try{
+ captureStream=await navigator.mediaDevices.getDisplayMedia({video:{displaySurface:'window',frameRate:15},audio:false});
+ if(captureStream.getVideoTracks()[0].getSettings().displaySurface!=='window'){
+  captureStream.getTracks().forEach(t=>t.stop());set('record-status','请选择“窗口”中的浏览器窗口，不能只选相机或标签页。');return;
+ }
+ chunks=[];recorder=new MediaRecorder(captureStream,{mimeType:'video/webm',videoBitsPerSecond:5000000});
+ recorder.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};
+ recorder.onstop=()=>{
+  captureStream.getTracks().forEach(t=>t.stop());
+  const u=URL.createObjectURL(new Blob(chunks,{type:'video/webm'}));const a=document.createElement('a');
+  a.href=u;a.download='VideoICL_browser_window_'+new Date().toISOString().replace(/[:.]/g,'-')+'.webm';a.click();
+  setTimeout(()=>URL.revokeObjectURL(u),60000);chunks=[];
+  document.getElementById('record-window').disabled=false;document.getElementById('stop-record').disabled=true;set('record-status','已保存完整窗口录像');
+ };
+ captureStream.getVideoTracks()[0].onended=()=>{if(recorder.state!=='inactive')recorder.stop()};
+ recorder.start(1000);document.getElementById('record-window').disabled=true;document.getElementById('stop-record').disabled=false;set('record-status','● 正在录制整个窗口');
+}catch(e){if(captureStream)captureStream.getTracks().forEach(t=>t.stop());set('record-status','录屏未开始，请允许窗口捕获。')}
+};
+document.getElementById('stop-record').onclick=()=>{if(recorder&&recorder.state!=='inactive')recorder.stop()};
+window.addEventListener('beforeunload',e=>{if(recorder&&recorder.state!=='inactive'){e.preventDefault();e.returnValue=''}});
 const names=['overhead','agentview','wrist_left','wrist_right'];
 for(const n of names){const f=document.createElement('figure');const c=document.createElement('figcaption');c.textContent=n;const i=document.createElement('img');i.id='cam-'+n;i.alt=n;f.append(c,i);document.querySelector('#live').append(f)}
 const set=(id,t)=>document.getElementById(id).textContent=t;
@@ -17,5 +40,5 @@ if(s.input&&s.calls!==lastCall){pictures('input',Object.entries(s.input.images))
 if(s.demo_frames.length&&!demoLoaded){pictures('demo',s.demo_frames.map((x,i)=>['frame '+(i+1),x]));demoLoaded=true}
 const latest=s.events.at(-1)?.id;if(latest!==lastEvent){const root=document.getElementById('events');root.replaceChildren();for(const e of [...s.events].reverse()){const row=document.createElement('div');row.className='event';const title=document.createElement('b');title.textContent=new Date(e.time*1000).toLocaleTimeString()+' · '+e.kind;const body=document.createElement('pre');body.textContent=JSON.stringify(Object.fromEntries(Object.entries(e).filter(([k])=>!['time','id','kind'].includes(k))),null,2);row.append(title,body);root.append(row)}lastEvent=latest;const d=[...s.events].reverse().find(e=>e.kind==='executed');if(d){set('left',d.decision.left);set('right',d.decision.right)}}
 }catch(e){set('notice','运行器连接中断')}setTimeout(poll,1500)}
-async function view(){try{const r=await fetch('/api/view');const v=await r.json();if(!r.ok)throw Error();for(const n of names)document.getElementById('cam-'+n).src='data:image/jpeg;base64,'+v.images[n];set('feedback',JSON.stringify(v.state,null,2))}catch(e){set('feedback','仿真连接失败，请检查服务端进程。')}setTimeout(view,2000)}poll();view();
+async function view(){try{const r=await fetch('/api/view');const v=await r.json();if(!r.ok)throw Error();for(const n of names)document.getElementById('cam-'+n).src='data:image/jpeg;base64,'+v.images[n];set('feedback',v.state.status+' · '+v.state.steps+'/'+v.state.max_pairs+' pairs · gripper commands: L '+(v.state.gripper_closed.left?'closed':'open')+' / R '+(v.state.gripper_closed.right?'closed':'open'))}catch(e){set('feedback','仿真连接失败，请检查服务端进程。')}setTimeout(view,2000)}poll();view();
 </script></html>

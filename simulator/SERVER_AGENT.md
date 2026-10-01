@@ -75,3 +75,58 @@ Show-Harness 同时有浏览器扩展控制和 Hosted HTTP 模式。这里采用
 - [Hosted operator](https://github.com/showlab/Show-Harness/blob/main/gumi/gpt_operator/operator.py)
 - [上游监督面板](https://github.com/showlab/Show-Harness/blob/main/gumi/gpt_operator/static/index.html)
 - [图片输入协议](https://developers.openai.com/api/docs/guides/images-vision)
+
+## Agentlab / qingle：CPU 部署
+
+Agentlab 没有 NVIDIA GPU，采用 OSMesa 软件渲染。独立部署目录 `/home/qingle/services/videoicl-simulator`，不修改原工作台的 Docker Compose 或数据卷。依赖 Debian 软件包 `libosmesa6`，Python 依赖仍为本目录 requirements.txt。
+
+```bash
+sudo apt-get install --no-install-recommends libosmesa6 xvfb ffmpeg chromium chromium-sandbox fonts-noto-cjk
+cd /home/qingle/services/videoicl-simulator
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+MUJOCO_GL=osmesa PYOPENGL_PLATFORM=osmesa LP_NUM_THREADS=4 OPENBLAS_NUM_THREADS=1 \
+  .venv/bin/python run_hosted.py --variant C --seed 31 --environment-port 18641 --port 18642
+```
+
+仓库附 `deploy/agentlab.service` 用户服务配置，路径与上述目录对应。模型配置可写在该目录 `.env`（权限 600，`VLM_BASE_URL=...`、`VLM_MODEL=...`、`VLM_API_KEY=...`），systemd 读取，不提交 Git。服务默认允许缺省配置，只有模型调用被禁用。
+
+```bash
+mkdir -p ~/.config/systemd/user
+cp deploy/agentlab.service ~/.config/systemd/user/videoicl-simulator.service
+systemctl --user daemon-reload
+systemctl --user enable --now videoicl-simulator
+# 使退出 SSH / 重启后仍能启动用户服务：
+sudo loginctl enable-linger qingle
+systemctl --user status videoicl-simulator
+journalctl --user -u videoicl-simulator -n 30
+```
+
+访问时本地同端口转发（可与原工作台、ubuntu-descfly 部署并存）：
+
+```bash
+ssh -N -L 127.0.0.1:18642:127.0.0.1:18642 qingle@agentlab
+```
+
+打开 http://127.0.0.1:18642/ 。原始 GUI 如需独立访问，再加 `-L 127.0.0.1:18641:127.0.0.1:18641`。这是独立仿真入口，不是已接入原任务列表或统一评分调度。
+
+## 必须录完整浏览器
+
+`execution.mp4` 只用于物理调试，**不能作为完整 Agent 操作录像交付**。
+
+1. **Agent 操作本地 GUI**：先点击 Hosted 面板“录制整个浏览器窗口”，在浏览器选择器中选实际操作的浏览器**窗口**，再开始操作。录屏会包含该窗口的地址栏、页面、面板、滚动及点击。只选标签页会被拒绝。停止后下载 WebM；不要在保存前关闭发起录屏的标签页。实际 Agent 操作若发生在另一个窗口，必须选择那个窗口。
+2. **服务器 Hosted HTTP operator**：用 `record_browser.py` 启动真实的有头 Chromium，Xvfb 承载完整窗口，FFmpeg 录制地址栏及整页可见区域。它展示真实的右侧模型响应与动作反馈，不制造鼠标点击。先启动录屏并确认页面加载，再 Run，最后结束录屏。
+
+```bash
+# 在 Agentlab 执行；0 表示一直录到 Ctrl-C / SIGTERM。
+.venv/bin/python record_browser.py --url http://127.0.0.1:18642/ \
+  --output recordings/session_browser.mp4 --duration 0
+```
+
+默认 1600×1200、15 fps，可用 `--display` 指定未占用的 X display。程序拒绝覆盖已存在的输出文件；结束时关闭 Chromium/Xvfb 并正常封装 MP4。旁边保存录制元数据 JSON 和错误日志。录制的是**这个服务器 Chromium**，并不录制用户本地窗口或另一个隐藏 Agent 浏览器；GUI Agent 试验不能拿服务器旁观窗口冒充实际点击录像。服务器窗口主要适用于 Hosted HTTP 路径。
+
+`--duration 15` 可用于录屏工程验收。工程验收录像不是独立 Agent 的成功轨迹。
+
+### 2026-10-01 Agentlab 验收
+
+Python 3.13.5 + OSMesa 已通过四路渲染、动作执行、旧观察拒绝、私有提交和物理契约测试；8 项 Hosted 协议测试通过。用户服务 `videoicl-simulator` 已启动，原平台 8765/8771 健康检查通过。Chromium 完整窗口样片实测 1600×1200、15 fps，含地址栏、演示、相机、状态和侧栏；该样片只验证录屏，不是 Agent 完成任务的证据。API 模型凭据仍未配置。
