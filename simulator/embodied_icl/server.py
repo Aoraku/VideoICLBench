@@ -1,4 +1,5 @@
 """GUMI-derived browser console -> one shared MuJoCo world -> private judge."""
+import base64
 import argparse
 import io
 import json
@@ -23,14 +24,14 @@ class Engine:
         self.run=ROOT/'private_runs'/uuid.uuid4().hex[:12]
         self.run.mkdir(parents=True)
         self.status='ready';self.count=0;self.message='Watch the demonstration, then START.'
-        self.frames={};self.writer=None;self.frame_count=0
+        self.frames={};self.writer=None;self.frame_count=0;self.revision=0
         self.world=World(seed=args.seed)
         self.renderer=mujoco.Renderer(self.world.m,height=288,width=384)
         self.world.capture=self.render
         self.render()
         self.initial=[float(x) for x in self.world.d.qpos]
         self.write_json('episode.json',{'variant':args.variant,'seed':args.seed,'order':ORDERS[args.variant],
-            'kind':'developer_GUI_acceptance','demo_source':'simulated_robot','physics':'MuJoCo',
+            'kind':'interactive_episode','demo_source':'simulated_robot','physics':'MuJoCo',
             'initial_qpos':self.initial,'max_pairs':args.max_pairs,'action_time_s':.9,
             'simulation_clock':'paused between GUI actions; simultaneous arms within each action'})
 
@@ -44,7 +45,7 @@ class Engine:
                 'task_text':'Watch the demonstration. Reproduce its arrangement on the mat.',
                 'gripper_closed':dict(self.world.closed),'max_pairs':self.args.max_pairs}
 
-    def render(self):
+    def render(self,record=True):
         w=self.world
         cams={}
         for name,look,dist,az,el in [
@@ -64,10 +65,22 @@ class Engine:
         mosaic=np.vstack([np.hstack([images['overhead'],images['agentview']]),
                           np.hstack([images['wrist_left'],images['wrist_right']])])
         self.mosaic=mosaic
-        if self.writer:
+        if self.writer and record:
             self.writer.append_data(mosaic);self.frame_count+=1
 
     def execute(self,path,body):
+        # Queued on the simulation thread: snapshots cannot overlap an action.
+        if path=='/api/observe':
+            self.render(record=False)
+            return {'ok':True,'observation_id':f'{self.run.name}:{self.revision}',
+                    'state':self.state(), 'images':{name:base64.b64encode(data).decode('ascii')
+                                                   for name,data in self.frames.items()}}
+        if path not in ('/api/start','/api/step','/api/stop'):
+            raise ValueError('Unsupported endpoint.')
+        if 'expected_observation' in body and body['expected_observation']!=f'{self.run.name}:{self.revision}':
+            raise ValueError('Stale observation; obtain a fresh image before acting.')
+        # Invalidate even failed/partially executed commands; never replay a stale decision.
+        self.revision+=1
         if path=='/api/start':
             if self.status!='ready':raise ValueError('This episode can only be started once.')
             self.writer=imageio.get_writer(self.run/'execution.mp4',fps=25,codec='libx264',quality=8)

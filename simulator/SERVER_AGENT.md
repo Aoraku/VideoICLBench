@@ -1,38 +1,77 @@
-# 服务器部署与 Agent 界面路线（2026-10-01）
+# Hosted VLM operator：服务器部署
 
-基线提交：`2c25e7f`。当前目录是 MuJoCo + GUI + 私有判分原型，尚不包含独立模型运行器或右侧 Agent 面板。历史开发者点击验收不能称为独立 demo-only ICL 成绩。
+按当前选择，本项目实现 **Hosted HTTP operator**。模型通过视觉观察输出基础动作 token，运行器调用 `/api/step`；不依赖浏览器扩展，也不声称是 Computer Use 点击。右侧显示模型实际输入、公开动作说明、执行反馈和运行控制。
 
-## Show-Harness 实际提供的两条路线
-
-1. **浏览器 Agent**：把 `prompts/web_operator_dual.txt` 交给 Computer Use Agent，由其截图、点击按钮并检查步数。示例里的 Claude 右栏来自 Claude 浏览器扩展，非 GUMI 服务自带聊天侧栏。上游 `gumi/gpt_operator/operator.py` 模块说明明确区分 Claude 扩展点击与 HTTP operator。
-2. **Hosted VLM operator**：`gumi/gpt_web_operator.py --target-url http://localhost:8620` 读取状态及相机 JPEG，请模型输出结构化动作，再调用 `/api/step`。8630 端口提供独立监督面板，包含 Run/Pause/Step once、实际输入帧、当前 prompt 和决策事件。这条路径不经过浏览器点击，不应标成 Computer Use。
-
-来源：
-- https://github.com/showlab/Show-Harness/blob/main/gumi/README.md
-- https://github.com/showlab/Show-Harness/blob/main/prompts/web_operator_dual.txt
-- https://github.com/showlab/Show-Harness/blob/main/gumi/gpt_operator/operator.py
-- https://github.com/showlab/Show-Harness/blob/main/gumi/gpt_operator/static/index.html
-
-## 本项目应做的改动
-
-正式主模式采用 GUI Computer Use：demo/统一抽帧 + 通用按钮说明 + 当前网页截图，模型输出屏幕点击或按键。运行器不得获得场景坐标、任务版本、源码或判分状态。HTTP token 模式可保留为独立对照，明确记录模式，不混报分数。
-
-左侧为演示和机器人 GUI，右侧为 Agent 运行事件面板。面板展示：运行模式、模型名称、实际输入 demo/抽帧、最近观察、模型公开响应摘要、工具调用、执行反馈、延迟、预算和开始/暂停/单步/停止。不伪造模型思考过程。展示给人的监督面板不纳入 Agent 截图，避免递归观察和额外信息泄漏。
-
-上游 `compact_model_state` 当前白名单含 `ee_pos`、`holding`、`picked`、`placed`、`task_done`、`can_stop`；不应直接复制。我们只允许图片、通用命令/步数反馈，判分结果提交后服务端保存。上游示例 prompt 中 TASK 是文字任务，也必须换为通用 demo-only 指令，不能写入颜色层序。
-
-服务器组件应分开：MuJoCo 进程（EGL/OSMesa）→ 环境 HTTP 服务 → 隔离浏览器与 Agent worker → 人类监督界面。密钥只在 worker 的服务端环境中，不能返回前端。每个 episode 使用独立状态/进程与输出目录；暂停阻止新动作，不能撤销已执行动作。
-
-## 当前版本的服务器运行方式
-
-先在服务器建立独立 venv、安装 requirements，运行 `python run.py --variant C --seed 31 --port 18631`。无桌面 NVIDIA 服务器设置 `MUJOCO_GL=egl`（需可用 EGL 驱动）；CPU 软件渲染可选择已安装 OSMesa 的环境。
-
-服务目前仅绑定 127.0.0.1，推荐先用同端口 SSH 隧道访问：
+## 启动（Linux NVIDIA 服务器）
 
 ```bash
-ssh -N -L 127.0.0.1:18631:127.0.0.1:18631 ubuntu-descfly
+cd simulator
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt
+export MUJOCO_GL=egl
+# 使用支持图片输入的 Chat Completions 兼容服务；不自动选择模型/提供商。
+export VLM_BASE_URL=https://YOUR_PROVIDER/v1
+export VLM_MODEL=YOUR_VISION_MODEL
+read -rsp 'VLM API key: ' VLM_API_KEY; export VLM_API_KEY; echo
+python run_hosted.py --variant C --seed 31 --environment-port 18631 --port 18632
 ```
 
-浏览器打开 http://127.0.0.1:18631/ 。原服务 Origin 检查只认可 localhost/127.0.0.1 加服务端口，因此不同本地端口、域名反代不能直接照搬。域名部署需增加显式 allowed-origin 配置、反向代理与 HTTPS；网页 getDisplayMedia 录屏也需要安全上下文。暂不要仅把监听地址改成 0.0.0.0 就当成完成部署。
+API key 只在运行器环境内，不能填写到网页、提交到 Git 或发送给仿真进程。自托管无鉴权的兼容服务可设占位 key。没有配置时面板仍可查看仿真，但 Run/Step once 禁用；不会虚构模型运行记录。仅实现 `/chat/completions` 图片消息协议，并非所有厂商 API 的通用适配器。
 
-下一版交付应包含 Linux 环境锁定、容器/启动脚本、健康检查、GPU/软件渲染 smoke test、固定 prompt、Agent worker、右侧事件面板以及一局独立 Agent 的输入/动作/判分记录。模型凭据及一次真实调用验证属于 Agent 接入验收，当前版尚未实现。
+本地建立同端口隧道：
+
+```bash
+ssh -N -L 127.0.0.1:18632:127.0.0.1:18632 ubuntu-descfly
+```
+
+访问 http://127.0.0.1:18632/ 。不需要服务器安装浏览器或桌面环境。MuJoCo 使用 EGL，页面在本地浏览器渲染。两项服务均只绑定 localhost，不是开放公网的多用户产品。生产域名接入需要额外的 HTTPS、身份认证和明确 Origin 配置，不要直接暴露端口。
+
+已有独立仿真服务时也可只运行：
+
+```bash
+python hosted/hosted_operator.py --target-url http://127.0.0.1:18631 --port 18632
+```
+
+`run_hosted.py` 监督两个子进程，任一退出则清理另一项；SIGINT/SIGTERM 同样清理。需要常驻可由 systemd 管理这条命令，密钥通过权限受限的 EnvironmentFile 注入。每次启动创建新 episode；Stop 后重新启动运行器才能再次调用模型，新的正式评测须同时重启环境。
+
+## 模型究竟读到什么
+
+每次调用包含固定 `hosted/prompt.txt`、12 张按时间排序的 demo JPEG、四路同一动作边界的当前图片、状态/步数/预算/夹爪开合命令，以及最近 8 次有效决策和执行反馈。演示目前是**脚本生成的仿真机器人**，并非真实人手；目前输入是 **12 帧采样**，不是原视频全帧。面板原视频供人检查，模型收到的图片另行展示。
+
+模型不读网页 DOM、源码、文件系统、TCP、物体位姿、抓取成功真值、规则文字、A/B/C 版本、demo 元数据或判分结果。运行器通过独立白名单组装请求，提交结果保存在环境私有目录。相对移动步长是动作参数，不是当前世界坐标。GRASP 只闭合夹爪，不自动找物体。
+
+每轮只允许一对同时执行的左右臂 token，步长 5/10/20 mm；旋转目前只有绕竖直轴 10°。模型必须自己根据图像对齐和调整。返回 JSON 经过严格字段、token、类型及范围校验；无代码执行、对象级技能、额外工具或任意 URL 请求。
+
+`/api/observe` 在仿真主线程排队，返回动作结束后的同步图片和不透明观察标识；执行时用该标识防止人工操作或环境变化后执行旧决策。标识不发送给模型。
+
+## 控制与记录
+
+- **Run**：持续观察 → 调用模型 → 验证 → 执行 → 再观察。
+- **Step once**：一轮。首次运行会自动 START 环境。
+- **Pause**：阻止新动作，丢弃尚未执行的模型回复；不能撤销已经下发的动作。
+- **Stop**：终止该运行器。环境保持当前状态，不自动宣布完成。
+- 模型 `finish=true`：提交环境，锁定 episode，私有判分；前端不展示成功真值。
+
+请求超时、非法回复、预算耗尽、过期观察都会停止继续执行；模型请求不自动重试。检查后可在预算允许时手动 Run。模型调用预算与物理动作预算独立。右侧 summary 是模型公开的简短动作说明，不是内部思维链。
+
+`hosted/runs/<id>/` 保存固定 prompt、逐次完整请求（含实际图片）以及决策/执行事件 JSONL；不会保存 key 或提供商的 reasoning_content。失败响应不保存原文，防止提供商回显凭据。环境在 `embodied_icl/private_runs/` 保存私有物理状态、评分及相机执行视频。两个目录均 gitignore。部署包有源码和作者 demo 元数据，正式参测模型只能获得运行器规定输入，不能拥有服务器 shell。
+
+## 验证与边界
+
+```bash
+python hosted/test_operator.py
+python simulation_b01/build_scene.py
+python embodied_icl/test_contract.py
+```
+
+协议测试使用假模型验证 16 张图片输入、隐藏字段过滤、非法动作拒绝、暂停取消、观察过期、提交、错误不重试和调用预算。假模型测试**不是 ICL 成绩**。必须配置有效视觉模型，再用 Run 获得独立 Agent 的真实轨迹与私有评分，才能评估模型成功率。历史开发者操作和脚本 demo 均不能算盲测成绩。
+
+## 上游依据
+
+Show-Harness 同时有浏览器扩展控制和 Hosted HTTP 模式。这里采用后者的观察→决策→动作思路，代码为本项目适配实现；不复制上游状态中的 `ee_pos`、`holding`、`picked`、`placed`、`task_done`、`can_stop`。截图里的 Claude 扩展侧栏无需复刻，提供我们自己的监督面板。
+
+- [Show-Harness GUMI](https://github.com/showlab/Show-Harness/blob/main/gumi/README.md)
+- [Hosted operator](https://github.com/showlab/Show-Harness/blob/main/gumi/gpt_operator/operator.py)
+- [上游监督面板](https://github.com/showlab/Show-Harness/blob/main/gumi/gpt_operator/static/index.html)
+- [图片输入协议](https://developers.openai.com/api/docs/guides/images-vision)

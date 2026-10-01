@@ -9,3 +9,6 @@ simulation_b01/events.json
 simulation_b01/result.json
 embodied_icl/private_runs/
 *.log
+hosted/runs/
+.env
+.env.*
