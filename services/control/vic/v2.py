@@ -10,7 +10,7 @@ from vic_apps.editorial_projects import TASKS as EDITORIAL_TASKS
 from vic_apps.publishing import TASKS as PUBLISHING_TASKS
 from vic_apps.studio_projects import TASKS as STUDIO_PROJECT_TASKS
 
-EXECUTABLE = {35,44,45,51,52,54,55,69,74} | ATOMIC_TASKS | WORKSET_TASKS | COMMUNICATION_TASKS | MUSIC_PROJECT_TASKS | EDITORIAL_TASKS | PUBLISHING_TASKS | STUDIO_PROJECT_TASKS
+EXECUTABLE = {35,44,45,46,51,52,54,55,56,69,74} | ATOMIC_TASKS | WORKSET_TASKS | COMMUNICATION_TASKS | MUSIC_PROJECT_TASKS | EDITORIAL_TASKS | PUBLISHING_TASKS | STUDIO_PROJECT_TASKS
 
 
 def catalog():
@@ -59,6 +59,9 @@ def generate(task_id, seed, mode):
     if task_id in (44,51,54):
         from vic_apps.travel_projects import fixture
         return fixture(task_id,seed,task(task_id))
+    if task_id in (46,56):
+        from vic_apps.payment_projects import fixture
+        return fixture(task_id,seed,task(task_id))
     if task_id in (52,55):
         from vic_apps.shop_projects import fixture
         return fixture(task_id,seed,task(task_id))
@@ -78,6 +81,9 @@ def generate(task_id, seed, mode):
 
 
 def evaluate(initial, state, variant, events):
+    if initial.get('workflow')=='payment_projects':
+        from .v2_payment_projects import evaluate as evaluate_payments
+        return evaluate_payments(initial,state,variant,events)
     if initial.get('workflow')=='shop_projects':
         from .v2_shop_projects import evaluate as evaluate_shop_projects
         return evaluate_shop_projects(initial,state,variant,events)

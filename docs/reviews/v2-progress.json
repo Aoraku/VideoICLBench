@@ -7,13 +7,13 @@
     "server": "agentlab",
     "observed_source": "ef85710ade1ca8b7c1900df7759644f3fc2aefa8",
     "services": "healthy",
-    "observed_at": "2026-10-01T18:38:30.691604+00:00"
+    "observed_at": "2026-10-01T19:32:31.911260+00:00"
   },
   "evidence": {
     "procurement_ui": "docs/reviews/v2-procurement-ui.json",
     "unit_tests": "tests/test_v2.py",
     "browser_check": "scripts/check_v2_procurement_ui.py",
-    "regression": "1924 full-suite tests passed; 207 native inference conditions and 207 initial demo conditions verified across 69 tasks; 912 teaching episodes verified through API tests. Final Shop link formatting is additionally covered by 17 focused tests and all six native inference conditions.",
+    "regression": "1947 full-suite tests passed; 213 native inference conditions and 213 initial demo conditions verified across 71 tasks; 933 teaching episodes verified through API tests.",
     "native_ui": "docs/reviews/v2-native-progress-ui.json",
     "worksets_ui": "docs/reviews/v2-worksets-ui.json",
     "stopping_ui": "docs/reviews/v2-stopping-ui.json",
@@ -29,7 +29,8 @@
     "travel_projects_ui": "docs/reviews/v2-travel-projects-ui.json",
     "procurement_links_ui": "docs/reviews/v2-procurement-links-ui.json",
     "procurement_links_regression": "Nine targeted procurement API tests and all three native Shop/IM conditions passed after integration; both frontends built successfully.",
-    "shop_projects_ui": "docs/reviews/v2-shop-projects-ui.json"
+    "shop_projects_ui": "docs/reviews/v2-shop-projects-ui.json",
+    "payment_projects_ui": "docs/reviews/v2-payment-projects-ui.json"
   },
   "tasks": [
     {
@@ -1495,11 +1496,32 @@
       "id": 46,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 47,
@@ -1792,11 +1814,32 @@
       "id": 56,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 57,
@@ -2313,10 +2356,10 @@
     }
   ],
   "next_work": [
-    "Implement the remaining 6 hard tasks (046, 056, 058, 060, 064, 065) with actual linked business artifacts and public constraints.",
+    "Implement the remaining 4 hard Code tasks (058, 060, 064, 065) with actual tests, project files, submissions and public delivery requirements.",
     "Verify all 75 tasks in A/B/C demo and inference environments without video recording.",
-    "Audit advertised cross-application requirements before release. Native source and delivery links are verified for Shop tasks 045/055, including A/B/C procurement regression after shared frontend integration.",
+    "Audit every advertised application dependency before release. Native source and delivery links are verified for Shop 045/055 and Bank 046/056, with actual saved artifacts.",
     "Deploy all tested v2 applications to agentlab and verify v2 list, native entry, reset and delivery evaluation on the server."
   ],
-  "verified_at": "2026-10-01T19:06:52.348559+00:00"
+  "verified_at": "2026-10-01T19:32:31.911260+00:00"
 }

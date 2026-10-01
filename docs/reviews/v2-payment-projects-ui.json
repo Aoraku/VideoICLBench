@@ -1,0 +1,187 @@
+{
+  "verified_at": "2026-10-01T19:32:31.911260+00:00",
+  "video_recorded": false,
+  "tasks": [
+    46,
+    56
+  ],
+  "coverage": {
+    "inference_conditions": 6,
+    "demo_first_episode_conditions": 6,
+    "full_demo_api_episodes": 21
+  },
+  "browser": [
+    {
+      "task": 46,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "real_downloads": true,
+      "payments": 4,
+      "im_source_and_delivery": true,
+      "reconciliation": false
+    },
+    {
+      "task": 46,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "real_downloads": true,
+      "payments": 4,
+      "im_source_and_delivery": true,
+      "reconciliation": false
+    },
+    {
+      "task": 46,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "real_downloads": true,
+      "payments": 4,
+      "im_source_and_delivery": true,
+      "reconciliation": false
+    },
+    {
+      "task": 56,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "real_downloads": true,
+      "payments": 3,
+      "im_source_and_delivery": true,
+      "reconciliation": true
+    },
+    {
+      "task": 56,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "real_downloads": true,
+      "payments": 3,
+      "im_source_and_delivery": true,
+      "reconciliation": true
+    },
+    {
+      "task": 56,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "real_downloads": true,
+      "payments": 3,
+      "im_source_and_delivery": true,
+      "reconciliation": true
+    },
+    {
+      "task": 46,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 46,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 46,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 56,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 56,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 56,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    }
+  ],
+  "verification": {
+    "browser": "scripts/check_v2_payment_projects_ui.py",
+    "demo": "scripts/check_native_ui.py",
+    "api": "tests/test_v2_payment_projects.py",
+    "full_demo": "tests/test_v2.py::test_v2_demo_all_episodes_advance_and_final_eval",
+    "focused": "17 passed, 14 warnings in 3.96s",
+    "regression": "1947 passed, 1222 warnings in 237.47s",
+    "builds": [
+      "Portal production build passed.",
+      "IM benchmark production build passed."
+    ]
+  },
+  "verified_behaviors": [
+    "046: Four invoices specify batch, supplier identity, payer account and exact amount. Native IM notices open matching bank invoices; supplier records expose complete account numbers with multiple lengths and same-name distractors.",
+    "046: Users enter and review payer, payee, amount and formatted memo before confirmation. Real simulated payments create paired ledger entries, update both balances and create downloadable receipts. Duplicate invoice payments are rejected before changing balances, including retries under a new action id.",
+    "046: Actual receipt identifiers are linked back to corresponding invoices. Browser checks cover wrong-link correction, clearing and reassigning references, downloadable linked receipts, persistence and untouched historical/future invoices.",
+    "056: Six in-scope invoices expose independent name, account-parity and amount criteria. Exact threshold equality is excluded by the strict below-threshold rule. Nonmatching bills remain unpaid and all rule versions have distinct valid payment sets.",
+    "056: Reconciliation rows reference actual payment identifiers or explicit unpaid reasons. The real exported report includes paid/unpaid totals and opening/current balances. Unsaved edits and stale saved reports cannot be sent. Reports can be deleted, corrected, withdrawn and sent again without repeating payments.",
+    "056: Native IM displays the actual saved report under the selected finance contact. Its link opens the saved report and receipt links open the correct payment records.",
+    "API checks cover A/B/C across multiple seeds and reversed execution order, money conservation, paired ledger consistency, exact cents, wrong payer/payee/memo/amount, duplicated or missing payments, fabricated files, wrong receipt links, source immutability, stale reports, wrong recipients, command idempotency, reset and invalidated credentials."
+  ],
+  "limits": [
+    "Inference browser checks use seed 10001; state/API tests additionally cover 1000 and 27483.",
+    "Demo browser checks cover initial episodes; all 21 teaching episodes pass lesson API evaluation.",
+    "Exported report links are relative to the authenticated application workspace.",
+    "The platform uses isolated simulated balances; no real funds move. Posted simulated payments require reset to undo, as publicly stated.",
+    "Agentlab v2 deployment remains incomplete."
+  ]
+}
