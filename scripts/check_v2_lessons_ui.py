@@ -6,6 +6,7 @@ through the environment. Task answers are computed in this private QA process.
 import json
 import os
 import sys
+import time
 from pathlib import Path
 from urllib.parse import urlsplit
 import httpx
@@ -58,6 +59,27 @@ def main():
                                 page.get_by_role('button',name='打开练习棋盘 →',exact=True).click()
                                 with page.expect_response(lambda r:r.request.method=='POST' and r.url.endswith('/commands')):
                                     page.get_by_role('button',name=expected(task,variant,state),exact=True).click()
+                            elif task==60:
+                                expect(page.get_by_role('heading',name='题目列表',exact=True)).to_be_visible(timeout=90000)
+                                page.get_by_text('我的代码与笔记',exact=True).click()
+                                page.locator('textarea').fill(effect['outputs']['target'])
+                                page.get_by_role('button',name='保存文件',exact=True).click()
+                                for _ in range(100):
+                                    saved=httpx.get(origin+'/api/runs/'+run['id'],headers={'Authorization':'Bearer '+token},trust_env=False).json()['state']
+                                    if saved['outputs'].get('target')==effect['outputs']['target']:break
+                                    time.sleep(.1)
+                                else:raise AssertionError('Code lesson did not persist the current file')
+                                expect(page.locator('[data-testid="stApp"]')).to_have_attribute('data-test-script-state','notRunning',timeout=30000)
+                            elif task==66:
+                                canvas=page.locator('canvas');expect(canvas).to_be_visible(timeout=90000)
+                                page.wait_for_timeout(1000)
+                                box=canvas.bounding_box();assert box
+                                def click_board(x,y):
+                                    page.mouse.click(box['x']+x*box['width']/1280,box['y']+y*box['height']/960)
+                                    page.wait_for_timeout(300)
+                                click_board(1000,210)
+                                for row,col in expected(task,variant,state):click_board(col*50+100,row*50+50)
+                                page.wait_for_timeout(400)
                             else:raise ValueError('Unsupported lesson UI flow: '+str(task))
                             name='完成练习' if index==run['lesson']['total']-1 else '下一组'
                             with page.expect_response(lambda r:r.request.method=='POST' and r.url.endswith('/lesson/next')) as response:
@@ -77,6 +99,7 @@ def main():
                     finally:
                         (output/'lesson-results.json').write_text(json.dumps(results,ensure_ascii=False,indent=2)+'\n')
                         context.close()
+                        removed=control.delete('/v1/runs/'+run['id']);removed.raise_for_status()
         finally:browser.close()
 
 

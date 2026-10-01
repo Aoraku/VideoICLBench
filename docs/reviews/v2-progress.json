@@ -35,7 +35,11 @@
     "agentlab_release": "docs/reviews/v2-agentlab-release.json",
     "server_inference_conditions": 225,
     "server_demo_conditions": 225,
-    "server_demo_episodes": 990
+    "server_demo_episodes": 990,
+    "special_lessons_ui": "docs/reviews/v2-special-lessons-ui.json",
+    "github_ci": "https://github.com/Aoraku/VideoICLBench/actions/runs/36922746960",
+    "github_ci_conclusion": "success",
+    "design_contract_alignment": "All 75 design-table rows match task titles, types, assignments, demo instructions, inference instructions, difficulties and final deliveries in the executable catalog."
   },
   "tasks": [
     {
@@ -1972,7 +1976,11 @@
         "B",
         "C"
       ],
-      "full_demo_ui_verified": []
+      "full_demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ]
     },
     {
       "id": 61,
@@ -2158,7 +2166,11 @@
         "B",
         "C"
       ],
-      "full_demo_ui_verified": []
+      "full_demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ]
     },
     {
       "id": 67,
@@ -2444,8 +2456,6 @@
       "full_demo_ui_verified": []
     }
   ],
-  "next_work": [
-    "Confirm GitHub checks pass after fixing the Streamlit success-banner selector in the native QA harness."
-  ],
-  "verified_at": "2026-10-01T20:35:34.192509+00:00"
+  "next_work": [],
+  "verified_at": "2026-10-01T20:55:42.522308+00:00"
 }

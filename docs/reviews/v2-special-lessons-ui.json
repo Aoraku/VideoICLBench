@@ -1,0 +1,258 @@
+{
+  "verified_at": "2026-10-01T20:47:51.873471+00:00",
+  "environment": "agentlab production service",
+  "video_recorded": false,
+  "script": "scripts/check_v2_lessons_ui.py 60,66 ABC",
+  "coverage": {
+    "conditions": 6,
+    "episodes": 36
+  },
+  "browser": [
+    {
+      "task": 60,
+      "variant": "A",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "all_episodes_via_ui": true,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "next_button_passed": true
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "next_button_passed": true
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "next_button_passed": true
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "next_button_passed": true
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "next_button_passed": true
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "next_button_passed": true
+        }
+      ]
+    },
+    {
+      "task": 60,
+      "variant": "B",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "all_episodes_via_ui": true,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "next_button_passed": true
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "next_button_passed": true
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "next_button_passed": true
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "next_button_passed": true
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "next_button_passed": true
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "next_button_passed": true
+        }
+      ]
+    },
+    {
+      "task": 60,
+      "variant": "C",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "all_episodes_via_ui": true,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "next_button_passed": true
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "next_button_passed": true
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "next_button_passed": true
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "next_button_passed": true
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "next_button_passed": true
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "next_button_passed": true
+        }
+      ]
+    },
+    {
+      "task": 66,
+      "variant": "A",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "all_episodes_via_ui": true,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "next_button_passed": true
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "next_button_passed": true
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "next_button_passed": true
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "next_button_passed": true
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "next_button_passed": true
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "next_button_passed": true
+        }
+      ]
+    },
+    {
+      "task": 66,
+      "variant": "B",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "all_episodes_via_ui": true,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "next_button_passed": true
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "next_button_passed": true
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "next_button_passed": true
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "next_button_passed": true
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "next_button_passed": true
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "next_button_passed": true
+        }
+      ]
+    },
+    {
+      "task": 66,
+      "variant": "C",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "all_episodes_via_ui": true,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "next_button_passed": true
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "next_button_passed": true
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "next_button_passed": true
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "next_button_passed": true
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "next_button_passed": true
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "next_button_passed": true
+        }
+      ]
+    }
+  ],
+  "verified_behaviors": [
+    "Code: navigate from each fresh problem-list homepage to the file editor, save the rule-transformed source, verify the saved output, and advance using the visible lesson button.",
+    "Gomoku: operate the original SDL canvas through the browser, mark the required candidate points, and advance using the visible lesson button.",
+    "All 36 episodes complete through actual GUI actions and Next/Finish controls. The final per-task eval API succeeds for every condition.",
+    "Each episode uses the refreshed application credential and a fresh initial state. Test-created workspaces are destroyed after verification."
+  ]
+}

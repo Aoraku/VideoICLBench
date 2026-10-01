@@ -1,5 +1,5 @@
 {
-  "verified_at": "2026-10-01T20:35:34.192509+00:00",
+  "verified_at": "2026-10-01T20:55:42.522308+00:00",
   "server": "agentlab",
   "application_source_commit": "217d98710beed2dc132816a1d8ff060c6f14c186",
   "video_recorded": false,
@@ -19,6 +19,10 @@
     "postgres": {
       "health": "healthy",
       "restart": "unless-stopped"
+    },
+    "docker_daemon": {
+      "enabled": true,
+      "active": true
     }
   },
   "source_verification": {
@@ -5477,11 +5481,18 @@
   ],
   "limits": [
     "Full task-flow native UI coverage for all 225 conditions is recorded in the per-platform review files; server browser coverage targets portal navigation and representative native applications.",
-    "Automated checks establish task executability and state correctness, not independent human comprehension or formal tutorial certification.",
-    "GitHub CI rerun is pending; the corrected native Streamlit checks for 061/062/063 pass all nine A/B/C conditions locally."
+    "Automated checks establish task executability and state correctness, not independent human comprehension or formal tutorial certification."
   ],
   "ci_repair": {
     "cause": "Streamlit rerun can expose two transient success banners; a globally unique banner locator incorrectly failed 061A/B.",
     "verification": "scripts/check_native_ui.py 61,62,63 ABC: 9 passed; saves are checked against the specific persisted object before accepting the success banner."
+  },
+  "special_lesson_browser_evidence": "docs/reviews/v2-special-lessons-ui.json",
+  "ci": {
+    "run_id": 36922746960,
+    "head_sha": "4dbd2de7a7149e144950f8c18cc96b1d60def230",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/Aoraku/VideoICLBench/actions/runs/36922746960"
   }
 }
