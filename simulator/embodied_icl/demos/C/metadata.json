@@ -1,0 +1,39 @@
+{
+  "source": "scripted simulation demonstration",
+  "human_hand_demo": false,
+  "order": [
+    "blue",
+    "red",
+    "green"
+  ],
+  "fps": 25.0,
+  "frames": 1235,
+  "sample_indices": [
+    0,
+    112,
+    224,
+    336,
+    448,
+    560,
+    673,
+    785,
+    897,
+    1009,
+    1121,
+    1234
+  ],
+  "sample_seconds": [
+    0.0,
+    4.48,
+    8.96,
+    13.44,
+    17.92,
+    22.4,
+    26.92,
+    31.4,
+    35.88,
+    40.36,
+    44.84,
+    49.36
+  ]
+}
