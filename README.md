@@ -106,3 +106,53 @@ GET  /v1/runs/{run_id}/evidence
 ```
 
 `check_native_ui.py` 从应用入口导航并操作原应用或新增产品界面；`check_application_ui.py` 仅检查开发诊断控件，不能证明原应用录制可用。模型执行协议为截图与键鼠输入。界面与验收范围见 [应用界面](docs/native-frontends.md)，操作说明见 [录制指南](docs/recording-guide.md)，架构见 [业务模型](docs/implementation-scope.md)。
+
+## 原生 Codex / Claude Code 执行
+
+`scripts/native_agent.py` 启动本机安装的原生 `codex exec` 或 `claude -p`。模型请求、历史维护、工具循环、自动压缩和 session 恢复均由原生 CLI 负责。共享的 `vic-computer` MCP 只提供平台截图、坐标键鼠操作、指定视频抽帧和结束声明。
+
+```bash
+.venv/bin/python -m pip install -e '.[agents,test]'
+
+# 密钥通过指定环境变量读取；不要将真实密钥写入命令历史或版本库。
+.venv/bin/python scripts/native_agent.py codex \
+  --base-url https://your-responses-gateway.example/v1 \
+  --api-key-env VIC_CODEX_KEY --model your-model-id \
+  --control-url http://127.0.0.1:8765 --admin-token-file .local/admin-token \
+  --task 29 --variant A --seed 10001 --demo /absolute/path/demo.mp4 --evaluate
+
+.venv/bin/python scripts/native_agent.py claude \
+  --base-url https://your-messages-gateway.example \
+  --api-key-env VIC_CLAUDE_KEY --model your-model-id \
+  --control-url http://127.0.0.1:8765 --admin-token-file .local/admin-token \
+  --task 29 --variant A --seed 10001 --demo /absolute/path/demo.mp4 --evaluate
+```
+
+也可将两组连接配置保存在 Git 忽略的 `.local/native-agents/credentials.json`，权限设为 `0600`；顶层键为 `codex`、`claude`，每组包含 `base_url`、`api_key` 和可选 `model`。使用该文件时可以省略 `--base-url`、`--api-key-env`。模型必须支持对应原生 CLI 的协议：Codex 使用 Responses，CC 使用 Anthropic Messages；网关需同时支持图像、工具调用和流式输出。配置任意模型 ID 不代表已验证其兼容性。不会自动回退到另一模型。
+
+Codex Remote 网关可在 `codex` 配置组设置 `"native_auth": true`，使用原生 `auth.json` API-key 认证和 WebSocket 配置；通用 Responses 网关默认使用环境变量认证。`--binary /absolute/path/codex` 或配置组的 `binary` 字段可指定原生 CLI 版本。
+
+每次运行使用独立的原生配置目录和空白工作目录，不修改个人 Codex/CC 配置。MCP 只持有该实例的截图/键鼠凭证，管理员凭证留在外层启动器。运行资料保存在 `.local/native-agents/runs/`：原生事件流、原生 session、逐步截图、键鼠日志、视频读取时间点、结果摘要，以及显式请求的最终评测。不会录制执行视频。
+
+`--demo` 提供带时间戳的视频帧，不提供音轨、DOM、点击轨迹或人工规则答案；这属于视频帧输入条件。`--evaluate` 会封存平台实例；不指定时可以使用原生恢复命令继续：
+
+```bash
+.venv/bin/python scripts/native_agent.py codex --resume /absolute/path/run-directory \
+  --model original-model-id --prompt '继续核对刚才的页面'
+# Claude Code 同样使用 --resume；由 CLI 恢复原 session，不由启动器重放历史。
+```
+
+`--compaction-smoke` 仅用于压缩验证：启用一次性的无业务含义文本工具，并降低原生阈值。Codex 默认测试阈值为 6000 tokens，CC 为 5%；可用 `--compact-threshold` 指定。正式运行不设置这些覆盖值，使用 CLI 的原生默认策略。压缩证据来自 Codex 的原生 rollout 事件和 CC 的 `compact_boundary`，不能以模型自称压缩或退出码为证明。
+
+`--max-budget-usd` 是 CC 的原生估算费用上限，并非第三方网关的账单保证。Codex 网关若不报告用量，结果保留其原始零值，不将零值解释为免费。当前平台运行器另有 120 次输入与 300 秒限制；启动器默认使用更小的 100 次、240 秒预算，增加启动器参数不能绕过平台限制。
+
+CLI 的工具限制用于限定实验接口，不是面向恶意模型的完整安全隔离。正式批量评测应在不挂载源码、答案或个人凭证的隔离执行机/容器中运行。
+
+实测记录见 [原生接入验证](docs/reviews/native-agents.json)。2026-10-02 的结果如下；这些是接入测试，不是任务成功率测评。
+
+| 原生框架 / 模型 | 实时截图与真实点击 | 原生 session 恢复 | 原生自动压缩 |
+|---|---|---|---|
+| Codex / `gpt-5.6-luna` | 通过 | 通过 | 未验证成功：长工具结果的续接被网关拒绝；未产生压缩事件 |
+| Claude Code / `claude-sonnet-4-6` | 通过 | 通过 | 通过：自动压缩事件报告 9185 → 884 tokens，随后完成点击并保留测试标记 |
+
+CC 验证版本为 2.1.117。Codex 基础操作验证版本为 0.154.0-alpha.6.2；长工具结果续接在该版本和 0.159.3 均失败，不能据此断言失败发生在压缩请求本身。Codex 网关返回的用量不足以确认压缩阈值是否触发。网关未提供可核实的价格表，因此这些模型是低成本候选，不保证为绝对最低价；CC 网关模型列表未提供 Haiku，测试使用 Sonnet，没有使用 Opus。

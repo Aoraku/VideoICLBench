@@ -1,0 +1,204 @@
+{
+  "date": "2026-10-02",
+  "scope": "Native CLI integration smoke tests; not benchmark task completion",
+  "architecture": "Unmodified native Codex/Claude Code CLIs own model calls, history, resume and compaction; MCP only transports demo frames and live GUI inputs/observations.",
+  "unit_tests": {
+    "command": ".venv/bin/python -m pytest tests/test_native_agents.py -q",
+    "passed": 5
+  },
+  "cases": [
+    {
+      "artifact_directory": ".local/native-agents/runs/claude-20261002-021804-8e6a34",
+      "checks": [
+        "video_frame_transport",
+        "live_screenshot",
+        "actual_click"
+      ],
+      "engine": "claude",
+      "model": "claude-sonnet-4-6",
+      "cli_version": "2.1.117 (Claude Code)",
+      "turns": [
+        {
+          "file": "result-1.json",
+          "exit_code": 0,
+          "final_text": "Smoke test complete. All three transports verified: demo frame delivery, application observation, and UI interaction all working correctly.",
+          "native_compaction_metadata": [],
+          "native_compaction_event_count": 0,
+          "cli_reported_cost_usd": 0.0439308
+        }
+      ],
+      "tool_event_types": [
+        "demo_frame",
+        "observation",
+        "action",
+        "observation",
+        "finish"
+      ],
+      "finish_summaries": [
+        "VIC_NATIVE_UI_OK"
+      ]
+    },
+    {
+      "artifact_directory": ".local/native-agents/runs/claude-20261002-021850-ffccf3",
+      "checks": [
+        "native_auto_compaction",
+        "post_compaction_click",
+        "marker_retention",
+        "native_resume"
+      ],
+      "engine": "claude",
+      "model": "claude-sonnet-4-6",
+      "cli_version": "2.1.117 (Claude Code)",
+      "turns": [
+        {
+          "file": "result-1.json",
+          "exit_code": 0,
+          "final_text": "The smoke test is complete. All four steps were executed in order, and the marker **VIC_COMPACT_7341** was reported verbatim in the `finish` call.",
+          "native_compaction_metadata": [
+            {
+              "trigger": "auto",
+              "pre_tokens": 9185,
+              "post_tokens": 884,
+              "duration_ms": 22309
+            }
+          ],
+          "native_compaction_event_count": 1,
+          "cli_reported_cost_usd": 0.07286100000000001
+        },
+        {
+          "file": "result-2.json",
+          "exit_code": 0,
+          "final_text": "VIC_COMPACT_7341",
+          "native_compaction_metadata": [],
+          "native_compaction_event_count": 0,
+          "cli_reported_cost_usd": 0.02051775
+        }
+      ],
+      "tool_event_types": [
+        "diagnostic_payload",
+        "observation",
+        "action",
+        "observation",
+        "finish"
+      ],
+      "finish_summaries": [
+        "Smoke test complete. All steps executed: diagnostic_payload called once, computer_observe called, navigation button clicked. Marker: VIC_COMPACT_7341"
+      ]
+    },
+    {
+      "artifact_directory": ".local/native-agents/runs/codex-20261002-022306-bff263",
+      "checks": [
+        "live_screenshot",
+        "actual_click"
+      ],
+      "engine": "codex",
+      "model": "gpt-5.6-luna",
+      "cli_version": "codex-cli 0.154.0-alpha.6.2",
+      "turns": [
+        {
+          "file": "result-1.json",
+          "exit_code": 0,
+          "final_text": "VIC_NATIVE_UI_OK",
+          "native_compaction_metadata": [],
+          "native_compaction_event_count": 0,
+          "cli_reported_cost_usd": null
+        }
+      ],
+      "tool_event_types": [
+        "observation",
+        "action",
+        "observation",
+        "finish"
+      ],
+      "finish_summaries": [
+        "VIC_NATIVE_UI_OK"
+      ]
+    },
+    {
+      "artifact_directory": ".local/native-agents/runs/codex-20261002-022610-74380f",
+      "checks": [
+        "native_resume",
+        "marker_retention"
+      ],
+      "engine": "codex",
+      "model": "gpt-5.6-luna",
+      "cli_version": "codex-cli 0.154.0-alpha.6.2",
+      "turns": [
+        {
+          "file": "result-1.json",
+          "exit_code": 0,
+          "final_text": "READY",
+          "native_compaction_metadata": [],
+          "native_compaction_event_count": 0,
+          "cli_reported_cost_usd": null
+        },
+        {
+          "file": "result-2.json",
+          "exit_code": 0,
+          "final_text": "VIC_COMPACT_7341",
+          "native_compaction_metadata": [],
+          "native_compaction_event_count": 0,
+          "cli_reported_cost_usd": null
+        }
+      ],
+      "tool_event_types": [],
+      "finish_summaries": []
+    },
+    {
+      "artifact_directory": ".local/native-agents/runs/codex-20261002-022355-acadbe",
+      "checks": [
+        "failed_long_tool_result_continuation"
+      ],
+      "engine": "codex",
+      "model": "gpt-5.6-luna",
+      "cli_version": "codex-cli 0.154.0-alpha.6.2",
+      "turns": [
+        {
+          "file": "result-1.json",
+          "exit_code": 1,
+          "final_text": "I’ll run the smoke test in order and retain marker `VIC_COMPACT_7341`.\n",
+          "native_compaction_metadata": [],
+          "native_compaction_event_count": 0,
+          "cli_reported_cost_usd": null
+        }
+      ],
+      "tool_event_types": [
+        "demo_frame",
+        "diagnostic_payload"
+      ],
+      "finish_summaries": []
+    },
+    {
+      "artifact_directory": ".local/native-agents/runs/codex-20261002-022939-8cf9bc",
+      "checks": [
+        "failed_long_tool_result_continuation"
+      ],
+      "engine": "codex",
+      "model": "gpt-5.6-luna",
+      "cli_version": "codex-cli 0.159.3",
+      "turns": [
+        {
+          "file": "result-1.json",
+          "exit_code": 1,
+          "final_text": "I’ll run the diagnostic, inspect the screen, and click a visible navigation control.\n",
+          "native_compaction_metadata": [],
+          "native_compaction_event_count": 0,
+          "cli_reported_cost_usd": null
+        }
+      ],
+      "tool_event_types": [
+        "diagnostic_payload"
+      ],
+      "finish_summaries": []
+    }
+  ],
+  "limitations": [
+    "Codex automatic compaction is NOT verified. The gateway rejects continuation after long tool output; no native compaction event was observed. The precise cause is undetermined.",
+    "The Codex gateway reports zero usage; zero is not evidence of free billing or threshold triggering.",
+    "Gateway error on both Codex versions: Tool results recorded; continuation rejected: Tool catalog update requires the current turn and tool results to settle; retry after completion",
+    "Claude compaction smoke uses the native 5-percent threshold override and inert synthetic payload. Production runs use the native default threshold.",
+    "Video transport smoke uses an existing media clip as an image-delivery fixture, not a benchmark rule-demonstration video. Input is timestamped frames without audio.",
+    "Gateway price lists could not be verified; these models are low-cost candidates, not verified cheapest models. No Opus was used.",
+    "Actor capabilities are limited by MCP tools, but the CLI host is not a hardened adversarial-model sandbox."
+  ]
+}
