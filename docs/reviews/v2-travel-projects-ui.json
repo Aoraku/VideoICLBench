@@ -1,0 +1,256 @@
+{
+  "verified_at": "2026-10-01T18:38:30.691604+00:00",
+  "video_recorded": false,
+  "tasks": [
+    44,
+    51,
+    54
+  ],
+  "coverage": {
+    "inference_conditions": 9,
+    "demo_first_episode_conditions": 9,
+    "full_demo_api_episodes": 39
+  },
+  "browser": [
+    {
+      "task": 44,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "bookings": 2,
+      "actual_downloads": true,
+      "im_source_notices": true,
+      "im_itinerary_receipts": false
+    },
+    {
+      "task": 44,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "bookings": 2,
+      "actual_downloads": true,
+      "im_source_notices": true,
+      "im_itinerary_receipts": false
+    },
+    {
+      "task": 44,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "bookings": 2,
+      "actual_downloads": true,
+      "im_source_notices": true,
+      "im_itinerary_receipts": false
+    },
+    {
+      "task": 51,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "bookings": 3,
+      "actual_downloads": true,
+      "im_source_notices": false,
+      "im_itinerary_receipts": false
+    },
+    {
+      "task": 51,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "bookings": 3,
+      "actual_downloads": true,
+      "im_source_notices": false,
+      "im_itinerary_receipts": false
+    },
+    {
+      "task": 51,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "bookings": 3,
+      "actual_downloads": true,
+      "im_source_notices": false,
+      "im_itinerary_receipts": false
+    },
+    {
+      "task": 54,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "bookings": 3,
+      "actual_downloads": true,
+      "im_source_notices": true,
+      "im_itinerary_receipts": true
+    },
+    {
+      "task": 54,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "bookings": 2,
+      "actual_downloads": true,
+      "im_source_notices": true,
+      "im_itinerary_receipts": true
+    },
+    {
+      "task": 54,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "bookings": 3,
+      "actual_downloads": true,
+      "im_source_notices": true,
+      "im_itinerary_receipts": true
+    },
+    {
+      "task": 44,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 44,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 44,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 51,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 51,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 51,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 54,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 54,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 54,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    }
+  ],
+  "verification": {
+    "browser": "scripts/check_v2_travel_ui.py",
+    "demo": "scripts/check_native_ui.py",
+    "api": "tests/test_v2_travel_projects.py",
+    "full_demo": "tests/test_v2.py::test_v2_demo_all_episodes_advance_and_final_eval",
+    "regression": "1896 passed, 1172 warnings in 235.65s (0:03:55)",
+    "builds": [
+      "Portal production build passed.",
+      "IM benchmark production build passed."
+    ]
+  },
+  "verified_behaviors": [
+    "044: Four traveler profiles and both reservation passenger lists use the taught name format, preserve document identities and exclude the other department traveler with the same name. Two actual saved draft files and a merged itinerary are delivered.",
+    "051: Each segment is chosen among routes that allow all later meetings and connection intervals to remain feasible. Locally attractive dead ends and over-budget routes are rejected by the evaluator. Actual simulated confirmations and the merged itinerary retain the chosen route identities.",
+    "054: Strict price boundaries and even-transfer criteria produce distinct confirmation sets. Actual booking IDs are linked to source applications, and full itinerary receipts are visible in the correct native IM conversations with links back to their bookings.",
+    "Calendar generation crosses the February month boundary using valid date arithmetic.",
+    "Browser checks cover source IM requests, profile updates, passenger selection, saved-data safeguards, draft removal and recreation, confirmations, approval clearing and replacement, notification withdrawal and resend, actual file download bytes, deep links and reload persistence.",
+    "API checks cover command idempotency, reset, obsolete credentials, wrong traveler/document/contact/cost center, infeasible routes, wrong approval references or recipients, missing and extra bookings, stale or fabricated files, and immutable source records."
+  ],
+  "limits": [
+    "Browser inference uses seed 10001; API/state tests also use seeds 1000 and 27183.",
+    "Browser demo coverage is the first teaching episode for each condition; all thirty-nine teaching episodes are verified through the lesson API.",
+    "Agentlab v2 deployment remains incomplete."
+  ]
+}

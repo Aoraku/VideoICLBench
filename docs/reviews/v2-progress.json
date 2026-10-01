@@ -5,14 +5,15 @@
   "deployment": {
     "v2_deployed": false,
     "server": "agentlab",
-    "observed_source": "c85405cc77cd0ae7f8cb4bd82e3ef447cf61d510",
-    "services": "healthy"
+    "observed_source": "ef85710ade1ca8b7c1900df7759644f3fc2aefa8",
+    "services": "healthy",
+    "observed_at": "2026-10-01T18:38:30.691604+00:00"
   },
   "evidence": {
     "procurement_ui": "docs/reviews/v2-procurement-ui.json",
     "unit_tests": "tests/test_v2.py",
     "browser_check": "scripts/check_v2_procurement_ui.py",
-    "regression": "1858 full-suite tests passed; 192 native inference conditions and 192 initial demo conditions verified across 64 tasks; 852 teaching episodes verified through API tests.",
+    "regression": "1896 full-suite tests passed; 201 native inference conditions and 201 initial demo conditions verified across 67 tasks; 891 teaching episodes verified through API tests.",
     "native_ui": "docs/reviews/v2-native-progress-ui.json",
     "worksets_ui": "docs/reviews/v2-worksets-ui.json",
     "stopping_ui": "docs/reviews/v2-stopping-ui.json",
@@ -24,7 +25,8 @@
     "publishing_ui": "docs/reviews/v2-publishing-ui.json",
     "studio_projects_ui": "docs/reviews/v2-studio-projects-ui.json",
     "studio_projects_regression": "1847 full-suite tests passed. Six native inference conditions and six initial-demo conditions passed for tasks 041/043. Real file downloads, OS clipboard paste, native IM messages and source links verified without recording video.",
-    "screening_ui": "docs/reviews/v2-screening-ui.json"
+    "screening_ui": "docs/reviews/v2-screening-ui.json",
+    "travel_projects_ui": "docs/reviews/v2-travel-projects-ui.json"
   },
   "tasks": [
     {
@@ -1428,11 +1430,32 @@
       "id": 44,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 45,
@@ -1611,11 +1634,32 @@
       "id": 51,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 52,
@@ -1662,11 +1706,32 @@
       "id": 54,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 55,
@@ -2203,10 +2268,10 @@
     }
   ],
   "next_work": [
-    "Implement the remaining 11 hard tasks with actual linked business artifacts and public constraints.",
+    "Implement the remaining 8 hard tasks (046, 052, 055, 056, 058, 060, 064, 065) with actual linked business artifacts and public constraints.",
     "Verify all 75 tasks in A/B/C demo and inference environments without video recording.",
     "Audit advertised cross-application requirements before release, including task 045 procurement request access through Shop + IM.",
     "Deploy all tested v2 applications to agentlab and verify v2 list, native entry, reset and delivery evaluation on the server."
   ],
-  "verified_at": "2026-10-01T18:08:29.080795+00:00"
+  "verified_at": "2026-10-01T18:38:30.691604+00:00"
 }

@@ -69,6 +69,22 @@ export async function nativeFetch(
       ),
       method = init?.method || "GET",
       body = typeof init?.body === "string" ? JSON.parse(init.body) : {};
+    if(s.workflow==='travel_projects') {
+      const peerId=Number(path.match(/^\/api\/conversations\/(\d+)/)?.[1]);
+      const person=s.world.people.find((p:any)=>p.im===peerId),stamp=1771891200;
+      if(method==='GET' && path==='/api/workspace')return respond({instructions:'出差通知、旅客编号与差旅审批。申请链接打开行远旅行中的对应安排；确认行程单包含实际预订号与乘客资料。',travel:`/native/product/travel/${run}#${token}`});
+      if(method==='GET' && path==='/api/friends')return respond({friends:s.world.people.map((p:any)=>({user_id:p.im,username:p.name,group:'旅客 '+p.id}))});
+      if(method==='GET' && path==='/api/conversations')return respond({conversations:s.world.people.map((p:any)=>({conversation_id:p.im,type:'private',name:p.name,peer_user:{user_id:p.im,username:p.name},other_user_id:p.im,unread_count:0,last_message:{content:s.world.receipts.filter((r:any)=>r.recipient===p.im).at(-1)?.booking || '出差安排与审批',created_at:stamp}}))});
+      if(method==='GET' && path.endsWith('/messages') && person) {
+        const notices=s.world.notices.map((n:any,i:number)=>({...n,index:i})).filter((n:any)=>n.recipient===peerId).map((n:any)=>({msg_id:1000+n.index,sender_id:peerId,sender_name:person.name,created_at:stamp+n.index,content:n.title+'\n'+n.body,travel_request:{id:n.id,title:n.title,url:`/native/product/travel/${run}${n.slot?'?request='+encodeURIComponent(n.slot):''}#${token}`}}));
+        const receipts=s.world.receipts.filter((r:any)=>r.recipient===peerId).map((r:any,i:number)=>({msg_id:10000+Number(r.id.split('-')[1]),sender_id:1,sender_name:'周予安',created_at:stamp+100+i,content:'出差行程单：'+r.booking,travel_share:{id:r.id,booking:r.booking,body:r.body,url:`/native/product/travel/${run}?booking=${encodeURIComponent(r.booking)}#${token}`}}));
+        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:'周予安',created_at:stamp+1000+m.id,content:m.body}));
+        return respond({messages:[...notices,...receipts,...discussion].sort((a:any,b:any)=>b.created_at-a.created_at)});
+      }
+      const profile=s.world.people.find((p:any)=>p.im===Number(path.match(/\/user\/(\d+)/)?.[1]));
+      if(method==='GET' && profile)return respond({user_id:profile.im,username:profile.name,bio:'旅客 '+profile.id});
+      if(method==='POST' && path.endsWith('/messages') && person){await imCommand('message.send',String(peerId),JSON.stringify({text:body.content}));return respond({msg_id:20000+s.world.discussion.length+1});}
+    }
     if(s.workflow==='studio_projects') {
       const peerId=Number(path.match(/^\/api\/conversations\/(\d+)/)?.[1]);
       const person=s.world.people.find((a:any)=>a.id===peerId),stamp=1770681600;

@@ -624,13 +624,14 @@ export default function Home() {
   const [inputText, setInputText] = useState('');
   const [workspaceInstructions, setWorkspaceInstructions] = useState<string | undefined>(undefined);
   const [projectDirectory, setProjectDirectory] = useState(false);
+  const [travelWorkspace, setTravelWorkspace] = useState<string | undefined>(undefined);
   const [studioWorkspace, setStudioWorkspace] = useState<string | undefined>(undefined);
   const [blogWorkspace, setBlogWorkspace] = useState<string | undefined>(undefined);
   const [musicWorkspace, setMusicWorkspace] = useState<string | undefined>(undefined);
   useEffect(() => {
     if (!nativeIM) return;
     fetch('/api/workspace').then(response => response.json()).then(data => {
-      if (data.code === 0) {setWorkspaceInstructions(data.instructions || undefined);setProjectDirectory(Boolean(data.projects));setMusicWorkspace(data.music || undefined);setBlogWorkspace(data.blog || undefined);setStudioWorkspace(data.studio || undefined);}
+      if (data.code === 0) {setWorkspaceInstructions(data.instructions || undefined);setProjectDirectory(Boolean(data.projects));setMusicWorkspace(data.music || undefined);setBlogWorkspace(data.blog || undefined);setStudioWorkspace(data.studio || undefined);setTravelWorkspace(data.travel || undefined);}
     }).catch(error => message.error(String(error)));
   }, []);
   const [loadingMsg, setLoadingMsg] = useState(false);
@@ -1844,7 +1845,7 @@ export default function Home() {
 
       <Content style={styles.chatPane}>
           {workspaceInstructions && <section aria-label="工作范围" style={{padding:'14px 24px',background:'#f3f8ff',borderBottom:'1px solid #d6e6f7',color:'#395474',lineHeight:1.7}}>
-            <strong>{studioWorkspace?'项目结果交付':blogWorkspace?'作者发布通知':musicWorkspace?'活动音乐协作':projectDirectory?'项目启动安排':'项目通知回执'}</strong><div>{workspaceInstructions}</div>{projectDirectory&&<Button size="small" onClick={()=>router.push('/projects')}>项目通知与资料</Button>}{musicWorkspace&&<a href={musicWorkspace}>打开音乐资料库 →</a>}{blogWorkspace&&<a href={blogWorkspace}>打开墨记 →</a>}{studioWorkspace&&<a href={studioWorkspace}>打开 Studio →</a>}
+            <strong>{travelWorkspace?'出差安排与审批':studioWorkspace?'项目结果交付':blogWorkspace?'作者发布通知':musicWorkspace?'活动音乐协作':projectDirectory?'项目启动安排':'项目通知回执'}</strong><div>{workspaceInstructions}</div>{projectDirectory&&<Button size="small" onClick={()=>router.push('/projects')}>项目通知与资料</Button>}{musicWorkspace&&<a href={musicWorkspace}>打开音乐资料库 →</a>}{blogWorkspace&&<a href={blogWorkspace}>打开墨记 →</a>}{studioWorkspace&&<a href={studioWorkspace}>打开 Studio →</a>}{travelWorkspace&&<a href={travelWorkspace}>打开行远旅行 →</a>}
           </section>}
           {activeConv ? (
             <>
@@ -1969,6 +1970,8 @@ export default function Home() {
                               }}
                             >
                               <div>{typeof msg.content==='string'&&msg.content.startsWith('/native-assets/im/projects?project=')?<a href={msg.content} style={{color:isMe?'white':'#087db9',textDecoration:'underline'}}>打开项目资料 · {new URLSearchParams(msg.content.split('?')[1]).get('project')}</a>:msg.content}</div>
+                              {msg.travel_request && <article data-travel-request={msg.travel_request.id} style={{marginTop:10,padding:14,background:'#eef8f7',color:'#295f61',borderRadius:8}}><strong>{msg.travel_request.title}</strong><br/><a href={msg.travel_request.url} style={{color:'#087d86',textDecoration:'underline'}}>查看出行安排 →</a></article>}
+                              {msg.travel_share && <article data-travel-share={msg.travel_share.id} style={{marginTop:12,padding:18,background:'#eef8f7',color:'#295f61',borderRadius:10,minWidth:260,maxWidth:580}}><strong>{msg.travel_share.booking} · 行程单</strong><pre style={{whiteSpace:'pre-wrap',overflowWrap:'anywhere',fontSize:12,lineHeight:1.7}}>{msg.travel_share.body}</pre><a href={msg.travel_share.url} style={{color:'#087d86',textDecoration:'underline'}}>查看确认预订 →</a></article>}
                               {msg.studio_share && <article aria-label="生成结果交付" data-studio-receipt={msg.studio_share.id} style={{marginTop:12,padding:18,background:'#f4f1fa',color:'#3b3150',borderRadius:10,minWidth:260,maxWidth:560}}>
                                 <strong>{msg.studio_share.record_code} · {msg.studio_share.name}</strong><pre style={{whiteSpace:'pre-wrap',overflowWrap:'anywhere',fontSize:13,lineHeight:1.7}}>{msg.studio_share.body}</pre>
                                 <a href={msg.studio_share.url} style={{display:'inline-block',marginTop:14,color:'#625087',textDecoration:'underline'}}>查看源结果 →</a>
