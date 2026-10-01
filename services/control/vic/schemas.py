@@ -20,6 +20,7 @@ class CreateRun(StrictModel):
 class LessonAdvance(StrictModel):
     epoch: int = Field(ge=0)
     index: int = Field(ge=0, le=100)
+    clipboard: str | None = Field(default=None, max_length=16000)
 
 
 class HumanEvidence(StrictModel):

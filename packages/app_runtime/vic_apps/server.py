@@ -235,7 +235,7 @@ def create_app():
         try:
             async with httpx.AsyncClient(timeout=60, trust_env=False) as client:
                 result = await client.post(control_base + f'/v1/runs/{run_id}/lesson/next',
-                    headers={'Authorization': authorization}, json=body.model_dump())
+                    headers={'Authorization': authorization}, json=body.model_dump(exclude_none=True))
         except httpx.RequestError as exc:
             raise HTTPException(503, "练习服务暂时无法连接，请重试；已保存的进度仍保留。") from exc
         response = Response(result.content, status_code=result.status_code, media_type='application/json')

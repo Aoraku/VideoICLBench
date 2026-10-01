@@ -69,6 +69,22 @@ export async function nativeFetch(
       ),
       method = init?.method || "GET",
       body = typeof init?.body === "string" ? JSON.parse(init.body) : {};
+    if(s.workflow==='studio_projects') {
+      const peerId=Number(path.match(/^\/api\/conversations\/(\d+)/)?.[1]);
+      const person=s.world.people.find((a:any)=>a.id===peerId),stamp=1770681600;
+      if(method==='GET' && path==='/api/workspace')return respond({instructions:'查看项目生成结果及其交付记录。结果卡片包含完整代码，链接可打开 Studio 中的对应源文件。',studio:`/native/product/studio/${run}#${token}`});
+      if(method==='GET' && path==='/api/friends')return respond({friends:s.world.people.map((a:any)=>({user_id:a.id,username:a.name,group:'项目联系人'}))});
+      if(method==='GET' && path==='/api/conversations')return respond({conversations:s.world.people.map((a:any)=>({conversation_id:a.id,type:'private',name:a.name,peer_user:{user_id:a.id,username:a.name},other_user_id:a.id,unread_count:0,last_message:{content:s.world.receipts.filter((n:any)=>n.recipient===a.id).at(-1)?.name || '项目结果交付',created_at:stamp}}))});
+      if(method==='GET' && path.endsWith('/messages') && person) {
+        const receipts=s.world.receipts.filter((n:any)=>n.recipient===peerId).map((n:any,i:number)=>({msg_id:10000+Number(n.id.split('-')[1]),sender_id:1,sender_name:'周予安',created_at:stamp+i+1,content:'生成结果：'+n.record_code+' · '+n.name,
+          studio_share:{id:n.id,target:n.target,name:n.name,record_code:n.record_code,body:n.body,url:`/native/product/studio/${run}?output=${encodeURIComponent(n.target)}#${token}`}}));
+        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:'周予安',created_at:stamp+1000+m.id,content:m.body}));
+        return respond({messages:[...receipts,...discussion].sort((a:any,b:any)=>b.created_at-a.created_at)});
+      }
+      const profile=s.world.people.find((a:any)=>a.id===Number(path.match(/\/user\/(\d+)/)?.[1]));
+      if(method==='GET' && profile)return respond({user_id:profile.id,username:profile.name,bio:'项目联系人'});
+      if(method==='POST' && path.endsWith('/messages') && person){await imCommand('message.send',String(peerId),JSON.stringify({text:body.content}));return respond({msg_id:20000+s.world.discussion.length+1});}
+    }
     if(s.workflow==='publishing') {
       const peerId=Number(path.match(/^\/api\/conversations\/(\d+)/)?.[1]);
       const author=s.world.authors.find((a:any)=>a.id===peerId);

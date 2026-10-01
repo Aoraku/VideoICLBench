@@ -1713,3 +1713,27 @@
   overflow-y: auto;
   align-self: start;
 }
+
+/* Native Studio project workspaces and inspectable delivery artifacts. */
+.studio-workflows .studio-panel {background:#fff;border:1px solid #e4e1e9;border-radius:12px;padding:26px;margin:20px 0;line-height:1.7;}
+.studio-workflows label {display:block;font-size:14px;font-weight:600;margin:16px 0 8px;}
+.studio-workflows select,.studio-workflows textarea {display:block;width:100%;margin-top:8px;}
+.studio-workflows blockquote {border-left:3px solid #a99ac9;padding:12px 18px;background:#f8f6fc;margin:16px 0;}
+.studio-brief {background:#f4f1fa;border:1px solid #e0d9ed;border-radius:10px;padding:20px 24px;margin:24px 0;line-height:1.8;}
+.studio-brief p {margin:8px 0 0;}
+.studio-actions {display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:16px 0;}
+.studio-actions label {margin:0;min-width:180px;}
+.studio-workflows a {color:#625087;text-decoration:underline;text-underline-offset:3px;}
+.studio-provenance {display:grid;grid-template-columns:90px 1fr;gap:8px;font-size:14px;}
+.studio-provenance dt {color:#786f83;}.studio-provenance dd {margin:0;}
+.studio-content-text {padding:22px;background:#f7f6f9;border:1px solid #e9e5ef;border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.8 ui-monospace,monospace;color:#302d38;}
+.studio-code-text {background:#242632;color:#e1e5ef;}
+.studio-output-list {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+.studio-output-list button {padding:24px;text-align:left;display:grid;gap:10px;background:white;}
+.studio-output-list span,.studio-output-list small {color:#786f83;}
+.studio-pass {color:#26714f;}.studio-fail {color:#9e3d42;}
+.studio-delivery-record,.studio-manifest-row {border:1px solid #ded8e8;border-radius:8px;padding:18px;margin:14px 0;background:#fcfbfe;}
+.studio-delivery-record {display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+.studio-delivery-record label {width:100%;}
+.studio-workflows textarea[readonly] {background:#fff;cursor:text;min-height:140px;font:13px/1.7 ui-monospace,monospace;}
+@media(max-width:800px){.studio-output-list{grid-template-columns:1fr;}.studio-provenance{grid-template-columns:1fr;}}

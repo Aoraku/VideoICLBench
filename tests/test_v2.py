@@ -217,7 +217,14 @@ def test_v2_demo_all_episodes_advance_and_final_eval(clients,task_id,variant):
     for episode in range(run['lesson']['total']):
         state=perform(worker,run,variant)
         assert not state.get('v2_atomic') and not state.get('v2_reversi')
-        run={**run,**advance(control,run,episode)}
+        if task_id == 43 and variant == 'B':
+            from test_lessons import actor
+            current=worker.get('/api/runs/'+run['id'],headers=actor(run)).json()['state']
+            response=control.post('/v1/runs/'+run['id']+'/lesson/next',headers=actor(run),json=dict(epoch=run['epoch'],index=episode,clipboard=current['domain']['clipboard_history'][-1]['text']))
+            assert response.status_code==200,response.text
+            run={**run,**response.json()}
+        else:
+            run={**run,**advance(control,run,episode)}
     assert run['lesson']['finished']
     response=control.post(f'/v2/tasks/{task_id}/eval',headers=admin(),json={'run_id':run['id']})
     assert response.status_code==200 and response.json()['success'],response.text

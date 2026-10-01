@@ -527,7 +527,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             active(run)
             sealed = applications.seal(run_id)
             try:
-                result = application_eval.evaluate(run.initial, sealed['state'], run.variant, sealed['events'])
+                result = application_eval.evaluate(run.initial, sealed['state'], run.variant, sealed['events'], body.clipboard)
             except Exception as exc:
                 applications.resume(run_id)
                 raise HTTPException(503, "本组检查暂未完成，请重试；当前操作仍保留。") from exc
@@ -584,7 +584,9 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 active(run)
             if run_id in recorder.active:
                 raise HTTPException(409, "Stop recording before evaluating")
-            if human(run) and run.task_id == 43 and run.variant == "B" and (body is None or body.clipboard is None):
+            legacy_clipboard = run.task_id == 43 and run.variant == "B" and run.initial.get("workflow") != "studio_projects"
+            lesson_finished = (run.manifest.get('lesson') or {}).get('finished', False)
+            if human(run) and legacy_clipboard and not lesson_finished and (body is None or body.clipboard is None):
                 raise HTTPException(409, "请在工作台粘贴应用复制的内容，再提交剪贴板核验。")
             save_status(run_id, "sealing")
             state = store.snapshot(run_id)
@@ -595,14 +597,16 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 events = sealed["events"]
                 clipboard = (
                     (body.clipboard if human(run) and body else await runtime.clipboard(run_id))
-                    if run.task_id == 43 and run.variant == "B"
+                    if legacy_clipboard
                     else None
                 )
                 result = (v2.evaluate(run.initial, state, run.variant, events)
                           if run.initial.get('workflow') or run.initial.get('v2_atomic') or run.initial.get('v2_reversi') or run.initial.get('v2_worksets') or run.initial.get('v2_2048') else application_eval.evaluate(
                               run.initial, state, run.variant, events, clipboard))
-                if human(run) and run.task_id == 43 and run.variant == "B":
-                    result["clipboard_evidence_source"] = "human_paste"
+                if run.initial.get("workflow") == "studio_projects" and run.task_id == 43 and run.variant == "B":
+                    result["clipboard_evidence_source"] = "application_delivery_paste"
+                elif human(run) and legacy_clipboard:
+                    result["clipboard_evidence_source"] = "lesson_episode_clipboard" if lesson_finished else "human_paste"
             else:
                 result = business.evaluate(run.initial, state, run.variant, events)
             if run.manifest.get("lesson"):

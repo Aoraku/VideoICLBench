@@ -1,6 +1,7 @@
 import React from "react";
 import { LabelMenu } from "../LabelMenu";
 export type ProductAPI = {
+  downloadFile?: (id: string, name: string) => Promise<void>;
   applicationLink?: (module: string, query?: Record<string,string>) => string;
   mediaUrl?: (id: string) => string;
   s: any;

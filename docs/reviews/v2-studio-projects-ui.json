@@ -1,0 +1,189 @@
+{
+  "verified_at": "2026-10-01T17:52:37.144641+00:00",
+  "video_recorded": false,
+  "tasks": [
+    41,
+    43
+  ],
+  "coverage": {
+    "inference_conditions": 6,
+    "demo_first_episode_conditions": 6,
+    "full_demo_api_episodes": 21,
+    "project_archives": 9,
+    "delivered_code_outputs": 18
+  },
+  "browser": [
+    {
+      "task": 41,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "projects": 3,
+      "delivered_outputs": 3,
+      "real_clipboard": false,
+      "actual_downloads": true,
+      "im_source_links": false
+    },
+    {
+      "task": 41,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "projects": 3,
+      "delivered_outputs": 3,
+      "real_clipboard": false,
+      "actual_downloads": true,
+      "im_source_links": false
+    },
+    {
+      "task": 41,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "projects": 3,
+      "delivered_outputs": 3,
+      "real_clipboard": false,
+      "actual_downloads": true,
+      "im_source_links": false
+    },
+    {
+      "task": 43,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "projects": 3,
+      "delivered_outputs": 6,
+      "real_clipboard": false,
+      "actual_downloads": true,
+      "im_source_links": false
+    },
+    {
+      "task": 43,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "projects": 3,
+      "delivered_outputs": 6,
+      "real_clipboard": true,
+      "actual_downloads": false,
+      "im_source_links": false
+    },
+    {
+      "task": 43,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "projects": 3,
+      "delivered_outputs": 6,
+      "real_clipboard": false,
+      "actual_downloads": false,
+      "im_source_links": true
+    },
+    {
+      "task": 41,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 41,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 41,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 43,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 43,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 43,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    }
+  ],
+  "verification": {
+    "browser": "scripts/check_v2_studio_ui.py",
+    "demo": "scripts/check_native_ui.py",
+    "api": "tests/test_v2_studio_projects.py",
+    "full_demo": "tests/test_v2.py::test_v2_demo_all_episodes_advance_and_final_eval",
+    "regression": "1847 full-suite tests passed (1124 warnings, 235.39 seconds). Portal and native IM production builds passed. All six native inference and all six initial-demo browser conditions passed without recording video."
+  },
+  "verified_behaviors": [
+    "Project model selection respects visible context minimums and allowlists. Saved configurations bind specific template and document versions; real generated Markdown is archived with its provenance and can be previewed and downloaded.",
+    "All twelve current outputs are checked with Python syntax parsing, without code execution. Only the six valid outputs are delivered. Historical outputs remain outside the delivery set.",
+    "Saved files contain the checked code bytes. Copy delivery uses the browser clipboard and a real keyboard paste into each output’s delivery field. Sent results appear in native IM conversations and link back to the correct Studio output.",
+    "The persisted delivery manifest refers to real saved files, pasted code or message receipts. Correct project, output, recipient, method, source content and saved manifest are independently checked.",
+    "Native UI verifies removal and restoration of an archive, cancellation and restoration of a saved delivery, configuration edit/run gating, actual downloads and persistence after reload.",
+    "API tests cover reset and obsolete credentials, idempotent commands, multiple seeds, A/B/C separation, ineligible models, wrong versions, forged checks, wrong copied content, wrong recipients and source immutability.",
+    "Teaching copy completion requires matching clipboard evidence; an already verified completed lesson retains that evidence without requesting another paste."
+  ],
+  "limits": [
+    "Browser inference uses seed 10001; independent state and API tests cover additional seeds.",
+    "Browser demo verification covers the first teaching episode; all twenty-one teaching episodes are verified through API tests.",
+    "Task 041 generation is a deterministic template renderer over the actual bound input records, not an external language-model invocation.",
+    "Agentlab v2 deployment is incomplete."
+  ]
+}

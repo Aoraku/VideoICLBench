@@ -6,6 +6,7 @@ import { Shop } from "./Shop";
 import { Bank } from "./Bank";
 import { Media } from "./Media";
 import { Games } from "./Games";
+import { StudioProjects } from "./StudioProjects";
 import { Publishing } from "./Publishing";
 import { Editorial } from "./Editorial";
 import { Procurement } from "./Procurement";
@@ -97,7 +98,7 @@ export function ProductWorkspace({
         <p>{notice || "正在载入你的个人工作区…"}</p>
       </div>
     );
-  const Component = data.state.workflow === 'publishing' && module === 'blog' ? Publishing : data.state.workflow === 'editorial_projects' && module === 'blog' ? Editorial : data.state.workflow === 'procurement' ? Procurement : (
+  const Component = data.state.workflow === 'studio_projects' && module === 'studio' ? StudioProjects : data.state.workflow === 'publishing' && module === 'blog' ? Publishing : data.state.workflow === 'editorial_projects' && module === 'blog' ? Editorial : data.state.workflow === 'procurement' ? Procurement : (
     {
       blog: Blog,
       studio: Studio,
@@ -113,6 +114,12 @@ export function ProductWorkspace({
   return (
     <Component
       api={{ s: data.state, d: data.state.domain, busy, notice, mutate, clearNotice: () => setNotice(""),
+             downloadFile: async (fileId, name) => {
+               const response = await fetch(`/api/runs/${id}/files/${encodeURIComponent(fileId)}`, {headers:{Authorization:`Bearer ${token.current}`}});
+               if(!response.ok) throw Error('文件无法下载');
+               const url = URL.createObjectURL(await response.blob()), anchor=document.createElement('a');
+               anchor.href=url;anchor.download=name;anchor.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+             },
              applicationLink: (app, query = {}) => {
                const path = app === 'im' ? '/native-assets/im/' : app === 'news' ? `/native/news/${id}` : `/native/product/${app}/${id}`;
                if(app==='im') query={...query,run:id};
