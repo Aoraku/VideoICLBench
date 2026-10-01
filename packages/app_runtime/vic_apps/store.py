@@ -175,6 +175,9 @@ class ApplicationStore(WorkspaceStore):
             elif state.get('workflow') == 'travel_projects':
                 from .travel_projects import apply
                 state = apply(state, mutation.op, mutation.target, mutation.value, mutation.ids)
+            elif state.get('workflow') == 'shop_projects':
+                from .shop_projects import apply
+                state = apply(state, mutation.op, mutation.target, mutation.value, mutation.ids)
             elif state.get('workflow') == 'screening':
                 from .screening import apply
                 state = apply(state, mutation.op, mutation.target, mutation.value, mutation.ids)

@@ -69,6 +69,21 @@ export async function nativeFetch(
       ),
       method = init?.method || "GET",
       body = typeof init?.body === "string" ? JSON.parse(init.body) : {};
+    if(s.workflow==='shop_projects') {
+      const peerId=Number(path.match(/^\/api\/conversations\/(\d+)/)?.[1]),person=s.world.people.find((p:any)=>p.id===peerId),stamp=1790726400;
+      if(method==='GET' && path==='/api/workspace')return respond({instructions:'按每份采购通知的商品范围与标签整理用品，再把包含实际数量、收藏状态及商品链接的交接单发给通知联系人。',shop:`/native/product/shop/${run}#${token}`});
+      if(method==='GET' && path==='/api/friends')return respond({friends:s.world.people.map((p:any)=>({user_id:p.id,username:p.name,group:'采购联系人'}))});
+      if(method==='GET' && path==='/api/conversations')return respond({conversations:s.world.people.map((p:any)=>({conversation_id:p.id,type:'private',name:p.name,peer_user:{user_id:p.id,username:p.name},other_user_id:p.id,unread_count:0,last_message:{content:s.world.receipts.filter((r:any)=>r.recipient===p.id).at(-1)?.request || '本期采购整理与交接',created_at:stamp}}))});
+      if(method==='GET' && path.endsWith('/messages') && person) {
+        const requests=s.world.requests.map((r:any,i:number)=>({...r,index:i})).filter((r:any)=>r.recipient===peerId).map((r:any)=>({msg_id:1000+r.index,sender_id:peerId,sender_name:person.name,created_at:stamp+r.index,content:r.title,shopping_request:{id:r.id,title:r.title,body:'清单 '+r.id+' · 指定标签：'+r.label+'\n新增入车使用下列数量，已在车内的不重复添加。\n'+r.products.map((id:string)=>{const p=s.domain.objects[id];return p.record_code+' · '+p.name+' · '+p.spec+' × '+r.quantities[id];}).join('\n'),url:`/native/product/shop/${run}?request=${encodeURIComponent(r.id)}#${token}`}}));
+        const receipts=s.world.receipts.filter((r:any)=>r.recipient===peerId).map((r:any,i:number)=>({msg_id:10000+Number(r.id.split('-')[1]),sender_id:1,sender_name:'周予安',created_at:stamp+100+i,content:'采购交接：'+r.request,shopping_share:{id:r.id,title:s.world.requests.find((q:any)=>q.id===r.request).title,body:r.body,url:`/native/product/shop/${run}?handover=${encodeURIComponent(r.request)}#${token}`}}));
+        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:'周予安',created_at:stamp+1000+m.id,content:m.body}));
+        return respond({messages:[...requests,...receipts,...discussion].sort((a:any,b:any)=>b.created_at-a.created_at)});
+      }
+      const profile=s.world.people.find((p:any)=>p.id===Number(path.match(/\/user\/(\d+)/)?.[1]));
+      if(method==='GET' && profile)return respond({user_id:profile.id,username:profile.name,bio:'采购联系人'});
+      if(method==='POST' && path.endsWith('/messages') && person){await imCommand('message.send',String(peerId),JSON.stringify({text:body.content}));return respond({msg_id:20000+s.world.discussion.length+1});}
+    }
     if(s.workflow==='procurement') {
       const peerId=Number(path.match(/^\/api\/conversations\/(\d+)/)?.[1]);
       const department=s.world.departments.find((d:any)=>d.im===peerId);

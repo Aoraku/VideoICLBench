@@ -84,7 +84,7 @@ def test_v2_credentials_unimplemented_guard_and_demo(clients):
     assert control.get('/v2/tasks').status_code==401
     assert len(control.get('/v2/tasks',headers=admin()).json()['tasks'])==75
     assert control.get('/v2/tasks/76/contract',headers=admin()).status_code==404
-    response=control.post('/v1/runs',headers=admin(),json=dict(suite='v2',task_id=52,variant='A',seed=10001))
+    response=control.post('/v1/runs',headers=admin(),json=dict(suite='v2',task_id=46,variant='A',seed=10001))
     assert response.status_code==409
     demo=control.post('/v1/runs',headers=admin(),json=dict(suite='v2',task_id=45,variant='C',seed=0,mode='demo',interaction='human',teaching=True))
     assert demo.status_code==201,demo.text

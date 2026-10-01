@@ -1,0 +1,233 @@
+{
+  "verified_at": "2026-10-01T19:06:52.348559+00:00",
+  "video_recorded": false,
+  "tasks": [
+    52,
+    55
+  ],
+  "coverage": {
+    "inference_conditions": 6,
+    "demo_first_episode_conditions": 6,
+    "full_demo_api_episodes": 21,
+    "procurement_regression_conditions": 3
+  },
+  "browser": [
+    {
+      "task": 52,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "real_downloads": true,
+      "orders": 3,
+      "handovers": 0,
+      "im_source_and_delivery": false
+    },
+    {
+      "task": 52,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "real_downloads": true,
+      "orders": 3,
+      "handovers": 0,
+      "im_source_and_delivery": false
+    },
+    {
+      "task": 52,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "real_downloads": true,
+      "orders": 3,
+      "handovers": 0,
+      "im_source_and_delivery": false
+    },
+    {
+      "task": 55,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "real_downloads": true,
+      "orders": 0,
+      "handovers": 2,
+      "im_source_and_delivery": true
+    },
+    {
+      "task": 55,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "real_downloads": true,
+      "orders": 0,
+      "handovers": 2,
+      "im_source_and_delivery": true
+    },
+    {
+      "task": 55,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "real_downloads": true,
+      "orders": 0,
+      "handovers": 2,
+      "im_source_and_delivery": true
+    },
+    {
+      "task": 52,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 52,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 52,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 55,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 55,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 55,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    }
+  ],
+  "procurement_regression": [
+    {
+      "task": 45,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "source_messages": 9,
+      "source_links": 3,
+      "orders": 3,
+      "im_send": true,
+      "persisted": true
+    },
+    {
+      "task": 45,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "source_messages": 9,
+      "source_links": 3,
+      "orders": 3,
+      "im_send": true,
+      "persisted": true
+    },
+    {
+      "task": 45,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "source_messages": 9,
+      "source_links": 3,
+      "orders": 3,
+      "im_send": true,
+      "persisted": true
+    }
+  ],
+  "verification": {
+    "browser": "scripts/check_v2_shop_projects_ui.py",
+    "demo": "scripts/check_native_ui.py",
+    "api": "tests/test_v2_shop_projects.py",
+    "full_demo": "tests/test_v2.py::test_v2_demo_all_episodes_advance_and_final_eval",
+    "procurement": "scripts/check_v2_procurement_links_ui.py",
+    "regression": "1924 passed, 1198 warnings in 237.82s (0:03:57)",
+    "final_link_validation": "17 passed, 14 warnings in 3.32s",
+    "builds": [
+      "Portal production build passed.",
+      "IM benchmark production build passed."
+    ]
+  },
+  "verified_behaviors": [
+    "052: Six department requirements specify category, exact specification, quantity, unit budget and destination address. The product catalog includes wrong-specification, over-budget and insufficient-stock distractors. Rule A/B/C choices differ while all public constraints remain satisfiable.",
+    "052: Actual cart quantities feed three department orders. Confirming each order deducts inventory, consumes only purchased cart quantities and creates an actual receipt file with products, specifications, quantities, address, confirmation number and total. Unrelated cart and favorite items remain unchanged.",
+    "052: Browser acceptance covers category filtering, SKU search, product details, quantity updates, favorites, removal and re-addition, selected-item checkout, department address selection, simulated order cancellation and restoration, actual receipt downloads, file links and reload persistence.",
+    "055: Two native IM notices define independent product scopes, labels, quantities and delivery contacts. The taught action is applied only to matching in-scope products; already present cart members are not added twice and unrelated products remain unchanged.",
+    "055: Each saved handover contains actual final cart quantities, favorite states and product references. Native controls support state capture, manual quantity and favorite editing, save/delete, real Markdown downloads, recipient selection, sending, withdrawal and resend. Unsaved edits and stale saved states cannot be sent.",
+    "055: Native IM displays each delivered handover under the correct contact. Links reopen the actual handover; each product link opens the corresponding product. Exported Markdown uses relative product query links for the application context.",
+    "API tests cover positive A/B/C results across multiple seeds, distinct counterfactual outcomes, reset, expired credentials, command idempotency, invalid quantities, actual inventory restoration, wrong specifications and budget violations, incorrect addresses, missing or extra orders, wrong recipients, stale handovers, fabricated files and immutable inputs.",
+    "The existing 045 procurement source-message links and all three department-order flows pass A/B/C browser regression after the shared Shop and IM integration."
+  ],
+  "limits": [
+    "Browser inference uses seed 10001; API/state tests additionally cover seeds 1000 and 27483.",
+    "Demo browser checks cover the first episode; all twenty-one teaching episodes are verified through lesson API tests.",
+    "Exported product references are relative to the application and require its authenticated workspace context.",
+    "Agentlab v2 deployment remains incomplete."
+  ]
+}

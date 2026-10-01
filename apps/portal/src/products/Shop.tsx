@@ -8,7 +8,7 @@ import {
   Tags,
   type ProductAPI,
 } from "./kit";
-function ProductArt({ item, index }: { item: any; index: number }) {
+export function ProductArt({ item, index }: { item: any; index: number }) {
   index = Math.max(
     0,
     [
