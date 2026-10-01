@@ -5,7 +5,7 @@ from .config import ROOT
 from .v2_atomic import TASKS as ATOMIC_TASKS
 from .v2_worksets import TASKS as WORKSET_TASKS
 
-EXECUTABLE = {45,74} | ATOMIC_TASKS | WORKSET_TASKS
+EXECUTABLE = {45,69,74} | ATOMIC_TASKS | WORKSET_TASKS
 
 
 def catalog():
@@ -36,6 +36,9 @@ def generate(task_id, seed, mode):
     if task_id in WORKSET_TASKS:
         from .v2_worksets import generate as generate_worksets
         return generate_worksets(task_id,seed,task(task_id))
+    if task_id == 69:
+        from vic_apps.stopping_training import fixture
+        return fixture(seed,task(task_id))
     if task_id == 74:
         from vic_apps.reversi_training import fixture
         return fixture(seed,task(task_id))
@@ -46,6 +49,9 @@ def generate(task_id, seed, mode):
 
 
 def evaluate(initial, state, variant, events):
+    if initial.get('v2_2048'):
+        from vic_apps.stopping_training import evaluate as evaluate_stopping
+        return evaluate_stopping(initial,state,variant,events)
     if initial.get('v2_worksets'):
         from .v2_worksets import evaluate as evaluate_worksets
         return evaluate_worksets(initial,state,variant,events)

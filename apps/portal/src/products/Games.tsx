@@ -224,6 +224,7 @@ export function Games({ api }: { api: ProductAPI }) {
                     {s.task_id === 69 && (
                       <p>
                         目标数字 {s.target_number} · 目标分数 {s.target_score}
+                        {s.v2_2048 && <> · 最多移动 {s.move_budget} 步。按视频中的停止条件结束练习；移动方向自行选择。</>}
                       </p>
                     )}
                     <div className="games-directions">
@@ -236,7 +237,7 @@ export function Games({ api }: { api: ProductAPI }) {
                         <button
                           key={v}
                           aria-label={v}
-                          disabled={api.busy || settled}
+                          disabled={api.busy || settled || (s.v2_2048 && s.moves.length >= s.move_budget)}
                           onClick={() => api.mutate("move", "", v)}
                         >
                           {icon}
@@ -283,7 +284,9 @@ export function Games({ api }: { api: ProductAPI }) {
                 )}
                 <hr />
                 <p className="product-muted">
-                  棋盘并列位置按行、列顺序；方向并列按左、上、右、下顺序。
+                  {s.task_id === 69
+                    ? '每次有效移动后会出现一个新方块。点击“停止操作”保存本次练习的棋盘和操作记录。'
+                    : '棋盘并列位置按行、列顺序；方向并列按左、上、右、下顺序。'}
                 </p>
               </aside>
             </div>

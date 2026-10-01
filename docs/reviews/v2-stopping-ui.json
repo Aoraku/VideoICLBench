@@ -1,0 +1,88 @@
+{
+  "verified_at": "2026-10-01T15:24:14.066094+00:00",
+  "video_recorded": false,
+  "task": 69,
+  "browser": [
+    {
+      "task": 69,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 69,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 69,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 69,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval"
+    },
+    {
+      "task": 69,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval"
+    },
+    {
+      "task": 69,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval"
+    }
+  ],
+  "inference_move_counts": {
+    "B": 31,
+    "A": 67,
+    "C": 74
+  },
+  "tests": "272 v2 and stopping tests passed; includes task 69 A/B/C public API, reset and all demo episodes.",
+  "source": "packages/app_runtime/vic_apps/stopping_training.py",
+  "browser_driver": "scripts/check_native_ui.py",
+  "covered_failures": [
+    "early stop",
+    "continued after first matching condition",
+    "wrong video variant",
+    "unsaved stop",
+    "modified board or score",
+    "moves after stop",
+    "public budget exceeded"
+  ],
+  "limits": [
+    "Browser demo verification covers first episode. All six episodes per variant are verified through API lifecycle.",
+    "Not deployed to agentlab."
+  ]
+}

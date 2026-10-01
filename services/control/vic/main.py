@@ -599,7 +599,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                     else None
                 )
                 result = (v2.evaluate(run.initial, state, run.variant, events)
-                          if run.initial.get('workflow') or run.initial.get('v2_atomic') or run.initial.get('v2_reversi') or run.initial.get('v2_worksets') else application_eval.evaluate(
+                          if run.initial.get('workflow') or run.initial.get('v2_atomic') or run.initial.get('v2_reversi') or run.initial.get('v2_worksets') or run.initial.get('v2_2048') else application_eval.evaluate(
                               run.initial, state, run.variant, events, clipboard))
                 if human(run) and run.task_id == 43 and run.variant == "B":
                     result["clipboard_evidence_source"] = "human_paste"

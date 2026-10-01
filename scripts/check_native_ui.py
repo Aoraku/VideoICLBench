@@ -37,7 +37,7 @@ async def main():
          else:initial=initialize(generate(task,seed))
          module=initial['app']
          def evaluate_run(initial,final,variant,events,clipboard=None):
-          return v2.evaluate(initial,final,variant,events) if initial.get('v2_atomic') or initial.get('v2_reversi') else evaluate(initial,final,variant,events,clipboard)
+          return v2.evaluate(initial,final,variant,events) if initial.get('v2_atomic') or initial.get('v2_reversi') or initial.get('v2_2048') else evaluate(initial,final,variant,events,clipboard)
          response=await client.post('/internal/prepare',json=dict(run_id=rid,token=token,app=module,epoch=0,state=initial));response.raise_for_status()
          context=await browser.new_context(viewport={'width':1280,'height':960},permissions=['clipboard-read','clipboard-write']);page=await context.new_page();page.set_default_timeout(12000)
          errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
@@ -275,7 +275,13 @@ async def main():
            wanted=expected(t,variant,s)
            if t==68:await button(wanted)
            elif t==69:
-            for direction in stopping_paths(s)[variant]:await button(direction)
+            if s.get('v2_2048'):
+             from vic_apps.stopping_training import reference_paths
+             path=reference_paths(s['seed'])[variant]
+            else:path=stopping_paths(s)[variant]
+            for index,direction in enumerate(path):
+             await button(direction)
+             await expect(page.get_by_text(f'已移动 {index+1} 步',exact=True)).to_be_visible()
             await button('停止操作')
            elif t in (70,73):
             for r,c in wanted:await button(f'第{r+1}行第{c+1}列')

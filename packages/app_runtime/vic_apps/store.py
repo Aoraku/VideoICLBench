@@ -157,7 +157,10 @@ class ApplicationStore(WorkspaceStore):
             state = self._read(db)
             from . import atomic_delivery
             is_delivery = mutation.op in atomic_delivery.COMMANDS
-            if state.get('v2_worksets'):
+            if state.get('v2_2048'):
+                from .stopping_training import apply
+                state = apply(state, mutation.op, mutation.target, mutation.value)
+            elif state.get('v2_worksets'):
                 from .worksets import apply
                 state = apply(state, mutation.op, mutation.target, mutation.value, mutation.ids)
             elif state.get('v2_reversi'):

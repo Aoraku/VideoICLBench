@@ -14,7 +14,9 @@
     "browser_check": "scripts/check_v2_procurement_ui.py",
     "regression": "1625 full-suite tests passed; 95 final scoped-work tests passed after source, verdict and topic fixture verification.",
     "native_ui": "docs/reviews/v2-native-progress-ui.json",
-    "worksets_ui": "docs/reviews/v2-worksets-ui.json"
+    "worksets_ui": "docs/reviews/v2-worksets-ui.json",
+    "stopping_ui": "docs/reviews/v2-stopping-ui.json",
+    "stopping_regression": "272 v2 and stopping tests passed after 2048 integration."
   },
   "tasks": [
     {
@@ -1517,11 +1519,32 @@
       "id": 69,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 70,
@@ -1711,10 +1734,10 @@
     }
   ],
   "next_work": [
-    "Implement medium tasks 002,006,007,008,009,012,014,016,069 with their native workflows and exact delivery checks.",
+    "Implement medium tasks 002,006,007,008,009,012,014,016 with their native workflows and exact delivery checks.",
     "Implement the remaining 24 hard tasks with actual linked business artifacts and public constraints.",
     "Verify all 75 tasks in A/B/C demo and inference environments without video recording.",
     "Deploy all tested v2 applications to agentlab and verify v2 list, native entry, reset and delivery evaluation on the server."
   ],
-  "verified_at": "2026-10-01T15:19:04.421968+00:00"
+  "verified_at": "2026-10-01T15:24:14.066094+00:00"
 }
