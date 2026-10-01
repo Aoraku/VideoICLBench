@@ -282,16 +282,16 @@ function deck(){
  $('commit-sub').textContent='L:'+short(pending.left)+' + R:'+short(pending.right);
 }
 function render(s){
- state=s;$('v-task').textContent='根据演示，在当前环境中完成任务。';
+ state=s;const locked=busy||Boolean(s.controls_locked);if(!busy&&s.message)$('result').textContent=s.message;$('v-task').textContent='根据演示，在当前环境中完成任务。';
  $('rec-chip').className='on';$('rec-chip').textContent=s.status+' · '+s.steps+' / '+s.max_pairs+' pairs';
  for(const side of ['left','right']){
   $('hold-'+side[0]).textContent=s.gripper_closed[side]?'command: closed':'command: open';
  }
  const closed=s.status==='submitted';
- $('btn-start').disabled=busy||s.status!=='ready';
- $('btn-stop').disabled=busy||s.status!=='running';
- $('commit').disabled=busy||s.status!=='running';
- document.querySelectorAll('.abtn').forEach(b=>b.disabled=busy||closed);
+ $('btn-start').disabled=locked||s.status!=='ready';
+ $('btn-stop').disabled=locked||s.status!=='running';
+ $('commit').disabled=locked||s.status!=='running';
+ document.querySelectorAll('.abtn').forEach(b=>b.disabled=locked||closed);
  $('saved').textContent=closed?'Submitted · locked':'';
 }
 async function post(path,body){

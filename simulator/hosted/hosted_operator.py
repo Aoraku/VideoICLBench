@@ -216,11 +216,49 @@ def serve(op, port):
             except (BrokenPipeError, ConnectionResetError):
                 pass
 
+        def environment_proxy(self, path, body=None):
+            allowed_get = {'/api/state', '/recorder.js', '/demo.mp4'} | {
+                '/stream/'+name for name in CAMERAS} | {f'/demo-frame/{i:02}.jpg' for i in range(12)}
+            allowed_post = {'/api/start', '/api/step', '/api/stop', '/api/ui-event'}
+            if path not in (allowed_get if body is None else allowed_post):
+                return self.reply({}, code=404)
+            if body is not None:
+                with op.lock:
+                    if path != '/api/ui-event' and (op.busy or op.mode in ('running', 'single')):
+                        return self.reply({'ok':False,'message':'Pause Hosted operator before using GUI controls.'})
+                    data=json.loads(request(op.target+path, body))
+                    if path != '/api/ui-event':
+                        op.event('gui_action', endpoint=path, ok=data.get('ok',False),
+                                 actions={k:body[k] for k in ('left','right','step_m') if k in body})
+                    return self.reply(data)
+            if path == '/api/state':
+                data=json.loads(request(op.target+path))
+                data['controls_locked']=op.busy or op.mode in ('running','single')
+                return self.reply(data)
+            headers={'Range':self.headers['Range']} if self.headers.get('Range') else {}
+            with urlopen(Request(op.target+path,headers=headers),timeout=30) as source:
+                self.send_response(source.status)
+                for key in ('Content-Type','Content-Length','Content-Range','Accept-Ranges'):
+                    if source.headers.get(key):self.send_header(key,source.headers[key])
+                self.send_header('Cache-Control','no-store');self.end_headers()
+                try:
+                    while chunk := source.read1(65536):
+                        self.wfile.write(chunk);self.wfile.flush()
+                except (BrokenPipeError,ConnectionResetError):pass
+
         def do_GET(self):
             path = urlparse(self.path).path
             try:
                 if path == '/':
                     return self.reply((HERE/'dashboard.html').read_bytes(), 'text/html; charset=utf-8')
+                if path == '/environment':
+                    html=request(op.target+'/').decode()
+                    for prefix in ('/api/', '/stream/', '/demo', '/recorder.js'):
+                        html=html.replace('"'+prefix, '"/env'+prefix).replace("'"+prefix, "'/env"+prefix)
+                    html=html.replace('</head>', '<style>.screenbar{display:none}</style></head>')
+                    return self.reply(html.encode(), 'text/html; charset=utf-8')
+                if path.startswith('/env/'):
+                    return self.environment_proxy(path[4:])
                 if path == '/api/status':
                     return self.reply(op.status())
                 if path == '/api/view':
@@ -250,6 +288,15 @@ def serve(op, port):
             origin = self.headers.get('Origin')
             if origin and origin not in (f'http://127.0.0.1:{port}', f'http://localhost:{port}'):
                 return self.reply({}, code=403)
+            if self.path.startswith('/env/'):
+                try:
+                    n=int(self.headers.get('Content-Length','0'))
+                    if not 0<n<=4096:raise ValueError('Invalid size')
+                    body=json.loads(self.rfile.read(n))
+                    if not isinstance(body,dict):raise ValueError('Invalid body')
+                    return self.environment_proxy(self.path[4:],body)
+                except (ValueError,TypeError):return self.reply({'ok':False},code=400)
+                except Exception:return self.reply({'ok':False,'message':'Environment unavailable'},code=502)
             if self.path != '/api/control':
                 return self.reply({}, code=404)
             try:

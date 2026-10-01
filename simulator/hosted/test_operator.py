@@ -78,4 +78,32 @@ class Tests(unittest.TestCase):
         self.op.control('stop');self.op.control('pause')
         with self.assertRaises(ValueError):self.op.control('run')
 
+
+# Integration of the shared GUI through the hosted server, without model calls.
+class SharedGuiTests(unittest.TestCase):
+    def test_proxy_and_control_ownership(self):
+        from urllib.request import Request, urlopen
+        from urllib.error import HTTPError
+        with tempfile.TemporaryDirectory() as tmp:
+            op=h.Operator('http://environment','','','',tmp)
+            server=h.serve(op,0)
+            threading.Thread(target=server.serve_forever,daemon=True).start()
+            base='http://127.0.0.1:'+str(server.server_port)
+            def fetch(path,body=None):
+                r=Request(base+path,data=None if body is None else json.dumps(body).encode(),headers={'Host':'127.0.0.1:0','Content-Type':'application/json'})
+                with urlopen(r,timeout=3) as response:return response.read()
+            try:
+                with patch.object(h,'request',return_value=b'<head></head><img src="/stream/overhead"><script>fetch(\'/api/state\')</script>'):
+                    html=fetch('/environment').decode()
+                    self.assertIn('/env/stream/overhead',html);self.assertIn('/env/api/state',html)
+                with self.assertRaises(HTTPError) as error:fetch('/env/private_runs/secret')
+                self.assertEqual(error.exception.code,404)
+                with patch.object(h,'request',return_value=b'{"ok":true,"state":{"steps":1}}') as backend:
+                    self.assertTrue(json.loads(fetch('/env/api/step',{'left':['STILL'],'right':['STILL']}))['ok'])
+                    self.assertEqual(backend.call_count,1)
+                    op.busy=True
+                    self.assertFalse(json.loads(fetch('/env/api/step',{'left':['STILL']}))['ok'])
+                    self.assertEqual(backend.call_count,1)
+            finally:server.shutdown();server.server_close()
+
 if __name__=='__main__':unittest.main()

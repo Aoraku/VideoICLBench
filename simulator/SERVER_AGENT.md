@@ -130,3 +130,9 @@ ssh -N -L 127.0.0.1:18642:127.0.0.1:18642 qingle@agentlab
 ### 2026-10-01 Agentlab 验收
 
 Python 3.13.5 + OSMesa 已通过四路渲染、动作执行、旧观察拒绝、私有提交和物理契约测试；8 项 Hosted 协议测试通过。用户服务 `videoicl-simulator` 已启动，原平台 8765/8771 健康检查通过。Chromium 完整窗口样片实测 1600×1200、15 fps，含地址栏、演示、相机、状态和侧栏；该样片只验证录屏，不是 Agent 完成任务的证据。API 模型凭据仍未配置。
+
+## 共用原始按钮前端
+
+Hosted 入口左侧直接复用 `embodied_icl/static/index.html` 的原始操作台，保留移动、旋转、夹爪、步长、动作排队和 COMMIT。右侧 Hosted 面板可收起，浏览器 Sidebar Agent 可直接操作同一界面的按钮。Hosted HTTP 模式依然调用相同基础动作服务，不伪装为鼠标点击。两者共享同一个 episode；Hosted 执行时按钮锁定，Pause 并等待当前动作结束后可人工接管。
+
+`/environment` 展示原始前端，`/env/` 仅代理固定白名单中的相机、演示和公开控制端点，不代理源码或私有文件。完整窗口录屏覆盖原始按钮与右侧面板。
