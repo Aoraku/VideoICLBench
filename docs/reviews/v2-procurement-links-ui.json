@@ -1,0 +1,73 @@
+{
+  "verified_at": "2026-10-01T18:45:33.604602+00:00",
+  "video_recorded": false,
+  "tasks": [
+    45
+  ],
+  "browser": [
+    {
+      "task": 45,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "source_messages": 9,
+      "source_links": 3,
+      "orders": 3,
+      "im_send": true,
+      "persisted": true
+    },
+    {
+      "task": 45,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "source_messages": 9,
+      "source_links": 3,
+      "orders": 3,
+      "im_send": true,
+      "persisted": true
+    },
+    {
+      "task": 45,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "source_messages": 9,
+      "source_links": 3,
+      "orders": 3,
+      "im_send": true,
+      "persisted": true
+    }
+  ],
+  "verification": {
+    "browser": "scripts/check_v2_procurement_links_ui.py",
+    "api": "tests/test_v2_procurement_links.py",
+    "orders_api": "tests/test_v2.py::test_procurement_real_records_evaluate_and_reset",
+    "targeted_tests": "9 passed, 12 warnings in 0.92s",
+    "builds": [
+      "Portal production build passed.",
+      "IM benchmark production build passed."
+    ]
+  },
+  "verified_behaviors": [
+    "Each of three department contacts has three actual source records in native IM: original request, revised request and supplemental request. All nine records show matching request IDs, dates, product SKUs, specifications and quantities.",
+    "Revised-request links open the corresponding Shop request directly. The user can return to all nine requests, filter by department, inspect the product catalog and consult the department directory.",
+    "The normal native IM send control persists discussion in the same isolated workspace; it does not alter procurement source records or satisfy delivery checks.",
+    "All A/B/C conditions were completed by native UI controls through three department orders, actual line quantities and rule-formatted notes. Saved orders survive reload. Extra draft deletion remains available.",
+    "API tests verify message recipient and payload validation, persistence, idempotency and reset; existing procurement API tests verify final orders, invalid addresses, quantities, notes, unsaved edits and duplicate orders."
+  ],
+  "limits": [
+    "Browser acceptance uses seed 10001.",
+    "No video was recorded.",
+    "Agentlab v2 deployment remains incomplete."
+  ]
+}

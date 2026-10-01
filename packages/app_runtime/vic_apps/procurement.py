@@ -17,6 +17,8 @@ def fixture(seed):
     departments = [dict(id='design', name='设计部', address='海棠路 18 号 3 楼，林若宁收'),
                    dict(id='research', name='研发部', address='海棠路 18 号 5 楼，陈嘉树收'),
                    dict(id='operations', name='运营部', address='海棠路 26 号 2 楼，周予安收')]
+    for index, department in enumerate(departments):
+        department.update(im=10+index,contact=['林若宁','陈嘉树','许清和'][index])
     requests = []
     for idx, dep in enumerate(departments):
         skus = rng.sample([p['id'] for p in products], 2)
@@ -28,8 +30,8 @@ def fixture(seed):
         requests.append(dict(id=number+'-add',number=number+'-追加',revision=1,department=dep['id'],
                              date='2026-09-30',lines=[dict(sku=skus[0],quantity=rng.randint(1,3))]))
     rng.shuffle(requests)
-    return dict(task_id=45,app='shop',type='T',title='部门采购',seed=seed,workflow='procurement',
-                world=dict(products=products,departments=departments,requests=requests,orders={},
+    return dict(task_id=45,app='shop',type='T',title='部门采购',seed=seed,workflow='procurement',linked_apps=['shop','im'],
+                world=dict(products=products,departments=departments,requests=requests,orders={},discussion=[],
                     brief='请为设计部、研发部和运营部各保存一张采购订单草稿。同一申请编号只采用最高版本；追加申请单独累计。每个部门内相同商品编号合并数量，不跨部门合并。按部门通讯录填写收货地址。每行备注使用视频中的格式，数量取本行合并后的最终数量，商品名不包含规格，数量与商品名之间不加空格。只保存草稿，无需付款。'))
 
 
@@ -42,6 +44,11 @@ def apply(state, op, target, value):
         raise ValueError('操作内容必须为有效 JSON') from exc
     if not isinstance(data, dict):
         raise ValueError('操作字段无效')
+    if op == 'message.send':
+        if target not in [str(d['im']) for d in w['departments']] or set(data)!={'text'} or not isinstance(data['text'],str) or not data['text'].strip() or len(data['text'])>4000:
+            raise ValueError('请选择采购联系人并填写消息')
+        w['discussion'].append(dict(id=len(w['discussion'])+1,recipient=int(target),body=data['text'].strip()))
+        return state
     fields = {'order.create': {'department'}, 'order.address': {'address'},
               'order.line': {'sku','quantity','note'}, 'order.remove': {'sku'},
               'order.save': set(), 'order.delete': set()}

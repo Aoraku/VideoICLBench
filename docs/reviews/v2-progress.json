@@ -26,7 +26,9 @@
     "studio_projects_ui": "docs/reviews/v2-studio-projects-ui.json",
     "studio_projects_regression": "1847 full-suite tests passed. Six native inference conditions and six initial-demo conditions passed for tasks 041/043. Real file downloads, OS clipboard paste, native IM messages and source links verified without recording video.",
     "screening_ui": "docs/reviews/v2-screening-ui.json",
-    "travel_projects_ui": "docs/reviews/v2-travel-projects-ui.json"
+    "travel_projects_ui": "docs/reviews/v2-travel-projects-ui.json",
+    "procurement_links_ui": "docs/reviews/v2-procurement-links-ui.json",
+    "procurement_links_regression": "Nine targeted procurement API tests and all three native Shop/IM conditions passed after integration; both frontends built successfully."
   },
   "tasks": [
     {
@@ -2270,8 +2272,8 @@
   "next_work": [
     "Implement the remaining 8 hard tasks (046, 052, 055, 056, 058, 060, 064, 065) with actual linked business artifacts and public constraints.",
     "Verify all 75 tasks in A/B/C demo and inference environments without video recording.",
-    "Audit advertised cross-application requirements before release, including task 045 procurement request access through Shop + IM.",
+    "Audit advertised cross-application requirements before release. Task 045 Shop + IM source requests and links are verified in A/B/C; retain coverage during the remaining Shop integrations.",
     "Deploy all tested v2 applications to agentlab and verify v2 list, native entry, reset and delivery evaluation on the server."
   ],
-  "verified_at": "2026-10-01T18:38:30.691604+00:00"
+  "verified_at": "2026-10-01T18:45:33.604602+00:00"
 }

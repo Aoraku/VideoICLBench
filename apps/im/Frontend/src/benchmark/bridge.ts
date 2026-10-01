@@ -69,6 +69,25 @@ export async function nativeFetch(
       ),
       method = init?.method || "GET",
       body = typeof init?.body === "string" ? JSON.parse(init.body) : {};
+    if(s.workflow==='procurement') {
+      const peerId=Number(path.match(/^\/api\/conversations\/(\d+)/)?.[1]);
+      const department=s.world.departments.find((d:any)=>d.im===peerId);
+      if(method==='GET' && path==='/api/workspace')return respond({instructions:'各部门的采购申请、有效更正与追加申请。消息卡片中的编号、商品规格和数量与采购系统一致；打开申请链接可核对原始单据。',shop:`/native/product/shop/${run}#${token}`});
+      if(method==='GET' && path==='/api/friends')return respond({friends:s.world.departments.map((d:any)=>({user_id:d.im,username:d.contact,group:d.name+'采购联系人'}))});
+      if(method==='GET' && path==='/api/conversations')return respond({conversations:s.world.departments.map((d:any)=>({conversation_id:d.im,type:'private',name:d.contact,peer_user:{user_id:d.im,username:d.contact},other_user_id:d.im,unread_count:0,last_message:{content:d.name+' · 采购申请与更正',created_at:1790726400}}))});
+      if(method==='GET' && path.endsWith('/messages') && department) {
+        const requests=s.world.requests.map((r:any,i:number)=>({...r,index:i})).filter((r:any)=>r.department===department.id).map((r:any)=>{
+          const title=r.number+' · 第 '+r.revision+' 版';
+          const body=department.name+' · '+r.date+'\n申请编号：'+r.id+'\n'+r.lines.map((line:any)=>{const p=s.world.products.find((p:any)=>p.id===line.sku);return p.name+' · '+p.spec+' · '+p.id+' × '+line.quantity;}).join('\n');
+          return {msg_id:1000+r.index,sender_id:peerId,sender_name:department.contact,created_at:Date.parse(r.date+'T08:00:00+08:00')/1000+r.index,content:title,procurement_request:{id:r.id,title,body,url:`/native/product/shop/${run}?request=${encodeURIComponent(r.id)}#${token}`}};
+        });
+        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:'周予安',created_at:1790726400+1000+m.id,content:m.body}));
+        return respond({messages:[...requests,...discussion].sort((a:any,b:any)=>b.created_at-a.created_at)});
+      }
+      const profile=s.world.departments.find((d:any)=>d.im===Number(path.match(/\/user\/(\d+)/)?.[1]));
+      if(method==='GET' && profile)return respond({user_id:profile.im,username:profile.contact,bio:profile.name+'采购联系人'});
+      if(method==='POST' && path.endsWith('/messages') && department){await imCommand('message.send',String(peerId),JSON.stringify({text:body.content}));return respond({msg_id:20000+s.world.discussion.length+1});}
+    }
     if(s.workflow==='travel_projects') {
       const peerId=Number(path.match(/^\/api\/conversations\/(\d+)/)?.[1]);
       const person=s.world.people.find((p:any)=>p.im===peerId),stamp=1771891200;
