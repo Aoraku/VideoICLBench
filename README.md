@@ -45,6 +45,14 @@ docker compose --env-file .local/docker.env -f infra/compose.yaml up --build -d
 
 ## 应用与任务
 
+录制与试用入口为主页的 **v2 list** 标签页，包含低、中、高难度各 25 题。选择任务与 A/B/C 版本后，任务卡展示录制规则、示范内容、执行目的、工作要求和最终交付。
+
+- 人工录制：点击“重置示范”，再点击“开始录制”，直接进入应用首页。
+- 试用执行任务：点击“打开执行环境”；完成业务操作后回到任务卡，点击“检查最终交付”。无需录视频即可试用。
+- 重做执行任务：点击“重置执行环境”，再打开应用；重置会使旧应用页面的访问凭证失效。
+
+完整任务规格见 [75 题设计表](VideoICL_75_web_tasks.md)。示范使用小样本教学初态，执行环境使用对应难度的独立业务初态。
+
 | 应用 | 路径 | 任务 |
 |---|---|---|
 | 通讯 A | `apps/chat/benchmark` | 1–14 |
@@ -62,6 +70,10 @@ docker compose --env-file .local/docker.env -f infra/compose.yaml up --build -d
 | 2048／数独／扫雷／黑白棋 | `apps/games/benchmark` | 68–75 |
 
 ## 每题 eval API
+
+v2 的契约接口为 `GET /v2/tasks/{task_id}/contract`。创建运行时向 `POST /v1/runs` 传入 `suite: "v2"`、题号、版本及 `mode: "demo"` 或 `"eval"`；连续示范另传 `teaching: true`。最终交付使用 `POST /v2/tasks/{task_id}/eval`，请求体为 `{"run_id": "..."}`。重置接口为 `POST /v1/runs/{run_id}/reset`。这些管理接口均需要平台访问密钥。
+
+以下示例为基础任务接口；v2 运行须使用上述 v2 契约与交付接口，不能混用不同任务集的判分接口。
 
 管理凭证创建并结束任务，Agent 凭证只允许该运行的截图和键鼠输入。
 
