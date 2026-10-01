@@ -10,7 +10,7 @@ from vic_apps.editorial_projects import TASKS as EDITORIAL_TASKS
 from vic_apps.publishing import TASKS as PUBLISHING_TASKS
 from vic_apps.studio_projects import TASKS as STUDIO_PROJECT_TASKS
 
-EXECUTABLE = {45,69,74} | ATOMIC_TASKS | WORKSET_TASKS | COMMUNICATION_TASKS | MUSIC_PROJECT_TASKS | EDITORIAL_TASKS | PUBLISHING_TASKS | STUDIO_PROJECT_TASKS
+EXECUTABLE = {35,45,69,74} | ATOMIC_TASKS | WORKSET_TASKS | COMMUNICATION_TASKS | MUSIC_PROJECT_TASKS | EDITORIAL_TASKS | PUBLISHING_TASKS | STUDIO_PROJECT_TASKS
 
 
 def catalog():
@@ -56,6 +56,9 @@ def generate(task_id, seed, mode):
     if task_id in WORKSET_TASKS:
         from .v2_worksets import generate as generate_worksets
         return generate_worksets(task_id,seed,task(task_id))
+    if task_id == 35:
+        from vic_apps.screening import fixture
+        return fixture(seed,task(task_id))
     if task_id == 69:
         from vic_apps.stopping_training import fixture
         return fixture(seed,task(task_id))
@@ -69,6 +72,9 @@ def generate(task_id, seed, mode):
 
 
 def evaluate(initial, state, variant, events):
+    if initial.get('workflow')=='screening':
+        from .v2_screening import evaluate as evaluate_screening
+        return evaluate_screening(initial,state,variant,events)
     if initial.get('workflow')=='studio_projects':
         from .v2_studio_projects import evaluate as evaluate_studio_projects
         return evaluate_studio_projects(initial,state,variant,events)

@@ -1,0 +1,112 @@
+{
+  "verified_at": "2026-10-01T18:08:29.080795+00:00",
+  "video_recorded": false,
+  "tasks": [
+    35
+  ],
+  "coverage": {
+    "inference_conditions": 3,
+    "demo_first_episode_conditions": 3,
+    "full_demo_api_episodes": 18,
+    "final_queue_members_per_condition": 9,
+    "replacements_per_condition": 2
+  },
+  "browser": [
+    {
+      "task": 35,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "queue_members": 9,
+      "replacements": 2,
+      "breaks": 2,
+      "real_csv_download": true,
+      "playback_verified": true
+    },
+    {
+      "task": 35,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "queue_members": 9,
+      "replacements": 2,
+      "breaks": 2,
+      "real_csv_download": true,
+      "playback_verified": true
+    },
+    {
+      "task": 35,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "queue_members": 9,
+      "replacements": 2,
+      "breaks": 2,
+      "real_csv_download": true,
+      "playback_verified": true
+    },
+    {
+      "task": 35,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 35,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 35,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    }
+  ],
+  "verification": {
+    "browser": "scripts/check_v2_screening_ui.py",
+    "demo": "scripts/check_native_ui.py",
+    "api": "tests/test_v2_screening.py",
+    "full_demo": "tests/test_v2.py::test_v2_demo_all_episodes_advance_and_final_eval",
+    "regression": "1858 full-suite tests passed (1136 warnings, 245.39 seconds). Portal production build passed. Final A/B/C browser acceptance passed after unsaved timing and search navigation safeguards."
+  },
+  "verified_behaviors": [
+    "Three source collections merge in the published source order, deduplicate by film identity, and preserve a reproducible reference order. Two excluded films are removed and two source films are replaced by the required editions.",
+    "Nine-film queues follow the demonstrated short/long or category alternation, preserve relative order inside each group, and append the remaining group after the other is exhausted. All three rule variants produce distinct orders across 100 sampled seeds.",
+    "Native controls support collection import, repeated import without duplicates, catalog search, individual add/remove, version replacement, position entry, up/down movement and named queue persistence.",
+    "Actual video playback, media duration and previous/next controls are verified for the first two queue films in every rule condition. Source assets are licensed looping edits whose encoded durations match the library.",
+    "Public opening time, turnaround interval and two film-linked breaks determine actual timetable rows. Saved timetables become stale after queue changes; unsaved timing edits prevent regeneration until saved.",
+    "Real CSV downloads contain the saved timetable. Preview, reload persistence, reset, obsolete credentials, command idempotency, wrong editions, invalid orders, missing rests, wrong times, stale artifacts and immutable inputs are checked."
+  ],
+  "limits": [
+    "Browser inference uses seed 10001; independent API and state tests cover additional seeds.",
+    "Browser demo verification covers the first teaching episode; all eighteen teaching episodes are verified through API tests.",
+    "Playback checks use the first two films in each variant and do not wait for the full event duration.",
+    "Agentlab v2 deployment is incomplete."
+  ]
+}
