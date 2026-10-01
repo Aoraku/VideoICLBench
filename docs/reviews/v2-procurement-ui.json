@@ -1,0 +1,371 @@
+[
+  {
+    "task_id": 45,
+    "variant": "A",
+    "success": true,
+    "checks": [
+      {
+        "id": "input:requests",
+        "passed": true
+      },
+      {
+        "id": "input:products",
+        "passed": true
+      },
+      {
+        "id": "input:departments",
+        "passed": true
+      },
+      {
+        "id": "input:brief",
+        "passed": true
+      },
+      {
+        "id": "order_count",
+        "passed": true
+      },
+      {
+        "id": "design:one_order",
+        "passed": true
+      },
+      {
+        "id": "design:address",
+        "passed": true
+      },
+      {
+        "id": "design:saved",
+        "passed": true
+      },
+      {
+        "id": "design:products",
+        "passed": true
+      },
+      {
+        "id": "design:cup-white:quantity",
+        "passed": true
+      },
+      {
+        "id": "design:cup-white:note",
+        "passed": true
+      },
+      {
+        "id": "design:keyboard-blue:quantity",
+        "passed": true
+      },
+      {
+        "id": "design:keyboard-blue:note",
+        "passed": true
+      },
+      {
+        "id": "research:one_order",
+        "passed": true
+      },
+      {
+        "id": "research:address",
+        "passed": true
+      },
+      {
+        "id": "research:saved",
+        "passed": true
+      },
+      {
+        "id": "research:products",
+        "passed": true
+      },
+      {
+        "id": "research:cup-white:quantity",
+        "passed": true
+      },
+      {
+        "id": "research:cup-white:note",
+        "passed": true
+      },
+      {
+        "id": "research:lamp:quantity",
+        "passed": true
+      },
+      {
+        "id": "research:lamp:note",
+        "passed": true
+      },
+      {
+        "id": "operations:one_order",
+        "passed": true
+      },
+      {
+        "id": "operations:address",
+        "passed": true
+      },
+      {
+        "id": "operations:saved",
+        "passed": true
+      },
+      {
+        "id": "operations:products",
+        "passed": true
+      },
+      {
+        "id": "operations:keyboard-blue:quantity",
+        "passed": true
+      },
+      {
+        "id": "operations:keyboard-blue:note",
+        "passed": true
+      },
+      {
+        "id": "operations:keyboard-red:quantity",
+        "passed": true
+      },
+      {
+        "id": "operations:keyboard-red:note",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "task_id": 45,
+    "variant": "B",
+    "success": true,
+    "checks": [
+      {
+        "id": "input:requests",
+        "passed": true
+      },
+      {
+        "id": "input:products",
+        "passed": true
+      },
+      {
+        "id": "input:departments",
+        "passed": true
+      },
+      {
+        "id": "input:brief",
+        "passed": true
+      },
+      {
+        "id": "order_count",
+        "passed": true
+      },
+      {
+        "id": "design:one_order",
+        "passed": true
+      },
+      {
+        "id": "design:address",
+        "passed": true
+      },
+      {
+        "id": "design:saved",
+        "passed": true
+      },
+      {
+        "id": "design:products",
+        "passed": true
+      },
+      {
+        "id": "design:cup-white:quantity",
+        "passed": true
+      },
+      {
+        "id": "design:cup-white:note",
+        "passed": true
+      },
+      {
+        "id": "design:keyboard-blue:quantity",
+        "passed": true
+      },
+      {
+        "id": "design:keyboard-blue:note",
+        "passed": true
+      },
+      {
+        "id": "research:one_order",
+        "passed": true
+      },
+      {
+        "id": "research:address",
+        "passed": true
+      },
+      {
+        "id": "research:saved",
+        "passed": true
+      },
+      {
+        "id": "research:products",
+        "passed": true
+      },
+      {
+        "id": "research:cup-white:quantity",
+        "passed": true
+      },
+      {
+        "id": "research:cup-white:note",
+        "passed": true
+      },
+      {
+        "id": "research:lamp:quantity",
+        "passed": true
+      },
+      {
+        "id": "research:lamp:note",
+        "passed": true
+      },
+      {
+        "id": "operations:one_order",
+        "passed": true
+      },
+      {
+        "id": "operations:address",
+        "passed": true
+      },
+      {
+        "id": "operations:saved",
+        "passed": true
+      },
+      {
+        "id": "operations:products",
+        "passed": true
+      },
+      {
+        "id": "operations:keyboard-blue:quantity",
+        "passed": true
+      },
+      {
+        "id": "operations:keyboard-blue:note",
+        "passed": true
+      },
+      {
+        "id": "operations:keyboard-red:quantity",
+        "passed": true
+      },
+      {
+        "id": "operations:keyboard-red:note",
+        "passed": true
+      }
+    ]
+  },
+  {
+    "task_id": 45,
+    "variant": "C",
+    "success": true,
+    "checks": [
+      {
+        "id": "input:requests",
+        "passed": true
+      },
+      {
+        "id": "input:products",
+        "passed": true
+      },
+      {
+        "id": "input:departments",
+        "passed": true
+      },
+      {
+        "id": "input:brief",
+        "passed": true
+      },
+      {
+        "id": "order_count",
+        "passed": true
+      },
+      {
+        "id": "design:one_order",
+        "passed": true
+      },
+      {
+        "id": "design:address",
+        "passed": true
+      },
+      {
+        "id": "design:saved",
+        "passed": true
+      },
+      {
+        "id": "design:products",
+        "passed": true
+      },
+      {
+        "id": "design:cup-white:quantity",
+        "passed": true
+      },
+      {
+        "id": "design:cup-white:note",
+        "passed": true
+      },
+      {
+        "id": "design:keyboard-blue:quantity",
+        "passed": true
+      },
+      {
+        "id": "design:keyboard-blue:note",
+        "passed": true
+      },
+      {
+        "id": "research:one_order",
+        "passed": true
+      },
+      {
+        "id": "research:address",
+        "passed": true
+      },
+      {
+        "id": "research:saved",
+        "passed": true
+      },
+      {
+        "id": "research:products",
+        "passed": true
+      },
+      {
+        "id": "research:cup-white:quantity",
+        "passed": true
+      },
+      {
+        "id": "research:cup-white:note",
+        "passed": true
+      },
+      {
+        "id": "research:lamp:quantity",
+        "passed": true
+      },
+      {
+        "id": "research:lamp:note",
+        "passed": true
+      },
+      {
+        "id": "operations:one_order",
+        "passed": true
+      },
+      {
+        "id": "operations:address",
+        "passed": true
+      },
+      {
+        "id": "operations:saved",
+        "passed": true
+      },
+      {
+        "id": "operations:products",
+        "passed": true
+      },
+      {
+        "id": "operations:keyboard-blue:quantity",
+        "passed": true
+      },
+      {
+        "id": "operations:keyboard-blue:note",
+        "passed": true
+      },
+      {
+        "id": "operations:keyboard-red:quantity",
+        "passed": true
+      },
+      {
+        "id": "operations:keyboard-red:note",
+        "passed": true
+      }
+    ]
+  }
+]

@@ -22,7 +22,7 @@ from .runtime import BrowserRuntime
 from .recording import Recorder
 from .provenance import provenance
 from .app_client import ApplicationClient
-from . import application_eval
+from . import application_eval, v2
 from vic_apps.domain import initialize as initialize_domain
 
 
@@ -135,7 +135,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
         return locks.setdefault(run_id, asyncio.Lock())
 
     def current_contract(run):
-        if run.manifest.get("task_digest") != task_digest(run.task_id):
+        digest = v2.digest if run.manifest.get('suite') == 'v2' else task_digest
+        if run.manifest.get("task_digest") != digest(run.task_id):
             raise HTTPException(409, "任务数据或规则已更新，请重置环境后重新录制。已有录像与结果保留归档。")
 
     def active(run):
@@ -199,6 +200,23 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
     def tasks():
         return catalog()
 
+    @app.get("/v2/tasks", dependencies=[Depends(manager)])
+    def v2_tasks():
+        return v2.catalog()
+
+    @app.get("/v2/tasks/{task_id}/contract", dependencies=[Depends(manager)])
+    def v2_contract(task_id: int):
+        if not 1 <= task_id <= 75:
+            raise HTTPException(404, "Task not found")
+        return v2.task(task_id)
+
+    @app.post("/v2/tasks/{task_id}/eval", dependencies=[Depends(manager)])
+    async def v2_eval_task(task_id: int, body: EvaluateTask):
+        run = get_run(body.run_id)
+        if run.manifest.get('suite') != 'v2' or run.task_id != task_id:
+            raise HTTPException(409, "Task suite and run mismatch")
+        return await evaluate(body.run_id)
+
     @app.get("/v1/tasks/{task_id}/recording-preview", dependencies=[Depends(manager)])
     def recording_preview(task_id: int):
         if not 1 <= task_id <= 75:
@@ -223,7 +241,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
     @app.post("/v1/tasks/{task_id}/eval", dependencies=[Depends(manager)])
     async def eval_task(task_id: int, body: EvaluateTask):
         run = get_run(body.run_id)
-        if run.task_id != task_id:
+        if run.task_id != task_id or run.manifest.get('suite', 'v1') != 'v1':
             raise HTTPException(409, "Task and run mismatch")
         result = await evaluate(body.run_id)
         return dict(**result, task_id=task_id, variant=run.variant)
@@ -257,12 +275,20 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             )
         if body.teaching and (body.interaction != "human" or body.mode != "demo" or body.runtime != "browser"):
             raise HTTPException(422, "连续教学仅用于人工演示录制")
-        initial = business.generate(body.task_id, body.seed)
+        if body.suite == 'v2':
+            if body.runtime != 'browser':
+                raise HTTPException(422, 'v2 tasks require application runtime')
+            try:
+                initial = v2.generate(body.task_id, body.seed, body.mode)
+            except ValueError as exc:
+                raise HTTPException(409, str(exc)) from exc
+        else:
+            initial = business.generate(body.task_id, body.seed)
         if body.interaction == "human" and (
             body.runtime != "browser" or initial["app"] not in direct_modules()
         ):
             raise HTTPException(409, "该应用的独立入口尚未开放")
-        if body.runtime == "browser":
+        if body.runtime == "browser" and body.suite != 'v2':
             initial = initialize_domain(initial)
         run_id = uuid.uuid4().hex
         actor = secrets.token_urlsafe(32)
@@ -279,7 +305,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             token_hash=hashlib.sha256(actor.encode()).hexdigest(),
             initial=initial,
             manifest=dict(
-                task_digest=task_digest(body.task_id),
+                suite=body.suite,
+                task_digest=(v2.digest if body.suite == 'v2' else task_digest)(body.task_id),
                 initial_digest=hashlib.sha256(
                     json.dumps(initial, sort_keys=True).encode()
                 ).hexdigest(),
@@ -402,8 +429,9 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 raise HTTPException(410, "Create a new run after destruction")
             if run_id in recorder.active:
                 raise HTTPException(409, "Stop recording before reset")
-            initial = business.generate(run.task_id, run.seed)
-            if run.runtime == "browser":
+            suite = run.manifest.get('suite', 'v1')
+            initial = v2.generate(run.task_id, run.seed, run.mode) if suite == 'v2' else business.generate(run.task_id, run.seed)
+            if run.runtime == "browser" and suite != 'v2':
                 initial = initialize_domain(initial)
             save_status(run_id, "resetting")
             await runtime.close_run(run_id)
@@ -437,7 +465,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 if row.manifest.get("lesson"):
                     row.manifest = {**row.manifest, "lesson": lessons.plan(row.task_id, row.seed)}
                 row.manifest = {**row.manifest,
-                    "task_digest": task_digest(row.task_id),
+                    "task_digest": (v2.digest if suite == 'v2' else task_digest)(row.task_id),
                     "initial_digest": hashlib.sha256(json.dumps(initial, sort_keys=True).encode()).hexdigest(),
                     "implementation": implementation,
                 }
@@ -570,9 +598,9 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                     if run.task_id == 43 and run.variant == "B"
                     else None
                 )
-                result = application_eval.evaluate(
-                    run.initial, state, run.variant, events, clipboard
-                )
+                result = (v2.evaluate(run.initial, state, run.variant, events)
+                          if run.initial.get('workflow') else application_eval.evaluate(
+                              run.initial, state, run.variant, events, clipboard))
                 if human(run) and run.task_id == 43 and run.variant == "B":
                     result["clipboard_evidence_source"] = "human_paste"
             else:

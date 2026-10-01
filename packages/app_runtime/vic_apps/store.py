@@ -99,7 +99,7 @@ class ApplicationStore(WorkspaceStore):
         if not row:
             raise ValueError("Application not initialized")
         state = json.loads(row[0])
-        if state["task_id"] >= 66:
+        if state["task_id"] >= 66 or state.get('workflow'):
             return state
         d = {
             name: json.loads(value)
@@ -155,10 +155,14 @@ class ApplicationStore(WorkspaceStore):
                     raise ValueError("Action id collision")
                 return self._read(db)
             state = self._read(db)
-            state = apply_mutation(
-                state, mutation.op, mutation.target, mutation.value, mutation.ids
-            )
-            if state["task_id"] < 66:
+            if state.get('workflow') == 'procurement':
+                from .procurement import apply
+                state = apply(state, mutation.op, mutation.target, mutation.value)
+            else:
+                state = apply_mutation(
+                    state, mutation.op, mutation.target, mutation.value, mutation.ids
+                )
+            if state["task_id"] < 66 and not state.get('workflow'):
                 state = domain.apply(
                     state, mutation.op, mutation.target, mutation.value, mutation.ids
                 )

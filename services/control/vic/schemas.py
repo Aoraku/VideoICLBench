@@ -7,6 +7,7 @@ class StrictModel(BaseModel):
 
 
 class CreateRun(StrictModel):
+    suite: Literal["v1", "v2"] = "v1"
     task_id: int = Field(ge=1, le=100)
     variant: Literal["A", "B", "C"]
     seed: int = Field(ge=0, le=2147483647)

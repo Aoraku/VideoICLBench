@@ -51,7 +51,7 @@ export function Frame({
               className={page === id ? "active" : ""}
               onClick={() => navigate(id)}
             >
-              <span>
+              <span aria-hidden="true">
                 {(
                   {
                     home: "◫",

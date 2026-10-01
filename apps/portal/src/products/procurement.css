@@ -1,0 +1,9 @@
+.procurement .product-content { min-width: 0; }
+.procurement .product-card { background: #fff; border: 1px solid #e3e7ed; border-radius: 12px; padding: 24px; margin: 18px 0; }
+.procurement .product-card p { max-width: 78ch; line-height: 1.9; }
+.procurement .product-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(290px,1fr)); gap: 20px; }
+.procurement .product-grid .product-card { margin: 0; }
+.procurement select { display: block; width: 100%; border: 1px solid #d5dce2; background: white; border-radius: 6px; padding: 11px 13px; margin: 8px 0 18px; font: inherit; color: #26313d; }
+.procurement .product-table { margin-top: 20px; }
+.procurement .product-table button { margin: 4px; }
+.procurement .product-card h2 { font-size: 18px; }

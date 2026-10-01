@@ -6,6 +6,7 @@ import { Shop } from "./Shop";
 import { Bank } from "./Bank";
 import { Media } from "./Media";
 import { Games } from "./Games";
+import { Procurement } from "./Procurement";
 import type { ProductAPI } from "./kit";
 import "./products.css";
 export function ProductWorkspace({
@@ -94,7 +95,7 @@ export function ProductWorkspace({
         <p>{notice || "正在载入你的个人工作区…"}</p>
       </div>
     );
-  const Component = (
+  const Component = data.state.workflow === 'procurement' ? Procurement : (
     {
       blog: Blog,
       studio: Studio,

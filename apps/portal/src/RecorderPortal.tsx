@@ -4,6 +4,7 @@ import {HumanRecording} from './HumanRecording';
 import type {HumanRun} from './HumanSession';
 import {recordingSteps} from './recordingGuide';
 import {nativeApplicationUrl} from './nativeApplicationUrl';
+import {V2TaskList} from './V2TaskList';
 import './recorder.css';
 
 type Task={id:number;title:string;app:string;status:string;variants:Record<string,string>};
@@ -13,6 +14,7 @@ async function api(path:string,token:string,method='GET',body?:unknown){
   const data=await r.json();if(!r.ok)throw Error(typeof data.detail==='string'?data.detail:JSON.stringify(data.detail));return data;
 }
 export function RecorderPortal(){
+  const [listVersion,setListVersion]=useState('v1');
   const [token,setToken]=useState(sessionStorage.getItem('vic-manager')||''),[entry,setEntry]=useState('');
   const [tasks,setTasks]=useState<Task[]>([]),[modules,setModules]=useState<string[]>([]),[error,setError]=useState('');
   const [query,setQuery]=useState(''),[filter,setFilter]=useState('all'),[selected,setSelected]=useState<Task|null>(null),[variant,setVariant]=useState('A');
@@ -74,7 +76,8 @@ export function RecorderPortal(){
   const shown=tasks.filter(t=>(filter==='all'||t.app===filter)&&`${t.id} ${t.title}`.toLowerCase().includes(query.toLowerCase()));
   return <main className="recorder-portal"><header className="recorder-header"><div><div className="brand"><span className="logo">V</span>VideoICL <span className="muted">视频录制台</span></div><h1>选择任务，录下完整操作</h1><p className="muted">阅读版本规则 → 开始录制 → 从应用首页完成任务</p></div><div className="actions"><button disabled={locked} onClick={()=>history?setHistory(null):loadHistory()}>{history?'返回任务列表':'录制记录'}</button><button disabled={locked} onClick={()=>{sessionStorage.removeItem('vic-manager');setToken('');setSessions({});setSelected(null);setHistory(null)}}>退出</button></div></header>
     {error&&<div className="error" role="alert">{error}<button onClick={()=>setError('')}>关闭</button></div>}
-    {history?<section className="panel"><table><thead><tr><th>任务</th><th>版本</th><th>录制 / 检查</th><th/></tr></thead><tbody>{history.map(r=><tr key={r.id}><td>#{r.task_id} {tasks.find(t=>t.id===r.task_id)?.title}</td><td>{r.variant}</td><td>{r.result?(r.result.success?'任务通过':'需要检查'):r.status==='recorded'?'录像已保存':'未完成'}</td><td><button disabled={locked||r.status==='destroyed'} onClick={()=>openHistory(r)}>查看</button></td></tr>)}</tbody></table>{!history.length&&<p className="empty">还没有录制记录。</p>}</section>:<>
+    <nav className="actions" aria-label="任务版本"><button disabled={locked} aria-pressed={listVersion==='v1'} onClick={()=>setListVersion('v1')}>v1 list</button><button disabled={locked} aria-pressed={listVersion==='v2'} onClick={()=>setListVersion('v2')}>v2 list</button></nav>
+    {listVersion==='v2'?<V2TaskList token={token} onBusy={setRecordingBusy}/>:history?<section className="panel"><table><thead><tr><th>任务</th><th>版本</th><th>录制 / 检查</th><th/></tr></thead><tbody>{history.map(r=><tr key={r.id}><td>#{r.task_id} {tasks.find(t=>t.id===r.task_id)?.title}</td><td>{r.variant}</td><td>{r.result?(r.result.success?'任务通过':'需要检查'):r.status==='recorded'?'录像已保存':'未完成'}</td><td><button disabled={locked||r.status==='destroyed'} onClick={()=>openHistory(r)}>查看</button></td></tr>)}</tbody></table>{!history.length&&<p className="empty">还没有录制记录。</p>}</section>:<>
     <div className="toolbar"><input aria-label="搜索任务" placeholder="搜索任务名称或编号…" value={query} onChange={e=>setQuery(e.target.value)}/><select aria-label="应用筛选" value={filter} onChange={e=>setFilter(e.target.value)}><option value="all">全部应用</option>{Object.entries(APPS).map(([k,v])=><option key={k} value={k}>{v}</option>)}</select><span className="muted">{shown.length} 个任务</span></div>
     <div className="recorder-layout"><section className="panel task-list"><table><thead><tr><th>任务</th><th>应用</th></tr></thead><tbody>{shown.map(t=><tr key={t.id} tabIndex={locked?-1:0} aria-disabled={locked} aria-selected={selected?.id===t.id} className={selected?.id===t.id?'selected':''} onClick={()=>{if(!locked){setSelected(t);setError('')}}} onKeyDown={e=>{if(!locked&&e.key==='Enter')setSelected(t)}}><td><span className="task-id">{String(t.id).padStart(3,'0')}</span>{t.title}</td><td><span className="muted">{APPS[t.app]||'暂未开放'}</span></td></tr>)}</tbody></table></section>
     <section className="panel recorder-card" aria-label="录制任务卡">{selected?<><p className="eyebrow">任务 {String(selected.id).padStart(3,'0')}</p><h2>{selected.title}</h2>{!privateCapture&&<><div className="segmented">{'ABC'.split('').map(v=><button key={v} disabled={locked} aria-pressed={variant===v} className={variant===v?'chosen':''} onClick={()=>{setVariant(v);setCapture(null);setNotice('');setClipboard('')}}>版本 {v}</button>)}</div>
