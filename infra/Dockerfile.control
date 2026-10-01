@@ -47,7 +47,7 @@ COPY apps/code/app/frontend.py apps/code/app/benchmark_bridge.py apps/code/app/c
 COPY apps/gomoku/simhei.ttf apps/gomoku/simhei.ttf
 COPY apps/gomoku/main.cpp apps/gomoku/CMakeLists.txt apps/gomoku/
 RUN cmake -S apps/gomoku -B apps/gomoku/build && cmake --build apps/gomoku/build -j2
-RUN useradd --create-home --uid 10001 vic && mkdir /data && chown vic:vic /data && mv /root/.cache/ms-playwright /opt/ms-playwright && chmod -R a+rX /opt/ms-playwright
+RUN useradd --create-home --uid 10001 vic && mkdir /data && chown vic:vic /data && mv /root/.cache/ms-playwright /opt/ms-playwright && chmod -R a+rX /opt/ms-playwright /app
 ENV PLAYWRIGHT_BROWSERS_PATH=/opt/ms-playwright VIC_DATA=/data VIC_ROOT=/app
 USER vic
 EXPOSE 8765
