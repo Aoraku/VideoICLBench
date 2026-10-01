@@ -1,0 +1,2193 @@
+{
+  "verified_at": "2026-10-01T14:42:38.938837+00:00",
+  "video_recorded": false,
+  "coverage": {
+    "implemented_tasks": 27,
+    "inference_conditions": 81,
+    "demo_first_episode_conditions": 81,
+    "full_lessons_via_browser": 9,
+    "full_lesson_browser_episodes": 54,
+    "full_lesson_api_episodes": 426
+  },
+  "browser": [
+    {
+      "task": 1,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 1,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 1,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 1,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 1,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 1,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 3,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 3,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 3,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 3,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 3,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 3,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 4,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 4,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 4,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 4,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 4,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 4,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 5,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 5,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 5,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 5,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 5,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 5,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 10,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 10,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 10,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 10,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 10,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 10,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 17,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 17,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 17,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 17,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 17,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 17,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 19,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 19,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 19,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 19,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 19,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 19,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 20,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 20,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 20,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 20,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 20,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 20,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 21,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 21,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 21,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 21,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 21,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 21,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 24,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 24,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 24,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 24,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 24,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 24,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 25,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 25,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 25,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 25,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 25,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 25,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 27,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 27,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 27,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 27,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 27,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 27,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 36,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 36,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 36,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 36,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 36,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 36,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 37,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 37,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 37,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 37,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 37,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 37,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 39,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 39,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 39,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 39,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 39,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 39,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 45,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 45,
+      "variant": "A",
+      "mode": "eval",
+      "suite": "v2",
+      "seed": 10001,
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "environment": "local browser",
+      "evidence": "docs/reviews/v2-procurement-ui.json"
+    },
+    {
+      "task": 45,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 45,
+      "variant": "B",
+      "mode": "eval",
+      "suite": "v2",
+      "seed": 10001,
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "environment": "local browser",
+      "evidence": "docs/reviews/v2-procurement-ui.json"
+    },
+    {
+      "task": 45,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 45,
+      "variant": "C",
+      "mode": "eval",
+      "suite": "v2",
+      "seed": 10001,
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "environment": "local browser",
+      "evidence": "docs/reviews/v2-procurement-ui.json"
+    },
+    {
+      "task": 59,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 59,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 59,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 59,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 59,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 59,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 62,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 62,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 62,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 62,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 62,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 62,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 66,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "isolated Linux container on agentlab"
+    },
+    {
+      "task": 66,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "isolated Linux container on agentlab"
+    },
+    {
+      "task": 66,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "isolated Linux container on agentlab"
+    },
+    {
+      "task": 66,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "isolated Linux container on agentlab"
+    },
+    {
+      "task": 66,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "isolated Linux container on agentlab"
+    },
+    {
+      "task": 66,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "isolated Linux container on agentlab"
+    },
+    {
+      "task": 67,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "isolated Linux container on agentlab"
+    },
+    {
+      "task": 67,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "isolated Linux container on agentlab"
+    },
+    {
+      "task": 67,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "isolated Linux container on agentlab"
+    },
+    {
+      "task": 67,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "isolated Linux container on agentlab"
+    },
+    {
+      "task": 67,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "isolated Linux container on agentlab"
+    },
+    {
+      "task": 67,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "isolated Linux container on agentlab"
+    },
+    {
+      "task": 68,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 68,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 68,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 68,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 68,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 68,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 70,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 70,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 70,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 70,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 70,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 70,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 71,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 71,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 71,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 71,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 71,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 71,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 72,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 72,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 72,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 72,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 72,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 72,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 73,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 73,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 73,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 73,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 73,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 73,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 74,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 74,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 74,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 74,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 74,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 74,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 75,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 75,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 75,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 75,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    },
+    {
+      "task": 75,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo",
+      "environment": "local browser"
+    },
+    {
+      "task": 75,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 10001,
+      "mode": "eval",
+      "environment": "local browser"
+    }
+  ],
+  "lessons": [
+    {
+      "task": 1,
+      "variant": "A",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "all_episodes_via_ui": true,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "next_button_passed": true
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "next_button_passed": true
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "next_button_passed": true
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "next_button_passed": true
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "next_button_passed": true
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "next_button_passed": true
+        }
+      ]
+    },
+    {
+      "task": 1,
+      "variant": "B",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "all_episodes_via_ui": true,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "next_button_passed": true
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "next_button_passed": true
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "next_button_passed": true
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "next_button_passed": true
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "next_button_passed": true
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "next_button_passed": true
+        }
+      ]
+    },
+    {
+      "task": 1,
+      "variant": "C",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "all_episodes_via_ui": true,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "next_button_passed": true
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "next_button_passed": true
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "next_button_passed": true
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "next_button_passed": true
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "next_button_passed": true
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "next_button_passed": true
+        }
+      ]
+    },
+    {
+      "task": 10,
+      "variant": "A",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "all_episodes_via_ui": true,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "next_button_passed": true
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "next_button_passed": true
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "next_button_passed": true
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "next_button_passed": true
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "next_button_passed": true
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "next_button_passed": true
+        }
+      ]
+    },
+    {
+      "task": 10,
+      "variant": "B",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "all_episodes_via_ui": true,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "next_button_passed": true
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "next_button_passed": true
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "next_button_passed": true
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "next_button_passed": true
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "next_button_passed": true
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "next_button_passed": true
+        }
+      ]
+    },
+    {
+      "task": 10,
+      "variant": "C",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "all_episodes_via_ui": true,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "next_button_passed": true
+        },
+        {
+          "index": 1,
+          "seed": 1,
+          "next_button_passed": true
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "next_button_passed": true
+        },
+        {
+          "index": 3,
+          "seed": 3,
+          "next_button_passed": true
+        },
+        {
+          "index": 4,
+          "seed": 4,
+          "next_button_passed": true
+        },
+        {
+          "index": 5,
+          "seed": 5,
+          "next_button_passed": true
+        }
+      ]
+    },
+    {
+      "task": 68,
+      "variant": "A",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "all_episodes_via_ui": true,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "next_button_passed": true
+        },
+        {
+          "index": 1,
+          "seed": 92,
+          "next_button_passed": true
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "next_button_passed": true
+        },
+        {
+          "index": 3,
+          "seed": 4,
+          "next_button_passed": true
+        },
+        {
+          "index": 4,
+          "seed": 1,
+          "next_button_passed": true
+        },
+        {
+          "index": 5,
+          "seed": 3,
+          "next_button_passed": true
+        }
+      ]
+    },
+    {
+      "task": 68,
+      "variant": "B",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "all_episodes_via_ui": true,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "next_button_passed": true
+        },
+        {
+          "index": 1,
+          "seed": 92,
+          "next_button_passed": true
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "next_button_passed": true
+        },
+        {
+          "index": 3,
+          "seed": 4,
+          "next_button_passed": true
+        },
+        {
+          "index": 4,
+          "seed": 1,
+          "next_button_passed": true
+        },
+        {
+          "index": 5,
+          "seed": 3,
+          "next_button_passed": true
+        }
+      ]
+    },
+    {
+      "task": 68,
+      "variant": "C",
+      "status": "passed",
+      "mode": "demo",
+      "suite": "v2",
+      "all_episodes_via_ui": true,
+      "episodes": [
+        {
+          "index": 0,
+          "seed": 0,
+          "next_button_passed": true
+        },
+        {
+          "index": 1,
+          "seed": 92,
+          "next_button_passed": true
+        },
+        {
+          "index": 2,
+          "seed": 2,
+          "next_button_passed": true
+        },
+        {
+          "index": 3,
+          "seed": 4,
+          "next_button_passed": true
+        },
+        {
+          "index": 4,
+          "seed": 1,
+          "next_button_passed": true
+        },
+        {
+          "index": 5,
+          "seed": 3,
+          "next_button_passed": true
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Native demo checks use seed 0; the complete lesson sequence is checked via API for all 27 tasks and via browser for 001, 010 and 068.",
+    "The Linux container validates SDL UI; it is isolated from the service used by colleagues.",
+    "v2 is not deployed to production."
+  ],
+  "validation": {
+    "full_suite": {
+      "passed": 1486,
+      "failed": 0
+    },
+    "targeted_suite": {
+      "passed": 551,
+      "failed": 0
+    },
+    "menu_regression": {
+      "tasks": [
+        7,
+        8,
+        14
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "passed": 9
+    },
+    "builds": [
+      "portal",
+      "original Chat with VITE_BASE_PATH=/native-assets/chat/"
+    ]
+  }
+}

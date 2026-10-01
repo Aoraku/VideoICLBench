@@ -17,7 +17,8 @@ from vic.application_eval import evaluate
 async def main():
     subset=[int(x) for x in sys.argv[1].split(',')] if len(sys.argv)>1 else list(range(1,76))
     variants=sys.argv[2] if len(sys.argv)>2 else 'A'
-    secret=secrets.token_hex(32); directory=ROOT/'.local/native-acceptance'
+    suite=os.environ.get('VIC_UI_SUITE','v1');seed=int(os.environ.get('VIC_UI_SEED','10001'));mode='demo' if seed<1000 else 'eval'
+    secret=secrets.token_hex(32); directory=ROOT/('.local/native-acceptance' if suite=='v1' else f'.local/v2-native-{mode}')
     directory.mkdir(parents=True,exist_ok=True)
     os.environ.update(VIC_APP_DATA=str(directory/'data'),VIC_APP_RUNTIME_TOKEN=secret,VIC_NATIVE_SELF_BASE='http://127.0.0.1:8782')
     server=uvicorn.Server(uvicorn.Config(create_app(),host='127.0.0.1',port=8782,log_level='error'))
@@ -29,13 +30,21 @@ async def main():
       try:
        for task in subset:
         for variant in variants:
-         rid=secrets.token_hex(16);token=secrets.token_hex(32);initial=initialize(generate(task,int(os.environ.get('VIC_UI_SEED','10001'))));module=initial['app']
+         rid=secrets.token_hex(16);token=secrets.token_hex(32)
+         if suite=='v2':
+          from vic import v2
+          initial=v2.generate(task,seed,mode)
+         else:initial=initialize(generate(task,seed))
+         module=initial['app']
+         def evaluate_run(initial,final,variant,events,clipboard=None):
+          return v2.evaluate(initial,final,variant,events) if initial.get('v2_atomic') or initial.get('v2_reversi') else evaluate(initial,final,variant,events,clipboard)
          response=await client.post('/internal/prepare',json=dict(run_id=rid,token=token,app=module,epoch=0,state=initial));response.raise_for_status()
          context=await browser.new_context(viewport={'width':1280,'height':960},permissions=['clipboard-read','clipboard-write']);page=await context.new_page();page.set_default_timeout(12000)
          errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
          async def click(locator):
-          await locator.scroll_into_view_if_needed();box=await locator.bounding_box();assert box,'Control not rendered'
-          await page.mouse.click(box['x']+box['width']/2,box['y']+box['height']/2);await page.wait_for_timeout(150)
+          # Native pointer click waits for scroll animation and layout stability.
+          # Reading a box immediately after scrolling can click a moving row.
+          await locator.click();await page.wait_for_timeout(150)
          async def button(name,exact=True):await click(page.get_by_role('button',name=name,exact=exact))
          async def text(locator,value):
           await click(locator);await page.keyboard.press('ControlOrMeta+A');await page.keyboard.insert_text(value)
@@ -45,8 +54,12 @@ async def main():
           await click(row.locator('.label-menu>button'));await click(page.get_by_role('option',name=value,exact=False))
          t=task;s=initial;effect=expected_effect(t,variant,s) if t<66 else None
          try:
-          await page.goto(f'http://127.0.0.1:8782/apps/{module}/{rid}#{token}')
-          await click(page.get_by_role('link',name='打开应用'))
+          if suite=='v2':
+           from vic.lessons import native_path
+           await page.goto('http://127.0.0.1:8782'+native_path(module,rid)+'#'+token)
+          else:
+           await page.goto(f'http://127.0.0.1:8782/apps/{module}/{rid}#{token}')
+           await click(page.get_by_role('link',name='打开应用'))
           if module=='code':await page.get_by_role('heading',name='题目列表',exact=True).wait_for(timeout=60000)
           else:await page.wait_for_timeout(500)
           await page.screenshot(path=str(directory/f'{task}-{variant}-home.png'))
@@ -58,7 +71,9 @@ async def main():
             elif t==36:await button('继续编辑 →');control=page.locator('.blog-title-input');save='保存草稿'
             elif t==37:await go('提示词库');control=page.locator('textarea');save='保存模板'
             elif t==44:await go('常用旅客');control=page.get_by_label('旅客显示姓名');save='保存旅客'
-            elif t==45:await click(page.locator('.shop-image-link').first);control=page.get_by_label('备注内容');save='保存备注'
+            elif t==45:
+             target=next(x['id'] for x in s['items'] if x['name']==s['source']['text'])
+             await click(page.locator(f'[data-object-id="{target}"] .shop-image-link'));control=page.get_by_label('备注内容');save='保存备注'
             else:await go('转账汇款');control=page.get_by_label('备注',exact=True);save='保存转账备注'
             await text(control,effect['outputs']['target']);await button(save)
            elif t in (25,26,38,39,47,48,49,50):
@@ -111,7 +126,13 @@ async def main():
               current=(await persisted())['state']['domain']['orders']['main']
               for _ in range(current.index(target)-dest):await click(page.locator(f'[data-move="-1"][data-target="{target}"]'))
             elif t==27:
-             await click(page.locator(f'[data-song="{effect["selection"][0]}"] a').first);await click(page.locator('[data-play]'))
+             if s.get('v2_atomic'):
+              await text(page.locator('.topbar input[name="q"]'),s['source']['search_keyword']);await click(page.locator('.topbar button[type="submit"]'))
+              await click(page.locator(f'a[href*="/songs/{effect["selection"][0]}/"]').first)
+              await click(page.locator('[data-favorite]'));await expect(page.locator('[data-favorite]')).to_contain_text('移出')
+              await click(page.get_by_role('link',name='查看活动备选歌曲'));await expect(page.locator('[data-song]')).to_have_count(1)
+             else:
+              await click(page.locator(f'[data-song="{effect["selection"][0]}"] a').first);await click(page.locator('[data-play]'))
             elif t==32:
              for target,_ in effect['actions']:await click(page.locator(f'[data-add="{target}"]'))
           elif module=='news':
@@ -132,7 +153,8 @@ async def main():
            async def conversation(target):
             return page.locator('.list__itemWrap').filter(has=page.locator('.list__title',has_text=initial['domain']['objects'][target]['name']))
            async def message_menu(target):
-            index=next(i for i,x in enumerate(initial['items']) if x['id']==target);bubble=page.locator(f'#msg-{100+index} .bubbleWrap');await bubble.scroll_into_view_if_needed();box=await bubble.bounding_box();await page.mouse.click(box['x']+20,box['y']+20,button='right');await page.wait_for_timeout(100)
+            index=next(i for i,x in enumerate(initial['items']) if x['id']==target)
+            await click(page.locator(f'#msg-{100+index}').get_by_role('button',name='消息操作',exact=True))
            if t in (1,3,4,5,13):await click(page.locator('.list__item').filter(has_text=s['source']['sender' if t==13 else 'recipient']).first)
            if t in (1,3,4):
             await text(page.locator('.chatInput textarea'),effect['outputs']['target']);await click(page.locator('.sendBtn'))
@@ -152,7 +174,14 @@ async def main():
            elif t in (7,8):
             for target,value in effect['labels'].items():
              if value:await click((await conversation(target)).get_by_role('button',name='会话操作'));await click(page.get_by_role('menuitem',name=value,exact=True))
-           elif t==10:await click((await conversation(effect['selection'][0])).locator('.list__item'))
+           elif t==10:
+            target=effect['selection'][0]
+            await button('搜索记录');await text(page.get_by_label('搜索聊天记录'),s['source']['search_keyword'])
+            name=initial['domain']['objects'][target]['name']
+            await click(page.locator('.paneSearchResultItem').filter(has=page.locator('.paneSearchResultTitle',has_text=name)).first)
+            if s.get('v2_atomic'):
+             await button('加入快捷入口 '+name)
+             await expect(page.get_by_role('region',name='会话快捷入口').get_by_role('button',name='打开快捷会话 '+name)).to_be_visible()
            elif t==11:
             await button('聊天文件');name=initial['domain']['objects'][effect['selection'][0]]['name'];await click(page.get_by_role('button',name=name,exact=False).last);await button('发送给林若宁')
            elif t==12:
@@ -203,7 +232,10 @@ async def main():
           elif module=='code':
            if t in (59,60,65):
             await click(page.get_by_text('我的代码与笔记',exact=True))
-            if t in (59,60):await text(page.locator('textarea'),effect['outputs']['target']);await button('保存文件')
+            if t in (59,60):
+             await text(page.locator('textarea'),effect['outputs']['target']);await button('保存文件')
+             if t==59 and s.get('v2_atomic'):
+              await button('提交答案');await page.get_by_text(re.compile('答案已提交')).wait_for()
             else:
              for target,value in effect['actions']:
               name=initial['domain']['objects'][target]['name'];panel=page.locator('[data-testid="stExpander"]').filter(has_text=name+' · solution.py');await click(panel.locator('summary'));await click(panel.get_by_role('button',name='本地检查',exact=True));await click(panel.get_by_role('button',name='提交',exact=True))
@@ -249,20 +281,26 @@ async def main():
             for r,c in wanted:await button(f'第{r+1}行第{c+1}列')
            elif t==71:
             r,c=s['candidates'][0];await button(f'第{r+1}行第{c+1}列');await click(page.locator('.games-numbers').get_by_role('button',name=str(wanted),exact=True))
+           elif t==74 and s.get('v2_reversi'):
+            for turn in range(s['required_turns']):
+             current=(await persisted())['state'];r,c=expected(t,variant,current)
+             await button(f'第{r+1}行第{c+1}列')
+             await expect(page.get_by_role('region',name='训练棋谱').locator('li')).to_have_count(turn+1)
+            await expect(page.get_by_role('region',name='训练棋谱')).to_contain_text('训练完成')
            else:
             r,c=wanted;await button(f'第{r+1}行第{c+1}列')
           else:raise AssertionError('Native workflow not implemented in QA harness: '+module)
           await page.wait_for_timeout(300)
-          snap=await persisted();clipboard=await page.evaluate('navigator.clipboard.readText()') if t==43 and variant=='B' else None;outcome=evaluate(initial,snap['state'],variant,snap['events'],clipboard)
+          snap=await persisted();clipboard=await page.evaluate('navigator.clipboard.readText()') if t==43 and variant=='B' else None;outcome=evaluate_run(initial,snap['state'],variant,snap['events'],clipboard)
           assert outcome['success'],outcome
           assert not errors,errors
           await page.screenshot(path=str(directory/f'{task}-{variant}-done.png'))
           await page.reload();await page.wait_for_timeout(400)
-          again=await persisted();assert evaluate(initial,again['state'],variant,again['events'],clipboard)['success']
-          results.append(dict(task=task,variant=variant,status='passed',surface='native',persisted=True))
+          again=await persisted();assert evaluate_run(initial,again['state'],variant,again['events'],clipboard)['success']
+          results.append(dict(task=task,variant=variant,status='passed',surface='native',persisted=True,suite=suite,seed=seed,mode=mode))
           print(f'{task}{variant} PASS',flush=True)
          except Exception as exc:
-          results.append(dict(task=task,variant=variant,status='failed',error=str(exc)))
+          results.append(dict(task=task,variant=variant,status='failed',error=str(exc),suite=suite,seed=seed,mode=mode))
           print(f'{task}{variant} FAIL {exc}',flush=True)
           await page.screenshot(path=str(directory/f'{task}-{variant}-failed.png'))
          finally:

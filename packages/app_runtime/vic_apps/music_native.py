@@ -89,9 +89,12 @@ def render_music(run_id, state, route, query_string=""):
     elif route in ("library/", "playlists/"):
         template = "blog/benchmark_library.html"
         context["playlist_page"] = route == "playlists/"
+        context["favorites_page"] = query.get('collection') == 'favorites'
         ordered = state["domain"]["orders"]["main"]
         if route == "playlists/" and state["task_id"] != 18:
             songs = [s for s in songs if s.id in state["domain"]["collections"]["list-a"]]
+        if context['favorites_page']:
+            songs = [s for s in songs if s.id in state['domain']['collections']['favorites']]
         context["songs"] = sorted(songs, key=lambda s: ordered.index(s.id) if s.id in ordered else -1)
     elif route:
         raise ValueError("Page not found")

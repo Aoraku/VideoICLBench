@@ -376,15 +376,20 @@ export default function MessageList({
     return () => window.removeEventListener(CHAT_EVENT_JUMP_TO_MESSAGE, onJump)
   }, [scrollToMessageId])
 
-  const scrollSkipRef = useRef({ len: 0, firstKey: '' })
+  const scrollSkipRef = useRef({ len: 0, firstKey: '', lastKey: '' })
 
   useLayoutEffect(() => {
     const first = messages[0]
     const firstKey = String(first?.msg_id ?? first?.client_msg_id ?? '')
-    const { len: prevLen, firstKey: prevFirst } = scrollSkipRef.current
+    const last = messages[messages.length - 1]
+    const lastKey = String(last?.msg_id ?? last?.client_msg_id ?? '')
+    const { len: prevLen, firstKey: prevFirst, lastKey: prevLast } = scrollSkipRef.current
     const prepended =
       messages.length > prevLen && firstKey !== prevFirst && prevLen > 0
-    scrollSkipRef.current = { len: messages.length, firstKey }
+    scrollSkipRef.current = { len: messages.length, firstKey, lastKey }
+    // A label or receipt refresh is not a new message. Scrolling on every
+    // refresh closes menus while the user is working through existing rows.
+    if (messages.length === prevLen && firstKey === prevFirst && lastKey === prevLast) return
     if (prepended) return
     if (Date.now() < blockAutoScrollUntilRef.current) return
     const scrollEl =

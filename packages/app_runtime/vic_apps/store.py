@@ -155,14 +155,21 @@ class ApplicationStore(WorkspaceStore):
                     raise ValueError("Action id collision")
                 return self._read(db)
             state = self._read(db)
-            if state.get('workflow') == 'procurement':
+            from . import atomic_delivery
+            is_delivery = mutation.op in atomic_delivery.COMMANDS
+            if state.get('v2_reversi'):
+                from .reversi_training import apply
+                state = apply(state, mutation.op, mutation.target, mutation.value)
+            elif state.get('workflow') == 'procurement':
                 from .procurement import apply
                 state = apply(state, mutation.op, mutation.target, mutation.value)
+            elif is_delivery:
+                state = atomic_delivery.apply(state,mutation.op,mutation.target,mutation.value)
             else:
                 state = apply_mutation(
                     state, mutation.op, mutation.target, mutation.value, mutation.ids
                 )
-            if state["task_id"] < 66 and not state.get('workflow'):
+            if state["task_id"] < 66 and not state.get('workflow') and not is_delivery:
                 state = domain.apply(
                     state, mutation.op, mutation.target, mutation.value, mutation.ids
                 )

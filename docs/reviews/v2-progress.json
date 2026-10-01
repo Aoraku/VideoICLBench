@@ -12,18 +12,44 @@
     "procurement_ui": "docs/reviews/v2-procurement-ui.json",
     "unit_tests": "tests/test_v2.py",
     "browser_check": "scripts/check_v2_procurement_ui.py",
-    "regression": "349 passed; one setup error caused by concurrent Vite dist replacement; the isolated affected C test subsequently passed. Build and tests must be sequential."
+    "regression": "1486 tests passed, 0 failed. 551 targeted application, lesson and v2 checks also passed. Chat menu regression 007/008/014 A/B/C passed via native UI.",
+    "native_ui": "docs/reviews/v2-native-progress-ui.json"
   },
   "tasks": [
     {
       "id": 1,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ]
     },
     {
       "id": 2,
@@ -39,31 +65,98 @@
       "id": 3,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 4,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 5,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ]
     },
     {
       "id": 6,
@@ -109,11 +202,36 @@
       "id": 10,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ]
     },
     {
       "id": 11,
@@ -179,11 +297,32 @@
       "id": 17,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 18,
@@ -199,31 +338,94 @@
       "id": 19,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 20,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 21,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 22,
@@ -249,21 +451,71 @@
       "id": 24,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ]
     },
     {
       "id": 25,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ]
     },
     {
       "id": 26,
@@ -279,11 +531,32 @@
       "id": 27,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 28,
@@ -369,21 +642,63 @@
       "id": 36,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 37,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 38,
@@ -399,11 +714,36 @@
       "id": 39,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ]
     },
     {
       "id": 40,
@@ -465,13 +805,26 @@
         "B",
         "C"
       ],
-      "demo_ui_verified": [],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
       "delivery_api_verified": [
         "A",
         "B",
         "C"
       ],
-      "deployed": false
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 46,
@@ -607,11 +960,32 @@
       "id": 59,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 60,
@@ -637,11 +1011,32 @@
       "id": 62,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 63,
@@ -677,31 +1072,98 @@
       "id": 66,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 67,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 68,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ]
     },
     {
       "id": 69,
@@ -717,61 +1179,187 @@
       "id": 70,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 71,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 72,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 73,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 74,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     },
     {
       "id": 75,
       "purpose_defined": true,
       "delivery_defined": true,
-      "runtime_implemented": false,
-      "inference_ui_verified": [],
-      "demo_ui_verified": [],
-      "delivery_api_verified": [],
-      "deployed": false
+      "runtime_implemented": true,
+      "inference_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "demo_ui_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "delivery_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "deployed": false,
+      "demo_ui_seeds": [
+        0
+      ],
+      "full_demo_api_verified": [
+        "A",
+        "B",
+        "C"
+      ],
+      "full_demo_ui_verified": []
     }
   ],
   "next_work": [
@@ -780,5 +1368,6 @@
     "Implement remaining 24 hard workflows and their real business artifacts across applications.",
     "Verify all 75 tasks x A/B/C, demo and inference; run final regression after frontend builds finish.",
     "Deploy tested v2 application image on agentlab; verify v2 list, reset, native navigation and evaluation on deployed services."
-  ]
+  ],
+  "verified_at": "2026-10-01T14:42:38.938837+00:00"
 }

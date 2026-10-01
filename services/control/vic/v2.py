@@ -2,8 +2,9 @@
 import hashlib
 import json
 from .config import ROOT
+from .v2_atomic import TASKS as ATOMIC_TASKS
 
-EXECUTABLE = {45}
+EXECUTABLE = {45,74} | ATOMIC_TASKS
 
 
 def catalog():
@@ -28,6 +29,12 @@ def generate(task_id, seed, mode):
         from . import business
         from vic_apps.domain import initialize
         return initialize(business.generate(task_id, seed))
+    if task_id in ATOMIC_TASKS:
+        from .v2_atomic import generate as generate_atomic
+        return generate_atomic(task_id,seed,task(task_id))
+    if task_id == 74:
+        from vic_apps.reversi_training import fixture
+        return fixture(seed,task(task_id))
     if task_id == 45:
         from vic_apps.procurement import fixture
         return fixture(seed)
@@ -35,6 +42,12 @@ def generate(task_id, seed, mode):
 
 
 def evaluate(initial, state, variant, events):
+    if initial.get('v2_reversi'):
+        from vic_apps.reversi_training import evaluate as evaluate_reversi
+        return evaluate_reversi(initial,state,variant,events)
+    if initial.get('v2_atomic'):
+        from .v2_atomic import evaluate as evaluate_atomic
+        return evaluate_atomic(initial,state,variant,events)
     if initial.get('workflow') != 'procurement':
         raise ValueError('Missing v2 evaluator')
     from .business import transform

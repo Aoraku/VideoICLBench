@@ -115,12 +115,23 @@ def render_files():
     st.title("我的代码与笔记")
     if t in (59,60):
         st.subheader("解题笔记" if t==59 else "solution.py")
+        if t==59 and state.get('v2_atomic'):
+            problem=state['source']['answer_problem']
+            st.info(f"提交目标题目：{problem['number']} · {problem['name']}")
         if t == 60:
             st.caption("待重命名变量：" + "、".join(state["source"]["rename_targets"]))
         st.code(state["source"]["text"],language="text" if t==59 else "python")
         text=st.text_area("编辑答案" if t==59 else "编辑源代码",value=state["outputs"].get("target",state["source"]["text"]),height=320)
         if st.button("保存文件",type="primary"):
             command("save","target",text);st.success("文件已保存")
+        if t==59 and state.get('v2_atomic'):
+            if st.button('提交答案',type='primary'):
+                command('answer.submit','target')
+                st.rerun()
+            submitted=next((a for a in state['domain']['artifacts'] if a.get('kind')=='answer_submission'),None)
+            if submitted:
+                st.success(f"答案已提交 · 题目 {submitted['problem']} · {submitted['id']}")
+                st.code(submitted['body'],language='text')
     else:
         submitted = {record["target"] for record in state["domain"]["artifacts"]
                      if record["kind"] == "submission"}

@@ -12,7 +12,7 @@ export function Games({ api }: { api: ProductAPI }) {
     },
     name = names[s.game];
   const [instructions, setInstructions] = useState(false);
-  const settled = s.stopped || ([68, 71, 72, 74, 75].includes(s.task_id) && s.selection !== null);
+  const settled = s.stopped || (!s.v2_reversi && [68, 71, 72, 74, 75].includes(s.task_id) && s.selection !== null);
   const selected = (r: number, c: number) =>
     s.task_id === 71
       ? s.selection !== null && s.candidates.some((p: number[]) => p[0] === r && p[1] === c)
@@ -208,6 +208,12 @@ export function Games({ api }: { api: ProductAPI }) {
                 {s.game === "reversi" && <>
                   <p className="games-side">本局执{s.color === 1 ? "黑" : "白"}</p>
                   <p className="games-counts">黑棋 {blackCount} · 白棋 {whiteCount}</p>
+                  {s.v2_reversi && <section aria-label="训练棋谱">
+                    <h3>{s.turns.length === s.required_turns ? '训练完成' : `第 ${s.turns.length + 1} 回合`} · {s.turns.length}/{s.required_turns}</h3>
+                    <p>{s.opponent_policy}</p>
+                    <ol>{s.turns.map((turn:any)=><li key={turn.turn}>己方：{turn.player[0]+1} 行 {turn.player[1]+1} 列；对手：{turn.opponent.length ? turn.opponent.map((p:number[])=>`${p[0]+1} 行 ${p[1]+1} 列`).join('、') : '无合法落点，跳过'}</li>)}</ol>
+                    {s.stopped && <p className="product-ok">棋谱已保存，共 {s.turns.length} 个己方回合。</p>}
+                  </section>}
                 </>}
                 {s.game === "2048" ? (
                   <>

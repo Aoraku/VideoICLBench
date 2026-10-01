@@ -1761,6 +1761,11 @@ export default function ChatPage() {
           </div>
         ) : null}
         {nativeRun && currentBusiness()?.task_id===11 && <button className="pane__toolBtn" style={{margin:12}} onClick={()=>setFilesOpen(true)}>聊天文件</button>}
+        {nativeRun && currentBusiness()?.v2_atomic && currentBusiness()?.task_id===10 && <section aria-label="会话快捷入口" style={{padding:12,borderBottom:'1px solid #e6e8ea'}}>
+          <strong>快捷入口</strong>
+          {(currentBusiness().domain.collections.shortcuts||[]).length===0&&<p style={{fontSize:12,color:'#718199'}}>将需要继续跟进的会话加入这里。</p>}
+          {(currentBusiness().domain.collections.shortcuts||[]).map(objectId=>{const c=conversations.find(row=>row.benchmark_object===objectId);return c&&<button key={objectId} type="button" className="pane__toolBtn" onClick={()=>void selectConversation(c)}>打开快捷会话 {convTitle(c)}</button>})}
+        </section>}
         <div className="list">
           {listLoading ? (
             <div className="emptyState" style={{ border: 'none', margin: 8 }}>
@@ -1838,6 +1843,7 @@ export default function ChatPage() {
                   {nativeRun && currentBusiness()?.task_id===12 && <div aria-label={`调整${convTitle(c)}的顺序`} style={{display:'flex',gap:6,padding:'0 12px 8px'}}>
                     {[-1,1].map(delta=>{const ids=currentBusiness().domain.orders.main;const position=ids.indexOf(c.benchmark_object);return <button type="button" key={delta} disabled={position+delta<0 || position+delta>=ids.length} onClick={async()=>{const order=[...currentBusiness().domain.orders.main],i=order.indexOf(c.benchmark_object),j=i+delta;if(i<0||j<0||j>=order.length)return;[order[i],order[j]]=[order[j],order[i]];try{await command('order','','',order);await refreshConversationList()}catch(error){setSendError(error.message)}}}>{delta<0?'↑ 上移':'↓ 下移'}</button>})}
                   </div>}
+                  {nativeRun && currentBusiness()?.v2_atomic && currentBusiness()?.task_id===10 && <button type="button" style={{margin:'0 12px 8px'}} onClick={async()=>{try{const saved=currentBusiness().domain.collections.shortcuts.includes(c.benchmark_object);await command(saved?'shortcut.remove':'shortcut.add',c.benchmark_object);await refreshConversationList()}catch(error){setSendError(error.message)}}}>{currentBusiness().domain.collections.shortcuts.includes(c.benchmark_object)?'移除快捷入口':'加入快捷入口'} {convTitle(c)}</button>}
                   <button
                     type="button"
                     className="list__itemMore"

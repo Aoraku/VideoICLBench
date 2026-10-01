@@ -104,6 +104,10 @@ document.querySelectorAll("[data-play]").forEach((button) => {
     }
   };
 });
+document.querySelectorAll('[data-favorite]').forEach(button=>{
+  const render=()=>{button.textContent=state.domain.collections.favorites.includes(button.dataset.favorite)?'移出活动备选歌曲':'加入活动备选歌曲'};
+  render();button.onclick=async()=>{const saved=state.domain.collections.favorites.includes(button.dataset.favorite);if(await command(saved?'favorite.remove':'favorite.add',button.dataset.favorite))render()};
+});
 document.querySelectorAll("[data-move]").forEach(
   (button) =>
     (button.onclick = async () => {
