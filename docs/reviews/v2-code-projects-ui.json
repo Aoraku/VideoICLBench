@@ -1,0 +1,315 @@
+{
+  "verified_at": "2026-10-01T20:12:58.371019+00:00",
+  "video_recorded": false,
+  "tasks": [
+    58,
+    60,
+    64,
+    65
+  ],
+  "coverage": {
+    "inference_conditions": 12,
+    "demo_first_episode_conditions": 12,
+    "full_demo_api_episodes": 57
+  },
+  "browser": [
+    {
+      "task": 58,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native-streamlit",
+      "persisted": true,
+      "real_downloads": true,
+      "entries": 3,
+      "real_python_checks": true
+    },
+    {
+      "task": 58,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native-streamlit",
+      "persisted": true,
+      "real_downloads": true,
+      "entries": 3,
+      "real_python_checks": true
+    },
+    {
+      "task": 58,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native-streamlit",
+      "persisted": true,
+      "real_downloads": true,
+      "entries": 3,
+      "real_python_checks": true
+    },
+    {
+      "task": 60,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native-streamlit",
+      "persisted": true,
+      "real_downloads": true,
+      "entries": 1,
+      "real_python_checks": true
+    },
+    {
+      "task": 60,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native-streamlit",
+      "persisted": true,
+      "real_downloads": true,
+      "entries": 1,
+      "real_python_checks": true
+    },
+    {
+      "task": 60,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native-streamlit",
+      "persisted": true,
+      "real_downloads": true,
+      "entries": 1,
+      "real_python_checks": true
+    },
+    {
+      "task": 64,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native-streamlit",
+      "persisted": true,
+      "real_downloads": true,
+      "entries": 3,
+      "real_python_checks": true
+    },
+    {
+      "task": 64,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native-streamlit",
+      "persisted": true,
+      "real_downloads": true,
+      "entries": 3,
+      "real_python_checks": true
+    },
+    {
+      "task": 64,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native-streamlit",
+      "persisted": true,
+      "real_downloads": true,
+      "entries": 3,
+      "real_python_checks": true
+    },
+    {
+      "task": 65,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native-streamlit",
+      "persisted": true,
+      "real_downloads": true,
+      "entries": 6,
+      "real_python_checks": true
+    },
+    {
+      "task": 65,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native-streamlit",
+      "persisted": true,
+      "real_downloads": true,
+      "entries": 6,
+      "real_python_checks": true
+    },
+    {
+      "task": 65,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "status": "passed",
+      "surface": "native-streamlit",
+      "persisted": true,
+      "real_downloads": true,
+      "entries": 6,
+      "real_python_checks": true
+    },
+    {
+      "task": 58,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 58,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 58,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 64,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 64,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 64,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 65,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 65,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 65,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 60,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 60,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 60,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    }
+  ],
+  "verification": {
+    "browser": "scripts/check_v2_code_projects_ui.py",
+    "demo": "scripts/check_native_ui.py",
+    "api": "tests/test_v2_code_projects.py",
+    "full_demo": "tests/test_v2.py::test_v2_demo_all_episodes_advance_and_final_eval",
+    "regression": "2007 passed, 1270 warnings in 280.33s",
+    "pixel": "Pixel input, native Chat send and sealed evaluation passed without video recording."
+  },
+  "verified_behaviors": [
+    "058: Three course entries retain their actual source and tests. Indentation edits are saved, run with real Python, submitted to the selected problem, and referenced by actual check/submission IDs in a downloadable ZIP and Markdown manifest.",
+    "060: Three-file project renames preserve strings, interfaces and untargeted variables. Cross-file imports and arithmetic run in a bounded Python process. Tutorial examples distinguish target names, similar identifiers, strings and comments.",
+    "064: Actual history records expose timestamps, source and line counts. Restore, check and delivery preserve the chosen version, including genuine WA/CE results; no unrequested repair is necessary.",
+    "065: Six immutable candidates separate syntax-check success, function-name presence and strict character count, including exact threshold equality. Submission selection and reasons are verified independently of judge verdict.",
+    "Native Liugu OJ browser paths cover default problem list, course navigation, problem details, editors, history restore, save/check/submit, withdraw, delivery save/delete/publish/reopen, real downloaded bytes, reload persistence and private per-task evaluation.",
+    "All 75 demo lesson series pass their API checks, including state changes, next-episode token rotation and aggregate evaluation."
+  ],
+  "limits": [
+    "Inference browser cases use seed 10001; state/API cases cover additional seeds.",
+    "Code demo browser checks cover initial episodes; all 57 teaching episodes are checked through the lesson API.",
+    "Automated tutorial audits cannot prove human comprehension; independent human interpretation remains a data-quality review.",
+    "Agentlab release verification is pending."
+  ]
+}

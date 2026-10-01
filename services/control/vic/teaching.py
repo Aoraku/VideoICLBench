@@ -10,7 +10,7 @@ import ast
 import random
 from . import teaching_materials
 
-FIXTURE_VERSION = 3
+FIXTURE_VERSION = 4
 BATCH_TASKS = {5, 6, 8, 13, 14, 16, 22, 23, 24, 25, 32, 33, 34,
                38, 39, 42, 43, 48, 49, 54, 55, 56, 57, 65}
 
@@ -418,4 +418,5 @@ def enrich(id_, seed, items, source, rng):
             f'{a} = {seed + 2}\n{b} = 1\nwhile {b} < {a}:\n   {b} *= 2\nprint({b}, {a})',
             f'{a} = [6, 8, 10]\n{b} = sum({a}) / len({a})\nprint(round({b}, 2))',
         ][seed % 6]
+        source['text'] += f'\n{a}_backup = {a}\nlabel = "{a} {b}"\n# 标签文字和未指定的变量保持不变\nprint(label, {a}_backup)'
     return items

@@ -43,7 +43,7 @@ COPY apps/music/blog/templates apps/music/blog/templates
 COPY apps/music/blog/static/benchmark apps/music/blog/static/benchmark
 COPY apps/media/assets apps/media/assets
 COPY apps/blog/assets apps/blog/assets
-COPY apps/code/app/frontend.py apps/code/app/benchmark_bridge.py apps/code/app/
+COPY apps/code/app/frontend.py apps/code/app/benchmark_bridge.py apps/code/app/course_workspace.py apps/code/app/
 COPY apps/gomoku/simhei.ttf apps/gomoku/simhei.ttf
 COPY apps/gomoku/main.cpp apps/gomoku/CMakeLists.txt apps/gomoku/
 RUN cmake -S apps/gomoku -B apps/gomoku/build && cmake --build apps/gomoku/build -j2

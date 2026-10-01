@@ -259,7 +259,8 @@ def render_problem_detail_page():
         st.markdown("---")
         
         c1, c2 = st.columns(2)
-        if c1.button("提交代码", use_container_width=True, type="primary"):
+        course = benchmark.ACTIVE and benchmark.business()['state'].get('workflow')=='code_projects'
+        if c1.button("打开课程工作区" if course else "提交代码", use_container_width=True, type="primary"):
             navigate_to("submit_code", problem_id=problem_id)
             st.rerun()
         if c2.button("我的本题提交", use_container_width=True):
@@ -719,6 +720,12 @@ def render_sidebar():
     with st.sidebar:
         st.title("Liugu OJ")
         st.title("导航")
+        if benchmark.ACTIVE:
+            current=benchmark.business()['state']
+            if current.get('workflow')=='code_projects':
+                import course_workspace
+                course_workspace.sidebar(current)
+                return
         if not st.session_state.logged_in:
             if st.button("登录/注册", use_container_width=True):
                 navigate_to("login")
@@ -756,6 +763,11 @@ def main():
     render_sidebar()
     
     page = st.session_state.current_page
+    if benchmark.ACTIVE:
+        current=benchmark.business()['state']
+        if current.get('workflow')=='code_projects':
+            import course_workspace
+            if course_workspace.render(page,current):return
     
     if not st.session_state.logged_in:
         render_login_page()

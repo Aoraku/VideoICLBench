@@ -48,5 +48,6 @@ def test_rename_editor_exposes_current_targets_without_transforming_them(seed,mo
     monkeypatch.setattr(bridge.st,'text_area',lambda label,**kwargs:drafts.append(kwargs['value']))
     monkeypatch.setattr(bridge.st,'button',lambda *args,**kwargs:False)
     bridge.render_files()
-    assert captions == ['待重命名变量：'+'、'.join(state['source']['rename_targets'])]
+    assert captions == ['待重命名变量：'+'、'.join(state['source']['rename_targets']),
+                        '只改指定变量的定义与引用；相似名称、字符串和注释保持不变。']
     assert sources == drafts == [state['source']['text']]

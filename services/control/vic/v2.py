@@ -9,8 +9,9 @@ from vic_apps.music_projects import TASKS as MUSIC_PROJECT_TASKS
 from vic_apps.editorial_projects import TASKS as EDITORIAL_TASKS
 from vic_apps.publishing import TASKS as PUBLISHING_TASKS
 from vic_apps.studio_projects import TASKS as STUDIO_PROJECT_TASKS
+from vic_apps.code_projects import TASKS as CODE_PROJECT_TASKS
 
-EXECUTABLE = {35,44,45,46,51,52,54,55,56,69,74} | ATOMIC_TASKS | WORKSET_TASKS | COMMUNICATION_TASKS | MUSIC_PROJECT_TASKS | EDITORIAL_TASKS | PUBLISHING_TASKS | STUDIO_PROJECT_TASKS
+EXECUTABLE = {35,44,45,46,51,52,54,55,56,69,74} | ATOMIC_TASKS | WORKSET_TASKS | COMMUNICATION_TASKS | MUSIC_PROJECT_TASKS | EDITORIAL_TASKS | PUBLISHING_TASKS | STUDIO_PROJECT_TASKS | CODE_PROJECT_TASKS
 
 
 def catalog():
@@ -35,6 +36,9 @@ def generate(task_id, seed, mode):
         from . import business
         from vic_apps.domain import initialize
         return initialize(business.generate(task_id, seed))
+    if task_id in CODE_PROJECT_TASKS:
+        from vic_apps.code_projects import fixture
+        return fixture(task_id,seed,task(task_id))
     if task_id in ATOMIC_TASKS:
         from .v2_atomic import generate as generate_atomic
         return generate_atomic(task_id,seed,task(task_id))
@@ -81,6 +85,9 @@ def generate(task_id, seed, mode):
 
 
 def evaluate(initial, state, variant, events):
+    if initial.get('workflow')=='code_projects':
+        from .v2_code_projects import evaluate as evaluate_code_projects
+        return evaluate_code_projects(initial,state,variant,events)
     if initial.get('workflow')=='payment_projects':
         from .v2_payment_projects import evaluate as evaluate_payments
         return evaluate_payments(initial,state,variant,events)

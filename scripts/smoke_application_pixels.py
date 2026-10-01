@@ -1,4 +1,4 @@
-"""Pixel-only recording smoke test against an actual application module."""
+"""Pixel-only application smoke test; does not record a tutorial or video."""
 
 import json
 import os
@@ -25,7 +25,6 @@ with httpx.Client(
     run = response.json()
     path = "/v1/runs/" + run["id"]
     c.get(path + "/observation").raise_for_status()
-    c.post(path + "/recordings/start").raise_for_status()
     # Test harness knows the fixture and rule; the tested execution channel is pixels.
     # Never pass the fixture or private rule to a model under evaluation.
     from vic.business import generate
@@ -58,9 +57,10 @@ with httpx.Client(
     act("text", text=answer)
     act("click", x=1208, y=862)
     time.sleep(0.5)
-    recording = c.post(path + "/recordings/stop")
-    recording.raise_for_status()
-    assert c.get(path).json()["status"] == "recorded"
+    result = c.post(path + "/evaluate")
+    result.raise_for_status()
+    assert result.json()["success"], result.text
+    assert c.get(path).json()["status"] == "completed"
     assert (
         c.post(
             path + "/actions",
@@ -70,16 +70,12 @@ with httpx.Client(
         ).status_code
         == 409
     )
-    result = c.post(path + "/evaluate")
-    result.raise_for_status()
-    assert result.json()["success"], result.text
     assert c.post(path + "/evaluate").json() == result.json()
     destination = root / ".local/application-pixel-result.json"
     destination.write_text(
         json.dumps(
-            dict(run_id=run["id"], result=result.json(), recording=recording.json()),
+            dict(run_id=run["id"], result=result.json(), video_recorded=False),
             indent=2,
         )
     )
-    print("PASS: pixel input → real workspace → sealed evaluation → MP4 recording")
-    print("Automated smoke recording is not an approved human tutorial.")
+    print("PASS: pixel input → real workspace → sealed evaluation; no video recorded")

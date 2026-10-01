@@ -236,6 +236,8 @@ async def main():
           elif module=='code':
            if t in (59,60,65):
             await click(page.get_by_text('我的代码与笔记',exact=True))
+            if t==60:await expect(page.get_by_text('只改指定变量的定义与引用；相似名称、字符串和注释保持不变。',exact=True)).to_be_visible()
+            if t==65:await expect(page.get_by_text(f"长度阈值：{s['source']['code_threshold']} 个字符（包含空格和换行）",exact=True)).to_be_visible()
             if t in (59,60):
              await text(page.locator('textarea'),effect['outputs']['target']);await button('保存文件')
              if t==59 and s.get('v2_atomic'):

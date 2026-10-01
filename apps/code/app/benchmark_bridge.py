@@ -54,6 +54,15 @@ def api_request(method, endpoint, data=None, params=None, **kwargs):
     try:
         state = business()["state"]
         route = endpoint.rstrip("/")
+        if state.get('workflow')=='code_projects':
+            import json
+            def course_problem(p):
+                return dict(id=p['id'],title=p['title'],difficulty='easy',author='课程组',source=state['world']['course'],tags=['课程交付'],time_limit=2000,memory_limit=256,judge_mode='course-python',description=p['description'],input_description='函数参数见下列公开测试。',output_description='返回与预期输出一致的 JSON 值。',constraints='仅使用课程给出的项目文件；运行说明见侧栏。',samples=[dict(input=json.dumps(t['args'],ensure_ascii=False),output=json.dumps(t['expected'],ensure_ascii=False)) for t in p['tests']],pass_rate=100)
+            if method=='GET' and route=='/api/problems':return dict(code=200,data=[course_problem(p) for p in state['world']['problems']]),None
+            if method=='GET' and route.startswith('/api/problems/'):
+                return dict(code=200,data=course_problem(next(p for p in state['world']['problems'] if p['id']==route.split('/')[-1]))),None
+            if method=='GET' and route=='/api/languages':return dict(code=200,data=[dict(name='python',file_ext='.py',time_limit=2000,memory_limit=256)]),None
+            raise ValueError('请从课程工作区操作此项目')
         items = [state["domain"]["objects"][x["id"]] for x in state["items"]]
         scope_id=st.session_state.get('workset_scope','') if state.get('v2_worksets') else ''
         scoped=[x for x in items if not scope_id or x.get('scope_id')==scope_id]
@@ -93,6 +102,9 @@ def api_request(method, endpoint, data=None, params=None, **kwargs):
 def extra_problem(problem_data):
     state = business()["state"]
     t = state["task_id"]
+    if state.get('workflow')=='code_projects':
+        st.caption('公开测试 '+str(len(problem_data['samples']))+' 组 · 课程条目与题号须对应')
+        return
     st.caption(f"样例数 {len(problem_data['samples'])} · 通过率 {problem_data['pass_rate']}%")
     if t == 62:
         label = st.radio("难度标签", ["未标注"]+state["options"], index=([""]+state["options"]).index(state["labels"][problem_data["benchmark_object"]]), horizontal=True, key="difficulty_"+problem_data["id"])
@@ -183,6 +195,7 @@ def render_files():
             st.info(f"提交目标题目：{problem['number']} · {problem['name']}")
         if t == 60:
             st.caption("待重命名变量：" + "、".join(state["source"]["rename_targets"]))
+            st.caption("只改指定变量的定义与引用；相似名称、字符串和注释保持不变。")
         st.code(state["source"]["text"],language="text" if t==59 else "python")
         text=st.text_area("编辑答案" if t==59 else "编辑源代码",value=state["outputs"].get("target",state["source"]["text"]),height=320)
         if st.button("保存文件",type="primary"):
@@ -202,6 +215,8 @@ def render_files():
         st.caption(f"共 {len(state['items'])} 份文件 · 已提交 {len(submitted)} 份")
         if t == 65:
             st.caption("指定函数名：" + state["source"]["function"])
+            st.caption(f"长度阈值：{state['source']['code_threshold']} 个字符（包含空格和换行）")
+            st.caption("本地检查指 Python 语法检查；提交不额外要求程序运行通过。")
         for item in state["items"]:
             with st.expander(item["name"]+" · solution.py"):
                 st.code(item["code"],language="python")

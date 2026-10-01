@@ -23,7 +23,7 @@ jobs:
       - run: python scripts/build_catalog.py && python scripts/build_contracts.py && python scripts/build_app_modules.py && git diff --exit-code -- tasks apps/portal/src/applicationModules.ts packages/app_runtime/vic_apps/modules.json docs/task-evaluation-map.md
       - run: python -m pytest
       - run: python -m playwright install --with-deps chromium
-      - name: Pixel and recording smoke test
+      - name: Pixel and native UI smoke tests (no video recording)
         run: |
           python scripts/start_platform.py > /tmp/videoicl-control.log 2>&1 &
           for attempt in $(seq 1 30); do

@@ -86,3 +86,21 @@ def test_prompt_templates_have_six_lines_and_distinct_instructions():
 def test_collection_names_vary_in_length():
     assert len({len(t) for t in texts(21,0)})>=4
     assert min(map(len,texts(21,0)))==2
+
+
+@pytest.mark.parametrize('variant',range(3))
+@pytest.mark.parametrize('start',[0,10,20])
+def test_variable_lesson_preserves_similar_names_strings_and_comments(variant,start):
+    import ast,io,tokenize
+    for seed in lessons.seeds_for(60,start):
+        state=business.generate(60,seed);a,b=state['source']['rename_targets'];source=state['source']['text']
+        result=business.transform(60,variant,state)
+        ast.parse(result)
+        assert f'"{a} {b}"' in result
+        assert '# 标签文字和未指定的变量保持不变' in result
+        original=[t for t in tokenize.generate_tokens(io.StringIO(source).readline)]
+        actual=[t for t in tokenize.generate_tokens(io.StringIO(result).readline)]
+        assert [t.string for t in original if t.type in (tokenize.STRING,tokenize.COMMENT)]==[t.string for t in actual if t.type in (tokenize.STRING,tokenize.COMMENT)]
+        names={t.string for t in actual if t.type==tokenize.NAME}
+        assert a+'_backup' in names and 'label' in names
+        assert a not in names and b not in names

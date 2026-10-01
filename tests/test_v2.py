@@ -79,13 +79,14 @@ def test_procurement_real_records_evaluate_and_reset(clients,variant):
     assert worker.get(path,headers=credential(reset.json())).json()['state']==initial
 
 
-def test_v2_credentials_unimplemented_guard_and_demo(clients):
+def test_v2_credentials_all_tasks_ready_and_demo(clients):
     control,worker=clients
     assert control.get('/v2/tasks').status_code==401
     assert len(control.get('/v2/tasks',headers=admin()).json()['tasks'])==75
     assert control.get('/v2/tasks/76/contract',headers=admin()).status_code==404
+    assert v2.EXECUTABLE==set(range(1,76))
     response=control.post('/v1/runs',headers=admin(),json=dict(suite='v2',task_id=58,variant='A',seed=10001))
-    assert response.status_code==409
+    assert response.status_code==201,response.text
     demo=control.post('/v1/runs',headers=admin(),json=dict(suite='v2',task_id=45,variant='C',seed=0,mode='demo',interaction='human',teaching=True))
     assert demo.status_code==201,demo.text
     run=demo.json();state=worker.get('/api/runs/'+run['id'],headers=credential(run)).json()['state']

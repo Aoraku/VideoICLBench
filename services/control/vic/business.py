@@ -7,9 +7,11 @@ Frontend acceptance is tracked independently of rule and state validation.
 import ast
 import copy
 import hashlib
+import io
 import json
 import random
 import re
+import tokenize
 from .catalog import task
 
 LABELS = {
@@ -128,13 +130,9 @@ def transform(id_, v, state):
             for i, x in enumerate(text.splitlines())
         )
     if id_ == 60:
-        for name in s["rename_targets"]:
-            text = re.sub(
-                r"\b" + re.escape(name) + r"\b",
-                [f"x_{name}", f"{name}_v", name.upper()][v],
-                text,
-            )
-        return text
+        names={name:[f"x_{name}",f"{name}_v",name.upper()][v] for name in s['rename_targets']}
+        tokens=tokenize.generate_tokens(io.StringIO(text).readline)
+        return tokenize.untokenize(t._replace(string=names.get(t.string,t.string)) if t.type==tokenize.NAME else t for t in tokens)
     raise ValueError(f"No transform for {id_}")
 
 
