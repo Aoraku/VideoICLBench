@@ -155,7 +155,7 @@
 
         <a href="{% url 'song_list' %}" class="{% if request.path == '/' or request.resolver_match.url_name == 'song_list' %}active{% endif %}">歌曲一覧</a>
         <a href="{% url 'artist_list' %}" class="{% if request.resolver_match.url_name == 'artist_list' %}active{% endif %}">歌手一覧</a>
-        {% if benchmark %}<div class="music-nav-separator"></div><a href="{% url 'music_library' %}">我的音乐</a><a href="{% url 'music_playlists' %}">播放列表</a><div class="music-user">周予安<br><small>个人音乐资料库</small></div>{% endif %}
+        {% if benchmark %}<div class="music-nav-separator"></div><a href="{% url 'music_library' %}">我的音乐</a><a href="{% url 'music_playlists' %}">播放列表</a>{% if music_projects %}<a href="{% url 'music_activities' %}">活动筹备</a><a data-open-im href="#">团队消息 ↗</a>{% endif %}<div class="music-user">周予安<br><small>个人音乐资料库</small></div>{% endif %}
     </div>
 
     <!-- 主内容 -->
@@ -189,6 +189,7 @@
         <!-- 页面内容 -->
         <div class="container-fluid p-4">
             {% if benchmark_state.v2_worksets %}{% include 'blog/workset_filters.html' %}{% endif %}
+            {% if music_projects %}<section class="music-project-brief" aria-label="工作范围"><strong>{{ benchmark_state.execution.assignment }}</strong><details><summary>查看活动要求与交付说明</summary><p>{{ project_world.brief }}</p><p>{{ benchmark_state.execution.delivery }}</p></details><a href="{% url 'music_activities' %}">活动资料 →</a></section>{% endif %}
             {% block content %}
             {% endblock %}
         </div>
@@ -199,6 +200,6 @@
         </div>
     </div>
 </div>
-{% if benchmark %}{{ benchmark_state|json_script:"music-state" }}<script type="module" src="/native-assets/music/native.js"></script>{% endif %}
+{% if benchmark %}{{ benchmark_state|json_script:"music-state" }}<script type="module" src="/native-assets/music/native.js"></script>{% if music_projects %}<script type="module" src="/native-assets/music/music_projects.js"></script>{% endif %}{% endif %}
 </body>
 </html>

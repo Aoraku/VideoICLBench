@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="music-library-head"><span class="music-kicker">EVENT COLLABORATION</span><h1>活动筹备</h1><p>活动资料、来源歌曲与团队交付。</p></div>
+<div class="music-project-grid">
+{% for activity in activities %}<article class="music-project-card" data-activity="{{ activity.id }}"><span class="music-kicker">{{ activity.date }}</span><h2>{{ activity.name }}</h2><p>歌手署名：{{ activity.artist }}</p><p>分享至：{{ activity.group_name }}</p><h3>来源{% if benchmark_state.task_id == 32 %}专辑{% else %}歌单{% endif %}</h3><ol>{% for source in activity.source_rows %}<li><a href="{% url 'music_source' source.id %}">{{ source.name }}</a><small>{{ source.members|length }} 首</small></li>{% endfor %}</ol>
+{% if activity.addition_songs %}<h3>另行添加</h3><ul>{% for song in activity.addition_songs %}<li><a href="{% url 'song_detail' song.id %}">{{ song.name }}</a><small>{{ song.edition }} · {{ song.record_code }}</small></li>{% endfor %}</ul>{% endif %}
+{% if activity.exclusion_songs %}<h3>移出歌单</h3><ul>{% for song in activity.exclusion_songs %}<li>{{ song.name }}<small>{{ song.edition }} · {{ song.record_code }}</small></li>{% endfor %}</ul>{% endif %}
+{% if benchmark_state.task_id != 18 %}<p>交付名称：{{ activity.playlist_name }}</p>{% endif %}
+<div class="music-project-links">{% for playlist in activity.playlists %}<a class="btn btn-outline-light" href="{% url 'music_playlist' playlist.id %}">打开 {{ playlist.name }}</a>{% empty %}<a class="btn btn-outline-light" href="{% url 'music_playlists' %}">创建活动歌单</a>{% endfor %}</div></article>{% endfor %}
+</div>
+{% endblock %}

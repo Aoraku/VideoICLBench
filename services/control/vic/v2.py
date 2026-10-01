@@ -5,8 +5,9 @@ from .config import ROOT
 from .v2_atomic import TASKS as ATOMIC_TASKS
 from .v2_worksets import TASKS as WORKSET_TASKS
 from vic_apps.communications import TASKS as COMMUNICATION_TASKS
+from vic_apps.music_projects import TASKS as MUSIC_PROJECT_TASKS
 
-EXECUTABLE = {45,69,74} | ATOMIC_TASKS | WORKSET_TASKS | COMMUNICATION_TASKS
+EXECUTABLE = {45,69,74} | ATOMIC_TASKS | WORKSET_TASKS | COMMUNICATION_TASKS | MUSIC_PROJECT_TASKS
 
 
 def catalog():
@@ -37,6 +38,9 @@ def generate(task_id, seed, mode):
     if task_id in COMMUNICATION_TASKS:
         from vic_apps.communications import fixture
         return fixture(task_id,seed,task(task_id))
+    if task_id in MUSIC_PROJECT_TASKS:
+        from vic_apps.music_projects import fixture
+        return fixture(task_id,seed,task(task_id))
     if task_id in WORKSET_TASKS:
         from .v2_worksets import generate as generate_worksets
         return generate_worksets(task_id,seed,task(task_id))
@@ -53,6 +57,9 @@ def generate(task_id, seed, mode):
 
 
 def evaluate(initial, state, variant, events):
+    if initial.get('workflow')=='music_projects':
+        from .v2_music_projects import evaluate as evaluate_music_projects
+        return evaluate_music_projects(initial,state,variant,events)
     if initial.get('workflow')=='communications':
         from .v2_communications import evaluate as evaluate_communications
         return evaluate_communications(initial,state,variant,events)

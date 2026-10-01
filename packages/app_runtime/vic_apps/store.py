@@ -172,6 +172,9 @@ class ApplicationStore(WorkspaceStore):
             elif state.get('workflow') == 'communications':
                 from .communications import apply
                 state = apply(state, mutation.op, mutation.target, mutation.value, mutation.ids)
+            elif state.get('workflow') == 'music_projects':
+                from .music_projects import apply
+                state = apply(state, mutation.op, mutation.target, mutation.value, mutation.ids)
             elif is_delivery:
                 state = atomic_delivery.apply(state,mutation.op,mutation.target,mutation.value)
             else:

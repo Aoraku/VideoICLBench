@@ -69,6 +69,31 @@ export async function nativeFetch(
       ),
       method = init?.method || "GET",
       body = typeof init?.body === "string" ? JSON.parse(init.body) : {};
+    if(s.workflow==='music_projects') {
+      const groupId=Number(path.match(/^\/api\/conversations\/(\d+)/)?.[1]);
+      const group=s.world.groups.find((g:any)=>g.id===groupId);
+      const musicHome=`/native/music/${run}/#${token}`;
+      const stamp=1770681600;
+      if(method==='GET' && path==='/api/workspace')return respond({instructions:'活动歌单与筹备讨论。分享中的链接会打开对应音乐歌单，歌曲清单保留发送时的内容。',music:musicHome});
+      if(method==='GET' && path==='/api/friends')return respond({friends:[]});
+      if(method==='GET' && path==='/api/conversations')return respond({conversations:s.world.groups.map((g:any)=>({
+        conversation_id:g.id,type:'group',name:g.name,unread_count:0,
+        last_message:{content:s.world.shares.filter((share:any)=>share.group===g.id).at(-1)?.name || '活动音乐筹备',created_at:stamp}
+      }))});
+      if(method==='GET' && path.endsWith('/messages') && group) {
+        const track=(id:string)=>{const o=s.domain.objects[id];return `${o.name} · ${o.edition} · ${o.record_code}`;};
+        const shares=s.world.shares.filter((share:any)=>share.group===groupId).map((share:any,i:number)=>({
+          msg_id:10000+Number(share.id.split('-')[1]),sender_id:1,sender_name:'周予安',created_at:stamp+i+1,
+          content:`分享歌单：${share.name}`,music_share:{name:share.name,count:share.members.length,tracks:share.members.map(track),added:share.added.map(track),url:`/native/music/${run}/${share.link}#${token}`}
+        }));
+        const messages=s.world.messages.filter((m:any)=>m.group===groupId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:'周予安',created_at:stamp+1000+m.id,content:m.body}));
+        return respond({messages:[...shares,...messages].sort((a:any,b:any)=>b.created_at-a.created_at)});
+      }
+      if(method==='GET' && path.endsWith('/group') && group)return respond({name:group.name,owner_id:2,created_at:stamp,description:'活动筹备与音乐分享',announcements:[],members:[{user_id:1,username:'周予安',role:'member'},{user_id:2,username:'活动协调员',role:'owner'}]});
+      if(method==='POST' && path.endsWith('/messages') && group) {
+        await imCommand('group.message',String(groupId),JSON.stringify({text:body.content}));return respond({msg_id:20000+s.world.messages.length+1});
+      }
+    }
     const projectReceipts = s.v2_worksets && s.task_id === 16;
     const projectGroups = s.workflow === 'communications' && s.task_id === 15;
     const scopeForConversation = (id: number) => projectReceipts ? s.scopes[id - 10] : undefined;

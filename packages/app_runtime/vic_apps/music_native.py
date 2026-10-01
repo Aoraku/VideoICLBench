@@ -22,6 +22,9 @@ urlpatterns = [
     path("search/", unused_view, name="search"),
     path("library/", unused_view, name="music_library"),
     path("playlists/", unused_view, name="music_playlists"),
+    path("activities/", unused_view, name="music_activities"),
+    path("sources/<str:id>/", unused_view, name="music_source"),
+    path("playlists/<str:id>/", unused_view, name="music_playlist"),
     path("comments/<str:id>/delete/", unused_view, name="delete_comment"),
 ]
 
@@ -64,6 +67,12 @@ def render_music(run_id, state, route, query_string=""):
     context = dict(benchmark=True, benchmark_run=run_id, benchmark_state=state,
                    songs=songs, artists=artists, comments=[], lyrics=[],
                    request=Record(path=route, GET=query, resolver_match=Record(url_name="song_list")))
+    if state.get('workflow') == 'music_projects':
+        from .music_projects_native import project_context
+        project_template = project_context(context,state,songs,route,query)
+        if project_template:
+            context['request'].resolver_match.url_name=project_template.split('/')[-1].removesuffix('.html')
+            return renderer.get_template(project_template).render(Context(context))
     if state.get('v2_worksets'):
         context.update(scope_id=query.get('scope',''),edition=query.get('edition',''),
                        scope_options=state['scopes'],requested_scopes=[s for s in state['scopes'] if s['requested']])

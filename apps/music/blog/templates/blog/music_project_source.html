@@ -1,0 +1,7 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="music-library-head"><span class="music-kicker">MUSIC COLLECTION</span><h1>{{ collection_title }}</h1><p>{{ songs|length }} 首 · 按歌曲编号识别不同版本</p><a class="text-white" href="{% url 'music_activities' %}">查看活动资料 →</a></div>
+<div class="music-project-toolbar"><label class="music-grow">目标歌单<select aria-label="目标歌单" id="targetPlaylist" class="form-select"><option value="">选择歌单</option>{% for p in project_playlists %}<option value="{{ p.id }}">{{ p.name }}</option>{% endfor %}</select></label><button class="btn btn-light" id="addSelectedSongs">将所选歌曲加入歌单</button>{% if source_collection %}<button class="btn btn-outline-light" id="importSource" data-source="{{ source_collection.id }}">导入整个来源</button>{% endif %}<a class="btn btn-outline-light" id="openTargetPlaylist" href="{% url 'music_playlists' %}">打开目标歌单</a></div>
+{% include 'blog/music_project_rows.html' %}
+<div class="music-status" role="status" aria-live="polite"></div>
+{% endblock %}

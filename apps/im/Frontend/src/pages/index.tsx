@@ -624,10 +624,11 @@ export default function Home() {
   const [inputText, setInputText] = useState('');
   const [workspaceInstructions, setWorkspaceInstructions] = useState<string | undefined>(undefined);
   const [projectDirectory, setProjectDirectory] = useState(false);
+  const [musicWorkspace, setMusicWorkspace] = useState<string | undefined>(undefined);
   useEffect(() => {
     if (!nativeIM) return;
     fetch('/api/workspace').then(response => response.json()).then(data => {
-      if (data.code === 0) {setWorkspaceInstructions(data.instructions || undefined);setProjectDirectory(Boolean(data.projects));}
+      if (data.code === 0) {setWorkspaceInstructions(data.instructions || undefined);setProjectDirectory(Boolean(data.projects));setMusicWorkspace(data.music || undefined);}
     }).catch(error => message.error(String(error)));
   }, []);
   const [loadingMsg, setLoadingMsg] = useState(false);
@@ -1841,7 +1842,7 @@ export default function Home() {
 
       <Content style={styles.chatPane}>
           {workspaceInstructions && <section aria-label="工作范围" style={{padding:'14px 24px',background:'#f3f8ff',borderBottom:'1px solid #d6e6f7',color:'#395474',lineHeight:1.7}}>
-            <strong>{projectDirectory?'项目启动安排':'项目通知回执'}</strong><div>{workspaceInstructions}</div>{projectDirectory&&<Button size="small" onClick={()=>router.push('/projects')}>项目通知与资料</Button>}
+            <strong>{musicWorkspace?'活动音乐协作':projectDirectory?'项目启动安排':'项目通知回执'}</strong><div>{workspaceInstructions}</div>{projectDirectory&&<Button size="small" onClick={()=>router.push('/projects')}>项目通知与资料</Button>}{musicWorkspace&&<a href={musicWorkspace}>打开音乐资料库 →</a>}
           </section>}
           {activeConv ? (
             <>
@@ -1966,6 +1967,12 @@ export default function Home() {
                               }}
                             >
                               <div>{typeof msg.content==='string'&&msg.content.startsWith('/native-assets/im/projects?project=')?<a href={msg.content} style={{color:isMe?'white':'#087db9',textDecoration:'underline'}}>打开项目资料 · {new URLSearchParams(msg.content.split('?')[1]).get('project')}</a>:msg.content}</div>
+                              {msg.music_share && <article aria-label="分享的歌单" style={{marginTop:12,padding:16,background:isMe?'rgba(255,255,255,.18)':'#f0f6f9',borderRadius:10,minWidth:260,maxWidth:520}}>
+                                <strong>♫ {msg.music_share.name}</strong><div>{msg.music_share.count} 首歌曲 · 本次新增 {msg.music_share.added.length} 首</div>
+                                <a href={msg.music_share.url} style={{display:'inline-block',margin:'12px 0',color:isMe?'white':'#087db9',textDecoration:'underline'}}>打开歌单</a>
+                                <details><summary style={{cursor:'pointer'}}>查看歌曲清单</summary><ol>{msg.music_share.tracks.map((track:string,i:number)=><li key={i}>{track}</li>)}</ol></details>
+                                <details><summary style={{cursor:'pointer'}}>查看本次新增</summary><ul>{msg.music_share.added.map((track:string,i:number)=><li key={i}>{track}</li>)}</ul></details>
+                              </article>}
                               {msg.benchmark_read && <small style={{color:'#408964'}}>✓ 已确认阅读</small>}
                               {msg.benchmark_starred && <small style={{color:'#bc8b22'}}>★ 已星标</small>}
 

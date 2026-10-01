@@ -1,0 +1,224 @@
+{
+  "verified_at": "2026-10-01T16:41:30.473657+00:00",
+  "video_recorded": false,
+  "tasks": [
+    18,
+    28,
+    32
+  ],
+  "coverage": {
+    "inference_conditions": 9,
+    "demo_first_episode_conditions": 9,
+    "full_demo_api_episodes": 39
+  },
+  "browser": [
+    {
+      "task": 18,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "cross_app_links": true
+    },
+    {
+      "task": 18,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "cross_app_links": true
+    },
+    {
+      "task": 18,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "cross_app_links": true
+    },
+    {
+      "task": 28,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "cross_app_links": true
+    },
+    {
+      "task": 28,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "cross_app_links": true
+    },
+    {
+      "task": 28,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "cross_app_links": true
+    },
+    {
+      "task": 32,
+      "variant": "A",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "cross_app_links": true
+    },
+    {
+      "task": 32,
+      "variant": "B",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "cross_app_links": true
+    },
+    {
+      "task": 32,
+      "variant": "C",
+      "seed": 10001,
+      "suite": "v2",
+      "mode": "eval",
+      "surface": "native",
+      "status": "passed",
+      "persisted": true,
+      "cross_app_links": true
+    },
+    {
+      "task": 18,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 18,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 18,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 28,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 28,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 28,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 32,
+      "variant": "A",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 32,
+      "variant": "B",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    },
+    {
+      "task": 32,
+      "variant": "C",
+      "status": "passed",
+      "surface": "native",
+      "persisted": true,
+      "suite": "v2",
+      "seed": 0,
+      "mode": "demo"
+    }
+  ],
+  "verification": {
+    "browser": "scripts/check_v2_music_projects_ui.py",
+    "demo": "scripts/check_native_ui.py",
+    "api": "tests/test_v2_music_projects.py",
+    "full_demo": "tests/test_v2.py::test_v2_demo_all_episodes_advance_and_final_eval",
+    "regression": "1779 full-suite tests passed. IM production build passed."
+  },
+  "verified_behaviors": [
+    "Three activity playlists assembled from overlapping sources, explicit additions and exclusions, names based on final counts and each activity’s artist/date, and deliveries to the correct groups.",
+    "A merged event playlist preserves distinct song versions, excludes unavailable entries, and stores the complete rule-ordered membership with explicit stable tie handling.",
+    "Three existing activity collections retain original members and receive qualifying new tracks from specified albums; shared reports contain the actual additions by song ID.",
+    "Native Music multi-selection, import, add/remove, rename, manual movement, sorting, save, share, withdraw and resend; IM messages display snapshots and links reopen the corresponding live native playlist.",
+    "API reset, command idempotency, preservation of source data and unrelated personal collections, distinct A/B/C results across seeds, and rejection of stale or missing saved records and incorrect group deliveries."
+  ],
+  "limits": [
+    "Browser inference uses seed 10001; independent state and API tests cover additional seeds.",
+    "Browser demo verification covers the first teaching episode; all teaching episodes are verified through the API.",
+    "Agentlab v2 deployment is incomplete."
+  ]
+}

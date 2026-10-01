@@ -1,0 +1,7 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="music-library-head"><span class="music-kicker">YOUR PLAYLISTS</span><h1>播放列表</h1><p>整理音乐，分享每一个值得记住的时刻。</p></div>
+<details class="music-project-panel"><summary>新建播放列表</summary><form id="projectPlaylistCreate" class="music-project-toolbar"><label>所属活动<select aria-label="所属活动" name="activity" class="form-select" required>{% for a in project_world.activities %}<option value="{{ a.id }}">{{ a.name }}</option>{% endfor %}</select></label><label class="music-grow">歌单名称<input name="name" class="form-control" required maxlength="160" placeholder="输入歌单名称"></label><button class="btn btn-light" type="submit">创建歌单</button></form></details>
+<div class="music-project-grid">{% for playlist in project_playlists %}<a class="music-project-card music-playlist-card" href="{% url 'music_playlist' playlist.id %}" data-playlist="{{ playlist.id }}"><div class="music-project-cover">♫</div><h2>{{ playlist.name }}</h2><p>{{ playlist.members|length }} 首歌曲</p></a>{% endfor %}</div>
+<div class="music-status" role="status"></div>
+{% endblock %}

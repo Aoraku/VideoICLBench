@@ -2,7 +2,7 @@ const run = location.pathname.match(/^\/native\/music\/([a-f0-9]{32})/)?.[1];
 const token = sessionStorage.getItem(`vic-music:${run}`) || "";
 let state = JSON.parse(document.querySelector("#music-state").textContent);
 let busy = false;
-async function command(op, target = "", value = "", ids = []) {
+export async function command(op, target = "", value = "", ids = []) {
   if (busy) return;
   busy = true;
   try {
@@ -40,6 +40,8 @@ async function command(op, target = "", value = "", ids = []) {
     busy = false;
   }
 }
+export const getState = () => state;
+export const imLink = () => `/native-assets/im/?run=${run}#${token}`;
 document.querySelector("#editName")?.addEventListener("click", () => {
   document.querySelector("#nameForm").hidden = false;
 });
