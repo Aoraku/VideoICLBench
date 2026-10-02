@@ -43,6 +43,17 @@ class Computer:
         if time.monotonic() - self.started > self.config.get("timeout_seconds", 600):
             raise ValueError("Session time budget exhausted")
 
+    def response_ok(self, response):
+        if response.status_code in (401, 403, 410, 503) or (
+            response.status_code == 409 and any(state in response.text for state in
+                ("environment_error", "interrupted", "destroyed", "completed"))
+        ):
+            self.closed = True
+            (self.output / "environment-error.json").write_text(json.dumps({
+                "http_status": response.status_code,
+                "message": "Environment unavailable; stop this inference, do not retry tools."}))
+        response.raise_for_status()
+
     def observe(self):
         with self.lock:
             return self._observe()
@@ -50,7 +61,7 @@ class Computer:
     def _observe(self):
         self.check()
         response = self.http.get(self.path + "/observation")
-        response.raise_for_status()
+        self.response_ok(response)
         observation = response.json()
         self.frame, self.epoch = observation["frame"], observation["epoch"]
         encoded = observation["image"].split(",", 1)[1]
@@ -59,6 +70,7 @@ class Computer:
         self.log({"type": "observation", "frame_id": self.frame, "file": filename})
         return CallToolResult(content=[TextContent(type="text", text=json.dumps({
             "frame_id": self.frame, "width": observation["width"], "height": observation["height"],
+            "remaining_seconds": max(0, round(self.config.get("timeout_seconds", 600) - (time.monotonic() - self.started))),
             "remaining_actions": self.config.get("max_actions", 100) - self.actions})),
             ImageContent(type="image", mimeType="image/png", data=encoded)])
 
@@ -77,7 +89,7 @@ class Computer:
         # No blind retries: an ambiguous transport failure may have executed the input.
         self.frame = None
         response = self.http.post(self.path + "/actions", json=body)
-        response.raise_for_status()
+        self.response_ok(response)
         self.actions += 1
         self.log({"type": "action", **body})
         return self.observe()
@@ -86,7 +98,14 @@ class Computer:
         demo = self.config.get("demo_video")
         if not demo:
             return {"available": False, "message": "No demonstration video assigned to this run."}
+        import imageio_ffmpeg
+        reader = imageio_ffmpeg.read_frames(demo)
+        try:
+            meta = next(reader)
+        finally:
+            reader.close()
         return {"available": True, "format": "timestamped video frames", "audio": "not supplied",
+                "duration_seconds": meta.get("duration"), "fps": meta.get("fps"),
                 "instructions": "Use demo_frame(seconds) to inspect the assigned video; no event logs or rules are provided."}
 
     def demo_frame(self, seconds: float):

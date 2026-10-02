@@ -184,6 +184,18 @@ def run(args):
         private_json(output_dir / "manifest.json", meta)
     profile = output_dir / "profile"
     profile.mkdir(exist_ok=True, mode=0o700)
+    # Check the actual browser before paying for model inference. No model sees this image.
+    if not args.resume:
+        with httpx.Client(base_url=computer_config["control_url"], timeout=90,
+                         headers={"Authorization": "Bearer " + computer_config["actor_token"]}) as c:
+            response = c.get(f"/v1/runs/{meta['run_id']}/observation")
+        if response.status_code != 200:
+            failure = {"engine": args.engine, "outcome": "environment_error",
+                       "stage": "preflight", "http_status": response.status_code,
+                       "run_id": meta["run_id"], "evaluation": None}
+            private_json(output_dir / "result.json", failure)
+            print(json.dumps(failure))
+            return 1
     server = {"command": sys.executable, "args": ["-m", "vic_sdk.computer_mcp", "--config",
                                                    str(output_dir / "computer-private.json")]}
     compact = (args.compact_threshold or (6000 if args.engine == "codex" else 5)) if args.compaction_smoke else None
@@ -205,7 +217,11 @@ def run(args):
         "Use only the vic computer tools to operate the real application. Read the assigned demonstration "
         "using demo_info/demo_frame. Follow its rule and the public assignment below. Observe the live screen, "
         "then act using screenshot coordinates. Do not guess that a click succeeded; inspect the next image. "
-        "Call finish when done.\n" + json.dumps(meta["public_task"], ensure_ascii=False))
+        "For key input use Enter, ArrowLeft/Right/Up/Down, Escape or ControlOrMeta combinations. "
+        "Call finish when done or when the operation budget is almost exhausted. "
+        f"You have {args.timeout} seconds total and {args.max_actions} input actions. "
+        "If an environment error occurs, stop; do not repeatedly retry unavailable tools.\n" +
+        json.dumps(meta["public_task"], ensure_ascii=False))
     index = len(list(output_dir.glob("stdout-*.jsonl"))) + 1
     stdout, stderr = output_dir / f"stdout-{index}.jsonl", output_dir / f"stderr-{index}.log"
     (output_dir / f"prompt-{index}.txt").write_text(prompt)
@@ -218,10 +234,19 @@ def run(args):
         proc = subprocess.Popen(cmd, stdin=subprocess.PIPE, stdout=out, stderr=err, text=True,
                                 cwd=workspace, env=env, start_new_session=True)
         timed_out = False
-        try:
-            proc.communicate(prompt, timeout=args.timeout)
-        except subprocess.TimeoutExpired:
-            timed_out = True
+        environment_error = False
+        pending_input = prompt
+        while True:
+            try:
+                proc.communicate(pending_input, timeout=min(1, args.timeout))
+                break
+            except subprocess.TimeoutExpired:
+                pending_input = None
+                environment_error = (output_dir / "environment-error.json").exists()
+                timed_out = time.monotonic() - started >= args.timeout
+                if environment_error or timed_out:
+                    break
+        if environment_error or timed_out:
             os.killpg(proc.pid, signal.SIGTERM)
             try:
                 proc.wait(timeout=5)
@@ -241,16 +266,25 @@ def run(args):
             "actions": sum(e["type"] == "action" for e in events),
             "video_frames": sum(e["type"] == "demo_frame" for e in events),
             "finish_summaries": [e["summary"] for e in events if e["type"] == "finish"]}
-    if args.evaluate:
-        with httpx.Client(base_url=computer_config["control_url"], timeout=90,
-                          headers={"Authorization": "Bearer " + args.admin_token_file.read_text().strip()}) as c:
-            response = c.post(f"/v2/tasks/{meta['task_id']}/eval", json={"run_id": meta["run_id"]})
-            response.raise_for_status()
-            result["evaluation"] = response.json()
+    result["outcome"] = "environment_error" if environment_error else "unevaluated"
+    if args.evaluate and not environment_error:
+        try:
+            with httpx.Client(base_url=computer_config["control_url"], timeout=90,
+                              headers={"Authorization": "Bearer " + args.admin_token_file.read_text().strip()}) as c:
+                response = c.post(f"/v2/tasks/{meta['task_id']}/eval", json={"run_id": meta["run_id"]})
+                if response.is_success:
+                    result["evaluation"] = response.json()
+                    result["outcome"] = "success" if result["evaluation"]["success"] else "fail"
+                else:
+                    result["outcome"] = "evaluation_error"
+                    result["evaluation_error"] = {"http_status": response.status_code}
+        except httpx.RequestError as exc:
+            result["outcome"] = "evaluation_error"
+            result["evaluation_error"] = {"type": type(exc).__name__}
     private_json(output_dir / f"result-{index}.json", result)
     private_json(output_dir / "result.json", result)
     print(json.dumps({"artifacts": str(output_dir), **result}, ensure_ascii=False, indent=2))
-    return 1 if timed_out or proc.returncode or result.get("is_error") else 0
+    return 1 if timed_out or proc.returncode or result.get("is_error") or result["outcome"].endswith("error") else 0
 
 
 def main():

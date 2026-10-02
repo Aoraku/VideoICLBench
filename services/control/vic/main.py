@@ -2,6 +2,7 @@ import asyncio
 import hashlib
 import hmac
 import json
+import logging
 import os
 import secrets
 import shutil
@@ -383,7 +384,11 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             active(run)
             try:
                 shot = await runtime.screenshot(run_id, url(run))
-            except Exception:
+            except Exception as exc:
+                # Playwright errors include the URL fragment, which is a UI credential.
+                message = str(exc).replace(ui_token(run), "[REDACTED]")
+                logging.getLogger(__name__).error("Observation failed run=%s task=%s: %s: %s",
+                                                 run_id, run.task_id, type(exc).__name__, message)
                 save_status(run_id, "environment_error")
                 raise HTTPException(
                     503,

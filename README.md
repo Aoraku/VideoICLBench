@@ -160,6 +160,10 @@ Codex Remote 网关可在 `codex` 配置组设置 `"native_auth": true`，使用
 
 CLI 的工具限制用于限定实验接口，不是面向恶意模型的完整安全隔离。正式批量评测应在不挂载源码、答案或个人凭证的隔离执行机/容器中运行。
 
+启动器在调用模型前检查真实浏览器截图。终止性的环境错误会停止推理；`result.json` 的 `outcome` 区分 `success`、`fail`、`environment_error` 和 `evaluation_error`，并单独保留原生退出码、超时及模型输出。任务判分失败不等于程序异常；达到时间预算后仍会封存可用环境并评分。视频信息工具提供时长，截图工具提供剩余操作时间。
+
+[Task 11/A 双框架推理记录](docs/reviews/task11-native-inference.json) 使用同事的 72 秒 demo，两个实例使用相同种子。Codex 0.147.0 / Luna 正常结束并得到 fail；CC 2.1.117 / Sonnet 4.6 达到 280 秒时限并得到 fail。两次均没有环境或 MCP 工具错误。CC 的结果包含明确超时标记，不能视为原生 agent 正常结束。`checks_completion` 包含基础不变量检查，不代表交付请求完成比例。
+
 实测记录见 [原生接入验证](docs/reviews/native-agents.json)。2026-10-02 的结果如下；这些是接入测试，不是任务成功率测评。
 
 | 原生框架 / 模型 | 实时截图与真实点击 | 原生 session 恢复 | 原生自动压缩 |

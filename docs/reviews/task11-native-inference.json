@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-03",
+  "task": 11,
+  "variant": "A",
+  "seed": 10001,
+  "official": false,
+  "demo": {
+    "recording_run_id": "354e886f1ea24f96b02d945f2f80c106",
+    "source": "agentlab:/home/zhengshenghan/videoicl-mvp/demos/11-A.mp4",
+    "sha256": "f696efd1f142e962c841bcbbf351c56568a5001cd9b79829547748fb87f178bf",
+    "duration_seconds": 72.33
+  },
+  "budgets": {
+    "runner_wall_seconds": 280,
+    "actions": 100,
+    "claude_cli_usd_cap": 1
+  },
+  "deployment": {
+    "host": "agentlab",
+    "control_image": "sha256:77db7e2c05db18216e207cf79cb66a470acba6b287304986e20311d6e32fd2e4",
+    "health": "healthy"
+  },
+  "preflight": [
+    {
+      "task": 1,
+      "observation_status": 200,
+      "image_bytes": 89498
+    },
+    {
+      "task": 2,
+      "observation_status": 200,
+      "image_bytes": 90342
+    },
+    {
+      "task": 11,
+      "observation_status": 200,
+      "image_bytes": 241890
+    }
+  ],
+  "tests": {
+    "command": ".venv/bin/python -m pytest tests/test_native_agents.py tests/test_browser_runtime.py tests/test_api.py -q",
+    "passed": 23
+  },
+  "runs": [
+    {
+      "engine": "claude",
+      "model": "claude-sonnet-4-6",
+      "cli_version": "2.1.117 (Claude Code)",
+      "run_id": "8e2189f5b98d4afaba8ec833a307cb09",
+      "artifact_directory": ".local/inference-repair/runs/claude-20261003-023739-9be806",
+      "platform_status": "completed",
+      "outcome": "fail",
+      "success": false,
+      "checks_completion": 0.95,
+      "violations": [
+        "delivery:messages",
+        "activity"
+      ],
+      "exit_code": 143,
+      "timed_out": true,
+      "duration_seconds": 280.35,
+      "computer_evidence": {
+        "screenshots": 19,
+        "actions": 18,
+        "video_frames": 7,
+        "finish_summaries": []
+      },
+      "native_errors": [],
+      "mcp_tool_errors": [],
+      "final_text": "",
+      "reported_cost_usd": null
+    },
+    {
+      "engine": "codex",
+      "model": "gpt-5.6-luna",
+      "cli_version": "codex-cli 0.147.0",
+      "run_id": "b21ba15d16334e3d9ea216cb09c47ea0",
+      "artifact_directory": ".local/inference-repair/runs/codex-20261003-023739-0f8646",
+      "platform_status": "completed",
+      "outcome": "fail",
+      "success": false,
+      "checks_completion": 0.975,
+      "violations": [
+        "delivery:messages"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 273.45,
+      "computer_evidence": {
+        "screenshots": 25,
+        "actions": 24,
+        "video_frames": 15,
+        "finish_summaries": [
+          "时间预算即将耗尽，停止操作。已完成并在会话核对 REQ-001：向林若宁回复 P-001 的 TXT 审定版《完整交付说明.txt》（186 字节，文件编号 011-101），原请求显示被回复 1 次。REQ-002 已读取但未发送；REQ-003、REQ-004 未交付。共实际发送一份附件，无重复发送。"
+        ]
+      },
+      "native_errors": [],
+      "mcp_tool_errors": [],
+      "final_text": "已完成 1/4：向林若宁发送 P-001《完整交付说明.txt》，关联 REQ-001，核对仅回复一次。\n\n时间预算接近耗尽，已停止操作。其余三条尚未交付。",
+      "reported_cost_usd": null
+    }
+  ],
+  "limitations": [
+    "CC reached the 280-second runner deadline and was terminated; no native finish was recorded. Its sealed task evaluation is fail, not environment_error. This is not evidence of a complete normal Claude Code exit.",
+    "Checks completion includes invariant checks and does not measure the proportion of requests delivered. Codex delivered one of four requests.",
+    "Gateway prices were not available for verification. Model choices are low-cost candidates, not proven cheapest. Claude gateway model listing omitted Haiku. No Opus was used.",
+    "The experiment tests one Task 11/A instance per engine; it is not a benchmark success-rate estimate."
+  ]
+}

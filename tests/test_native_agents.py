@@ -96,3 +96,64 @@ def test_private_files(tmp_path):
     path = tmp_path / "private.json"
     private_json(path, {"secret": "test"})
     assert path.stat().st_mode & 0o777 == 0o600
+
+
+def test_environment_failure_is_terminal_and_logged(tmp_path):
+    computer = Computer({'control_url': 'http://control', 'actor_token': 'actor',
+                         'run_id': 'run', 'output_dir': str(tmp_path)})
+    computer.http.close()
+    calls = []
+    def handler(request):
+        calls.append(request)
+        return httpx.Response(503, json={'detail': 'Browser unavailable'})
+    computer.http = httpx.Client(base_url='http://control', transport=httpx.MockTransport(handler))
+    with pytest.raises(httpx.HTTPStatusError):
+        computer.observe()
+    assert (tmp_path / 'environment-error.json').is_file()
+    with pytest.raises(ValueError, match='finished'):
+        computer.observe()
+    assert len(calls) == 1
+    computer.http.close()
+
+
+@pytest.mark.parametrize('preflight_status,eval_status,expected', [(503, 200, 'environment_error'), (200, 409, 'evaluation_error'), (200, 200, 'fail')])
+def test_runner_preserves_terminal_results(tmp_path, monkeypatch, preflight_status, eval_status, expected):
+    from types import SimpleNamespace
+    from vic_sdk.native_agent import run
+    credentials = tmp_path / 'credentials.json'
+    credentials.write_text(json.dumps({'claude': {'base_url': 'https://gateway.example', 'api_key': 'private-test-key'}}))
+    admin = tmp_path / 'admin'
+    admin.write_text('manager-test-key')
+    requests = []
+    def handler(request):
+        requests.append(request.url.path)
+        if request.url.path == '/v1/runs':
+            return httpx.Response(200, json={'id': 'test-run', 'actor_token': 'actor'})
+        if request.url.path.endswith('/contract'):
+            return httpx.Response(200, json={'assignment': 'Public task', 'rules': 'HIDDEN'})
+        if request.url.path.endswith('/observation'):
+            return httpx.Response(preflight_status, json={})
+        return httpx.Response(eval_status, json={'success': False, 'status': 'completed'})
+    client = httpx.Client
+    monkeypatch.setattr('vic_sdk.native_agent.httpx.Client', lambda **kw: client(transport=httpx.MockTransport(handler), **kw))
+    monkeypatch.setattr('vic_sdk.native_agent.subprocess.check_output', lambda *a, **kw: 'test-version')
+    launches = []
+    class Process:
+        returncode = 0
+        def __init__(self, *a, **kw):
+            launches.append(a)
+            kw['stdout'].write(json.dumps({'type': 'result', 'result': 'done', 'is_error': False}) + '\n')
+        def communicate(self, prompt, timeout):
+            assert 'HIDDEN' not in prompt
+    monkeypatch.setattr('vic_sdk.native_agent.subprocess.Popen', Process)
+    args = SimpleNamespace(engine='claude', output_root=tmp_path / 'runs', credentials=credentials,
+        api_key_env=None, base_url=None, model='test-model', resume=None, admin_token_file=admin,
+        control_url='http://control', task=11, variant='A', seed=10001, max_actions=100, timeout=280,
+        demo=None, compaction_smoke=False, compact_threshold=None, max_budget_usd=1,
+        binary=None, prompt=None, evaluate=True)
+    code = run(args)
+    result = json.loads(next((tmp_path / 'runs').glob('*/result.json')).read_text())
+    assert result['outcome'] == expected
+    assert code == (0 if expected == 'fail' else 1)
+    assert bool(launches) == (preflight_status == 200)
+    assert ('/v2/tasks/11/eval' in requests) == (preflight_status == 200)

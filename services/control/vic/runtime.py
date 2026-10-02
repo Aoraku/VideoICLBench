@@ -24,8 +24,10 @@ class BrowserRuntime:
             if self.driver is None:
                 self.driver = await async_playwright().start()
             owned_browser = None
-            if "/apps/" in url:
-                origin = urlsplit(url)
+            origin = urlsplit(url)
+            # Native workflow routes also use the secure application origin.
+            # Without this mapping Chromium resolves .localhost to this container.
+            if "/apps/" in origin.path or origin.hostname == "application.localhost":
                 args = []
                 if origin.hostname == "application.localhost":
                     backend = urlsplit(
@@ -49,8 +51,14 @@ class BrowserRuntime:
                 locale="zh-CN",
                 permissions=["clipboard-read", "clipboard-write"],
             )
-            page = await context.new_page()
-            await page.goto(url, wait_until="networkidle")
+            try:
+                page = await context.new_page()
+                await page.goto(url, wait_until="networkidle")
+            except BaseException:
+                await context.close()
+                if owned_browser:
+                    await owned_browser.close()
+                raise
             session = dict(
                 context=context,
                 owned_browser=owned_browser,
@@ -122,7 +130,10 @@ class BrowserRuntime:
             elif kind == "key":
                 if not action.key:
                     raise ValueError("Key required")
-                await page.keyboard.press(action.key)
+                aliases = {"Return": "Enter", "Left": "ArrowLeft", "Right": "ArrowRight",
+                           "Up": "ArrowUp", "Down": "ArrowDown", "Esc": "Escape"}
+                key = "+".join(aliases.get(part, part) for part in action.key.split("+"))
+                await page.keyboard.press(key)
             elif kind == "text":
                 await page.keyboard.insert_text(action.text)
             elif kind == "wait":
