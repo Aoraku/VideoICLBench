@@ -494,7 +494,55 @@
     "codex_compaction": {
       "verified": false,
       "error": "Tool catalog update requires the current turn and tool results to settle; retry after completion",
-      "custom_compaction": false
+      "custom_compaction": false,
+      "scope": "Mid-task GUI automatic compaction remains unverified. The long-tool-output trial failed on continuation; it has no native compaction-start or completed event.",
+      "isolated_native_check": {
+        "cli": "0.147.0",
+        "model": "gpt-5.5",
+        "gateway": "https://codex-remote.xiaoaojianghu.fun/v1",
+        "native_session_id": "01a107e4-cb14-72c1-bba1-56193742e9a5",
+        "manual_compaction": "passed: native contextCompaction completed and rollout compacted event",
+        "automatic_pre_turn_compaction": "passed: native thread resume with model_auto_compact_token_limit=5000, ordinary turn/start, contextCompaction completed before the user message; no compact command in this invocation",
+        "recall_after_automatic_compaction": "VIC-COMPACT-2047",
+        "logs": [
+          ".local/gui-validation/compact-native-isolated/events.jsonl",
+          ".local/gui-validation/compact-native-isolated/events-auto.jsonl"
+        ],
+        "limits": "Text-only diagnostic with no MCP tools. Does not establish reliable mid-turn compaction during GUI tool execution."
+      },
+      "standalone_endpoint_probe": {
+        "path": "/v1/responses/compact",
+        "status": 404,
+        "interpretation": "This endpoint probe does not establish native Codex compaction failure; native compaction succeeded through its own implementation."
+      },
+      "high_threshold_control": {
+        "threshold_tokens": 100000,
+        "log": ".local/gui-validation/codex-long-output-control/codex-20261005-011232-d43357/result.json",
+        "duration_seconds": 159.58,
+        "execution_status": "agent_error",
+        "agent_finished": true,
+        "tool_calls": [
+          {
+            "name": "computer_observe",
+            "status": "completed"
+          },
+          {
+            "name": "diagnostic_payload",
+            "status": "completed"
+          },
+          {
+            "name": "computer_observe",
+            "status": "completed"
+          },
+          {
+            "name": "finish",
+            "status": "completed"
+          }
+        ],
+        "compaction_events": [],
+        "error": "Final response stream disconnected after finish. No tool catalog conflict observed.",
+        "interpretation": "Long tool output can continue through the second screenshot and finish; this run did not exit normally. It does not prove mid-turn automatic compaction reliability or establish the cause of the earlier catalog conflict."
+      }
     }
   },
   "additional_text_rule_diagnostic": {
