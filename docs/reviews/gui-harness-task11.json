@@ -1,0 +1,533 @@
+{
+  "date": "2026-10-04",
+  "official": false,
+  "scope": "End-to-end native GUI agent validation on Task 11/A. These diagnostic trials are not benchmark success rates.",
+  "task": 11,
+  "variant": "A",
+  "seed": 10001,
+  "execution_interface": "Screenshots and coordinate mouse/keyboard input only; no DOM, business API or evaluator access by agents.",
+  "demo": {
+    "sha256": "f696efd1f142e962c841bcbbf351c56568a5001cd9b79829547748fb87f178bf",
+    "duration_seconds": 72.33,
+    "representation": "timestamped frames; audio not supplied"
+  },
+  "text_rule": {
+    "sha256": "f1a4690726e3cb8da5d3a5962d084c2f9ab17d3f4a4d85f840e505910c194f62",
+    "text": "先按每条请求指定的项目号、文件类型和版本筛选候选文件；在合格候选中选择文件体积（字节）最小的一份。若体积相同，选资料列表中靠前的文件。对每条请求仅发送一次，将所选文件发给该请求的发起人，并关联该条原请求编号。完成全部四条请求，不修改或重复发送其他资料。"
+  },
+  "runs": [
+    {
+      "engine": "codex",
+      "model": "gpt-5.5",
+      "cli_version": "codex-cli 0.147.0",
+      "run_id": "2920198c23204265891d4cacb2f14107",
+      "input_condition": "text_rule",
+      "budgets": {
+        "wall_seconds": 1800,
+        "max_actions": 120
+      },
+      "code_mode": true,
+      "image_transport": null,
+      "serial_tools_instruction": null,
+      "compaction": "native default",
+      "outcome": "success",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 627.8,
+      "computer_evidence": {
+        "screenshots": 47,
+        "actions": 46,
+        "video_frames": 0,
+        "finish_summaries": [
+          "四条请求均已交付并逐一在收件会话核实被回复1次。按项目号、TXT和审定版筛选后选择最小186字节的完整交付说明.txt：P-001文件011-101发给林若宁关联REQ-001；P-002文件011-201发给陈以安关联REQ-002；P-003文件011-301发给许知遥关联REQ-003；P-004文件011-401发给沈沐言关联REQ-004。未重复发送或修改其他资料。"
+        ]
+      },
+      "timing": {
+        "tool_io_seconds": 85.17,
+        "outside_tool_io_seconds": 542.63
+      },
+      "reported_cost_usd": null,
+      "usage": {
+        "input_tokens": 0,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 0,
+        "reasoning_output_tokens": 0
+      },
+      "compaction_events": [],
+      "evaluation": {
+        "success": true,
+        "completion": 1.0,
+        "violations": [],
+        "status": "completed"
+      },
+      "final_text": "四条请求均已完成：按各项目的 TXT 审定版筛选，发送最小的 186 字节附件给对应请求人，并关联 REQ-001 至 REQ-004。已逐一核实每条原请求仅回复一次，无漏发或重复发送。",
+      "attempts": [
+        {
+          "number": 1,
+          "outcome": "success",
+          "execution_status": "completed",
+          "duration_seconds": 627.8,
+          "reported_cost_usd": null
+        }
+      ],
+      "total_native_seconds": 627.8,
+      "artifact_directory": ".local/gui-validation/code-mode-text-rule/codex-20261003-235616-288ce3"
+    },
+    {
+      "engine": "codex",
+      "model": "gpt-5.5",
+      "cli_version": "codex-cli 0.147.0",
+      "run_id": "8ab6eecedd6c46809fc09d0a43b74621",
+      "input_condition": "video",
+      "budgets": {
+        "wall_seconds": 1800,
+        "max_actions": 120
+      },
+      "code_mode": true,
+      "image_transport": null,
+      "serial_tools_instruction": null,
+      "compaction": "native default",
+      "outcome": "success",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 644.44,
+      "computer_evidence": {
+        "screenshots": 45,
+        "actions": 44,
+        "video_frames": 20,
+        "finish_summaries": [
+          "已按演示的最小文件体积规则，在各项目 TXT 审定版候选中分别选择《完整交付说明.txt》（186 字节）。P-001 文件011-101回复林若宁并关联REQ-001；P-002 文件011-201回复陈以安并关联REQ-002；P-003 文件011-301回复许知遥并关联REQ-003；P-004 文件011-401回复沈沐言并关联REQ-004。逐一查看收件会话，四条原请求均显示被回复1次，附件均正确。"
+        ]
+      },
+      "timing": {
+        "tool_io_seconds": 46.89,
+        "outside_tool_io_seconds": 597.55
+      },
+      "reported_cost_usd": null,
+      "usage": {
+        "input_tokens": 0,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 0,
+        "reasoning_output_tokens": 0
+      },
+      "compaction_events": [],
+      "evaluation": {
+        "success": true,
+        "completion": 1.0,
+        "violations": [],
+        "status": "completed"
+      },
+      "final_text": "已完成四条附件回复，分别发给林若宁、陈以安、许知遥、沈沐言，并关联各自原请求。已逐一核对项目及附件，四条请求均只回复一次，无漏发或重复。",
+      "attempts": [
+        {
+          "number": 1,
+          "outcome": "success",
+          "execution_status": "completed",
+          "duration_seconds": 644.44,
+          "reported_cost_usd": null
+        }
+      ],
+      "total_native_seconds": 644.44,
+      "artifact_directory": ".local/gui-validation/final-video/codex-20261004-000812-f8442e"
+    },
+    {
+      "engine": "claude",
+      "model": "claude-sonnet-4-6",
+      "cli_version": "2.1.117 (Claude Code)",
+      "run_id": "b5a29eaf9d714cb6bfddcb206cb0d926",
+      "input_condition": "text_rule",
+      "budgets": {
+        "wall_seconds": 1800,
+        "max_actions": 120
+      },
+      "code_mode": null,
+      "image_transport": "tool images lifted unchanged into the same user message",
+      "serial_tools_instruction": true,
+      "compaction": {
+        "implementation": "native Claude Code",
+        "threshold_percent": 5
+      },
+      "outcome": "success",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 1547.74,
+      "computer_evidence": {
+        "screenshots": 101,
+        "actions": 94,
+        "video_frames": 0,
+        "finish_summaries": [
+          "All four project manager file requests have been fulfilled. For each request (REQ-001 through REQ-004), the smallest 审定版 TXT file — 完整交付说明.txt (186 B, file numbers 011-101/201/301/401) — was selected from the corresponding project conversation and sent to the respective requester (林若宁, 陈以安, 许知遥, 沈沐言) with the correct request number linked. Each send was confirmed by the success message \"此请求已有附件回复，可回到收件会话核对。\""
+        ]
+      },
+      "timing": {
+        "tool_io_seconds": 82.88,
+        "outside_tool_io_seconds": 1464.86
+      },
+      "reported_cost_usd": 1.0713065999999998,
+      "usage": {
+        "input_tokens": 44482,
+        "cache_creation_input_tokens": 99820,
+        "cache_read_input_tokens": 510767,
+        "output_tokens": 8170,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 99820
+        },
+        "inference_geo": "",
+        "iterations": [],
+        "speed": "standard"
+      },
+      "compaction_events": [
+        {
+          "source": "native_stream",
+          "event": {
+            "type": "system",
+            "subtype": "compact_boundary",
+            "session_id": "cbb23cc1-baae-447a-ac14-59e0ee7c5a4c",
+            "uuid": "f0af6736-b4dc-485f-8e63-501acd1a9364",
+            "compact_metadata": {
+              "trigger": "auto",
+              "pre_tokens": 9202,
+              "post_tokens": 1106,
+              "duration_ms": 44667
+            }
+          }
+        },
+        {
+          "source": "native_stream",
+          "event": {
+            "type": "system",
+            "subtype": "compact_boundary",
+            "session_id": "cbb23cc1-baae-447a-ac14-59e0ee7c5a4c",
+            "uuid": "6aee59a6-cd16-4783-b6fa-d95220bcfdf8",
+            "compact_metadata": {
+              "trigger": "auto",
+              "pre_tokens": 9048,
+              "post_tokens": 1466,
+              "duration_ms": 46043
+            }
+          }
+        },
+        {
+          "source": "native_stream",
+          "event": {
+            "type": "system",
+            "subtype": "compact_boundary",
+            "session_id": "cbb23cc1-baae-447a-ac14-59e0ee7c5a4c",
+            "uuid": "c15f4566-6f2c-4f62-8435-361ab6136bcd",
+            "compact_metadata": {
+              "trigger": "auto",
+              "pre_tokens": 9091,
+              "post_tokens": 1532,
+              "duration_ms": 42855
+            }
+          }
+        },
+        {
+          "source": "native_stream",
+          "event": {
+            "type": "system",
+            "subtype": "compact_boundary",
+            "session_id": "cbb23cc1-baae-447a-ac14-59e0ee7c5a4c",
+            "uuid": "be8aad90-d59f-4fd6-96de-d27e031a79bc",
+            "compact_metadata": {
+              "trigger": "auto",
+              "pre_tokens": 9034,
+              "post_tokens": 1533,
+              "duration_ms": 40594
+            }
+          }
+        },
+        {
+          "source": "native_stream",
+          "event": {
+            "type": "system",
+            "subtype": "compact_boundary",
+            "session_id": "cbb23cc1-baae-447a-ac14-59e0ee7c5a4c",
+            "uuid": "843bca55-9c4c-4347-ab67-2bb57aceee14",
+            "compact_metadata": {
+              "trigger": "auto",
+              "pre_tokens": 9114,
+              "post_tokens": 1446,
+              "duration_ms": 44802
+            }
+          }
+        },
+        {
+          "source": "native_stream",
+          "event": {
+            "type": "system",
+            "subtype": "compact_boundary",
+            "session_id": "cbb23cc1-baae-447a-ac14-59e0ee7c5a4c",
+            "uuid": "7ecc79c0-2b02-4557-9d7b-6dd71a233cd0",
+            "compact_metadata": {
+              "trigger": "auto",
+              "pre_tokens": 9034,
+              "post_tokens": 1500,
+              "duration_ms": 43604
+            }
+          }
+        }
+      ],
+      "evaluation": {
+        "success": true,
+        "completion": 1.0,
+        "violations": [],
+        "status": "completed"
+      },
+      "final_text": "All four requests are done. Each requester received their project's smallest 审定版 TXT file (完整交付说明.txt, 186 B), with the correct REQ number linked.",
+      "attempts": [
+        {
+          "number": 1,
+          "outcome": "success",
+          "execution_status": "completed",
+          "duration_seconds": 1547.74,
+          "reported_cost_usd": 1.0713065999999998
+        }
+      ],
+      "total_native_seconds": 1547.74,
+      "artifact_directory": ".local/gui-validation/cc-clean-final/claude-20261004-231010-3c8d23"
+    },
+    {
+      "engine": "claude",
+      "model": "claude-sonnet-4-6",
+      "cli_version": "2.1.117 (Claude Code)",
+      "run_id": "03416967b870492da04ff6c3542d0823",
+      "input_condition": "video",
+      "budgets": {
+        "wall_seconds": 1800,
+        "max_actions": 120
+      },
+      "code_mode": null,
+      "image_transport": "tool images lifted unchanged into the same user message",
+      "serial_tools_instruction": true,
+      "compaction": {
+        "implementation": "native Claude Code",
+        "threshold_percent": 5
+      },
+      "outcome": "success",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 622.43,
+      "computer_evidence": {
+        "screenshots": 54,
+        "actions": 50,
+        "video_frames": 8,
+        "finish_summaries": [
+          "All four file deliveries completed: REQ-001 (林若宁), REQ-002 (陈以安), REQ-003 (许知遥), and REQ-004 (沈沐言) each received 完整交付说明.txt (TXT·审定版·186字节) from their respective project folders, linked to their original requests."
+        ]
+      },
+      "timing": {
+        "tool_io_seconds": 30.73,
+        "outside_tool_io_seconds": 591.7
+      },
+      "reported_cost_usd": 0.3522126,
+      "usage": {
+        "input_tokens": 6236,
+        "cache_creation_input_tokens": 28298,
+        "cache_read_input_tokens": 114271,
+        "output_tokens": 1610,
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 0,
+          "ephemeral_5m_input_tokens": 28298
+        },
+        "inference_geo": "",
+        "iterations": [],
+        "speed": "standard"
+      },
+      "compaction_events": [
+        {
+          "source": "native_stream",
+          "event": {
+            "type": "system",
+            "subtype": "compact_boundary",
+            "session_id": "a1f866ec-1ba5-4cc3-a7bd-ad432a51ded3",
+            "uuid": "a6954ec4-90c7-4ca8-b36a-9f81a8901ddb",
+            "compact_metadata": {
+              "trigger": "auto",
+              "pre_tokens": 15495,
+              "post_tokens": 996,
+              "duration_ms": 288756
+            }
+          }
+        },
+        {
+          "source": "native_stream",
+          "event": {
+            "type": "system",
+            "subtype": "compact_boundary",
+            "session_id": "a1f866ec-1ba5-4cc3-a7bd-ad432a51ded3",
+            "uuid": "b51153e4-08ce-4729-a834-7bd544871cdb",
+            "compact_metadata": {
+              "trigger": "auto",
+              "pre_tokens": 9148,
+              "post_tokens": 1113,
+              "duration_ms": 38492
+            }
+          }
+        },
+        {
+          "source": "native_stream",
+          "event": {
+            "type": "system",
+            "subtype": "compact_boundary",
+            "session_id": "a1f866ec-1ba5-4cc3-a7bd-ad432a51ded3",
+            "uuid": "d6a13e51-15bc-454d-ad8e-406ab3982771",
+            "compact_metadata": {
+              "trigger": "auto",
+              "pre_tokens": 9156,
+              "post_tokens": 1258,
+              "duration_ms": 36379
+            }
+          }
+        },
+        {
+          "source": "native_stream",
+          "event": {
+            "type": "system",
+            "subtype": "compact_boundary",
+            "session_id": "a1f866ec-1ba5-4cc3-a7bd-ad432a51ded3",
+            "uuid": "6582b989-aaa2-49d5-8f8c-517905002441",
+            "compact_metadata": {
+              "trigger": "auto",
+              "pre_tokens": 9042,
+              "post_tokens": 1193,
+              "duration_ms": 29986
+            }
+          }
+        }
+      ],
+      "evaluation": {
+        "success": true,
+        "completion": 1.0,
+        "violations": [],
+        "status": "completed"
+      },
+      "final_text": "All four deliveries are done. Each requester received `完整交付说明.txt` (TXT·审定版·186字节) from their project's folder, linked to their original request.",
+      "attempts": [
+        {
+          "number": 1,
+          "outcome": "agent_error",
+          "execution_status": "agent_error",
+          "duration_seconds": 112.28,
+          "reported_cost_usd": 0.090783
+        },
+        {
+          "number": 2,
+          "outcome": "agent_error",
+          "execution_status": "agent_error",
+          "duration_seconds": 36.6,
+          "reported_cost_usd": 0.022742850000000002
+        },
+        {
+          "number": 3,
+          "outcome": "agent_error",
+          "execution_status": "agent_error",
+          "duration_seconds": 895.54,
+          "reported_cost_usd": 0.5209957499999999,
+          "interruption_reason": "Controller interrupted this diagnostic attempt to configure native automatic compaction."
+        },
+        {
+          "number": 4,
+          "outcome": "success",
+          "execution_status": "completed",
+          "duration_seconds": 622.43,
+          "reported_cost_usd": 0.3522126
+        }
+      ],
+      "total_native_seconds": 1666.85,
+      "artifact_directory": ".local/gui-validation/cc-serial-final/claude-20261004-224110-d612af",
+      "diagnostic_interventions": [
+        "Native session resumes after gateway malformed tool responses.",
+        "Execution interrupted to enable native automatic compaction; task answers were not supplied."
+      ]
+    }
+  ],
+  "limitations": [
+    "Single task and seed; not a general model success rate.",
+    "Requested model identifiers are reported as supplied to the gateways; gateway routing and prices are not independently attested.",
+    "Codex gateway reports zero token usage; that does not imply zero billing.",
+    "CC video uses native session recovery after provider errors and diagnostic intervention, including native compaction threshold configuration; compare it as integration evidence, not a controlled measure of relative model ability."
+  ],
+  "checks": {
+    "communications_ui": "11 A/B/C full delivery and eval PASS; DOM menu coordinate clicks, preview close and Escape tested",
+    "targeted_v2_tests": {
+      "passed": 386,
+      "log": ".local/gui-validation/tests.log"
+    },
+    "full_python_suite": {
+      "passed": 2024,
+      "log": ".local/gui-validation/pytest-full.log"
+    },
+    "final_targeted_tests": {
+      "passed": 22,
+      "log": ".local/gui-validation/final-focused-tests.log"
+    }
+  },
+  "gateway_diagnostics": {
+    "anthropic_images": {
+      "direct_image": "Correct Chinese button and file names",
+      "image_nested_in_tool_result": "Incorrect unseen file names",
+      "same_image_lifted_into_user_content": "Correct Chinese button and file names"
+    },
+    "anthropic_invalid_tool_response": "Observed stop_reason=tool_use without any tool_use content block; native CLI reported malformed tool call.",
+    "codex_compaction": {
+      "verified": false,
+      "error": "Tool catalog update requires the current turn and tool results to settle; retry after completion",
+      "custom_compaction": false
+    }
+  },
+  "additional_text_rule_diagnostic": {
+    "outcome": "success",
+    "execution_status": "timed_out",
+    "agent_finished": false,
+    "duration_seconds": 360.72,
+    "compaction_events": [
+      {
+        "source": "native_stream",
+        "event": {
+          "type": "system",
+          "subtype": "compact_boundary",
+          "session_id": "c82924e4-7a0a-4bc7-9d89-3d3a8d0b708e",
+          "uuid": "25d88382-d13b-456c-84a5-ff8d176bbf9a",
+          "compact_metadata": {
+            "trigger": "auto",
+            "pre_tokens": 21745,
+            "post_tokens": 993,
+            "duration_ms": 296247
+          }
+        }
+      }
+    ],
+    "interpretation": "All four deliveries passed evaluation; the native process reached the wall-time limit without an explicit finish. This is not a normally completed trial."
+  },
+  "source_commit": "e7a25923a70f27d436b01cd0b65c18ed2113d20e",
+  "ci_url": "https://github.com/Aoraku/VideoICLBench/actions/runs/37213357081",
+  "deployment": {
+    "host": "agentlab",
+    "control_image": "sha256:0e1800e184a1379622f7215c39b18f83708f68d0e799824f8c9120c9e59dc47e",
+    "applications_image": "sha256:5b95347938a8231d9962644af60504b87c97ceffc001d1a2101841192f8326a8",
+    "health": "both healthy"
+  },
+  "validation_commit": "f4f14b4"
+}

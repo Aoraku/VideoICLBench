@@ -182,7 +182,15 @@ Codex 的 `--code-mode` 是原生 CLI 功能开关，供需要该工具封装的
 ```
 
 
-[Task 11/A 双框架推理记录](docs/reviews/task11-native-inference.json) 使用同事的 72 秒 demo，两个实例使用相同种子。Codex 0.147.0 / Luna 正常结束并得到 fail；CC 2.1.117 / Sonnet 4.6 达到 280 秒时限并得到 fail。两次均没有环境或 MCP 工具错误。CC 的结果包含明确超时标记，不能视为原生 agent 正常结束。`checks_completion` 包含基础不变量检查，不代表交付请求完成比例。
+[Task 11/A 端到端验证](docs/reviews/gui-harness-task11.json) 使用种子 10001、同事提供的 72 秒 demo，以及独立的通用文字规则输入。四项结果均调用 `finish` 并正常结束，eval API 均为 `success`，每个实例的四条交付全部通过。Agent 只通过截图和坐标键鼠操作任务界面。
+
+| 原生框架 / 所请求的模型 | 文字规则 | Demo 视频 |
+|---|---|---|
+| Codex 0.147.0 / GPT-5.5 | success，46 次输入，628 秒 | success，44 次输入，644 秒 |
+| CC 2.1.117 / Sonnet 4.6 | success，94 次输入，1548 秒，无人工恢复 | success，使用原生 session 恢复和原生自动压缩 |
+
+这些结果用于证明集成可用，不是模型成功率对比。CC 视频轮包含网关错误恢复和压缩阈值诊断干预；完整尝试记录保存在验收 JSON。CC 的自动压缩具有原生 `compact_boundary` 证据；Codex 自动压缩压力测试尚未通过，网关以工具目录续接冲突拒绝请求。Codex 网关返回零 token 用量，不能据此推断费用。
+
 
 实测记录见 [原生接入验证](docs/reviews/native-agents.json)。2026-10-02 的结果如下；这些是接入测试，不是任务成功率测评。
 
