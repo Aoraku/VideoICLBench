@@ -146,6 +146,9 @@ async def main():
                             final=await snapshot();evaluation=v2.evaluate(initial,final['state'],variant,final['events'])
                             assert evaluation['success'],evaluation['violations']
                             assert not errors,errors
+                            await expect(page.locator('.ant-spin-spinning, .ant-spin-blur')).to_have_count(0)
+                            await expect(page.locator('main .ant-spin-container')).to_have_css('opacity','1')
+                            await page.wait_for_function("getComputedStyle(document.querySelector('main .ant-spin-container'),'::after').opacity === '0'")
                             await page.screenshot(path=str(out/f'{task}-{variant}-delivered.png'),full_page=True)
                             record.update(status='passed',requests=len(current),downloaded_resources=downloaded,opened_resources=links,evaluation=evaluation)
                             print(f'PASS {task:03d}{variant}: {len(current)} native IM deliveries, {len(downloaded)} byte-matched downloads and business links; refresh retained',flush=True)
