@@ -1,5 +1,6 @@
 """Trip API tests independently verify identity, feasible sequences and receipts."""
 import base64,json
+from cross_platform_helpers import with_handoffs, apply_command, redeliver
 from copy import deepcopy
 import pytest
 from vic import v2
@@ -27,6 +28,7 @@ def passenger(initial,id,variant):
     return dict(id=id,**profile)
 
 
+@with_handoffs(travel.apply,3)
 def plan(initial,variant):
     w=initial['world'];bookings=[]
     if initial['task_id']==44:
@@ -48,7 +50,7 @@ def plan(initial,variant):
 def complete(initial,variant):
     state=initial;events=[]
     for op,target,data in plan(initial,variant):
-        value=json.dumps(data);state=travel.apply(state,op,target,value);events.append(dict(op=op,target=target,value=value))
+        value=json.dumps(data);state=apply_command(travel.apply,state,op,target,value);events.append(dict(op=op,target=target,value=value))
     return state,events
 
 

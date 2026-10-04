@@ -1,5 +1,5 @@
 """Native Liugu OJ course workspace for multi-file, history and delivery tasks."""
-import base64,json
+import base64,json,os
 import streamlit as st
 import benchmark_bridge as bridge
 from vic_apps.code_projects import latest_check,delivery_rows
@@ -23,7 +23,9 @@ def download(state,id,label):
 
 
 def sidebar(state):
-    st.success('欢迎，周予安 · 课程交付')
+    st.success('欢迎，'+state.get('source',{}).get('operator','课程成员')+' · 课程交付')
+    if state.get('cross_platform'):
+        st.link_button('团队消息 · 需求与成果交付', '/native-assets/im/?run='+os.environ['VIC_NATIVE_RUN']+'#'+os.environ['VIC_NATIVE_TOKEN'],use_container_width=True)
     tabs=[('题目列表','problems'),('课程清单','course_overview'),('项目工作区','course_editor'),('检查记录','course_checks'),('查看提交','course_submissions'),('交付中心','course_delivery')]
     if state['task_id']==64:tabs.insert(2,('历史版本','course_history'))
     for label,page in tabs:

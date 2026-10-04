@@ -36,3 +36,6 @@ jobs:
           python scripts/check_native_ui.py 15,16 ABC
           python scripts/check_native_ui.py 61,62,63 ABC
           python scripts/check_v2_communications_ui.py 11 ABC
+          VIC_UI_SUITE=v2 python scripts/check_native_ui.py 1,17,68 A
+          python scripts/check_workset_delivery_ui.py --tasks 23,74 --variants A
+          python scripts/check_cross_platform_ui.py

@@ -89,6 +89,8 @@ def test_course_requires_persisted_ordered_delivery_and_checks_topic_identity(va
     state=worksets.apply(state,'course.order',ids=correct)
     assert not v2.evaluate(initial,state,variant,[{'op':'course.order'}])['success']
     state=worksets.apply(state,'course.save')
+    for op,target,value,ids in v2_worksets.delivery_commands(initial,variant,v2_worksets.reference_commands(initial,variant,include_delivery=False)):
+        state=worksets.apply(state,op,target,value,ids)
     assert v2.evaluate(initial,state,variant,[{'op':'course.save'}])['success']
     state=worksets.apply(state,'course.remove',correct[1])
     assert not v2.evaluate(initial,state,variant,[{'op':'course.remove'}])['success']

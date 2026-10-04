@@ -85,6 +85,8 @@ def generate(task_id, seed, spec):
             if task_id == 48 and requested:
                 product='不锈钢保温杯' if index==0 else '便携机械键盘'
                 item['name']=product+' · '+['星河','远山','青木','拾物','简行','杉川'][n%6]
+                item['supplier']=['星河办公用品','远山器材商行','青木生活用品','拾物办公商行','简行设备供应','杉川用品中心'][n%6]
+                item['supplier_contact']=f'sales-{index+1}{n+1}@example.test'
             if task_id == 34:
                 item['progress_seconds']=item['duration'] if item['completed'] else max(1,int(item['duration']*(0.15+0.1*(n%5))))
             if task_id in (23,33,49, 53):
@@ -147,7 +149,8 @@ def generate(task_id, seed, spec):
     if task_id == 63: state['domain']['orders']['course'] = []
     if collection:
         for scope in scopes: state['domain']['collections']['scope:'+scope['id']] = []
-    return state
+    from vic_apps.workset_delivery import attach
+    return attach(state)
 
 
 def submission_fixture(item):
@@ -180,7 +183,7 @@ def scope_effect(initial, variant, scope):
     return business.expected_effect(initial['task_id'], variant, view)
 
 
-def reference_commands(initial, variant):
+def reference_commands(initial, variant, include_delivery=True):
     """Private reference for evaluator and offline QA; never served to clients."""
     t = initial['task_id']; commands = [];order=list(initial['domain']['orders']['main'])
     for scope in initial['scopes']:
@@ -210,18 +213,23 @@ def reference_commands(initial, variant):
                 commands.append(('action', target, action, []))
                 if t == 57: commands.append(('reminder.channel', target, initial['source']['notification_channel'], []))
     if t == 63: commands.append(('course.save', '', '', []))
+    if include_delivery and initial.get('workset_delivery'):
+        commands.extend(delivery_commands(initial,variant,commands))
     return commands
 
 
 def evaluate(initial, final, variant, events):
     expected = deepcopy(initial)
-    for op, target, value, ids in reference_commands(initial, variant):
+    for op, target, value, ids in reference_commands(initial, variant, include_delivery=False):
         expected = worksets.apply(expected, op, target, value, ids)
     checks = []
     def check(name, passed): checks.append(dict(id=name, passed=bool(passed)))
     for key in ('items','source','scopes','execution','public_parameters'):
         check('input:'+key, initial[key] == final.get(key))
-    want = application_eval.canonical(expected['domain']); got = application_eval.canonical(final['domain'])
+    actual_domain=deepcopy(final['domain'])
+    for publication in final.get('workset_delivery',{}).get('publications',[]):
+        actual_domain.get('files',{}).pop(publication['id'],None)
+    want = application_eval.canonical(expected['domain']); got = application_eval.canonical(actual_domain)
     for key in want: check('business:'+key, got.get(key) == want[key])
     for scope in initial['scopes']:
         if not scope['requested']:continue
@@ -229,7 +237,37 @@ def evaluate(initial, final, variant, events):
             key=item['id'];check(scope['id']+':'+item['record_code'],got['objects'].get(key)==want['objects'][key])
         if scope['collection']:
             key='scope:'+scope['id'];check(scope['id']+':delivery',got['collections'].get(key)==want['collections'][key])
+    if initial.get('workset_delivery'):
+        from vic_apps.workset_delivery import checks as delivery_checks
+        checks.extend(delivery_checks(initial,final,delivery_objects(initial,variant)))
     violations = [] if events else ['no_action']
     return dict(success=all(c['passed'] for c in checks) and not violations,
                 completion=sum(c['passed'] for c in checks)/len(checks),checks=checks,
                 violations=violations+[c['id'] for c in checks if not c['passed']])
+
+
+def delivery_objects(initial,variant,commands=None):
+    commands=commands if commands is not None else reference_commands(initial,variant,include_delivery=False)
+    result=[]
+    eligible={x['id'] for scope in initial['scopes'] if scope['requested'] for x in worksets.members(initial,scope)}
+    for op,target,value,ids in commands:
+        if op=='order':result=[key for key in ids if key in eligible]
+        elif op=='workset.collect':
+            result.extend(key for key in ids if key not in result)
+        elif op in ('contact.nickname','label','action','message.send','course.add') and target not in result:result.append(target)
+    return result
+
+
+def delivery_commands(initial,variant,commands):
+    return document_commands(initial,delivery_objects(initial,variant,commands))
+
+
+def document_commands(initial,objects):
+    w=initial['workset_delivery'];request=max(w['requests'],key=lambda r:r['revision'])
+    recipient=next(r for r in w['directory'] if r['id']==request['recipient'])
+    result=[('assignment.draft','',json.dumps(dict(request=request['id'],title=request['title'],deadline=request['deadline'],address=recipient['address'],summary='本文件汇总已完成的业务处理结果及后续工作所需资料。'),ensure_ascii=False),[])]
+    for target in objects:
+        ref=next(r for r in w['references'] if r['object']==target)
+        result.append(('assignment.row',target,json.dumps(dict(reference=ref['id'],detail=ref['detail']),ensure_ascii=False),[]))
+    result.append(('assignment.publish','','',[]))
+    return result

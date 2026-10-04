@@ -1,18 +1,24 @@
 """Native application delivery commands; these never know which rule was taught."""
 from copy import deepcopy
 
-COMMANDS={'shortcut.add','shortcut.remove','favorite.add','favorite.remove','answer.submit','review.confirm'}
+COMMANDS={'shortcut.add','shortcut.remove','favorite.add','favorite.remove','answer.submit','batch.open'}
 
 
 def apply(state,op,target,value):
     if not state.get('v2_atomic'):
         raise ValueError('此操作不适用于本环境')
     state=deepcopy(state);t=state['task_id']
-    if op == 'review.confirm':
-        if not state.get('rule_target') or target != state['rule_target']:
-            raise ValueError('请确认本次指定的核验对象')
-        state['reviewed_target'] = target
-        return state
+    if op == 'batch.open':
+        batch=state.get('work_batch')
+        if not batch or value or target not in {u['id'] for u in batch['units']}:
+            raise ValueError('请选择工作清单中的项目')
+        active=next(u for u in batch['units'] if u['id']==batch['active'])
+        active['state']={k:deepcopy(v) for k,v in state.items() if k!='work_batch'}
+        selected=next(u for u in batch['units'] if u['id']==target)
+        following=deepcopy(selected['state'])
+        batch['active']=target
+        following['work_batch']=batch
+        return following
     d=state['domain']
     if op in ('shortcut.add','shortcut.remove','favorite.add','favorite.remove'):
         is_shortcut=op.startswith('shortcut.')

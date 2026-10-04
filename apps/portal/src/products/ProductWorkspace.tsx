@@ -13,6 +13,7 @@ import { Screening } from "./Screening";
 import { StudioProjects } from "./StudioProjects";
 import { Publishing } from "./Publishing";
 import { Editorial } from "./Editorial";
+import { CommunicationsDocuments } from "./CommunicationsDocuments";
 import { Procurement } from "./Procurement";
 import type { ProductAPI } from "./kit";
 import "./products.css";
@@ -102,7 +103,7 @@ export function ProductWorkspace({
         <p>{notice || "正在载入你的个人工作区…"}</p>
       </div>
     );
-  const Component = data.state.workflow === 'payment_projects' && module==='bank' ? BankProjects : data.state.workflow === 'shop_projects' && module==='shop' ? ShopProjects : data.state.workflow === 'travel_projects' && module==='travel' ? TravelProjects : data.state.workflow === 'screening' ? Screening : data.state.workflow === 'studio_projects' && module === 'studio' ? StudioProjects : data.state.workflow === 'publishing' && module === 'blog' ? Publishing : data.state.workflow === 'editorial_projects' && module === 'blog' ? Editorial : data.state.workflow === 'procurement' ? Procurement : (
+  const Component = data.state.workflow === 'communications' && module==='studio' ? CommunicationsDocuments : data.state.workflow === 'payment_projects' && module==='bank' ? BankProjects : data.state.workflow === 'shop_projects' && module==='shop' ? ShopProjects : data.state.workflow === 'travel_projects' && module==='travel' ? TravelProjects : data.state.workflow === 'screening' ? Screening : data.state.workflow === 'studio_projects' && module === 'studio' ? StudioProjects : data.state.workflow === 'publishing' && module === 'blog' ? Publishing : data.state.workflow === 'editorial_projects' && module === 'blog' ? Editorial : data.state.workflow === 'procurement' ? Procurement : (
     {
       blog: Blog,
       studio: Studio,
@@ -125,7 +126,7 @@ export function ProductWorkspace({
                anchor.href=url;anchor.download=name;anchor.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
              },
              applicationLink: (app, query = {}) => {
-               const path = app === 'im' ? '/native-assets/im/' : app === 'news' ? `/native/news/${id}` : `/native/product/${app}/${id}`;
+               const path = app === 'im' ? '/native-assets/im/' : app === 'chat' ? `/native/chat/${id}/chat` : app === 'news' ? `/native/news/${id}` : `/native/product/${app}/${id}`;
                if(app==='im') query={...query,run:id};
                const search = new URLSearchParams(query).toString();
                return `${path}${search ? '?'+search : ''}#${token.current}`;

@@ -1,4 +1,5 @@
 """Publishing tests inspect real articles, index links and author messages."""
+from cross_platform_helpers import with_handoffs, apply_command, redeliver
 from copy import deepcopy
 import json
 import pytest
@@ -24,6 +25,7 @@ def selected(initial,variant):
     return result
 
 
+@with_handoffs(publishing.apply,3)
 def plan(initial,variant):
     for n,(draft,meta) in enumerate(selected(initial,variant).items(),1):
         key=f'post-{n:03d}'
@@ -36,7 +38,7 @@ def plan(initial,variant):
 def complete(initial,variant):
     state=initial;events=[]
     for op,target,data in plan(initial,variant):
-        value=json.dumps(data);state=publishing.apply(state,op,target,value);events.append(dict(op=op,target=target,value=value))
+        value=json.dumps(data);state=apply_command(publishing.apply,state,op,target,value);events.append(dict(op=op,target=target,value=value))
     return state,events
 
 

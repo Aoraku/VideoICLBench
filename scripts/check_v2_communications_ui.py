@@ -53,6 +53,13 @@ async def main():
                                 await chat(name)
                                 await expect(page.locator('.chatBody').get_by_text(request['body'],exact=True)).to_be_visible()
                                 project=next(p for p in w['projects'] if p['id']==request['project'])
+                                await page.get_by_role('button',name='聊天文件',exact=True).click()
+                                await page.get_by_role('link',name='打开项目资料库 ↗').click()
+                                await page.locator('.studio-projects').get_by_role('button',name=re.compile(re.escape(project['name']))).click()
+                                await page.locator(f'[data-file-id="{target}"]').click()
+                                await expect(page.locator('.comm-doc-preview pre')).to_have_text(item['file_text'])
+                                await save(page.get_by_role('button',name='导入 Chat 附件',exact=True))
+                                await page.get_by_role('link',name='返回请求人的会话 ↗').click()
                                 await chat(project['name']+' · 项目资料')
                                 await page.locator('.msgFileCard').first.click()
                                 preview=page.get_by_role('dialog',name='文件预览')
@@ -71,7 +78,7 @@ async def main():
                                 await page.get_by_role('button',name='聊天文件',exact=True).click()
                                 dialog=page.get_by_role('dialog',name='项目聊天文件')
                                 await expect(dialog.get_by_role('combobox',name='来源会话')).to_contain_text(project['id'])
-                                await expect(dialog.locator('[data-file-id]')).to_have_count(6)
+                                await expect(dialog.locator('[data-file-id]')).to_have_count(1)
                                 await dialog.locator(f'[data-file-id="{target}"]').click()
                                 await dialog.get_by_text('预览所选文件',exact=True).click()
                                 await expect(dialog.locator('pre')).to_have_text(item['file_text'])
@@ -104,27 +111,18 @@ async def main():
                                 await expect(page.get_by_text(f'已{action} {len(rows)} 条消息',exact=True)).to_be_visible()
                             await page.get_by_role('link',name='交接单',exact=True).click()
                             await expect(page.get_by_role('heading',name='晚班消息交接单',exact=True)).to_be_visible()
-                            await page.get_by_role('combobox',name='消息批次').select_option('晚班-0115')
-                            for item in targets:
-                                await save(page.locator(f'[data-message-id="{item["id"]}"]').get_by_role('button',name='加入交接单',exact=True))
-                                select=page.get_by_role('combobox',name='处理结果 '+item['record_code'],exact=True)
-                                async with page.expect_response(lambda r:r.request.method=='POST' and r.url.endswith('/commands')) as pending:
-                                    await select.select_option({'A':'已转发','B':'已收藏','C':'已归档'}[variant])
-                                assert (await pending.value).status==200
-                            # Remove and re-add a draft line, then follow its
-                            # real source link back to the original message.
-                            first=targets[0]
-                            await save(page.get_by_role('button',name='移除 '+first['record_code'],exact=True))
-                            await save(page.locator(f'[data-message-id="{first["id"]}"]').get_by_role('button',name='加入交接单',exact=True))
-                            async with page.expect_response(lambda r:r.request.method=='POST' and r.url.endswith('/commands')) as pending:
-                                await page.get_by_role('combobox',name='处理结果 '+first['record_code']).select_option({'A':'已转发','B':'已收藏','C':'已归档'}[variant])
-                            assert (await pending.value).status==200
-                            await page.locator(f'[data-delivery-id="{first["id"]}"]').get_by_role('link').click()
-                            original=page.locator(f'#msg-{first["message_id"]}')
-                            await expect(original).to_be_visible()
-                            for line in first['text'].splitlines():await expect(original).to_contain_text(line)
+                            await page.get_by_role('link',name='编制或查看交接文档 ↗').click()
+                            await page.locator('.product-nav').get_by_role('button',name='班次交接文档',exact=True).click()
+                            for project in w['projects']:
+                                await page.get_by_role('complementary',name='项目').get_by_role('button',name=re.compile(re.escape(project['name']))).click()
+                                for item in [x for x in targets if x['project']==project['id']]:
+                                    await save(page.locator(f'[data-message-id="{item['id']}"]').get_by_role('button',name='加入交接清单',exact=True))
+                                    async with page.expect_response(lambda r:r.request.method=='POST' and r.url.endswith('/commands')) as pending:
+                                        await page.get_by_role('combobox',name='交接结果 '+item['record_code']).select_option({'A':'已转发','B':'已收藏','C':'已归档'}[variant])
+                                    assert (await pending.value).status==200
+                            await save(page.get_by_role('button',name='保存交接文档',exact=True))
+                            await page.get_by_role('link',name='返回 Chat 发送文档 ↗').click()
                             await page.get_by_role('link',name='交接单',exact=True).click()
-                            await expect(page.locator('[data-delivery-id]')).to_have_count(len(targets))
                             await page.get_by_role('combobox',name='交接单收件人').select_option('2')
                             await save(page.get_by_role('button',name='发送交接单',exact=True))
                             await page.get_by_role('link',name='查看已发送文件',exact=True).click()
@@ -157,10 +155,21 @@ async def main():
                                 await save(modal.get_by_role('button',name=re.compile(r'发\s*布')))
                                 await expect(details.get_by_text(project['announcement'],exact=True)).to_be_visible()
                                 await details.get_by_role('button',name='Close',exact=True).click()
+                                document=await context.new_page()
+                                await document.goto(f'http://127.0.0.1:8782/native/product/studio/{rid}?project={project["id"]}#{token}')
+                                await document.locator('.product-nav').get_by_role('button',name='项目启动简报',exact=True).click()
+                                snap=await snapshot()
+                                group=next(g for g in snap['state']['world']['groups'].values() if g['name']==project['group_name'])
+                                await document.get_by_role('combobox',name='简报关联工作群').select_option(str(group['id']))
+                                async with document.expect_response(lambda r:r.request.method=='POST' and r.url.endswith('/commands')) as pending:
+                                    await document.get_by_role('button',name='保存项目简报',exact=True).click()
+                                assert (await pending.value).status==200
+                                await expect(document.get_by_role('heading',name='已保存简报',exact=True)).to_be_visible()
+                                await document.close()
                                 await page.locator('textarea:not([aria-hidden="true"])').fill(project['material_link'])
                                 await save(page.get_by_role('button',name=re.compile(r'发\s*送')))
                                 await page.get_by_role('link',name='打开项目资料 · '+project['id'],exact=True).click()
-                                await expect(page.get_by_text(project['material_text'],exact=True)).to_be_visible()
+                                await expect(page.locator('pre')).to_contain_text(project['material_text'])
                                 await expect(page.locator('tbody tr')).to_have_count(6)
                                 await page.get_by_role('link',name='返回消息',exact=True).click()
                                 await expect(page.get_by_role('region',name='工作范围')).to_be_visible()

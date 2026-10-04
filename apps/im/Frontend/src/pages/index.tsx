@@ -1,3 +1,4 @@
+import {CrossPlatformMessage} from '../benchmark/CrossPlatformMessage';
 import {nativeIM, imCommand} from '../benchmark/bridge';
 import {nativeFetch as fetch} from '../benchmark/bridge';
 import React, { useEffect, useState, useRef } from 'react';
@@ -622,6 +623,7 @@ export default function Home() {
   const [activeConv, setActiveConv] = useState<any>(undefined);
   const [messages, setMessages] = useState<any[]>([]);
   const [inputText, setInputText] = useState('');
+  const [handoffWorkspace,setHandoffWorkspace]=useState<string|undefined>(undefined);
   const [workspaceInstructions, setWorkspaceInstructions] = useState<string | undefined>(undefined);
   const [projectDirectory, setProjectDirectory] = useState(false);
   const [bankWorkspace, setBankWorkspace] = useState<string | undefined>(undefined);
@@ -633,7 +635,7 @@ export default function Home() {
   useEffect(() => {
     if (!nativeIM) return;
     fetch('/api/workspace').then(response => response.json()).then(data => {
-      if (data.code === 0) {setWorkspaceInstructions(data.instructions || undefined);setProjectDirectory(Boolean(data.projects));setMusicWorkspace(data.music || undefined);setBlogWorkspace(data.blog || undefined);setStudioWorkspace(data.studio || undefined);setTravelWorkspace(data.travel || undefined);setShopWorkspace(data.shop || undefined);setBankWorkspace(data.bank || undefined);}
+      if (data.code === 0) {setHandoffWorkspace(data.handoff||undefined);setWorkspaceInstructions(data.instructions || undefined);setProjectDirectory(Boolean(data.projects));setMusicWorkspace(data.music || undefined);setBlogWorkspace(data.blog || undefined);setStudioWorkspace(data.studio || undefined);setTravelWorkspace(data.travel || undefined);setShopWorkspace(data.shop || undefined);setBankWorkspace(data.bank || undefined);}
     }).catch(error => message.error(String(error)));
   }, []);
   const [loadingMsg, setLoadingMsg] = useState(false);
@@ -1847,7 +1849,7 @@ export default function Home() {
 
       <Content style={styles.chatPane}>
           {workspaceInstructions && <section aria-label="工作范围" style={{padding:'14px 24px',background:'#f3f8ff',borderBottom:'1px solid #d6e6f7',color:'#395474',lineHeight:1.7}}>
-            <strong>{bankWorkspace?'账单通知与付款核对':shopWorkspace?'采购申请与交接':travelWorkspace?'出差安排与审批':studioWorkspace?'项目结果交付':blogWorkspace?'作者发布通知':musicWorkspace?'活动音乐协作':projectDirectory?'项目启动安排':'项目通知回执'}</strong><div>{workspaceInstructions}</div>{projectDirectory&&<Button size="small" onClick={()=>router.push('/projects')}>项目通知与资料</Button>}{musicWorkspace&&<a href={musicWorkspace}>打开音乐资料库 →</a>}{blogWorkspace&&<a href={blogWorkspace}>打开墨记 →</a>}{studioWorkspace&&<a href={studioWorkspace}>打开 Studio →</a>}{travelWorkspace&&<a href={travelWorkspace}>打开行远旅行 →</a>}{shopWorkspace&&<a href={shopWorkspace}>打开采购工作台 →</a>}{bankWorkspace&&<a href={bankWorkspace}>打开青禾账户 →</a>}
+            <strong>{handoffWorkspace?'业务委托与成果交付':bankWorkspace?'账单通知与付款核对':shopWorkspace?'采购申请与交接':travelWorkspace?'出差安排与审批':studioWorkspace?'项目结果交付':blogWorkspace?'作者发布通知':musicWorkspace?'活动音乐协作':projectDirectory?'项目启动安排':'项目通知回执'}</strong><div>{workspaceInstructions}</div>{handoffWorkspace&&<a href={handoffWorkspace} target="_blank" rel="noreferrer">打开业务应用 →</a>}{projectDirectory&&<Button size="small" onClick={()=>router.push('/projects')}>项目通知与资料</Button>}{musicWorkspace&&<a href={musicWorkspace}>打开音乐资料库 →</a>}{blogWorkspace&&<a href={blogWorkspace}>打开墨记 →</a>}{studioWorkspace&&<a href={studioWorkspace}>打开 Studio →</a>}{travelWorkspace&&<a href={travelWorkspace}>打开行远旅行 →</a>}{shopWorkspace&&<a href={shopWorkspace}>打开采购工作台 →</a>}{bankWorkspace&&<a href={bankWorkspace}>打开青禾账户 →</a>}
           </section>}
           {activeConv ? (
             <>
@@ -1972,6 +1974,8 @@ export default function Home() {
                               }}
                             >
                               <div>{typeof msg.content==='string'&&msg.content.startsWith('/native-assets/im/projects?project=')?<a href={msg.content} style={{color:isMe?'white':'#087db9',textDecoration:'underline'}}>打开项目资料 · {new URLSearchParams(msg.content.split('?')[1]).get('project')}</a>:msg.content}</div>
+                              {(msg.handoff_request||msg.handoff_delivery)&&<CrossPlatformMessage key={msg.handoff_request?.id||msg.handoff_delivery?.id} request={msg.handoff_request} delivery={msg.handoff_delivery}/>}
+                              {msg.project_documents&&<a href={msg.project_documents.url} target="_blank" rel="noreferrer">打开 Studio 项目简报 →</a>}
                               {msg.payment_request && <article data-payment-request={msg.payment_request.id} style={{marginTop:10,padding:14,background:'#eef4fc',color:'#285ba5',borderRadius:8}}><strong>{msg.payment_request.title}</strong><pre style={{whiteSpace:'pre-wrap',overflowWrap:'anywhere',fontSize:13,lineHeight:1.7}}>{msg.payment_request.body}</pre><a href={msg.payment_request.url} style={{textDecoration:'underline'}}>打开对应账单 →</a></article>}
                               {msg.payment_share && <article data-payment-share={msg.payment_share.id} style={{marginTop:12,padding:18,background:'#eef4fc',color:'#285ba5',borderRadius:10,maxWidth:620}}><strong>十月付款对账清单</strong><pre style={{whiteSpace:'pre-wrap',overflowWrap:'anywhere',fontSize:12,lineHeight:1.7}}>{msg.payment_share.body}</pre><a href={msg.payment_share.url} style={{textDecoration:'underline'}}>查看付款对账清单 →</a></article>}
                               {msg.shopping_request && <article data-shopping-request={msg.shopping_request.id} style={{marginTop:10,padding:14,background:'#fff5ed',color:'#72452b',borderRadius:8}}><strong>{msg.shopping_request.title}</strong><pre style={{whiteSpace:'pre-wrap',overflowWrap:'anywhere',fontSize:13,lineHeight:1.7}}>{msg.shopping_request.body}</pre><a href={msg.shopping_request.url} style={{color:'#a04e35',textDecoration:'underline'}}>打开采购整理清单 →</a></article>}

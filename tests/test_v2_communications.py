@@ -15,14 +15,16 @@ def commands(initial, variant):
     if t==11:
         for request in w['requests']:
             candidates=[x for x in items if x['project']==request['project'] and x['file_type']==request['file_type'] and x['version']==request['version']]
-            key=(lambda x:len(base64.b64decode(initial['domain']['files'][x['id']]['content']))) if variant!='C' else (lambda x:len(x['name']))
+            key=(lambda x:len(base64.b64decode(initial['world']['materials'][x['id']]['content']))) if variant!='C' else (lambda x:len(x['name']))
             chosen=sorted(candidates,key=key,reverse=variant=='B')[0]
+            yield 'document.import',chosen['id'],{}
             yield 'file.send','',dict(file=chosen['id'],recipient=request['requester'],request=request['id'])
     elif t==13:
         for item in items:
             if item['project'] not in {p['id'] for p in w['projects']} or item['batch']!='晚班-0115' or '紧急' not in item['text']:continue
             yield 'action',item['id'],{'A':'转发','B':'收藏','C':'归档'}[variant]
             yield 'handover.line',item['id'],dict(status={'A':'已转发','B':'已收藏','C':'已归档'}[variant])
+        yield 'handover.save','',{}
         yield 'handover.send','',dict(recipient=2)
     else:
         for i,project in enumerate(w['projects']):
@@ -31,6 +33,7 @@ def commands(initial, variant):
             chosen=sorted(candidates,key=key,reverse=variant!='A')[:3]
             yield 'group.create','',dict(name=project['group_name'],members=[x['id'] for x in chosen])
             yield 'group.announcement',str(100+i),dict(text=project['announcement'])
+            yield 'project.brief',project['id'],dict(group=str(100+i))
             yield 'group.message',str(100+i),dict(text=project['material_link'])
 
 
@@ -88,7 +91,7 @@ def test_attachment_deliveries_check_request_recipient_version_and_bytes():
         else:msgs[0][field]=msgs[1][field]
         assert not v2.evaluate(initial,wrong,'A',events)['success'],field
     for item in initial['items']:
-        assert item['size']==len(base64.b64decode(initial['domain']['files'][item['id']]['content']))
+        assert item['size']==len(base64.b64decode(initial['world']['materials'][item['id']]['content']))
 
 
 @pytest.mark.parametrize('variant',list('ABC'))
@@ -124,3 +127,19 @@ def test_groups_require_all_materials_announcements_and_correct_member_accounts(
     assert v2.evaluate(initial,restored,'A',events)['success']
     changed=communications.apply(state,'group.members','100',json.dumps({'members':state['world']['groups']['101']['members']}))
     assert not v2.evaluate(initial,changed,'A',events)['success']
+
+
+def test_project_files_and_briefs_have_necessary_cross_application_dependencies():
+    initial=v2.generate(11,10001,'eval')
+    request=initial['world']['requests'][0]
+    original=next(x for x in initial['items'] if x['project']==request['project'])
+    with pytest.raises(ValueError):
+        communications.apply(initial,'file.send','',json.dumps(dict(file=original['id'],recipient=request['requester'],request=request['id'])))
+    imported=communications.apply(initial,'document.import',original['id'])
+    assert imported['domain']['files'][original['id']]==initial['world']['materials'][original['id']]
+    state,_=apply_all(v2.generate(15,10001,'eval'),'A')
+    project=state['world']['projects'][0]
+    changed=communications.apply(state,'group.announcement','100',json.dumps({'text':'Updated meeting time'}))
+    with pytest.raises(ValueError,match='Studio'):
+        communications.apply(changed,'group.message','100',json.dumps({'text':project['material_link']}))
+    assert state['world']['documents']['brief-'+project['id']]['roster']

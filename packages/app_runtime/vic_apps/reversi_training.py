@@ -5,6 +5,9 @@ from vic.games import reversi_moves, reversi_move, expected
 
 
 def apply(state, op, target='', value=''):
+    if op.startswith('assignment.'):
+        from .workset_delivery import apply as delivery_apply
+        return delivery_apply(state,op,target,value)
     if op!='choose' or state['stopped']:
         raise ValueError('请选择本回合的合法落点')
     try:
@@ -61,7 +64,9 @@ def fixture(seed,spec):
                     valid=False;break
                 probe=apply(probe,'choose',','.join(map(str,chosen)))
             if not valid:break
-        if valid:return state
+        if valid:
+            from .workset_delivery import attach
+            return attach(state)
     raise ValueError('无法生成三个规则都可完成六回合的棋局')
 
 
@@ -69,6 +74,9 @@ def evaluate(initial,final,variant,events):
     replay=deepcopy(initial);checks=[];violations=[]
     for index,event in enumerate(events):
         try:
+            if event.get('op','').startswith('assignment.'):
+                replay=apply(replay,event['op'],event.get('target',''),event.get('value',''))
+                continue
             wanted=expected(74,variant,replay)
             actual=tuple(map(int,event.get('target','').split(',')))
             checks.append(dict(id=f'turn:{index+1}:rule',passed=actual==wanted))
@@ -77,6 +85,9 @@ def evaluate(initial,final,variant,events):
             violations.append('illegal_action_sequence');break
     checks.extend([dict(id='six_player_turns',passed=len(final['turns'])==6 and final['stopped']),
                    dict(id='persisted_game_matches_moves',passed=replay==final)])
+    if initial.get('workset_delivery'):
+        from .workset_delivery import checks as delivery_checks
+        checks.extend(delivery_checks(initial,final,['practice-result']))
     return dict(success=all(c['passed'] for c in checks) and not violations,
                 completion=sum(c['passed'] for c in checks)/len(checks),
                 checks=checks,violations=violations+[c['id'] for c in checks if not c['passed']])

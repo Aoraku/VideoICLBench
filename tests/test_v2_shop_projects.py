@@ -1,4 +1,5 @@
 """Actual order and handover contracts, including preservation and stale delivery."""
+from cross_platform_helpers import with_handoffs, apply_command, redeliver
 from copy import deepcopy
 import base64,json
 import pytest
@@ -14,6 +15,7 @@ def choices(initial,variant):
     return {n['id']:codes[f'F{index+1}-{ord(variant)-ord("A")+1:02d}'] for index,n in enumerate(initial['world']['needs'])}
 
 
+@with_handoffs(shop.apply)
 def plan(initial,variant):
     w=initial['world']
     if initial['task_id']==52:
@@ -40,7 +42,7 @@ def plan(initial,variant):
 def complete(initial,variant):
     state=initial;events=[]
     for op,target,data in plan(initial,variant):
-        value=json.dumps(data);state=shop.apply(state,op,target,value);events.append(dict(op=op,target=target,value=value))
+        value=json.dumps(data);state=apply_command(shop.apply,state,op,target,value);events.append(dict(op=op,target=target,value=value))
     return state,events
 
 
@@ -95,6 +97,8 @@ def test_purchase_filters_and_reserves_actual_inventory_and_cancels():
     assert 'order-ORDER-001' not in changed['domain']['files']
     for id,q in order['lines'].items():assert changed['world']['cart'][id]==q and changed['world']['stock'][id]==initial['world']['stock'][id]
     changed=shop.apply(changed,'order.place','',json.dumps({k:order[k] for k in ('department','address','lines')}))
+    assert not v2.evaluate(initial,changed,'A',events)['success']
+    changed=redeliver(changed)
     assert v2.evaluate(initial,changed,'A',events)['success']
     body=base64.b64decode(changed['domain']['files']['order-ORDER-004']['content']).decode()
     assert 'SIM-ORDER-004' in body and order['address'] in body

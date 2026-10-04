@@ -1,3 +1,4 @@
+import {crossPlatformResponse} from './crossPlatform';
 /** Isolated business API adapter for the upstream Next.js interface. */
 const native =
   typeof window !== "undefined" &&
@@ -69,6 +70,7 @@ export async function nativeFetch(
       ),
       method = init?.method || "GET",
       body = typeof init?.body === "string" ? JSON.parse(init.body) : {};
+    if(s.cross_platform){const response=await crossPlatformResponse(s,path,method,body,run,token,imCommand);if(response!==undefined)return respond(response);}
     if(s.workflow==='payment_projects') {
       const peerId=Number(path.match(/^\/api\/conversations\/(\d+)/)?.[1]),person=s.world.people.find((p:any)=>p.id===peerId),stamp=1790899200;
       if(method==='GET' && path==='/api/workspace')return respond({instructions:s.world.brief,bank:`/native/product/bank/${run}#${token}`});
@@ -209,14 +211,14 @@ export async function nativeFetch(
       const group=groupId ? s.world.groups[groupId] : undefined;
       const stamp=Date.parse(s.source.reference_time)/1000;
       if(method==='GET' && path==='/api/workspace')return respond({instructions:s.world.brief,projects:true});
-      if(method==='GET' && path==='/api/projects')return respond({projects:s.world.projects,candidates:s.items.map((item:any,i:number)=>({...user(i),object_id:item.id,project:item.project,account:item.account,unread:item.unread,last_contact_at:item.last_contact_at}))});
+      if(method==='GET' && path==='/api/projects')return respond({projects:s.world.projects.map((p:any)=>({...p,studio_url:`/native/product/studio/${run}?project=${encodeURIComponent(p.id)}#${token}`,prepared_brief:s.world.documents['brief-'+p.id]||undefined})),candidates:s.items.map((item:any,i:number)=>({...user(i),object_id:item.id,project:item.project,account:item.account,unread:item.unread,last_contact_at:item.last_contact_at}))});
       if(method==='GET' && path==='/api/conversations')return respond({conversations:[
         {conversation_id:2,type:'private',name:'项目启动通知',peer_user:{user_id:2,username:'项目协调员'},other_user_id:2,unread_count:3,last_message:{content:'三个项目的工作群、公告和资料待准备',created_at:stamp}},
         ...Object.values(s.world.groups).map((g:any)=>({conversation_id:g.id,type:'group',name:g.name,unread_count:0,last_message:{content:g.messages.at(-1)?.body || '工作群已创建',created_at:stamp}}))
       ]});
       if(method==='GET' && path.endsWith('/messages')) {
         if(groupId==='2')return respond({messages:s.world.projects.map((p:any,i:number)=>({msg_id:5000+i,sender_id:2,sender_name:'项目协调员',created_at:stamp+i,
-          content:`项目 ${p.id}：${p.name}\n请从项目通知中的候选名单选择三人，建立“${p.group_name}”。\n群公告：${p.announcement}\n项目资料：${p.material_link}`})).reverse()});
+          content:`项目 ${p.id}：${p.name}\n请从项目通知中的候选名单选择三人，建立“${p.group_name}”。\n群公告：${p.announcement}\n在项目资料页打开 Studio，为实际工作群成员编制简报后分享。\n项目资料：${p.material_link}`,project_documents:{id:p.id,url:`/native/product/studio/${run}?project=${encodeURIComponent(p.id)}#${token}`}})).reverse()});
         return respond({messages:(group?.messages||[]).map((m:any)=>({msg_id:10000+m.id,sender_id:1,sender_name:(s.source.operator || '我'),created_at:stamp+m.id,content:m.body})).reverse()});
       }
       if(method==='GET' && path.endsWith('/group') && group)return respond({name:group.name,owner_id:1,created_at:stamp,description:'项目工作群',

@@ -1,4 +1,5 @@
 """Native course workflows require real source, tests, submissions and archives."""
+from cross_platform_helpers import with_handoffs, apply_command, redeliver
 from copy import deepcopy
 from io import BytesIO
 import base64,json,zipfile
@@ -10,6 +11,7 @@ from test_api import admin
 from test_direct_applications import credential
 
 
+@with_handoffs(course.apply,3)
 def commands(initial,variant):
     state=initial
     for e in initial['world']['entries']:
@@ -28,7 +30,7 @@ def commands(initial,variant):
 def complete(initial,variant):
     state=initial;events=[]
     for op,target,data in commands(initial,variant):
-        value=json.dumps(data);state=course.apply(state,op,target,value);events.append(dict(op=op,target=target,value=value))
+        value=json.dumps(data);state=apply_command(course.apply,state,op,target,value);events.append(dict(op=op,target=target,value=value))
     return state,events
 
 
@@ -134,4 +136,5 @@ def test_stale_checks_submissions_and_archives_need_refresh():
     changed=course.apply(changed,'code.submit','EX-01',json.dumps(dict(problem='2101')))
     changed=course.apply(changed,'delivery.delete');assert 'course-delivery' not in changed['domain']['files']
     changed=course.apply(changed,'delivery.save','',json.dumps(dict(rows=course.delivery_rows(changed))))
-    changed=course.apply(changed,'delivery.publish');assert v2.evaluate(initial,changed,'A',events)['success']
+    changed=course.apply(changed,'delivery.publish');assert not v2.evaluate(initial,changed,'A',events)['success']
+    changed=redeliver(changed);assert v2.evaluate(initial,changed,'A',events)['success']

@@ -214,7 +214,11 @@ def create_app():
         if m.get("interaction", "agent") == "agent" and len(store.events(run_id)) >= 300:
             raise HTTPException(409, "Command budget exhausted")
         try:
+            if body.op == 'batch.open' and m['app'] == 'gomoku':
+                gomoku.drain(run_id)
             s = store.mutate(run_id, body)
+            if body.op == 'batch.open' and m['app'] == 'gomoku':
+                gomoku.export(run_id)
         except ValueError as e:
             raise HTTPException(422, str(e))
         return dict(epoch=m["epoch"], status=m["status"], state=s)
@@ -222,6 +226,10 @@ def create_app():
     @app.get("/lesson-controls.js")
     def lesson_controls():
         return FileResponse(Path(__file__).with_name('lesson_controls.js'), media_type='application/javascript')
+
+    @app.get("/workset-workspace.js")
+    def workset_workspace():
+        return FileResponse(Path(__file__).with_name('workset_workspace.js'), media_type='application/javascript')
 
     @app.post("/api/runs/{run_id}/lesson/next")
     async def next_lesson(run_id, body: LessonAdvance, authorization: str = Header(default="")):

@@ -24,11 +24,8 @@ from test_applications import reference
 def commands(state, variant):
     task = state['task_id']
     if task in v2.ATOMIC_TASKS:
-        yield from reference(state, variant)
-        if task in (10, 27, 59):
-            op = {10: 'shortcut.add', 27: 'favorite.add', 59: 'answer.submit'}[task]
-            target = 'target' if task == 59 else business.expected_effect(task, variant, state)['selection'][0]
-            yield op, target, '', []
+        from test_v2_atomic_batch import batch_reference
+        yield from batch_reference(state, variant)
         return
     if task in v2.WORKSET_TASKS:
         from vic.v2_worksets import reference_commands
@@ -38,12 +35,16 @@ def commands(state, variant):
         for direction in stopping_training.reference_paths(state['seed'])[variant]:
             yield 'move', '', direction, []
         yield 'stop', '', '', []
+        from vic.v2_worksets import document_commands
+        yield from document_commands(state,['practice-result'])
         return
     if task == 74:
         for _ in range(6):
             target = ','.join(map(str, games.expected(74, variant, state)))
             yield 'choose', target, '', []
             state = reversi_training.apply(state, 'choose', target)
+        from vic.v2_worksets import document_commands
+        yield from document_commands(state,['practice-result'])
         return
     if task == 45:
         from test_v2 import purchase_lines

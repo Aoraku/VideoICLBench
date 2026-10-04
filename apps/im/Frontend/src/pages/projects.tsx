@@ -24,7 +24,7 @@ export default function Projects(){
         {title:'初始最近联系时间（UTC）',dataIndex:'last_contact_at',render:(v:string)=>v.replace('T',' ').slice(0,16)},
         {title:'初始未读数',dataIndex:'unread'},
       ]}/>
-      <div style={{marginTop:22,padding:20,background:'#f6faff',borderRadius:8}}><Typography.Title level={5}>项目资料 · {p.material}</Typography.Title><pre style={{whiteSpace:'pre-wrap',fontFamily:'inherit',lineHeight:1.9}}>{p.material_text}</pre><Typography.Paragraph copyable={{text:p.material_link}}><strong>分享链接：</strong><a href={p.material_link}>{p.material_link}</a></Typography.Paragraph></div>
+      <div style={{marginTop:22,padding:20,background:'#f6faff',borderRadius:8}}><Typography.Title level={5}>项目资料 · {p.material}</Typography.Title><a href={p.studio_url} target="_blank" rel="noreferrer">到 Studio 根据实际群成员编制简报 →</a><pre style={{whiteSpace:'pre-wrap',fontFamily:'inherit',lineHeight:1.9}}>{p.prepared_brief?.body||p.prepared_brief?.text||'尚未编制项目简报，请先建群再到 Studio 完成资料。'}</pre><Typography.Paragraph copyable={{text:p.material_link}}><strong>分享链接：</strong><a href={p.material_link}>{p.material_link}</a></Typography.Paragraph></div>
     </Card>)}
   </main>;
 }

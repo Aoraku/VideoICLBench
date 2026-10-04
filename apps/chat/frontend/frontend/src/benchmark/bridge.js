@@ -55,6 +55,7 @@ export async function command(op, target = "", value = "", ids = []) {
 export function currentBusiness() {
   return latest?.state;
 }
+export function workspaceLink(module) { return `/native/product/${module}/${nativeRun}#${token}`; }
 export function currentScope() { return sessionStorage.getItem(tokenKey+':scope') || ''; }
 export function setCurrentScope(scope) {
   sessionStorage.setItem(tokenKey+':scope',scope);
@@ -164,7 +165,7 @@ function messages(state, conv) {
     };
     const rows=state.task_id===11 ? [
       ...state.world.requests.filter(r=>r.conversation===conv).map(r=>message(state,r.message_id,r.body,r.requester,conv)),
-      ...state.items.filter(x=>x.conversation===conv).map(item=>fileMessage(item.message_id,item.id,conv,`${item.project} · ${item.file_type} · ${item.version}`))
+      ...state.items.filter(x=>x.conversation===conv && state.domain.files[x.id]).map(item=>fileMessage(item.message_id,item.id,conv,`${item.project} · ${item.file_type} · ${item.version}`))
     ] : state.items.filter(x=>x.conversation===conv).map(item=>message(state,item.message_id,item.text,conv,conv,state.domain.objects[item.id]));
     return [...rows,...state.domain.messages.flatMap((m,i)=>Number(m.recipient)!==conv?[]:[m.attachment?fileMessage(10000+i,m.attachment,1,m.body,m.reference):message(state,10000+i,m.body,1,conv)])];
   }

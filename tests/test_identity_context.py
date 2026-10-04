@@ -70,3 +70,18 @@ def test_business_setting_aliases_keep_meaningful_consistent_project_references(
         rows=[r for r in state['items'] if r['project']==project['id'] and '紧急' in r['text'] and r.get('batch')=='晚班-0115']
         assert len(set(r['text'] for r in rows))==len(rows)
         assert all('请核对' not in r['text'] for r in rows)
+
+
+@pytest.mark.parametrize('task_id',[35,40,41,43,51,52,58,60,64,65])
+def test_cross_platform_request_people_and_attachments_keep_diverse_identities(task_id):
+    state=v2.generate(task_id,10007,'eval');h=state['cross_platform']
+    assert len({p['name'] for p in h['people']})==len(h['people'])
+    assert not any(name in json.dumps(h,ensure_ascii=False) for name in SOURCE_NAMES)
+    other=v2.generate(task_id,10008,'eval')['cross_platform']
+    assert [p['name'] for p in h['people']]!=[p['name'] for p in other['people']]
+    for request in h['requests']:
+        file=request['attachment'];raw=base64.b64decode(file['content'])
+        assert len(raw)==file['size'] and hashlib.sha256(raw).hexdigest()==file['sha256']
+        assert not any(name in raw.decode() for name in SOURCE_NAMES)
+        assert request['requester'] in {p['id'] for p in h['people']}
+        assert request['recipient'] in {p['id'] for p in h['people']}

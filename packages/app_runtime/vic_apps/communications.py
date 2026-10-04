@@ -92,6 +92,17 @@ def fixture(task_id, seed, spec):
             project.update(group_name=project['name']+'工作群',announcement=f'{project["name"]}启动会：2026-01-20 14:00，会议室 {project["id"][-1]}。请于会前阅读项目资料。',
                 material_link='/native-assets/im/projects?project='+project['id'],
                 material=f'{project["id"]}-brief.txt',material_text=f'{project["name"]}项目资料\n目标：完成{project["name"]}的准备与交付。\n资料编号：{project["id"]}-brief\n联系人：{people[projects.index(project)]}')
+    state['linked_apps'] = ['studio']
+    if task_id == 11:
+        state['world']['materials'] = deepcopy(state['domain']['files'])
+        state['domain']['files'] = {}
+        for request in state['world']['requests']:
+            request['body'] = request['body'].replace('会话查找', '对应的 Studio 项目资料库查找') + ' 请将所选原文件导入 Chat 后回复附件，不能只发文件名。'
+        state['world']['brief'] += ' 原文件保存在 Studio 项目资料库；先按项目号查找并导入所选文件，再回 Chat 交付。'
+    elif task_id == 13:
+        state['world']['brief'] += ' 消息在 Chat 处理，交接清单在 Studio 项目文档编制并保存，再回 Chat 发送已保存的真实交接文件。'
+    else:
+        state['world']['brief'] += ' 建群后到 Studio 为每个项目编制含实际群成员账号的项目简报，再把该简报入口发入对应群。群成员变化后须重新保存简报。'
     return state
 
 
@@ -100,7 +111,15 @@ def message_link(item):
 
 
 def handover_text(doc):
-    return '# '+doc['title']+'\n\n'+'\n'.join(f'- [{row["task_number"]}]({row["link"]}) · {row["project"]} · {row["status"]}' for row in doc['rows'].values())
+    return '# '+doc['title']+'\n\n'+'\n'.join(f'- {row["task_number"]} · {row["project"]} · {row["status"]} · 原消息索引：{row["link"]}' for row in doc['rows'].values())
+
+
+def project_brief(state, project, group):
+    """Snapshot of the actual project roster, not a rule-derived answer."""
+    people = {item['id']: item for item in state['items']}
+    roster = [dict(id=key, name=people[key]['name'], account=people[key]['account']) for key in group['members']]
+    body = project['material_text'] + '\n\n' + group['announcement'] + '\n\n项目组：' + group['name'] + '\n' + '\n'.join(f"- {p['name']} · {p['account']}" for p in roster)
+    return dict(project=project['id'], group=str(group['id']), name=group['name'], announcement=group['announcement'], roster=roster, body=body)
 
 
 def apply(state, op, target='', value='', ids=None):
@@ -120,7 +139,11 @@ def apply(state, op, target='', value='', ids=None):
     try:data=json.loads(value) if value else {}
     except (ValueError,TypeError) as exc:raise ValueError('请提供有效操作内容') from exc
     if not isinstance(data,dict):raise ValueError('操作字段无效')
-    if op=='file.send' and t==11:
+    if op=='document.import' and t==11:
+        if data or target not in w['materials']:
+            raise ValueError('请选择项目资料库中的原文件')
+        d['files'][target]=deepcopy(w['materials'][target])
+    elif op=='file.send' and t==11:
         if set(data)!={'file','recipient','request'}:raise ValueError('请选择附件、收件人和原请求')
         if data['file'] not in d['files'] or data['recipient'] not in {c['user_id'] for c in w['conversations']} or data['request'] not in {r['id'] for r in w['requests']}:
             raise ValueError('附件、收件人或请求不存在')
@@ -136,12 +159,21 @@ def apply(state, op, target='', value='', ids=None):
         if w['handover']['sent']:raise ValueError('交接单已经发送')
         if target not in w['handover']['rows']:raise ValueError('交接项不存在')
         del w['handover']['rows'][target]
+    elif op=='handover.save' and t==13:
+        if data or not w['handover']['rows'] or w['handover']['sent']:
+            raise ValueError('请先编制未发送的交接清单')
+        doc=w['handover'];body=handover_text(doc);key='handover-001'
+        w['documents'][key]=dict(id=key,title=doc['title'],rows=deepcopy(doc['rows']),body=body)
+        d['files'][key]=file_record(doc['title']+'.md',body)
     elif op=='handover.send' and t==13:
         if set(data)!={'recipient'} or data['recipient'] not in {c['user_id'] for c in w['conversations']}:
             raise ValueError('请选择有效收件人')
         doc=w['handover']
         if not doc['rows'] or doc['sent']:raise ValueError('请添加交接项；已发送的交接单不可重复发送')
         body=handover_text(doc)
+        saved=w['documents'].get('handover-001')
+        if not saved or saved.get('body')!=body or saved.get('rows')!=doc['rows']:
+            raise ValueError('请到 Studio 保存最新交接文档后再发送')
         key='handover-001';record=dict(id=key,title=doc['title'],rows=deepcopy(doc['rows']),body=body,recipient=data['recipient'])
         w['documents'][key]=record;d['files'][key]=file_record(doc['title']+'.md',body)
         d['messages'].append(dict(id=f'sent-{len(d["messages"])+1}',sender='self',recipient=str(data['recipient']),
@@ -155,6 +187,13 @@ def apply(state, op, target='', value='', ids=None):
             raise ValueError('请选择有效且不重复的群成员')
         key=100+state.get('next_group',0);state['next_group']=state.get('next_group',0)+1
         w['groups'][str(key)]=dict(id=key,name=data['name'].strip(),members=list(members),announcement='',messages=[])
+    elif op=='project.brief' and t==15:
+        project=next((p for p in w['projects'] if p['id']==target),None)
+        group=w['groups'].get(str(data.get('group','')))
+        if set(data)!={'group'} or not project or not group or not group['announcement']:
+            raise ValueError('请选择项目与已填写公告的工作群')
+        doc=project_brief(state,project,group);key='brief-'+project['id']
+        w['documents'][key]=doc;d['files'][key]=file_record(project['name']+'项目简报.md',doc['body'])
     elif op in ('group.name','group.announcement','group.message','group.members','group.delete') and t==15:
         group=w['groups'].get(target)
         if not group:raise ValueError('群聊不存在')
@@ -167,6 +206,10 @@ def apply(state, op, target='', value='', ids=None):
             if set(data)!={'text'} or not isinstance(data['text'],str) or not data['text'].strip() or len(data['text'])>4000:raise ValueError('请填写有效内容')
             if op=='group.name':group['name']=data['text']
             elif op=='group.announcement':group['announcement']=data['text']
-            else:group['messages'].append(dict(id=len(group['messages'])+1,body=data['text']))
+            else:
+                project=next((p for p in w['projects'] if p['material_link']==data['text']),None)
+                if project and w['documents'].get('brief-'+project['id'])!=project_brief(state,project,group):
+                    raise ValueError('请先在 Studio 保存与当前群成员、公告一致的项目简报')
+                group['messages'].append(dict(id=len(group['messages'])+1,body=data['text']))
     else:raise ValueError('此操作不适用于当前工作区')
     return state

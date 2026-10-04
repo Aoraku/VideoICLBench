@@ -2,7 +2,7 @@
 from copy import deepcopy
 import json
 from . import business
-from vic_apps.communications import file_record, handover_text, message_link
+from vic_apps.communications import file_record, handover_text, message_link, project_brief
 
 
 def selected_file(initial, request, variant):
@@ -25,8 +25,13 @@ def evaluate(initial, final, variant, events):
     def sent(recipient,body,reference,attachment=None):
         messages.append(dict(sender='self',recipient=str(recipient),body=body,reference=reference,attachment=attachment))
     if t==11:
+        for key, record in d['files'].items():
+            check('material:'+key,record==start['materials'].get(key))
+        expected['files']=deepcopy(d['files'])
         for request in start['requests']:
-            sent(request['requester'],'资料回复 · '+request['id'],request['id'],selected_file(initial,request,variant))
+            chosen=selected_file(initial,request,variant)
+            check(request['id']+':imported_original',d['files'].get(chosen)==start['materials'][chosen])
+            sent(request['requester'],'资料回复 · '+request['id'],request['id'],chosen)
         for key in ('handover','documents','groups'):check('unchanged:'+key,w.get(key)==start[key])
     elif t==13:
         projects={p['id'] for p in start['projects']};rows={}
@@ -61,7 +66,11 @@ def evaluate(initial, final, variant, events):
             check(project['id']+':members',len(group['members'])==3 and set(group['members'])==set(selected_members(initial,project,variant)))
             check(project['id']+':announcement',group['announcement']==project['announcement'])
             check(project['id']+':material',[m['body'] for m in group['messages']]==[project['material_link']])
-        for key in ('handover','documents'):check('unchanged:'+key,w.get(key)==start[key])
+            key='brief-'+project['id'];brief=project_brief(final,project,group)
+            check(project['id']+':brief',w['documents'].get(key)==brief)
+            expected['files'][key]=file_record(project['name']+'项目简报.md',brief['body'])
+        check('briefs:count',set(w['documents'])=={'brief-'+p['id'] for p in start['projects']})
+        check('unchanged:handover',w.get('handover')==start['handover'])
     # IDs and send order do not define success; duplicate or misrouted sends do.
     normalize=lambda rows:sorted(json.dumps({k:v for k,v in m.items() if k!='id'},sort_keys=True,ensure_ascii=False) for m in rows)
     check('delivery:messages',normalize(d['messages'])==normalize(messages))

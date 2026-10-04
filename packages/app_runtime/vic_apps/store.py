@@ -99,7 +99,7 @@ class ApplicationStore(WorkspaceStore):
         if not row:
             raise ValueError("Application not initialized")
         state = json.loads(row[0])
-        if state["task_id"] >= 66 or state.get('workflow') == 'procurement':
+        if (state["task_id"] >= 66 and not state.get('workset_delivery')) or state.get('workflow') == 'procurement':
             return state
         d = {
             name: json.loads(value)
@@ -157,7 +157,10 @@ class ApplicationStore(WorkspaceStore):
             state = self._read(db)
             from . import atomic_delivery
             is_delivery = mutation.op in atomic_delivery.COMMANDS
-            if state.get('v2_2048'):
+            if mutation.op.startswith('handoff.') and state.get('cross_platform'):
+                from .cross_platform import apply
+                state = apply(state, mutation.op, mutation.target, mutation.value, mutation.ids)
+            elif state.get('v2_2048'):
                 from .stopping_training import apply
                 state = apply(state, mutation.op, mutation.target, mutation.value)
             elif state.get('v2_worksets'):

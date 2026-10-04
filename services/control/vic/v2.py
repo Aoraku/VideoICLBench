@@ -31,7 +31,11 @@ def digest(task_id):
 
 def generate(task_id, seed, mode):
     from .identity_context import contextualize
-    return contextualize(_generate(task_id, seed, mode), mode)
+    state = contextualize(_generate(task_id, seed, mode), mode)
+    if mode != 'demo':
+        from vic_apps.cross_platform import attach
+        state = attach(state, seed)
+    return state
 
 
 def _generate(task_id, seed, mode):
@@ -90,6 +94,18 @@ def _generate(task_id, seed, mode):
 
 
 def evaluate(initial, state, variant, events):
+    if initial.get('cross_platform'):
+        from vic_apps.cross_platform import without_extension, evaluate as evaluate_delivery
+        base = _evaluate(without_extension(initial), without_extension(state), variant, events)
+        delivery = evaluate_delivery(initial, state)
+        checks = base['checks'] + delivery['checks']
+        return dict(success=base['success'] and delivery['success'],
+                    completion=sum(c['passed'] for c in checks)/len(checks),checks=checks,
+                    violations=base['violations']+delivery['violations'])
+    return _evaluate(initial,state,variant,events)
+
+
+def _evaluate(initial, state, variant, events):
     if initial.get('workflow')=='code_projects':
         from .v2_code_projects import evaluate as evaluate_code_projects
         return evaluate_code_projects(initial,state,variant,events)

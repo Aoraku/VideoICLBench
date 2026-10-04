@@ -1,6 +1,7 @@
 from copy import deepcopy
 import pytest
 from vic import v2,games
+from vic.v2_worksets import document_commands
 from vic_apps import stopping_training as training
 from test_application_api import clients
 from test_api import admin
@@ -21,6 +22,9 @@ def test_stopping_native_api_persists_first_condition_and_resets(clients,variant
         assert response.status_code==200,response.text
     state=worker.get(url,headers=headers).json()['state']
     assert state['stopped'] and len(state['moves'])==len(path)
+    for i,(op,target,value,ids) in enumerate(document_commands(initial,['practice-result'])):
+        response=worker.post(url+'/commands',headers=headers,json=dict(epoch=0,action_id='doc-'+str(i),op=op,target=target,value=value,ids=ids))
+        assert response.status_code==200,response.text
     response=control.post('/v2/tasks/69/eval',headers=admin(),json={'run_id':run['id']})
     assert response.status_code==200 and response.json()['success'],response.text
     reset=control.post('/v1/runs/'+run['id']+'/reset',headers=admin())
@@ -43,16 +47,19 @@ def test_reachable_opening_and_distinct_first_stop_conditions(seed):
         assert training.conditions(state)[variant]
         before_stop=state
         state=training.apply(state,'stop');events.append(dict(op='stop'))
+        gameplay_events=list(events)
+        for op,target,value,ids in document_commands(initial,['practice-result']):
+            state=training.apply(state,op,target,value);events.append(dict(op=op,target=target,value=value))
         assert v2.evaluate(initial,state,variant,events)['success']
         for wrong in set('ABC')-{variant}:
             assert not v2.evaluate(initial,state,wrong,events)['success']
         changed=deepcopy(state);changed['score']+=1
         assert not v2.evaluate(initial,changed,variant,events)['success']
-        assert not v2.evaluate(initial,before_stop,variant,events[:-1])['success']
+        assert not v2.evaluate(initial,before_stop,variant,gameplay_events[:-1])['success']
         moves=[d for d in games.DIRECTIONS if games.move_2048(before_stop['board'],d)[1]['changed']]
         if moves and len(path)<initial['move_budget']:
             late=training.apply(before_stop,'move',value=moves[0]);late=training.apply(late,'stop')
-            assert not v2.evaluate(initial,late,variant,events[:-1]+[dict(op='move',value=moves[0]),dict(op='stop')])['success']
+            assert not v2.evaluate(initial,late,variant,gameplay_events[:-1]+[dict(op='move',value=moves[0]),dict(op='stop')])['success']
     early=training.apply(initial,'stop')
     assert not v2.evaluate(initial,early,'A',[dict(op='stop')])['success']
     with pytest.raises(ValueError):training.apply(early,'move',value='up')

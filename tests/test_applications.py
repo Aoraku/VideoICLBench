@@ -7,10 +7,7 @@ from vic.games import expected, stopping_paths
 
 
 def reference(state, variant):
-    actions = _reference(state, variant)
-    if state.get('rule_target'):
-        actions.append(('review.confirm',state['rule_target'],'',[]))
-    return actions
+    return _reference(state, variant)
 
 
 def _reference(state, variant):

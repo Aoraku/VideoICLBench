@@ -20,6 +20,9 @@ def opening(seed):
 
 
 def apply(state,op,target='',value=''):
+    if op.startswith('assignment.'):
+        from .workset_delivery import apply as delivery_apply
+        return delivery_apply(state,op,target,value)
     if op not in ('move','stop'):raise ValueError('请选择移动方向或停止操作')
     if op=='move' and len(state['moves'])>=state['move_budget']:
         raise ValueError('已达到本次练习的移动上限，请停止并保存结果，或重置练习')
@@ -48,15 +51,16 @@ def reference_paths(seed):
 
 def fixture(seed,spec):
     reference_paths(seed)
-    return dict(opening(seed),title=spec['title'],
-        execution=dict(assignment=spec['assignment'],instructions=spec['inference']['instructions'],delivery=spec['delivery']))
+    from .workset_delivery import attach
+    return attach(dict(opening(seed),title=spec['title'],
+        execution=dict(assignment=spec['assignment'],instructions=spec['inference']['instructions'],delivery=spec['delivery'])))
 
 
 def evaluate(initial,final,variant,events):
     replay=deepcopy(initial);first_met=None;violations=[]
     for index,event in enumerate(events):
         op=event.get('op')
-        if first_met is not None and op!='stop':violations.append('continued_after_stop_condition')
+        if first_met is not None and op not in ('stop',) and not op.startswith('assignment.'):violations.append('continued_after_stop_condition')
         try:replay=apply(replay,op,event.get('target',''),event.get('value',''))
         except (ValueError,TypeError,KeyError):
             violations.append('illegal_action_sequence');break
@@ -64,6 +68,9 @@ def evaluate(initial,final,variant,events):
     checks=[dict(id='stopped_at_first_matching_state',passed=first_met is not None and replay['stopped'] and not violations),
             dict(id='legal_moves_within_public_budget',passed=0<len(replay['moves'])<=initial['move_budget']),
             dict(id='persisted_board_score_and_moves',passed=replay==final)]
+    if initial.get('workset_delivery'):
+        from .workset_delivery import checks as delivery_checks
+        checks.extend(delivery_checks(initial,final,['practice-result']))
     return dict(success=all(c['passed'] for c in checks) and not violations,
         completion=sum(c['passed'] for c in checks)/len(checks),checks=checks,
         violations=violations+[c['id'] for c in checks if not c['passed']])

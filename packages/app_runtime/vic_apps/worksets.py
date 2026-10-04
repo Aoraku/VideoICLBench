@@ -45,6 +45,9 @@ def members(state, scope):
 
 
 def apply(state, op, target='', value='', ids=None):
+    if op.startswith('assignment.'):
+        from .workset_delivery import apply as delivery_apply
+        return delivery_apply(state,op,target,value,ids)
     out = deepcopy(state); t = out['task_id']; d = out['domain']; ids = ids or []
     if op == 'contact.nickname' and t == 2:
         if target not in {x['id'] for x in out['items']} or not isinstance(value,str) or len(value)>64:

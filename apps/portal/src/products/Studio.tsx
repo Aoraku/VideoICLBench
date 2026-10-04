@@ -12,6 +12,8 @@ export function Studio({ api }: { api: ProductAPI }) {
     paragraphs = useRef<Record<string, HTMLElement | null>>({});
   const rows = s.items.map((x: any) => d.objects[x.id]),
     active = d.objects[focused];
+  const templateName = s.v2_atomic && d.objects.target?.name ? d.objects.target.name : "研究报告摘要";
+  const recentItems = s.task_id === 37 ? [{ id: "target", name: templateName }] : rows.slice(0, 3);
   function statusOf(id: string) {
     return {
       checked: d.checks.filter((x: any) => x.target === id).at(-1),
@@ -82,16 +84,17 @@ export function Studio({ api }: { api: ProductAPI }) {
               <h2>最近项目</h2>
             </div>
             <div className="studio-projects">
-              {["研究报告摘要", "会议记录整理", "代码审阅"].map((name, i) => (
+              {recentItems.map((item: any) => (
                 <button
-                  key={name}
+                  key={item.id}
                   onClick={() => {
-                    setFocused(rows[i].id);
+                    if (s.task_id === 37) { navigate("prompts"); return; }
+                    setFocused(item.id);
                     navigate("documents");
                   }}
                 >
                   <span>▤</span>
-                  <h3>{name}</h3>
+                  <h3>{item.name}</h3>
                   <p>个人工作区 · 今天</p>
                 </button>
               ))}
@@ -106,14 +109,14 @@ export function Studio({ api }: { api: ProductAPI }) {
             />
             <div className="studio-project-layout">
               <aside>
-                <button className="active">研究报告摘要</button>
+                <button className="active">{templateName}</button>
                 <p>个人模板</p>
                 <small>最近编辑 · 今天</small>
               </aside>
               <section>
                 <label>
                   模板名称
-                  <input value="研究报告摘要" readOnly />
+                  <input value={templateName} readOnly />
                 </label>
                 <label>
                   提示词

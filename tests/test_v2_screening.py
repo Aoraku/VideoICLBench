@@ -1,5 +1,6 @@
 """Screening verifies the real queue, replacement editions and timed CSV artifact."""
 import base64,csv,io,json
+from cross_platform_helpers import with_handoffs, apply_command, redeliver
 from copy import deepcopy
 from datetime import datetime,timedelta
 import pytest
@@ -29,6 +30,7 @@ def expected_order(initial,variant):
     return result
 
 
+@with_handoffs(screening.apply,4)
 def operations(initial,variant):
     event=initial['world']['event']
     for f in initial['world']['folders']:yield 'queue.import',f['id'],{},[]
@@ -44,7 +46,7 @@ def operations(initial,variant):
 def complete(initial,variant):
     state=initial;events=[]
     for op,target,data,ids in operations(initial,variant):
-        value=json.dumps(data);state=screening.apply(state,op,target,value,ids);events.append(dict(op=op,target=target,value=value,ids=ids))
+        value=json.dumps(data);state=apply_command(screening.apply,state,op,target,value,ids);events.append(dict(op=op,target=target,value=value,ids=ids))
     return state,events
 
 

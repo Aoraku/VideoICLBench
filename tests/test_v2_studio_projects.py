@@ -1,6 +1,7 @@
 """Project tests verify provenance, parsed code and actual delivery bytes."""
 import ast
 import base64
+from cross_platform_helpers import with_handoffs, apply_command, redeliver
 from copy import deepcopy
 import hashlib
 import json
@@ -25,6 +26,7 @@ def valid(code):
     except SyntaxError:return False
 
 
+@with_handoffs(studio.apply,3)
 def plan(initial,variant):
     if initial['task_id']==41:
         for i,p in enumerate(initial['world']['projects'],1):
@@ -54,7 +56,7 @@ def plan(initial,variant):
 def complete(initial,variant):
     state=initial;events=[]
     for op,target,data in plan(initial,variant):
-        value=json.dumps(data);state=studio.apply(state,op,target,value);events.append(dict(op=op,target=target,value=value))
+        value=json.dumps(data);state=apply_command(studio.apply,state,op,target,value);events.append(dict(op=op,target=target,value=value))
     return state,events
 
 
@@ -123,6 +125,8 @@ def test_project_generation_requires_correct_provenance_and_real_archive():
     assert old['world']['generations']['generation-001']['body']!=final['world']['generations']['generation-001']['body']
     removed=studio.apply(final,'archive.remove','archive-001');assert 'file-archive-001' not in removed['domain']['files']
     restored=studio.apply(removed,'generation.archive','generation-001','{"project":"project-1"}')
+    assert not v2.evaluate(initial,restored,'A',events)['success']
+    restored=redeliver(restored)
     assert v2.evaluate(initial,restored,'A',events)['success']
 
 
