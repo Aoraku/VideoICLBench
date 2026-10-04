@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { createPortal } from 'react-dom'
 import RichMarkdown, { CodeBlock } from './RichMarkdown.jsx'
 
 function fileName(file) {
@@ -104,6 +105,13 @@ export default function FilePreviewModal({ file, onClose }) {
   const language = useMemo(() => codeLanguage(file), [file])
 
   useEffect(() => {
+    if (!file) return undefined
+    const escape = e => {if (e.key === 'Escape') {e.preventDefault(); onClose()}}
+    document.addEventListener('keydown', escape)
+    return () => document.removeEventListener('keydown', escape)
+  }, [file, onClose])
+
+  useEffect(() => {
     let cancelled = false
     if (!file || !url || !textMode) return undefined
     Promise.resolve()
@@ -134,7 +142,7 @@ export default function FilePreviewModal({ file, onClose }) {
 
   if (!file) return null
 
-  return (
+  return createPortal(
     <div className="modalBackdrop" role="presentation" onMouseDown={onClose}>
       <div className="filePreviewModal" role="dialog" aria-modal="true" aria-label="文件预览" onMouseDown={(e) => e.stopPropagation()}>
         <div className="filePreviewModal__head">
@@ -181,6 +189,6 @@ export default function FilePreviewModal({ file, onClose }) {
           )}
         </div>
       </div>
-    </div>
+    </div>, document.body
   )
 }

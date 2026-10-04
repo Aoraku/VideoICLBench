@@ -50,3 +50,37 @@ async def test_common_keyboard_aliases(source, expected):
                              model_dump=lambda: {'action_id': 'one', 'kind': 'key', 'key': source})
     await runtime.act('run', 'http://local', action)
     page.keyboard.press.assert_awaited_once_with(expected)
+
+
+@pytest.mark.asyncio
+async def test_explicit_run_budget_allows_progress_after_five_minutes():
+    import asyncio, time
+    page = SimpleNamespace(keyboard=SimpleNamespace(press=AsyncMock()), wait_for_timeout=AsyncMock())
+    session = {'action_lock': asyncio.Lock(), 'actions': {}, 'frame': 1,
+               'created': time.monotonic() - 500, 'page': page}
+    runtime = BrowserRuntime()
+    runtime.ensure = AsyncMock(return_value=session)
+    runtime.limits['run'] = {'timeout_seconds': 1800, 'max_actions': 120}
+    action = SimpleNamespace(action_id='one', frame=1, kind='key', key='Enter', model_dump=lambda: {'id': 'one'})
+    assert (await runtime.act('run', 'http://local', action))['accepted']
+    runtime.limits['run']['timeout_seconds'] = 400
+    action.action_id = 'two'
+    with pytest.raises(ValueError, match='Time budget'):
+        await runtime.act('run', 'http://local', action)
+
+
+@pytest.mark.asyncio
+async def test_scroll_targets_requested_panel():
+    import asyncio, time
+    events = []
+    async def move(x, y): events.append(('move', x, y))
+    async def wheel(x, y): events.append(('wheel', x, y))
+    page = SimpleNamespace(mouse=SimpleNamespace(move=move, wheel=wheel), wait_for_timeout=AsyncMock())
+    session = {'action_lock': asyncio.Lock(), 'actions': {}, 'frame': 1,
+               'created': time.monotonic(), 'page': page}
+    runtime = BrowserRuntime()
+    runtime.ensure = AsyncMock(return_value=session)
+    action = SimpleNamespace(action_id='one', frame=1, kind='scroll', x=800, y=500,
+                             delta_y=600, model_dump=lambda: {'id': 'one'})
+    await runtime.act('run', 'http://local', action)
+    assert events == [('move', 800, 500), ('wheel', 0, 600)]

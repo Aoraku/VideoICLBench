@@ -156,11 +156,31 @@ Codex Remote 网关可在 `codex` 配置组设置 `"native_auth": true`，使用
 
 `--compaction-smoke` 仅用于压缩验证：启用一次性的无业务含义文本工具，并降低原生阈值。Codex 默认测试阈值为 6000 tokens，CC 为 5%；可用 `--compact-threshold` 指定。正式运行不设置这些覆盖值，使用 CLI 的原生默认策略。压缩证据来自 Codex 的原生 rollout 事件和 CC 的 `compact_boundary`，不能以模型自称压缩或退出码为证明。
 
-`--max-budget-usd` 是 CC 的原生估算费用上限，并非第三方网关的账单保证。Codex 网关若不报告用量，结果保留其原始零值，不将零值解释为免费。当前平台运行器另有 120 次输入与 300 秒限制；启动器默认使用更小的 100 次、240 秒预算，增加启动器参数不能绕过平台限制。
+CC 可通过 `--claude-compact-percent 5` 或私有配置 `claude.compact_percent` 指定原生自动压缩阈值（1–95）；该选项不会启用诊断工具，也不会创建自定义摘要。阈值和原生压缩事件写入运行资料。较低阈值会增加压缩调用次数和时延，应在实验中固定并报告。
+
+`--max-budget-usd` 是 CC 的原生估算费用上限，并非第三方网关的账单保证。Codex 网关若不报告用量，结果保留其原始零值，不将零值解释为免费。启动器默认预算为 1800 秒、120 次输入；创建实例时将输入上限和含启动宽限的服务端时限写入 manifest。预算由管理端设定，Agent 无权自行修改。恢复原生 session 不会扩大服务端实例预算。
 
 CLI 的工具限制用于限定实验接口，不是面向恶意模型的完整安全隔离。正式批量评测应在不挂载源码、答案或个人凭证的隔离执行机/容器中运行。
 
-启动器在调用模型前检查真实浏览器截图。终止性的环境错误会停止推理；`result.json` 的 `outcome` 区分 `success`、`fail`、`environment_error` 和 `evaluation_error`，并单独保留原生退出码、超时及模型输出。任务判分失败不等于程序异常；达到时间预算后仍会封存可用环境并评分。视频信息工具提供时长，截图工具提供剩余操作时间。
+启动器在调用模型前检查真实浏览器截图。终止性的环境错误会停止推理；`result.json` 的 `outcome` 区分 `success`、`fail`、`incomplete`、`agent_error`、`environment_error` 和 `evaluation_error`，并单独保留原生退出码、超时及模型输出。任务判分失败不等于程序异常；达到时间预算后仍会封存可用环境并评分。视频信息工具提供时长，截图工具提供剩余操作时间。
+
+`execution_status` 区分显式结束、缺少结束声明、超时、环境错误与模型接入错误；`agent_finished` 单独记录是否调用 `finish`。模型接入异常返回 `agent_error`，没有调用 `finish` 的普通退出返回 `incomplete`；两者保留未封存实例，支持使用原生 `--resume` 恢复，不能计为正常结束的模型任务失败。Codex 和 CC 使用原生 Stop hook 检查显式结束声明，最多提醒三次，并受原始时间预算约束；hook 不读取任务答案、不总结历史、不调用模型 API。[Claude Code Stop hook 文档](https://code.claude.com/docs/en/hooks#stop)、[Codex hooks 文档](https://learn.chatgpt.com/docs/hooks)。Codex 仅为本次生成的独立 hook 配置使用原生 hook 信任选项，不扩大键鼠接口或 shell 权限。工具日志记录真实 HTTP 与抽帧耗时，`outside_tool_io_seconds` 包含模型请求、传输和 CLI 开销，不能全部解释为纯模型计算时间。
+
+Codex 的 `--code-mode` 是原生 CLI 功能开关，供需要该工具封装的网关使用；它不替换模型循环。CLI 可能提示该功能处于开发阶段，必须按实际模型验证工具调用，不能仅凭普通文本回复认定接入成功。
+
+使用 `--rule-file /absolute/path/rule.txt` 可运行文字规则诊断，与 `--demo` 互斥。该条件只提供通用规则和公开任务，不应包含指定实例的目标文件 ID 或答案。比较视频条件与文字规则条件时，保持模型、任务、版本、种子、界面和预算一致。
+
+对于无法识别 `tool_result` 内图片的 Anthropic 兼容网关，可显式启用 `--lift-tool-images`。本机回环代理将原始图片块移至同一条用户消息的顶层，保持像素、时间顺序、工具编号、文本、模型参数及响应流不变；不做 OCR、规则注入、历史裁剪或重试。该配置在 manifest 中标记，正常支持工具图片的提供商应直接连接。若网关丢失并行工具调用，`--serial-tools` 使用 CC 原生 `--append-system-prompt` 要求每次调用一个工具。两项都可在私有 credentials JSON 的 `claude` 配置中设为 `true`。
+
+```bash
+# 对有上述兼容问题的网关，沿用所选模型及私有凭证。
+.venv/bin/python scripts/native_agent.py claude \
+  --lift-tool-images --serial-tools --claude-compact-percent 5 \
+  --control-url http://127.0.0.1:18765 --admin-token-file .local/agentlab-admin-token \
+  --task 11 --variant A --seed 10001 --demo /absolute/path/11-A.mp4 \
+  --timeout 1800 --max-actions 120 --max-budget-usd 3 --evaluate
+```
+
 
 [Task 11/A 双框架推理记录](docs/reviews/task11-native-inference.json) 使用同事的 72 秒 demo，两个实例使用相同种子。Codex 0.147.0 / Luna 正常结束并得到 fail；CC 2.1.117 / Sonnet 4.6 达到 280 秒时限并得到 fail。两次均没有环境或 MCP 工具错误。CC 的结果包含明确超时标记，不能视为原生 agent 正常结束。`checks_completion` 包含基础不变量检查，不代表交付请求完成比例。
 

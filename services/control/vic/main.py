@@ -320,6 +320,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 else "development-workspace",
                 official=False,
                 interaction=body.interaction,
+                execution_budget=dict(timeout_seconds=body.timeout_seconds, max_actions=body.max_actions),
                 lesson=lessons.plan(body.task_id, body.seed) if body.teaching else None,
             ),
         )
@@ -383,6 +384,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             remote_only(run)
             active(run)
             try:
+                if isinstance(runtime, BrowserRuntime) and run.manifest.get("execution_budget"):
+                    runtime.limits[run_id] = run.manifest["execution_budget"]
                 shot = await runtime.screenshot(run_id, url(run))
             except Exception as exc:
                 # Playwright errors include the URL fragment, which is a UI credential.

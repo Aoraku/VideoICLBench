@@ -16,6 +16,7 @@ class BrowserRuntime:
         self.browser = None
         self.sessions = {}
         self.lock = asyncio.Lock()
+        self.limits = {}
 
     async def ensure(self, run_id, url):
         async with self.lock:
@@ -100,9 +101,10 @@ class BrowserRuntime:
                 return result
             if action.frame != s["frame"]:
                 raise ValueError("Stale observation; request a new screenshot")
-            if len(s["actions"]) >= 120:
+            limits = self.limits.get(run_id, {"max_actions": 120, "timeout_seconds": 300})
+            if len(s["actions"]) >= limits["max_actions"]:
                 raise ValueError("Action budget exhausted")
-            if time.monotonic() - s["created"] > 300:
+            if time.monotonic() - s["created"] > limits["timeout_seconds"]:
                 raise ValueError("Time budget exhausted")
             page = s["page"]
             kind = action.kind
@@ -126,6 +128,8 @@ class BrowserRuntime:
                 await page.mouse.move(action.to_x, action.to_y, steps=10)
                 await page.mouse.up()
             elif kind == "scroll":
+                if action.x is not None and action.y is not None:
+                    await page.mouse.move(action.x, action.y)
                 await page.mouse.wheel(0, action.delta_y)
             elif kind == "key":
                 if not action.key:
@@ -150,6 +154,7 @@ class BrowserRuntime:
         return await session["page"].evaluate("navigator.clipboard.readText()")
 
     async def close_run(self, run_id):
+        self.limits.pop(run_id, None)
         s = self.sessions.pop(run_id, None)
         if s:
             with contextlib.suppress(Exception):

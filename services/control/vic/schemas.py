@@ -15,6 +15,8 @@ class CreateRun(StrictModel):
     runtime: Literal["web-dev", "browser", "windows", "linux", "android"] = "browser"
     interaction: Literal["agent", "human"] = "agent"
     teaching: bool = False
+    timeout_seconds: int = Field(default=1800, ge=30, le=7200)
+    max_actions: int = Field(default=120, ge=1, le=2000)
 
 
 class LessonAdvance(StrictModel):

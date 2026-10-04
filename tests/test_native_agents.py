@@ -24,14 +24,22 @@ def test_native_profiles_use_real_cli_and_no_custom_context_loop(tmp_path, monke
     assert config["model"] == "model-custom"
     assert config["model_providers"]["vic_remote"]["wire_api"] == "responses"
     assert "model_auto_compact_token_limit" not in config
+    compatibility = tomllib.loads(codex_config("model-custom", "https://gateway.example/v1", server, code_mode=True))
+    assert compatibility["features"]["code_mode"] is True
     smoke = tomllib.loads(codex_config("model-custom", "https://gateway.example/v1", server, 6000))
     assert smoke["model_auto_compact_token_limit"] == 6000
     cmd, env = cli_command("codex", tmp_path, tmp_path, "model-custom", server, resume="session-id")
     assert Path(cmd[0]).name == "codex" and cmd[1] == "exec" and cmd[-3:] == ["resume", "session-id", "-"]
+    assert "--dangerously-bypass-hook-trust" not in cmd
+    (tmp_path / "hooks.json").write_text('{}')
+    cmd, _ = cli_command("codex", tmp_path, tmp_path, "model-custom", server)
+    assert "--dangerously-bypass-hook-trust" in cmd
     cmd, env = cli_command("claude", tmp_path, tmp_path, "model-custom", server, resume="session-id")
     assert cmd[:2] == ["claude", "-p"] and cmd[-2:] == ["--resume", "session-id"]
     assert cmd[cmd.index("--tools") + 1] == ""
     assert "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE" not in env
+    cmd, _ = cli_command("claude", tmp_path, tmp_path, "model-custom", server, serial_tools=True)
+    assert "--append-system-prompt" in cmd
     _, env = cli_command("claude", tmp_path, tmp_path, "model-custom", server, compact=5)
     assert env["CLAUDE_AUTOCOMPACT_PCT_OVERRIDE"] == "5"
 
@@ -116,7 +124,7 @@ def test_environment_failure_is_terminal_and_logged(tmp_path):
     computer.http.close()
 
 
-@pytest.mark.parametrize('preflight_status,eval_status,expected', [(503, 200, 'environment_error'), (200, 409, 'evaluation_error'), (200, 200, 'fail')])
+@pytest.mark.parametrize('preflight_status,eval_status,expected', [(503, 200, 'environment_error'), (200, 409, 'evaluation_error'), (200, 200, 'fail'), (200, 200, 'incomplete')])
 def test_runner_preserves_terminal_results(tmp_path, monkeypatch, preflight_status, eval_status, expected):
     from types import SimpleNamespace
     from vic_sdk.native_agent import run
@@ -143,6 +151,9 @@ def test_runner_preserves_terminal_results(tmp_path, monkeypatch, preflight_stat
         def __init__(self, *a, **kw):
             launches.append(a)
             kw['stdout'].write(json.dumps({'type': 'result', 'result': 'done', 'is_error': False}) + '\n')
+            if expected != 'incomplete':
+                (Path(kw['stdout'].name).parent / 'computer.jsonl').write_text(
+                    json.dumps({'type': 'finish', 'summary': 'Stopped', 'time': 0}) + '\n')
         def communicate(self, prompt, timeout):
             assert 'HIDDEN' not in prompt
     monkeypatch.setattr('vic_sdk.native_agent.subprocess.Popen', Process)
@@ -156,4 +167,20 @@ def test_runner_preserves_terminal_results(tmp_path, monkeypatch, preflight_stat
     assert result['outcome'] == expected
     assert code == (0 if expected == 'fail' else 1)
     assert bool(launches) == (preflight_status == 200)
-    assert ('/v2/tasks/11/eval' in requests) == (preflight_status == 200)
+    assert ('/v2/tasks/11/eval' in requests) == (preflight_status == 200 and expected != 'incomplete')
+
+
+def test_native_stop_hook_requires_finish_with_bounded_retries(tmp_path):
+    from vic_sdk.native_stop_hook import decision
+    config = {'output_dir': str(tmp_path), 'deadline_unix': 200}
+    assert decision(config, now=100)['decision'] == 'block'
+    assert decision(config, now=100)['decision'] == 'block'
+    assert decision(config, now=100)['decision'] == 'block'
+    assert decision(config, now=100) == {}
+    (tmp_path / 'stop-guard-count.json').unlink()
+    (tmp_path / 'computer.jsonl').write_text(json.dumps({'type':'finish','summary':'Unable to complete'})+'\n')
+    assert decision(config, now=100) == {}
+    (tmp_path / 'computer.jsonl').unlink()
+    assert decision(config, now=190) == {}
+    (tmp_path / 'environment-error.json').write_text('{}')
+    assert decision(config, now=100) == {}

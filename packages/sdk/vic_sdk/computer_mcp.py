@@ -40,8 +40,12 @@ class Computer:
     def check(self):
         if self.closed:
             raise ValueError("This session is finished")
-        if time.monotonic() - self.started > self.config.get("timeout_seconds", 600):
+        if self.remaining_seconds() <= 0:
             raise ValueError("Session time budget exhausted")
+
+    def remaining_seconds(self):
+        return max(0, round(self.config["deadline_unix"] - time.time() if "deadline_unix" in self.config
+                            else self.config.get("timeout_seconds", 600) - (time.monotonic() - self.started)))
 
     def response_ok(self, response):
         if response.status_code in (401, 403, 410, 503) or (
@@ -60,6 +64,7 @@ class Computer:
 
     def _observe(self):
         self.check()
+        started = time.monotonic()
         response = self.http.get(self.path + "/observation")
         self.response_ok(response)
         observation = response.json()
@@ -67,10 +72,11 @@ class Computer:
         encoded = observation["image"].split(",", 1)[1]
         filename = f"frame-{self.epoch}-{self.frame:05d}.png"
         (self.output / filename).write_bytes(base64.b64decode(encoded))
-        self.log({"type": "observation", "frame_id": self.frame, "file": filename})
+        self.log({"type": "observation", "frame_id": self.frame, "file": filename,
+                  "duration_seconds": time.monotonic() - started})
         return CallToolResult(content=[TextContent(type="text", text=json.dumps({
             "frame_id": self.frame, "width": observation["width"], "height": observation["height"],
-            "remaining_seconds": max(0, round(self.config.get("timeout_seconds", 600) - (time.monotonic() - self.started))),
+            "remaining_seconds": self.remaining_seconds(),
             "remaining_actions": self.config.get("max_actions", 100) - self.actions})),
             ImageContent(type="image", mimeType="image/png", data=encoded)])
 
@@ -88,10 +94,11 @@ class Computer:
                 "kind": kind, **{k: v for k, v in kwargs.items() if v is not None}}
         # No blind retries: an ambiguous transport failure may have executed the input.
         self.frame = None
+        started = time.monotonic()
         response = self.http.post(self.path + "/actions", json=body)
         self.response_ok(response)
         self.actions += 1
-        self.log({"type": "action", **body})
+        self.log({"type": "action", **body, "duration_seconds": time.monotonic() - started})
         return self.observe()
 
     def demo_info(self):
@@ -109,6 +116,7 @@ class Computer:
                 "instructions": "Use demo_frame(seconds) to inspect the assigned video; no event logs or rules are provided."}
 
     def demo_frame(self, seconds: float):
+        started = time.monotonic()
         if not self.config.get("demo_video"):
             raise ValueError("No demonstration video assigned")
         if not 0 <= seconds <= 3600:
@@ -119,7 +127,7 @@ class Computer:
             capture_output=True, timeout=20, check=True)
         if not result.stdout:
             raise ValueError("No frame at that timestamp; it may be past the end of the video")
-        self.log({"type": "demo_frame", "seconds": seconds})
+        self.log({"type": "demo_frame", "seconds": seconds, "duration_seconds": time.monotonic() - started})
         return CallToolResult(content=[TextContent(type="text", text=f"Assigned demo, timestamp {seconds}s"),
             ImageContent(type="image", mimeType="image/png", data=base64.b64encode(result.stdout).decode())])
 
@@ -128,8 +136,10 @@ def make_server(computer: Computer, smoke_payload: bool = False):
     mcp = FastMCP("vic-computer")
 
     @mcp.tool()
-    def computer_observe() -> CallToolResult:
-        """See the current live application screenshot and frame_id. No DOM or business state."""
+    def computer_observe(purpose: str = "Inspect the current screen") -> CallToolResult:
+        """See the current live application screenshot and frame_id. No DOM or business state.
+        Include a short purpose for the observation, e.g. inspect the current screen.
+        """
         return computer.observe()
 
     @mcp.tool()
@@ -140,13 +150,14 @@ def make_server(computer: Computer, smoke_payload: bool = False):
         """Perform one input and return the new screenshot. kind: click, double_click, right_click,
         drag, scroll, text, key, wait. Coordinates are screenshot pixels. Click a field before typing.
         Use key=ControlOrMeta+A to select text. Do not repeat a timed-out click blindly; observe first.
+        scroll uses delta_y in PIXELS (e.g. 500), with x/y locating the scrollable panel.
         """
         return computer.act(frame_id, kind, x=x, y=y, text=text, key=key, delta_y=delta_y,
                             to_x=to_x, to_y=to_y, wait_ms=wait_ms)
 
     @mcp.tool()
-    def demo_info() -> dict:
-        """Check whether a demonstration video has been assigned."""
+    def demo_info(purpose: str = "Inspect the assigned demonstration") -> dict:
+        """Check whether a demonstration video has been assigned. Include a short purpose."""
         return computer.demo_info()
 
     @mcp.tool()
