@@ -12,7 +12,7 @@ jobs:
         with: {python-version: '3.12'}
       - uses: actions/setup-node@v4
         with: {node-version: '22', cache: npm, cache-dependency-path: apps/portal/package-lock.json}
-      - run: pip install -c requirements.lock.txt -e '.[test]'
+      - run: pip install -c requirements.lock.txt -e '.[agents,test]'
       - run: npm --prefix apps/portal ci && npm --prefix apps/portal run build
       - run: npm --prefix apps/chat/frontend/frontend ci && VITE_BASE_PATH=/native-assets/chat/ npm --prefix apps/chat/frontend/frontend run build
       - name: Build native IM frontend
@@ -35,3 +35,4 @@ jobs:
           python scripts/check_native_ui.py 1,5,17,23,31,38,43,48,57,68 A
           python scripts/check_native_ui.py 15,16 ABC
           python scripts/check_native_ui.py 61,62,63 ABC
+          python scripts/check_v2_communications_ui.py 11 ABC
