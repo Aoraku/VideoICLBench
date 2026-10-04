@@ -7,6 +7,13 @@ from vic.games import expected, stopping_paths
 
 
 def reference(state, variant):
+    actions = _reference(state, variant)
+    if state.get('rule_target'):
+        actions.append(('review.confirm',state['rule_target'],'',[]))
+    return actions
+
+
+def _reference(state, variant):
     t = state["task_id"]
     if t >= 66:
         wanted = expected(t, variant, state)

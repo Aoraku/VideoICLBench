@@ -16,8 +16,39 @@
       if (!response.ok) return;
       envelope = await response.json();
     } catch { return; }
+    if (envelope.state?.rule_target && !document.getElementById('vic-single-review')) {
+      const review = document.createElement('aside');
+      review.id = 'vic-single-review';
+      review.setAttribute('aria-label', '本次核验对象');
+      Object.assign(review.style, {position:'fixed',bottom:'12px',right:'16px',zIndex:'2147483000',padding:'14px 18px',background:'#fff',border:'1px solid #ccd5d0',borderRadius:'12px',boxShadow:'0 3px 18px #0002',font:'14px system-ui',color:'#18392f',maxWidth:'min(460px,85vw)'});
+      const instruction = document.createElement('p');
+      instruction.textContent = envelope.state.review_instructions;
+      instruction.style.margin = '0 0 10px';
+      const confirm = document.createElement('button');
+      confirm.textContent = '确认本条核验';
+      Object.assign(confirm.style,{padding:'8px 16px',border:'0',borderRadius:'8px',background:'#256953',color:'#fff',cursor:'pointer'});
+      const status = document.createElement('span');
+      status.setAttribute('role','status');
+      status.style.marginLeft = '10px';
+      if (envelope.state.reviewed_target) status.textContent = '核验记录已保存';
+      confirm.onclick = async () => {
+        confirm.disabled = true;
+        try {
+          const response = await fetch('/api/runs/' + run + '/commands', {method:'POST',headers,body:JSON.stringify({epoch:envelope.epoch,action_id:crypto.randomUUID(),op:'review.confirm',target:envelope.state.rule_target,value:'',ids:[]})});
+          const result = await response.json();
+          if (!response.ok) throw Error(typeof result.detail === 'string' ? result.detail : '保存失败，请重试');
+          status.textContent = '核验记录已保存';
+        } catch (error) {status.textContent = error.message || '保存失败，请重试';}
+        finally {confirm.disabled = false;}
+      };
+      review.append(instruction,confirm,status);
+      document.body.append(review);
+      const reserve = () => document.documentElement.style.setProperty('--vic-lesson-bottom-inset', `${Math.ceil(review.getBoundingClientRect().height) + 12}px`);
+      reserve();
+      new ResizeObserver(reserve).observe(review);
+    }
     const lesson = envelope.lesson;
-    if (!lesson || lesson.total < 2 || document.getElementById('vic-lesson-controls')) return;
+    if (!lesson || document.getElementById('vic-lesson-controls')) return;
     const bar = document.createElement('aside');
     bar.id = 'vic-lesson-controls';
     bar.setAttribute('aria-label', '连续练习');
@@ -34,7 +65,7 @@
     if (lesson.finished) {
       status.textContent = `已完成 ${lesson.total} 组练习`;
       button.hidden = true;
-      message.textContent = '练习已保存，请在工作台查看录像。';
+      message.textContent = '示范练习已保存，可返回任务卡检查结果。';
     }
     button.onclick = async () => {
       button.disabled = true;
@@ -43,15 +74,25 @@
       const controller = new AbortController();
       const timeout = setTimeout(() => controller.abort(), 30000);
       try {
+        const payload = {epoch:envelope.epoch,index:lesson.index};
+        if (envelope.state?.task_id === 43) {
+          const latest = await fetch('/api/runs/' + run,{headers,signal:controller.signal});
+          if (!latest.ok) throw Error('无法读取保存状态，请重试。');
+          const snapshot = await latest.json();
+          if (snapshot.state?.domain?.clipboard_history?.length) {
+            try {payload.clipboard = await navigator.clipboard.readText();}
+            catch {throw Error('请允许读取刚复制的内容，再点击完成练习。');}
+          }
+        }
         const response = await fetch('/api/runs/' + run + '/lesson/next', {
-          method:'POST',headers,signal:controller.signal,body:JSON.stringify({epoch:envelope.epoch,index:lesson.index}),
+          method:'POST',headers,signal:controller.signal,body:JSON.stringify(payload),
         });
         const data = await response.json();
         if (!response.ok) throw Error(typeof data.detail === 'string' ? data.detail : '暂时无法继续，请重试。');
         if (data.lesson.finished) {
           status.textContent = `已完成 ${data.lesson.total} 组练习`;
           button.hidden = true;
-          message.textContent = '录像将在工作台保存；外部录屏请手动结束并上传。';
+          message.textContent = '示范练习已完成，请返回任务卡检查结果；正在录制时请结束录制。';
           return;
         }
         // Navigation stays in this tab so tab capture remains continuous.

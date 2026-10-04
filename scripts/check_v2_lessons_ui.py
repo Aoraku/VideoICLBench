@@ -30,7 +30,8 @@ def main():
                     response=control.post('/v1/runs',json=dict(suite='v2',task_id=task,variant=variant,seed=0,mode='demo',runtime='browser',interaction='human',teaching=True))
                     response.raise_for_status();run=response.json()
                     address=urlsplit(run['application_url']);origin=address.scheme+'://'+address.netloc
-                    context=browser.new_context(viewport={'width':1440,'height':1050});page=context.new_page();page.set_default_timeout(20000)
+                    context=browser.new_context(viewport={'width':1440,'height':1050},permissions=['clipboard-read','clipboard-write']);page=context.new_page();page.set_default_timeout(20000)
+                    context.add_init_script("navigator.mediaDevices.getDisplayMedia=()=>{throw Error('QA must not record video')}")
                     errors=[];page.on('pageerror',lambda error:errors.append(str(error)))
                     app=address.path.split('/')[2]
                     page.goto(origin+native_path(app,run['id'])+'#'+address.fragment)
@@ -49,6 +50,15 @@ def main():
                                 page.locator('.chatInput textarea').fill(effect['outputs']['target'])
                                 with page.expect_response(lambda r:r.request.method=='POST' and r.url.endswith('/commands')):
                                     page.locator('.sendBtn').click()
+                            elif task==43:
+                                page.locator('.product-nav').get_by_role('button',name='内容项目',exact=False).click()
+                                for target,action in effect['actions']:
+                                    name=state['domain']['objects'][target]['name']
+                                    page.locator('.studio-project-layout aside').get_by_role('button',name=name).click()
+                                    with page.expect_response(lambda r:r.request.method=='POST' and r.url.endswith('/commands')):
+                                        page.get_by_role('button',name='检查',exact=True).click()
+                                    with page.expect_response(lambda r:r.request.method=='POST' and r.url.endswith('/commands')):
+                                        page.get_by_role('button',name=action,exact=True).click()
                             elif task==10:
                                 page.get_by_role('button',name='搜索记录',exact=True).click()
                                 page.get_by_label('搜索聊天记录').fill(state['source']['search_keyword'])
@@ -90,7 +100,7 @@ def main():
                             updated=control.get('/v1/runs/'+run['id']);updated.raise_for_status()
                             data=updated.json();assert data['lesson']['completed']==index+1,data['lesson']
                             episodes.append(dict(index=index,seed=state.get('seed',state.get('source',{}).get('instance_seed')),next_button_passed=True))
-                            if index==run['lesson']['total']-1:expect(bar).to_contain_text('已完成 6 组练习')
+                            if index==run['lesson']['total']-1:expect(bar).to_contain_text(f'已完成 {run["lesson"]["total"]} 组练习')
                         response=control.post(f'/v2/tasks/{task}/eval',json={'run_id':run['id']});response.raise_for_status()
                         assert response.json()['success'],response.text
                         assert not errors,errors

@@ -439,7 +439,9 @@ def expected_effect(id_, variant, state):
         selected = targets(id_, v, items, s)
         label = LABELS[id_][v] if id_ == 5 else LABELS[id_][0]
         return {
-            "labels": {x["id"]: label if x["id"] in selected else "" for x in items}
+            "labels": {x["id"]: label if x["id"] in selected and
+                       (not state.get('rule_target') or x['id'] == state['rule_target'])
+                       else "" for x in items}
         }
     if id_ in (12, 28, 35):
         return {"order": ordering(id_, v, items)}
@@ -660,7 +662,8 @@ def generate(id_, seed):
         if (id_ in (1, 2) or len(set(signatures)) == 3) and all(
             _nonempty(expected_effect(id_, v, public)) for v in "ABC"
         ):
-            return public
+            from .identity_context import contextualize
+            return contextualize(public)
     raise ValueError(
         f"Could not generate distinct variants for task {id_}, seed {seed}"
     )

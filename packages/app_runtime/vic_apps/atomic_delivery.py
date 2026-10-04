@@ -1,13 +1,19 @@
 """Native application delivery commands; these never know which rule was taught."""
 from copy import deepcopy
 
-COMMANDS={'shortcut.add','shortcut.remove','favorite.add','favorite.remove','answer.submit'}
+COMMANDS={'shortcut.add','shortcut.remove','favorite.add','favorite.remove','answer.submit','review.confirm'}
 
 
 def apply(state,op,target,value):
     if not state.get('v2_atomic'):
         raise ValueError('此操作不适用于本环境')
-    state=deepcopy(state);t=state['task_id'];d=state['domain']
+    state=deepcopy(state);t=state['task_id']
+    if op == 'review.confirm':
+        if not state.get('rule_target') or target != state['rule_target']:
+            raise ValueError('请确认本次指定的核验对象')
+        state['reviewed_target'] = target
+        return state
+    d=state['domain']
     if op in ('shortcut.add','shortcut.remove','favorite.add','favorite.remove'):
         is_shortcut=op.startswith('shortcut.')
         if t != (10 if is_shortcut else 27) or target not in {x['id'] for x in state['items']}:

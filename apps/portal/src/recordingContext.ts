@@ -2,7 +2,7 @@
 export function recordingContext(s: any, title: string) {
   const t = s.task_id,
     a = s.source || {},
-    who = a.recipient || "林若宁";
+    who = a.recipient || "任务指定联系人";
   const briefs: Record<number, string> = {
     1: `打开与${who}的会话，阅读对方发来的英文内容，按视频示范调整大小写后发送。`,
     2: `在通讯录中找到${who}，读取本组的联系人备注，按视频示范格式修改并保存。`,

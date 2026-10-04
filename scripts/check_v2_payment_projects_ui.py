@@ -103,7 +103,7 @@ async def main():
                             snap=await snapshot();receipt=snap['state']['world']['receipts'][0]
                             await page.get_by_role('link',name='打开团队付款消息 →',exact=True).click()
                             await expect(page.get_by_role('region',name='工作范围')).to_be_visible()
-                            await page.locator('.ant-list-item').filter(has=page.get_by_text('林若宁',exact=True)).click()
+                            await page.locator('.ant-list-item').filter(has=page.get_by_text(initial['world']['people'][0]['name'],exact=True)).click()
                             share=page.locator(f'[data-payment-share="{receipt["id"]}"]');await expect(share.locator('pre')).to_have_text(receipt['body'])
                             await page.screenshot(path=str(out/f'{task}-{variant}-notification.png'),full_page=True)
                             await share.get_by_role('link',name='查看付款对账清单 →',exact=True).click()

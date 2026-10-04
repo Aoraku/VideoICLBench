@@ -100,7 +100,7 @@ async def main():
                                 targets+=rows
                                 for item in rows:await page.get_by_role('checkbox',name='选择消息：'+item['text'],exact=True).check()
                                 action={'A':'转发','B':'收藏','C':'归档'}[variant]
-                                await page.get_by_role('button',name='转发给程知夏' if variant=='A' else '批量'+action,exact=True).click()
+                                await page.get_by_role('button',name='转发给'+state['source']['recipient'] if variant=='A' else '批量'+action,exact=True).click()
                                 await expect(page.get_by_text(f'已{action} {len(rows)} 条消息',exact=True)).to_be_visible()
                             await page.get_by_role('link',name='交接单',exact=True).click()
                             await expect(page.get_by_role('heading',name='晚班消息交接单',exact=True)).to_be_visible()

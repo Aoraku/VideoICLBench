@@ -7,6 +7,7 @@ from vic_apps.domain import initialize
 
 TASKS = {1,3,4,5,10,17,19,20,21,24,25,27,36,37,39,59,62,66,67,68,70,71,72,73,75}
 FOUR_OBJECTS = {5,24,25,39,62}
+SINGLE_REVIEW = FOUR_OBJECTS | {66,70,73}
 
 
 def generate(task_id, seed, spec):
@@ -42,6 +43,23 @@ def generate(task_id, seed, spec):
     state=initialize(state)
     state['v2_atomic']=True
     state['execution']=dict(assignment=spec['assignment'],delivery=spec['delivery'],instructions=spec['inference']['instructions'])
+    if task_id in SINGLE_REVIEW:
+        # One application of the learned predicate. Context objects remain
+        # available for comparison, but are not additional classification work.
+        if task_id < 66:
+            candidates = state['items']
+            if task_id == 5:
+                candidates = [x for x in candidates if '?' in x['text'] or '？' in x['text']]
+            target = candidates[seed % len(candidates)]
+            state['rule_target'] = target['id']
+            identity = (f"题号 {target['number']} · " if task_id == 62 else '') + target['name']
+        else:
+            row, col = state['candidates'][seed % len(state['candidates'])]
+            state['rule_target'] = f'{row},{col}'
+            identity = f'第 {row + 1} 行、第 {col + 1} 列'
+        state['reviewed_target'] = None
+        state['review_target_label'] = identity
+        state['review_instructions'] = f'本次只核验「{identity}」。符合视频条件时标注，不符合时保持未标注；其他对象仅供比较，请勿修改。完成判断后确认本条核验。'
     if task_id == 10:
         state['domain']['collections']['shortcuts']=[]
     if task_id == 37:
@@ -52,6 +70,13 @@ def generate(task_id, seed, spec):
 def evaluate(initial,state,variant,events,clipboard=None):
     t=initial['task_id']
     result=application_eval.evaluate(initial,state,variant,events,clipboard)
+    if initial.get('rule_target'):
+        confirmed = state.get('reviewed_target') == initial['rule_target']
+        result['checks'].append(dict(id='single_target_review_confirmed',passed=confirmed))
+        result['success'] = result['success'] and confirmed
+        result['completion'] = sum(c['passed'] for c in result['checks']) / len(result['checks'])
+        if not confirmed:
+            result['violations'].append('请确认本条核验结果')
     if t == 75:
         # Several legal moves can satisfy the stated local condition.
         points=[tuple(p) for p in initial['candidates']]

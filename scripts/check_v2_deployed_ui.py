@@ -31,18 +31,21 @@ def main():
             portal.get_by_label('访问密钥').fill(secret)
             portal.get_by_role('button', name='进入录制台', exact=True).click()
             portal.get_by_role('button', name='v2 list', exact=True).click()
-            expect(portal.locator('.task-list tbody tr')).to_have_count(75)
+            expect(portal.locator('.v2-list tbody tr')).to_have_count(75)
             search = portal.get_by_label('搜索 v2 任务')
             for task in catalog:
                 search.fill(f'{task["id"]:03d}')
                 portal.get_by_role('button', name=f'{task["id"]:03d} {task["title"]}', exact=True).click()
-                detail = portal.locator('.task-detail')
+                detail = portal.locator('.v2-detail')
                 expect(detail).to_contain_text(task['assignment'])
-                expect(detail).to_contain_text(task['delivery'])
+                detail.get_by_role('tab', name='示范 · demo', exact=True).click()
                 for variant in 'ABC':
                     detail.get_by_role('button', name='版本 ' + variant, exact=True).click()
-                    expect(detail.locator('.rule')).to_contain_text(task['variants'][variant])
-                expect(detail.get_by_role('button', name='打开执行环境', exact=True)).to_be_enabled()
+                    expect(detail.locator('.v2-rule')).to_contain_text(task['variants'][variant])
+                expect(detail.get_by_role('button', name='预览示范环境', exact=False)).to_be_enabled()
+                detail.get_by_role('tab', name='执行 · inference', exact=True).click()
+                expect(detail).to_contain_text(task['delivery'])
+                expect(detail.get_by_role('button', name='打开执行环境', exact=False)).to_be_enabled()
             search.fill('')
             portal.screenshot(path=str(out / 'portal.png'), full_page=True)
             results.append(dict(check='all_75_cards_and_225_rules', status='passed'))
@@ -53,8 +56,9 @@ def main():
                 search.fill(f'{task:03d}')
                 portal.get_by_role('button', name=f'{task:03d} {item["title"]}', exact=True).click()
                 portal.get_by_role('button', name='版本 A', exact=True).click()
+                portal.get_by_role('tab', name='执行 · inference', exact=True).click()
                 with portal.expect_response(lambda r: r.request.method == 'POST' and r.url.endswith('/v1/runs')) as response, context.expect_page() as opened:
-                    portal.get_by_role('button', name='打开执行环境', exact=True).click()
+                    portal.get_by_role('button', name='打开执行环境', exact=False).click()
                 run = response.value.json(); created.append(run['id'])
                 page = opened.value; page.set_default_timeout(30000)
                 page.wait_for_url('**/native/**')
@@ -73,7 +77,7 @@ def main():
             assert saved.value.status == 200
             page.screenshot(path=str(out / 'chat-delivery.png'))
             portal.get_by_role('button', name='检查最终交付', exact=True).click()
-            expect(portal.get_by_role('heading', name='交付检查通过', exact=True)).to_be_visible()
+            expect(portal.get_by_text('检查通过', exact=True)).to_be_visible()
             with portal.expect_response(lambda r: r.request.method == 'POST' and r.url.endswith('/reset')) as reset:
                 portal.get_by_role('button', name='重置执行环境', exact=True).click()
             assert reset.value.status == 200 and reset.value.json()['epoch'] > run['epoch']

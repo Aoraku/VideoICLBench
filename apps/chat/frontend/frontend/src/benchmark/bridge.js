@@ -83,12 +83,12 @@ const pageOf = (rows) => ({
 });
 function user(state, id) {
   id = Number(id);
-  if(state.workflow==='communications')return {id,user_id:id,username:id===1?'周予安':state.world.conversations.find(c=>c.user_id===id)?.name || '联系人',remark:'',avatar:null,is_friend:true,presence:'online',status:'online'};
+  if(state.workflow==='communications')return {id,user_id:id,username:id===1?(state.source.operator || '我'):state.world.conversations.find(c=>c.user_id===id)?.name || '联系人',remark:'',avatar:null,is_friend:true,presence:'online',status:'online'};
   const index = id - 10,
     item = state.items[index];
   const name =
     id === 1
-      ? "周予安"
+      ? (state.source.operator || '我')
       : id === 2
         ? state.source.recipient
         : id === 3 && state.task_id === 13 ? state.source.sender : item?.name || "联系人";
@@ -302,7 +302,7 @@ export async function nativeRequest(path, options = {}) {
       })));
     }
     if(method==='POST' && p==='/messages/forward' && state.task_id===13) {
-      if(body.target_conv_ids?.length!==1 || body.target_conv_ids[0]!==2)throw new Error('本次转发收件人为程知夏');
+      if(body.target_conv_ids?.length!==1 || body.target_conv_ids[0]!==2)throw new Error('本次转发收件人为'+state.source.recipient);
       for(const mid of body.msg_ids||[]) {
         const item=state.items.find(x=>x.message_id===Number(mid)&&x.conversation===body.source_conv_id);
         if(!item)throw new Error('请选择原会话中的消息');
@@ -380,14 +380,14 @@ export async function nativeRequest(path, options = {}) {
       if(groupInfo[2]==='members')return pageOf(members);
       if(groupInfo[2]==='announcements')return pageOf([]);
       return {conversation_id:5,name:state.scopes[0].name,owner:members[0],member_count:members.length,
-        created_at:state.source.reference_time,my_group_nickname:'周予安',latest_announcement:null};
+        created_at:state.source.reference_time,my_group_nickname:(state.source.operator || '我'),latest_announcement:null};
     }
     if(groupInfo && state.v2_worksets && state.task_id===8) {
       const item=state.items[Number(groupInfo[1])-10];if(!item)throw new Error('群聊不存在');
       if(groupInfo[2]==='members')return pageOf(item.group_members);
       if(groupInfo[2]==='announcements')return pageOf([]);
       return {conversation_id:Number(groupInfo[1]),name:item.name,owner:item.group_members[0],member_count:item.group_members.length,
-        created_at:item.created_at,my_group_nickname:'周予安',latest_announcement:null};
+        created_at:item.created_at,my_group_nickname:(state.source.operator || '我'),latest_announcement:null};
     }
     const conv = p.match(/^\/conversations\/(\d+)$/);
     if (conv)

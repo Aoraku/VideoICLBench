@@ -344,6 +344,14 @@ def stopping_paths(state):
 
 
 def expected(task_id, variant, state):
+    result = _expected(task_id, variant, state)
+    if task_id in (66,70,73) and state.get('rule_target'):
+        target = tuple(map(int,state['rule_target'].split(',')))
+        return [p for p in result if p == target]
+    return result
+
+
+def _expected(task_id, variant, state):
     v = "ABC".index(variant)
     board = state["board"]
     points = [tuple(p) for p in state["candidates"]]
@@ -483,6 +491,9 @@ def expected(task_id, variant, state):
 def apply(state, op, target="", value="", ids=None):
     out = deepcopy(state)
     task_id = state["task_id"]
+    if op == 'review.confirm' and state.get('v2_atomic') and target == state.get('rule_target'):
+        out['reviewed_target'] = target
+        return out
     if out["stopped"]:
         raise ValueError("The game task is stopped")
     if op == "stop":

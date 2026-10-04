@@ -30,6 +30,11 @@ def digest(task_id):
 
 
 def generate(task_id, seed, mode):
+    from .identity_context import contextualize
+    return contextualize(_generate(task_id, seed, mode), mode)
+
+
+def _generate(task_id, seed, mode):
     if task_id not in EXECUTABLE:
         raise ValueError('此 v2 执行环境尚未完成，不能使用基础任务代替。')
     if mode == 'demo':

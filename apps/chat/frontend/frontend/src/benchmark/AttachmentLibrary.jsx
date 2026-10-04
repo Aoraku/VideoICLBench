@@ -51,7 +51,7 @@ export default function AttachmentLibrary({ open, onClose, conversation }) {
             ×
           </button>
         </header>
-        <p style={{ color: "#8290a3", fontSize: 13 }}>林若宁 · 共享文件</p>
+        <p style={{ color: "#8290a3", fontSize: 13 }}>{state.source.recipient} · 共享文件</p>
         <div style={{ overflowY: "auto", minHeight: 0 }}>
         <div
           style={{
@@ -129,7 +129,7 @@ export default function AttachmentLibrary({ open, onClose, conversation }) {
         >
           <span role="status" style={{ fontSize: 13, color: "#718295" }}>
             {sent
-              ? "✓ 附件已发送至林若宁"
+              ? `✓ 附件已发送至${state.source.recipient}`
               : selected
                 ? "已选中 1 个文件"
                 : "选择需要发送的文件"}
@@ -152,7 +152,7 @@ export default function AttachmentLibrary({ open, onClose, conversation }) {
               }
             }}
           >
-            {busy ? "发送中…" : sent ? "已发送给林若宁" : "发送给林若宁"}
+            {busy ? "发送中…" : sent ? `已发送给${state.source.recipient}` : `发送给${state.source.recipient}`}
           </button>
         </footer>
       </section>

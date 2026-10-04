@@ -16,7 +16,7 @@ if (native) {
     sessionStorage.setItem("vic-im-token", token);
     localStorage.setItem("token", token);
     localStorage.setItem("user_id", "1");
-    localStorage.setItem("username", "周予安");
+    localStorage.setItem("username", "我");
   }
 }
 export const nativeIM = native;
@@ -79,8 +79,8 @@ export async function nativeFetch(
           const payee=s.domain.objects[b.payee],payer=s.world.accounts.find((a:any)=>a.id===b.payer);
           return {msg_id:1000+b.index,sender_id:peerId,sender_name:person.name,created_at:stamp+b.index,content:b.id+' · '+b.purpose,payment_request:{id:b.id,title:b.project+' · '+b.purpose,body:'账单 '+b.id+' · 批次 '+b.batch+'\n供应商：'+payee.record_code+' · '+payee.name+' · '+payee.company+'\n付款账户：'+payer.name+' · '+payer.number+'\n金额：'+(b.cents/100).toFixed(2)+' 元\n账单附言：'+b.note,url:`/native/product/bank/${run}?bill=${encodeURIComponent(b.id)}#${token}`}};
         });
-        const receipts=s.world.receipts.filter((r:any)=>r.recipient===peerId).map((r:any,i:number)=>({msg_id:10000+Number(r.id.split('-')[1]),sender_id:1,sender_name:'周予安',created_at:stamp+100+i,content:'十月付款对账清单',payment_share:{id:r.id,body:r.body,url:`/native/product/bank/${run}?report=1#${token}`}}));
-        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:'周予安',created_at:stamp+1000+m.id,content:m.body}));
+        const receipts=s.world.receipts.filter((r:any)=>r.recipient===peerId).map((r:any,i:number)=>({msg_id:10000+Number(r.id.split('-')[1]),sender_id:1,sender_name:(s.source.operator || '我'),created_at:stamp+100+i,content:'十月付款对账清单',payment_share:{id:r.id,body:r.body,url:`/native/product/bank/${run}?report=1#${token}`}}));
+        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:(s.source.operator || '我'),created_at:stamp+1000+m.id,content:m.body}));
         return respond({messages:[...requests,...receipts,...discussion].sort((a:any,b:any)=>b.created_at-a.created_at)});
       }
       const profile=s.world.people.find((p:any)=>p.id===Number(path.match(/\/user\/(\d+)/)?.[1]));
@@ -94,8 +94,8 @@ export async function nativeFetch(
       if(method==='GET' && path==='/api/conversations')return respond({conversations:s.world.people.map((p:any)=>({conversation_id:p.id,type:'private',name:p.name,peer_user:{user_id:p.id,username:p.name},other_user_id:p.id,unread_count:0,last_message:{content:s.world.receipts.filter((r:any)=>r.recipient===p.id).at(-1)?.request || '本期采购整理与交接',created_at:stamp}}))});
       if(method==='GET' && path.endsWith('/messages') && person) {
         const requests=s.world.requests.map((r:any,i:number)=>({...r,index:i})).filter((r:any)=>r.recipient===peerId).map((r:any)=>({msg_id:1000+r.index,sender_id:peerId,sender_name:person.name,created_at:stamp+r.index,content:r.title,shopping_request:{id:r.id,title:r.title,body:'清单 '+r.id+' · 指定标签：'+r.label+'\n新增入车使用下列数量，已在车内的不重复添加。\n'+r.products.map((id:string)=>{const p=s.domain.objects[id];return p.record_code+' · '+p.name+' · '+p.spec+' × '+r.quantities[id];}).join('\n'),url:`/native/product/shop/${run}?request=${encodeURIComponent(r.id)}#${token}`}}));
-        const receipts=s.world.receipts.filter((r:any)=>r.recipient===peerId).map((r:any,i:number)=>({msg_id:10000+Number(r.id.split('-')[1]),sender_id:1,sender_name:'周予安',created_at:stamp+100+i,content:'采购交接：'+r.request,shopping_share:{id:r.id,title:s.world.requests.find((q:any)=>q.id===r.request).title,body:r.body,url:`/native/product/shop/${run}?handover=${encodeURIComponent(r.request)}#${token}`}}));
-        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:'周予安',created_at:stamp+1000+m.id,content:m.body}));
+        const receipts=s.world.receipts.filter((r:any)=>r.recipient===peerId).map((r:any,i:number)=>({msg_id:10000+Number(r.id.split('-')[1]),sender_id:1,sender_name:(s.source.operator || '我'),created_at:stamp+100+i,content:'采购交接：'+r.request,shopping_share:{id:r.id,title:s.world.requests.find((q:any)=>q.id===r.request).title,body:r.body,url:`/native/product/shop/${run}?handover=${encodeURIComponent(r.request)}#${token}`}}));
+        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:(s.source.operator || '我'),created_at:stamp+1000+m.id,content:m.body}));
         return respond({messages:[...requests,...receipts,...discussion].sort((a:any,b:any)=>b.created_at-a.created_at)});
       }
       const profile=s.world.people.find((p:any)=>p.id===Number(path.match(/\/user\/(\d+)/)?.[1]));
@@ -114,7 +114,7 @@ export async function nativeFetch(
           const body=department.name+' · '+r.date+'\n申请编号：'+r.id+'\n'+r.lines.map((line:any)=>{const p=s.world.products.find((p:any)=>p.id===line.sku);return p.name+' · '+p.spec+' · '+p.id+' × '+line.quantity;}).join('\n');
           return {msg_id:1000+r.index,sender_id:peerId,sender_name:department.contact,created_at:Date.parse(r.date+'T08:00:00+08:00')/1000+r.index,content:title,procurement_request:{id:r.id,title,body,url:`/native/product/shop/${run}?request=${encodeURIComponent(r.id)}#${token}`}};
         });
-        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:'周予安',created_at:1790726400+1000+m.id,content:m.body}));
+        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:(s.source.operator || '我'),created_at:1790726400+1000+m.id,content:m.body}));
         return respond({messages:[...requests,...discussion].sort((a:any,b:any)=>b.created_at-a.created_at)});
       }
       const profile=s.world.departments.find((d:any)=>d.im===Number(path.match(/\/user\/(\d+)/)?.[1]));
@@ -129,8 +129,8 @@ export async function nativeFetch(
       if(method==='GET' && path==='/api/conversations')return respond({conversations:s.world.people.map((p:any)=>({conversation_id:p.im,type:'private',name:p.name,peer_user:{user_id:p.im,username:p.name},other_user_id:p.im,unread_count:0,last_message:{content:s.world.receipts.filter((r:any)=>r.recipient===p.im).at(-1)?.booking || '出差安排与审批',created_at:stamp}}))});
       if(method==='GET' && path.endsWith('/messages') && person) {
         const notices=s.world.notices.map((n:any,i:number)=>({...n,index:i})).filter((n:any)=>n.recipient===peerId).map((n:any)=>({msg_id:1000+n.index,sender_id:peerId,sender_name:person.name,created_at:stamp+n.index,content:n.title+'\n'+n.body,travel_request:{id:n.id,title:n.title,url:`/native/product/travel/${run}${n.slot?'?request='+encodeURIComponent(n.slot):''}#${token}`}}));
-        const receipts=s.world.receipts.filter((r:any)=>r.recipient===peerId).map((r:any,i:number)=>({msg_id:10000+Number(r.id.split('-')[1]),sender_id:1,sender_name:'周予安',created_at:stamp+100+i,content:'出差行程单：'+r.booking,travel_share:{id:r.id,booking:r.booking,body:r.body,url:`/native/product/travel/${run}?booking=${encodeURIComponent(r.booking)}#${token}`}}));
-        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:'周予安',created_at:stamp+1000+m.id,content:m.body}));
+        const receipts=s.world.receipts.filter((r:any)=>r.recipient===peerId).map((r:any,i:number)=>({msg_id:10000+Number(r.id.split('-')[1]),sender_id:1,sender_name:(s.source.operator || '我'),created_at:stamp+100+i,content:'出差行程单：'+r.booking,travel_share:{id:r.id,booking:r.booking,body:r.body,url:`/native/product/travel/${run}?booking=${encodeURIComponent(r.booking)}#${token}`}}));
+        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:(s.source.operator || '我'),created_at:stamp+1000+m.id,content:m.body}));
         return respond({messages:[...notices,...receipts,...discussion].sort((a:any,b:any)=>b.created_at-a.created_at)});
       }
       const profile=s.world.people.find((p:any)=>p.im===Number(path.match(/\/user\/(\d+)/)?.[1]));
@@ -144,9 +144,9 @@ export async function nativeFetch(
       if(method==='GET' && path==='/api/friends')return respond({friends:s.world.people.map((a:any)=>({user_id:a.id,username:a.name,group:'项目联系人'}))});
       if(method==='GET' && path==='/api/conversations')return respond({conversations:s.world.people.map((a:any)=>({conversation_id:a.id,type:'private',name:a.name,peer_user:{user_id:a.id,username:a.name},other_user_id:a.id,unread_count:0,last_message:{content:s.world.receipts.filter((n:any)=>n.recipient===a.id).at(-1)?.name || '项目结果交付',created_at:stamp}}))});
       if(method==='GET' && path.endsWith('/messages') && person) {
-        const receipts=s.world.receipts.filter((n:any)=>n.recipient===peerId).map((n:any,i:number)=>({msg_id:10000+Number(n.id.split('-')[1]),sender_id:1,sender_name:'周予安',created_at:stamp+i+1,content:'生成结果：'+n.record_code+' · '+n.name,
+        const receipts=s.world.receipts.filter((n:any)=>n.recipient===peerId).map((n:any,i:number)=>({msg_id:10000+Number(n.id.split('-')[1]),sender_id:1,sender_name:(s.source.operator || '我'),created_at:stamp+i+1,content:'生成结果：'+n.record_code+' · '+n.name,
           studio_share:{id:n.id,target:n.target,name:n.name,record_code:n.record_code,body:n.body,url:`/native/product/studio/${run}?output=${encodeURIComponent(n.target)}#${token}`}}));
-        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:'周予安',created_at:stamp+1000+m.id,content:m.body}));
+        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:(s.source.operator || '我'),created_at:stamp+1000+m.id,content:m.body}));
         return respond({messages:[...receipts,...discussion].sort((a:any,b:any)=>b.created_at-a.created_at)});
       }
       const profile=s.world.people.find((a:any)=>a.id===Number(path.match(/\/user\/(\d+)/)?.[1]));
@@ -161,9 +161,9 @@ export async function nativeFetch(
       if(method==='GET' && path==='/api/friends')return respond({friends:s.world.authors.map((a:any)=>({user_id:a.id,username:a.name,group:'稿件作者 · '+a.account}))});
       if(method==='GET' && path==='/api/conversations')return respond({conversations:s.world.authors.map((a:any)=>({conversation_id:a.id,type:'private',name:a.name,peer_user:{user_id:a.id,username:a.name},other_user_id:a.id,unread_count:0,last_message:{content:s.world.notifications.filter((n:any)=>n.recipient===a.id).at(-1)?.title || '稿件发布沟通',created_at:stamp}}))});
       if(method==='GET' && path.endsWith('/messages') && author) {
-        const notices=s.world.notifications.filter((n:any)=>n.recipient===peerId).map((n:any,i:number)=>({msg_id:10000+Number(n.id.split('-')[1]),sender_id:1,sender_name:'周予安',created_at:stamp+i+1,content:'文章已发布：'+n.title,
+        const notices=s.world.notifications.filter((n:any)=>n.recipient===peerId).map((n:any,i:number)=>({msg_id:10000+Number(n.id.split('-')[1]),sender_id:1,sender_name:(s.source.operator || '我'),created_at:stamp+i+1,content:'文章已发布：'+n.title,
           publication_share:{id:n.publication,title:n.title,summary:n.summary,publish_at:n.publish_at,url:`/native/product/blog/${run}?post=${encodeURIComponent(n.publication)}#${token}`}}));
-        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:'周予安',created_at:stamp+1000+m.id,content:m.body}));
+        const discussion=s.world.discussion.filter((m:any)=>m.recipient===peerId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:(s.source.operator || '我'),created_at:stamp+1000+m.id,content:m.body}));
         return respond({messages:[...notices,...discussion].sort((a:any,b:any)=>b.created_at-a.created_at)});
       }
       const profile=s.world.authors.find((a:any)=>a.id===Number(path.match(/\/user\/(\d+)/)?.[1]));
@@ -184,13 +184,13 @@ export async function nativeFetch(
       if(method==='GET' && path.endsWith('/messages') && group) {
         const track=(id:string)=>{const o=s.domain.objects[id];return `${o.name} · ${o.edition} · ${o.record_code}`;};
         const shares=s.world.shares.filter((share:any)=>share.group===groupId).map((share:any,i:number)=>({
-          msg_id:10000+Number(share.id.split('-')[1]),sender_id:1,sender_name:'周予安',created_at:stamp+i+1,
+          msg_id:10000+Number(share.id.split('-')[1]),sender_id:1,sender_name:(s.source.operator || '我'),created_at:stamp+i+1,
           content:`分享歌单：${share.name}`,music_share:{name:share.name,count:share.members.length,tracks:share.members.map(track),added:share.added.map(track),url:`/native/music/${run}/${share.link}#${token}`}
         }));
-        const messages=s.world.messages.filter((m:any)=>m.group===groupId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:'周予安',created_at:stamp+1000+m.id,content:m.body}));
+        const messages=s.world.messages.filter((m:any)=>m.group===groupId).map((m:any)=>({msg_id:20000+m.id,sender_id:1,sender_name:(s.source.operator || '我'),created_at:stamp+1000+m.id,content:m.body}));
         return respond({messages:[...shares,...messages].sort((a:any,b:any)=>b.created_at-a.created_at)});
       }
-      if(method==='GET' && path.endsWith('/group') && group)return respond({name:group.name,owner_id:2,created_at:stamp,description:'活动筹备与音乐分享',announcements:[],members:[{user_id:1,username:'周予安',role:'member'},{user_id:2,username:'活动协调员',role:'owner'}]});
+      if(method==='GET' && path.endsWith('/group') && group)return respond({name:group.name,owner_id:2,created_at:stamp,description:'活动筹备与音乐分享',announcements:[],members:[{user_id:1,username:(s.source.operator || '我'),role:'member'},{user_id:2,username:'活动协调员',role:'owner'}]});
       if(method==='POST' && path.endsWith('/messages') && group) {
         await imCommand('group.message',String(groupId),JSON.stringify({text:body.content}));return respond({msg_id:20000+s.world.messages.length+1});
       }
@@ -217,11 +217,11 @@ export async function nativeFetch(
       if(method==='GET' && path.endsWith('/messages')) {
         if(groupId==='2')return respond({messages:s.world.projects.map((p:any,i:number)=>({msg_id:5000+i,sender_id:2,sender_name:'项目协调员',created_at:stamp+i,
           content:`项目 ${p.id}：${p.name}\n请从项目通知中的候选名单选择三人，建立“${p.group_name}”。\n群公告：${p.announcement}\n项目资料：${p.material_link}`})).reverse()});
-        return respond({messages:(group?.messages||[]).map((m:any)=>({msg_id:10000+m.id,sender_id:1,sender_name:'周予安',created_at:stamp+m.id,content:m.body})).reverse()});
+        return respond({messages:(group?.messages||[]).map((m:any)=>({msg_id:10000+m.id,sender_id:1,sender_name:(s.source.operator || '我'),created_at:stamp+m.id,content:m.body})).reverse()});
       }
       if(method==='GET' && path.endsWith('/group') && group)return respond({name:group.name,owner_id:1,created_at:stamp,description:'项目工作群',
-        announcements:group.announcement?[{id:1,content:group.announcement,publisher_name:'周予安',created_at:stamp}]:[],
-        members:[{user_id:1,username:'周予安',role:'owner'},...s.items.flatMap((item:any,i:number)=>group.members.includes(item.id)?[{...user(i),role:'member'}]:[])]});
+        announcements:group.announcement?[{id:1,content:group.announcement,publisher_name:(s.source.operator || '我'),created_at:stamp}]:[],
+        members:[{user_id:1,username:(s.source.operator || '我'),role:'owner'},...s.items.flatMap((item:any,i:number)=>group.members.includes(item.id)?[{...user(i),role:'member'}]:[])]});
       if(method==='POST' && path==='/api/conversations' && Array.isArray(body.member_ids)) {
         const ids=body.member_ids.map((id:number)=>s.items[id-10]?.id);
         if(ids.some((id:any)=>!id))throw Error('联系人不存在');
@@ -251,7 +251,7 @@ export async function nativeFetch(
     const msg = (item: any, i: number) => ({
       msg_id: 100 + i,
       sender_id: projectReceipts ? item.receipt_sender_id : 2,
-      sender_name: projectReceipts ? item.name : "林若宁",
+      sender_name: projectReceipts ? item.name : s.source.recipient,
       sender_avatar: undefined,
       content: item.text,
       created_at: Date.parse(item.created_at) / 1000,
@@ -263,7 +263,7 @@ export async function nativeFetch(
       if (path === "/api/workspace")
         return respond({ instructions: projectReceipts ? s.public_parameters : undefined });
       if (path === "/api/user/profile")
-        return respond({ user_id: 1, username: "周予安", avatar: undefined });
+        return respond({ user_id: 1, username: (s.source.operator || '我'), avatar: undefined });
       if (path === "/api/friends")
         return respond({
           friends: projectReceipts
@@ -282,8 +282,8 @@ export async function nativeFetch(
           {
             conversation_id: 2,
             type: "private",
-            name: "林若宁",
-            peer_user: { user_id: 2, username: "林若宁" },
+            name: s.source.recipient,
+            peer_user: { user_id: 2, username: s.source.recipient },
             other_user_id: 2,
             unread_count: 0,
             last_message: {
@@ -297,7 +297,7 @@ export async function nativeFetch(
             conversation_id: 20,
             type: "group",
             name: "项目讨论组",
-            peer_user: { user_id: 1, username: "周予安" },
+            peer_user: { user_id: 1, username: (s.source.operator || '我') },
             other_user_id: 1,
             unread_count: 0,
             last_message: {
@@ -318,14 +318,14 @@ export async function nativeFetch(
             .map((m: any, i: number) => ({
               msg_id: 1000 + i,
               sender_id: 1,
-              sender_name: "周予安",
+              sender_name: (s.source.operator || '我'),
               content: m.body,
               created_at: Date.parse(s.source.reference_time) / 1000 + i,
               reply_to: m.reference
                 ? {
                     msg_id:
                       100 + s.items.findIndex((x: any) => x.id === m.reference),
-                    sender_name: projectReceipts ? s.domain.objects[m.reference].name : "林若宁",
+                    sender_name: projectReceipts ? s.domain.objects[m.reference].name : s.source.recipient,
                     content: s.domain.objects[m.reference].text,
                   }
                 : undefined,
@@ -339,7 +339,7 @@ export async function nativeFetch(
           const members = Array.from(new Map(s.items.filter((item: any) => item.scope_id === scope.id)
             .map((item: any) => [item.receipt_sender_id, {user_id:item.receipt_sender_id,username:item.name}])).values());
           return respond({name:scope.name,owner_id:1,created_at:Date.parse(s.source.reference_time)/1000,
-            description:'项目通知与回执',announcements:[],members:[{user_id:1,username:'周予安'},...members]});
+            description:'项目通知与回执',announcements:[],members:[{user_id:1,username:(s.source.operator || '我')},...members]});
         }
         if (path !== '/api/conversations/20/group' || !s.domain.memberships['group-1'])
           throw Error('该会话不是群聊');
@@ -350,7 +350,7 @@ export async function nativeFetch(
           announcements: [],
           description: '',
           members: [
-            { user_id: 1, username: "周予安" },
+            { user_id: 1, username: (s.source.operator || '我') },
             ...s.items
               .map((_: any, i: number) => user(i))
               .filter((u: any) =>
@@ -367,7 +367,7 @@ export async function nativeFetch(
         const person = projectReceipts ? s.items.find((item: any) => item.receipt_sender_id === id) : undefined;
         return respond({
           user_id: person?.receipt_sender_id || (scope ? 10 + s.scopes.indexOf(scope) : 2),
-          username: person?.name || scope?.name || "林若宁",
+          username: person?.name || scope?.name || s.source.recipient,
           avatar: undefined,
           bio: "产品与设计协作",
         });

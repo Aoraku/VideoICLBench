@@ -192,7 +192,7 @@ async def main():
              await button('加入快捷入口 '+name)
              await expect(page.get_by_role('region',name='会话快捷入口').get_by_role('button',name='打开快捷会话 '+name)).to_be_visible()
            elif t==11:
-            await button('聊天文件');name=initial['domain']['objects'][effect['selection'][0]]['name'];await click(page.get_by_role('button',name=name,exact=False).last);await button('发送给林若宁')
+            await button('聊天文件');name=initial['domain']['objects'][effect['selection'][0]]['name'];await click(page.get_by_role('button',name=name,exact=False).last);await button('发送给'+initial['source']['recipient'])
            elif t==12:
             for dest,target in enumerate(effect['order']):
              current=(await persisted())['state']['domain']['orders']['main']
@@ -220,7 +220,7 @@ async def main():
             assert 'Invalid Date' not in await details.inner_text()
             await click(details.get_by_role('button',name='Close',exact=True))
            else:
-            await click(page.get_by_text('林若宁',exact=True).first);await page.wait_for_timeout(300)
+            await click(page.get_by_text(initial['source']['recipient'],exact=True).first);await page.wait_for_timeout(300)
             for target,value in effect['actions']:
              # Ant menus remain visible during their closing animation. Wait for
              # the prior popup before locating the next message's menu item.
@@ -312,6 +312,9 @@ async def main():
             r,c=wanted;await button(f'第{r+1}行第{c+1}列')
           else:raise AssertionError('Native workflow not implemented in QA harness: '+module)
           await page.wait_for_timeout(300)
+          if initial.get('rule_target'):
+           await button('确认本条核验')
+           await expect(page.locator('#vic-single-review [role="status"]')).to_have_text('核验记录已保存')
           snap=await persisted();clipboard=await page.evaluate('navigator.clipboard.readText()') if t==43 and variant=='B' else None;outcome=evaluate_run(initial,snap['state'],variant,snap['events'],clipboard)
           assert outcome['success'],outcome
           assert not errors,errors
