@@ -34,7 +34,7 @@ python -m vic_sdk.native_agent claude --model claude-sonnet-4-6 \
 
 匹配的 canonical demo 自动下载并校验；执行 seed 必须与示范 seed 不同。模型仅得到任务目标和视频，不获得版本对应的规则文字。正式运行使用原生默认压缩策略；私有凭证中的 `claude.compact_percent` 应省略，压缩压力测试阈值不适合正式图片任务。
 
-输出目录包含 `manifest.json`、`result.json`、原生 CLI 日志、截图与输入记录。`outcome` 为 evaluator 的 success/fail 时，还须核对 `execution_status=completed`、`agent_finished=true`。网关或环境错误单独报告，不伪装成模型答错。
+输出目录包含 `manifest.json`、`result.json`、原生 CLI 日志、截图与输入记录。`outcome` 为原始 evaluator 的 success/fail。`execution_status=completed` 表示正常结束，且应有 `agent_finished=true`；`budget_exhausted` 表示达到原生费用或轮次上限，控制器仍提交实际环境评分，并保留原生退出码和预算原因。网关或环境错误单独报告，不伪装成模型答错。
 
 ## API 与访问边界
 

@@ -124,7 +124,7 @@ def test_environment_failure_is_terminal_and_logged(tmp_path):
     computer.http.close()
 
 
-@pytest.mark.parametrize('preflight_status,eval_status,expected', [(503, 200, 'environment_error'), (200, 409, 'evaluation_error'), (200, 200, 'fail'), (200, 200, 'incomplete')])
+@pytest.mark.parametrize('preflight_status,eval_status,expected', [(503, 200, 'environment_error'), (200, 409, 'evaluation_error'), (200, 200, 'fail'), (200, 200, 'incomplete'), (200, 200, 'budget')])
 def test_runner_preserves_terminal_results(tmp_path, monkeypatch, preflight_status, eval_status, expected):
     from types import SimpleNamespace
     from vic_sdk.native_agent import run
@@ -147,11 +147,14 @@ def test_runner_preserves_terminal_results(tmp_path, monkeypatch, preflight_stat
     monkeypatch.setattr('vic_sdk.native_agent.subprocess.check_output', lambda *a, **kw: 'test-version')
     launches = []
     class Process:
-        returncode = 0
+        returncode = 1 if expected == 'budget' else 0
         def __init__(self, *a, **kw):
             launches.append(a)
-            kw['stdout'].write(json.dumps({'type': 'result', 'result': 'done', 'is_error': False}) + '\n')
-            if expected != 'incomplete':
+            event = {'type': 'result', 'result': 'done', 'is_error': False}
+            if expected == 'budget':
+                event = {'type': 'result', 'subtype': 'error_max_budget_usd', 'is_error': True, 'errors': ['Reached maximum budget']}
+            kw['stdout'].write(json.dumps(event) + '\n')
+            if expected not in ('incomplete', 'budget'):
                 (Path(kw['stdout'].name).parent / 'computer.jsonl').write_text(
                     json.dumps({'type': 'finish', 'summary': 'Stopped', 'time': 0}) + '\n')
         def communicate(self, prompt, timeout):
@@ -164,8 +167,12 @@ def test_runner_preserves_terminal_results(tmp_path, monkeypatch, preflight_stat
         binary=None, prompt=None, evaluate=True)
     code = run(args)
     result = json.loads(next((tmp_path / 'runs').glob('*/result.json')).read_text())
-    assert result['outcome'] == expected
-    assert code == (0 if expected == 'fail' else 1)
+    assert result['outcome'] == ('fail' if expected == 'budget' else expected)
+    assert code == (0 if expected in ('fail', 'budget') else 1)
+    if expected == 'budget':
+        assert result['execution_status'] == 'budget_exhausted'
+        assert result['agent_finished'] is False
+        assert result['exit_code'] == 1
     assert bool(launches) == (preflight_status == 200)
     assert ('/v2/tasks/11/eval' in requests) == (preflight_status == 200 and expected != 'incomplete')
 
@@ -213,3 +220,21 @@ async def test_coordinate_transport_normalizes_only_unambiguous_integer_strings(
     with pytest.raises(Exception,match='Conflicting'):
         await server.call_tool('computer_act',{'frame_id':1,'kind':'click','x':'65, 103','y':100})
     assert len(captured)==2
+
+
+def test_claude_budget_limit_retains_native_reason(tmp_path):
+    out=tmp_path/'stdout.jsonl'
+    out.write_text(json.dumps({'type':'result','subtype':'error_max_budget_usd','is_error':True,
+                              'errors':['Reached maximum budget ($1.5)']}))
+    result=summarize('claude',out,tmp_path)
+    assert result['native_result_subtype']=='error_max_budget_usd'
+    assert result['errors'][0]['message']=='Reached maximum budget ($1.5)'
+
+
+def test_native_budget_stop_can_be_graded_but_provider_error_cannot():
+    from vic_sdk.native_agent import execution_status
+    budget={'exit_code':1,'is_error':True,'native_result_subtype':'error_max_budget_usd'}
+    assert execution_status(budget)=='budget_exhausted'
+    assert execution_status(budget,environment_error=True)=='environment_error'
+    assert execution_status({'exit_code':1,'is_error':True,'native_result_subtype':'error_during_execution'})=='agent_error'
+    assert execution_status({'exit_code':0})=='completed'

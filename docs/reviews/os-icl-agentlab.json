@@ -1,0 +1,947 @@
+{
+  "date": "2026-10-05",
+  "source": {
+    "repository": "peilin717/OS-ICL",
+    "commit": "e6c805094eade3ee391d89ad19dbbefc5bc76e11",
+    "files_verified": 140,
+    "videos_verified": 108,
+    "patch": "os-icl-visible-recovery-order.patch",
+    "patch_sha256": "a1979e8fb56a6797726f6dfc66891459bd478e5ec3d21d84fc4acbf5841ae0e3"
+  },
+  "selection": "Three preselected representative families: selection (L1), recovery (L2), cross_app (L3). This is not a random or full-suite model benchmark.",
+  "viewport": [
+    1280,
+    720
+  ],
+  "variant": "A",
+  "query_seed": 20261005,
+  "wall_seconds": 1200,
+  "max_actions": 100,
+  "claude_native_cost_cap_usd": 1.5,
+  "model_input": "Automatically assigned, checksum-verified canonical demo frames plus public task goal and live screenshots. No hidden rule, DOM, source, or semantic action API.",
+  "grading": "Unmodified upstream evaluator. Recovery Index and its common ordering requirement are visible. Cross-app grading requires explicit source-record inspect.",
+  "acceptance": [
+    {
+      "engine": "codex",
+      "model": "gpt-5.5",
+      "cli_version": "codex-cli 0.147.0",
+      "run_id": "vos_12b5197bd0ac16f2",
+      "task_id": "OS-SEL-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "cf31bf90b07e1066fd6344243a4567be01b10241a4d2137ca97f503460912774",
+      "compaction": "native default",
+      "outcome": "success",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 53.2,
+      "evaluation": {
+        "run_id": "vos_12b5197bd0ac16f2",
+        "success": true,
+        "goal_success": true,
+        "rule_compliance": true,
+        "trajectory_compliance": 1.0,
+        "side_effect_free": true,
+        "invalid_actions": 0,
+        "agent_steps": 1,
+        "optimal_steps": 1,
+        "expected_count": 1,
+        "side_effect_count": 0,
+        "finished_at": 1791138810057
+      },
+      "computer_evidence": {
+        "screenshots": 2,
+        "actions": 1,
+        "video_frames": 3,
+        "finish_summaries": [
+          "Selected Tav3 and verified its row is marked Select. It matches the demonstration target: largest item, amber circle, paused, age 2."
+        ]
+      },
+      "errors": [],
+      "reported_cost_usd": null,
+      "artifact_directory": ".local/os-integration/runs/codex-20261005-023233-d32f68",
+      "tool_errors": [],
+      "native_result": null,
+      "acceptance_run": true,
+      "diagnostic_note": null
+    },
+    {
+      "engine": "codex",
+      "model": "gpt-5.5",
+      "cli_version": "codex-cli 0.147.0",
+      "run_id": "vos_cbc671e9808b4c81",
+      "task_id": "OS-REC-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "001cadad3a37dce4f751355204ac251c4d9d5495eda5186b9e0c5cc5a0b32fe3",
+      "compaction": "native default",
+      "outcome": "success",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 117.4,
+      "evaluation": {
+        "run_id": "vos_cbc671e9808b4c81",
+        "success": true,
+        "goal_success": true,
+        "rule_compliance": true,
+        "trajectory_compliance": 1.0,
+        "side_effect_free": true,
+        "invalid_actions": 0,
+        "agent_steps": 6,
+        "optimal_steps": 6,
+        "expected_count": 6,
+        "side_effect_count": 0,
+        "finished_at": 1791139269310
+      },
+      "computer_evidence": {
+        "screenshots": 13,
+        "actions": 12,
+        "video_frames": 7,
+        "finish_summaries": [
+          "Resolved Mira (Index 3), Tarin (Index 4), and Elowen (Index 5) in ascending Index order, using Open Conflict then Overwrite for each. Verified all three show Resolved."
+        ]
+      },
+      "errors": [],
+      "reported_cost_usd": null,
+      "artifact_directory": ".local/os-integration/runs/codex-20261005-023908-f729f4",
+      "tool_errors": [],
+      "native_result": null,
+      "acceptance_run": true,
+      "diagnostic_note": null
+    },
+    {
+      "engine": "codex",
+      "model": "gpt-5.5",
+      "cli_version": "codex-cli 0.147.0",
+      "run_id": "vos_b55b8f86e45d7440",
+      "task_id": "OS-XAPP-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "a7b28ab1fb526af1b8743136a132057e40daa90746a3fe66616a6122969ca469",
+      "compaction": "native default",
+      "outcome": "fail",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 71.84,
+      "evaluation": {
+        "run_id": "vos_b55b8f86e45d7440",
+        "success": false,
+        "goal_success": false,
+        "rule_compliance": false,
+        "trajectory_compliance": 0.25,
+        "side_effect_free": true,
+        "invalid_actions": 0,
+        "agent_steps": 3,
+        "optimal_steps": 4,
+        "expected_count": 4,
+        "side_effect_count": 0,
+        "finished_at": 1791139100356
+      },
+      "computer_evidence": {
+        "screenshots": 5,
+        "actions": 4,
+        "video_frames": 4,
+        "finish_summaries": [
+          "Applied demonstrated policy: source record K points to Doran; selected Doran in Files and starred it. Verified the Starred label on Doran."
+        ]
+      },
+      "errors": [],
+      "reported_cost_usd": null,
+      "artifact_directory": ".local/os-integration/runs/codex-20261005-023706-19bd17",
+      "tool_errors": [],
+      "native_result": null,
+      "acceptance_run": true,
+      "diagnostic_note": null
+    },
+    {
+      "engine": "claude",
+      "model": "claude-sonnet-4-6",
+      "cli_version": "2.1.117 (Claude Code)",
+      "run_id": "vos_d05d39035ef80007",
+      "task_id": "OS-SEL-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "cf31bf90b07e1066fd6344243a4567be01b10241a4d2137ca97f503460912774",
+      "compaction": "native default",
+      "outcome": "success",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 81.61,
+      "evaluation": {
+        "run_id": "vos_d05d39035ef80007",
+        "success": true,
+        "goal_success": true,
+        "rule_compliance": true,
+        "trajectory_compliance": 1.0,
+        "side_effect_free": true,
+        "invalid_actions": 0,
+        "agent_steps": 1,
+        "optimal_steps": 1,
+        "expected_count": 1,
+        "side_effect_count": 0,
+        "finished_at": 1791139026688
+      },
+      "computer_evidence": {
+        "screenshots": 3,
+        "actions": 2,
+        "video_frames": 4,
+        "finish_summaries": [
+          "Selected Tav3 (92 MB), the item with the largest size, matching the demo policy of selecting the largest item. The evaluation returned success."
+        ]
+      },
+      "errors": [],
+      "reported_cost_usd": 0.1635369,
+      "artifact_directory": ".local/os-integration/runs/claude-20261005-023603-7fad45",
+      "tool_errors": [],
+      "native_result": {
+        "subtype": "success",
+        "errors": null,
+        "is_error": false,
+        "terminal_reason": "completed"
+      },
+      "acceptance_run": true,
+      "diagnostic_note": null
+    },
+    {
+      "engine": "claude",
+      "model": "claude-sonnet-4-6",
+      "cli_version": "2.1.117 (Claude Code)",
+      "run_id": "vos_9b1f34a0b6c89c29",
+      "task_id": "OS-REC-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "001cadad3a37dce4f751355204ac251c4d9d5495eda5186b9e0c5cc5a0b32fe3",
+      "compaction": "native default",
+      "outcome": "fail",
+      "execution_status": "budget_exhausted",
+      "agent_finished": false,
+      "exit_code": 1,
+      "timed_out": false,
+      "duration_seconds": 632.96,
+      "evaluation": {
+        "run_id": "vos_9b1f34a0b6c89c29",
+        "success": false,
+        "goal_success": false,
+        "rule_compliance": false,
+        "trajectory_compliance": 0.667,
+        "side_effect_free": true,
+        "invalid_actions": 0,
+        "agent_steps": 4,
+        "optimal_steps": 6,
+        "expected_count": 6,
+        "side_effect_count": 0,
+        "finished_at": 1791140782158
+      },
+      "computer_evidence": {
+        "screenshots": 27,
+        "actions": 25,
+        "video_frames": 7,
+        "finish_summaries": []
+      },
+      "errors": [
+        {
+          "message": "Reached maximum budget ($1.5)",
+          "terminal_reason": null
+        }
+      ],
+      "reported_cost_usd": 1.5011189999999999,
+      "artifact_directory": ".local/os-integration/runs/claude-20261005-025419-aa7dd3",
+      "tool_errors": [],
+      "native_result": {
+        "subtype": "error_max_budget_usd",
+        "errors": [
+          "Reached maximum budget ($1.5)"
+        ],
+        "is_error": true,
+        "terminal_reason": null
+      },
+      "acceptance_run": true,
+      "diagnostic_note": null
+    },
+    {
+      "engine": "claude",
+      "model": "claude-sonnet-4-6",
+      "cli_version": "2.1.117 (Claude Code)",
+      "run_id": "vos_6164bf3a4fbf0f47",
+      "task_id": "OS-XAPP-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "a7b28ab1fb526af1b8743136a132057e40daa90746a3fe66616a6122969ca469",
+      "compaction": "native default",
+      "outcome": "success",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 141.96,
+      "evaluation": {
+        "run_id": "vos_6164bf3a4fbf0f47",
+        "success": true,
+        "goal_success": true,
+        "rule_compliance": true,
+        "trajectory_compliance": 1.0,
+        "side_effect_free": true,
+        "invalid_actions": 0,
+        "agent_steps": 4,
+        "optimal_steps": 4,
+        "expected_count": 4,
+        "side_effect_count": 0,
+        "finished_at": 1791139960146
+      },
+      "computer_evidence": {
+        "screenshots": 6,
+        "actions": 5,
+        "video_frames": 6,
+        "finish_summaries": [
+          "Followed the demo policy: navigated to Terminal to identify the K-labeled record (Doran), then went to Files and starred the Doran item. Task complete."
+        ]
+      },
+      "errors": [],
+      "reported_cost_usd": 0.25673115,
+      "artifact_directory": ".local/os-integration/runs/claude-20261005-025015-08ad52",
+      "tool_errors": [],
+      "native_result": {
+        "subtype": "success",
+        "errors": null,
+        "is_error": false,
+        "terminal_reason": "completed"
+      },
+      "acceptance_run": true,
+      "diagnostic_note": null
+    }
+  ],
+  "all_native_attempts": [
+    {
+      "engine": "claude",
+      "model": "claude-sonnet-4-6",
+      "cli_version": "2.1.117 (Claude Code)",
+      "run_id": "vos_4077429d0a1005b9",
+      "task_id": "OS-SEL-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "cf31bf90b07e1066fd6344243a4567be01b10241a4d2137ca97f503460912774",
+      "compaction": {
+        "implementation": "native Claude Code",
+        "threshold_percent": 5
+      },
+      "outcome": "agent_error",
+      "execution_status": "agent_error",
+      "agent_finished": false,
+      "exit_code": 1,
+      "timed_out": false,
+      "duration_seconds": 147.93,
+      "evaluation": null,
+      "computer_evidence": {
+        "screenshots": 2,
+        "actions": 0,
+        "video_frames": 3,
+        "finish_summaries": []
+      },
+      "errors": [],
+      "reported_cost_usd": 0.35323515000000005,
+      "artifact_directory": ".local/os-integration/runs/claude-20261005-023235-85214a",
+      "tool_errors": [],
+      "native_result": {
+        "subtype": "success",
+        "errors": null,
+        "is_error": true,
+        "terminal_reason": "rapid_refill_breaker"
+      },
+      "acceptance_run": false,
+      "diagnostic_note": "Native compaction stress-test threshold of 5% triggered the rapid-refill breaker; production uses the native default."
+    },
+    {
+      "engine": "claude",
+      "model": "claude-sonnet-4-6",
+      "cli_version": "2.1.117 (Claude Code)",
+      "run_id": "vos_d05d39035ef80007",
+      "task_id": "OS-SEL-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "cf31bf90b07e1066fd6344243a4567be01b10241a4d2137ca97f503460912774",
+      "compaction": "native default",
+      "outcome": "success",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 81.61,
+      "evaluation": {
+        "run_id": "vos_d05d39035ef80007",
+        "success": true,
+        "goal_success": true,
+        "rule_compliance": true,
+        "trajectory_compliance": 1.0,
+        "side_effect_free": true,
+        "invalid_actions": 0,
+        "agent_steps": 1,
+        "optimal_steps": 1,
+        "expected_count": 1,
+        "side_effect_count": 0,
+        "finished_at": 1791139026688
+      },
+      "computer_evidence": {
+        "screenshots": 3,
+        "actions": 2,
+        "video_frames": 4,
+        "finish_summaries": [
+          "Selected Tav3 (92 MB), the item with the largest size, matching the demo policy of selecting the largest item. The evaluation returned success."
+        ]
+      },
+      "errors": [],
+      "reported_cost_usd": 0.1635369,
+      "artifact_directory": ".local/os-integration/runs/claude-20261005-023603-7fad45",
+      "tool_errors": [],
+      "native_result": {
+        "subtype": "success",
+        "errors": null,
+        "is_error": false,
+        "terminal_reason": "completed"
+      },
+      "acceptance_run": true,
+      "diagnostic_note": null
+    },
+    {
+      "engine": "claude",
+      "model": "claude-sonnet-4-6",
+      "cli_version": "2.1.117 (Claude Code)",
+      "run_id": "vos_85617eca8b6bd911",
+      "task_id": "OS-REC-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "001cadad3a37dce4f751355204ac251c4d9d5495eda5186b9e0c5cc5a0b32fe3",
+      "compaction": "native default",
+      "outcome": "success",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 414.52,
+      "evaluation": {
+        "run_id": "vos_85617eca8b6bd911",
+        "success": true,
+        "goal_success": true,
+        "rule_compliance": true,
+        "trajectory_compliance": 1.0,
+        "side_effect_free": true,
+        "invalid_actions": 0,
+        "agent_steps": 6,
+        "optimal_steps": 6,
+        "expected_count": 6,
+        "side_effect_count": 0,
+        "finished_at": 1791139535517
+      },
+      "computer_evidence": {
+        "screenshots": 21,
+        "actions": 19,
+        "video_frames": 7,
+        "finish_summaries": [
+          "Applied the two-step conflict resolution policy (Open Conflict → Overwrite) to all three conflict items in ascending index order: Mira (3), Tarin (4), Elowen (5). All were resolved and the evaluation returned success."
+        ]
+      },
+      "errors": [],
+      "reported_cost_usd": 0.7916502,
+      "artifact_directory": ".local/os-integration/runs/claude-20261005-023910-4ef02f",
+      "tool_errors": [
+        "Error executing tool computer_act: 1 validation error for computer_actArguments\nx\n  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='1039, ', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/int_parsing"
+      ],
+      "native_result": {
+        "subtype": "success",
+        "errors": null,
+        "is_error": false,
+        "terminal_reason": "completed"
+      },
+      "acceptance_run": false,
+      "diagnostic_note": "Completed, with one recoverable coordinate-format tool validation error."
+    },
+    {
+      "engine": "claude",
+      "model": "claude-sonnet-4-6",
+      "cli_version": "2.1.117 (Claude Code)",
+      "run_id": "vos_23586f94ab7f48cf",
+      "task_id": "OS-XAPP-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "a7b28ab1fb526af1b8743136a132057e40daa90746a3fe66616a6122969ca469",
+      "compaction": "native default",
+      "outcome": "fail",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 155.87,
+      "evaluation": {
+        "run_id": "vos_23586f94ab7f48cf",
+        "success": false,
+        "goal_success": false,
+        "rule_compliance": false,
+        "trajectory_compliance": 0.25,
+        "side_effect_free": true,
+        "invalid_actions": 0,
+        "agent_steps": 3,
+        "optimal_steps": 4,
+        "expected_count": 4,
+        "side_effect_count": 0,
+        "finished_at": 1791139457545
+      },
+      "computer_evidence": {
+        "screenshots": 6,
+        "actions": 4,
+        "video_frames": 7,
+        "finish_summaries": [
+          "Visited Terminal to identify the K-label target (Doran), then navigated to Files and starred Doran, following the demonstrated policy."
+        ]
+      },
+      "errors": [],
+      "reported_cost_usd": 0.2888061,
+      "artifact_directory": ".local/os-integration/runs/claude-20261005-024139-b1881c",
+      "tool_errors": [
+        "Error executing tool computer_act: 1 validation error for computer_actArguments\nx\n  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='65, ', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/int_parsing"
+      ],
+      "native_result": {
+        "subtype": "success",
+        "errors": null,
+        "is_error": false,
+        "terminal_reason": "completed"
+      },
+      "acceptance_run": false,
+      "diagnostic_note": "Completed, with one recoverable coordinate-format tool validation error; missing inspect action caused evaluator fail."
+    },
+    {
+      "engine": "claude",
+      "model": "claude-sonnet-4-6",
+      "cli_version": "2.1.117 (Claude Code)",
+      "run_id": "vos_1221ab0c496f9a4a",
+      "task_id": "OS-REC-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "001cadad3a37dce4f751355204ac251c4d9d5495eda5186b9e0c5cc5a0b32fe3",
+      "compaction": "native default",
+      "outcome": "agent_error",
+      "execution_status": "agent_error",
+      "agent_finished": false,
+      "exit_code": 1,
+      "timed_out": false,
+      "duration_seconds": 527.86,
+      "evaluation": null,
+      "computer_evidence": {
+        "screenshots": 23,
+        "actions": 21,
+        "video_frames": 7,
+        "finish_summaries": []
+      },
+      "errors": [
+        {
+          "message": "",
+          "terminal_reason": null
+        }
+      ],
+      "reported_cost_usd": 1.5137275499999998,
+      "artifact_directory": ".local/os-integration/runs/claude-20261005-024613-faf649",
+      "tool_errors": [
+        "Error executing tool computer_act: 1 validation error for computer_actArguments\nx\n  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='924, 619', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/int_parsing"
+      ],
+      "native_result": {
+        "subtype": "error_max_budget_usd",
+        "errors": [
+          "Reached maximum budget ($1.5)"
+        ],
+        "is_error": true,
+        "terminal_reason": null
+      },
+      "acceptance_run": false,
+      "diagnostic_note": "Native cost budget reached; redundant coordinate-pair formatting was also rejected by this transport."
+    },
+    {
+      "engine": "claude",
+      "model": "claude-sonnet-4-6",
+      "cli_version": "2.1.117 (Claude Code)",
+      "run_id": "vos_eefb4b2f1ea3b2b6",
+      "task_id": "OS-XAPP-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "a7b28ab1fb526af1b8743136a132057e40daa90746a3fe66616a6122969ca469",
+      "compaction": "native default",
+      "outcome": "fail",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 136.48,
+      "evaluation": {
+        "run_id": "vos_eefb4b2f1ea3b2b6",
+        "success": false,
+        "goal_success": false,
+        "rule_compliance": false,
+        "trajectory_compliance": 0.25,
+        "side_effect_free": true,
+        "invalid_actions": 0,
+        "agent_steps": 3,
+        "optimal_steps": 4,
+        "expected_count": 4,
+        "side_effect_count": 0,
+        "finished_at": 1791139713002
+      },
+      "computer_evidence": {
+        "screenshots": 5,
+        "actions": 4,
+        "video_frames": 6,
+        "finish_summaries": [
+          "Navigated to Terminal to identify the K-record target (Doran), then went to Files and starred Doran, following the demonstrated policy of starring the item pointed to by the K source record."
+        ]
+      },
+      "errors": [],
+      "reported_cost_usd": 0.2575074,
+      "artifact_directory": ".local/os-integration/runs/claude-20261005-024614-ca4472",
+      "tool_errors": [
+        "Error executing tool computer_act: 1 validation error for computer_actArguments\nx\n  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='76, 279', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.13/v/int_parsing"
+      ],
+      "native_result": {
+        "subtype": "success",
+        "errors": null,
+        "is_error": false,
+        "terminal_reason": "completed"
+      },
+      "acceptance_run": false,
+      "diagnostic_note": "Completed, with one recoverable redundant coordinate-pair validation error; missing inspect action caused evaluator fail."
+    },
+    {
+      "engine": "claude",
+      "model": "claude-sonnet-4-6",
+      "cli_version": "2.1.117 (Claude Code)",
+      "run_id": "vos_6164bf3a4fbf0f47",
+      "task_id": "OS-XAPP-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "a7b28ab1fb526af1b8743136a132057e40daa90746a3fe66616a6122969ca469",
+      "compaction": "native default",
+      "outcome": "success",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 141.96,
+      "evaluation": {
+        "run_id": "vos_6164bf3a4fbf0f47",
+        "success": true,
+        "goal_success": true,
+        "rule_compliance": true,
+        "trajectory_compliance": 1.0,
+        "side_effect_free": true,
+        "invalid_actions": 0,
+        "agent_steps": 4,
+        "optimal_steps": 4,
+        "expected_count": 4,
+        "side_effect_count": 0,
+        "finished_at": 1791139960146
+      },
+      "computer_evidence": {
+        "screenshots": 6,
+        "actions": 5,
+        "video_frames": 6,
+        "finish_summaries": [
+          "Followed the demo policy: navigated to Terminal to identify the K-labeled record (Doran), then went to Files and starred the Doran item. Task complete."
+        ]
+      },
+      "errors": [],
+      "reported_cost_usd": 0.25673115,
+      "artifact_directory": ".local/os-integration/runs/claude-20261005-025015-08ad52",
+      "tool_errors": [],
+      "native_result": {
+        "subtype": "success",
+        "errors": null,
+        "is_error": false,
+        "terminal_reason": "completed"
+      },
+      "acceptance_run": true,
+      "diagnostic_note": null
+    },
+    {
+      "engine": "claude",
+      "model": "claude-sonnet-4-6",
+      "cli_version": "2.1.117 (Claude Code)",
+      "run_id": "vos_9b1f34a0b6c89c29",
+      "task_id": "OS-REC-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "001cadad3a37dce4f751355204ac251c4d9d5495eda5186b9e0c5cc5a0b32fe3",
+      "compaction": "native default",
+      "outcome": "fail",
+      "execution_status": "budget_exhausted",
+      "agent_finished": false,
+      "exit_code": 1,
+      "timed_out": false,
+      "duration_seconds": 632.96,
+      "evaluation": {
+        "run_id": "vos_9b1f34a0b6c89c29",
+        "success": false,
+        "goal_success": false,
+        "rule_compliance": false,
+        "trajectory_compliance": 0.667,
+        "side_effect_free": true,
+        "invalid_actions": 0,
+        "agent_steps": 4,
+        "optimal_steps": 6,
+        "expected_count": 6,
+        "side_effect_count": 0,
+        "finished_at": 1791140782158
+      },
+      "computer_evidence": {
+        "screenshots": 27,
+        "actions": 25,
+        "video_frames": 7,
+        "finish_summaries": []
+      },
+      "errors": [
+        {
+          "message": "Reached maximum budget ($1.5)",
+          "terminal_reason": null
+        }
+      ],
+      "reported_cost_usd": 1.5011189999999999,
+      "artifact_directory": ".local/os-integration/runs/claude-20261005-025419-aa7dd3",
+      "tool_errors": [],
+      "native_result": {
+        "subtype": "error_max_budget_usd",
+        "errors": [
+          "Reached maximum budget ($1.5)"
+        ],
+        "is_error": true,
+        "terminal_reason": null
+      },
+      "acceptance_run": true,
+      "diagnostic_note": null
+    },
+    {
+      "engine": "codex",
+      "model": "gpt-5.5",
+      "cli_version": "codex-cli 0.147.0",
+      "run_id": "vos_12b5197bd0ac16f2",
+      "task_id": "OS-SEL-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "cf31bf90b07e1066fd6344243a4567be01b10241a4d2137ca97f503460912774",
+      "compaction": "native default",
+      "outcome": "success",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 53.2,
+      "evaluation": {
+        "run_id": "vos_12b5197bd0ac16f2",
+        "success": true,
+        "goal_success": true,
+        "rule_compliance": true,
+        "trajectory_compliance": 1.0,
+        "side_effect_free": true,
+        "invalid_actions": 0,
+        "agent_steps": 1,
+        "optimal_steps": 1,
+        "expected_count": 1,
+        "side_effect_count": 0,
+        "finished_at": 1791138810057
+      },
+      "computer_evidence": {
+        "screenshots": 2,
+        "actions": 1,
+        "video_frames": 3,
+        "finish_summaries": [
+          "Selected Tav3 and verified its row is marked Select. It matches the demonstration target: largest item, amber circle, paused, age 2."
+        ]
+      },
+      "errors": [],
+      "reported_cost_usd": null,
+      "artifact_directory": ".local/os-integration/runs/codex-20261005-023233-d32f68",
+      "tool_errors": [],
+      "native_result": null,
+      "acceptance_run": true,
+      "diagnostic_note": null
+    },
+    {
+      "engine": "codex",
+      "model": "gpt-5.5",
+      "cli_version": "codex-cli 0.147.0",
+      "run_id": "vos_57100212be0bd747",
+      "task_id": "OS-REC-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "001cadad3a37dce4f751355204ac251c4d9d5495eda5186b9e0c5cc5a0b32fe3",
+      "compaction": "native default",
+      "outcome": "fail",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 143.52,
+      "evaluation": {
+        "run_id": "vos_57100212be0bd747",
+        "success": false,
+        "goal_success": false,
+        "rule_compliance": false,
+        "trajectory_compliance": 0.333,
+        "side_effect_free": true,
+        "invalid_actions": 0,
+        "agent_steps": 6,
+        "optimal_steps": 6,
+        "expected_count": 6,
+        "side_effect_count": 0,
+        "finished_at": 1791138984217
+      },
+      "computer_evidence": {
+        "screenshots": 13,
+        "actions": 12,
+        "video_frames": 7,
+        "finish_summaries": [
+          "Applied the demonstrated Open Conflict then Overwrite policy to Mira, Elowen, and Tarin. Verified all three now show Resolved; Ready items remain unchanged."
+        ]
+      },
+      "errors": [],
+      "reported_cost_usd": null,
+      "artifact_directory": ".local/os-integration/runs/codex-20261005-023356-f25144",
+      "tool_errors": [],
+      "native_result": null,
+      "acceptance_run": false,
+      "diagnostic_note": "Recovery evaluator requires ascending Index, but the original UI did not display Index or the public ordering requirement."
+    },
+    {
+      "engine": "codex",
+      "model": "gpt-5.5",
+      "cli_version": "codex-cli 0.147.0",
+      "run_id": "vos_b55b8f86e45d7440",
+      "task_id": "OS-XAPP-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "a7b28ab1fb526af1b8743136a132057e40daa90746a3fe66616a6122969ca469",
+      "compaction": "native default",
+      "outcome": "fail",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 71.84,
+      "evaluation": {
+        "run_id": "vos_b55b8f86e45d7440",
+        "success": false,
+        "goal_success": false,
+        "rule_compliance": false,
+        "trajectory_compliance": 0.25,
+        "side_effect_free": true,
+        "invalid_actions": 0,
+        "agent_steps": 3,
+        "optimal_steps": 4,
+        "expected_count": 4,
+        "side_effect_count": 0,
+        "finished_at": 1791139100356
+      },
+      "computer_evidence": {
+        "screenshots": 5,
+        "actions": 4,
+        "video_frames": 4,
+        "finish_summaries": [
+          "Applied demonstrated policy: source record K points to Doran; selected Doran in Files and starred it. Verified the Starred label on Doran."
+        ]
+      },
+      "errors": [],
+      "reported_cost_usd": null,
+      "artifact_directory": ".local/os-integration/runs/codex-20261005-023706-19bd17",
+      "tool_errors": [],
+      "native_result": null,
+      "acceptance_run": true,
+      "diagnostic_note": null
+    },
+    {
+      "engine": "codex",
+      "model": "gpt-5.5",
+      "cli_version": "codex-cli 0.147.0",
+      "run_id": "vos_cbc671e9808b4c81",
+      "task_id": "OS-REC-01",
+      "variant": "A",
+      "seed": 20261005,
+      "input_condition": "video",
+      "input_sha256": "001cadad3a37dce4f751355204ac251c4d9d5495eda5186b9e0c5cc5a0b32fe3",
+      "compaction": "native default",
+      "outcome": "success",
+      "execution_status": "completed",
+      "agent_finished": true,
+      "exit_code": 0,
+      "timed_out": false,
+      "duration_seconds": 117.4,
+      "evaluation": {
+        "run_id": "vos_cbc671e9808b4c81",
+        "success": true,
+        "goal_success": true,
+        "rule_compliance": true,
+        "trajectory_compliance": 1.0,
+        "side_effect_free": true,
+        "invalid_actions": 0,
+        "agent_steps": 6,
+        "optimal_steps": 6,
+        "expected_count": 6,
+        "side_effect_count": 0,
+        "finished_at": 1791139269310
+      },
+      "computer_evidence": {
+        "screenshots": 13,
+        "actions": 12,
+        "video_frames": 7,
+        "finish_summaries": [
+          "Resolved Mira (Index 3), Tarin (Index 4), and Elowen (Index 5) in ascending Index order, using Open Conflict then Overwrite for each. Verified all three show Resolved."
+        ]
+      },
+      "errors": [],
+      "reported_cost_usd": null,
+      "artifact_directory": ".local/os-integration/runs/codex-20261005-023908-f729f4",
+      "tool_errors": [],
+      "native_result": null,
+      "acceptance_run": true,
+      "diagnostic_note": null
+    }
+  ],
+  "accuracy_scope": "The six acceptance runs prove end-to-end execution and final grading. Retries during adapter validation and a single seed do not support a stable or comparative accuracy claim.",
+  "checks": {
+    "upstream_tests": 16,
+    "platform_tests": 2215,
+    "focused_tests": 20,
+    "ui_cases": 36,
+    "updated_recovery_ui_cases": 6,
+    "canonical_video_hashes": 108,
+    "records_qa_video": false
+  },
+  "deployment": {
+    "host": "agentlab",
+    "portal": "http://127.0.0.1:18765/",
+    "entry": "OS · 36 题",
+    "source_directory": "/home/qingle/services/os-icl-e6c8050",
+    "restart_policy": "unless-stopped",
+    "persistent_volumes": [
+      "videoicl_os_data",
+      "videoicl_run_data"
+    ]
+  }
+}

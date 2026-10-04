@@ -33,6 +33,18 @@ def private_json(path: Path, value):
         json.dump(value, f, ensure_ascii=False, indent=2)
 
 
+def execution_status(result, *, environment_error=False, timed_out=False):
+    if environment_error:
+        return "environment_error"
+    if timed_out:
+        return "timed_out"
+    if result.get("native_result_subtype") in {"error_max_budget_usd", "error_max_turns"}:
+        # A configured inference limit is a controlled stop, not a provider failure.
+        # Preserve the native error and exit code; grade the actual environment state.
+        return "budget_exhausted"
+    return "agent_error" if result.get("exit_code") or result.get("is_error") else "completed"
+
+
 def clean_env():
     # Deliberately do not inherit this developer's agent/session/provider settings.
     keep = {"PATH", "HOME", "USER", "TMPDIR", "LANG", "LC_ALL", "SHELL", "SYSTEMROOT",
@@ -123,9 +135,10 @@ def summarize(engine: str, output: Path, profile: Path, session_id=None):
             result["usage"] = e.get("usage")
         if e.get("type") == "result":
             result.update(final_text=e.get("result", ""), usage=e.get("usage"),
-                          reported_cost_usd=e.get("total_cost_usd"), is_error=e.get("is_error", False))
+                          reported_cost_usd=e.get("total_cost_usd"), is_error=e.get("is_error", False),
+                          native_result_subtype=e.get("subtype"))
             if e.get("is_error"):
-                result["errors"].append({"message": e.get("result", ""),
+                result["errors"].append({"message": e.get("result") or "; ".join(map(str, e.get("errors", []))) or e.get("subtype"),
                                          "terminal_reason": e.get("terminal_reason")})
         if e.get("type") == "system" and e.get("subtype") == "compact_boundary":
             result["compaction_events"].append({"source": "native_stream", "event": e})
@@ -329,8 +342,7 @@ def run(args):
     result = summarize(args.engine, stdout, profile, session_id)
     result["agent_finished"] = False
     result.update(exit_code=proc.returncode, timed_out=timed_out, duration_seconds=round(time.monotonic()-started, 2))
-    result["execution_status"] = ("environment_error" if environment_error else "timed_out" if timed_out
-                                  else "agent_error" if proc.returncode or result.get("is_error") else "completed")
+    result["execution_status"] = execution_status(result, environment_error=environment_error, timed_out=timed_out)
     log = output_dir / "computer.jsonl"
     if log.exists():
         events = [json.loads(line) for line in log.read_text().splitlines()]
@@ -354,6 +366,15 @@ def run(args):
     result["outcome"] = ("environment_error" if environment_error else
                          "agent_error" if result["execution_status"] == "agent_error" else
                          "incomplete" if result["execution_status"] == "incomplete" else "unevaluated")
+    evaluate_result(args, computer_config, meta, result)
+    private_json(output_dir / f"result-{index}.json", result)
+    private_json(output_dir / "result.json", result)
+    print(json.dumps({"artifacts": str(output_dir), **result}, ensure_ascii=False, indent=2))
+    native_failure = (proc.returncode or result.get("is_error")) and result["execution_status"] != "budget_exhausted"
+    return 1 if timed_out or native_failure or result["outcome"].endswith("error") or result["outcome"] == "incomplete" else 0
+
+
+def evaluate_result(args, computer_config, meta, result):
     if args.evaluate and result["outcome"] == "unevaluated":
         try:
             with httpx.Client(base_url=computer_config["control_url"], timeout=90,
@@ -368,10 +389,7 @@ def run(args):
         except httpx.RequestError as exc:
             result["outcome"] = "evaluation_error"
             result["evaluation_error"] = {"type": type(exc).__name__}
-    private_json(output_dir / f"result-{index}.json", result)
-    private_json(output_dir / "result.json", result)
-    print(json.dumps({"artifacts": str(output_dir), **result}, ensure_ascii=False, indent=2))
-    return 1 if timed_out or proc.returncode or result.get("is_error") or result["outcome"].endswith("error") or result["outcome"] == "incomplete" else 0
+    return result
 
 
 def main():
