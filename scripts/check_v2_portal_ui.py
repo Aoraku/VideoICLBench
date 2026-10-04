@@ -69,6 +69,7 @@ async def main():
   assert not any(path.endswith('/eval') for path,_ in calls)
   await page.get_by_role('button',name='重置示范',exact=True).click()
   await expect(page.get_by_role('status')).to_contain_text('恢复初态')
+  await demo.wait_for_url('**/*vic_reset=1*')
   await page.get_by_role('tab',name='执行 · inference').click()
   await expect(page.get_by_text('最终交付',exact=True)).to_be_visible()
   async with context.expect_page() as popup:
@@ -81,6 +82,7 @@ async def main():
   await expect(page.get_by_role('button',name='检查最终交付',exact=True)).to_be_disabled()
   await page.get_by_role('button',name='重置执行环境',exact=True).click()
   await expect(page.get_by_role('button',name='检查最终交付',exact=True)).to_be_enabled()
+  await inference.wait_for_url('**/*vic_reset=1*')
   await page.get_by_label('搜索 v2 任务').fill('')
   await page.screenshot(path=str(out/'inference.png'),full_page=True)
   await page.get_by_role('tab',name='示范 · demo').click()

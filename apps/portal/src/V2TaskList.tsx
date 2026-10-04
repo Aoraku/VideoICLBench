@@ -48,7 +48,7 @@ export function V2TaskList({token,onBusy}:{token:string;onBusy:(value:boolean)=>
   }
   async function reset(value:Mode){
     setBusy(true);setError('');setNotice('');
-    try{const r=await prepare(value,true);const tab=tabs.current[runKey(value)];if(tab&&!tab.closed)tab.location.replace(nativeApplicationUrl(r.application_url));if(value==='demo'){setCapture(null);setRecordingRun(null)}setNotice(`${value==='demo'?'示范':'执行'}环境已恢复初态${tab&&!tab.closed?'，应用标签页已更新':''}。`)}catch(e){setError(String(e))}finally{setBusy(false)}
+    try{const r=await prepare(value,true);const tab=tabs.current[runKey(value)];if(tab&&!tab.closed){const next=new URL(nativeApplicationUrl(r.application_url),location.href);next.searchParams.set('vic_reset',String(r.epoch));tab.location.replace(next.toString())}if(value==='demo'){setCapture(null);setRecordingRun(null)}setNotice(`${value==='demo'?'示范':'执行'}环境已恢复初态${tab&&!tab.closed?'，应用标签页已更新':''}。`)}catch(e){setError(String(e))}finally{setBusy(false)}
   }
   async function check(){
     if(!current)return;setBusy(true);setError('');setNotice('');
