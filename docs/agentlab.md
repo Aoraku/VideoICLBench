@@ -97,3 +97,7 @@ sudo docker compose --env-file .local/docker.env -f infra/compose.yaml up --buil
 [应用界面与验收范围](native-frontends.md) 提供来源、首页预览和任务流程说明。`check_native_ui.py` 检查应用任务路径；`check_application_ui.py` 的 225 个诊断用例只证明诊断控件与业务接口可运行。正式录制仍需逐题人工视觉验收。
 
 [独立应用入口验收](direct-application-acceptance.md) 提供 Computer Use 的 13 个模块、15 个代表性任务记录，以及录像与浏览器兼容性边界。
+
+## OS-ICL 任务
+
+主页 **OS · 36 题** 提供 36 个 OS 模拟任务和 108 段配套示范视频，使用同一平台密钥和现有隧道。操作步骤、原生 Agent 命令、API 和带 OS 服务的维护命令见 [OS-ICL 团队任务](os-icl.md)。维护这台服务器时需同时指定 `-f infra/compose.yaml -f infra/compose.os.yaml`，以保留 OS 资源挂载和服务。

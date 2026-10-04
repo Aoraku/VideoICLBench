@@ -4,15 +4,41 @@ from __future__ import annotations
 import argparse
 import base64
 import json
+import re
 import subprocess
 import time
 import threading
 import uuid
 from pathlib import Path
+from typing import Annotated
 
 import httpx
 from mcp.server.fastmcp import FastMCP
 from mcp.types import CallToolResult, ImageContent, TextContent
+from pydantic import BeforeValidator, WithJsonSchema
+
+
+def normalize_coordinate(value):
+    # Some gateways encode a single integer as "65, ". Accept only this
+    # unambiguous formatting variant, never a pair, expression or fractional pixel.
+    if isinstance(value, str) and re.fullmatch(r"\s*\d+\s*,?\s*", value):
+        return int(value.strip().rstrip(",").strip())
+    return value
+
+
+PixelCoordinate = Annotated[int | str | None, BeforeValidator(normalize_coordinate),
+                            WithJsonSchema({"anyOf": [{"type": "integer"}, {"type": "null"}]})]
+
+
+def normalize_point(x, y):
+    # A redundant "x,y" string is safe only when the separate y agrees.
+    if isinstance(x, str):
+        pair = re.fullmatch(r"\s*(\d+)\s*,\s*(\d+)\s*", x)
+        if pair and y is not None and int(pair[2]) == y:
+            x = int(pair[1])
+    if isinstance(x, str) or isinstance(y, str):
+        raise ValueError("Conflicting or invalid pixel coordinates; use separate integer x and y")
+    return x, y
 
 
 class Computer:
@@ -20,7 +46,7 @@ class Computer:
         self.config = config
         self.http = httpx.Client(base_url=config["control_url"], timeout=90,
             headers={"Authorization": "Bearer " + config["actor_token"]})
-        self.path = "/v1/runs/" + config["run_id"]
+        self.path = config.get("run_path", "/v1/runs/" + config["run_id"])
         self.frame = None
         self.epoch = None
         self.lock = threading.RLock()
@@ -143,15 +169,17 @@ def make_server(computer: Computer, smoke_payload: bool = False):
         return computer.observe()
 
     @mcp.tool()
-    def computer_act(frame_id: int, kind: str, x: int | None = None, y: int | None = None,
+    def computer_act(frame_id: int, kind: str, x: PixelCoordinate = None, y: PixelCoordinate = None,
                      text: str | None = None, key: str | None = None, delta_y: int | None = None,
-                     to_x: int | None = None, to_y: int | None = None,
+                     to_x: PixelCoordinate = None, to_y: PixelCoordinate = None,
                      wait_ms: int | None = None) -> CallToolResult:
         """Perform one input and return the new screenshot. kind: click, double_click, right_click,
         drag, scroll, text, key, wait. Coordinates are screenshot pixels. Click a field before typing.
         Use key=ControlOrMeta+A to select text. Do not repeat a timed-out click blindly; observe first.
         scroll uses delta_y in PIXELS (e.g. 500), with x/y locating the scrollable panel.
         """
+        x, y = normalize_point(x, y)
+        to_x, to_y = normalize_point(to_x, to_y)
         return computer.act(frame_id, kind, x=x, y=y, text=text, key=key, delta_y=delta_y,
                             to_x=to_x, to_y=to_y, wait_ms=wait_ms)
 

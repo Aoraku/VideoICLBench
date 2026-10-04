@@ -124,6 +124,9 @@ def summarize(engine: str, output: Path, profile: Path, session_id=None):
         if e.get("type") == "result":
             result.update(final_text=e.get("result", ""), usage=e.get("usage"),
                           reported_cost_usd=e.get("total_cost_usd"), is_error=e.get("is_error", False))
+            if e.get("is_error"):
+                result["errors"].append({"message": e.get("result", ""),
+                                         "terminal_reason": e.get("terminal_reason")})
         if e.get("type") == "system" and e.get("subtype") == "compact_boundary":
             result["compaction_events"].append({"source": "native_stream", "event": e})
         if item.get("type") == "mcp_tool_call" and e.get("type") == "item.completed":
@@ -163,6 +166,8 @@ def run(args):
         if meta["engine"] != args.engine or meta["model"] != model:
             raise ValueError("Resume must use the original engine and model")
         computer_config = json.loads((output_dir / "computer-private.json").read_text())
+        if not args.demo and computer_config.get("demo_video"):
+            args.demo = Path(computer_config["demo_video"])
         prior = json.loads((output_dir / "result.json").read_text())
         session_id = prior["session_id"]
         workspace = Path(meta["workspace"])
@@ -174,21 +179,38 @@ def run(args):
         admin = args.admin_token_file.read_text().strip()
         with httpx.Client(base_url=args.control_url, timeout=90,
                           headers={"Authorization": "Bearer " + admin}) as c:
-            r = c.post('/v1/runs', json={"suite": "v2", "task_id": args.task, "variant": args.variant,
-                      "seed": args.seed, "mode": "eval", "runtime": "browser", "interaction": "agent",
-                      "timeout_seconds": min(7200, args.timeout + 120), "max_actions": args.max_actions})
-            r.raise_for_status()
-            platform_run = r.json()
-            # Only the public assignment and execution requirements enter the model prompt.
-            r = c.get(f"/v2/tasks/{args.task}/contract")
-            r.raise_for_status()
-            contract = r.json()
+            os_case = getattr(args, "os_case", None)
+            if os_case:
+                r = c.post('/os-api/runs', json={"case_id": os_case, "variant": args.variant,
+                    "seed": args.seed, "interaction": "agent", "timeout_seconds": min(7200, args.timeout + 120),
+                    "max_actions": args.max_actions})
+                r.raise_for_status()
+                platform_run = r.json()
+                contract = platform_run["public_task"]
+                if not args.demo and not getattr(args, "rule_file", None):
+                    video = c.get(f"/os-api/runs/{platform_run['id']}/demo")
+                    video.raise_for_status()
+                    if hashlib.sha256(video.content).hexdigest() != platform_run["demo_sha256"]:
+                        raise ValueError("Assigned OS demonstration checksum mismatch")
+                    args.demo = output_dir / "assigned-demo.webm"
+                    args.demo.write_bytes(video.content)
+            else:
+                r = c.post('/v1/runs', json={"suite": "v2", "task_id": args.task, "variant": args.variant,
+                          "seed": args.seed, "mode": "eval", "runtime": "browser", "interaction": "agent",
+                          "timeout_seconds": min(7200, args.timeout + 120), "max_actions": args.max_actions})
+                r.raise_for_status()
+                platform_run = r.json()
+                r = c.get(f"/v2/tasks/{args.task}/contract")
+                r.raise_for_status()
+                contract = r.json()
         computer_config = {"control_url": args.control_url, "run_id": platform_run["id"],
             "actor_token": platform_run["actor_token"], "output_dir": str(output_dir),
+            "run_path": ("/os-api/runs/" if os_case else "/v1/runs/") + platform_run["id"],
+            "eval_path": f"/os-api/runs/{platform_run['id']}/eval" if os_case else f"/v2/tasks/{args.task}/eval",
             "max_actions": args.max_actions, "timeout_seconds": args.timeout,
             "demo_video": str(args.demo.resolve()) if args.demo else None, "smoke_payload": args.compaction_smoke}
         meta = {"engine": args.engine, "model": model, "base_url": base_url, "run_id": platform_run["id"],
-                "task_id": args.task, "variant": args.variant, "seed": args.seed,
+                "task_id": os_case or args.task, "suite": "os" if os_case else "v2", "variant": args.variant, "seed": args.seed,
                 "workspace": str(workspace), "framework": "native CLI",
                 "demo_representation": "timestamped frames" if args.demo else "none",
                 "input_condition": "text_rule" if getattr(args, "rule_file", None) else "video" if args.demo else "no_demo",
@@ -206,7 +228,7 @@ def run(args):
     if not args.resume:
         with httpx.Client(base_url=computer_config["control_url"], timeout=90,
                          headers={"Authorization": "Bearer " + computer_config["actor_token"]}) as c:
-            response = c.get(f"/v1/runs/{meta['run_id']}/observation")
+            response = c.get(computer_config.get("run_path", f"/v1/runs/{meta['run_id']}") + "/observation")
         if response.status_code != 200:
             failure = {"engine": args.engine, "outcome": "environment_error",
                        "stage": "preflight", "http_status": response.status_code,
@@ -336,7 +358,7 @@ def run(args):
         try:
             with httpx.Client(base_url=computer_config["control_url"], timeout=90,
                               headers={"Authorization": "Bearer " + args.admin_token_file.read_text().strip()}) as c:
-                response = c.post(f"/v2/tasks/{meta['task_id']}/eval", json={"run_id": meta["run_id"]})
+                response = c.post(computer_config.get("eval_path", f"/v2/tasks/{meta['task_id']}/eval"), json={"run_id": meta["run_id"]})
                 if response.is_success:
                     result["evaluation"] = response.json()
                     result["outcome"] = "success" if result["evaluation"]["success"] else "fail"
@@ -368,6 +390,7 @@ def main():
     p.add_argument("--admin-token-file", type=Path, default=ROOT / ".local/admin-token")
     p.add_argument("--output-root", type=Path, default=ROOT / ".local/native-agents/runs")
     p.add_argument("--task", type=int, default=1)
+    p.add_argument("--os-case", help="OS-ICL case ID; assigns the matching canonical demo automatically")
     p.add_argument("--variant", choices=list("ABC"), default="A")
     p.add_argument("--seed", type=int, default=10001)
     p.add_argument("--demo", type=Path)

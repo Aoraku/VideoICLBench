@@ -1,0 +1,33 @@
+# Layer over compose.yaml. Keep this override in every subsequent compose invocation.
+services:
+  control:
+    image: ${VIC_OS_IMAGE:-videoicl-control-os:local}
+    environment:
+      VIC_OS_BASE: http://os:8790
+      VIC_OS_SOURCE: /opt/os-icl
+    volumes:
+      - ${VIC_OS_SOURCE_HOST:-/home/qingle/services/os-icl-e6c8050}:/opt/os-icl:ro
+    depends_on:
+      os: {condition: service_healthy}
+  os-data-init:
+    image: ${VIC_OS_IMAGE:-videoicl-control-os:local}
+    user: "0:0"
+    command: ["python", "-c", "import os; os.chown('/os-data',10001,10001)"]
+    volumes: ["os_data:/os-data"]
+    restart: "no"
+  os:
+    image: ${VIC_OS_IMAGE:-videoicl-control-os:local}
+    command: ["python", "/opt/os-icl/server.py", "--host", "0.0.0.0", "--port", "8790"]
+    volumes:
+      - ${VIC_OS_SOURCE_HOST:-/home/qingle/services/os-icl-e6c8050}:/opt/os-icl:ro
+      - os_data:/opt/os-icl/data
+    depends_on:
+      os-data-init: {condition: service_completed_successfully}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8790/api/health')"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+volumes:
+  os_data:

@@ -11,7 +11,9 @@ from playwright.async_api import async_playwright
 class BrowserRuntime:
     """Local development only: real Chromium pixels, no DOM observation API."""
 
-    def __init__(self):
+    def __init__(self, viewport=None, locale="zh-CN"):
+        self.viewport = viewport or {"width": 1280, "height": 960}
+        self.locale = locale
         self.driver = None
         self.browser = None
         self.sessions = {}
@@ -47,9 +49,9 @@ class BrowserRuntime:
                     self.browser = await self.driver.chromium.launch(headless=True)
                 browser = self.browser
             context = await browser.new_context(
-                viewport={"width": 1280, "height": 960},
+                viewport=self.viewport,
                 device_scale_factor=1,
-                locale="zh-CN",
+                locale=self.locale,
                 permissions=["clipboard-read", "clipboard-write"],
             )
             try:
@@ -81,8 +83,7 @@ class BrowserRuntime:
             return dict(
                 image="data:image/png;base64," + base64.b64encode(data).decode(),
                 frame=session["frame"],
-                width=1280,
-                height=960,
+                **self.viewport,
             )
 
     async def capture(self, run_id, url):

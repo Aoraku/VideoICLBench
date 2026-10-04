@@ -184,3 +184,32 @@ def test_native_stop_hook_requires_finish_with_bounded_retries(tmp_path):
     assert decision(config, now=190) == {}
     (tmp_path / 'environment-error.json').write_text('{}')
     assert decision(config, now=100) == {}
+
+
+def test_claude_error_result_is_not_hidden_by_success_subtype(tmp_path):
+    out = tmp_path / 'stdout.jsonl'
+    out.write_text(json.dumps({'type':'result','subtype':'success','is_error':True,
+        'terminal_reason':'rapid_refill_breaker','result':'Autocompact is thrashing'}))
+    result = summarize('claude', out, tmp_path)
+    assert result['is_error'] is True
+    assert result['errors'] == [{'message':'Autocompact is thrashing','terminal_reason':'rapid_refill_breaker'}]
+
+
+@pytest.mark.asyncio
+async def test_coordinate_transport_normalizes_only_unambiguous_integer_strings():
+    captured=[]
+    class PixelComputer:
+        def act(self,frame,kind,**kwargs):
+            captured.append((frame,kind,kwargs))
+            return {'accepted':True}
+    server=make_server(PixelComputer())
+    await server.call_tool('computer_act',{'frame_id':1,'kind':'click','x':'65, ','y':'103, '})
+    assert captured[0][2]['x']==65 and captured[0][2]['y']==103
+    tools=await server.list_tools()
+    schema=next(t.inputSchema for t in tools if t.name=='computer_act')
+    assert {'type':'integer'} in schema['properties']['x']['anyOf']
+    await server.call_tool('computer_act',{'frame_id':2,'kind':'click','x':'76, 279','y':279})
+    assert captured[1][2]['x']==76 and captured[1][2]['y']==279
+    with pytest.raises(Exception,match='Conflicting'):
+        await server.call_tool('computer_act',{'frame_id':1,'kind':'click','x':'65, 103','y':100})
+    assert len(captured)==2

@@ -59,6 +59,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
         yield
         await recorder.close()
         await runtime.close()
+        await app.state.os_runtime.close()
 
     app = FastAPI(
         title="VideoICL-Bench",
@@ -816,5 +817,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
         if not (dist / "index.html").exists():
             raise HTTPException(503, "Build apps/portal first")
         return FileResponse(dist / "index.html")
+
+    from .os_integration import install_os_routes
+    install_os_routes(app, manager, secret, data)
 
     return app

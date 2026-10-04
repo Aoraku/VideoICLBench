@@ -1,0 +1,20 @@
+--- a/static/app.js
++++ b/static/app.js
+@@ -77,7 +77,7 @@
+ function renderAppMain(s){
+   const active=state.activeApp||s.case.app.split("+")[0].trim();
+   const toolbar=`<div class="app-toolbar"><span class="crumb">Vibe OS / <strong>${esc(active)}</strong></span><span style="margin-left:auto" class="tag">Seed ${s.seed}</span></div>`;
+-  const task=`<div class="task-banner"><span class="task-badge">TASK</span><strong>${esc(s.case.task)}</strong></div>`;
++  const task=`<div class="task-banner"><span class="task-badge">TASK</span><strong>${esc(s.case.task)}${s.case.family==="recovery"?" Process affected items in ascending Index, completing both steps for each item.":""}</strong></div>`;
+   if(s.workflow){
+     const sources=s.workflow.source_apps||[], target=s.workflow.target_app;
+     if(active==="Overview") return `${toolbar}${task}<div class="workflow-overview"><div class="workflow-icon">↗</div><h3>Cross-application workflow</h3><p>Inspect the source application${sources.length>1?"s":""}, remember the referenced record, then finish the operation in <strong>${esc(target)}</strong>.</p><div class="workflow-route">${[...sources,target].map((x,i)=>`<span>${i+1}. ${esc(x)}</span>`).join("<b>→</b>")}</div></div>`;
+@@ -123,7 +123,7 @@
+     id==="OS-ORD-06"?["index","value","runtime","status","age"]:
+     id==="OS-SM-04"?["battery","network","charging","signal","age"]:
+     s.case.family==="state_machine"?["status","value","cpu","runtime","age"]:
+-    s.case.family==="recovery"?["status","type","value","age","color"]:
++    s.case.family==="recovery"?["index","status","value","age","color"]:
+     id==="OS-XAPP-02"?["index","symbol","unread","age","status"]:
+     id==="OS-XAPP-03"?["index","cpu","memory","runtime","status"]:
+     id==="OS-XAPP-05"?["index","type","starred","value","status"]:

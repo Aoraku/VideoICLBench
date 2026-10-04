@@ -6,6 +6,8 @@ VideoICL-Bench 为人类录制者和 GUI Agent 提供统一的应用、任务、
 
 团队成员访问共享执行服务，请阅读 [Agentlab 访问与验收说明](docs/agentlab.md)。任务问题可在本仓库 Issues 中选择“任务验收反馈”提交。
 
+OS 任务入口为主页 **OS · 36 题**：包含同事提供的 108 段规则示范、独立执行环境与原始 evaluator，支持原生 Codex / Claude Code。访问、部署和运行命令见 [OS-ICL 使用说明](docs/os-icl.md)。
+
 ## 录制前就绪范围
 
 - **75 个软件／游戏任务，225 个 A/B/C 规则版本**：具有业务状态与 eval 实现；应用任务路径的自动检查与人工视觉验收分别记录。
