@@ -103,7 +103,7 @@ def main():
             raise AssertionError(f'HTTP {response.status_code}: {response.text[:500]}')
         return response.json()
 
-    with httpx.Client(base_url=args.base, headers={'Authorization': 'Bearer ' + secret}, trust_env=False, timeout=120) as control, httpx.Client(trust_env=False, timeout=120) as worker:
+    with httpx.Client(base_url=args.base, headers={'Authorization': 'Bearer ' + secret}, trust_env=False, timeout=120, limits=httpx.Limits(keepalive_expiry=1)) as control, httpx.Client(trust_env=False, timeout=120, limits=httpx.Limits(keepalive_expiry=1)) as worker:
         catalog = require(control.get('/v2/tasks'))['tasks']
         assert len(catalog) == 75 and all(t['status'] == 'application-ready' for t in catalog)
         for task in map(int, args.tasks.split(',')):

@@ -1,0 +1,267 @@
+{
+  "verified_at": "2026-10-05T17:30:28.591935+00:00",
+  "application_source_commit": "ace28ffec08a5f0a26ae1c7400c445610572e897",
+  "scope": {
+    "002": "备注优先显示于通讯录与会话；示范联系人姓名无重复。",
+    "003": "三份 inference 原文保留已有标点，规则在末尾追加标点。",
+    "006": "选择分组自动保存；同次联系人刷新复用最新快照。",
+    "014": "业务范围名称为远程协作交接。",
+    "017": "每组仅一首歌曲带本组待整理标记，只有目标歌曲提供名称编辑入口。",
+    "019/020": "工作项切换回到 News 首页；无尾斜杠及带尾斜杠路由均可访问。",
+    "023": "媒体参考是来源判定值，所有来源均在处理范围内。",
+    "031": "列表明确视频总时长、点赞率与发布时间；时长与观看进度分开。",
+    "033": "命中与未命中文章交错排列，关键词明确显示。",
+    "034": "删除的视频卡片消失；收藏和移入历史状态可见且持久化。",
+    "039": "inference 包含三个独立工作项，每项四条生成结果。",
+    "048": "评分满分5.0，保留一位小数，评分阈值2.5；销量阈值50。",
+    "049/053": "交易列表支持直接分类或保存到对账单。",
+    "059": "demo 一组多行答案，保存文件即可；inference 三项均须保存文件并提交答案。",
+    "061": "每次 Streamlit 页面执行只读取一次状态，提交行共用快照，写操作更新缓存。",
+    "072": "周围指八邻域，排除自身与棋盘外位置。",
+    "074": "先展示己方落子与翻转，再展示对手落子；可回看中间棋盘。",
+    "documents": "执行请求与历史预案各有独立标题和说明；对象选项显示分类、备注及处理状态，正文显示保存时与当前状态。",
+    "recording": "应用首页准备好后由用户选择分享画面；上传后自动评测并显示完成度；通过后允许人工审核，未通过时显示原因。"
+  },
+  "validation": {
+    "final_relevant_regression": {
+      "passed": 351,
+      "exit_code": 0
+    },
+    "rule_demo_coverage": {
+      "tasks": 75,
+      "variants": 225,
+      "episodes": 975,
+      "long_execution_modules_absent": true
+    },
+    "native_ui": [
+      {
+        "task": 19,
+        "mode": "eval",
+        "status": "passed"
+      },
+      {
+        "task": 20,
+        "mode": "eval",
+        "status": "passed"
+      },
+      {
+        "task": 17,
+        "mode": "demo",
+        "status": "passed"
+      },
+      {
+        "task": 39,
+        "mode": "eval",
+        "status": "passed"
+      },
+      {
+        "task": 34,
+        "mode": "demo",
+        "status": "passed"
+      },
+      {
+        "task": 74,
+        "mode": "eval",
+        "status": "passed"
+      }
+    ],
+    "workset_ui": [
+      {
+        "task": 2,
+        "variant": "A",
+        "status": "passed"
+      },
+      {
+        "task": 2,
+        "variant": "B",
+        "status": "passed"
+      },
+      {
+        "task": 6,
+        "variant": "A",
+        "status": "passed"
+      },
+      {
+        "task": 31,
+        "variant": "A",
+        "status": "passed"
+      },
+      {
+        "task": 34,
+        "variant": "A",
+        "status": "passed"
+      },
+      {
+        "task": 48,
+        "variant": "A",
+        "status": "passed"
+      },
+      {
+        "task": 49,
+        "variant": "A",
+        "status": "passed"
+      },
+      {
+        "task": 53,
+        "variant": "A",
+        "status": "passed"
+      },
+      {
+        "task": 61,
+        "variant": "A",
+        "status": "passed"
+      }
+    ],
+    "document_ui": [
+      {
+        "task": 6,
+        "variant": "A",
+        "status": "passed"
+      },
+      {
+        "task": 23,
+        "variant": "A",
+        "status": "passed"
+      },
+      {
+        "task": 74,
+        "variant": "A",
+        "status": "passed"
+      }
+    ],
+    "portal_ui": {
+      "status": "passed",
+      "recording_upload_evaluation_review": "mocked APIs; no actual screen capture"
+    },
+    "live_inference": [
+      {
+        "task": 3,
+        "variant": "A",
+        "status": "passed",
+        "mode": "eval",
+        "suite": "v2",
+        "commands": 6,
+        "downloads": 0,
+        "reset": true,
+        "stale_credentials_rejected": true,
+        "episodes": 1
+      },
+      {
+        "task": 19,
+        "variant": "A",
+        "status": "passed",
+        "mode": "eval",
+        "suite": "v2",
+        "commands": 6,
+        "downloads": 0,
+        "reset": true,
+        "stale_credentials_rejected": true,
+        "episodes": 1
+      },
+      {
+        "task": 20,
+        "variant": "A",
+        "status": "passed",
+        "mode": "eval",
+        "suite": "v2",
+        "commands": 6,
+        "downloads": 0,
+        "reset": true,
+        "stale_credentials_rejected": true,
+        "episodes": 1
+      },
+      {
+        "task": 34,
+        "variant": "A",
+        "status": "passed",
+        "mode": "eval",
+        "suite": "v2",
+        "commands": 14,
+        "downloads": 1,
+        "reset": true,
+        "stale_credentials_rejected": true,
+        "episodes": 1
+      },
+      {
+        "task": 39,
+        "variant": "A",
+        "status": "passed",
+        "mode": "eval",
+        "suite": "v2",
+        "commands": 9,
+        "downloads": 0,
+        "reset": true,
+        "stale_credentials_rejected": true,
+        "episodes": 1
+      },
+      {
+        "task": 48,
+        "variant": "A",
+        "status": "passed",
+        "mode": "eval",
+        "suite": "v2",
+        "commands": 20,
+        "downloads": 1,
+        "reset": true,
+        "stale_credentials_rejected": true,
+        "episodes": 1
+      },
+      {
+        "task": 59,
+        "variant": "A",
+        "status": "passed",
+        "mode": "eval",
+        "suite": "v2",
+        "commands": 9,
+        "downloads": 0,
+        "reset": true,
+        "stale_credentials_rejected": true,
+        "episodes": 1
+      },
+      {
+        "task": 74,
+        "variant": "A",
+        "status": "passed",
+        "mode": "eval",
+        "suite": "v2",
+        "commands": 9,
+        "downloads": 1,
+        "reset": true,
+        "stale_credentials_rejected": true,
+        "episodes": 1
+      }
+    ],
+    "live_demo": [
+      {
+        "task": 34,
+        "variant": "C",
+        "status": "passed",
+        "mode": "demo",
+        "suite": "v2",
+        "commands": 12,
+        "downloads": 0,
+        "reset": true,
+        "stale_credentials_rejected": true,
+        "episodes": 1
+      },
+      {
+        "task": 59,
+        "variant": "C",
+        "status": "passed",
+        "mode": "demo",
+        "suite": "v2",
+        "commands": 1,
+        "downloads": 0,
+        "reset": true,
+        "stale_credentials_rejected": true,
+        "episodes": 1
+      }
+    ],
+    "live_catalog_matches": 75,
+    "portal_and_chat_builds": "passed"
+  },
+  "video_recorded": false,
+  "limitations": [
+    "真实浏览器的屏幕分享选择和人工视频质量需由录制者确认；自动化测试没有录屏。"
+  ]
+}
