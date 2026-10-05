@@ -1,3 +1,5 @@
+> 2026-10-06 交接：请先读 [HANDOFF](handoff/HANDOFF.md)、[部署手册](handoff/RUNBOOK.md) 和 [真实验收状态](handoff/deployment.json)。新增 RoboCasa 杯子任务和 GUI 点击驱动；RoboTwin／ManiSkill／RLBench 尚未接入。
+
 # VideoICL 桌面双臂仿真模拟器
 
 Show-Harness / GUMI 风格的 GUI 控制原型，使用真正的 MuJoCo 接触物理和双 Panda 机械臂。Agent 看演示和四路相机，通过移动、旋转、夹爪开合按钮排队，再点击 COMMIT。底层实现 IK 和关节控制，不自动选择或对齐物体。

@@ -13,3 +13,12 @@ hosted/runs/
 .env
 .env.*
 recordings/
+
+backends/robocasa/private_runs/
+backends/robocasa/hosted/runs/
+*.hdf5
+
+# Separate local/server assets, not part of the public code release.
+backends/robocasa/media/
+handoff/evidence/
+handoff/human_annotations_author_only.json

@@ -1,0 +1,15 @@
+{
+  "robocasa_version": "v0.2",
+  "mujoco_version": "3.2.6",
+  "robosuite_version": "1.5.1",
+  "numpy_version": "1.23.5",
+  "python_version": "3.10.20",
+  "dataset": {
+    "name": "microwave.hdf5",
+    "episode": "demo_2",
+    "sha256": "07860c613e4d9eb8b6b95d6415f8a46241ee22fcdef3133cb1ced411c3911105",
+    "existing_gpu_path": "/home/descfly/VideoICL/robocasa_asset_archives/microwave.hdf5",
+    "source": "https://huggingface.co/datasets/siyuhsu/robocasa-v0.2-datasets/tree/main/v0.1/multi_stage/defrosting_food/MicrowaveThawing/2024-05-11"
+  },
+  "asset_compatibility": "Legacy mesh/texture archive plus restored v0.2 fixture XML; full asset tree is not included or completely hash-locked. Clean installation not verified."
+}
