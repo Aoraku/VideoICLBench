@@ -1,0 +1,129 @@
+{
+  "verified_at": "2026-10-05T08:52:03.474371+00:00",
+  "application_source_commit": "b926dc1b06584bf93972165f724d0762611288a6",
+  "catalog_version": "2.1.1",
+  "tasks": 75,
+  "conditions": 225,
+  "demo_contract": {
+    "scope": "rule_demonstration_only",
+    "difficulty_counts": {
+      "low": 25,
+      "medium": 25,
+      "hard": 25
+    },
+    "initial_state_matches_atomic_lesson": true,
+    "all_episodes_exclude_execution_modules": true,
+    "validated_variants": 225,
+    "validated_episodes": 990
+  },
+  "instructions": {
+    "mode_specific_title_objective_platform": true,
+    "all_demo_completion_checks": true,
+    "medium_and_hard_tasks_with_concrete_execution_steps_and_completion_checks": 50,
+    "medium_business_request_uses_task_specific_scope": true
+  },
+  "automated_validation": {
+    "relevant_regression": {
+      "passed": 630,
+      "exit_code": 0
+    },
+    "final_contract_rerun": {
+      "passed": 227,
+      "exit_code": 0
+    },
+    "portal_build": "passed",
+    "portal_browser_checks": {
+      "status": "passed",
+      "api": "mock",
+      "scope": [
+        "75 cards",
+        "sorting and filters",
+        "demo and inference separation",
+        "reset",
+        "responsive layout",
+        "task 002 execution instructions",
+        "task 043 rule-only objective",
+        "task 074 independent demo boards"
+      ]
+    },
+    "live_catalog": {
+      "verified_at": "2026-10-05T08:50:29.559861+00:00",
+      "tasks": 75,
+      "version": "2.1.1",
+      "demo_and_inference_match": true
+    },
+    "live_inference": {
+      "verified_at": "2026-10-05T08:50:24.762381+00:00",
+      "mode": "eval",
+      "video_recorded": false,
+      "cases": [
+        {
+          "task": 2,
+          "variant": "A",
+          "status": "passed",
+          "mode": "eval",
+          "suite": "v2",
+          "commands": 12,
+          "downloads": 1,
+          "reset": true,
+          "stale_credentials_rejected": true,
+          "episodes": 1
+        },
+        {
+          "task": 29,
+          "variant": "A",
+          "status": "passed",
+          "mode": "eval",
+          "suite": "v2",
+          "commands": 10,
+          "downloads": 0,
+          "reset": true,
+          "stale_credentials_rejected": true,
+          "episodes": 1
+        },
+        {
+          "task": 30,
+          "variant": "A",
+          "status": "passed",
+          "mode": "eval",
+          "suite": "v2",
+          "commands": 15,
+          "downloads": 0,
+          "reset": true,
+          "stale_credentials_rejected": true,
+          "episodes": 1
+        },
+        {
+          "task": 69,
+          "variant": "A",
+          "status": "passed",
+          "mode": "eval",
+          "suite": "v2",
+          "commands": 71,
+          "downloads": 1,
+          "reset": true,
+          "stale_credentials_rejected": true,
+          "episodes": 1
+        },
+        {
+          "task": 74,
+          "variant": "A",
+          "status": "passed",
+          "mode": "eval",
+          "suite": "v2",
+          "commands": 9,
+          "downloads": 1,
+          "reset": true,
+          "stale_credentials_rejected": true,
+          "episodes": 1
+        }
+      ]
+    }
+  },
+  "video_recorded": false,
+  "model_trials_run": false,
+  "validation_limits": [
+    "Automated state and lesson checks establish demo scope and completion; they do not measure how well viewers infer a rule.",
+    "Browser checks cover the portal and selected task cards, not manual interaction with all native application pages."
+  ]
+}
