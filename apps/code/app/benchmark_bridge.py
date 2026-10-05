@@ -21,7 +21,17 @@ def whitespace_view(text):
         st.caption("；".join(indents))
 
 
+_snapshot = None
+
+def begin_render():
+    global _snapshot
+    _snapshot = None
+
+
 def business(path="", body=None):
+    global _snapshot
+    if not path and body is None and _snapshot is not None:
+        return _snapshot
     response = requests.request(
         "POST" if body else "GET",
         os.environ["VIC_NATIVE_SELF_BASE"] + "/api/runs/" + os.environ["VIC_NATIVE_RUN"] + path,
@@ -29,7 +39,10 @@ def business(path="", body=None):
     )
     if not response.ok:
         raise ValueError(response.json().get("detail", "Application request failed"))
-    return response.json()
+    data = response.json()
+    if not path or path == "/commands":
+        _snapshot = data
+    return data
 
 
 def command(op, target="", value="", ids=None):

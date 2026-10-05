@@ -270,7 +270,7 @@ def targets(id_, v, items, source):
         chosen = [
             x
             for x in items
-            if [x["rating"] >= t, x["sales"] >= t, x["comments"] % 2 == 0][v]
+            if [x["rating"] >= source.get("rating_threshold", t), x["sales"] >= t, x["comments"] % 2 == 0][v]
         ]
     elif id_ == 49:
         chosen = [

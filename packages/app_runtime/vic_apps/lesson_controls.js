@@ -58,7 +58,7 @@
           // Reopen the ordinary app home, not a teaching interstitial. Every
           // work item's saved state remains accessible through this navigator.
           const match = location.pathname.match(/^\/native\/(chat|music|news|code|gomoku)\/([a-f0-9]{32})/);
-          const destination = match ? `/native/${match[1]}/${run}/` : location.pathname;
+          const destination = match ? `/native/${match[1]}/${run}${match[1] === 'news' ? '' : '/'}` : location.pathname;
           history.replaceState(null, '', destination + '#' + token);
           location.reload();
         } catch (error) {
@@ -88,7 +88,7 @@
     bar.setAttribute('aria-label', '连续练习');
     Object.assign(bar.style, {position:'fixed',bottom:'12px',right:'16px',zIndex:'2147483000',display:'flex',flexWrap:'wrap',alignItems:'center',gap:'12px',padding:'10px 14px',background:'#fff',border:'1px solid #ccd5d0',borderRadius:'12px',boxShadow:'0 3px 18px #0002',font:'14px system-ui',color:'#18392f',maxWidth:'min(620px,90vw)'});
     const status = document.createElement('span');
-    status.textContent = `练习 ${lesson.index + 1} / ${lesson.total}`;
+    status.textContent = `练习 ${lesson.index + 1} / ${lesson.total} · 已通过 ${lesson.completed || 0} 组`;
     const button = document.createElement('button');
     button.textContent = lesson.index + 1 === lesson.total ? '完成练习' : '下一组';
     Object.assign(button.style,{padding:'8px 16px',border:'0',borderRadius:'8px',background:'#256953',color:'#fff',cursor:'pointer',whiteSpace:'nowrap'});
@@ -99,7 +99,7 @@
     if (lesson.finished) {
       status.textContent = `已完成 ${lesson.total} 组练习`;
       button.hidden = true;
-      message.textContent = '示范练习已保存，可返回任务卡检查结果。';
+      message.textContent = '自动检查：全部示例通过（100%）。录像上传后可在任务卡审核。';
     }
     button.onclick = async () => {
       button.disabled = true;
@@ -126,7 +126,7 @@
         if (data.lesson.finished) {
           status.textContent = `已完成 ${data.lesson.total} 组练习`;
           button.hidden = true;
-          message.textContent = '示范练习已完成，请返回任务卡检查结果；正在录制时请结束录制。';
+          message.textContent = '自动检查：全部示例通过（100%）。请返回任务卡查看录像上传与审核结果。';
           return;
         }
         // Navigation stays in this tab so tab capture remains continuous.

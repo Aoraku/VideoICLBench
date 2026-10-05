@@ -86,7 +86,7 @@ def attach(state, spec=None):
         deadline='2026-10-16 17:00',recipient='TEAM-'+str(t),reference_register=source,
         body=PURPOSE[t]+f' 请采用本请求的最新修订，并根据《{source}》补齐每条{row}的“{detail}”。先完成应用中的规则操作，再编制《{title}》，交付给责任团队。{scope_instruction}文件中保留对象编号、真实保存结果和关联资料，便于接收人直接开展后续工作。',
         scope_ids=[s['id'] for s in scopes] or ['training'])
-    previous=dict(current,id=batch+'-R1',revision=1,deadline='2026-10-12 12:00',recipient='TEAM-ARCHIVE',title=title+' · 草案批次')
+    previous=dict(current,id=batch+'-R1',revision=1,deadline='2026-10-12 12:00',recipient='TEAM-ARCHIVE',title=title+' · 筹备预案归档',body=f'这是筹备阶段的历史预案，仅供查阅。原计划将资料归档至历史资料归档组，不作为本次执行与交付依据。本次处理范围、截止时间及接收团队请查看《{title} · 十月执行批次》。')
     out['workset_delivery']=dict(title=title,purpose=PURPOSE[t],source_title=source,row_title=row,detail_label=detail,
         request_number=batch,requests=[previous,current],references=references,
         directory=[dict(id='TEAM-ARCHIVE',name='历史资料归档组',address='archive@example.test'),
@@ -139,7 +139,7 @@ def result_description(snapshot,task_id):
         if key in obj:parts.append(label+'：'+str(obj[key]))
     for key,label in [('nickname','备注姓名'),('label','分类'),('reminder_channel','通知渠道')]:
         if obj.get(key):parts.append(label+'：'+str(obj[key]))
-    for key,label in [('read','已读'),('starred','已收藏'),('archived','已归档'),('pinned','已置顶'),('muted','已免打扰'),('hidden','已隐藏'),('reminder','提醒已开启')]:
+    for key,label in [('read','已读'),('starred','已收藏'),('archived','已归档'),('pinned','已置顶'),('muted','已免打扰'),('hidden','已隐藏'),('deleted','已删除'),('reminder','提醒已开启')]:
         if obj.get(key):parts.append(label)
     if snapshot.get('messages'):parts.append('发送记录：'+'；'.join(m['body'] for m in snapshot['messages']))
     if snapshot.get('collections'):parts.append('已保存到业务集合')

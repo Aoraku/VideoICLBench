@@ -6,14 +6,14 @@ from . import business, application_eval, games
 from vic_apps.domain import initialize
 
 TASKS = {1,3,4,5,10,17,19,20,21,24,25,27,36,37,39,59,62,66,67,68,70,71,72,73,75}
-FOUR_OBJECTS = {5,24,25,39,62}
+FOUR_OBJECTS = {5,24,25,62}
 BATCH_TASKS = TASKS - FOUR_OBJECTS
 BATCH_SIZE = 3
 
 
 def _generate_item(task_id, seed, spec):
     state=business.generate(task_id,seed)
-    if task_id in FOUR_OBJECTS:
+    if task_id in FOUR_OBJECTS | {39}:
         # Keep a small inference batch without collapsing the A/B/C distinction.
         for subset in combinations(state['items'],4):
             candidate=deepcopy(state)
@@ -30,7 +30,7 @@ def _generate_item(task_id, seed, spec):
     if task_id == 1:
         state['source']['text']=[f'Please confirm your workshop booking for October {seed%28+1}', 'Please review the revised delivery schedule', 'Please share feedback on the onboarding guide'][seed%3]
     elif task_id == 3:
-        state['source']['text']=['Please join the product briefing at two', 'Remember to bring your badge to the library tour', 'The volunteer training starts in room five'][seed%3]
+        state['source']['text']=['Please join the product briefing at two.', 'Remember to bring your badge to the library tour!', 'The volunteer training starts in room five?'][seed%3]
     elif task_id == 4:
         state['source']['text']=[f'Dispatch {seed%5+2} monitors to dock 3', f'Move {seed%4+3} chairs from floor 2 to floor 5', f'Prepare {seed%6+1} boxes and deliver them before 4'][seed%3]
     elif task_id == 37:
@@ -107,6 +107,7 @@ BATCH_LABELS = {
     27: ('活动选曲', '分别为三场活动选择并收藏一首歌曲'),
     36: ('博客草稿', '分别整理三篇草稿标题并保持未发布'),
     37: ('写作模板', '分别整理三份写作模板的要求格式'),
+    39: ('生成结果分类', '分别核对三组生成结果，给每组符合规则的结果标注事实'),
     59: ('课程答案', '分别整理三份答案并提交到各自题目'),
     66: ('五子棋棋形', '在三个不同棋形中逐一标注符合条件的候选点'),
     67: ('五子棋落点', '在三个不同棋形中分别按规则选择落点'),

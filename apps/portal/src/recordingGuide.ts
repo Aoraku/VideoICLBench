@@ -25,7 +25,7 @@ export function recordingSteps(s:any, variant:string, rule:string):string[] {
     32:`进入我的音乐，为符合规则的歌曲选择“加入播放列表甲”。${variant!=='C'?`评分阈值为 ${a.threshold}。`:'时长按秒计算。'}`,
     42:`进入草稿库，查看${variant==='C'?`标题是否含“${a.letter}”`:'标签数量'}，逐篇发布符合规则的草稿。`,
     43:`进入内容项目，对生成代码逐项执行检查，只对通过检查的结果执行${{A:'保存',B:'复制',C:'发送'}[variant]}。${variant==='C'?`收件人为${a.recipient}。`:''}`,
-    48:`进入所有商品，查看${variant==='A'?`评分（阈值 ${a.threshold}）`:variant==='B'?`销量（阈值 ${a.threshold}）`:'评论数'}，为符合规则的商品设置“优选”分类。`,
+    48:`进入所有商品，查看${variant==='A'?`评分（满分 5.0，阈值 ${a.rating_threshold??2.5}）`:variant==='B'?`销量（阈值 ${a.threshold}）`:'评论数'}，为符合规则的商品设置“优选”分类。`,
     49:`进入交易明细，查看${variant==='C'?`备注长度（阈值 ${a.text_threshold} 个字符）`:'交易金额'}，为符合规则的交易设置“常规”分类。`,
     54:`查询车次，按本卡规则逐项确认预订。${variant!=='C'?`价格阈值为 ${a.threshold} 元。`:'比较每个方案的换乘次数。'}`,
     56:`进入转账汇款，按规则挑选收款账户并逐笔确认预设金额。${variant==='A'?`指定字母为“${a.letter}”。`:variant==='C'?`金额阈值为 ${a.threshold} 元。`:'查看账号末位数字。'}`,

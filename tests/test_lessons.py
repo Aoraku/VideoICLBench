@@ -41,12 +41,13 @@ def advance(control, run, index):
 
 @pytest.mark.parametrize('task', [task for task in range(1,76) if task not in BATCH_TASKS])
 @pytest.mark.parametrize('variant', ['A','B','C'])
-def test_complete_lesson_requires_six_independent_episodes(clients, task, variant):
+def test_complete_lesson_requires_all_declared_episodes(clients, task, variant):
     control,worker=clients
     run=create_lesson(control,task,variant)
-    assert run['lesson']['total']==6
+    total = 1 if task == 59 else 6
+    assert run['lesson']['total']==total
     evidence=[]
-    for index in range(6):
+    for index in range(total):
         state=operate(worker,run,variant)
         evidence.append(state)
         previous=run.copy()
@@ -55,18 +56,18 @@ def test_complete_lesson_requires_six_independent_episodes(clients, task, varian
         assert result==again
         assert result['lesson']['completed']==index+1
         run={**run,**result}
-        if index<5:
+        if index<total-1:
             stale=worker.post('/api/runs/'+run['id']+'/commands',headers=actor(previous),
                 json=dict(epoch=run['epoch'],action_id='stale',op='save',target='target',value='old page'))
             assert stale.status_code==403
     assert run['lesson']['finished']
     result=control.post('/v1/runs/'+run['id']+'/evaluate',headers=admin())
     assert result.status_code==200,result.text
-    assert result.json()['success'] and len(result.json()['episodes'])==6
+    assert result.json()['success'] and len(result.json()['episodes'])==total
     for item in result.json()['episodes']:
         archived=control.get(item['evidence_ref'],headers=admin()).json()
         assert archived['result']['success'] and archived['events']
-    assert len({json.dumps(s,sort_keys=True) for s in evidence})==6
+    assert len({json.dumps(s,sort_keys=True) for s in evidence})==total
 
 
 def test_wrong_episode_remains_editable_and_cannot_advance(clients):
@@ -247,7 +248,7 @@ def test_2048_queries_do_not_encode_rule_in_a_constant_direction():
 def test_editing_lessons_have_six_distinct_sources():
     from vic.business import generate
     from vic.lessons import seeds_for
-    for task in (1,2,3,4,17,18,19,20,21,36,37,44,45,46,58,59,60):
+    for task in (1,2,3,4,17,18,19,20,21,36,37,44,45,46,58,60):
         values=[generate(task,seed)['source'] for seed in seeds_for(task,0)]
         assert len({json.dumps(s,sort_keys=True) for s in values})==6,task
 

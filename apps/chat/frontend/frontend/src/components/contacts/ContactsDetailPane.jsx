@@ -199,6 +199,7 @@ export default function ContactsDetailPane({
                           setFriendGroupDraftOwnerId(currentFriendId)
                           setFriendGroupDraft('')
                           setGroupPickerOpen(false)
+                          void onAssignFriendToGroup(f.user_id, null)
                         }}
                       >
                         未分组
@@ -218,6 +219,7 @@ export default function ContactsDetailPane({
                               setFriendGroupDraftOwnerId(currentFriendId)
                               setFriendGroupDraft(id)
                               setGroupPickerOpen(false)
+                              void onAssignFriendToGroup(f.user_id, Number(id))
                             }}
                           >
                             {g.name}
@@ -228,21 +230,7 @@ export default function ContactsDetailPane({
                   </ul>
                 ) : null}
               </div>
-              <button
-                type="button"
-                className="wxBtn wxBtn--primary wxGroupAssign__btn"
-                disabled={
-                  assignGroupLoading || String(effectiveFriendGroupDraft) === String(f.group_id ?? '')
-                }
-                onClick={() =>
-                  onAssignFriendToGroup(
-                    f.user_id,
-                    effectiveFriendGroupDraft === '' ? null : Number(effectiveFriendGroupDraft),
-                  )
-                }
-              >
-                {assignGroupLoading ? '保存中…' : '保存'}
-              </button>
+              <span role="status">{assignGroupLoading ? "正在保存分组…" : "选择后自动保存"}</span>
             </div>
           </div>
         ) : null}

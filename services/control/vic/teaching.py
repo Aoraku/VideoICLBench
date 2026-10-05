@@ -187,6 +187,8 @@ def enrich(id_, seed, items, source, rng):
         field = {32:'rating', 38:'words', 48:'rating', 54:'price', 56:'amount', 57:'balance'}[id_]
         threshold_examples(field, 50)
         if id_ == 48:
+            source['rating_threshold'] = 2.5
+            assign('rating', [1.2, 2.4, 2.5, 2.6, 3.7, 5.0])
             threshold_examples('sales', 50)
             assign('comments', [12, 25, 46, 57, 78, 91])
     if id_ == 32:
@@ -328,6 +330,10 @@ def enrich(id_, seed, items, source, rng):
         if id_ == 11:
             item['size'] = len(item['file_text'].encode('utf-8'))
     rng.shuffle(items)
+    if id_ == 33:
+        positive=[x for x in items if source['keyword'] in x['name']]
+        negative=[x for x in items if source['keyword'] not in x['name']]
+        items=[x for pair in zip(positive,negative) for x in pair]
     if id_ == 9:
         random.Random(seed + 19009).shuffle(items)
     source.pop('_app')
@@ -342,6 +348,12 @@ def enrich(id_, seed, items, source, rng):
         source['text'] = (['Anna Wen','Chloe  Lin','eMMA','Noah   Li','Mia  Chen Han','LILY HE'] if demo else
                           ['Alice Qiu','Victor  Bai','jUNE','May   Deng','Rose  Su Mei','ERIC LUO'])[seed % 6]
         source['recipient'] = ' '.join(source['text'].split())
+        # The editable contact is separate from the ordinary address book.
+        used = {source['recipient'].casefold()}
+        for item in items:
+            if item['name'].casefold() in used:
+                item['name'] = next(name for name in NAMES['chat'] if name.casefold() not in used and name not in [x['name'] for x in items])
+            used.add(item['name'].casefold())
     if id_ == 3:
         source['text'] = (['Please review the design draft', 'Can you confirm the room?',
                            'The weekly report is ready.', 'Bring the budget!',

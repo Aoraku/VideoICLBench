@@ -216,7 +216,7 @@ export function ConversationProvider({ children }) {
     const show = () => {
       const convName =
         conv?.type === 'private'
-          ? conv?.peer_user?.benchmark_identity_name || conv?.peer_user?.remark || conv?.peer_user?.username || '私聊'
+          ? conv?.peer_user?.remark || conv?.peer_user?.benchmark_identity_name || conv?.peer_user?.username || '私聊'
           : conv?.name || '群聊'
       const senderName = payload?.sender?.username || '新消息'
       const type = payload?.type

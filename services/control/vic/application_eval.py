@@ -151,6 +151,8 @@ def expected_domain(initial, variant):
                 collection("watchlist", i, True)
                 if op == "移入历史":
                     collection("history", i)
+                elif t == 34:
+                    obj["deleted"] = True
             elif op in ("加入购物车", "移出购物车"):
                 collection("cart", i, op == "移出购物车")
             elif op == "确认预订":

@@ -65,7 +65,7 @@ def test_demonstrations_are_larger_than_queries(task_id):
 @pytest.mark.parametrize('task_id,field,boundaries', [
     (8, 'members', {4,5,6}), (22, 'duration', {239,240,241}),
     (25, 'duration', {599,600,601}), (32, 'rating', {49,50,51}),
-    (38, 'words', {49,50,51}), (48, 'rating', {49,50,51}),
+    (38, 'words', {49,50,51}), (48, 'rating', {2.4,2.5,2.6}),
     (48, 'sales', {49,50,51}), (54, 'price', {49,50,51}),
     (56, 'amount', {49,50,51}), (57, 'balance', {49,50,51}),
 ])

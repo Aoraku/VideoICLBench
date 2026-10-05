@@ -1,5 +1,4 @@
 import {useEffect,useRef,useState} from 'react';
-import {flushSync} from 'react-dom';
 import {nativeApplicationUrl} from './nativeApplicationUrl';
 import {HumanRecording} from './HumanRecording';
 import './v2-task-list.css';
@@ -32,19 +31,16 @@ export function V2TaskList({token,onBusy}:{token:string;onBusy:(value:boolean)=>
   }
   async function open(value:Mode,record=false){
     const tab=window.open('about:blank','_blank');if(!tab){setError('请允许本站打开应用标签页');return}
-    tab.opener=null;setBusy(true);setError('');setNotice('');let stream:MediaStream|null=null;
+    tab.document.title='正在准备应用';tab.document.body.textContent='正在准备应用首页，请稍候。录制画面将在任务卡中选择。';window.focus();tab.opener=null;setBusy(true);setError('');setNotice('');
     try{
-      if(record){
-        if(!navigator.mediaDevices?.getDisplayMedia||typeof MediaRecorder==='undefined')throw Error('此浏览器不支持内置录制，请使用 Chrome 或 Edge；预览环境不受影响。');
-        flushSync(()=>setPrivateView(true));
-        stream=await navigator.mediaDevices.getDisplayMedia({video:{frameRate:30},audio:false});
-      }
       // A recording always starts from the initial homepage, even after a preview.
       const r=await prepare(value,record);tabs.current[runKey(value)]=tab;
-      tab.location.replace(nativeApplicationUrl(r.application_url));tab.focus();
-      if(stream){setRecordingRun(r.id);setCapture(stream)}
+      tab.location.replace(nativeApplicationUrl(r.application_url));
+      if(record){setRecordingRun(r.id);setCapture(null);setPrivateView(true);window.focus()}
+      else tab.focus();
+      if(record)setNotice('应用首页已准备好。点击“选择应用画面并开始录制”，在浏览器分享窗口中选择刚打开的应用标签页。');
       else setNotice(value==='demo'?'示范环境已在新标签页打开，不会录屏。':'执行环境已在新标签页打开。完成后可回到这里检查交付。');
-    }catch(e){stream?.getTracks().forEach(t=>t.stop());tab.close();setError(String(e));setPrivateView(false)}finally{setBusy(false)}
+    }catch(e){tab.close();setError(String(e));setPrivateView(false)}finally{setBusy(false)}
   }
   async function reset(value:Mode){
     setBusy(true);setError('');setNotice('');
@@ -88,9 +84,9 @@ export function V2TaskList({token,onBusy}:{token:string;onBusy:(value:boolean)=>
       {mode==='eval'&&current&&!privateView&&<p className="v2-hint">最终检查会提交本次结果；如需修改后重试，请重置执行环境。</p>}{notice&&!privateView&&<p className="v2-notice" role="status">{notice}</p>}
       {!privateView&&current?.result&&<div className={`v2-result ${current.result.success?'v2-result-pass':''}`} role="status"><b>{current.result.success?'检查通过':'尚未完成'}</b><span>完成度 {Math.round((current.result.completion||0)*100)}%</span>{current.result.violations?.length>0&&<p>{current.result.violations.join('；')}</p>}</div>}
       {mode==='demo'&&!privateView&&<div className="v2-record-start"><div><b>准备好录制了？</b><p>从初始首页重新开始，选择应用标签页或窗口。</p></div><button disabled={locked||!ready} onClick={()=>open('demo',true)}>开始录制</button></div>}
-      {privateView&&<p className="v2-notice">录制期间已隐藏规则与任务说明。请在应用中操作；录制控件在此页面。</p>}
-      {demo&&recordingRun===demo.id&&<HumanRecording key={`${demo.id}-${demo.epoch}`} run={demo} token={token} onUpdate={r=>setRuns(s=>({...s,[runKey('demo')]:r}))} onBusy={setRecording} initialStream={capture} compact/>}
-      {privateView&&!locked&&<button onClick={()=>setPrivateView(false)}>已停止录制，查看任务说明</button>}
+      {privateView&&!demo?.result&&demo?.status!=="recorded"&&<p className="v2-notice">应用首页已在新标签页准备好。请点击下方“选择应用画面并开始录制”，选择应用标签页并允许分享；录制开始后会切换到应用。任务说明已隐藏，避免录入规则文字。</p>}
+      {demo&&recordingRun===demo.id&&<HumanRecording key={`${demo.id}-${demo.epoch}`} run={demo} token={token} onUpdate={r=>setRuns(s=>({...s,[runKey('demo')]:r}))} onBusy={setRecording} initialStream={capture} onStarted={()=>tabs.current[runKey('demo')]?.focus()} compact/>}
+      {privateView&&!locked&&<button onClick={()=>setPrivateView(false)}>返回任务说明</button>}
     </>:<div className="v2-welcome"><span className="v2-welcome-icon" aria-hidden="true">↗</span><h2>选择一项任务</h2><p>查看清晰的示范步骤，或直接进入执行环境验证工作流程。</p><div><b>示范环境</b><span>预览规则、练习、录制</span></div><div><b>执行环境</b><span>实际操作、检查最终交付</span></div></div>}</section></div>
   </section>;
 }

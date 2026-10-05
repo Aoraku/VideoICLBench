@@ -280,6 +280,7 @@ def create_app():
             raise HTTPException(503, "Original Chat frontend must be built")
         return FileResponse(chat_dist / "index.html")
 
+    @app.get("/native/news/{run_id}/")
     @app.get("/native/news/{run_id}")
     async def native_news(run_id):
         if meta(run_id)["app"] != "news":

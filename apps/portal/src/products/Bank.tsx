@@ -294,7 +294,7 @@ export function Bank({ api }: { api: ProductAPI }) {
             />
             <DataRows
               items={rows.filter((x: any) => (x.name + x.text).includes(query))}
-              open={open}
+              open={[49,53].includes(s.task_id) ? undefined : open}
               columns={[
                 ["name", "交易对象", (x) => <>{x.name}<WorksetIdentity item={x}/></>],
                 ["text", "备注", (x) => <span>{x.text}{s.task_id === 49 && <small style={{display:"block"}}>{Array.from(x.text).length} 个字符</small>}</span>],
@@ -304,6 +304,8 @@ export function Bank({ api }: { api: ProductAPI }) {
               renderActions={(x) =>
                 s.task_id === 49 ? (
                   <Classify item={x} api={api} />
+                ) : s.task_id === 53 ? (
+                  s.v2_worksets ? <CollectToWorkset key={x.id} api={api} item={x} label="保存到对账单"/> : <button disabled={api.busy} onClick={()=>api.mutate("select","","",[x.id])}>{s.selection.includes(x.id)?"✓ 已选择":"选择这笔交易"}</button>
                 ) : (
                   <button onClick={() => open(x.id)}>查看明细 →</button>
                 )
@@ -319,7 +321,7 @@ export function Bank({ api }: { api: ProductAPI }) {
             />
             <DataRows
               items={rows}
-              open={open}
+              open={[49,53].includes(s.task_id) ? undefined : open}
               columns={[
                 ["name", "账户名称", (x) => <>{x.name}<WorksetIdentity item={x}/></>],
                 ["account", "账号", (x) => x.account],

@@ -16,7 +16,7 @@ export function Media({ api }: { api: ProductAPI }) {
     [text, setText] = useState(s.outputs.target ?? s.source.text),
     [query, setQuery] = useState("");
   const view=useWorksets(api);
-  const rows = s.items.map((x: any) => d.objects[x.id]).filter((x: any) => !x.hidden).filter(view.visible),
+  const rows = s.items.map((x: any) => d.objects[x.id]).filter((x: any) => !x.hidden && !x.deleted).filter(view.visible),
     active = d.objects[selected];
   const index = (id: string) => s.items.find((x: any) => x.id === id)?.asset_index ?? 0;
   async function play(id: string) {
@@ -32,7 +32,7 @@ export function Media({ api }: { api: ProductAPI }) {
         : page === "favorites"
           ? rows.filter((x: any) => d.collections.favorites.includes(x.id))
           : page === "queue"
-            ? d.orders.main.map((id: string) => d.objects[id])
+            ? d.orders.main.map((id: string) => d.objects[id]).filter((x:any)=>!x.deleted && !x.hidden)
             : rows;
   const operations = (item: any) => (
     <>
@@ -45,7 +45,7 @@ export function Media({ api }: { api: ProductAPI }) {
               disabled={api.busy}
               onClick={() => api.mutate("action", item.id, action)}
             >
-              {action}
+              {action === "收藏" && d.collections.favorites.includes(item.id) ? "✓ 已收藏" : action === "移入历史" && d.collections.history.includes(item.id) ? "✓ 已移入历史" : action}
             </button>
           ))}
         </div>
@@ -262,12 +262,14 @@ export function Media({ api }: { api: ProductAPI }) {
                         </p>
                         <WorksetIdentity item={item}/>
                         <p>
-                          点赞率 {item.like_rate}% · 发布时间 {item.created_at.replace("T", " ").slice(0, 16)} UTC
+                          视频时长 {item.duration} 秒（{minutes(item.duration)}） · 点赞率 {item.like_rate}% · 发布时间 {item.created_at.replace("T", " ").slice(0, 16)} UTC
                         </p>
                         <p className="product-muted">
                           {item.completed ? "✓ 已看完" : "未看完"} ·{" "}
                           {item.category} 类
-                          {s.v2_worksets&&s.task_id===34&&` · ${item.progress_seconds} / ${item.duration} 秒`}
+                          {s.task_id===34&&` · 已观看 ${item.progress_seconds ?? (item.completed ? item.duration : 0)} / ${item.duration} 秒`}
+                          {d.collections.history.includes(item.id)&&" · 已移入历史"}
+                          {d.collections.favorites.includes(item.id)&&" · 已收藏"}
                         </p>
                         {s.task_id === 31 && d.settings.playing_video?.includes(item.id) && (
                           <p className="product-ok">✓ 已选择播放</p>

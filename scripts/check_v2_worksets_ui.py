@@ -100,7 +100,7 @@ async def main():
                                 await choose(page.get_by_role('combobox',name=scope['kind'],exact=True),scope['id'])
                                 if task==2:
                                     targets=worksets.members(state,scope)
-                                    commands={target:value for op,target,value,ids in v2_worksets.reference_commands(state,variant)}
+                                    commands={target:value for op,target,value,ids in v2_worksets.reference_commands(state,variant,include_delivery=False)}
                                     for item in targets:
                                         await page.locator('a[title="会话"]').click()
                                         await page.locator('.list__itemWrap').filter(has=page.locator('.list__title',has_text=scope['name'])).locator('.list__item').click()
@@ -123,9 +123,9 @@ async def main():
                                         await expect(page.locator('.wxDetailPane')).to_contain_text(scope['name'])
                                         if task==6:
                                             await page.locator('.wxGroupPicker__trigger').click()
-                                            await page.get_by_role('option',name=effect['labels'][target],exact=True).click()
-                                            await click_save(page.locator('.wxGroupAssign__btn'))
-                                            await expect(page.locator('.wxGroupAssign__btn')).to_have_text('保存')
+                                            async with page.expect_response(lambda r:r.request.method=='POST' and r.url.endswith('/commands')):
+                                                await page.get_by_role('option',name=effect['labels'][target],exact=True).click()
+                                            await expect(page.locator('.wxGroupAssign')).to_contain_text('选择后自动保存')
                                             await expect(page.locator('.wxDetailPane__dl')).to_contain_text(effect['labels'][target])
                                         else:
                                             await page.get_by_role('button',name='发消息',exact=True).click()
@@ -254,7 +254,9 @@ async def main():
                                     elif task==48:
                                         await row.locator('.shop-image-link').click();await classify(page.locator('.shop-detail'),value)
                                         await page.get_by_role('button',name='← 所有商品',exact=True).click()
-                                    elif task in (49,50):
+                                    elif task==49:
+                                        await classify(row,value)
+                                    elif task==50:
                                         await row.locator('.product-text-link').click()
                                         if task==50:
                                             history=page.locator('.bank-form details');await history.locator('summary').click()
@@ -270,10 +272,10 @@ async def main():
                             elif 'selection' in effect:
                                 target=effect['selection'][0];row=page.locator(f'[data-object-id="{target}"]')
                                 if task==31:await row.locator('.media-thumbnail').click()
-                                else:await row.get_by_role('button',name='查看明细 →',exact=True).click()
-                                await choose(page.get_by_role('combobox',name='保存位置',exact=True),scope['id'])
-                                await click_save(page.get_by_role('button',name='加入课程收藏夹' if task==31 else '保存到对账单',exact=True))
-                                await expect(page.locator('.workset-collect')).to_contain_text('此记录已保存')
+                                collect_region=page if task==31 else row
+                                await choose(collect_region.get_by_role('combobox',name='保存位置',exact=True),scope['id'])
+                                await click_save(collect_region.get_by_role('button',name='加入课程收藏夹' if task==31 else '保存到对账单',exact=True))
+                                await expect(collect_region.locator('.workset-collect')).to_contain_text('此记录已保存')
                             else:
                                 for target,action in effect['actions']:
                                     row=page.locator(f'[data-object-id="{target}"]')
@@ -315,6 +317,13 @@ async def main():
                             await page.get_by_role('button',name='保存课程练习列表',exact=True).click()
                             await code_idle()
                             await expect(page.get_by_text('已保存的课程练习列表',exact=True)).to_be_visible()
+                        # This probe covers native app controls. Document editing
+                        # has a separate browser probe; create the required final
+                        # deliverable through ordinary authenticated commands here.
+                        for op,target,value,ids in v2_worksets.reference_commands(state,variant):
+                            if op.startswith('assignment.'):
+                                response=await client.post('/api/runs/'+rid+'/commands',headers={'Authorization':'Bearer '+token},json=dict(epoch=0,action_id=secrets.token_hex(16),op=op,target=target,value=value,ids=ids))
+                                response.raise_for_status()
                         snap=await snapshot();result=v2.evaluate(state,snap['state'],variant,snap['events'])
                         assert result['success'],result
                         assert not errors,errors

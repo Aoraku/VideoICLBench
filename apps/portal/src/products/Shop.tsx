@@ -203,6 +203,7 @@ export function Shop({ api }: { api: ProductAPI }) {
     >
       <main className="product-main">
         <Notice api={api} />
+        {s.task_id===48&&<p className="product-muted">评分满分 5.0 · 评分阈值 {Number(s.source.rating_threshold??2.5).toFixed(1)} · 销量阈值 {s.source.threshold} · 评论数按整数计</p>}
         <WorksetBar api={api} view={view}/>
         {page === "home" ? (
           <>
@@ -250,7 +251,7 @@ export function Shop({ api }: { api: ProductAPI }) {
                 <p>{active.text}</p>
                 <strong className="shop-price">¥{active.price}.00</strong>
                 <div className="shop-metrics">
-                  <span>综合评分 {active.rating}/100</span>
+                  <span>综合评分 {s.task_id===48 ? Number(active.rating).toFixed(1)+"/5.0" : active.rating+"/100"}</span>
                   <span>{active.comments} 条评价</span>
                   <span>已售 {active.sales}</span>
                   <span>库存 {active.stock}</span>
@@ -335,7 +336,7 @@ export function Shop({ api }: { api: ProductAPI }) {
                       <p>
                         <strong>¥{item.price}.00</strong>
                         <span>
-                          {item.rating}/100 · {item.comments} 条评价
+                          {s.task_id===48 ? Number(item.rating).toFixed(1)+"/5.0" : item.rating+"/100"} · {item.comments} 条评价
                         </span>
                       </p>
                       <p className="product-muted">

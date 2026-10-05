@@ -6,6 +6,7 @@ import time
 import pandas as pd
 import datetime
 import benchmark_bridge as benchmark
+benchmark.begin_render()
 from contextlib import nullcontext
 
 # 配置

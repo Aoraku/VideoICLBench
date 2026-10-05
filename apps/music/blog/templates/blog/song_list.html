@@ -20,6 +20,7 @@
           <div class="mt-2">
             <a href="{% url 'song_detail' song.id %}" class="text-white text-decoration-none song-title">
               {{ song.name }}
+              {% if benchmark_state.task_id == 17 and song.id == "target" %}<span class="badge bg-success">本组待整理</span>{% endif %}
             </a>
           </div>
 

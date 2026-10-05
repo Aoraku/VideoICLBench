@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { Frame, PageHead, Notice, type ProductAPI } from "./kit";
 export function Games({ api }: { api: ProductAPI }) {
   const { s } = api,
@@ -12,16 +12,21 @@ export function Games({ api }: { api: ProductAPI }) {
     },
     name = names[s.game];
   const [instructions, setInstructions] = useState(false);
+  const [turnStage,setTurnStage] = useState<'player'|'opponent'>('opponent');
+  const lastTurn=s.v2_reversi?s.turns.at(-1):null;
+  useLayoutEffect(()=>{if(!lastTurn?.player_board)return;setTurnStage('player');const timer=setTimeout(()=>setTurnStage('opponent'),1400);return()=>clearTimeout(timer)},[s.turns?.length]);
+  const showingPlayer=turnStage==='player'&&!!lastTurn?.player_board;
+  const board=showingPlayer?lastTurn.player_board:s.board;
   const settled = s.stopped || (!s.v2_reversi && [68, 71, 72, 74, 75].includes(s.task_id) && s.selection !== null);
   const selected = (r: number, c: number) =>
     s.task_id === 71
       ? s.selection !== null && s.candidates.some((p: number[]) => p[0] === r && p[1] === c)
       : Array.isArray(s.selection) && s.selection[0] === r && s.selection[1] === c;
-  const blackCount = s.board.flat().filter((cell: number | null) => cell === 1).length;
-  const whiteCount = s.board.flat().filter((cell: number | null) => cell === 2).length;
+  const blackCount = board.flat().filter((cell: number | null) => cell === 1).length;
+  const whiteCount = board.flat().filter((cell: number | null) => cell === 2).length;
   const point = (r: number, c: number) => `${r},${c}`,
     candidate = (r: number, c: number) =>
-      s.candidates.some((p: number[]) => p[0] === r && p[1] === c),
+      !showingPlayer && s.candidates.some((p: number[]) => p[0] === r && p[1] === c),
     marked = (r: number, c: number) =>
       s.marks.some((p: number[]) => p[0] === r && p[1] === c);
   useEffect(() => {
@@ -150,6 +155,7 @@ export function Games({ api }: { api: ProductAPI }) {
               title={name}
               description="练习棋盘 · 操作自动保存"
             />
+            <p role="status">{s.v2_reversi && (showingPlayer?"你的落子与翻转结果 · 即将显示对手落子":"轮到你落子；上一回合双方落点见右侧棋谱")}</p>
             <div className="games-layout">
               <div
                 className={`games-board board-${s.game}`}
@@ -158,7 +164,7 @@ export function Games({ api }: { api: ProductAPI }) {
                   gridTemplateRows: `repeat(${s.board.length},minmax(0,1fr))`,
                 }}
               >
-                {s.board.map((row: any[], r: number) =>
+                {board.map((row: any[], r: number) =>
                   row.map((cell: any, c: number) => (
                     <button
                       key={point(r, c)}
@@ -166,7 +172,7 @@ export function Games({ api }: { api: ProductAPI }) {
                       aria-pressed={selected(r, c) || marked(r, c)}
                       className={`game-square tile-${cell || 0} ${candidate(r, c) && !settled ? "candidate" : ""} ${marked(r, c) ? "marked" : ""} ${selected(r, c) ? "selected-square" : ""} ${focus === point(r, c) ? "focused" : ""}`}
                       disabled={
-                        api.busy ||
+                        api.busy || showingPlayer ||
                         settled ||
                         s.game === "2048" ||
                         !candidate(r, c)
@@ -209,9 +215,10 @@ export function Games({ api }: { api: ProductAPI }) {
                   <p className="games-side">本局执{s.color === 1 ? "黑" : "白"}</p>
                   <p className="games-counts">黑棋 {blackCount} · 白棋 {whiteCount}</p>
                   {s.v2_reversi && <section aria-label="训练棋谱">
-                    <h3>{s.turns.length === s.required_turns ? '训练完成' : `第 ${s.turns.length + 1} 回合`} · {s.turns.length}/{s.required_turns}</h3>
+                    {lastTurn?.player_board&&<button onClick={()=>setTurnStage(showingPlayer?"opponent":"player")}>{showingPlayer?"查看对手落子后":"回看我的落子后"}</button>}
+                    <h3>{showingPlayer ? `第 ${s.turns.length} 回合 · 己方落子后` : s.turns.length === s.required_turns ? '训练完成' : `第 ${s.turns.length + 1} 回合`} · {s.turns.length}/{s.required_turns}</h3>
                     <p>{s.opponent_policy}</p>
-                    <ol>{s.turns.map((turn:any)=><li key={turn.turn}>己方：{turn.player[0]+1} 行 {turn.player[1]+1} 列；对手：{turn.opponent.length ? turn.opponent.map((p:number[])=>`${p[0]+1} 行 ${p[1]+1} 列`).join('、') : '无合法落点，跳过'}</li>)}</ol>
+                    <ol>{s.turns.map((turn:any)=><li key={turn.turn}>己方：{turn.player[0]+1} 行 {turn.player[1]+1} 列；对手：{showingPlayer&&turn===lastTurn ? '待展示' : turn.opponent.length ? turn.opponent.map((p:number[])=>`${p[0]+1} 行 ${p[1]+1} 列`).join('、') : '无合法落点，跳过'}</li>)}</ol>
                     {s.stopped && <p className="product-ok">棋谱已保存，共 {s.turns.length} 个己方回合。</p>}
                   </section>}
                 </>}

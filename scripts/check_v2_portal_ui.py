@@ -25,7 +25,7 @@ async def main():
    if path.startswith('/native/'):
     return await r.fulfill(content_type='text/html',body='<h1>Native application test fixture</h1>')
    if not path.startswith(('/v1/','/v2/')):return await r.continue_()
-   body=r.request.post_data_json if method=='POST' else None
+   body=r.request.post_data_json if method=='POST' and 'application/json' in r.request.headers.get('content-type','') else None
    calls.append((path,body))
    if path in ['/v1/tasks','/v2/tasks']:data={'tasks':tasks}
    elif path=='/v1/capabilities':data={'direct_application_modules':['chat']}
@@ -33,7 +33,10 @@ async def main():
     rid=f'{len(runs)+1:032x}';data={**body,'id':rid,'epoch':0,'status':'ready','application_url':f'{base}/apps/chat/{rid}#test','lesson':{'total':2,'finished':False} if body['mode']=='demo' else None};runs[rid]=data
    elif path.endswith('/reset'):
     rid=path.split('/')[3];data={**runs[rid],'epoch':runs[rid]['epoch']+1,'status':'ready','result':None};runs[rid]=data
-   elif path.endswith('/eval'):data={'success':True,'completion':1,'violations':[]}
+   elif path.endswith(('/eval','/evaluate')):data={'success':True,'completion':1,'violations':[]}
+   elif path.endswith('/recordings/upload'):data={'status':'pending_review'}
+   elif path.endswith('/recordings/video'):return await r.fulfill(content_type='video/mp4',body=b'UI-test-placeholder')
+   elif path.endswith('/recordings/review'):data={'status':'approved'}
    elif path.startswith('/v1/runs/'):data=runs[path.split('/')[3]]
    else:data={}
    await r.fulfill(json=data)
@@ -106,6 +109,28 @@ async def main():
     await expect(page.get_by_role('tabpanel')).to_contain_text('左下角“参会人员名册”')
     await expect(page.get_by_role('tabpanel')).to_contain_text('关联业务资料')
    await page.screenshot(path=str(out/f'{task_id:03d}-inference.png'),full_page=True)
+  # Capture permission requires its own deliberate click after an actual app
+  # tab exists. Upload/evaluation/review APIs are mocked; no video is recorded.
+  await page.get_by_label('搜索 v2 任务').fill('059')
+  await page.locator('.v2-list tbody tr button').click()
+  await page.get_by_role('tab',name='示范 · demo').click()
+  async with context.expect_page() as pending:
+   await page.get_by_role('button',name='开始录制',exact=True).click()
+  target=await pending.value;await target.wait_for_url('**/native/**')
+  assert await page.evaluate('window.captureCalls')==0
+  await expect(page.get_by_role('button',name='选择应用画面并开始录制',exact=True)).to_be_visible()
+  assert not await page.locator('.v2-rule').count()
+  await page.locator('input[type=file]').set_input_files({'name':'mock.webm','mimeType':'video/webm','buffer':b'UI test only; not a recording'})
+  await expect(page.get_by_label('自动检查结果')).to_contain_text('完成度 100%')
+  await page.get_by_label('审核人',exact=True).fill('测试审核人')
+  await page.get_by_label('录制检查备注').fill('模拟上传与审核接口，未录制视频。')
+  await expect(page.get_by_role('button',name='确认录像完整并审核通过')).to_be_enabled()
+  await page.get_by_role('button',name='确认录像完整并审核通过').click()
+  await expect(page.get_by_role('button',name='已审核通过')).to_be_visible()
+  assert any(path.endswith('/evaluate') for path,_ in calls)
+  assert any(path.endswith('/recordings/review') for path,_ in calls)
+  await page.screenshot(path=str(out/'recording-review.png'),full_page=True)
+  await page.get_by_role('button',name='返回任务说明',exact=True).click()
   await page.set_viewport_size({'width':720,'height':1000})
   assert await page.evaluate('document.documentElement.scrollWidth<=window.innerWidth')
   await page.screenshot(path=str(out/'mobile.png'),full_page=True)

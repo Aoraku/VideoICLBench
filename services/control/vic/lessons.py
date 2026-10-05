@@ -25,6 +25,8 @@ def incomplete_message(state, result):
 
 
 def episode_count(task_id):
+    if task_id == 59:
+        return 1
     # Task 30 has single-choice variants even though C is a batch operation.
     return 1 if task_id in BATCH_TASKS and task_id != 30 else 6
 

@@ -323,6 +323,8 @@ def apply(state, op, target="", value="", ids=None):
             collect("watchlist", target, True)
             if value == "移入历史":
                 collect("history", target)
+            elif t == 34:
+                obj["deleted"] = True
         elif value == "加入购物车":
             collect("cart", target)
         elif value == "移出购物车":

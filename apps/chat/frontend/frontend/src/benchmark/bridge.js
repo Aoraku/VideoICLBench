@@ -13,11 +13,12 @@ if (nativeRun && token) {
   sessionStorage.setItem(tokenKey, token);
   localStorage.setItem("access_token", token);
 }
-let latest = null;
+let latest = null, snapshotTime = 0;
 const readConversations = new Set(
   JSON.parse(sessionStorage.getItem(tokenKey + ":read") || "[]"),
 );
 export async function business(path = "", body) {
+  if (!path && !body && latest && Date.now()-snapshotTime<500) return latest;
   const response = await fetch(`/api/runs/${nativeRun}${path}`, {
     method: body ? "POST" : "GET",
     headers: {
@@ -34,7 +35,7 @@ export async function business(path = "", body) {
     throw new Error(
       typeof data.detail === "string" ? data.detail : "操作未能保存，请重试",
     );
-  latest = data;
+  latest = data; snapshotTime = Date.now();
   return data;
 }
 export async function command(op, target = "", value = "", ids = []) {

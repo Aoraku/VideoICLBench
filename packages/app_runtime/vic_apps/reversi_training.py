@@ -18,7 +18,7 @@ def apply(state, op, target='', value=''):
         raise ValueError('此处不是合法落点')
     out=deepcopy(state);color=state['color']
     out['board']=reversi_move(out['board'],*point,color)
-    turn=dict(turn=len(out['turns'])+1,player=list(point),opponent=[])
+    turn=dict(turn=len(out['turns'])+1,player=list(point),opponent=[],player_board=deepcopy(out['board']))
     # Public opponent policy: first legal square in row/column order. If the
     # player must pass, the opponent continues until the player can move again.
     while True:

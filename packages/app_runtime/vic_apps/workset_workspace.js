@@ -18,6 +18,18 @@
       async function send(op,target='',value='',ids=[]){const r=await fetch('/api/runs/'+run+'/commands',{method:'POST',headers,body:JSON.stringify({epoch:latest.epoch,action_id:crypto.randomUUID(),op,target,value:typeof value==='object'?JSON.stringify(value):value,ids})});const data=await r.json();if(!r.ok)throw Error(typeof data.detail==='string'?data.detail:'保存失败');await refresh();}
       function render(){
         const w=latest.state.workset_delivery;dialog.replaceChildren();
+        function savedState(id,snapshot){
+          const d=latest.state.domain,o=snapshot?.object||d?.objects?.[id];
+          if(!o)return latest.state.stopped?'练习已完成':'练习进行中';
+          const parts=[];
+          if(o.nickname)parts.push('备注：'+o.nickname);
+          parts.push(o.label?'分类：'+o.label:'未分类');
+          for(const [key,label] of [['read','已读'],['starred','已收藏'],['hidden','已隐藏'],['deleted','已删除'],['archived','已归档'],['pinned','已置顶'],['muted','已静音'],['reminder','已开启提醒']])if(o[key])parts.push(label);
+          const collections=snapshot?.collections||Object.entries(d.collections).filter(([key,ids])=>ids.includes(id)).map(([key])=>key);
+          for(const key of collections){const names={history:'观看历史',favorites:'收藏',watchlist:'稍后观看'};const scope=latest.state.scopes?.find(s=>'scope:'+s.id===key);if(scope||names[key])parts.push('已加入'+(scope?.collection||names[key]));}
+          if(o.name)parts.push('名称：'+o.name);
+          return parts.join(' · ');
+        }
         const head=el('div',undefined,'head');head.append(el('h2',w.title),button('返回应用',()=>dialog.close()));dialog.append(head);
         const nav=el('nav',undefined,'nav');
         for(const [id,title] of [['inbox','业务收件箱'],['sources',w.source_title],['directory','责任团队目录'],['editor','编制'+w.title],['sent','已交付文件']]){const b=button(title,async()=>{if(busy)return;try{await refresh();tab=id;render();}catch(error){showError(error);}});b.setAttribute('aria-selected',String(tab===id));nav.append(b);}dialog.append(nav);
@@ -25,7 +37,7 @@
         const status=el('p','','status');status.setAttribute('role','status');
         const perform=async(fn)=>{if(busy)return;busy=true;status.textContent='正在保存…';try{await fn();render();}catch(error){status.textContent=error.message;status.className='error';}finally{busy=false;}};
         if(tab==='inbox'){
-          body.append(el('p','本应用的业务请求。修订记录保留供核对；交付内容以最新修订为准。','meta'));
+          body.append(el('p','执行请求与筹备预案分别列出。预案仅供查阅，本次工作请使用十月执行批次。','meta'));
           for(const request of [...w.requests].reverse()){const card=el('article');card.append(el('h3',request.title),el('p',`请求 ${request.id} · 修订 ${request.revision}\n截止时间：${request.deadline}\n责任团队编号：${request.recipient}\n资料来源：《${request.reference_register}》\n业务范围：${request.scope_ids.map(id=>latest.state.scopes?.find(s=>s.id===id)?.name||id).join('、')}`,'meta'),el('p',request.body));body.append(card);}
         }else if(tab==='sources'){
           body.append(el('h3',w.source_title),el('p','按对象编号查找关联资料。同名对象以编号区分；范围外资料也保留在目录中。','meta'));
@@ -46,11 +58,11 @@
           inputs.request.onchange=()=>{const request=w.requests.find(r=>r.id===inputs.request.value);if(request){inputs.title.value=request.title;inputs.deadline.value=request.deadline;Object.assign(formValues,{request:request.id,title:request.title,deadline:request.deadline});}};
           form.append(el('p',w.purpose,'meta'),fields,button('保存文档信息',()=>perform(()=>send('assignment.draft','',Object.fromEntries(Object.entries(inputs).map(([key,input])=>[key,input.value])))),'primary'));body.append(form);
           if(w.draft){const panel=el('div',undefined,'panel');panel.append(el('h3','添加'+w.row_title),el('p','先在应用完成规则操作，再选择实际应交付的对象。选择资料目录中对应的来源记录，带入业务信息后可编辑；保存条目时记录该对象的真实状态。','meta'));
-            const rows=el('div',undefined,'fields'),objectLabel=el('label',w.row_title),select=el('select');select.setAttribute('aria-label',w.row_title);select.append(new Option('请选择对象',''));for(const r of w.references)select.append(new Option(r.object_code+' · '+r.name,r.object));select.value=rowValues.object;select.onchange=()=>{rowValues={object:select.value,reference:'',detail:''};ref.value='';detail.value='';};objectLabel.append(select);rows.append(objectLabel);
+            const rows=el('div',undefined,'fields'),objectLabel=el('label',w.row_title),select=el('select');select.setAttribute('aria-label',w.row_title);select.append(new Option('请选择对象',''));for(const r of w.references)select.append(new Option(r.object_code+' · '+r.name+' — '+savedState(r.object),r.object));select.value=rowValues.object;select.onchange=()=>{rowValues={object:select.value,reference:'',detail:''};ref.value='';detail.value='';};objectLabel.append(select);rows.append(objectLabel);
             const refLabel=el('label','关联业务资料'),ref=el('select');ref.setAttribute('aria-label','关联业务资料');ref.append(new Option('请选择来源记录',''));for(const r of w.references)ref.append(new Option(`${r.id} · ${r.object_code} · ${r.name}`,r.id));ref.value=rowValues.reference;refLabel.append(ref);rows.append(refLabel);
             const detailLabel=el('label',w.detail_label,'wide'),detail=el('input');detail.setAttribute('aria-label',w.detail_label);detail.value=rowValues.detail;detail.oninput=()=>{rowValues.detail=detail.value;};detailLabel.append(detail);rows.append(detailLabel);ref.onchange=()=>{detail.value=w.references.find(r=>r.id===ref.value)?.detail||'';rowValues={object:select.value,reference:ref.value,detail:detail.value};};panel.append(rows,button('保存文档条目',()=>perform(()=>send('assignment.row',select.value,{reference:ref.value,detail:detail.value})),'primary'));body.append(panel);
             const list=el('div',undefined,'panel');list.append(el('h3','文档正文'));
-            w.draft.rows.forEach((r,i)=>{const source=w.references.find(x=>x.object===r.object),card=el('article');card.append(el('h3',`${i+1}. ${source.object_code} · ${source.name}`),el('p',`${w.detail_label}：${r.detail}\n关联资料：${r.reference}`,'meta'));const actions=el('div',undefined,'actions');actions.append(button('编辑',()=>{select.value=r.object;ref.value=r.reference;detail.value=r.detail;rowValues={object:r.object,reference:r.reference,detail:r.detail};panel.scrollIntoView({behavior:'smooth'});},'small'),button('刷新保存结果',()=>perform(()=>send('assignment.row',r.object,{reference:r.reference,detail:r.detail})),'small'),button('移除',()=>perform(()=>send('assignment.remove',r.object)),'small'));if(i>0)actions.append(button('上移',()=>perform(()=>{const ids=w.draft.rows.map(x=>x.object);[ids[i-1],ids[i]]=[ids[i],ids[i-1]];return send('assignment.order','','',ids);}),'small'));card.append(actions);list.append(card);});list.append(button('交付'+w.title,()=>perform(()=>send('assignment.publish')),'primary'));body.append(list);
+            w.draft.rows.forEach((r,i)=>{const source=w.references.find(x=>x.object===r.object),card=el('article');card.append(el('h3',`${i+1}. ${source.object_code} · ${source.name}`),el('p',`${w.detail_label}：${r.detail}\n关联资料：${r.reference}\n条目保存时：${savedState(r.object,r.snapshot)}\n应用当前：${savedState(r.object)}`,'meta'));const actions=el('div',undefined,'actions');actions.append(button('编辑',()=>{select.value=r.object;ref.value=r.reference;detail.value=r.detail;rowValues={object:r.object,reference:r.reference,detail:r.detail};panel.scrollIntoView({behavior:'smooth'});},'small'),button('刷新保存结果',()=>perform(()=>send('assignment.row',r.object,{reference:r.reference,detail:r.detail})),'small'),button('移除',()=>perform(()=>send('assignment.remove',r.object)),'small'));if(i>0)actions.append(button('上移',()=>perform(()=>{const ids=w.draft.rows.map(x=>x.object);[ids[i-1],ids[i]]=[ids[i],ids[i-1]];return send('assignment.order','','',ids);}),'small'));card.append(actions);list.append(card);});list.append(button('交付'+w.title,()=>perform(()=>send('assignment.publish')),'primary'));body.append(list);
           }
         }else{
           if(!w.publications.length)body.append(el('p','尚未交付文件。完成正文后，在文档编辑页交付。','meta'));
