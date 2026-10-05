@@ -53,7 +53,7 @@ def fixture(seed,spec):
     reference_paths(seed)
     from .workset_delivery import attach
     return attach(dict(opening(seed),title=spec['title'],
-        execution=dict(assignment=spec['assignment'],instructions=spec['inference']['instructions'],delivery=spec['delivery'])))
+        execution=dict(assignment=spec['assignment'],instructions=spec['inference']['instructions'],delivery=spec['delivery'])), spec)
 
 
 def evaluate(initial,final,variant,events):

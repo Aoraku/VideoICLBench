@@ -212,7 +212,11 @@ def test_v2_demo_all_episodes_advance_and_final_eval(clients,task_id,variant):
     run=response.json()
     for episode in range(run['lesson']['total']):
         state=perform(worker,run,variant)
-        assert not state.get('v2_atomic') and not state.get('v2_reversi')
+        # Every tier teaches the original rule. Long workflow modules belong
+        # only to inference, including document delivery and cross-app inboxes.
+        for key in ('v2_atomic','v2_reversi','v2_2048','v2_worksets',
+                    'workflow','world','work_batch','workset_delivery','cross_platform'):
+            assert not state.get(key), (task_id, variant, episode, key)
         if task_id == 43 and variant == 'B':
             from test_lessons import actor
             current=worker.get('/api/runs/'+run['id'],headers=actor(run)).json()['state']

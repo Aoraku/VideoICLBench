@@ -67,7 +67,7 @@ PURPOSE = {
 }
 
 
-def attach(state):
+def attach(state, spec=None):
     out=deepcopy(state);t=out['task_id'];title,source,row,detail,values=CONFIG[t]
     if t in (69,74):
         out['domain']=dict(objects={},messages=[],collections={},memberships={},ledger=[],balances={},settings={},artifacts=[],checks=[],orders={},clipboard_history=[],files={})
@@ -81,9 +81,10 @@ def attach(state):
     # The request revision and destination address come from separate records.
     # An obsolete request is intentionally retained as normal inbox history.
     batch=f'WORK-{t:03d}-{out.get("seed",0)%10000:04d}'
+    scope_instruction=(spec or {}).get('inference',{}).get('scope_instruction') or '仅列入本次命中、处理或入选的对象，未命中及范围外对象不列入；排序任务按保存顺序编排。联系人改名任务列出全部指定成员。'
     current=dict(id=batch+'-R2',revision=2,title=title+' · 十月执行批次',
         deadline='2026-10-16 17:00',recipient='TEAM-'+str(t),reference_register=source,
-        body=PURPOSE[t]+f' 请采用本请求的最新修订，并根据《{source}》补齐每条{row}的“{detail}”。先完成应用中的规则操作，再编制《{title}》，交付给责任团队。仅列入本次实际命中、处理或入选的对象，未命中及范围外对象不列入；排序任务按保存顺序编排。联系人改名任务列出全部指定成员。文件中保留对象编号、真实保存结果和关联资料，便于接收人直接开展后续工作。',
+        body=PURPOSE[t]+f' 请采用本请求的最新修订，并根据《{source}》补齐每条{row}的“{detail}”。先完成应用中的规则操作，再编制《{title}》，交付给责任团队。{scope_instruction}文件中保留对象编号、真实保存结果和关联资料，便于接收人直接开展后续工作。',
         scope_ids=[s['id'] for s in scopes] or ['training'])
     previous=dict(current,id=batch+'-R1',revision=1,deadline='2026-10-12 12:00',recipient='TEAM-ARCHIVE',title=title+' · 草案批次')
     out['workset_delivery']=dict(title=title,purpose=PURPOSE[t],source_title=source,row_title=row,detail_label=detail,

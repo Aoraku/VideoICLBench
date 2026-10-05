@@ -66,7 +66,7 @@ def fixture(seed,spec):
             if not valid:break
         if valid:
             from .workset_delivery import attach
-            return attach(state)
+            return attach(state, spec)
     raise ValueError('无法生成三个规则都可完成六回合的棋局')
 
 

@@ -150,7 +150,7 @@ def generate(task_id, seed, spec):
     if collection:
         for scope in scopes: state['domain']['collections']['scope:'+scope['id']] = []
     from vic_apps.workset_delivery import attach
-    return attach(state)
+    return attach(state, spec)
 
 
 def submission_fixture(item):

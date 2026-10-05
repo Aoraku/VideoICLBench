@@ -127,6 +127,13 @@ def test_hard_tasks_have_multiple_apps_and_real_source_data(task_id, inference_s
 
 @pytest.mark.parametrize("task_id", sorted(TASKS))
 def test_demo_remains_original_rule_lesson_without_execution_plugins(task_id):
+    from vic.lessons import episode_count
+    spec = TASKS[task_id]
+    assert spec['demo']['scope'] == 'rule_demonstration_only'
+    assert spec['demo']['episode_count'] == episode_count(task_id)
+    assert spec['demo']['objective'] != spec['assignment']
+    assert spec['demo']['title'].startswith('规则示范：')
+    assert spec['demo']['completion_checks']
     demo = v2.generate(task_id, 0, "demo")
     original_lesson = contextualize(initialize(business.generate(task_id, 0)), "demo")
     assert demo == original_lesson
