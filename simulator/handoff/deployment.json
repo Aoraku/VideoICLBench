@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-06",
+  "code_base": "origin/main e4d40b6",
+  "branch": "codex/embodied-handoff-20261006",
+  "existing_agentlab": "/home/qingle/services/videoicl-simulator (not modified)",
+  "handoff_agentlab": "/home/qingle/services/videoicl-handoff-20261006 (artifact destination; see copy_receipt.json alongside zip)",
+  "gpu_backend_copy": "/home/descfly/VideoICL/handoff_20261006/simulator",
+  "verification": {
+    "stack_physics_contract": "passed: shared clock, invalid-action atomicity, rotation, oracle positive, wrong order rejected",
+    "stack_hosted_protocol": "9 tests passed",
+    "robocasa_hosted_protocol": "9 tests passed",
+    "robocasa_gpu_smoke": "passed: startup, 4 RGB views, frame 16, STILL, submit, unfinished rejected"
+  },
+  "limitations": [
+    "No new VLM run in this packaging change",
+    "No clean-machine RoboCasa full-asset installation test",
+    "No original AgentLab scheduler registration",
+    "No RoboTwin/ManiSkill/RLBench adapter",
+    "No real-robot experiment"
+  ],
+  "state": "portable backend smoke verified using existing GPU dependency/asset environment",
+  "distribution": {
+    "github": "code, documentation, aggregate results only",
+    "media": "separate local/server resource bundle; no new video/action log/annotation publication"
+  }
+}

@@ -1,0 +1,8 @@
+# Tested on Python 3.10.20, Linux NVIDIA EGL. Install RoboCasa v0.2 separately.
+numpy==1.23.5
+mujoco==3.2.6
+robosuite==1.5.1
+h5py
+Pillow
+imageio
+imageio-ffmpeg

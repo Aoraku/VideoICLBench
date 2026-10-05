@@ -1,0 +1,66 @@
+{
+  "model": "gpt-6-astra",
+  "execution": "Fresh-context Codex subagents, GUI button clicks via restricted CDP driver",
+  "textual_task_rule_provided": false,
+  "demo_input": "16 uniformly sampled RGB frames including endpoints",
+  "world_coordinates_provided": false,
+  "isolation": "Prompt/input isolation plus tool audit, not OS isolation",
+  "result": "Neither completed within this bounded run",
+  "limitations": [
+    "Two single trials, not a success-rate estimate",
+    "Wall-clock limit added equally to both while running",
+    "Human and simulation mechanisms differ; simulation demo shares initial scene",
+    "One control preflight excluded after correcting controller mode",
+    "Camera timeouts occurred; operators observed without repeating uncertain actions"
+  ],
+  "conditions": {
+    "a": {
+      "success": false,
+      "upright_cos": 0.9041356367000136,
+      "steps": 245,
+      "agent_run": true,
+      "controller": "GUI_actions",
+      "demo": "human",
+      "agent_reported_act_calls": 42,
+      "full_browser_video": "evidence/trial_a_full_browser.mp4",
+      "video_validation": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1600,
+            "height": 1200
+          }
+        ],
+        "format": {
+          "duration": "2454.466667"
+        }
+      }
+    },
+    "b": {
+      "success": false,
+      "upright_cos": 0.9999957802802877,
+      "steps": 305,
+      "agent_run": true,
+      "controller": "GUI_actions",
+      "demo": "simulation",
+      "agent_reported_act_calls": 44,
+      "full_browser_video": "evidence/trial_b_full_browser.mp4",
+      "video_validation": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 1600,
+            "height": 1200
+          }
+        ],
+        "format": {
+          "duration": "2403.400000"
+        }
+      }
+    }
+  }
+}
