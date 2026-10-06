@@ -5,8 +5,8 @@ export function recordingSteps(s:any, variant:string, rule:string):string[] {
   const games:Record<number,string> = {
     66:'从五子棋首页进入练习棋盘，逐一检查候选落子点，标记所有满足本卡规则的位置。',
     67:'从五子棋首页进入练习棋盘，比较候选位置，按本卡规则选择一个位置并落子。',
-    68:'从游戏首页进入 2048，比较四个方向的移动结果，按本卡规则移动一次。',
-    69:`从游戏首页进入 2048，连续移动，${variant==='A'?`出现数字 ${s.target_number}`:variant==='B'?`得分达到 ${s.target_score}`:'棋盘没有空格'}后立即点击“停止操作”。`,
+    68:'从游戏首页进入 2048，比较四个方向的移动结果，按本卡规则移动一次；A/B 多个方向并列最优时任选一个。',
+    69:`从游戏首页进入 2048，连续移动，${variant==='A'?`出现数字 ${s.target_number}`:variant==='B'?`得分达到 ${s.target_score}`:'棋盘至少有 12 个非空格（16 格的 3/4）'}后立即点击“停止操作”。`,
     70:'从游戏首页进入数独练习，查看各空格的候选数字，标记所有满足本卡规则的格子。',
     71:'从游戏首页进入数独练习，依次选择候选空格，按本卡规则填入数字。',
     72:'从游戏首页进入扫雷练习，比较标出的候选格，按本卡规则点击一个格子。',
@@ -23,6 +23,7 @@ export function recordingSteps(s:any, variant:string, rule:string):string[] {
     22:`从音乐首页进入我的音乐，逐首查看${variant==='C'?`播放次数，阈值为 ${a.threshold}`:'时长'}，为符合规则的歌曲设置“长”分类。`,
     23:`从新闻首页进入全部文章，查看${variant==='C'?`媒体来源（指定媒体为 ${a.publisher}）`:'标题中是否含数字'}，为符合规则的文章设置“数据”分类。`,
     32:`进入我的音乐，为符合规则的歌曲选择“加入播放列表甲”。${variant!=='C'?`评分阈值为 ${a.threshold}。`:'时长按秒计算。'}`,
+    38:`正文长度阈值为 ${a.threshold} 个字符（包含标点和空格，不包含标题），逐项按规则标注。`,
     42:`进入草稿库，查看${variant==='C'?`标题是否含“${a.letter}”`:'标签数量'}，逐篇发布符合规则的草稿。`,
     43:`进入内容项目，对生成代码逐项执行检查，只对通过检查的结果执行${{A:'保存',B:'复制',C:'发送'}[variant]}。${variant==='C'?`收件人为${a.recipient}。`:''}`,
     48:`进入所有商品，查看${variant==='A'?`评分（满分 5.0，阈值 ${a.rating_threshold??2.5}）`:variant==='B'?`销量（阈值 ${a.threshold}）`:'评论数'}，为符合规则的商品设置“优选”分类。`,
@@ -39,7 +40,9 @@ export function recordingSteps(s:any, variant:string, rule:string):string[] {
     :'检查每个符合条件的对象都已完成操作，其余保持原状。';
   if([12,28,35].includes(s.task_id))completion='确认整个列表的顺序已保存；同类对象保留初始相对顺序。';
   if(s.task_id===15)completion='确认选中了三位符合规则的联系人并创建群聊，在群聊中检查成员。';
-  if(s.task_id>=66)completion='每组操作后停留片刻，让完成后的棋盘清晰可见。';
+  if(s.task_id===59)completion='本题 demo 只需编辑并保存草稿；inference 则需要逐份保存草稿后提交答案。';
+  if(s.task_id===72)completion='并列时先选行号最小的格子，同一行再选列号最小者。';
+  if(s.task_id>=66&&s.task_id!==72)completion='每组操作后停留片刻，让完成后的棋盘清晰可见。';
   if(s.task_id===43&&variant==='B')completion+=' 回到任务卡后，将实际复制的内容粘贴到核验框。';
   const details:Record<number,string>={
     3:'保留原文已有的标点，在末尾追加本卡指定的一个英文标点。',

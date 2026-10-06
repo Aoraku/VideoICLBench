@@ -128,8 +128,15 @@ def generate(task_id, seed, spec):
     units=[];seen_boards=set()
     for index in range(BATCH_SIZE):
         item_seed=seed + index * 104729
-        for attempt in range(100):
+        for attempt in range(2000 if task_id == 68 else 100):
             item=contextualize(_generate_item(task_id,item_seed+attempt,spec),'eval')
+            if task_id == 68:
+                choices = [games.best_2048_directions(item, v) for v in 'AB']
+                legal = [d for d in games.DIRECTIONS if games.move_2048(item['board'], d)[1]['changed']]
+                if any(len(c) == len(legal) for c in choices):
+                    continue
+                if index == 0 and set(choices[0]) == set(choices[1]):
+                    continue
             board_key=json.dumps(item.get('board'))
             if task_id<66 or board_key not in seen_boards:
                 seen_boards.add(board_key)
@@ -141,6 +148,27 @@ def generate(task_id, seed, spec):
         item['execution'] = dict(assignment=purpose+'。',
             instructions=f'本批共有 {BATCH_SIZE} 项。当前为第 {index+1} 项：按视频规则处理当前资料，在应用中保存或提交后，可从工作清单切换并随时返回修改。',
             delivery=purpose+'；三项结果分别保存且互不覆盖。')
+        if task_id == 39:
+            import re
+            themes = [
+                ('海岸潮汐观测', ['清晨观测记录', '潮位变化说明', '采样人员访谈', '沿岸巡查总结'], ['观测站记录了 {n} 次潮位变化。', '潮水沿着防波堤缓慢退去。', '研究员说：“请在日落前完成采样。”', '志愿者说：“本次发现 {n} 处积水。”']),
+                ('社区图书流转', ['借阅台账分析', '流动书车纪要', '读者访谈摘要', '旧书修复记录'], ['书车向街区送出了 {n} 箱读物。', '社区阅览室开放了安静的讨论角。', '管理员说：“修复后的书籍可以重新借阅。”', '读者说：“我借到了 {n} 本地方志。”']),
+                ('山地步道养护', ['巡线日志汇总', '木桥维护简报', '护林员采访', '步道复查结论'], ['巡护队完成了 {n} 段木桥检查。', '松林深处的步道铺上了新的防滑垫。', '护林员说：“雨后请绕开湿滑的陡坡。”', '队员说：“路旁补设了 {n} 块指示牌。”']),
+            ]
+            theme, names, texts = themes[index]
+            for j, row in enumerate(item['items']):
+                numeric = bool(re.search(r'\d', row['text']))
+                quoted = any(mark in row['text'] for mark in ('"', '“', '”'))
+                pattern = texts[3 if numeric and quoted else 0 if numeric else 2 if quoted else 1]
+                row['name'] = names[j]
+                row['text'] = pattern.format(n=11 + (seed + j * 7 + index * 13) % 67)
+                # Duplicate feature masks still describe different concrete objects.
+                row['text'] += ['记录由现场人员复核。','资料将交给值班负责人。','补充说明保存在工作日志中。','本次记录供后续安排参考。'][j]
+                item['domain']['objects'][row['id']].update(name=row['name'],text=row['text'])
+            item['execution']['assignment'] = theme + '：按视频规则标注本组生成结果。'
+        if task_id == 59:
+            item['execution']['instructions'] = '本批共三份答案。逐份按视频规则编辑全部行，点击“保存草稿”，再点击“提交答案”。检查提交记录与保存正文一致，再切换下一份；三份均已提交才算完成。'
+            item['execution']['delivery'] = '三份答案均完成格式转换、保存草稿并提交到各自题目。'
         title=f'{label} {index+1}'
         if item.get('source',{}).get('text') and task_id<66:
             excerpt=item['source']['text'].splitlines()[0]

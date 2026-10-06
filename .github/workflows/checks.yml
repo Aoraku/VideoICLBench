@@ -40,3 +40,4 @@ jobs:
           python scripts/check_workset_delivery_ui.py --tasks 23,74 --variants A
           python scripts/check_cross_platform_ui.py
           python scripts/check_late_recorder_feedback_ui.py
+          python scripts/check_residual_recorder_ui.py

@@ -1,4 +1,5 @@
 import React from "react";
+import {taskParameters} from "../taskParameters";
 import { LabelMenu } from "../LabelMenu";
 export type ProductAPI = {
   downloadFile?: (id: string, name: string) => Promise<void>;
@@ -128,11 +129,9 @@ export function PageHead({
   );
 }
 export function Notice({ api }: { api: ProductAPI }) {
-  return api.notice ? (
-    <div className="product-notice" role="status">
-      {api.notice}
-    </div>
-  ) : null;
+  const parameters=taskParameters(api.s.task_id,api.s.source||{});
+  return <>{parameters&&<div className="product-notice" aria-label="任务参数">{parameters}</div>}{api.notice&&<div className="product-notice" role="status">{api.notice}</div>}</>;
+
 }
 export function Tags({ item, api }: { item: any; api: ProductAPI }) {
   const obj = api.d.objects[item.id];

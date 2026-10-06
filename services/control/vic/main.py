@@ -225,8 +225,19 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
     def v2_tasks():
         data = v2.catalog()
         for item in data['tasks']:
-            if item['id'] == 16:
-                item['recording_parameters'] = {'fixed_reply': task(16)['parameters']['fixed_reply']}
+            if item['id'] in (16,22,38,49,57):
+                source = business.generate(item['id'], 0)['source']
+                item['recording_parameters'] = {key: source[key] for key in ('threshold','text_threshold','fixed_reply')}
+            if item['id'] == 59:
+                item['demo']['completion_checks'] += ['demo 只需编辑规则示例并保存草稿，不需要提交答案。']
+                item['inference']['instructions'] += ' 三份答案均须按规则编辑全部行，先点“保存草稿”，再点“提交答案”；在提交记录中核对正文。只保存草稿不算完成 inference。'
+            if item['id'] == 68:
+                for variant in 'AB':
+                    item['demo']['rule_explanations'][variant] += ' 多个有效方向并列达到最优值时，任选其中一个都正确；相反方向可能对称，不要求固定优先级。'
+                item['inference']['instructions'] += ' 按合并次数或得分比较时，多个有效方向并列最优可任选一个；每组仅移动一次。'
+            if item['id'] == 72:
+                item['demo']['recording_steps'] += ['候选格并列时，先选行号最小者，同一行再选列号最小者；行从上到下、列从左到右编号。']
+                item['inference']['instructions'] += ' 候选格并列时，先按行号升序，再按列号升序选择。'
         return data
 
     @app.get("/v2/tasks/{task_id}/contract", dependencies=[Depends(manager)])

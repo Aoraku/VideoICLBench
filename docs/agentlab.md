@@ -101,3 +101,9 @@ sudo docker compose --env-file .local/docker.env -f infra/compose.yaml up --buil
 ## OS-ICL 任务
 
 主页 **OS · 36 题** 提供 36 个 OS 模拟任务和 108 段配套示范视频，使用同一平台密钥和现有隧道。操作步骤、原生 Agent 命令、API 和带 OS 服务的维护命令见 [OS-ICL 团队任务](os-icl.md)。维护这台服务器时需同时指定 `-f infra/compose.yaml -f infra/compose.os.yaml`，以保留 OS 资源挂载和服务。
+
+### Mac 上验证 inference
+
+在实际运行浏览器或 Agent 的 Mac 上建立上述双端口隧道，然后访问 `http://127.0.0.1:18765/`，在 v2 任务卡选择“执行 · inference”。独立应用使用 `http://127.0.0.1:18766`；两个端口都要保持可用。录制与 inference 共用平台访问密钥，分别创建独立任务环境。
+
+`127.0.0.1` 指当前电脑。若 Agent 的浏览器运行在另一台机器，应在那台机器上建立隧道，而不是将 Mac 的本地地址直接发给远程浏览器。

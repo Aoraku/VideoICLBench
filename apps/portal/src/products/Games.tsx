@@ -69,7 +69,7 @@ export function Games({ api }: { api: ProductAPI }) {
       ]}
     >
       <main className={`product-main games-main game-${s.game}`}>
-        <Notice api={api} />
+        <Notice api={api} />{s.task_id===68&&<p className="product-notice">按合并次数或得分比较时，多个有效方向并列最优可任选一个；每组只移动一次。</p>}{s.task_id===72&&<p className="product-notice">候选格并列时先选行号最小者，同一行再选列号最小者。行从上到下、列从左到右编号。</p>}
         {page === "home" ? (
           <>
             <PageHead

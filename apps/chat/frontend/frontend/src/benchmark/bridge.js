@@ -264,6 +264,7 @@ function conversations(state, scoped=true) {
             : i) *
             60000,
       ).toISOString(),
+      benchmark_initial_order: state.task_id===14 ? i : undefined,
       benchmark_object: item.id,
       benchmark_label: object.label || (object.archived ? "已归档" : ""),
       benchmark_timestamp: item.timestamp,

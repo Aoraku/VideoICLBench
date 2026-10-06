@@ -53,6 +53,7 @@ function sortConversationRows(rows) {
     const pa = Boolean(a?.is_pinned)
     const pb = Boolean(b?.is_pinned)
     if (pa !== pb) return pa ? -1 : 1
+    if(Number.isInteger(a?.benchmark_initial_order)&&Number.isInteger(b?.benchmark_initial_order))return a.benchmark_initial_order-b.benchmark_initial_order
     const ta = new Date(a?.updated_at || a?.last_message?.created_at || 0).getTime()
     const tb = new Date(b?.updated_at || b?.last_message?.created_at || 0).getTime()
     return tb - ta

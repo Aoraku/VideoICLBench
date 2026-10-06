@@ -343,6 +343,17 @@ def stopping_paths(state):
     return {}
 
 
+def best_2048_directions(state, variant):
+    """All legal maximizers; opposite directions can legitimately tie."""
+    metric = {'A': 'merges', 'B': 'score'}[variant]
+    options = [(direction, move_2048(state['board'], direction)[1]) for direction in DIRECTIONS]
+    options = [(direction, stats[metric]) for direction, stats in options if stats['changed']]
+    if not options:
+        return []
+    maximum = max(value for _, value in options)
+    return [direction for direction, value in options if value == maximum]
+
+
 def expected(task_id, variant, state):
     return _expected(task_id, variant, state)
 
@@ -583,8 +594,11 @@ def evaluate(initial, final, variant, events):
             else final["selection"]
         )
         passed = actual == wanted
-        if id_ == 68 and len(final["moves"]) != 1:
-            passed = False
+        if id_ == 68:
+            if variant in ('A', 'B'):
+                passed = actual in best_2048_directions(initial, variant)
+            if len(final['moves']) != 1:
+                passed = False
     if not events:
         violations.append("no_action")
     return dict(

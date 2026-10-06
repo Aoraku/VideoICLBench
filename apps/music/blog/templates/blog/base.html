@@ -188,6 +188,7 @@
 
         <!-- 页面内容 -->
         <div class="container-fluid p-4">
+            {% if benchmark_state.task_id == 22 %}<section aria-label="任务参数"><p>播放量阈值：{{ benchmark_state.source.threshold }} 次。时长按秒计，4 分钟为 240 秒。</p></section>{% endif %}
             {% if benchmark_state.v2_worksets %}{% include 'blog/workset_filters.html' %}{% endif %}
             {% if music_projects %}<section class="music-project-brief" aria-label="工作范围"><strong>{{ benchmark_state.execution.assignment }}</strong><details><summary>查看活动要求与交付说明</summary><p>{{ project_world.brief }}</p><p>{{ benchmark_state.execution.delivery }}</p></details><a href="{% url 'music_activities' %}">活动资料 →</a></section>{% endif %}
             {% block content %}
