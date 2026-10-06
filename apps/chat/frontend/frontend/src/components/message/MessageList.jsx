@@ -12,7 +12,8 @@ function contentUrl(content) {
   return String(content?.url || content?.file_url || content?.download_url || content?.src || '')
 }
 
-function formatMsgTime(iso) {
+function formatMsgTime(iso, utc=false) {
+  if(utc&&iso)return new Date(iso).toISOString().replace('T',' ').slice(0,16)+' UTC'
   if (!iso) return ''
   try {
     const d = new Date(iso)
@@ -623,7 +624,7 @@ export default function MessageList({
               <div className="bubble__replyCount">被回复 {replyCount} 次</div>
             ) : null}
             <div className="bubble__time">
-              {formatMsgTime(row.created_at)}
+              {formatMsgTime(row.created_at,nativeRun&&currentBusiness()?.task_id===14)}
               {row.send_status === 'pending' ? (
                 <span className="bubble__sendState bubble__sendState--pending" aria-live="polite">
                   {' '}

@@ -223,7 +223,11 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
 
     @app.get("/v2/tasks", dependencies=[Depends(manager)])
     def v2_tasks():
-        return v2.catalog()
+        data = v2.catalog()
+        for item in data['tasks']:
+            if item['id'] == 16:
+                item['recording_parameters'] = {'fixed_reply': task(16)['parameters']['fixed_reply']}
+        return data
 
     @app.get("/v2/tasks/{task_id}/contract", dependencies=[Depends(manager)])
     def v2_contract(task_id: int):

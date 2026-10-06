@@ -701,6 +701,15 @@ def apply_mutation(state, op, target="", value="", ids=None):
         if len(ids) != 3:
             raise ValueError("Choose exactly three members")
         state["members"] = sorted(ids)
+    elif op == "conversation.settings" and id_ == 14 and target in known:
+        changes = json.loads(value)
+        if not isinstance(changes, dict) or not changes or not set(changes) <= {'archived', 'pinned', 'muted'} or not all(type(v) is bool for v in changes.values()):
+            raise ValueError("会话设置需要有效的开关状态")
+        for field, enabled in changes.items():
+            action = {'archived': '归档', 'pinned': '置顶', 'muted': '静音'}[field]
+            state['actions'] = [row for row in state['actions'] if row != [target, action]]
+            if enabled:
+                state['actions'].append([target, action])
     elif op == "action" and value in OPS.get(id_, []) and target in known:
         item = next(x for x in state["items"] if x["id"] == target)
         if value in ("检查", "本地检查"):

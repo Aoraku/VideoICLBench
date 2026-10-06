@@ -4,6 +4,7 @@ from copy import deepcopy
 import ast
 import hashlib
 import base64
+import json
 
 ENTITY = {
     1: "messages",
@@ -264,6 +265,11 @@ def apply(state, op, target="", value="", ids=None):
             )
         if t == 60:
             d["objects"]["target"]["syntax_valid"] = syntax_check(value)
+    elif op == "conversation.settings" and t == 14:
+        changes = json.loads(value)
+        if obj is None or not isinstance(changes, dict) or not changes or not set(changes) <= {'archived', 'pinned', 'muted'} or not all(type(v) is bool for v in changes.values()):
+            raise ValueError("会话设置需要有效的开关状态")
+        obj.update(changes)
     elif op == "label":
         obj["label"] = value
     elif op == "order":

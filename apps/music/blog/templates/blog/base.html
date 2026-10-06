@@ -153,7 +153,7 @@
         <!-- 左上角“青楽”Logo -->
         <a href="{% url 'song_list' %}" class="logo-link text-white mb-4 text-decoration-none">✸青楽</a>
 
-        <a href="{% url 'song_list' %}" class="{% if request.path == '/' or request.resolver_match.url_name == 'song_list' %}active{% endif %}">歌曲一覧</a>
+        <a {% if benchmark %}data-song-list{% endif %} href="{% url 'song_list' %}" class="{% if request.path == '/' or request.resolver_match.url_name == 'song_list' %}active{% endif %}">歌曲一覧</a>
         <a href="{% url 'artist_list' %}" class="{% if request.resolver_match.url_name == 'artist_list' %}active{% endif %}">歌手一覧</a>
         {% if benchmark %}<div class="music-nav-separator"></div><a href="{% url 'music_library' %}">我的音乐</a><a href="{% url 'music_playlists' %}">播放列表</a>{% if music_projects %}<a href="{% url 'music_activities' %}">活动筹备</a><a data-open-im href="#">团队消息 ↗</a>{% endif %}<div class="music-user">周予安<br><small>个人音乐资料库</small></div>{% endif %}
     </div>

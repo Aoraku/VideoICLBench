@@ -1,6 +1,15 @@
 const run = location.pathname.match(/^\/native\/music\/([a-f0-9]{32})/)?.[1];
 const token = sessionStorage.getItem(`vic-music:${run}`) || "";
 let state = JSON.parse(document.querySelector("#music-state").textContent);
+const libraryPath = `/native/music/${run}/`;
+const libraryKey = `vic-music:${run}:song-list-url`;
+if (location.pathname === libraryPath) sessionStorage.setItem(libraryKey, location.pathname + location.search);
+const savedList = sessionStorage.getItem(libraryKey);
+if (savedList) {
+  const destination = new URL(savedList, location.origin);
+  if (destination.origin === location.origin && destination.pathname === libraryPath)
+    document.querySelectorAll('[data-song-list]').forEach(link => link.href = destination.pathname + destination.search);
+}
 let busy = false;
 export async function command(op, target = "", value = "", ids = []) {
   if (busy) return;

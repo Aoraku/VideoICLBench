@@ -257,7 +257,7 @@ function conversations(state, scoped=true) {
       unread_count:
         object.read || readConversations.has(10 + i) ? 0 : item.unread,
       last_message: messages(state, 10 + i)[0],
-      updated_at: new Date(
+      updated_at: state.task_id===14 ? object.created_at : new Date(
         Date.parse(state.source.reference_time) -
           (state.task_id === 12
             ? state.domain.orders.main.indexOf(item.id)
@@ -503,15 +503,9 @@ export async function nativeRequest(path, options = {}) {
   if (method === "PUT" && settings && state.task_id === 14) {
     const item = state.items[Number(settings[1]) - 10];
     if (!item) throw new Error("会话不存在");
-    if(state.v2_worksets){
-      const changes={};if('is_pinned' in body)changes.pinned=body.is_pinned;if('is_muted' in body)changes.muted=body.is_muted;
-      const next=await command('conversation.settings',item.id,JSON.stringify(changes));
-      const saved=next.domain.objects[item.id];return {is_pinned:saved.pinned,is_muted:saved.muted};
-    }
-    if (body.is_pinned) await command("action", item.id, "置顶");
-    else if (body.is_muted) await command("action", item.id, "静音");
-    else throw new Error("此会话操作不适用于当前练习");
-    return { success: true };
+    const changes={};if('is_pinned' in body)changes.pinned=body.is_pinned;if('is_muted' in body)changes.muted=body.is_muted;
+    const next=await command('conversation.settings',item.id,JSON.stringify(changes));
+    const saved=next.domain.objects[item.id];return {is_pinned:saved.pinned,is_muted:saved.muted};
   }
   if (method === "POST" && p === "/bookmarks" && state.task_id === 13) {
     const item = state.items[Number(body.msg_id) - 100];
