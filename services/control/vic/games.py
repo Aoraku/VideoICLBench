@@ -239,7 +239,7 @@ def fixture(task_id, seed):
             ]
             state = dict(**base, game="2048", board=board, candidates=[], color=1)
             if task_id == 69:
-                if any(x == 0 for row in board for x in row) and stopping_paths(state):
+                if sum(bool(x) for row in board for x in row) < 12 and stopping_paths(state):
                     return state
             elif all(expected(68, v, state) for v in "ABC"):
                 return state
@@ -328,7 +328,7 @@ def stopping_paths(state):
                 conditions = [
                     any(x == state["target_number"] for row in after for x in row),
                     score2 >= state["target_score"],
-                    all(x for row in after for x in row),
+                    sum(bool(x) for row in after for x in row) >= 12,
                 ]
                 for v, met in zip("ABC", conditions):
                     if met and v not in found:
@@ -566,7 +566,7 @@ def evaluate(initial, final, variant, events):
                     x == replay["target_number"] for row in replay["board"] for x in row
                 ),
                 replay["score"] >= replay["target_score"],
-                all(x for row in replay["board"] for x in row),
+                sum(bool(x) for row in replay["board"] for x in row) >= 12,
             ]["ABC".index(variant)]
             if condition and met_at is None:
                 met_at = i

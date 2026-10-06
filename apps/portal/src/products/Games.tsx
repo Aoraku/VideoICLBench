@@ -251,7 +251,7 @@ export function Games({ api }: { api: ProductAPI }) {
                         </button>
                       ))}
                     </div>
-                    <p>已移动 {s.moves.length} 步</p>
+                    <p>已移动 {s.moves.length} 步 · 非空格 {s.board.flat().filter((n:number)=>n!==0).length} / 16</p>
                     {s.task_id === 69 && (
                       <button
                         className="product-primary"

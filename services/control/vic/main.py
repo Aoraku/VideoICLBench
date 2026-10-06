@@ -148,6 +148,24 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 409, f"Run is {run.status}; reset or create another run"
             )
 
+    def recording_metadata(run, epoch=None):
+        epoch = run.epoch if epoch is None else epoch
+        directory = data / "artifacts" / run.id
+        if epoch != run.epoch:
+            directory /= f"epoch-{epoch}"
+        path = directory / "recording.json"
+        if not path.exists():
+            return None
+        meta = json.loads(path.read_text())
+        manifest = run.manifest
+        if epoch != run.epoch:
+            archived_manifest = data / "runs" / run.id / f"epoch-{epoch}" / "manifest.json"
+            manifest = json.loads(archived_manifest.read_text()) if archived_manifest.exists() else {}
+        digest = v2.digest if manifest.get('suite') == 'v2' else task_digest
+        return dict(meta, available=(directory / "tutorial.mp4").is_file(),
+                    archived=epoch != run.epoch,
+                    contract_current=meta.get("task_digest", manifest.get("task_digest")) == digest(run.task_id))
+
     def summarize(run):
         return dict(
             id=run.id,
@@ -158,6 +176,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             status=run.status,
             epoch=run.epoch,
             result=run.result,
+            recording=recording_metadata(run),
             created_at=run.created_at.isoformat(),
             manifest=run.manifest,
             interaction=run.manifest.get("interaction", "agent"),
@@ -257,6 +276,32 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                     select(Run).order_by(Run.created_at.desc()).limit(200)
                 )
             ]
+
+    @app.get("/v1/recordings", dependencies=[Depends(manager)])
+    def recording_library():
+        # Unlike the recent-run list, this library includes every saved take.
+        recorded_ids = {p.parent.name for p in (data / "artifacts").glob("*/recording.json")}
+        recorded_ids.update(p.parent.parent.name for p in (data / "artifacts").glob("*/epoch-*/recording.json"))
+        if not recorded_ids:
+            return []
+        with sessions() as db:
+            rows = []
+            for run in db.scalars(select(Run).where(Run.mode == "demo", Run.id.in_(recorded_ids)).order_by(Run.created_at.desc())):
+                directory = data / "artifacts" / run.id
+                paths = list(directory.glob("epoch-*/recording.json"))
+                if (directory / "recording.json").exists():
+                    paths.insert(0, directory / "recording.json")
+                for path in paths:
+                    meta = json.loads(path.read_text())
+                    epoch = int(meta["epoch"])
+                    item = summarize(run)
+                    item.update(epoch=epoch, recording=recording_metadata(run, epoch))
+                    if epoch != run.epoch:
+                        archive = data / "runs" / run.id / f"epoch-{epoch}"
+                        item["result"] = json.loads((archive / "result.json").read_text()) if (archive / "result.json").exists() else None
+                        item["status"] = "archived"
+                    rows.append(item)
+            return rows
 
     @app.post("/v1/runs", dependencies=[Depends(manager)], status_code=201)
     def create(body: CreateRun):
@@ -746,12 +791,22 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 converted.unlink(missing_ok=True)
 
     @app.get("/v1/runs/{run_id}/recordings/video", dependencies=[Depends(manager)])
-    def video(run_id):
-        get_run(run_id)
-        path = data / "artifacts" / run_id / "tutorial.mp4"
+    def video(run_id, epoch: int | None = None):
+        run = get_run(run_id)
+        directory = data / "artifacts" / run_id
+        if epoch is not None and epoch != run.epoch:
+            directory /= f"epoch-{epoch}"
+        path = directory / "tutorial.mp4"
         if not path.exists():
             raise HTTPException(404, "No recording")
         return FileResponse(path, media_type="video/mp4")
+
+    @app.get("/v1/runs/{run_id}/recordings/metadata", dependencies=[Depends(manager)])
+    def recording_details(run_id, epoch: int | None = None):
+        meta = recording_metadata(get_run(run_id), epoch)
+        if meta is None:
+            raise HTTPException(404, "No recording")
+        return meta
 
     @app.post("/v1/runs/{run_id}/recordings/review", dependencies=[Depends(manager)])
     async def review(run_id, body: Review):

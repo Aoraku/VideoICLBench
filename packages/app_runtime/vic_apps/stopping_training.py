@@ -8,7 +8,7 @@ from vic import games
 def conditions(state):
     return dict(A=any(n==state['target_number'] for row in state['board'] for n in row),
                 B=state['score']>=state['target_score'],
-                C=all(n for row in state['board'] for n in row))
+                C=sum(bool(n) for row in state['board'] for n in row)>=12)
 
 
 def opening(seed):

@@ -29,14 +29,20 @@ async def main():
    calls.append((path,body))
    if path in ['/v1/tasks','/v2/tasks']:data={'tasks':tasks}
    elif path=='/v1/capabilities':data={'direct_application_modules':['chat']}
+   elif path=='/v1/recordings':data=[r for r in runs.values() if r.get('recording')]
    elif path=='/v1/runs':
-    rid=f'{len(runs)+1:032x}';data={**body,'id':rid,'epoch':0,'status':'ready','application_url':f'{base}/apps/chat/{rid}#test','lesson':{'total':2,'finished':False} if body['mode']=='demo' else None};runs[rid]=data
+    rid=f'{len(runs)+1:032x}';data={**body,'id':rid,'epoch':0,'status':'ready','application_url':f'{base}/apps/chat/{rid}#test','manifest':{'suite':'v2'},'created_at':'2026-10-06T12:00:00Z','lesson':{'total':2,'finished':False} if body['mode']=='demo' else None};runs[rid]=data
    elif path.endswith('/reset'):
     rid=path.split('/')[3];data={**runs[rid],'epoch':runs[rid]['epoch']+1,'status':'ready','result':None};runs[rid]=data
-   elif path.endswith(('/eval','/evaluate')):data={'success':True,'completion':1,'violations':[]}
-   elif path.endswith('/recordings/upload'):data={'status':'pending_review'}
+   elif path.endswith(('/eval','/evaluate')):
+    data={'success':True,'completion':1,'violations':[]}
+    if path.endswith('/evaluate'):runs[path.split('/')[3]].update(result=data,status='completed')
+   elif path.endswith('/recordings/upload'):
+    data={'status':'pending_review','available':True,'contract_current':True};runs[path.split('/')[3]]['recording']=data
+   elif path.endswith('/recordings/metadata'):data=runs[path.split('/')[3]].get('recording',{})
    elif path.endswith('/recordings/video'):return await r.fulfill(content_type='video/mp4',body=b'UI-test-placeholder')
-   elif path.endswith('/recordings/review'):data={'status':'approved'}
+   elif path.endswith('/recordings/review'):
+    data={**body,'status':'approved','available':True,'contract_current':True};runs[path.split('/')[3]]['recording']=data
    elif path.startswith('/v1/runs/'):data=runs[path.split('/')[3]]
    else:data={}
    await r.fulfill(json=data)
@@ -131,10 +137,34 @@ async def main():
   assert any(path.endswith('/recordings/review') for path,_ in calls)
   await page.screenshot(path=str(out/'recording-review.png'),full_page=True)
   await page.get_by_role('button',name='返回任务说明',exact=True).click()
+  # Leaving the card and reloading the entire portal both restore server state.
+  await page.get_by_label('搜索 v2 任务').fill('002')
+  await page.locator('.v2-list tbody tr button').click()
+  await page.get_by_label('搜索 v2 任务').fill('059')
+  await page.locator('.v2-list tbody tr button').click()
+  await expect(page.get_by_role('button',name='已审核通过',exact=True)).to_be_visible()
+  await expect(page.get_by_role('link',name='下载服务器录像（MP4）')).to_be_visible()
+  await page.reload()
+  await page.get_by_role('button',name='v2 list',exact=True).click()
+  await page.get_by_label('搜索 v2 任务').fill('059')
+  await expect(page.locator('.recording-badge')).to_contain_text('A：已完成录制')
+  await page.locator('.v2-list tbody tr button').click()
+  await expect(page.get_by_role('button',name='已审核通过',exact=True)).to_be_visible()
+  await expect(page.get_by_label('审核人',exact=True)).to_have_value('测试审核人')
+  await page.get_by_role('button',name='版本 B',exact=True).click()
+  assert await page.get_by_role('button',name='已审核通过',exact=True).count()==0
+  await page.get_by_role('button',name='版本 A',exact=True).click()
+  await expect(page.get_by_role('button',name='已审核通过',exact=True)).to_be_visible()
+  count=len(runs)
+  async with context.expect_page():
+   await page.get_by_role('button',name='重新录制（保留已有录像）',exact=True).click()
+  assert len(runs)==count+1
+  assert len([r for r in runs.values() if r.get('recording',{}).get('approved')])==1
+  await page.get_by_role('button',name='返回任务说明',exact=True).click()
   await page.set_viewport_size({'width':720,'height':1000})
   assert await page.evaluate('document.documentElement.scrollWidth<=window.innerWidth')
   await page.screenshot(path=str(out/'mobile.png'),full_page=True)
   await browser.close()
-  print('PASS:75 cards, all six sort directions, platform filter, demo no-capture preview, independent inference, both resets, final check, unfinished-demo guard, responsive width')
+  print('PASS:75 cards, all six sort directions, platform filter, demo no-capture preview, independent inference, both resets, final check, unfinished-demo guard, persisted review after card switch/reload, variant isolation, retained takes on re-record, MP4 download, responsive width')
 if __name__=='__main__':
  asyncio.run(main())

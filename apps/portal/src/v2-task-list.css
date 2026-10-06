@@ -10,3 +10,5 @@
 .v2-difficulty-note{font-size:12px;color:#7e9083;margin:0 0 18px;line-height:1.8}.v2-difficulty-note summary{cursor:pointer}.v2-difficulty-note p{margin:8px 0 0;color:#61786a}
 
 .v2-delivery ul{padding-left:20px;margin:10px 0 0;font-size:13px;line-height:1.85;color:#536b5e}.v2-delivery li{margin:6px 0}.v2-steps{overflow-wrap:anywhere}
+
+.recording-badge{display:block;color:#28705d;font-size:12px;margin-top:6px;line-height:1.6}.recording-library{border-top:1px solid #dbe6e0;margin-top:24px;padding-top:16px}.recording-library button{display:block;width:100%;text-align:left;margin:8px 0;padding:12px;line-height:1.5}.recording-library button[aria-pressed=true]{border-color:#246551;background:#edf6f0}
