@@ -39,7 +39,8 @@ async def main():
       elif task==39:
        for index in range(3):
         if index:
-         await page.locator('#vic-work-batch button').nth(index).click()
+         async with page.expect_navigation(wait_until='domcontentloaded'):
+          await page.locator('#vic-work-batch button').nth(index).click()
         await page.locator('.product-nav').get_by_role('button',name='内容项目',exact=True).click()
         for item in state['work_batch']['units'][index]['state']['items']:
          await expect(page.get_by_text(item['text'],exact=True)).to_be_visible()
