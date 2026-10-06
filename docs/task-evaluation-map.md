@@ -78,7 +78,7 @@
 | [066](../tasks/contracts/066.json) | gomoku | 五子棋：识别并点击目标落子点 | 能形成四连的位置标蓝 | 能形成三连的位置标蓝 | 能堵住对手四连的位置标蓝 | `board`、`moves`、`marks`、`selection`、`stopped`、`events` |
 | [067](../tasks/contracts/067.json) | gomoku | 五子棋：从候选点选择落子 | 选择横向相邻棋子最多的位置 | 选择纵向相邻棋子最多的位置 | 选择距离中心最近的位置 | `board`、`moves`、`marks`、`selection`、`stopped`、`events` |
 | [068](../tasks/contracts/068.json) | games | 2048：选择下一步移动方向 | 优先选择可合并方块最多的方向 | 选择本步合并得分最高的方向 | 优先选择最高方块保持在角落的方向 | `board`、`moves`、`marks`、`selection`、`stopped`、`events` |
-| [069](../tasks/contracts/069.json) | games | 2048：执行一组移动 | 出现目标数字后立即停止 | 达到指定分数后停止 | 棋盘无空格后停止 | `board`、`moves`、`marks`、`selection`、`stopped`、`events` |
+| [069](../tasks/contracts/069.json) | games | 2048：执行一组移动 | 出现目标数字后立即停止 | 达到指定分数后停止 | 棋盘首次有至少 12 个非空格（16 格的 3/4）时立即停止 | `board`、`moves`、`marks`、`selection`、`stopped`、`events` |
 | [070](../tasks/contracts/070.json) | games | 数独：识别需要填写的格子 | 候选集全部为偶数的格子标记 | 候选集全部为奇数的格子标记 | 候选数字数量最少的格子标记 | `board`、`moves`、`marks`、`selection`、`stopped`、`events` |
 | [071](../tasks/contracts/071.json) | games | 数独：按视频规则填写数字 | 填入候选数字中最小者 | 填入候选数字中最大者 | 将候选数字从小到大排列，填入正中间的数字 | `board`、`moves`、`marks`、`selection`、`stopped`、`events` |
 | [072](../tasks/contracts/072.json) | games | 扫雷：从候选格中选择安全格 | 选择周围已揭示线索数字之和最小的安全候选格 | 选择周围未开格最多的格子 | 选择距离左上角最近的格子 | `board`、`moves`、`marks`、`selection`、`stopped`、`events` |

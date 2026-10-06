@@ -6510,7 +6510,7 @@
     {
       "schema_version": 1,
       "task_id": 69,
-      "task_version": "3.0.0",
+      "task_version": "3.0.1",
       "title": "2048：执行一组移动",
       "app": "games",
       "type": "A",
@@ -6528,7 +6528,7 @@
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         },
         "C": {
-          "rule": "棋盘无空格后停止",
+          "rule": "棋盘首次有至少 12 个非空格（16 格的 3/4）时立即停止",
           "evaluator": "task_069_C",
           "predicate": "Exact rule result, lawful event replay, required business effect, and unchanged non-target state"
         }
