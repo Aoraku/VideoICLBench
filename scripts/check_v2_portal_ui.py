@@ -161,6 +161,12 @@ async def main():
   assert len(runs)==count+1
   assert len([r for r in runs.values() if r.get('recording',{}).get('approved')])==1
   await page.get_by_role('button',name='返回任务说明',exact=True).click()
+  await page.get_by_role('button',name='录制记录',exact=True).click()
+  await expect(page.get_by_label('全部录制记录')).to_contain_text('已完成录制 · 审核通过')
+  await page.get_by_role('button',name='查看',exact=True).click()
+  await expect(page.get_by_role('button',name='已审核通过',exact=True)).to_be_visible()
+  await expect(page.get_by_role('link',name='下载服务器录像（MP4）')).to_be_visible()
+  await page.get_by_role('button',name='返回任务列表',exact=True).click()
   await page.set_viewport_size({'width':720,'height':1000})
   assert await page.evaluate('document.documentElement.scrollWidth<=window.innerWidth')
   await page.screenshot(path=str(out/'mobile.png'),full_page=True)
