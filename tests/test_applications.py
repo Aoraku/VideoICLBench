@@ -3,7 +3,7 @@ from vic import business, application_eval
 from vic.schemas import Mutation
 from vic_apps.domain import initialize
 from vic_apps.store import ApplicationStore
-from vic.games import expected, stopping_paths
+from vic.games import expected, stopping_paths, best_2048_directions, apply as apply_game
 
 
 def reference(state, variant):
@@ -88,8 +88,25 @@ def test_application_all_variants(task_id, seed, tmp_path):
             if task_id in (1, 2) and business.expected_effect(task_id, other, initial) == business.expected_effect(task_id, variant, initial):
                 assert application_eval.evaluate(initial, final, other, events)['success']
                 continue
-            if task_id == 68 and expected(task_id, other, initial) == expected(task_id, variant, initial):
-                continue  # Individual tutorial boards may share correct actions; the full lesson distinguishes policies.
+            if task_id == 68:
+                accepted = (best_2048_directions(initial, other) if other in 'AB'
+                            else [expected(task_id, other, initial)])
+                assert application_eval.evaluate(initial, final, other, events)['success'] == (final['selection'] in accepted)
+                continue  # Different policies can legitimately share a maximizing move.
+            if task_id == 69:
+                replay = initial
+                conditions = []
+                for op, target, value, ids in reference(initial, variant)[:-1]:
+                    replay = apply_game(replay, op, target, value, ids)
+                    conditions.append({
+                        'A': any(n == replay['target_number'] for row in replay['board'] for n in row),
+                        'B': replay['score'] >= replay['target_score'],
+                        'C': sum(bool(n) for row in replay['board'] for n in row) >= 12,
+                    }[other])
+                # A path may first meet two stopping conditions on the same move.
+                compatible = conditions[-1] and not any(conditions[:-1])
+                assert application_eval.evaluate(initial, final, other, events)['success'] == compatible
+                continue
             assert not application_eval.evaluate(initial, final, other, events)[
                 "success"
             ]
