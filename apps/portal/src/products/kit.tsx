@@ -129,7 +129,7 @@ export function PageHead({
   );
 }
 export function Notice({ api }: { api: ProductAPI }) {
-  const parameters=taskParameters(api.s.task_id,api.s.source||{});
+  const parameters=taskParameters(api.s.task_id,api.s.source||{},api.s);
   return <>{parameters&&<div className="product-notice" aria-label="任务参数">{parameters}</div>}{api.notice&&<div className="product-notice" role="status">{api.notice}</div>}</>;
 
 }

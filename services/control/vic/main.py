@@ -13,7 +13,7 @@ from fastapi import FastAPI, Depends, Header, HTTPException, Request
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy import select
-from . import business, lessons
+from . import business, lessons, recording_guidance
 from .catalog import catalog, task, task_digest
 from .config import ROOT, DATA, PUBLIC_BASE, admin_token
 from .models import make_database, Run
@@ -225,9 +225,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
     def v2_tasks():
         data = v2.catalog()
         for item in data['tasks']:
-            if item['id'] in (16,22,38,49,57):
-                source = business.generate(item['id'], 0)['source']
-                item['recording_parameters'] = {key: source[key] for key in ('threshold','text_threshold','fixed_reply')}
+            recording_guidance.apply(item)
             if item['id'] == 29:
                 item['demo']['rule_explanations']['C'] += ' 标题中的汉字、数字、标点和空格各计一个字符，文章编号不计入；列表会显示实际标题字符数。'
             if item['id'] == 59:
@@ -595,15 +593,22 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 return response(get_run(run_id))
             if lesson["finished"]:
                 return response(run)
-            active(run)
+            # A stopped upload can still supply the missing clipboard evidence
+            # for the final episode. Its saved application state stays sealed.
+            recorded_clipboard = (run.status == 'recorded' and run.task_id == 43
+                                  and run.variant == 'B' and lesson['index'] == len(lesson['seeds']) - 1)
+            if not recorded_clipboard:
+                active(run)
             sealed = applications.seal(run_id)
             try:
                 result = application_eval.evaluate(run.initial, sealed['state'], run.variant, sealed['events'], body.clipboard)
             except Exception as exc:
-                applications.resume(run_id)
+                if not recorded_clipboard:
+                    applications.resume(run_id)
                 raise HTTPException(503, "本组检查暂未完成，请重试；当前操作仍保留。") from exc
             if not result['success']:
-                applications.resume(run_id)
+                if not recorded_clipboard:
+                    applications.resume(run_id)
                 raise HTTPException(409, lessons.incomplete_message(sealed['state'], result))
             archive = data / 'runs' / run_id / 'lesson' / f'epoch-{run.epoch}'
             archive.mkdir(parents=True, exist_ok=True)
@@ -627,7 +632,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 row.initial = initial
                 row.manifest = {**row.manifest, 'lesson': following,
                     'initial_digest': hashlib.sha256(json.dumps(initial, sort_keys=True).encode()).hexdigest()}
-                row.status = 'ready' if finished else 'resetting'
+                row.status = 'recorded' if recorded_clipboard else ('ready' if finished else 'resetting')
                 db.commit()
                 db.refresh(row)
                 if not finished:

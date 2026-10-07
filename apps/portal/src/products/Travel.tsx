@@ -94,9 +94,7 @@ export function Travel({ api }: { api: ProductAPI }) {
               <div className="product-avatar">
                 {s.source.surname.slice(0, 1)}
               </div>
-              <h2>
-                {s.source.surname} {s.source.given_name}
-              </h2>
+              <h2>旅客资料</h2>
               <dl>
                 <dt>姓 / Surname</dt>
                 <dd>{s.source.surname}</dd>

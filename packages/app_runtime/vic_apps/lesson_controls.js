@@ -96,6 +96,18 @@
     message.setAttribute('role','status');
     message.setAttribute('aria-live','polite');
     Object.assign(message.style, {maxWidth:'min(440px,65vw)',whiteSpace:'normal'});
+    const clipboardHelp = document.createElement('details');
+    const clipboardInput = document.createElement('textarea');
+    if (envelope.state?.task_id === 43) {
+      const summary = document.createElement('summary');
+      summary.textContent = '剪贴板读取失败？手动粘贴核验';
+      const explanation = document.createElement('p');
+      explanation.textContent = '每次复制会覆盖剪贴板，各文件的复制操作已分别记录。这里只粘贴最后一次复制的完整正文，无需拼接；粘贴后再点击完成练习。';
+      clipboardInput.setAttribute('aria-label', '最后复制的正文');
+      clipboardInput.rows = 3;
+      Object.assign(clipboardInput.style, {width:'100%',boxSizing:'border-box'});
+      clipboardHelp.append(summary, explanation, clipboardInput);
+    }
     if (lesson.finished) {
       status.textContent = `已完成 ${lesson.total} 组练习`;
       button.hidden = true;
@@ -114,8 +126,13 @@
           if (!latest.ok) throw Error('无法读取保存状态，请重试。');
           const snapshot = await latest.json();
           if (snapshot.state?.domain?.clipboard_history?.length) {
-            try {payload.clipboard = await navigator.clipboard.readText();}
-            catch {throw Error('请允许读取刚复制的内容，再点击完成练习。');}
+            if (clipboardInput.value) payload.clipboard = clipboardInput.value;
+            else try {payload.clipboard = await navigator.clipboard.readText();}
+            catch {
+              clipboardHelp.open = true;
+              clipboardInput.focus();
+              throw Error('浏览器未允许读取剪贴板。请在下方粘贴最后复制的完整正文，再点击完成练习。');
+            }
           }
         }
         const response = await fetch('/api/runs/' + run + '/lesson/next', {
@@ -126,6 +143,7 @@
         if (data.lesson.finished) {
           status.textContent = `已完成 ${data.lesson.total} 组练习`;
           button.hidden = true;
+          clipboardHelp.hidden = true;
           message.textContent = '自动检查：全部示例通过（100%）。请返回任务卡查看录像上传与审核结果。';
           return;
         }
@@ -138,12 +156,14 @@
           location.reload();
         } else location.replace(data.application_url);
       } catch (error) {
+        if (clipboardHelp.childNodes.length) clipboardHelp.open = true;
         message.style.color = '#a62b28';
         message.textContent = error.name === 'AbortError' ? '连接超时，请重试；已经完成的练习会保留。' : error.message || '暂时无法继续，请重试。';
         button.disabled = false;
       } finally { clearTimeout(timeout); }
     };
     bar.append(status, button, message);
+    if (clipboardHelp.childNodes.length && !lesson.finished) bar.append(clipboardHelp);
     document.body.append(bar);
     // Sticky application actions can reserve the control's actual height,
     // including wrapped status messages and viewport changes.

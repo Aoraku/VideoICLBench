@@ -2,6 +2,8 @@ import {useEffect,useRef,useState} from 'react';
 import type {HumanRun} from './HumanSession';
 export function HumanRecording({run,token,onUpdate,onBusy,initialStream,compact=false,onStarted}:{run:HumanRun;token:string;onUpdate:(r:HumanRun)=>void;onBusy:(b:boolean)=>void;initialStream?:MediaStream|null;compact?:boolean;onStarted?:()=>void}) {
   const [status,setStatus]=useState('idle'),[error,setError]=useState(''),[video,setVideo]=useState(''),[local,setLocal]=useState<Blob|null>(null),[localUrl,setLocalUrl]=useState(''),[reviewer,setReviewer]=useState(''),[note,setNote]=useState(''),[approved,setApproved]=useState(!!run.recording?.approved);
+  const [clipboard,setClipboard]=useState('');
+  const needsClipboard=run.task_id===43&&run.variant==='B'&&!!run.lesson&&!run.lesson.finished&&!run.result;
   const recorder=useRef<MediaRecorder|null>(null),stream=useRef<MediaStream|null>(null),mounted=useRef(true),base=`/v1/runs/${run.id}/recordings`;
   const videoRequest=useRef<AbortController|null>(null);
   const deadline=useRef<ReturnType<typeof setTimeout>|null>(null);
@@ -22,6 +24,17 @@ export function HumanRecording({run,token,onUpdate,onBusy,initialStream,compact=
   async function checkResult(){
     busy(true);setError('');
     try{
+      if(needsClipboard){
+        const freshResponse=await fetch(`/v1/runs/${run.id}`,{headers:{Authorization:`Bearer ${token}`}});
+        if(!freshResponse.ok)throw Error('无法读取练习进度，请重试');
+        const fresh=await freshResponse.json();
+        if(!fresh.lesson?.finished){
+          if(!clipboard)throw Error('复制操作会覆盖剪贴板。请在下方粘贴最后一次复制的完整正文，再检查任务结果，无需拼接所有文件。');
+          const advance=await fetch(`/v1/runs/${run.id}/lesson/next`,{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:JSON.stringify({epoch:run.epoch,index:fresh.lesson.index,clipboard})});
+          const progress=await advance.json();if(!advance.ok)throw Error(typeof progress.detail==='string'?progress.detail:'剪贴板核验失败');
+          latestRun.current={...latestRun.current,lesson:progress.lesson};onUpdate(latestRun.current);
+        }
+      }
       const response=await fetch(`/v1/runs/${run.id}/evaluate`,{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:'{}'});
       const result=await response.json();if(!response.ok)throw Error(typeof result.detail==='string'?result.detail:'自动检查暂未完成，请重试');
       onUpdate({...latestRun.current,status:'completed',result});
@@ -67,6 +80,6 @@ export function HumanRecording({run,token,onUpdate,onBusy,initialStream,compact=
     <p className="muted">停止录制后会自动上传；审核通过后才可用于 inference。WebM / MP4 均可导入，服务器统一保存 MP4。最长 30 分钟，文件不超过 150 MB。录制仅包含你选择的画面；首页与导航是否完整需要人工审核。</p>
     {error&&<p className="error" role="alert">{error}</p>}
     {localUrl&&<p><a href={localUrl} download={`task-${run.task_id}-${run.id.slice(0,8)}.${local?.type==='video/mp4'?'mp4':'webm'}`}>下载原始录像</a>{status==='idle'&&local&&<button onClick={()=>upload(local)}>重试保存录像</button>}</p>}
-    {video&&<><p><a href={video} download={`task-${run.task_id}-${run.variant}-${run.id.slice(0,8)}-${run.epoch}.mp4`}>下载服务器录像（MP4）</a></p>{run.recording?.archived&&<p>这是保留的历史录像，可回放和下载。</p>}{run.recording?.contract_current===false&&<p>该录像对应较早的任务规则，保留供查看，不用于当前规则的 inference。</p>}<section aria-label="自动检查结果" role="status"><h3>任务结果自动检查</h3>{run.result?<><p>{run.result.success?'✓ 检查通过':'尚未完成'} · 完成度 {Math.round(run.result.completion*100)}%</p>{!run.result.success&&<p>请核对全部示范组是否完成；需要重录时重置示范环境。录像已经上传保存，审核通过后才能用于 inference。</p>}</>:<><p>录像已上传，等待任务结果检查。检查通过后可提交人工审核。</p><button disabled={run.recording?.archived||run.recording?.contract_current===false} onClick={checkResult}>检查任务结果</button></>}</section><video src={video} controls/>{!run.recording?.archived&&run.recording?.contract_current!==false&&<details open><summary>审核录像</summary><label>审核人<input value={reviewer} onChange={e=>setReviewer(e.target.value)}/></label><label>录制检查备注<textarea value={note} onChange={e=>setNote(e.target.value)} placeholder="确认首页、导航与任务过程完整。"/></label><button disabled={!reviewer.trim()||!run.result?.success||approved} onClick={review}>{approved?'已审核通过':'确认录像完整并审核通过'}</button>{!run.result?.success&&<p>审核尚不可提交：需要先通过上方的任务结果检查。</p>}{approved&&<p role="status">录像与审核结果已保存到后端，可用于匹配本题规则版本的 inference。</p>}</details>}</>}
+    {video&&<><p><a href={video} download={`task-${run.task_id}-${run.variant}-${run.id.slice(0,8)}-${run.epoch}.mp4`}>下载服务器录像（MP4）</a></p>{run.recording?.archived&&<p>这是保留的历史录像，可回放和下载。</p>}{run.recording?.contract_current===false&&<p>该录像对应较早的任务规则，保留供查看，不用于当前规则的 inference。</p>}<section aria-label="自动检查结果" role="status"><h3>任务结果自动检查</h3>{needsClipboard&&<label>最后复制的正文<textarea aria-label="最后复制的正文" value={clipboard} onChange={e=>setClipboard(e.target.value)} placeholder="粘贴最后一次复制的完整正文，无需拼接所有文件"/><small>只补充剪贴板核验；逐文件的复制记录仍会检查，不需要重录已保存的录像。</small></label>}{run.result?<><p>{run.result.success?'✓ 检查通过':'尚未完成'} · 完成度 {Math.round(run.result.completion*100)}%</p>{!run.result.success&&<p>请核对全部示范组是否完成；需要重录时重置示范环境。录像已经上传保存，审核通过后才能用于 inference。</p>}</>:<><p>录像已上传，等待任务结果检查。检查通过后可提交人工审核。</p><button disabled={run.recording?.archived||run.recording?.contract_current===false} onClick={checkResult}>检查任务结果</button></>}</section><video src={video} controls/>{!run.recording?.archived&&run.recording?.contract_current!==false&&<details open><summary>审核录像</summary><label>审核人<input value={reviewer} onChange={e=>setReviewer(e.target.value)}/></label><label>录制检查备注<textarea value={note} onChange={e=>setNote(e.target.value)} placeholder="确认首页、导航与任务过程完整。"/></label><button disabled={!reviewer.trim()||!run.result?.success||approved} onClick={review}>{approved?'已审核通过':'确认录像完整并审核通过'}</button>{!run.result?.success&&<p>审核尚不可提交：需要先通过上方的任务结果检查。</p>}{approved&&<p role="status">录像与审核结果已保存到后端，可用于匹配本题规则版本的 inference。</p>}</details>}</>}
   </section>;
 }
