@@ -45,6 +45,10 @@ async def main():
                             card=page.locator(f'[data-project="{scope["id"]}"]')
                             await card.get_by_role('button',name='浏览本项目全部来源',exact=True).click()
                             await expect(page.locator('.news-card')).to_have_count(6 if task==29 else 8)
+                            if task==29:
+                                for item in state['items']:
+                                    if item['scope_id']==scope['id']:
+                                        await expect(page.locator(f'.news-card[data-id="{item["id"]}"] .news-title-length')).to_contain_text(f'{len(item["name"])} 个字符')
                             if task==30:
                                 await page.get_by_label('起始日期',exact=True).fill(scope['date_from'])
                                 await page.get_by_label('结束日期',exact=True).fill(scope['date_to'])

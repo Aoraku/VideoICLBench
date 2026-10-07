@@ -218,7 +218,7 @@ export async function nativeFetch(
       ]});
       if(method==='GET' && path.endsWith('/messages')) {
         if(groupId==='2')return respond({messages:s.world.projects.map((p:any,i:number)=>({msg_id:5000+i,sender_id:2,sender_name:'项目协调员',created_at:stamp+i,
-          content:`项目 ${p.id}：${p.name}\n请从项目通知中的候选名单选择三人，建立“${p.group_name}”。\n群公告：${p.announcement}\n在项目资料页打开 Studio，为实际工作群成员编制简报后分享。\n项目资料：${p.material_link}`,project_documents:{id:p.id,url:`/native/product/studio/${run}?project=${encodeURIComponent(p.id)}#${token}`}})).reverse()});
+          content:`项目 ${p.id}：${p.name}\n请从项目通知中的候选名单选择三人，建立“${p.group_name}”。\n群公告：${p.announcement}\nStudio 项目简报须包含工作群的实际成员账号，群内资料链接应能打开该简报。\n项目资料：${p.material_link}`,project_documents:{id:p.id,url:`/native/product/studio/${run}?project=${encodeURIComponent(p.id)}#${token}`}})).reverse()});
         return respond({messages:(group?.messages||[]).map((m:any)=>({msg_id:10000+m.id,sender_id:1,sender_name:(s.source.operator || '我'),created_at:stamp+m.id,content:m.body})).reverse()});
       }
       if(method==='GET' && path.endsWith('/group') && group)return respond({name:group.name,owner_id:1,created_at:stamp,description:'项目工作群',

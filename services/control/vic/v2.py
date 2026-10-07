@@ -14,10 +14,17 @@ from vic_apps.code_projects import TASKS as CODE_PROJECT_TASKS
 EXECUTABLE = {35,44,45,46,51,52,54,55,56,69,74} | ATOMIC_TASKS | WORKSET_TASKS | COMMUNICATION_TASKS | MUSIC_PROJECT_TASKS | EDITORIAL_TASKS | PUBLISHING_TASKS | STUDIO_PROJECT_TASKS | CODE_PROJECT_TASKS
 
 
-def catalog():
+def _recording_catalog():
     data = json.loads((ROOT / 'tasks/v2/catalog.json').read_text())
     for item in data['tasks']:
         item['status'] = 'application-ready' if item['id'] in EXECUTABLE else 'implementation-pending'
+    return data
+
+
+def catalog():
+    from .execution_prompts import present
+    data = _recording_catalog()
+    data['tasks'] = [present(item) for item in data['tasks']]
     return data
 
 
@@ -26,12 +33,18 @@ def task(task_id):
 
 
 def digest(task_id):
-    return hashlib.sha256(json.dumps(task(task_id), ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+    # Recording compatibility is independent of inference request wording.
+    recorded = next(t for t in _recording_catalog()['tasks'] if t['id'] == task_id)
+    return hashlib.sha256(json.dumps(recorded, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
 
 
 def generate(task_id, seed, mode):
     from .identity_context import contextualize
-    state = contextualize(_generate(task_id, seed, mode), mode)
+    state = _generate(task_id, seed, mode)
+    if mode != 'demo':
+        from .execution_prompts import apply_request
+        state = apply_request(state)
+    state = contextualize(state, mode)
     if mode != 'demo':
         from vic_apps.cross_platform import attach
         state = attach(state, seed)

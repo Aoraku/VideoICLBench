@@ -16,7 +16,7 @@ def selected_members(initial, project, variant):
 
 
 def evaluate(initial, final, variant, events):
-    checks=[]
+    checks=[];feedback=[]
     def check(name,value):checks.append(dict(id=name,passed=bool(value)))
     t=initial['task_id'];w=final['world'];d=final['domain'];start=initial['world']
     for key in initial.keys()-{'world','domain','next_group'}:check('input:'+key,final.get(key)==initial[key])
@@ -44,6 +44,12 @@ def evaluate(initial, final, variant, events):
                 expected['objects'][key]['starred']=True;expected['collections']['favorites'].append(key)
             else:expected['objects'][key]['archived']=True
         check('handover:rows',w['handover'].get('rows')==rows)
+        actual_rows=w['handover'].get('rows',{})
+        records={x['id']:x['record_code'] for x in initial['items']}
+        for label,keys in [('交接清单缺少事项',rows.keys()-actual_rows.keys()),('交接清单含多余事项',actual_rows.keys()-rows.keys())]:
+            if keys:feedback.append(label+'：'+'、'.join(records.get(k,k) for k in sorted(keys)))
+        incorrect=[k for k in rows.keys() & actual_rows.keys() if actual_rows[k]!=rows[k]]
+        if incorrect:feedback.append('交接记录的状态或原消息链接不符：'+'、'.join(records[k] for k in incorrect))
         check('handover:title',w['handover'].get('title')==start['handover']['title'])
         check('handover:sent',w['handover'].get('sent') is True)
         check('handover:document_count',set(w['documents'])=={'handover-001'})
@@ -74,8 +80,10 @@ def evaluate(initial, final, variant, events):
     # IDs and send order do not define success; duplicate or misrouted sends do.
     normalize=lambda rows:sorted(json.dumps({k:v for k,v in m.items() if k!='id'},sort_keys=True,ensure_ascii=False) for m in rows)
     check('delivery:messages',normalize(d['messages'])==normalize(messages))
+    if t==13 and normalize(d['messages'])!=normalize(messages):
+        feedback.append('发送记录包含多余、缺失、重复或收件人不符的消息；请核对转发范围与交接文件接收人。')
     for key in expected.keys()-{'messages'}:
         if key=='collections':check('business:'+key,{k:sorted(v) for k,v in d[key].items()}=={k:sorted(v) for k,v in expected[key].items()})
         else:check('business:'+key,d.get(key)==expected[key])
     check('activity',bool(events))
-    return dict(success=all(c['passed'] for c in checks),completion=sum(c['passed'] for c in checks)/len(checks),checks=checks,violations=[c['id'] for c in checks if not c['passed']])
+    return dict(success=all(c['passed'] for c in checks),completion=sum(c['passed'] for c in checks)/len(checks),checks=checks,violations=[c['id'] for c in checks if not c['passed']],feedback=feedback)

@@ -2,7 +2,8 @@
 import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-catalog=json.loads((ROOT/'tasks/v2/catalog.json').read_text())
+from vic.v2 import catalog as execution_catalog
+catalog=execution_catalog()
 header='''# VideoICL 75 个 Web 交互任务
 
 本规范覆盖 001—075，每题 A/B/C 三个视频规则版本，共 225 个条件；低、中、高各 25 题。视频用于明确教授规则，执行任务用于检验规则迁移和长程操作。三个版本保持业务初态与目标一致，只改变需要从视频学习的规则。
@@ -29,7 +30,9 @@ Demo 展示输入、操作和可见结果，并覆盖足以区分规则的对照
 
 主页可按题号、难度、平台排序，选择题目与版本后进入示范或执行环境。两种环境独立保存并可重置。执行结果检查覆盖正确对象、规则结果、来源关联、交付位置与内容、无关数据的保留，以及后续修改造成的过期成果。演示清晰度和实际操作体验由同事逐题核验；本分级不代表已测定的模型成功率。
 
-类型：T 为文本或字段变换，C 为分类标注，S 为选择或排序，A 为条件动作。表中的平台按参与应用列出，具体往返流程见执行步骤。
+高难度 inference 提示采用用户委托形式，只给业务目标、范围、约束和交付要求，不提供按钮路径、逐步操作或视频规则的答案。执行者自行规划完整流程，视频规则只用于其中需要规则判断的环节。
+
+类型：T 为文本或字段变换，C 为分类标注，S 为选择或排序，A 为条件动作。表中的平台按参与应用列出。
 '''
 parts=[header]
 def cell(s):return str(s).replace('|','\\|').replace('\n',' ')
@@ -37,7 +40,7 @@ for level,label in [('low','低'),('medium','中'),('hard','高')]:
  parts += [f'\n## {label}难度任务\n','| 编号与任务 | 类型 | 平台 | 难度 | 规则 A / B / C | demo 录什么 | inference 执行什么 | 最终交付 |','| --- | --- | --- | --- | --- | --- | --- | --- |']
  for t in catalog['tasks']:
   if t['difficulty']!=level:continue
-  fields=[f"{t['id']:03d} {t['title']}",t['type'],' + '.join(t['platforms']),label,'；'.join(f'{v}：{t["variants"][v]}' for v in 'ABC'),t['demo']['instructions'],' → '.join(t['inference']['steps']),t['delivery']]
+  fields=[f"{t['id']:03d} {t['title']}",t['type'],' + '.join(t['platforms']),label,'；'.join(f'{v}：{t["variants"][v]}' for v in 'ABC'),t['demo']['instructions'],t['inference']['instructions'] if t['difficulty']=='hard' else ' → '.join(t['inference']['steps']),t['delivery']]
   parts.append('| '+' | '.join(map(cell,fields))+' |')
 parts+=['''
 ## 设计参考

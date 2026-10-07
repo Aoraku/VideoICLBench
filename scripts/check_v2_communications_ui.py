@@ -137,6 +137,15 @@ async def main():
                                 members=v2_communications.selected_members(state,project,variant)
                                 await page.get_by_title('新建',exact=True).click()
                                 await page.get_by_text('发起群聊',exact=True).click()
+                                candidates=page.get_by_label('建群候选联系人')
+                                await expect(candidates).to_be_visible()
+                                await expect(candidates.get_by_role('button',name=re.compile('EMP-'))).to_have_count(len(state['items']))
+                                dimensions=await candidates.evaluate('(el)=>({scroll:el.scrollHeight,client:el.clientHeight})')
+                                assert dimensions['scroll']>dimensions['client'],dimensions
+                                await candidates.hover()
+                                await page.mouse.wheel(0,1800)
+                                await page.wait_for_function('document.querySelector("[aria-label=建群候选联系人]").scrollTop>0')
+                                await expect(page.get_by_role('button',name=re.compile(r'完\s*成'))).to_be_in_viewport()
                                 for target in members:
                                     item=next(x for x in state['items'] if x['id']==target)
                                     await page.get_by_role('button',name=re.compile(re.escape(item['account']))).click()

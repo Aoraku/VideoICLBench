@@ -69,11 +69,20 @@ def fixture(task_id, seed, spec):
         requests.append(dict(id=request_id, project=project['id'], requester=10+index,
             conversation=10+index, message_id=5000+index, file_type='TXT', version='审定版',
             body=f'请求 {request_id}：请从“{name} · 项目资料”会话查找项目 {project["id"]} 的 TXT 审定版附件，按视频标准选一份，回复给我并关联本请求。'))
+        if task_id == 13:
+            conversations[-2]['name'] = people[index] + ' · ' + name + '负责人'
+            requests[-1]['body'] = f'我是{name}的项目负责人。本次委托 {request_id} 对应项目 {project["id"]}，交接范围仅为“晚班-0115”批次。请按示范视频的原则处理项目消息，将需要交接的事项汇入《晚班消息交接单》，统一交给通讯录中的早班负责人；早班批次仅供查阅。'
     if task_id == 11:
         rng.shuffle(items)
     if task_id == 13:
         extra = deepcopy(items[-1]); extra.update(id='outside',conversation=50,project='P-999',project_name='其他项目',record_code='013-999')
         extra['text']='[013-999] 其他项目 · 批次 晚班-0115\n紧急：旧项目的文件需归档。';items.append(extra)
+        # Retain receipt-only controls as well as neutral messages. The video,
+        # not the request, determines which categories require an action.
+        for index, project in enumerate(projects):
+            neutral = [x for x in items if x['project']==project['id'] and x['batch']=='晚班-0115' and '紧急' not in x['text']]
+            if neutral:
+                neutral[0]['text'] = f'[{neutral[0]["record_code"]}] {project["name"]} · 批次 晚班-0115\n收到，资料已核对，后续安排见项目记录。'
     base['items'] = items
     state = initialize(base)
     for index, item in enumerate(state['items']):

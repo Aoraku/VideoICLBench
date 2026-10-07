@@ -47,11 +47,11 @@ const styles: Record<string, React.CSSProperties> = {
     background: 'linear-gradient(90deg, #12a8ff 0%, #07c160 48%, #8fb8ff 100%)',
     zIndex: 2,
   },
-  leftPane: { minWidth: 0, display: 'flex', flexDirection: 'column', borderRight: '1px solid #dce9f8', background: '#ffffff' },
-  rightPane: { minWidth: 0, display: 'flex', flexDirection: 'column', padding: '24px 28px 20px', background: '#f7fbff' },
+  leftPane: { minWidth: 0, minHeight: 0, display: 'flex', flexDirection: 'column', borderRight: '1px solid #dce9f8', background: '#ffffff' },
+  rightPane: { minWidth: 0, minHeight: 0, display: 'flex', flexDirection: 'column', padding: '24px 28px 20px', background: '#f7fbff' },
   searchWrap: { padding: '20px 20px 10px' },
   searchInput: { height: 34, border: '1px solid #e0ebf7', borderRadius: 8, color: '#253143', background: '#f3f7fc' },
-  listBody: { flex: 1, overflowY: 'auto', paddingBottom: 18 },
+  listBody: { height: '100%', overflowY: 'auto', paddingBottom: 18 },
   sectionButton: {
     width: '100%',
     height: 44,
@@ -104,7 +104,7 @@ const styles: Record<string, React.CSSProperties> = {
   },
   selectedCheck: { borderColor: '#07c160', background: '#07c160' },
   selectedHeader: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 18 },
-  selectedList: { flex: 1, overflowY: 'auto' },
+  selectedList: { flex: 1, minHeight: 0, overflowY: 'auto' },
   selectedRow: { height: 52, display: 'flex', alignItems: 'center', gap: 12, color: '#253143' },
   selectedCount: {
     padding: '3px 9px',
@@ -280,8 +280,9 @@ export default function GroupBuildPage() {
               style={styles.searchInput}
             />
           </div>
-          <Spin spinning={loading}>
-            <div style={styles.listBody}>
+          <div style={{flex:1,minHeight:0,overflow:'hidden'}}>
+          <Spin spinning={loading} wrapperClassName="group-contact-spinner">
+            <div style={styles.listBody} aria-label="建群候选联系人">
               <button type="button" style={styles.sectionButton} onClick={() => setGroupsOpen(prev => !prev)}>
                 <RightOutlined rotate={groupsOpen ? 90 : 0} style={{ fontSize: 11, color: '#8a95a6' }} />
                 <Text style={{ color: '#253143' }}>选择一个已有群</Text>
@@ -323,6 +324,7 @@ export default function GroupBuildPage() {
               ))}
             </div>
           </Spin>
+          </div>
         </section>
 
         <section style={styles.rightPane}>
@@ -355,6 +357,7 @@ export default function GroupBuildPage() {
           </div>
         </section>
       </Content>
+      <style jsx global>{`.group-contact-spinner,.group-contact-spinner > .ant-spin-container{height:100%;min-height:0}`}</style>
     </Layout>
   );
 }

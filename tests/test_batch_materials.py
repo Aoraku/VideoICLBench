@@ -108,7 +108,10 @@ def test_news_bodies_follow_titles_and_remain_distinct(task_id, seed):
     items = business.generate(task_id, seed)['items']
     for item in items:
         title = item['name'].removeprefix('紧急：')
-        assert item['text'] == teaching_materials.NEWS_ARTICLES[title]
+        articles = teaching_materials.NEWS_ARTICLES
+        if task_id == 29:
+            articles = {re.sub(r'(?<=\d) +| +(?=\d)', '', name): body for name,body in articles.items()}
+        assert item['text'] == articles[title]
         assert len(item['text']) >= 50
         assert item['text'].endswith('。')
     assert len({x['text'] for x in items}) == len(items)

@@ -8,6 +8,7 @@ from copy import deepcopy
 from datetime import datetime, timedelta, timezone
 import ast
 import random
+import re
 from . import teaching_materials
 
 FIXTURE_VERSION = 4
@@ -136,6 +137,12 @@ def enrich(id_, seed, items, source, rng):
     assign('verdict', ['AC', 'WA', 'RE', 'AC', 'TLE', 'RE'])
     assign('publisher', ['Echo', 'North', 'Orbit', 'Sky', 'AtlasNews', 'Daily'])
     assign('artist', ['Vela', 'Arco', 'Sora', 'Mica', 'Kite', 'Nova'])
+    if id_ == 28:
+        # Learn ordering, not a fixed list of values or six memorized artists.
+        assign('duration', rng.sample(range(91, 780), n))
+        artists = (['Amber Finch','Cedar Lane','Delta Shore','Ember Vale','Fern House','Golden Hour','Harbor Lights','Indigo Field','Juniper Sky','Laurel Moon','Maple Echo','North Coast','Olive Bloom','Pine Harbor','River Stone','Silver Birch','Willow Park','Winter Lake']
+                   if seed < 1000 else ['Aster Road','Blue Orchard','Coral Bridge','Dawn Meadow','Elm Valley','Frost Garden','Granite Bay','Hazel Wood','Iris Creek','Jade Horizon','Linden Grove','Moss Lantern','Oak Letters','Pearl Station','Quartz Hill','Rose Atlas','Tide Compass','Violet Rain'])
+        assign('artist', rng.sample(artists, n))
     assign('year', rng.sample(range(1980, 2026), n))
     assign('same_day', [True, False])
 
@@ -236,6 +243,10 @@ def enrich(id_, seed, items, source, rng):
     if app == 'news':
         for item in items:
             item['text'] = teaching_materials.NEWS_ARTICLES[item['name'].removeprefix('紧急：')]
+    if id_ == 29:
+        # No artificial spacing around digits; visible title is the measured text.
+        for item in items:
+            item['name'] = re.sub(r'(?<=\d) +| +(?=\d)', '', item['name'])
     if app == 'blog':
         for item in items:
             item['text'] = teaching_materials.BLOG_POSTS[item['name']]

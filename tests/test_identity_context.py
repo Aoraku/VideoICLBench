@@ -66,7 +66,8 @@ def test_business_setting_aliases_keep_meaningful_consistent_project_references(
     state=v2.generate(13,10007,'eval')
     world=state['world']
     for project in world['projects']:
-        assert project['name'] in world['brief']
+        request=next(r for r in world['requests'] if r['project']==project['id'])
+        assert project['name'] in request['body'] and project['id'] in request['body']
         rows=[r for r in state['items'] if r['project']==project['id'] and '紧急' in r['text'] and r.get('batch')=='晚班-0115']
         assert len(set(r['text'] for r in rows))==len(rows)
         assert all('请核对' not in r['text'] for r in rows)

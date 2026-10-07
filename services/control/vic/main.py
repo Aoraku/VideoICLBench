@@ -228,6 +228,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             if item['id'] in (16,22,38,49,57):
                 source = business.generate(item['id'], 0)['source']
                 item['recording_parameters'] = {key: source[key] for key in ('threshold','text_threshold','fixed_reply')}
+            if item['id'] == 29:
+                item['demo']['rule_explanations']['C'] += ' 标题中的汉字、数字、标点和空格各计一个字符，文章编号不计入；列表会显示实际标题字符数。'
             if item['id'] == 59:
                 item['demo']['completion_checks'] += ['demo 只需编辑规则示例并保存草稿，不需要提交答案。']
                 item['inference']['instructions'] += ' 三份答案均须按规则编辑全部行，先点“保存草稿”，再点“提交答案”；在提交记录中核对正文。只保存草稿不算完成 inference。'
