@@ -258,7 +258,7 @@ async def main():
             if t in (59,60,65):
              await click(page.get_by_text('我的代码与笔记',exact=True))
              if t==60:await expect(page.get_by_text('只改指定变量的定义与引用；相似名称、字符串和注释保持不变。',exact=True)).to_be_visible()
-             if t==65:await expect(page.get_by_text(f"长度阈值：{s['source']['code_threshold']} 个字符（包含空格和换行）",exact=True)).to_be_visible()
+             if t==65:await expect(page.get_by_text(f"长度阈值：{s['source']['code_threshold']} 个字符（包含空格和换行）",exact=True)).to_have_count(0 if mode=='demo' else 1)
              if t in (59,60):
               await text(page.locator('textarea'),effect['outputs']['target']);await button('保存文件')
               if t==59 and s.get('v2_atomic'):
@@ -267,7 +267,7 @@ async def main():
               for target,value in effect['actions']:
                name=initial['domain']['objects'][target]['name'];panel=page.locator('[data-testid="stExpander"]').filter(has_text=name+' · solution.py');await click(panel.locator('summary'));await click(panel.get_by_role('button',name='本地检查',exact=True));await click(panel.get_by_role('button',name='提交',exact=True))
             elif t==58:
-             await click(page.get_by_role('button',name='进入题目').first);await button('提交代码');await text(page.locator('textarea'),effect['outputs']['target']);await button('提交')
+             await click(page.get_by_role('button',name='进入题目').first);await button('提交代码');await text(page.get_by_role('textbox',name='编辑源代码',exact=True),effect['outputs']['target']);await button('提交代码')
             elif t in (62,63):
              if t==62:
               for target,value in effect['labels'].items():
@@ -325,7 +325,7 @@ async def main():
            else:raise AssertionError('Native workflow not implemented in QA harness: '+module)
            await page.wait_for_timeout(300)
           initial=batch_initial
-          snap=await persisted();clipboard=await page.evaluate('navigator.clipboard.readText()') if t==43 and variant=='B' else None;outcome=evaluate_run(initial,snap['state'],variant,snap['events'],clipboard)
+          snap=await persisted();clipboard=None;outcome=evaluate_run(initial,snap['state'],variant,snap['events'],clipboard)
           assert outcome['success'],outcome
           assert not errors,errors
           await page.screenshot(path=str(directory/f'{task}-{variant}-done.png'))

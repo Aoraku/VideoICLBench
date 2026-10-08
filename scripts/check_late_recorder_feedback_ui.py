@@ -17,9 +17,9 @@ async def main():
  while not server.started:await asyncio.sleep(.05)
  try:
   async with httpx.AsyncClient(base_url=base,headers={'Authorization':'Bearer '+secret},timeout=60) as admin,async_playwright() as p:
-   browser=await p.chromium.launch()
+   browser=await p.chromium.launch(channel=os.environ.get('VIC_BROWSER_CHANNEL'))
    try:
-    for task,suite,mode in [(14,'v1','demo'),(14,'v2','eval'),(16,'v2','demo'),(22,'v2','eval')]:
+    for task,suite,mode in [(14,'v1','demo'),(14,'v2','eval'),(16,'v2','demo'),(56,'v2','demo'),(22,'v2','eval')]:
      state=v2.generate(task,0 if mode=='demo' else 10001,mode) if suite=='v2' else initialize(business.generate(task,0))
      rid=secrets.token_hex(16);token=secrets.token_hex(32)
      (await admin.post('/internal/prepare',json=dict(run_id=rid,token=token,app=state['app'],epoch=0,state=state))).raise_for_status()
@@ -41,7 +41,13 @@ async def main():
        await expect(page.locator('.bubble__time').first).to_have_text(source)
        await expect(row).to_contain_text(source)
       elif task==16:
-       await expect(page.get_by_label('工作范围',exact=True)).to_contain_text('固定回复正文：“已确认”')
+       await expect(page.get_by_role('listitem').first).to_be_visible()
+       await expect(page.get_by_label('工作范围',exact=True)).to_have_count(0)
+       assert '固定回复正文' not in await page.locator('body').inner_text()
+      elif task==56:
+       await expect(page.locator('.product')).to_be_visible()
+       assert '指定字母' not in await page.locator('body').inner_text()
+       assert '金额阈值' not in await page.locator('body').inner_text()
       else:
        await page.get_by_role('link',name='2',exact=True).click();await page.wait_for_url('**/?page=2')
        await page.locator('a.song-title').first.click();await page.wait_for_url('**/songs/**')

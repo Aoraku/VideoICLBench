@@ -1,4 +1,4 @@
-"""Exercise real Studio controls, OS clipboard and downloads; never record video."""
+"""Exercise real Studio controls, workspace clipboard and downloads; never record video."""
 import asyncio,ast,base64,json,os,secrets,sys
 from pathlib import Path
 import httpx,uvicorn
@@ -25,14 +25,13 @@ async def main():
                 for variant in variants:
                     state=v2.generate(task,10001,'eval');rid=secrets.token_hex(16);token=secrets.token_hex(32)
                     response=await client.post('/internal/prepare',json=dict(run_id=rid,token=token,app=state['app'],epoch=0,state=state));response.raise_for_status()
-                    context=await browser.new_context(viewport={'width':1440,'height':1050},permissions=['clipboard-read','clipboard-write']);page=await context.new_page();page.set_default_timeout(15000)
+                    context=await browser.new_context(viewport={'width':1440,'height':1050});page=await context.new_page();page.set_default_timeout(15000)
                     errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
                     async def snapshot():
                         r=await client.get('/internal/runs/'+rid);r.raise_for_status();return r.json()
-                    async def action(locator=None,paste=False):
+                    async def action(locator):
                         async with page.expect_response(lambda r:r.request.method=='POST' and r.url.endswith('/commands')) as pending:
-                            if paste:await page.get_by_label('复制交付内容',exact=True).press('Meta+V' if sys.platform=='darwin' else 'Control+V')
-                            else:await locator.click()
+                            await locator.click()
                         r=await pending.value;assert r.status==200,await r.text()
                     async def nav(name):await page.locator('.product-nav').get_by_role('button',name=name,exact=True).click()
                     async def project(id):
@@ -111,8 +110,7 @@ async def main():
                                         await download(page.get_by_role('button',name='下载文件',exact=True),item['code'].encode())
                                     elif variant=='B':
                                         await action(page.get_by_role('button',name='复制代码',exact=True))
-                                        assert await page.evaluate('navigator.clipboard.readText()')==item['code']
-                                        await action(paste=True)
+                                        await action(page.get_by_role('button',name='粘贴到交付清单',exact=True))
                                         await expect(page.get_by_label('复制交付内容',exact=True)).to_have_value(item['code'])
                                         if first_delivery:await page.screenshot(path=str(out/f'{task}-{variant}-pasted.png'),full_page=True)
                                     else:
@@ -143,7 +141,7 @@ async def main():
                         await page.reload();await expect(page.locator('.studio-workflows')).to_be_visible()
                         snap=await snapshot();assert v2.evaluate(state,snap['state'],variant,snap['events'])['success']
                         assert not errors,errors
-                        results.append(dict(task=task,variant=variant,seed=10001,suite='v2',mode='eval',surface='native',status='passed',persisted=True,projects=3,delivered_outputs=3 if task==41 else 6,real_clipboard=task==43 and variant=='B',actual_downloads=task==41 or variant=='A',im_source_links=task==43 and variant=='C'))
+                        results.append(dict(task=task,variant=variant,seed=10001,suite='v2',mode='eval',surface='native',status='passed',persisted=True,projects=3,delivered_outputs=3 if task==41 else 6,workspace_clipboard=task==43 and variant=='B',actual_downloads=task==41 or variant=='A',im_source_links=task==43 and variant=='C'))
                         print(f'{task}{variant} PASS',flush=True)
                     except Exception as exc:
                         results.append(dict(task=task,variant=variant,seed=10001,status='failed',error=str(exc),page_errors=errors));print(f'{task}{variant} FAIL {exc} {errors}',flush=True)
