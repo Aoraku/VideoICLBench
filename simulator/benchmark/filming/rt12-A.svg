@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1030" viewBox="0 0 900 1030">
+<rect width="900" height="1030" fill="#f6f8fa"/>
+<g font-family="Arial, sans-serif" fill="#172334">
+<text x="50" y="28" font-size="20">rt12 A · 夹杯并放到目标垫</text>
+<rect x="50" y="50" width="800" height="800" fill="white" stroke="#203044" stroke-width="2"/>
+<path d="M 150 50 V 850 M 50 150 H 850" stroke="#e4e9ee" stroke-width="1"/>
+<path d="M 250 50 V 850 M 50 250 H 850" stroke="#e4e9ee" stroke-width="1"/>
+<path d="M 350 50 V 850 M 50 350 H 850" stroke="#e4e9ee" stroke-width="1"/>
+<path d="M 450 50 V 850 M 50 450 H 850" stroke="#e4e9ee" stroke-width="1"/>
+<path d="M 550 50 V 850 M 50 550 H 850" stroke="#e4e9ee" stroke-width="1"/>
+<path d="M 650 50 V 850 M 50 650 H 850" stroke="#e4e9ee" stroke-width="1"/>
+<path d="M 750 50 V 850 M 50 750 H 850" stroke="#e4e9ee" stroke-width="1"/>
+<path d="M 450 50 V 850 M 50 450 H 850" stroke="#abb8c4" stroke-dasharray="5 5"/>
+<text x="55" y="73" font-size="14">Far edge: X = −400 mm · hands enter from this side</text>
+<text x="55" y="838" font-size="14">Near edge: X = +400 mm · camera on this side</text>
+<rect x="360.0" y="510.0" width="180.0" height="200.0" fill="#8298ab" opacity=".45"/>
+<text x="450" y="610.0" text-anchor="middle" font-size="14">mat</text>
+<rect x="196.0" y="256.0" width="68.0" height="68.0" fill="#d91f1a" stroke="#172334"/>
+<rect x="204.0" y="264.0" width="52.00000000000001" height="52.00000000000001" fill="white"/>
+<text x="230.0" y="248.0" text-anchor="middle" font-size="14">cup</text>
+<text x="50" y="880" font-size="16">Top view · 1 px = 1 mm · origin at table center · +Y right, +X down</text>
+<text x="50" y="905" font-size="15">Nominal A layout; omit the ±4 mm simulator seed jitter for physical filming.</text>
+<text x="50" y="932" font-size="14">cup: center (X,Y)=(-160,-220) mm; full size X×Y×Z = 68 × 68 × 84 mm</text>
+<text x="50" y="1012" font-size="13">AUTHOR ONLY · Never show this sheet, labels or coordinates in agent demonstration media.</text>
+</g></svg>

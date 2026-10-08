@@ -25,6 +25,7 @@ def add(project, upstream, title, objects, goals, note='', zones=None):
     repo='RoboTwin-Platform/RoboTwin' if project=='RoboTwin' else 'robocasa/robocasa'
     tasks.append(dict(id=f'{"rt" if project=="RoboTwin" else "rc"}{n:02}', title=title,
         source=dict(project=project,task=upstream,revision=revision,url=f'https://github.com/{repo}/blob/{revision}/{path}'),
+        task_revision=2 if project=='RoboTwin' and upstream=='handover_block' else 1,
         execution_backend='robosuite-1.5.1-dual-panda-tabletop',
         adaptation='Task-design adaptation; original assets, native physics and official score are not reused. '+note,
         objects=objects,zones=zones or [dict(id='target',xy=[.16,0],half_size=[.10,.09])],goals=goals,
@@ -47,7 +48,8 @@ add(P,'stack_bowls_three','三只碗按大小嵌套',[obj('small','bowl',size=[.
 add(P,'blocks_ranking_rgb','红绿蓝从左至右排列',[obj('red'),obj('green',color='green'),obj('blue',color='blue')],row(['red','green','blue']))
 add(P,'blocks_ranking_size','块按小中大排列',[obj('small',size=[.018]*3),obj('mid','box','green'),obj('large','box','blue',size=[.033]*3)],row(['small','mid','large']))
 for source,kind in [('handover_block','box'),('handover_mic','bar')]:
-    add(P,source,'左臂夹起并交给右臂，再放到目标垫',[obj('item',kind,xy=[-.12,-.22])],[dict(type='handover',object='item',arms=[0,1]),place('item')],note='A grasp by arm 0 followed by arm 1 while airborne is required; a table relay does not count.')
+    add(P,source,'左臂夹起并交给右臂，再放到目标垫',[obj('item',kind,xy=[-.12,-.22],size=[.022,.14,.025] if kind=='box' else None)],[dict(type='handover',object='item',arms=[0,1]),place('item')],zones=[dict(id='target',xy=[.16,0],half_size=[.1,.17])] if kind=='box' else None,
+        note='Airborne transfer from arm 0 to arm 1 must include 0.2 s of exclusive receiving-arm ownership; table relay and simultaneous touching do not count. '+('The handover block is elongated to 44 x 280 x 50 mm to provide separated Panda grasp sites; 50 mm and 130 mm proxies had gripper or wrist-interference failures in author trials. This is an explicit geometry adaptation, not a claim that the original task is impossible.' if kind=='box' else 'An elongated bar replaces the microphone mesh.'))
 add(P,'lift_pot','双臂同时抬起托盘',[obj('tray','tray',xy=[-.02,0])],[dict(type='dual_lift',object='tray',height=.08)],note='Open tray replaces pot; simultaneous two-gripper contact and elevation required.')
 add(P,'pick_dual_bottles','双臂同时夹起两瓶',[obj('a','bottle',xy=[-.12,-.22]),obj('b','bottle','blue',xy=[-.12,.22])],[dict(type='paired_lift',objects=['a','b'],height=.08)])
 add(P,'pick_diverse_bottles','高矮两瓶移入不同垫',[obj('tall','bottle'),obj('short','bottle','blue',size=[.028,.028,.035])],[place('tall','left'),place('short','right')],zones=[dict(id='left',xy=[.16,-.18],half_size=[.08,.07]),dict(id='right',xy=[.16,.18],half_size=[.08,.07])])

@@ -4,7 +4,7 @@
 
 所有任务的具体来源、固定上游 commit、物体、目标区域、私有成功条件、拍摄指引均在 [tasks.json](tasks.json)。完整题目表见 [TASKS.md](TASKS.md)。每题有 A/B/C 三种布局，共 150 个任务／布局组合。A 为示范布局，B 左右镜像、C 前后镜像；seed 在初始物体布局上施加 ±4 mm 共同平移，保留容器内初始关系。它们不是额外计数的任务。
 
-**实现与验收状态分开记录：**场景、动作、相机、私有判分、GUI、runner 已实现；人手／仿真示范均需要外部采集；50 题还没有逐题独立 agent 成功率或全部可解性验收。`verify` 检查真实物理加载与未完成场景不能成功，不代表 agent 解题。`probe` 是作者写的固定动作夹杯工程检查，不是 agent 结果。
+**实现与验收状态分开记录：**场景、动作、相机、私有判分、GUI、runner 已实现；人手示范仍需外部采集；六题 A/seed0 的成功仿真示范与作者验收见 PILOT.md。50 题还没有逐题独立 agent 成功率或全部可解性验收。`verify` 检查真实物理加载与未完成场景不能成功，不代表 agent 解题。`probe` 是作者写的固定动作夹杯工程检查，不是 agent 结果。
 
 ## 任务适配边界
 
@@ -81,7 +81,7 @@ API runner 负责创建轮次、预算、随机种子、示范条件、运行 ma
 ```bash
 .local/embodied-env/bin/python -m simulator.benchmark.run \
   --admin-token-file .local/embodied50-data/admin.token \
-  --task rt12 --variant B --seed 0 --condition human_frames \
+  --task rt12 --variant B --seed 0 --condition human_frames --trial-kind agent \
   --policy '.local/embodied-env/bin/python -m simulator.benchmark.hosted_policy' \
   --output .local/runs/rt12-B-human-0
 ```
@@ -110,7 +110,7 @@ printf '%s' '{"op":"act","left":"GRASP","right":"STILL"}' | \
 
 `verify` 对 50×3 个真实环境执行 reset、双臂动作、未完成提交判分和有限状态检查；`--render` 另检查三相机。物理正例测试验证真实叠放支持接触；夹杯 probe 验证动作到物理夹取再到终态评估的完整链路。
 
-先做六题 pilot：`rt12` 夹杯、`rt07` 交接、`rt02` 三层塔、`rc10` 锅间转移、`rc22` 瓶子互换、`rc11` 食材分类。每题首先由作者通过同一动作接口完成至少一次，再审定示范，之后用 fresh-context agent 跑匹配 seed／布局。优先比较人手16帧 vs 仿真16帧，并加 no-demo／text 两个基线；全视频另开实验。A 测模仿，B/C 测布局迁移；至少5个 seed、报告成功率与置信区间、动作数、墙钟时间、失败类别。原始手递手／抬举等困难题可能需要修改道具尺寸或规则，必须版本化后重跑。
+六题 pilot 的 A/seed0 作者验收见 PILOT.md：`rt12` 夹杯、`rt07` 交接、`rt02` 三层塔、`rc10` 锅间转移、`rc22` 瓶子互换、`rc11` 食材分类。这些作者成功不能替代 B/C、多 seed 或独立 agent 验收；审定人手示范之后，继续用 fresh-context agent 跑匹配 seed／布局。优先比较人手16帧 vs 仿真16帧，并加 no-demo／text 两个基线；全视频另开实验。A 测模仿，B/C 测布局迁移；至少5个 seed、报告成功率与置信区间、动作数、墙钟时间、失败类别。原始手递手／抬举等困难题可能需要修改道具尺寸或规则，必须版本化后重跑。
 
 扩展至50题前逐题确认：真实动作接口可解、初态不满足目标、没有越界／掉桌、失败场景不能过关、示范确实完成目标、可在人桌面复现。当前没有把这些未来验收伪装成已完成实验。
 
@@ -145,3 +145,5 @@ Author token 只保留服务器，或通过受控 SSH 读取；不要贴到 GitH
 上游任务来源不意味着本适配套件通过上游官方评测认证。
 
 Agentlab 首次部署额外提供 `rt12` 的作者固定动作仿真示范（58次动作、2.5fps采样；外部数据目录），用于验证媒体导入和流程。它不是独立 agent 成绩，也不能充当人手示范。其他示范仍需逐题采集。
+
+六题 pilot 的作者验收、交接几何修订、复现步骤与人手道具清单见 [PILOT.md](PILOT.md)。最新验收范围以 [pilot_validation.json](pilot_validation.json) 为准；作者工程回放与独立 agent 轮次通过 trial_kind 区分。

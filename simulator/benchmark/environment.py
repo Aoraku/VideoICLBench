@@ -33,6 +33,7 @@ class DesktopDual(TwoArmEnv):
         self.layout_jitter=np.random.default_rng(seed).uniform(-.004,.004,2)
         self.spec=spec; self.by_spec={o['id']:o for o in spec['objects']}
         self.table_offset=np.array([0,0,.8]); self.events=set(); self._left_airborne=set()
+        self._receive_hold={}
         self.terminal_hold=0; self.render_enabled=render
         config=load_composite_controller_config(robot='Panda')
         config['body_parts']['right']['input_ref_frame']='world'
@@ -128,7 +129,9 @@ class DesktopDual(TwoArmEnv):
             airborne=a['pos'][2]-extent>.83
             if not airborne: self._left_airborne.discard(name)
             if a['grasp'][0] and airborne: self._left_airborne.add(name)
-            if a['grasp'][1] and airborne and name in self._left_airborne: self.events.add(('handover',name))
+            exclusive_receiver=a['grasp'][1] and not a['grasp'][0] and airborne and name in self._left_airborne
+            self._receive_hold[name]=self._receive_hold.get(name,0)+1 if exclusive_receiver else 0
+            if self._receive_hold[name]>=4:self.events.add(('handover',name))
         lift=any(g['type'] in ('dual_lift','paired_lift') for g in self.spec['goals'])
         released=lift or not any(any(a['grasp']) for a in state.values())
         stable=all(np.linalg.norm(a['pos']-self.last_positions[k])<.002 for k,a in state.items())

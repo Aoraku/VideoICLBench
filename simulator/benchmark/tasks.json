@@ -12,6 +12,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/stack_blocks_two.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
       "objects": [
@@ -107,6 +108,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/stack_blocks_three.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
       "objects": [
@@ -229,6 +231,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/stack_bowls_two.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Nesting uses open square bowls rather than upstream round assets.",
       "objects": [
@@ -324,6 +327,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/stack_bowls_three.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
       "objects": [
@@ -446,6 +450,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/blocks_ranking_rgb.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
       "objects": [
@@ -585,6 +590,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/blocks_ranking_size.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
       "objects": [
@@ -724,8 +730,9 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/handover_block.py"
       },
+      "task_revision": 2,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
-      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. A grasp by arm 0 followed by arm 1 while airborne is required; a table relay does not count.",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Airborne transfer from arm 0 to arm 1 must include 0.2 s of exclusive receiving-arm ownership; table relay and simultaneous touching do not count. The handover block is elongated to 44 x 280 x 50 mm to provide separated Panda grasp sites; 50 mm and 130 mm proxies had gripper or wrist-interference failures in author trials. This is an explicit geometry adaptation, not a claim that the original task is impossible.",
       "objects": [
         {
           "id": "item",
@@ -737,8 +744,8 @@
             1
           ],
           "size": [
-            0.025,
-            0.025,
+            0.022,
+            0.14,
             0.025
           ],
           "xy": [
@@ -758,7 +765,7 @@
           ],
           "half_size": [
             0.1,
-            0.09
+            0.17
           ]
         }
       ],
@@ -805,8 +812,9 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/handover_mic.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
-      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. A grasp by arm 0 followed by arm 1 while airborne is required; a table relay does not count.",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Airborne transfer from arm 0 to arm 1 must include 0.2 s of exclusive receiving-arm ownership; table relay and simultaneous touching do not count. An elongated bar replaces the microphone mesh.",
       "objects": [
         {
           "id": "item",
@@ -886,6 +894,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/lift_pot.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Open tray replaces pot; simultaneous two-gripper contact and elevation required.",
       "objects": [
@@ -959,6 +968,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/pick_dual_bottles.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
       "objects": [
@@ -1057,6 +1067,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/pick_diverse_bottles.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
       "objects": [
@@ -1168,6 +1179,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_empty_cup.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Cup has a physical open cavity; no microwave stage. This is a new adapted task, separate from the historical microwave-mug experiment.",
       "objects": [
@@ -1241,6 +1253,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_bread_basket.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
       "objects": [
@@ -1336,6 +1349,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_can_basket.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
       "objects": [
@@ -1431,6 +1445,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_cans_plasticbox.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
       "objects": [
@@ -1553,6 +1568,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_container_plate.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
       "objects": [
@@ -1648,6 +1664,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_object_scale.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Static pedestal models the placement target; no electronic scale readout.",
       "objects": [
@@ -1743,6 +1760,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_object_stand.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Static pedestal models the placement target; no electronic scale readout.",
       "objects": [
@@ -1838,6 +1856,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_phone_stand.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Open support tray replaces shaped phone stand; phone long axis must be vertical.",
       "objects": [
@@ -1938,6 +1957,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_mouse_pad.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
       "objects": [
@@ -2011,6 +2031,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_dual_shoes.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Colored elongated solids replace shoe meshes; pose and pair arrangement retained.",
       "objects": [
@@ -2131,6 +2152,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/adjust_bottle.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Starts on side; retain upright pose for terminal hold.",
       "objects": [
@@ -2210,6 +2232,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/move_stapler_pad.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Rigid elongated prop replaces stapler; no pressing stage.",
       "objects": [
@@ -2283,6 +2306,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/move_pillbottle_pad.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
       "objects": [
@@ -2356,6 +2380,7 @@
         "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
         "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_a2b_left.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
       "objects": [
@@ -2429,6 +2454,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/setting_the_table/beverage_organization.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -2568,6 +2594,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/clearing_table/drinkware_consolidation.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -2690,6 +2717,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/clearing_table/bowl_and_cup.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -2801,6 +2829,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/setting_the_table/set_bowls_for_soup.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -2909,6 +2938,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/setting_the_table/size_sorting.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -3048,6 +3078,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/clearing_table/condiment_collection.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -3170,6 +3201,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/restocking_supplies/restock_bowls.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -3265,6 +3297,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/frying/assemble_cooking_array.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -3404,6 +3437,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/frying/frying_pan_adjustment.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -3483,6 +3517,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/serving_food/pan_transfer.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. Food starts inside left pan; no heating physics.",
       "objects": [
@@ -3600,6 +3635,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/serving_food/place_food_in_bowls.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -3744,6 +3780,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/snack_preparation/make_fruit_bowl.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -3866,6 +3903,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/snack_preparation/cereal_and_bowl.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -3974,6 +4012,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/snack_preparation/bread_and_cheese.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -4069,6 +4108,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/clearing_table/dessert_assembly.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -4164,6 +4204,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/baking/organize_baking_ingredients.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -4303,6 +4344,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/clearing_table/clearing_cleaning_receptacles.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -4403,6 +4445,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/washing_fruits_and_vegetables/prewash_food_assembly.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. Dry basin; no water or cleanliness state.",
       "objects": [
@@ -4525,6 +4568,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/chopping_food/organize_vegetables.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -4645,6 +4689,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/washing_fruits_and_vegetables/drain_veggies.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. Dry transfer only; no fluid simulation.",
       "objects": [
@@ -4762,6 +4807,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/tidying_cabinets_and_drawers/snack_sorting.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. Open boxes replace drawers; opening and closing are excluded.",
       "objects": [
@@ -4906,6 +4952,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/tidying_cabinets_and_drawers/shaker_shuffle.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -5014,6 +5061,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/baking/pastry_display.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [
@@ -5153,6 +5201,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/meat_preparation/prep_marinating_meat.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. No chemical marination state.",
       "objects": [
@@ -5248,6 +5297,7 @@
         "revision": "756598a5be52e052339bb2d957426e39015c2afb",
         "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/setting_the_table/arrange_bread_basket.py"
       },
+      "task_revision": 1,
       "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
       "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
       "objects": [

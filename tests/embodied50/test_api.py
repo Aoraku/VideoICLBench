@@ -12,6 +12,9 @@ def test_actor_boundary_and_real_worker(tmp_path,monkeypatch):
         auth={'Authorization':'Bearer '+server.ADMIN}
         assert c.get('/admin/catalog').status_code==401
         assert c.post('/admin/sessions',headers=auth,json={'task':'rt12','condition':'human_frames'}).status_code==409
+        stale=tmp_path/'demos/rt07/sim';stale.mkdir(parents=True)
+        (stale/'manifest.json').write_text(json.dumps(dict(task='rt07',variant='A',author_verified=True,task_revision=1)))
+        assert c.post('/admin/sessions',headers=auth,json={'task':'rt07','condition':'sim_frames'}).status_code==409
         r=c.post('/admin/sessions',headers=auth,json={'task':'rt12','action_budget':1})
         assert r.status_code==200,r.text
         sid=r.json()['session']; base=f'/actor/{sid}'
@@ -28,4 +31,5 @@ def test_actor_boundary_and_real_worker(tmp_path,monkeypatch):
         assert c.get('/admin/results/'+sid).status_code==401
         result=c.get('/admin/results/'+sid,headers=auth).json()
         assert result['success'] is False and result['actions']==1
+        assert result['trial_kind']=='manual_author'
         assert c.get(base+'/observe').status_code==410

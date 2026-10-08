@@ -57,3 +57,26 @@ def test_open_bowl_supports_food_but_rejects_hover():
         e.sim.data.set_joint_qpos(e.items['meat'].joints[0],list(b+[0,0,.07])+[1,0,0,0]);e.sim.forward()
         assert not e.predicate(e.spec['goals'][0],e.snapshot())
     finally:e.close()
+
+
+def test_handover_excludes_simultaneous_touch_and_table_relay(monkeypatch):
+    e=DesktopDual(task_spec('rt07'),render=False)
+    try:
+        state=e.snapshot();state['item']['pos']=np.array([0,0,1.])
+        state['item']['mat']=np.eye(3)
+        monkeypatch.setattr(e,'snapshot',lambda:state)
+        state['item']['grasp']=[True,False];e.track()
+        state['item']['grasp']=[True,True]
+        for _ in range(8):e.track()
+        assert ('handover','item') not in e.events
+        state['item']['grasp']=[False,True]
+        for _ in range(3):e.track()
+        assert ('handover','item') not in e.events
+        e.track();assert ('handover','item') in e.events
+        e.events.clear();e._left_airborne.clear();e._receive_hold.clear()
+        state['item']['grasp']=[True,False];e.track()
+        state['item']['pos'][2]=.825;state['item']['grasp']=[False,False];e.track()
+        state['item']['pos'][2]=1.;state['item']['grasp']=[False,True]
+        for _ in range(8):e.track()
+        assert ('handover','item') not in e.events
+    finally:e.close()

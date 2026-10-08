@@ -16,6 +16,7 @@ def main():
     p.add_argument('--admin-token-file',type=Path,required=True)
     p.add_argument('--task',required=True); p.add_argument('--variant',choices=['A','B','C'],default='A')
     p.add_argument('--condition',choices=CONDITIONS,default='human_frames')
+    p.add_argument('--trial-kind',choices=['agent','author_replay','protocol_smoke'],required=True)
     p.add_argument('--seed',type=int,default=0); p.add_argument('--budget',type=int,default=1000)
     p.add_argument('--wall-seconds',type=int,default=1800)
     p.add_argument('--policy',required=True,help='Persistent JSON-lines process; no shell evaluation')
@@ -26,14 +27,14 @@ def main():
     with httpx.Client(base_url=a.url,timeout=360) as c:
         try:
             r=c.post('/admin/sessions',headers=auth,json=dict(task=a.task,variant=a.variant,seed=a.seed,
-                condition=a.condition,action_budget=a.budget,wall_seconds=a.wall_seconds));r.raise_for_status(); sid=r.json()['session']
+                condition=a.condition,action_budget=a.budget,wall_seconds=a.wall_seconds,trial_kind=a.trial_kind));r.raise_for_status(); sid=r.json()['session']
             base=f'/actor/{sid}'
             demo=c.get(base+'/demo');demo.raise_for_status();demo=demo.json()
             if 'video' in demo: demo['video']=a.url.rstrip('/')+demo['video']
             proc=subprocess.Popen(shlex.split(a.policy),stdin=subprocess.PIPE,stdout=subprocess.PIPE,
                 stderr=(a.output/'policy.stderr').open('w'),text=True,bufsize=1)
             (a.output/'manifest.json').write_text(json.dumps(dict(task=a.task,variant=a.variant,seed=a.seed,
-                condition=a.condition,session=sid,policy=a.policy,budget=a.budget,wall_seconds=a.wall_seconds),indent=2))
+                condition=a.condition,session=sid,policy=a.policy,budget=a.budget,wall_seconds=a.wall_seconds,trial_kind=a.trial_kind),indent=2))
             index=0
             with (a.output/'policy.jsonl').open('w') as log:
                 while True:

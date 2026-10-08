@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-08",
+  "catalog_sha256": "c65ced3d5a8d8aa2aa9d152a5975827832b515b9a52904ef1647780cd7a35bcd",
+  "local": {
+    "platform": "macOS-arm64",
+    "physics_smoke_passed": 150,
+    "total": 150,
+    "pytest_passed": 9
+  },
+  "agentlab": {
+    "user": "qingle",
+    "backend": "CPU-OSMesa",
+    "rendered_physics_smoke_passed": 150,
+    "total": 150,
+    "cameras_per_scene": 3,
+    "gui_mouse_keyboard": true,
+    "runner_end_to_end": true,
+    "service": "videoicl-embodied-50.service",
+    "port": 18660
+  },
+  "cup_engineering_probe": {
+    "task": "rt12",
+    "seed": 0,
+    "actions": 58,
+    "success": true,
+    "terminal_hold_seconds": 2.05,
+    "independent_agent": false
+  },
+  "human_demonstrations_collected": 0,
+  "independent_agent_trials": 0,
+  "limits": [
+    "Load/render/negative-submit smoke does not establish all-task solvability.",
+    "Physical positive tests cover stack support and container floor; fixed-token author probe covers cup transport.",
+    "All 50 tasks still need per-task action-interface solvability acceptance and human demos.",
+    "Four tasks require bimanual coordination; remaining tasks allow either or both arms."
+  ]
+}

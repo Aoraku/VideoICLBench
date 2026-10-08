@@ -1,11 +1,12 @@
 {
   "date": "2026-10-08",
-  "catalog_sha256": "c65ced3d5a8d8aa2aa9d152a5975827832b515b9a52904ef1647780cd7a35bcd",
+  "catalog_sha256": "e00159d859f5e7276269bcee10d896a650751dcba3b4204c8f15ae84bf4e8ef9",
   "local": {
     "platform": "macOS-arm64",
-    "physics_smoke_passed": 150,
-    "total": 150,
-    "pytest_passed": 9
+    "physics_smoke_passed": null,
+    "total": null,
+    "pytest_passed": 10,
+    "note": "Current catalog all-layout physics/render smoke executed on Agentlab; initial macOS 150-case result is archived separately."
   },
   "agentlab": {
     "user": "qingle",
@@ -29,9 +30,10 @@
   "human_demonstrations_collected": 0,
   "independent_agent_trials": 0,
   "limits": [
-    "Load/render/negative-submit smoke does not establish all-task solvability.",
-    "Physical positive tests cover stack support and container floor; fixed-token author probe covers cup transport.",
-    "All 50 tasks still need per-task action-interface solvability acceptance and human demos.",
+    "All 150 layouts passed physics/render/unfinished-negative smoke; this does not establish all-task solvability.",
+    "Six pilot tasks have privileged author acceptance at A/seed0; see pilot_validation.json for actor API replay results.",
+    "B/C, multiple seeds, human demonstrations and independent agent performance remain unvalidated.",
+    "rt07 revision 2 uses an explicitly adapted long block and a stricter exclusive-ownership handover rule.",
     "Four tasks require bimanual coordination; remaining tasks allow either or both arms."
   ]
 }

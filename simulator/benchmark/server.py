@@ -11,6 +11,7 @@ import subprocess
 import sys
 import threading
 import time
+from typing import Literal
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Header, HTTPException
@@ -40,6 +41,7 @@ class Create(BaseModel):
     variant: str='A'
     seed: int=0
     condition: str='no_demo'
+    trial_kind: Literal['manual_author','agent','author_replay','protocol_smoke']='manual_author'
     action_budget: int=Field(default=1000,ge=1,le=1000)
     wall_seconds: int=Field(default=1800,ge=1,le=3600)
 class Action(BaseModel):
@@ -77,7 +79,7 @@ class Session:
         self.closed=True
         try: score=self.rpc({'op':'score'},timeout=30)
         except Exception: score={'success':False,'error':'worker_unavailable'}
-        result=dict(score,reason=reason,actions=self.count,wall_seconds=time.monotonic()-self.started)
+        result=dict(score,reason=reason,actions=self.count,wall_seconds=time.monotonic()-self.started,trial_kind=self.req.trial_kind)
         # Deadline expiry never converts into a successful submission.
         if reason!='submitted': result['success']=False
         (self.folder/'result.json').write_text(json.dumps(result,indent=2))
@@ -96,8 +98,8 @@ def demo_manifest(req):
     path=DATA/'demos'/req.task/kind/'manifest.json'
     if not path.exists(): raise HTTPException(409,f'{kind} demo missing; author must import a validated A demonstration')
     m=json.loads(path.read_text())
-    if m.get('task')!=req.task or m.get('variant')!='A' or not m.get('author_verified'):
-        raise HTTPException(409,'Demo requires author-verified A recording')
+    if m.get('task')!=req.task or m.get('variant')!='A' or not m.get('author_verified') or m.get('task_revision',1)!=TASKS[req.task].get('task_revision',1):
+        raise HTTPException(409,'Demo requires author-verified A recording matching current task revision')
     return m
 
 def session(sid):

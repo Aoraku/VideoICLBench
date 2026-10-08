@@ -31,7 +31,7 @@ def main():
         for i in range(16):
             subprocess.run([ffmpeg,'-v','error','-ss',str(last_timestamp*i/15),'-i',str(stage/'video.mp4'),'-frames:v','1','-vf','scale=640:-1',str(stage/f'frame{i:02d}.jpg')],check=True)
             if not (stage/f'frame{i:02d}.jpg').exists(): raise ValueError('Could not extract all 16 frames')
-        m=dict(task=a.task,kind=a.kind,variant='A',author_verified=True,duration=duration,
+        m=dict(task=a.task,task_revision=TASKS[a.task].get('task_revision',1),kind=a.kind,variant='A',author_verified=True,duration=duration,
                source_sha256=hashlib.sha256(video.read_bytes()).hexdigest(),
                video_sha256=hashlib.sha256((stage/'video.mp4').read_bytes()).hexdigest(),
                frame_sampling='16 uniform timestamps from zero through last decodable frame',fps=meta['fps'],
