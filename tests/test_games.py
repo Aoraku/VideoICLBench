@@ -2,6 +2,7 @@ import copy
 import pytest
 from vic.games import (
     apply,
+    best_2048_directions,
     evaluate,
     expected,
     fixture,
@@ -150,5 +151,7 @@ def test_game_counterfactuals_and_reference_play(task_id, seed):
         assert evaluate(state, final, v, events)["success"]
         if task_id != 69:
             for wrong in set("ABC") - {v}:
-                if expected(task_id, wrong, state) != wanted:
+                if task_id == 68:
+                    assert evaluate(state,final,wrong,events)['success'] == (wanted in best_2048_directions(state,wrong))
+                elif expected(task_id, wrong, state) != wanted:
                     assert not evaluate(state, final, wrong, events)["success"]

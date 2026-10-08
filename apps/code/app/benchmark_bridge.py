@@ -203,6 +203,8 @@ def render_files():
     st.title("我的代码与笔记")
     if t in (59,60):
         st.subheader("解题笔记" if t==59 else "solution.py")
+        if t == 59:
+            st.info('本批目标：三道题的答案均须正式提交。保存文件只保留草稿；每份都需要点击“提交答案”，并核对提交记录。' if state.get('v2_atomic') else '本次只需整理这一份多行笔记并保存文件，不需要提交答案。')
         if t==59 and state.get('v2_atomic'):
             problem=state['source']['answer_problem']
             st.info(f"提交目标题目：{problem['number']} · {problem['name']}")

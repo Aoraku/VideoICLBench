@@ -89,8 +89,7 @@ def test_application_all_variants(task_id, seed, tmp_path):
                 assert application_eval.evaluate(initial, final, other, events)['success']
                 continue
             if task_id == 68:
-                accepted = (best_2048_directions(initial, other) if other in 'AB'
-                            else [expected(task_id, other, initial)])
+                accepted = best_2048_directions(initial, other)
                 assert application_eval.evaluate(initial, final, other, events)['success'] == (final['selection'] in accepted)
                 continue  # Different policies can legitimately share a maximizing move.
             if task_id == 69:

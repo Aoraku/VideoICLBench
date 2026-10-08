@@ -345,9 +345,18 @@ def stopping_paths(state):
 
 def best_2048_directions(state, variant):
     """All legal maximizers; opposite directions can legitimately tie."""
-    metric = {'A': 'merges', 'B': 'score'}[variant]
-    options = [(direction, move_2048(state['board'], direction)[1]) for direction in DIRECTIONS]
-    options = [(direction, stats[metric]) for direction, stats in options if stats['changed']]
+    options = []
+    for direction in DIRECTIONS:
+        board, stats = move_2048(state['board'], direction)
+        if not stats['changed']:
+            continue
+        if variant == 'C':
+            maximum = max(map(max, board))
+            last = len(board) - 1
+            value = int(any(board[r][c] == maximum for r,c in ((0,0),(0,last),(last,0),(last,last))))
+        else:
+            value = stats[{'A':'merges','B':'score'}[variant]]
+        options.append((direction, value))
     if not options:
         return []
     maximum = max(value for _, value in options)
@@ -385,19 +394,8 @@ def _expected(task_id, variant, state):
             )
         )
     if task_id == 68:
-        options = []
-        for direction in DIRECTIONS:
-            next_board, stats = move_2048(board, direction)
-            if not stats["changed"]:
-                continue
-            maximum = max(max(r) for r in next_board)
-            corner = any(
-                next_board[r][c] == maximum for r, c in [(0, 0), (0, 3), (3, 0), (3, 3)]
-            )
-            options.append(
-                (direction, [stats["merges"], stats["score"], int(corner)][v])
-            )
-        return max(options, key=lambda x: x[1])[0] if options else None
+        choices = best_2048_directions(state, variant)
+        return choices[0] if choices else None
     if task_id == 70:
         if v < 2:
             return sorted(
@@ -595,8 +593,7 @@ def evaluate(initial, final, variant, events):
         )
         passed = actual == wanted
         if id_ == 68:
-            if variant in ('A', 'B'):
-                passed = actual in best_2048_directions(initial, variant)
+            passed = actual in best_2048_directions(initial, variant)
             if len(final['moves']) != 1:
                 passed = False
     if not events:

@@ -12,7 +12,7 @@ def test_parameter_guidance_preserves_recorded_contracts(client):
     tasks={t['id']:t for t in client.get('/v2/tasks',headers=admin()).json()['tasks']}
     for i,key,expected in [(22,'threshold',50),(38,'threshold',50),(49,'text_threshold',15),(57,'threshold',50)]:
         assert tasks[i]['recording_parameters'][key]==expected
-    assert '只保存草稿不算完成' in tasks[59]['inference']['instructions']
+    assert '只保存文件（草稿）不算完成' in tasks[59]['inference']['goal']
     assert '只需编辑规则示例并保存草稿' in tasks[59]['demo']['completion_checks'][-1]
     assert '并列' in tasks[68]['demo']['rule_explanations']['A']
     assert '行号' in tasks[72]['inference']['instructions']

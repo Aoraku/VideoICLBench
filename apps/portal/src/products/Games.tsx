@@ -69,7 +69,7 @@ export function Games({ api }: { api: ProductAPI }) {
       ]}
     >
       <main className={`product-main games-main game-${s.game}`}>
-        <Notice api={api} />{s.task_id===68&&<p className="product-notice">按合并次数或得分比较时，多个有效方向并列最优可任选一个；每组只移动一次。</p>}{s.task_id===72&&<p className="product-notice">候选格并列时先选行号最小者，同一行再选列号最小者。行从上到下、列从左到右编号。</p>}
+        <Notice api={api} />{s.task_id===68&&<p className="product-notice">多个方向同样满足视频规则时，任选一个都可；不按固定方向顺序破除并列。每组只移动一次，棋盘必须发生变化。</p>}{s.task_id===72&&<p className="product-notice">候选格并列时先选行号最小者，同一行再选列号最小者。行从上到下、列从左到右编号。</p>}
         {page === "home" ? (
           <>
             <PageHead
@@ -293,7 +293,7 @@ export function Games({ api }: { api: ProductAPI }) {
                 <p className="product-muted">
                   {s.task_id === 69
                     ? '每次有效移动后会出现一个新方块。点击“停止操作”保存本次练习的棋盘和操作记录。'
-                    : '棋盘并列位置按行、列顺序；方向并列按左、上、右、下顺序。'}
+                    : s.task_id === 68 ? '本题不生成随机新方块。并列方向任选其一；不改变棋盘的方向不算有效移动。' : '棋盘并列位置按行、列顺序。'}
                 </p>
               </aside>
             </div>

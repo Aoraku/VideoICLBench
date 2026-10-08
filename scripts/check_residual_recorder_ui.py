@@ -45,7 +45,7 @@ async def main():
         for item in state['work_batch']['units'][index]['state']['items']:
          await expect(page.get_by_text(item['text'],exact=True)).to_be_visible()
       elif task==68:
-       await expect(page.get_by_text('按合并次数或得分比较时，多个有效方向并列最优可任选一个；每组只移动一次。',exact=True)).to_be_visible()
+       await expect(page.get_by_text('多个方向同样满足视频规则时，任选一个都可；不按固定方向顺序破除并列。每组只移动一次，棋盘必须发生变化。',exact=True)).to_be_visible()
       else:
        await expect(page.get_by_text('候选格并列时先选行号最小者，同一行再选列号最小者。行从上到下、列从左到右编号。',exact=True)).to_be_visible()
       assert not errors,errors

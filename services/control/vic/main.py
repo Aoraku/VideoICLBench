@@ -246,8 +246,15 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 item['demo']['rule_explanations']['C'] += ' 标题中的汉字、数字、标点和空格各计一个字符，文章编号不计入；列表会显示实际标题字符数。'
             if item['id'] == 59:
                 item['demo']['completion_checks'] += ['demo 只需编辑规则示例并保存草稿，不需要提交答案。']
-                item['inference']['instructions'] += ' 三份答案均须按规则编辑全部行，先点“保存草稿”，再点“提交答案”；在提交记录中核对正文。只保存草稿不算完成 inference。'
+                item['inference']['goal'] = '请把三道题的答案按视频展示的文本规则整理好，并分别正式提交到对应题目。三份答案均须有正确题号和完整正文的提交记录；只保存文件（草稿）不算完成。'
+                item['inference']['instructions'] = item['inference']['goal']
+                item['delivery'] = '三份按视频规则整理的答案，均已保存文件并正式提交到对应题目。'
+                item['inference']['completion_checks'] = ['三份答案的每一行都已按视频规则处理。', '每份均已保存文件并提交答案，提交记录中的题号、正文与该份答案一致。']
+                item['inference']['steps'] = []
             if item['id'] == 68:
+                item['variants']['C'] = '优先选择移动合并后最大块位于四个角之一的方向'
+                item['demo']['rule_explanations']['C'] = '对每个有效方向，分别看移动和合并结束后的棋盘：该棋盘的最大数字至少有一块位于四个角之一，就满足角落条件。多个方向满足时任选一个，不再比较谁合出了更大的数字、得分或合并次数，也不按固定方向顺序选择。若所有有效方向都不能满足角落条件，则任选有效方向。不改变棋盘的方向无效；每组只移动一次，本题不生成随机新方块。'
+                item['inference']['instructions'] += ' 多个方向同样满足视频规则时任选一个，不要求固定方向优先级；不改变棋盘的移动无效。'
                 for variant in 'AB':
                     item['demo']['rule_explanations'][variant] += ' 多个有效方向并列达到最优值时，任选其中一个都正确；相反方向可能对称，不要求固定优先级。'
                 item['inference']['instructions'] += ' 按合并次数或得分比较时，多个有效方向并列最优可任选一个；每组仅移动一次。'

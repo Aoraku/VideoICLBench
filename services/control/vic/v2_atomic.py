@@ -167,8 +167,8 @@ def generate(task_id, seed, spec):
                 item['domain']['objects'][row['id']].update(name=row['name'],text=row['text'])
             item['execution']['assignment'] = theme + '：按视频规则标注本组生成结果。'
         if task_id == 59:
-            item['execution']['instructions'] = '本批共三份答案。逐份按视频规则编辑全部行，点击“保存草稿”，再点击“提交答案”。检查提交记录与保存正文一致，再切换下一份；三份均已提交才算完成。'
-            item['execution']['delivery'] = '三份答案均完成格式转换、保存草稿并提交到各自题目。'
+            item['execution']['instructions'] = '本批共三份答案。逐份按视频规则编辑全部行，点击“保存文件”，再点击“提交答案”。检查提交记录与保存正文一致，再切换下一份；三份均已提交才算完成。'
+            item['execution']['delivery'] = '三份答案均完成格式转换、保存文件并提交到各自题目。'
         title=f'{label} {index+1}'
         if task_id == 39:
             title += ' · ' + theme
