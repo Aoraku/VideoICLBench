@@ -80,3 +80,31 @@ def test_handover_excludes_simultaneous_touch_and_table_relay(monkeypatch):
         for _ in range(8):e.track()
         assert ('handover','item') not in e.events
     finally:e.close()
+
+def test_phone_slot_requires_supported_bottom_and_rejects_hover():
+    e=DesktopDual(task_spec('rt19'),render=False)
+    try:
+        stand=e.snapshot()['stand']['pos'];z=stand[2]-.04+.008+.075
+        q=[stand[0],stand[1],z,.70710678,0,.70710678,0]
+        e.sim.data.set_joint_qpos(e.items['phone'].joints[0],q);e.sim.forward()
+        for _ in range(4):e.action()
+        goal=e.spec['goals'][0]
+        assert e.predicate(goal,e.snapshot())
+        q[2]+=.12;e.sim.data.set_joint_qpos(e.items['phone'].joints[0],q);e.sim.forward()
+        assert not e.predicate(goal,e.snapshot())
+    finally:e.close()
+
+def test_floating_bin_cannot_pass_with_contents_inside(monkeypatch):
+    e=DesktopDual(task_spec('rc24'),render=False)
+    try:
+        state=e.snapshot()
+        state['bowl']['pos']=np.array([.15,0,1.025])
+        state['meat']['pos']=np.array([.15,0,1.022])
+        for v in state.values():v['grasp']=[False,False];v['mat']=np.eye(3)
+        e.last_positions={k:v['pos'].copy() for k,v in state.items()}
+        monkeypatch.setattr(e,'snapshot',lambda:state)
+        monkeypatch.setattr(e,'check_contact',lambda a,b:b!='table_collision')
+        assert e.predicate(e.spec['goals'][0],state)
+        for _ in range(20):e.track()
+        assert not e.score()['success']
+    finally:e.close()

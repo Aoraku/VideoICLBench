@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Author-only, metric A-layout sheets for the six human pilot recordings."""
+"""Author-only, metric A-layout sheets for all desktop recordings."""
 import html
+import math
 import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
@@ -8,7 +9,6 @@ CAT=json.loads((ROOT/'simulator/benchmark/tasks.json').read_text())
 OUT=ROOT/'simulator/benchmark/filming'
 OUT.mkdir(exist_ok=True)
 for task in CAT['tasks']:
-    if task['id'] not in ('rt12','rt07','rt02','rc10','rc22','rc11'):continue
     def xy(item):return 450+1000*item['xy'][1],450+1000*item['xy'][0]
     lines=['<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1030" viewBox="0 0 900 1030">',
         '<rect width="900" height="1030" fill="#f6f8fa"/>',
@@ -28,13 +28,17 @@ for task in CAT['tasks']:
     objects=sorted(task['objects'],key=lambda o:o['kind'] not in ('cup','bowl','tray'))
     for o in objects:
         x,y=xy(o);sx,sy,sz=o['size'];color='#'+''.join(f'{round(c*255):02x}' for c in o['rgba'][:3])
-        if o['kind']=='bottle':
+        if 'quaternion' in o:sx,sz=sz,sx
+        angle=-math.degrees(o.get('yaw',0))
+        lines.append(f'<g transform="rotate({angle} {x} {y})">')
+        if o['kind'] in ('bottle','plate') and 'quaternion' not in o:
             lines.append(f'<circle cx="{x}" cy="{y}" r="{sx*1000}" fill="{color}" stroke="#172334"/>')
         else:
             lines.append(f'<rect x="{x-sy*1000}" y="{y-sx*1000}" width="{sy*2000}" height="{sx*2000}" fill="{color}" stroke="#172334"/>')
         if o['kind'] in ('cup','bowl','tray'):
             lines.append(f'<rect x="{x-(sy-.008)*1000}" y="{y-(sx-.008)*1000}" width="{(sy-.008)*2000}" height="{(sx-.008)*2000}" fill="white"/>')
-        lines.append(f'<text x="{x}" y="{y-sx*1000-8}" text-anchor="middle" font-size="14">{o["id"]}</text>')
+        lines.append('</g>')
+        lines.append(f'<text x="{x}" y="{y-sx*1000-8}" text-anchor="middle" font-size="14">{html.escape(o.get("display_name",o["id"]))}</text>')
     lines += ['<text x="50" y="880" font-size="16">Top view · 1 px = 1 mm · origin at table center · +Y right, +X down</text>',
               '<text x="50" y="905" font-size="15">Nominal A layout; omit the ±4 mm simulator seed jitter for physical filming.</text>']
     for i,o in enumerate(task['objects']):

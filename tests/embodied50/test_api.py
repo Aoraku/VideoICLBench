@@ -14,6 +14,9 @@ def test_actor_boundary_and_real_worker(tmp_path,monkeypatch):
         assert c.post('/admin/sessions',headers=auth,json={'task':'rt12','condition':'human_frames'}).status_code==409
         stale=tmp_path/'demos/rt07/sim';stale.mkdir(parents=True)
         (stale/'manifest.json').write_text(json.dumps(dict(task='rt07',variant='A',author_verified=True,task_revision=1)))
+        availability=c.get('/admin/catalog',headers=auth).json()['demonstrations']
+        assert availability['rt07']=={'sim':False,'human':False}
+        assert availability['rt12']=={'sim':False,'human':False}
         assert c.post('/admin/sessions',headers=auth,json={'task':'rt07','condition':'sim_frames'}).status_code==409
         r=c.post('/admin/sessions',headers=auth,json={'task':'rt12','action_budget':1})
         assert r.status_code==200,r.text

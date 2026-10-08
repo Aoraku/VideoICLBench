@@ -207,4 +207,4 @@ CC 验证版本为 2.1.117。Codex 基础操作验证版本为 0.154.0-alpha.6.2
 
 ## 桌面双臂50题（RoboTwin / RoboCasa 改编）
 
-统一 robosuite 双 Panda 场景、任务定义、私有判分、GUI 和实验 harness 见 [运行说明](simulator/benchmark/README.md) 与 [50题清单](simulator/benchmark/TASKS.md)。包含独立 Agentlab CPU / OSMesa 部署入口。六题 pilot 的作者验收和仿真示范见 [pilot 说明](simulator/benchmark/PILOT.md)；人手示范与逐题 agent 实验仍需采集和验收；历史微波炉杯子实验保留在 embodied handoff 中。
+统一 robosuite 双 Panda 场景、任务定义、私有判分、GUI 和实验 harness 见 [运行说明](simulator/benchmark/README.md) 与 [50题清单](simulator/benchmark/TASKS.md)。包含独立 Agentlab CPU / OSMesa 部署入口。非厨房任务改编、完整录像整理和验收说明见 [桌面50题](simulator/benchmark/DESKTOP50.md)；人手示范与逐题 agent 实验仍需采集和验收；历史微波炉杯子实验保留在 embodied handoff 中。

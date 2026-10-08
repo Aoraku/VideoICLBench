@@ -23,7 +23,7 @@ def make_object(s):
         locations=[[0,0,-z+w],[-x+w,0,0],[x-w,0,0],[0,-y+w,0],[0,y-w,0]]
         return CompositeObject(name=name,total_size=[x,y,z],geom_types=['box']*5,
             geom_sizes=sizes,geom_locations=locations,geom_rgbas=[rgba]*5,
-            locations_relative_to_center=True,density=250,geom_frictions=[(1,.005,.0001)]*5)
+            locations_relative_to_center=True,density=s.get('density',250),geom_frictions=[(1,.005,.0001)]*5)
     if kind in ('bottle','plate'):
         return CylinderObject(name=name,size=[x,z],rgba=rgba,density=300,friction=[1,.005,.0001])
     return BoxObject(name=name,size=[x,y,z],rgba=rgba,density=300,friction=[1,.005,.0001])
@@ -105,6 +105,16 @@ class DesktopDual(TwoArmEnv):
             extent=np.abs(a['mat'])@size
             return bool(np.all(np.abs(p[:2]-z['xy'])+extent[:2] < np.array(z['half_size'])+.008) and .80<p[2]<.80+extent[2]+.025)
         if typ=='position': return bool(np.linalg.norm(p[:2]-g['xy'])<g['tolerance'] and .8<p[2]<.96)
+        if typ=='insert_slot':
+            b=state[g['target']];bs=np.array(self.by_spec[g['target']]['size'])
+            axis=g['axis'];direction=a['mat'][:,axis]
+            bottom=p-direction*(1 if direction[2]>=0 else -1)*size[axis]
+            local=b['mat'].T@(bottom-b['pos'])
+            cross=size.copy();cross[axis]=0
+            width=np.abs(b['mat'].T@a['mat'])@cross
+            return bool(np.all(np.abs(local[:2])+width[:2]<bs[:2])
+                and abs(local[2]-(-bs[2]+.008))<.015
+                and self.check_contact(self.items[g['object']],self.items[g['target']]))
         if typ in ('stack','nest'):
             b=state[g['target']]; bs=np.array(self.by_spec[g['target']]['size']); bp=b['pos']
             ae=np.abs(a['mat'])@size; be=np.abs(b['mat'])@bs
@@ -134,8 +144,16 @@ class DesktopDual(TwoArmEnv):
             if self._receive_hold[name]>=4:self.events.add(('handover',name))
         lift=any(g['type'] in ('dual_lift','paired_lift') for g in self.spec['goals'])
         released=lift or not any(any(a['grasp']) for a in state.values())
+        # A bin hooked onto one open finger must not pass as a released tabletop result.
+        grounded={k for k,obj in self.items.items() if self.check_contact(obj,'table_collision')}
+        pending=set(state)-grounded
+        while pending:
+            supported={k for k in pending if any(self.check_contact(self.items[k],self.items[b]) for b in grounded)}
+            if not supported:break
+            grounded.update(supported);pending-=supported
+        supported=lift or len(grounded)==len(state)
         stable=all(np.linalg.norm(a['pos']-self.last_positions[k])<.002 for k,a in state.items())
-        valid=all(self.predicate(g,state) for g in self.spec['goals']) and released and stable
+        valid=all(self.predicate(g,state) for g in self.spec['goals']) and released and supported and stable
         self.terminal_hold=self.terminal_hold+1 if valid else 0
         self.last_positions={k:a['pos'].copy() for k,a in state.items()}
 

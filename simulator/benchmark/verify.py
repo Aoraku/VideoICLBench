@@ -9,9 +9,10 @@ from .environment import DesktopDual
 
 def main():
     p=argparse.ArgumentParser(); p.add_argument('--variants',nargs='+',default=['A','B','C']); p.add_argument('--render',action='store_true')
+    p.add_argument('--tasks',nargs='+',choices=TASKS,default=list(TASKS))
     p.add_argument('--output',type=Path,default=Path('.local/embodied50-smoke.json')); a=p.parse_args()
     rows=[]
-    for tid in TASKS:
+    for tid in a.tasks:
         for variant in a.variants:
             start=time.monotonic(); env=None
             try:

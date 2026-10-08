@@ -130,7 +130,19 @@ def health(): return {'ok':True,'tasks':len(TASKS),'backend':'robosuite-dual-pan
 @app.get('/admin/catalog')
 def catalog(authorization: str|None=Header(default=None)):
     admin(authorization)
-    return CATALOG
+    availability={}
+    for task,spec in TASKS.items():
+        availability[task]={}
+        for kind in ('sim','human'):
+            root=DATA/'demos'/task/kind
+            try:
+                manifest=json.loads((root/'manifest.json').read_text())
+                ready=(manifest.get('task')==task and manifest.get('variant')=='A'
+                    and manifest.get('author_verified') and manifest.get('task_revision',1)==spec.get('task_revision',1)
+                    and (root/'video.mp4').is_file() and all((root/f'frame{i:02d}.jpg').is_file() for i in range(16)))
+            except (OSError,ValueError):ready=False
+            availability[task][kind]=bool(ready)
+    return dict(CATALOG,demonstrations=availability)
 @app.post('/admin/sessions')
 def create(req:Create,authorization: str|None=Header(default=None)):
     admin(authorization)

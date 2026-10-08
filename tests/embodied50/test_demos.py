@@ -1,3 +1,4 @@
+from simulator.benchmark.catalog import TASKS
 import json
 import sys
 import imageio_ffmpeg
@@ -15,7 +16,7 @@ def test_low_fps_video_import_includes_last_decodable_frame(tmp_path,monkeypatch
     root=data/'demos/rt12/sim'
     manifest=json.loads((root/'manifest.json').read_text())
     assert manifest['fps']==2.5
-    assert manifest['task_revision']==1
+    assert manifest['task_revision']==TASKS['rt12']['task_revision']
     assert manifest['variant']=='A' and manifest['author_verified']
     assert len(list(root.glob('frame*.jpg')))==16
     assert len(manifest['video_sha256'])==64

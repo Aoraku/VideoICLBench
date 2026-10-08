@@ -15,8 +15,10 @@
 <text x="55" y="838" font-size="14">Near edge: X = +400 mm · camera on this side</text>
 <rect x="280.0" y="510.0" width="340.0" height="200.0" fill="#8298ab" opacity=".45"/>
 <text x="450" y="610.0" text-anchor="middle" font-size="14">mat</text>
+<g transform="rotate(-0.0 230.0 330.0)">
 <rect x="90.0" y="308.0" width="280.0" height="44.0" fill="#d91f1a" stroke="#172334"/>
-<text x="230.0" y="300.0" text-anchor="middle" font-size="14">item</text>
+</g>
+<text x="230.0" y="300.0" text-anchor="middle" font-size="14">积木</text>
 <text x="50" y="880" font-size="16">Top view · 1 px = 1 mm · origin at table center · +Y right, +X down</text>
 <text x="50" y="905" font-size="15">Nominal A layout; omit the ±4 mm simulator seed jitter for physical filming.</text>
 <text x="50" y="932" font-size="14">item: center (X,Y)=(-120,-220) mm; full size X×Y×Z = 44 × 280 × 50 mm</text>

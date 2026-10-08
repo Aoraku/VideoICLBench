@@ -19,3 +19,11 @@ def test_mirrors_keep_goal_relations():
     assert a['objects'][0]['xy'][1]==-b['objects'][0]['xy'][1]
     assert a['goals'][0]['xy'][0]==-c['goals'][0]['xy'][0]
     assert TASKS['rt05']['objects'][0]['xy']==a['objects'][0]['xy']
+
+def test_desktop_filming_has_no_kitchen_requirements():
+    forbidden=('锅','食材','蔬菜','面包','餐具','水果','奶酪','糕点','调味','烹饪','麦片','腌制')
+    for task in TASKS.values():
+        assert task['scene_domain']=='desktop-non-kitchen'
+        presentation=task['title']+task['filming']['instruction']+' '.join(task['filming']['props'])
+        assert not any(word in presentation for word in forbidden)
+        assert all(o.get('display_name') for o in task['objects'])
