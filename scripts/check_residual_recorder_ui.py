@@ -17,9 +17,9 @@ async def main():
  while not server.started:await asyncio.sleep(.05)
  try:
   async with httpx.AsyncClient(base_url=base,headers={'Authorization':'Bearer '+secret},timeout=60) as admin,async_playwright() as p:
-   browser=await p.chromium.launch()
+   browser=await p.chromium.launch(channel=os.environ.get('VIC_BROWSER_CHANNEL'))
    try:
-    for task,suite,mode in [(14,'v2','demo'),(22,'v2','demo'),(38,'v2','demo'),(49,'v2','demo'),(57,'v2','demo'),(39,'v2','eval'),(68,'v2','eval'),(72,'v2','demo')]:
+    for task,suite,mode in [(14,'v2','demo'),(22,'v2','demo'),(38,'v2','demo'),(49,'v2','demo'),(57,'v2','demo'),(22,'v2','eval'),(38,'v2','eval'),(49,'v2','eval'),(57,'v2','eval'),(39,'v2','eval'),(68,'v2','eval'),(72,'v2','demo')]:
      state=v2.generate(task,0 if mode=='demo' else 10001,mode) if suite=='v2' else initialize(business.generate(task,0))
      rid=secrets.token_hex(16);token=secrets.token_hex(32)
      (await admin.post('/internal/prepare',json=dict(run_id=rid,token=token,app=state['app'],epoch=0,state=state))).raise_for_status()
@@ -35,7 +35,17 @@ async def main():
        await expect(rows).to_have_count(len(state['items']))
        assert await rows.evaluate_all('(rows)=>rows.map(r=>r.dataset.objectId)')==[x['id'] for x in state['items']]
       elif task in (22,38,49,57):
-       await expect(page.get_by_label('任务参数',exact=True)).to_contain_text({22:'50 次',38:'50 个字符',49:'15 个字符',57:'50 元'}[task])
+       # Wait for the actual application before asserting absence: an empty
+       # loading page must not count as a rule-free demonstration.
+       await expect(page.locator('a.song-title').first if task==22 else page.locator('.product')).to_be_visible()
+       if mode=='demo':
+        await expect(page.get_by_label('任务参数',exact=True)).to_have_count(0)
+        assert '阈值' not in await page.locator('body').inner_text()
+       else:
+        # Workset inputs may live in the business brief instead of a banner.
+        source=state['source']
+        parameter={22:f"{source['threshold']} 次",38:f"{source['threshold']} 个字符",49:f"{source['text_threshold']} 个字符",57:f"{source['threshold']} 元"}[task]
+        await expect(page.locator('body')).to_contain_text(parameter)
       elif task==39:
        for index in range(3):
         if index:
