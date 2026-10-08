@@ -1,0 +1,5377 @@
+{
+  "schema_version": 1,
+  "benchmark": "VideoICL-Embodied-50",
+  "official_upstream_benchmark": false,
+  "tasks": [
+    {
+      "id": "rt01",
+      "title": "红块叠在蓝块上",
+      "source": {
+        "project": "RoboTwin",
+        "task": "stack_blocks_two",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/stack_blocks_two.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
+      "objects": [
+        {
+          "id": "red",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "blue",
+          "kind": "box",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "stack",
+          "object": "red",
+          "target": "blue"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "红块叠在蓝块上",
+        "props": [
+          "box",
+          "box"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt02",
+      "title": "红绿蓝三层塔（蓝在底）",
+      "source": {
+        "project": "RoboTwin",
+        "task": "stack_blocks_three",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/stack_blocks_three.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
+      "objects": [
+        {
+          "id": "red",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "green",
+          "kind": "box",
+          "rgba": [
+            0.12,
+            0.7,
+            0.22,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "blue",
+          "kind": "box",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "stack",
+          "object": "red",
+          "target": "green"
+        },
+        {
+          "type": "stack",
+          "object": "green",
+          "target": "blue"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "红绿蓝三层塔（蓝在底）",
+        "props": [
+          "box",
+          "box",
+          "box"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt03",
+      "title": "小碗嵌入大碗",
+      "source": {
+        "project": "RoboTwin",
+        "task": "stack_bowls_two",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/stack_bowls_two.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Nesting uses open square bowls rather than upstream round assets.",
+      "objects": [
+        {
+          "id": "small",
+          "kind": "bowl",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.045,
+            0.045,
+            0.022
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "large",
+          "kind": "bowl",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.075,
+            0.075,
+            0.03
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "nest",
+          "object": "small",
+          "target": "large"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "小碗嵌入大碗",
+        "props": [
+          "bowl",
+          "bowl"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt04",
+      "title": "三只碗按大小嵌套",
+      "source": {
+        "project": "RoboTwin",
+        "task": "stack_bowls_three",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/stack_bowls_three.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
+      "objects": [
+        {
+          "id": "small",
+          "kind": "bowl",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.035,
+            0.035,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "mid",
+          "kind": "bowl",
+          "rgba": [
+            0.12,
+            0.7,
+            0.22,
+            1
+          ],
+          "size": [
+            0.057,
+            0.057,
+            0.024
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "large",
+          "kind": "bowl",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.085,
+            0.085,
+            0.03
+          ],
+          "xy": [
+            -0.16,
+            0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "nest",
+          "object": "small",
+          "target": "mid"
+        },
+        {
+          "type": "nest",
+          "object": "mid",
+          "target": "large"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "三只碗按大小嵌套",
+        "props": [
+          "bowl",
+          "bowl",
+          "bowl"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt05",
+      "title": "红绿蓝从左至右排列",
+      "source": {
+        "project": "RoboTwin",
+        "task": "blocks_ranking_rgb",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/blocks_ranking_rgb.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
+      "objects": [
+        {
+          "id": "red",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "green",
+          "kind": "box",
+          "rgba": [
+            0.12,
+            0.7,
+            0.22,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "blue",
+          "kind": "box",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "position",
+          "object": "red",
+          "xy": [
+            0.15,
+            -0.16
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "green",
+          "xy": [
+            0.15,
+            0.0
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "blue",
+          "xy": [
+            0.15,
+            0.16
+          ],
+          "tolerance": 0.035
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "红绿蓝从左至右排列",
+        "props": [
+          "box",
+          "box",
+          "box"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt06",
+      "title": "块按小中大排列",
+      "source": {
+        "project": "RoboTwin",
+        "task": "blocks_ranking_size",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/blocks_ranking_size.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
+      "objects": [
+        {
+          "id": "small",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.018,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "mid",
+          "kind": "box",
+          "rgba": [
+            0.12,
+            0.7,
+            0.22,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "large",
+          "kind": "box",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.033,
+            0.033,
+            0.033
+          ],
+          "xy": [
+            -0.16,
+            0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "position",
+          "object": "small",
+          "xy": [
+            0.15,
+            -0.16
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "mid",
+          "xy": [
+            0.15,
+            0.0
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "large",
+          "xy": [
+            0.15,
+            0.16
+          ],
+          "tolerance": 0.035
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "块按小中大排列",
+        "props": [
+          "box",
+          "box",
+          "box"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt07",
+      "title": "左臂夹起并交给右臂，再放到目标垫",
+      "source": {
+        "project": "RoboTwin",
+        "task": "handover_block",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/handover_block.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. A grasp by arm 0 followed by arm 1 while airborne is required; a table relay does not count.",
+      "objects": [
+        {
+          "id": "item",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.12,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "handover",
+          "object": "item",
+          "arms": [
+            0,
+            1
+          ]
+        },
+        {
+          "type": "place",
+          "object": "item",
+          "target": "target"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "左臂夹起并交给右臂，再放到目标垫",
+        "props": [
+          "box"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt08",
+      "title": "左臂夹起并交给右臂，再放到目标垫",
+      "source": {
+        "project": "RoboTwin",
+        "task": "handover_mic",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/handover_mic.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. A grasp by arm 0 followed by arm 1 while airborne is required; a table relay does not count.",
+      "objects": [
+        {
+          "id": "item",
+          "kind": "bar",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.055,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.12,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "handover",
+          "object": "item",
+          "arms": [
+            0,
+            1
+          ]
+        },
+        {
+          "type": "place",
+          "object": "item",
+          "target": "target"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "左臂夹起并交给右臂，再放到目标垫",
+        "props": [
+          "bar"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt09",
+      "title": "双臂同时抬起托盘",
+      "source": {
+        "project": "RoboTwin",
+        "task": "lift_pot",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/lift_pot.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Open tray replaces pot; simultaneous two-gripper contact and elevation required.",
+      "objects": [
+        {
+          "id": "tray",
+          "kind": "tray",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.105,
+            0.075,
+            0.018
+          ],
+          "xy": [
+            -0.02,
+            0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "dual_lift",
+          "object": "tray",
+          "height": 0.08
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "双臂同时抬起托盘",
+        "props": [
+          "tray"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt10",
+      "title": "双臂同时夹起两瓶",
+      "source": {
+        "project": "RoboTwin",
+        "task": "pick_dual_bottles",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/pick_dual_bottles.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
+      "objects": [
+        {
+          "id": "a",
+          "kind": "bottle",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.022,
+            0.022,
+            0.055
+          ],
+          "xy": [
+            -0.12,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "b",
+          "kind": "bottle",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.022,
+            0.022,
+            0.055
+          ],
+          "xy": [
+            -0.12,
+            0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "paired_lift",
+          "objects": [
+            "a",
+            "b"
+          ],
+          "height": 0.08
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "双臂同时夹起两瓶",
+        "props": [
+          "bottle",
+          "bottle"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt11",
+      "title": "高矮两瓶移入不同垫",
+      "source": {
+        "project": "RoboTwin",
+        "task": "pick_diverse_bottles",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/pick_diverse_bottles.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
+      "objects": [
+        {
+          "id": "tall",
+          "kind": "bottle",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.022,
+            0.022,
+            0.055
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "short",
+          "kind": "bottle",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.028,
+            0.028,
+            0.035
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "left",
+          "xy": [
+            0.16,
+            -0.18
+          ],
+          "half_size": [
+            0.08,
+            0.07
+          ]
+        },
+        {
+          "id": "right",
+          "xy": [
+            0.16,
+            0.18
+          ],
+          "half_size": [
+            0.08,
+            0.07
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "place",
+          "object": "tall",
+          "target": "left"
+        },
+        {
+          "type": "place",
+          "object": "short",
+          "target": "right"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "高矮两瓶移入不同垫",
+        "props": [
+          "bottle",
+          "bottle"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt12",
+      "title": "夹杯并放到目标垫",
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_empty_cup",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_empty_cup.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Cup has a physical open cavity; no microwave stage. This is a new adapted task, separate from the historical microwave-mug experiment.",
+      "objects": [
+        {
+          "id": "cup",
+          "kind": "cup",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.034,
+            0.034,
+            0.042
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "place",
+          "object": "cup",
+          "target": "target"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "夹杯并放到目标垫",
+        "props": [
+          "cup"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt13",
+      "title": "面包放入篮",
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_bread_basket",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_bread_basket.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
+      "objects": [
+        {
+          "id": "food",
+          "kind": "bar",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.055,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "basket",
+          "kind": "tray",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.105,
+            0.075,
+            0.018
+          ],
+          "xy": [
+            0.15,
+            0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "nest",
+          "object": "food",
+          "target": "basket"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "面包放入篮",
+        "props": [
+          "bar",
+          "tray"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt14",
+      "title": "罐放入篮",
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_can_basket",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_can_basket.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
+      "objects": [
+        {
+          "id": "food",
+          "kind": "bottle",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.022,
+            0.022,
+            0.055
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "basket",
+          "kind": "tray",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.105,
+            0.075,
+            0.018
+          ],
+          "xy": [
+            0.15,
+            0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "nest",
+          "object": "food",
+          "target": "basket"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "罐放入篮",
+        "props": [
+          "bottle",
+          "tray"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt15",
+      "title": "两罐放入盒",
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_cans_plasticbox",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_cans_plasticbox.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
+      "objects": [
+        {
+          "id": "food",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "other",
+          "kind": "bottle",
+          "rgba": [
+            0.12,
+            0.7,
+            0.22,
+            1
+          ],
+          "size": [
+            0.018,
+            0.018,
+            0.035
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "basket",
+          "kind": "tray",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.105,
+            0.075,
+            0.018
+          ],
+          "xy": [
+            0.15,
+            0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "nest",
+          "object": "food",
+          "target": "basket"
+        },
+        {
+          "type": "nest",
+          "object": "other",
+          "target": "basket"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "两罐放入盒",
+        "props": [
+          "box",
+          "bottle",
+          "tray"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt16",
+      "title": "容器放到盘上",
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_container_plate",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_container_plate.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
+      "objects": [
+        {
+          "id": "cup",
+          "kind": "cup",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.034,
+            0.034,
+            0.042
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "plate",
+          "kind": "plate",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.08,
+            0.08,
+            0.009
+          ],
+          "xy": [
+            0.15,
+            0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "stack",
+          "object": "cup",
+          "target": "plate"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "容器放到盘上",
+        "props": [
+          "cup",
+          "plate"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt17",
+      "title": "物块放到秤台",
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_object_scale",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_object_scale.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Static pedestal models the placement target; no electronic scale readout.",
+      "objects": [
+        {
+          "id": "item",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "stand",
+          "kind": "box",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.035
+          ],
+          "xy": [
+            0.15,
+            0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "stack",
+          "object": "item",
+          "target": "stand"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "物块放到秤台",
+        "props": [
+          "box",
+          "box"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt18",
+      "title": "瓶放到展示台",
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_object_stand",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_object_stand.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Static pedestal models the placement target; no electronic scale readout.",
+      "objects": [
+        {
+          "id": "item",
+          "kind": "bottle",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.022,
+            0.022,
+            0.055
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "stand",
+          "kind": "box",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.035
+          ],
+          "xy": [
+            0.15,
+            0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "stack",
+          "object": "item",
+          "target": "stand"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "瓶放到展示台",
+        "props": [
+          "bottle",
+          "box"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt19",
+      "title": "手机竖立在支架上",
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_phone_stand",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_phone_stand.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Open support tray replaces shaped phone stand; phone long axis must be vertical.",
+      "objects": [
+        {
+          "id": "phone",
+          "kind": "phone",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.045,
+            0.024,
+            0.008
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "stand",
+          "kind": "tray",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.065,
+            0.045,
+            0.018
+          ],
+          "xy": [
+            0.15,
+            0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "nest",
+          "object": "phone",
+          "target": "stand"
+        },
+        {
+          "type": "upright",
+          "object": "phone",
+          "axis": 0
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "手机竖立在支架上",
+        "props": [
+          "phone",
+          "tray"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt20",
+      "title": "鼠标移至鼠标垫",
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_mouse_pad",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_mouse_pad.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
+      "objects": [
+        {
+          "id": "mouse",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.035,
+            0.024,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "place",
+          "object": "mouse",
+          "target": "target"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "鼠标移至鼠标垫",
+        "props": [
+          "box"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt21",
+      "title": "两只鞋并排朝前",
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_dual_shoes",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_dual_shoes.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Colored elongated solids replace shoe meshes; pose and pair arrangement retained.",
+      "objects": [
+        {
+          "id": "left",
+          "kind": "bar",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.055,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "right",
+          "kind": "bar",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.055,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "position",
+          "object": "left",
+          "xy": [
+            0.15,
+            -0.09
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "right",
+          "xy": [
+            0.15,
+            0.09
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "yaw",
+          "object": "left",
+          "value": 0,
+          "tolerance": 0.22
+        },
+        {
+          "type": "yaw",
+          "object": "right",
+          "value": 0,
+          "tolerance": 0.22
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "两只鞋并排朝前",
+        "props": [
+          "bar",
+          "bar"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt22",
+      "title": "把横倒的瓶子扶正",
+      "source": {
+        "project": "RoboTwin",
+        "task": "adjust_bottle",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/adjust_bottle.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Starts on side; retain upright pose for terminal hold.",
+      "objects": [
+        {
+          "id": "bottle",
+          "kind": "bottle",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.022,
+            0.022,
+            0.055
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false,
+          "quaternion": [
+            0.70710678,
+            0,
+            0.70710678,
+            0
+          ]
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "upright",
+          "object": "bottle",
+          "axis": 2
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "把横倒的瓶子扶正",
+        "props": [
+          "bottle"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt23",
+      "title": "订书机移到垫上",
+      "source": {
+        "project": "RoboTwin",
+        "task": "move_stapler_pad",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/move_stapler_pad.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Rigid elongated prop replaces stapler; no pressing stage.",
+      "objects": [
+        {
+          "id": "stapler",
+          "kind": "bar",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.055,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "place",
+          "object": "stapler",
+          "target": "target"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "订书机移到垫上",
+        "props": [
+          "bar"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt24",
+      "title": "药瓶移到垫上",
+      "source": {
+        "project": "RoboTwin",
+        "task": "move_pillbottle_pad",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/move_pillbottle_pad.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
+      "objects": [
+        {
+          "id": "pill",
+          "kind": "bottle",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.023,
+            0.023,
+            0.032
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "place",
+          "object": "pill",
+          "target": "target"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "药瓶移到垫上",
+        "props": [
+          "bottle"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rt25",
+      "title": "右侧物块跨桌放到左侧",
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_a2b_left",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_a2b_left.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. ",
+      "objects": [
+        {
+          "id": "item",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.12,
+            0.23
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.12,
+            -0.23
+          ],
+          "half_size": [
+            0.08,
+            0.07
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "place",
+          "object": "item",
+          "target": "target"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "右侧物块跨桌放到左侧",
+        "props": [
+          "box"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc01",
+      "title": "饮料瓶排成一排",
+      "source": {
+        "project": "RoboCasa",
+        "task": "BeverageOrganization",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/setting_the_table/beverage_organization.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "a",
+          "kind": "bottle",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.022,
+            0.022,
+            0.055
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "b",
+          "kind": "bottle",
+          "rgba": [
+            0.12,
+            0.7,
+            0.22,
+            1
+          ],
+          "size": [
+            0.022,
+            0.022,
+            0.055
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "c",
+          "kind": "bottle",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.022,
+            0.022,
+            0.055
+          ],
+          "xy": [
+            -0.16,
+            0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "position",
+          "object": "a",
+          "xy": [
+            0.15,
+            -0.16
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "b",
+          "xy": [
+            0.15,
+            0.0
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "c",
+          "xy": [
+            0.15,
+            0.16
+          ],
+          "tolerance": 0.035
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "饮料瓶排成一排",
+        "props": [
+          "bottle",
+          "bottle",
+          "bottle"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc02",
+      "title": "两只杯集中到托盘",
+      "source": {
+        "project": "RoboCasa",
+        "task": "DrinkwareConsolidation",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/clearing_table/drinkware_consolidation.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "a",
+          "kind": "cup",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.033,
+            0.033,
+            0.034
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "b",
+          "kind": "cup",
+          "rgba": [
+            0.12,
+            0.7,
+            0.22,
+            1
+          ],
+          "size": [
+            0.033,
+            0.033,
+            0.034
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "tray",
+          "kind": "tray",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.105,
+            0.075,
+            0.018
+          ],
+          "xy": [
+            0.15,
+            0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "nest",
+          "object": "a",
+          "target": "tray"
+        },
+        {
+          "type": "nest",
+          "object": "b",
+          "target": "tray"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "两只杯集中到托盘",
+        "props": [
+          "cup",
+          "cup",
+          "tray"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc03",
+      "title": "碗杯分置两个区域",
+      "source": {
+        "project": "RoboCasa",
+        "task": "BowlAndCup",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/clearing_table/bowl_and_cup.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "bowl",
+          "kind": "bowl",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "cup",
+          "kind": "cup",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.034,
+            0.034,
+            0.042
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "left",
+          "xy": [
+            0.16,
+            -0.18
+          ],
+          "half_size": [
+            0.09,
+            0.08
+          ]
+        },
+        {
+          "id": "right",
+          "xy": [
+            0.16,
+            0.18
+          ],
+          "half_size": [
+            0.09,
+            0.08
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "place",
+          "object": "bowl",
+          "target": "left"
+        },
+        {
+          "type": "place",
+          "object": "cup",
+          "target": "right"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "碗杯分置两个区域",
+        "props": [
+          "bowl",
+          "cup"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc04",
+      "title": "两碗分别就位",
+      "source": {
+        "project": "RoboCasa",
+        "task": "SetBowlsForSoup",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/setting_the_table/set_bowls_for_soup.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "a",
+          "kind": "bowl",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "b",
+          "kind": "bowl",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "position",
+          "object": "a",
+          "xy": [
+            0.14,
+            -0.16
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "b",
+          "xy": [
+            0.14,
+            0.16
+          ],
+          "tolerance": 0.035
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "两碗分别就位",
+        "props": [
+          "bowl",
+          "bowl"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc05",
+      "title": "餐具从小到大排列",
+      "source": {
+        "project": "RoboCasa",
+        "task": "SizeSorting",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/setting_the_table/size_sorting.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "a",
+          "kind": "plate",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.035,
+            0.035,
+            0.008
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "b",
+          "kind": "plate",
+          "rgba": [
+            0.12,
+            0.7,
+            0.22,
+            1
+          ],
+          "size": [
+            0.055,
+            0.055,
+            0.008
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "c",
+          "kind": "plate",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.08,
+            0.08,
+            0.009
+          ],
+          "xy": [
+            -0.16,
+            0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "position",
+          "object": "a",
+          "xy": [
+            0.15,
+            -0.16
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "b",
+          "xy": [
+            0.15,
+            0.0
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "c",
+          "xy": [
+            0.15,
+            0.16
+          ],
+          "tolerance": 0.035
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "餐具从小到大排列",
+        "props": [
+          "plate",
+          "plate",
+          "plate"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc06",
+      "title": "调味瓶集中托盘",
+      "source": {
+        "project": "RoboCasa",
+        "task": "CondimentCollection",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/clearing_table/condiment_collection.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "a",
+          "kind": "bottle",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.018,
+            0.018,
+            0.035
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "b",
+          "kind": "bottle",
+          "rgba": [
+            0.12,
+            0.7,
+            0.22,
+            1
+          ],
+          "size": [
+            0.018,
+            0.018,
+            0.035
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "tray",
+          "kind": "tray",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.105,
+            0.075,
+            0.018
+          ],
+          "xy": [
+            0.15,
+            0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "nest",
+          "object": "a",
+          "target": "tray"
+        },
+        {
+          "type": "nest",
+          "object": "b",
+          "target": "tray"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "调味瓶集中托盘",
+        "props": [
+          "bottle",
+          "bottle",
+          "tray"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc07",
+      "title": "碗嵌套归置",
+      "source": {
+        "project": "RoboCasa",
+        "task": "RestockBowls",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/restocking_supplies/restock_bowls.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "a",
+          "kind": "bowl",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.04,
+            0.04,
+            0.022
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "b",
+          "kind": "bowl",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.075,
+            0.075,
+            0.03
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "nest",
+          "object": "a",
+          "target": "b"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "碗嵌套归置",
+        "props": [
+          "bowl",
+          "bowl"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc08",
+      "title": "锅与两份食材排列",
+      "source": {
+        "project": "RoboCasa",
+        "task": "AssembleCookingArray",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/frying/assemble_cooking_array.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "pan",
+          "kind": "bowl",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "a",
+          "kind": "box",
+          "rgba": [
+            0.12,
+            0.7,
+            0.22,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "b",
+          "kind": "bar",
+          "rgba": [
+            0.95,
+            0.72,
+            0.12,
+            1
+          ],
+          "size": [
+            0.055,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "position",
+          "object": "pan",
+          "xy": [
+            0.15,
+            -0.16
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "a",
+          "xy": [
+            0.15,
+            0.0
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "b",
+          "xy": [
+            0.15,
+            0.16
+          ],
+          "tolerance": 0.035
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "锅与两份食材排列",
+        "props": [
+          "bowl",
+          "box",
+          "bar"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc09",
+      "title": "平底锅旋转九十度",
+      "source": {
+        "project": "RoboCasa",
+        "task": "FryingPanAdjustment",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/frying/frying_pan_adjustment.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "pan",
+          "kind": "tray",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.105,
+            0.075,
+            0.018
+          ],
+          "xy": [
+            -0.05,
+            0
+          ],
+          "yaw": 1.57,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "place",
+          "object": "pan",
+          "target": "target"
+        },
+        {
+          "type": "yaw",
+          "object": "pan",
+          "value": 0,
+          "tolerance": 0.22
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "平底锅旋转九十度",
+        "props": [
+          "tray"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc10",
+      "title": "将食材从左锅转到右锅",
+      "source": {
+        "project": "RoboCasa",
+        "task": "PanTransfer",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/serving_food/pan_transfer.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. Food starts inside left pan; no heating physics.",
+      "objects": [
+        {
+          "id": "food",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.018,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.12,
+            -0.2
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "left",
+          "kind": "bowl",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.025
+          ],
+          "xy": [
+            -0.12,
+            -0.2
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "right",
+          "kind": "bowl",
+          "rgba": [
+            0.12,
+            0.7,
+            0.22,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.025
+          ],
+          "xy": [
+            0.15,
+            0.16
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "nest",
+          "object": "food",
+          "target": "right"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "将食材从左锅转到右锅",
+        "props": [
+          "box",
+          "bowl",
+          "bowl"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc11",
+      "title": "两份食材分别入碗",
+      "source": {
+        "project": "RoboCasa",
+        "task": "PlaceFoodInBowls",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/serving_food/place_food_in_bowls.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "a",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.018,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "b",
+          "kind": "box",
+          "rgba": [
+            0.95,
+            0.72,
+            0.12,
+            1
+          ],
+          "size": [
+            0.018,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "left",
+          "kind": "bowl",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.025
+          ],
+          "xy": [
+            0.15,
+            -0.16
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "right",
+          "kind": "bowl",
+          "rgba": [
+            0.12,
+            0.7,
+            0.22,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.025
+          ],
+          "xy": [
+            0.15,
+            0.16
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "nest",
+          "object": "a",
+          "target": "left"
+        },
+        {
+          "type": "nest",
+          "object": "b",
+          "target": "right"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "两份食材分别入碗",
+        "props": [
+          "box",
+          "box",
+          "bowl",
+          "bowl"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc12",
+      "title": "两色水果集中碗中",
+      "source": {
+        "project": "RoboCasa",
+        "task": "MakeFruitBowl",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/snack_preparation/make_fruit_bowl.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "a",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.018,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "b",
+          "kind": "box",
+          "rgba": [
+            0.95,
+            0.72,
+            0.12,
+            1
+          ],
+          "size": [
+            0.018,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "bowl",
+          "kind": "bowl",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.025
+          ],
+          "xy": [
+            0.15,
+            0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "nest",
+          "object": "a",
+          "target": "bowl"
+        },
+        {
+          "type": "nest",
+          "object": "b",
+          "target": "bowl"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "两色水果集中碗中",
+        "props": [
+          "box",
+          "box",
+          "bowl"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc13",
+      "title": "麦片盒与碗配对摆放",
+      "source": {
+        "project": "RoboCasa",
+        "task": "CerealAndBowl",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/snack_preparation/cereal_and_bowl.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "cereal",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.025,
+            0.035,
+            0.055
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "bowl",
+          "kind": "bowl",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "position",
+          "object": "cereal",
+          "xy": [
+            0.15,
+            -0.12
+          ],
+          "tolerance": 0.04
+        },
+        {
+          "type": "position",
+          "object": "bowl",
+          "xy": [
+            0.15,
+            0.12
+          ],
+          "tolerance": 0.04
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "麦片盒与碗配对摆放",
+        "props": [
+          "box",
+          "bowl"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc14",
+      "title": "奶酪叠到面包上",
+      "source": {
+        "project": "RoboCasa",
+        "task": "BreadAndCheese",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/snack_preparation/bread_and_cheese.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "cheese",
+          "kind": "box",
+          "rgba": [
+            0.95,
+            0.72,
+            0.12,
+            1
+          ],
+          "size": [
+            0.022,
+            0.022,
+            0.009
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "bread",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.045,
+            0.045,
+            0.014
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "stack",
+          "object": "cheese",
+          "target": "bread"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "奶酪叠到面包上",
+        "props": [
+          "box",
+          "box"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc15",
+      "title": "糕点装盘",
+      "source": {
+        "project": "RoboCasa",
+        "task": "DessertAssembly",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/clearing_table/dessert_assembly.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "cake",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "plate",
+          "kind": "plate",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.08,
+            0.08,
+            0.009
+          ],
+          "xy": [
+            0.15,
+            0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "stack",
+          "object": "cake",
+          "target": "plate"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "糕点装盘",
+        "props": [
+          "box",
+          "plate"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc16",
+      "title": "烘焙原料分类排列",
+      "source": {
+        "project": "RoboCasa",
+        "task": "OrganizeBakingIngredients",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/baking/organize_baking_ingredients.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "flour",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.03,
+            0.025,
+            0.045
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "sugar",
+          "kind": "bottle",
+          "rgba": [
+            0.85,
+            0.85,
+            0.85,
+            1
+          ],
+          "size": [
+            0.022,
+            0.022,
+            0.055
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "butter",
+          "kind": "bar",
+          "rgba": [
+            0.95,
+            0.72,
+            0.12,
+            1
+          ],
+          "size": [
+            0.055,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "position",
+          "object": "flour",
+          "xy": [
+            0.15,
+            -0.16
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "sugar",
+          "xy": [
+            0.15,
+            0.0
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "butter",
+          "xy": [
+            0.15,
+            0.16
+          ],
+          "tolerance": 0.035
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "烘焙原料分类排列",
+        "props": [
+          "box",
+          "bottle",
+          "bar"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc17",
+      "title": "清洁用品集中一侧",
+      "source": {
+        "project": "RoboCasa",
+        "task": "ClearingCleaningReceptacles",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/clearing_table/clearing_cleaning_receptacles.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "soap",
+          "kind": "bottle",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.022,
+            0.022,
+            0.055
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "sponge",
+          "kind": "box",
+          "rgba": [
+            0.95,
+            0.72,
+            0.12,
+            1
+          ],
+          "size": [
+            0.035,
+            0.025,
+            0.012
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "place",
+          "object": "soap",
+          "target": "target"
+        },
+        {
+          "type": "place",
+          "object": "sponge",
+          "target": "target"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "清洁用品集中一侧",
+        "props": [
+          "bottle",
+          "box"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc18",
+      "title": "待洗蔬菜放入清洗盆",
+      "source": {
+        "project": "RoboCasa",
+        "task": "PrewashFoodAssembly",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/washing_fruits_and_vegetables/prewash_food_assembly.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. Dry basin; no water or cleanliness state.",
+      "objects": [
+        {
+          "id": "a",
+          "kind": "bar",
+          "rgba": [
+            0.12,
+            0.7,
+            0.22,
+            1
+          ],
+          "size": [
+            0.035,
+            0.014,
+            0.014
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "b",
+          "kind": "box",
+          "rgba": [
+            0.95,
+            0.72,
+            0.12,
+            1
+          ],
+          "size": [
+            0.018,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "basin",
+          "kind": "bowl",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.025
+          ],
+          "xy": [
+            0.15,
+            0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "nest",
+          "object": "a",
+          "target": "basin"
+        },
+        {
+          "type": "nest",
+          "object": "b",
+          "target": "basin"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "待洗蔬菜放入清洗盆",
+        "props": [
+          "bar",
+          "box",
+          "bowl"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc19",
+      "title": "蔬菜按品类摆放",
+      "source": {
+        "project": "RoboCasa",
+        "task": "OrganizeVegetables",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/chopping_food/organize_vegetables.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "carrot",
+          "kind": "bar",
+          "rgba": [
+            0.95,
+            0.72,
+            0.12,
+            1
+          ],
+          "size": [
+            0.055,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "cucumber",
+          "kind": "bar",
+          "rgba": [
+            0.12,
+            0.7,
+            0.22,
+            1
+          ],
+          "size": [
+            0.055,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "position",
+          "object": "carrot",
+          "xy": [
+            0.15,
+            -0.12
+          ],
+          "tolerance": 0.04
+        },
+        {
+          "type": "position",
+          "object": "cucumber",
+          "xy": [
+            0.15,
+            0.12
+          ],
+          "tolerance": 0.04
+        },
+        {
+          "type": "yaw",
+          "object": "carrot",
+          "value": 0,
+          "tolerance": 0.22
+        },
+        {
+          "type": "yaw",
+          "object": "cucumber",
+          "value": 0,
+          "tolerance": 0.22
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "蔬菜按品类摆放",
+        "props": [
+          "bar",
+          "bar"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc20",
+      "title": "蔬菜从盆转入沥水盘",
+      "source": {
+        "project": "RoboCasa",
+        "task": "DrainVeggies",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/washing_fruits_and_vegetables/drain_veggies.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. Dry transfer only; no fluid simulation.",
+      "objects": [
+        {
+          "id": "veg",
+          "kind": "bar",
+          "rgba": [
+            0.12,
+            0.7,
+            0.22,
+            1
+          ],
+          "size": [
+            0.035,
+            0.014,
+            0.014
+          ],
+          "xy": [
+            -0.12,
+            -0.18
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "basin",
+          "kind": "bowl",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.025
+          ],
+          "xy": [
+            -0.12,
+            -0.18
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "plate",
+          "kind": "plate",
+          "rgba": [
+            0.95,
+            0.72,
+            0.12,
+            1
+          ],
+          "size": [
+            0.08,
+            0.08,
+            0.009
+          ],
+          "xy": [
+            0.15,
+            0.15
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "stack",
+          "object": "veg",
+          "target": "plate"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "蔬菜从盆转入沥水盘",
+        "props": [
+          "bar",
+          "bowl",
+          "plate"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc21",
+      "title": "两种零食分类归盒",
+      "source": {
+        "project": "RoboCasa",
+        "task": "SnackSorting",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/tidying_cabinets_and_drawers/snack_sorting.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. Open boxes replace drawers; opening and closing are excluded.",
+      "objects": [
+        {
+          "id": "a",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.018,
+            0.018,
+            0.018
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "b",
+          "kind": "bar",
+          "rgba": [
+            0.95,
+            0.72,
+            0.12,
+            1
+          ],
+          "size": [
+            0.03,
+            0.014,
+            0.014
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "left",
+          "kind": "bowl",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.025
+          ],
+          "xy": [
+            0.15,
+            -0.16
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "right",
+          "kind": "bowl",
+          "rgba": [
+            0.12,
+            0.7,
+            0.22,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.025
+          ],
+          "xy": [
+            0.15,
+            0.16
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "nest",
+          "object": "a",
+          "target": "left"
+        },
+        {
+          "type": "nest",
+          "object": "b",
+          "target": "right"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "两种零食分类归盒",
+        "props": [
+          "box",
+          "bar",
+          "bowl",
+          "bowl"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc22",
+      "title": "交换两个调味瓶的位置",
+      "source": {
+        "project": "RoboCasa",
+        "task": "ShakerShuffle",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/tidying_cabinets_and_drawers/shaker_shuffle.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "a",
+          "kind": "bottle",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.022,
+            0.022,
+            0.055
+          ],
+          "xy": [
+            -0.12,
+            -0.18
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "b",
+          "kind": "bottle",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.022,
+            0.022,
+            0.055
+          ],
+          "xy": [
+            -0.12,
+            0.18
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "position",
+          "object": "a",
+          "xy": [
+            -0.12,
+            0.18
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "b",
+          "xy": [
+            -0.12,
+            -0.18
+          ],
+          "tolerance": 0.035
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "交换两个调味瓶的位置",
+        "props": [
+          "bottle",
+          "bottle"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc23",
+      "title": "三份糕点有序展示",
+      "source": {
+        "project": "RoboCasa",
+        "task": "PastryDisplay",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/baking/pastry_display.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "a",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "b",
+          "kind": "box",
+          "rgba": [
+            0.95,
+            0.72,
+            0.12,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "c",
+          "kind": "box",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.025,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            -0.16,
+            0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "position",
+          "object": "a",
+          "xy": [
+            0.15,
+            -0.16
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "b",
+          "xy": [
+            0.15,
+            0.0
+          ],
+          "tolerance": 0.035
+        },
+        {
+          "type": "position",
+          "object": "c",
+          "xy": [
+            0.15,
+            0.16
+          ],
+          "tolerance": 0.035
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "三份糕点有序展示",
+        "props": [
+          "box",
+          "box",
+          "box"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc24",
+      "title": "肉块放入腌制碗",
+      "source": {
+        "project": "RoboCasa",
+        "task": "PrepMarinatingMeat",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/meat_preparation/prep_marinating_meat.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. No chemical marination state.",
+      "objects": [
+        {
+          "id": "meat",
+          "kind": "box",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.03,
+            0.025,
+            0.014
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "bowl",
+          "kind": "bowl",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.065,
+            0.065,
+            0.025
+          ],
+          "xy": [
+            0.15,
+            0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "nest",
+          "object": "meat",
+          "target": "bowl"
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "肉块放入腌制碗",
+        "props": [
+          "box",
+          "bowl"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    },
+    {
+      "id": "rc25",
+      "title": "两条面包并排装篮",
+      "source": {
+        "project": "RoboCasa",
+        "task": "ArrangeBreadBasket",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/setting_the_table/arrange_bread_basket.py"
+      },
+      "execution_backend": "robosuite-1.5.1-dual-panda-tabletop",
+      "adaptation": "Task-design adaptation; original assets, native physics and official score are not reused. Kitchen navigation, cabinets and appliances are removed; retain the tabletop object relation. ",
+      "objects": [
+        {
+          "id": "a",
+          "kind": "bar",
+          "rgba": [
+            0.85,
+            0.12,
+            0.1,
+            1
+          ],
+          "size": [
+            0.045,
+            0.015,
+            0.015
+          ],
+          "xy": [
+            -0.16,
+            -0.22
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "b",
+          "kind": "bar",
+          "rgba": [
+            0.95,
+            0.72,
+            0.12,
+            1
+          ],
+          "size": [
+            0.045,
+            0.015,
+            0.015
+          ],
+          "xy": [
+            -0.16,
+            0.0
+          ],
+          "yaw": 0,
+          "fixed": false
+        },
+        {
+          "id": "basket",
+          "kind": "tray",
+          "rgba": [
+            0.12,
+            0.3,
+            0.85,
+            1
+          ],
+          "size": [
+            0.105,
+            0.075,
+            0.018
+          ],
+          "xy": [
+            0.15,
+            0
+          ],
+          "yaw": 0,
+          "fixed": false
+        }
+      ],
+      "zones": [
+        {
+          "id": "target",
+          "xy": [
+            0.16,
+            0
+          ],
+          "half_size": [
+            0.1,
+            0.09
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "type": "nest",
+          "object": "a",
+          "target": "basket"
+        },
+        {
+          "type": "nest",
+          "object": "b",
+          "target": "basket"
+        },
+        {
+          "type": "yaw",
+          "object": "a",
+          "value": 0,
+          "tolerance": 0.22
+        },
+        {
+          "type": "yaw",
+          "object": "b",
+          "value": 0,
+          "tolerance": 0.22
+        }
+      ],
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "action_budget": 1000,
+      "wall_seconds": 1800,
+      "demo_status": "missing",
+      "release_status": "implemented-unvalidated-agent",
+      "filming": {
+        "view": "Fixed oblique overhead, full table and both hands visible; no cuts or captions.",
+        "instruction": "两条面包并排装篮",
+        "props": [
+          "bar",
+          "bar",
+          "tray"
+        ],
+        "split": "Record A only; evaluate A imitation and B/C layout transfer separately.",
+        "acceptance": "Complete all private goals; 2 s stable final state; no visible goal text in agent video."
+      }
+    }
+  ]
+}

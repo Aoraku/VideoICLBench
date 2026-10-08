@@ -1,5 +1,7 @@
 # VideoICL-Bench
 
+具身任务新增入口：[50题桌面双臂任务与运行说明](simulator/benchmark/README.md)（RoboTwin／RoboCasa 来源，统一 robosuite）。
+
 VideoICL-Bench 为人类录制者和 GUI Agent 提供统一的应用、任务、截图输入、录像和状态评测平台。
 
 应用界面预览与来源见 [应用界面](docs/native-frontends.md)。
@@ -202,3 +204,7 @@ Codex 的 `--code-mode` 是原生 CLI 功能开关，供需要该工具封装的
 | Claude Code / `claude-sonnet-4-6` | 通过 | 通过 | 通过：自动压缩事件报告 9185 → 884 tokens，随后完成点击并保留测试标记 |
 
 CC 验证版本为 2.1.117。Codex 基础操作验证版本为 0.154.0-alpha.6.2；长工具结果续接在该版本和 0.159.3 均失败，不能据此断言失败发生在压缩请求本身。Codex 网关返回的用量不足以确认压缩阈值是否触发。网关未提供可核实的价格表，因此这些模型是低成本候选，不保证为绝对最低价；CC 网关模型列表未提供 Haiku，测试使用 Sonnet，没有使用 Opus。
+
+## 桌面双臂50题（RoboTwin / RoboCasa 改编）
+
+统一 robosuite 双 Panda 场景、任务定义、私有判分、GUI 和实验 harness 见 [运行说明](simulator/benchmark/README.md) 与 [50题清单](simulator/benchmark/TASKS.md)。包含独立 Agentlab CPU / OSMesa 部署入口。人手示范与逐题 agent 实验仍需采集和验收；历史微波炉杯子实验保留在 embodied handoff 中。
