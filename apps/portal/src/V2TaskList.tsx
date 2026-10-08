@@ -1,3 +1,4 @@
+import {applicationLaunchError,applicationResponse} from './applicationLaunchError';
 import {useEffect,useRef,useState} from 'react';
 import {nativeApplicationUrl} from './nativeApplicationUrl';
 import {taskParameters} from './taskParameters';
@@ -23,7 +24,7 @@ export function V2TaskList({token,onBusy}:{token:string;onBusy:(value:boolean)=>
   const runKey=(value:Mode)=>`${selected?.id}-${variant}-${value}`;
   const demo=runs[runKey('demo')],current=runs[runKey(mode)];
   useEffect(()=>{onBusy(busy||recording);return()=>onBusy(false)},[busy,recording,onBusy]);
-  async function call(path:string,body?:any){const r=await fetch(path,{method:body===undefined?'GET':'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body)});const v=await r.json();if(!r.ok)throw Error(typeof v.detail==='string'?v.detail:JSON.stringify(v.detail));return v}
+  async function call(path:string,body?:any){const r=await fetch(path,{method:body===undefined?'GET':'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body)});return applicationResponse(r)}
   async function refreshRecordings(){try{setLibrary(await call('/v1/recordings'))}catch(e){setError(`读取录制记录失败：${String(e)}`)}}
   useEffect(()=>{void refreshRecordings();const refresh=()=>{if(!document.hidden)void refreshRecordings()};window.addEventListener('focus',refresh);document.addEventListener('visibilitychange',refresh);return()=>{window.removeEventListener('focus',refresh);document.removeEventListener('visibilitychange',refresh)}},[token]);
   useEffect(()=>{call('/v2/tasks').then(v=>setTasks(v.tasks)).catch(e=>setError(String(e)))},[token]);
@@ -45,7 +46,7 @@ export function V2TaskList({token,onBusy}:{token:string;onBusy:(value:boolean)=>
       else tab.focus();
       if(record)setNotice('应用首页已准备好。点击“选择应用画面并开始录制”，在浏览器分享窗口中选择刚打开的应用标签页。');
       else setNotice(value==='demo'?'示范环境已在新标签页打开，不会录屏。':'执行环境已在新标签页打开。完成后可回到这里检查交付。');
-    }catch(e){tab.close();setError(String(e));setPrivateView(false)}finally{setBusy(false)}
+    }catch(e){setError(applicationLaunchError(tab,e));setPrivateView(false)}finally{setBusy(false)}
   }
   async function reset(value:Mode){
     setBusy(true);setError('');setNotice('');

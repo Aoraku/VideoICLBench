@@ -1,4 +1,5 @@
 import asyncio
+import errno
 import hashlib
 import hmac
 import json
@@ -10,7 +11,7 @@ import uuid
 from contextlib import asynccontextmanager
 from pathlib import Path
 from fastapi import FastAPI, Depends, Header, HTTPException, Request
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy import select
 from . import business, lessons, recording_guidance
@@ -189,9 +190,24 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             r.status = status
             db.commit()
 
+    storage_error = '服务器可用存储空间不足，暂时无法创建环境或保存录像。请联系管理员；已有录像保留，上传失败时请先下载原始录像。'
+
+    def require_storage():
+        free = shutil.disk_usage(data).free
+        if free < 1024 ** 3:
+            raise HTTPException(507, storage_error)
+        return free
+
+    @app.exception_handler(OSError)
+    async def storage_exception(request, exc):
+        if exc.errno in (errno.ENOSPC, errno.EDQUOT):
+            return JSONResponse(status_code=507, content={'detail': storage_error})
+        logging.getLogger(__name__).error('Filesystem request failed', exc_info=exc)
+        return JSONResponse(status_code=500, content={'detail': '服务器文件操作失败，请稍后重试。'})
+
     @app.get("/healthz")
     def health():
-        return {"status": "ok", "service": "videoicl-control"}
+        return {"status": "ok", "service": "videoicl-control", "storage_free_bytes": require_storage()}
 
     @app.get("/v1/capabilities", dependencies=[Depends(manager)])
     def capabilities():
@@ -320,6 +336,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
 
     @app.post("/v1/runs", dependencies=[Depends(manager)], status_code=201)
     def create(body: CreateRun):
+        require_storage()
         if body.runtime not in ("web-dev", "browser"):
             raise HTTPException(
                 409,
@@ -786,6 +803,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
             media_type = request.headers.get("content-type", "").split(";")[0]
             if media_type not in ("video/webm", "video/mp4"):
                 raise HTTPException(415, "请上传 WebM 或 MP4 录像")
+            require_storage()
             dest = data / "artifacts" / run_id
             dest.mkdir(parents=True, exist_ok=True)
             if (dest / "tutorial.mp4").exists():
@@ -802,6 +820,8 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 try:
                     meta = await asyncio.to_thread(convert, source, converted, media_type, epoch)
                 except (ValueError, RuntimeError, OSError) as exc:
+                    if isinstance(exc, OSError) and exc.errno in (errno.ENOSPC, errno.EDQUOT):
+                        raise
                     raise HTTPException(422, "无法读取录像，请检查文件格式与时长") from exc
                 applications.seal(run_id)
                 converted.replace(dest / "tutorial.mp4")

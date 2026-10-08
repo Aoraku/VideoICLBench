@@ -1,3 +1,4 @@
+import {applicationLaunchError,applicationResponse} from './applicationLaunchError';
 import {useEffect,useRef,useState} from 'react';
 import {flushSync} from 'react-dom';
 import {HumanRecording} from './HumanRecording';
@@ -12,7 +13,7 @@ type Task={id:number;title:string;app:string;status:string;variants:Record<strin
 const APPS:Record<string,string>={chat:'通讯 A',im:'通讯 B',music:'音乐',news:'新闻',code:'在线判题',media:'视频与信息流',blog:'博客',studio:'AI 工作台',travel:'旅游',shop:'购物',bank:'账户',gomoku:'五子棋',games:'游戏'};
 async function api(path:string,token:string,method='GET',body?:unknown){
   const r=await fetch(path,{method,headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body)});
-  const data=await r.json();if(!r.ok)throw Error(typeof data.detail==='string'?data.detail:JSON.stringify(data.detail));return data;
+  return applicationResponse(r);
 }
 export function RecorderPortal(){
   const [listVersion,setListVersion]=useState('v2');
@@ -68,7 +69,7 @@ export function RecorderPortal(){
       if(stream){setCapture(stream);setRecordingBusy(true);setNotice(prepared.lesson && prepared.lesson.total>1 ? `正在录制。请从应用首页开始，连续完成 ${prepared.lesson.total} 组练习；最后点击应用内“完成练习”，录像会自动保存。` : '正在录制。请在应用首页开始操作，完成后回到此任务卡结束录制。')}
       else setNotice('应用已打开。此浏览器不支持内置录屏，请使用系统录屏，完成后在此卡上传视频；也可用 Chrome 或 Edge 打开本平台。');
       tab.focus();
-    }catch(e){tab.close();stream?.getTracks().forEach(t=>t.stop());void streamPromise.then(s=>s.value?.getTracks().forEach(t=>t.stop()));setError(String(e))}finally{setBusy(false)}
+    }catch(e){applicationLaunchError(tab,e);stream?.getTracks().forEach(t=>t.stop());void streamPromise.then(s=>s.value?.getTracks().forEach(t=>t.stop()));setError(String(e))}finally{setBusy(false)}
   }
   async function evaluate(r:HumanRun){
     setBusy(true);setError('');try{const result=await api(`/v1/runs/${r.id}/evaluate`,token,'POST',r.task_id===43&&r.variant==='B'?{clipboard}:{});update({...r,status:'completed',result})}catch(e){setError(String(e))}finally{setBusy(false)}
