@@ -201,7 +201,9 @@ def render_files():
     state = business()["state"]
     t=state["task_id"]
     st.title("我的代码与笔记")
-    if t in (59,60):
+    if t == 58:
+        render_indent_editor(state)
+    elif t in (59,60):
         st.subheader("解题笔记" if t==59 else "solution.py")
         if t == 59:
             st.info('本批目标：三道题的答案均须正式提交。保存文件只保留草稿；每份都需要点击“提交答案”，并核对提交记录。' if state.get('v2_atomic') else '本次只需整理这一份多行笔记并保存文件，不需要提交答案。')
@@ -228,7 +230,7 @@ def render_files():
                      if record["kind"] == "submission"}
         checked = {record["target"]: record["passed"] for record in state["domain"]["checks"]}
         st.caption(f"共 {len(state['items'])} 份文件 · 已提交 {len(submitted)} 份")
-        if t == 65:
+        if t == 65 and state['seed'] >= 1000:
             st.caption("指定函数名：" + state["source"]["function"])
             st.caption(f"长度阈值：{state['source']['code_threshold']} 个字符（包含空格和换行）")
             st.caption("本地检查指 Python 语法检查；提交不额外要求程序运行通过。")
@@ -244,6 +246,23 @@ def render_files():
                 if a.button("本地检查",key="check_"+item["id"]):
                     command("action",item["id"],"本地检查")
                     st.rerun()
+
                 if b.button("提交",key="submit_"+item["id"],disabled=item["id"] in submitted):
                     command("action",item["id"],"提交")
                     st.rerun()
+
+
+def render_indent_editor(state):
+    """One editable, prefilled draft in both OJ entry points."""
+    import hashlib
+    st.subheader('solution.py')
+    st.caption('在下方直接编辑代码，再点击“提交代码”保存到提交记录。')
+    # Stable while editing, distinct for every demonstration/reset/episode.
+    identity = f"{os.environ.get('VIC_NATIVE_RUN', '')}:{business().get('epoch', 0)}:{state['seed']}:{state['source']['text']}"
+    key = 'indent_draft_' + hashlib.sha256(identity.encode()).hexdigest()[:16]
+    code = st.text_area('编辑源代码', value=state['outputs'].get('target', state['source']['text']), height=400, key=key)
+    with st.expander('查看空白字符'):
+        whitespace_view(code)
+    if st.button('提交代码', type='primary', key='submit_' + key):
+        command('save', 'target', code)
+        st.success('代码已保存到提交记录。')

@@ -263,7 +263,7 @@ export async function nativeFetch(
     });
     if (method === "GET") {
       if (path === "/api/workspace")
-        return respond({ instructions: s.task_id===16 ? `${projectReceipts?s.public_parameters:'项目消息回执'} 固定回复正文：“${s.source.fixed_reply}”（不含引号，不加标点或换行）。` : undefined });
+        return respond({ instructions: s.task_id===16 && s.seed>=1000 ? `${projectReceipts?s.public_parameters:'项目消息回执'} 固定回复正文：“${s.source.fixed_reply}”（不含引号，不加标点或换行）。` : undefined });
       if (path === "/api/user/profile")
         return respond({ user_id: 1, username: (s.source.operator || '我'), avatar: undefined });
       if (path === "/api/friends")

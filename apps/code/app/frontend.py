@@ -341,6 +341,10 @@ def render_add_problem_page():
 # 页面：提交代码
 def render_submit_code_page():
     problem_id = st.session_state.current_problem_id
+    if benchmark.ACTIVE and benchmark.business()["state"]["task_id"] == 58:
+        st.title(f"提交代码到题目 {problem_id}")
+        benchmark.render_indent_editor(benchmark.business()["state"])
+        return
     st.title(f"提交代码到题目 {problem_id}")
     
     languages = []

@@ -100,20 +100,19 @@ def test_import_recording_decode_seal_review_and_reset(clients,tmp_path):
     assert not c.app.state.runtime.sessions
 
 
-def test_human_clipboard_evidence_is_required_and_identified(clients):
+def test_application_clipboard_needs_no_browser_permission(clients):
     from test_applications import reference
     c,w=clients
     r=c.post('/v1/runs',headers=admin(),json=dict(task_id=43,variant='B',seed=0,mode='demo',interaction='human')).json()
     path='/v1/runs/'+r['id'];wp='/api/runs/'+r['id']
-    assert c.post(path+'/evaluate',headers=admin()).status_code==409
     state=w.get(wp,headers=credential(r)).json()['state']
     for i,(op,target,value,ids) in enumerate(reference(state,'B')):
         response=w.post(wp+'/commands',headers=credential(r),json=dict(epoch=0,action_id=str(i),op=op,target=target,value=value,ids=ids))
         assert response.status_code==200,response.text
     final=w.get(wp,headers=credential(r)).json()['state']
-    result=c.post(path+'/evaluate',headers=admin(),json={'clipboard':final['domain']['clipboard_history'][-1]['text']})
+    result=c.post(path+'/evaluate',headers=admin(),json={})
     assert result.json()['success'],result.text
-    assert result.json()['clipboard_evidence_source']=='human_paste'
+    assert result.json()['clipboard_evidence_source']=='application_clipboard'
     assert not c.app.state.runtime.sessions
 
 

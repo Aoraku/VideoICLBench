@@ -170,15 +170,12 @@ def test_syntax_failures_cannot_be_delivered_and_copy_must_precede_paste():
     assert studio.check_output('import os\nos.system("exit 99")')['passed']  # Parsing does not execute code.
 
 
-def test_copy_lesson_requires_clipboard_evidence_before_completion(clients):
+def test_copy_lesson_checks_application_clipboard_without_os_read(clients):
     from test_lessons import create_lesson,operate,actor
     c,w=clients;run=create_lesson(c,43,'B');operate(w,run,'B')
     payload=dict(epoch=run['epoch'],index=0)
-    missing=c.post('/v1/runs/'+run['id']+'/lesson/next',headers=actor(run),json=payload)
-    assert missing.status_code==409
-    state=w.get('/api/runs/'+run['id'],headers=actor(run)).json()['state']
-    good=c.post('/v1/runs/'+run['id']+'/lesson/next',headers=actor(run),json={**payload,'clipboard':state['domain']['clipboard_history'][-1]['text']})
+    good=c.post('/v1/runs/'+run['id']+'/lesson/next',headers=actor(run),json=payload)
     assert good.status_code==200 and good.json()['lesson']['finished']
     result=c.post('/v1/runs/'+run['id']+'/evaluate',headers=admin())
     assert result.status_code==200 and result.json()['success'],result.text
-    assert result.json()['clipboard_evidence_source']=='lesson_episode_clipboard'
+    assert result.json()['clipboard_evidence_source']=='application_clipboard'

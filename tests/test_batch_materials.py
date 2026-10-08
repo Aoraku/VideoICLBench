@@ -292,7 +292,15 @@ def test_studio_code_has_distinct_file_names_and_saved_content_matches(seed, tmp
             store.mutate('studio', Mutation(epoch=0, action_id='copy-again', op='action', target=target, value='复制'))
             final = store.snapshot('studio')
             assert application_eval.evaluate(initial, final, variant, store.events('studio'), body)['success']
-            assert not application_eval.evaluate(initial, final, variant, store.events('studio'), 'wrong clipboard')['success']
+            # Unrelated OS clipboard contents cannot invalidate workspace copies.
+            assert application_eval.evaluate(initial, final, variant, store.events('studio'), 'unrelated OS text')['success']
+            from copy import deepcopy
+            corrupted = deepcopy(final)
+            corrupted['domain']['clipboard_history'][-1]['text'] = 'truncated'
+            assert not application_eval.evaluate(initial, corrupted, variant, store.events('studio'))['success']
+            missing = deepcopy(final)
+            missing['domain']['clipboard_history'] = missing['domain']['clipboard_history'][:1]
+            assert not application_eval.evaluate(initial, missing, variant, store.events('studio'))['success']
 
 
 @pytest.mark.parametrize('seed', [*range(12), 999, 1000, 1001, 10001])

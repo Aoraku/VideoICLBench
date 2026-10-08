@@ -3,12 +3,12 @@ import {HumanRecording} from './HumanRecording';
 
 export type HumanRun = {id:string;task_id:number;variant:string;mode:string;runtime:string;status:string;epoch:number;result:any;recording?:{status:string;approved?:boolean;reviewer?:string;note?:string;available:boolean;archived?:boolean;contract_current?:boolean};interaction?:string;application_url?:string;workspace_url?:string;rule?:string;lesson?:{index:number;total:number;completed:number;finished:boolean}|null};
 export function HumanSession({run,token,onUpdate}:{run:HumanRun;token:string;onUpdate:(r:HumanRun)=>void}) {
-  const [busy,setBusy]=useState(false),[error,setError]=useState(''),[clipboard,setClipboard]=useState(''),[recordingBusy,setRecordingBusy]=useState(false);
+  const [busy,setBusy]=useState(false),[error,setError]=useState(''),[recordingBusy,setRecordingBusy]=useState(false);
   const base=`/v1/runs/${run.id}`;
   async function operation(op:string) {
     setBusy(true);setError('');
     try {
-      const r=await fetch(base+'/'+op,{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:op==='evaluate'?JSON.stringify(run.task_id===43&&run.variant==='B'?{clipboard}:{}):undefined});
+      const r=await fetch(base+'/'+op,{method:'POST',headers:{Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:op==='evaluate'?JSON.stringify({}):undefined});
       const data=await r.json();if(!r.ok)throw Error(typeof data.detail==='string'?data.detail:JSON.stringify(data.detail));
       onUpdate(op==='reset'?{...data,rule:run.rule}:{...run,status:'completed',result:data});
     }catch(e){setError(String(e))}finally{setBusy(false)}
@@ -22,7 +22,7 @@ export function HumanSession({run,token,onUpdate}:{run:HumanRun;token:string;onU
       <p className="muted">完成后回到此页评测。重置会清空本轮操作；重置后请关闭旧应用页，从这里重新打开。</p>
       {run.mode==='demo'&&<p>录制请从新标签页的应用工作台开始，包含首页、导航和实际操作。</p>}
     </section>
-    {run.task_id===43&&run.variant==='B'&&!run.result&&<section className="panel results"><label>粘贴剪贴板内容以核验复制结果<textarea value={clipboard} onChange={e=>setClipboard(e.target.value)} rows={5}/></label><p className="muted">在应用完成复制后，使用粘贴快捷键把实际内容粘贴到这里。人工核验结果会注明此证据来源。</p></section>}
+
     {run.mode==='demo'&&<HumanRecording run={run} token={token} onUpdate={onUpdate} onBusy={setRecordingBusy}/>}
     {run.result&&<section className="panel results"><h2>{run.result.success?'✓ 任务通过':'任务未通过'} <span className="badge">人工试用评测</span></h2><p>子目标完成度 {Math.round(run.result.completion*100)}%</p>{run.result.checks.map((c:any)=><div key={c.id}>{c.passed?'✓':'×'} {c.id}</div>)}{run.result.violations.map((v:string)=><p className="error" key={v}>{v}</p>)}</section>}
   </>;

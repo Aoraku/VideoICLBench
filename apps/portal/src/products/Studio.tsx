@@ -34,13 +34,9 @@ export function Studio({ api }: { api: ProductAPI }) {
     setCopyBusy(true);
     setCopyError("");
     try {
-      if (action === "复制") {
-        if (!navigator.clipboard) throw Error("当前浏览器无法访问剪贴板，请使用支持剪贴板的浏览器打开应用。");
-        await navigator.clipboard.writeText(active.code);
-      }
       await api.mutate("action", focused, action);
     } catch {
-      setCopyError("未能写入剪贴板，请检查浏览器权限后重试。");
+      setCopyError("操作未保存，请检查连接后重试。");
     } finally {
       actionPending.current = false;
       setCopyBusy(false);
@@ -226,8 +222,12 @@ export function Studio({ api }: { api: ProductAPI }) {
                     已保存文件
                   </button>
                   {s.task_id === 43 && <button className={tab === "sent" ? "active" : ""} onClick={() => { setTab("sent"); api.clearNotice?.(); }}>已发送</button>}
+                  {s.task_id === 43 && <button className={tab === "clipboard" ? "active" : ""} onClick={() => setTab("clipboard")}>工作区剪贴板</button>}
                 </div>
-                {tab === "saved" ? (
+                {tab === "clipboard" ? <section aria-label="工作区剪贴板">
+                  <h2>工作区剪贴板</h2><p>复制会覆盖当前内容；各文件的复制记录会保留。内容保存于工作区，刷新后仍可查看。</p>
+                  {d.clipboard_history.length ? <><b>{d.objects[d.clipboard_history.at(-1).target]?.name}</b><pre className="studio-code">{d.clipboard_history.at(-1).text}</pre></> : <p>尚未复制内容。</p>}
+                </section> : tab === "saved" ? (
                   <div>
                     {!d.artifacts.length && <p className="product-muted">还没有保存文件。</p>}
                     {d.artifacts.map((a: any, i: number) => (
@@ -268,6 +268,7 @@ export function Studio({ api }: { api: ProductAPI }) {
                       Python <span>生成结果</span>
                     </div>
                     <pre className="studio-code">{active.code}</pre>
+                    {s.task_id === 43 && <p className="product-muted">“复制”将完整代码保存到工作区剪贴板，可在上方标签页查看。</p>}
                     <div className="product-actions">
                       {["检查", "保存", "复制", "发送"].map((action) => (
                         <button

@@ -203,7 +203,7 @@ export function Shop({ api }: { api: ProductAPI }) {
     >
       <main className="product-main">
         <Notice api={api} />
-        {s.task_id===48&&<p className="product-muted">评分满分 5.0 · 评分阈值 {Number(s.source.rating_threshold??2.5).toFixed(1)} · 销量阈值 {s.source.threshold} · 评论数按整数计</p>}
+        {s.task_id===48&&<p className="product-muted">评分满分 5.0{s.seed >= 1000 && <> · 评分阈值 {Number(s.source.rating_threshold??2.5).toFixed(1)} · 销量阈值 {s.source.threshold}</>} · 评论数按整数计</p>}
         <WorksetBar api={api} view={view}/>
         {page === "home" ? (
           <>

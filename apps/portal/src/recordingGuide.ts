@@ -43,7 +43,7 @@ export function recordingSteps(s:any, variant:string, rule:string):string[] {
   if(s.task_id===59)completion='本题 demo 只需编辑并保存草稿；inference 则需要逐份保存草稿后提交答案。';
   if(s.task_id===72)completion='并列时先选行号最小的格子，同一行再选列号最小者。';
   if(s.task_id>=66&&s.task_id!==72)completion='每组操作后停留片刻，让完成后的棋盘清晰可见。';
-  if(s.task_id===43&&variant==='B')completion+=' 回到任务卡后，将实际复制的内容粘贴到核验框。';
+  if(s.task_id===43&&variant==='B')completion+=' 复制的内容保存在工作区剪贴板，完成练习时自动核验。';
   const details:Record<number,string>={
     68:variant==='C'?'比较每个有效方向移动合并后的棋盘，只要该棋盘的最大数字有一块在四个角之一即可。多个方向满足时任选一个，不要求合出更大数字；若所有有效方向均不满足角落条件，则任选有效方向。':'多个有效方向并列最优时任选一个；不改变棋盘的方向无效。',
     3:'保留原文已有的标点，在末尾追加本卡指定的一个英文标点。',

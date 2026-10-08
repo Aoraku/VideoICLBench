@@ -238,14 +238,9 @@ def evaluate(initial, state, variant, events, clipboard=None):
         dict(id="business:" + key, passed=actual.get(key) == value)
         for key, value in want.items()
     ]
-    if t == 43 and variant == "B":
-        history = state["domain"]["clipboard_history"]
-        checks.append(
-            dict(
-                id="browser_clipboard",
-                passed=bool(history) and clipboard == history[-1]["text"],
-            )
-        )
+    # The application's persistent clipboard is checked above, including the
+    # complete copied bytes and every target. OS clipboard access is unrelated
+    # to this workspace operation and may be unavailable on HTTP deployments.
     violations = base["violations"]
     return dict(
         success=all(x["passed"] for x in checks) and not violations,

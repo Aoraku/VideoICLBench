@@ -23,11 +23,6 @@ export function StudioProjects({ api }: { api: ProductAPI }) {
   async function copy(item: any) {
     setCopyBusy(true);setError('');
     try {
-      if(navigator.clipboard) await navigator.clipboard.writeText(item.code);
-      else {
-        const field=document.createElement('textarea');field.value=item.code;field.style.position='fixed';field.style.opacity='0';document.body.append(field);field.select();
-        const ok=document.execCommand('copy');field.remove();if(!ok) throw Error('浏览器未允许复制，请检查剪贴板权限。');
-      }
       await command('output.copy',item.id);
     } catch(e) {setError(String(e));} finally {setCopyBusy(false);}
   }
@@ -67,7 +62,7 @@ export function StudioProjects({ api }: { api: ProductAPI }) {
       <div className="studio-actions"><button className="product-primary" disabled={api.busy} onClick={()=>command('output.check',item.id)}>运行语法检查</button><span className={check?.passed?'studio-pass':'studio-fail'} role="status">{check?.message||'尚未检查'}</span></div>
       {p&&<><h3>交付操作</h3><p>项目指定联系人：{person(p.recipient)}。按约定方式交付通过项。</p><div className="studio-actions"><button disabled={api.busy||!check?.passed} onClick={()=>command('output.save',item.id)}>保存文件</button><button disabled={api.busy||copyBusy||!check?.passed} onClick={()=>copy(item)}>{copyBusy?'正在复制…':'复制代码'}</button><label>交付联系人<select aria-label="交付联系人" value={recipient} onChange={e=>setRecipient(e.target.value)}><option value="">请选择联系人</option>{w.people.map((r:any)=><option key={r.id} value={r.id}>{r.name}</option>)}</select></label><button disabled={api.busy||!check?.passed||!recipient} onClick={()=>command('output.send',item.id,{recipient:Number(recipient)})}>发送结果</button></div>
       {file&&<div className="studio-delivery-record"><a href={link({file})}>{d.files[file].name}</a><button disabled={api.busy} onClick={()=>command('delivery.line',item.id,{kind:'saved',reference:'files/'+file})}>将保存文件加入清单</button></div>}
-      {w.copies[item.id]&&<div className="studio-delivery-record"><label>复制交付内容<textarea aria-label="复制交付内容" rows={7} readOnly value={row?.kind==='copied'?row.body:''} placeholder="点击这里，按 Ctrl+V 或 ⌘V 粘贴实际复制的完整代码" onPaste={e=>{e.preventDefault();if(!api.busy)void command('delivery.paste',item.id,{body:e.clipboardData.getData('text')});}}/></label>{row?.kind==='copied'&&<span>{row.body===item.code?'已粘贴完整内容':'粘贴内容与本文件不一致，请重新复制并粘贴。'}</span>}</div>}
+      {w.copies[item.id]&&<div className="studio-delivery-record"><details><summary>查看工作区内已复制的内容</summary><pre>{w.copies[item.id].body}</pre></details><button disabled={api.busy} onClick={()=>command('delivery.paste',item.id,{body:w.copies[item.id].body})}>粘贴到交付清单</button><label>复制交付内容<textarea aria-label="复制交付内容" rows={7} readOnly value={row?.kind==='copied'?row.body:''} placeholder="从本文件已复制的内容粘贴到交付清单"/></label>{row?.kind==='copied'&&<span>{row.body===item.code?'已粘贴完整内容':'粘贴内容与本文件不一致，请重新复制并粘贴。'}</span>}</div>}
       {receipts.map((r:any)=><div className="studio-delivery-record" data-receipt={r.id} key={r.id}><span>{r.id} · 已发送给 {person(r.recipient)}</span><button disabled={api.busy} onClick={()=>command('delivery.line',item.id,{kind:'sent',reference:'receipts/'+r.id})}>将发送回执加入清单</button><a href={api.applicationLink?.('im')}>打开团队消息 →</a></div>)}
       {row&&<p className="studio-pass">已加入交付清单 · {({saved:'文件',copied:'粘贴内容',sent:'发送回执'} as Record<string,string>)[row.kind]}</p>}
       {(file||w.copies[item.id]||receipts.length>0)&&<button disabled={api.busy} onClick={()=>command('output.clear',item.id)}>撤销本项交付</button>}

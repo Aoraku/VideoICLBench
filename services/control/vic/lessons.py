@@ -15,10 +15,6 @@ def incomplete_message(state, result):
         if len(sent) > 1:
             return '本组要求发送一条消息，但已发送多条。请重置环境后重新完成；录制前请核对版本规则。'
         return '消息已发送，但文本格式不符合本组要求。请核对整段文本与单词的处理范围；需要重做时在任务卡重置环境。'
-    if task_id == 43:
-        failed = [check['id'] for check in result.get('checks', []) if not check['passed']]
-        if failed == ['browser_clipboard']:
-            return '各文件操作已通过，但剪贴板核验未通过。请粘贴最后一次复制的完整正文（不是多份内容的拼接），再提交核验。'
     if task_id == 31:
         if not state.get('selection'):
             return '尚未选择视频。请从视频资料库打开要选择的视频，再点击下一组。'

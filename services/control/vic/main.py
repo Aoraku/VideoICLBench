@@ -617,9 +617,9 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 return response(get_run(run_id))
             if lesson["finished"]:
                 return response(run)
-            # A stopped upload can still supply the missing clipboard evidence
-            # for the final episode. Its saved application state stays sealed.
-            recorded_clipboard = (run.status == 'recorded' and run.task_id == 43
+            # Recheck an uploaded copy lesson using its frozen workspace data.
+            # This also recovers old failures caused only by OS permissions.
+            recorded_clipboard = (run.status in ('recorded', 'completed') and run.task_id == 43
                                   and run.variant == 'B' and lesson['index'] == len(lesson['seeds']) - 1)
             if not recorded_clipboard:
                 active(run)
@@ -678,16 +678,15 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
         async with lock(run_id):
             run = get_run(run_id)
             current_contract(run)
-            if run.result:
+            retry_copy = (run.task_id == 43 and run.variant == 'B' and
+                          run.result and not run.result.get('success'))
+            if run.result and not retry_copy:
                 return run.result
-            if run.status != "recorded":
+            if run.status != "recorded" and not retry_copy:
                 active(run)
             if run_id in recorder.active:
                 raise HTTPException(409, "Stop recording before evaluating")
             legacy_clipboard = run.task_id == 43 and run.variant == "B" and run.initial.get("workflow") != "studio_projects"
-            lesson_finished = (run.manifest.get('lesson') or {}).get('finished', False)
-            if human(run) and legacy_clipboard and not lesson_finished and (body is None or body.clipboard is None):
-                raise HTTPException(409, "请在工作台粘贴应用复制的内容，再提交剪贴板核验。")
             save_status(run_id, "sealing")
             state = store.snapshot(run_id)
             events = store.events(run_id)
@@ -695,18 +694,13 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
                 sealed = applications.seal(run_id)
                 state = sealed["state"]
                 events = sealed["events"]
-                clipboard = (
-                    (body.clipboard if human(run) and body else await runtime.clipboard(run_id))
-                    if legacy_clipboard
-                    else None
-                )
                 result = (v2.evaluate(run.initial, state, run.variant, events)
                           if run.initial.get('workflow') or run.initial.get('v2_atomic') or run.initial.get('v2_reversi') or run.initial.get('v2_worksets') or run.initial.get('v2_2048') else application_eval.evaluate(
-                              run.initial, state, run.variant, events, clipboard))
+                              run.initial, state, run.variant, events))
                 if run.initial.get("workflow") == "studio_projects" and run.task_id == 43 and run.variant == "B":
                     result["clipboard_evidence_source"] = "application_delivery_paste"
-                elif human(run) and legacy_clipboard:
-                    result["clipboard_evidence_source"] = "lesson_episode_clipboard" if lesson_finished else "human_paste"
+                elif legacy_clipboard:
+                    result["clipboard_evidence_source"] = "application_clipboard"
             else:
                 result = business.evaluate(run.initial, state, run.variant, events)
             if run.manifest.get("lesson"):

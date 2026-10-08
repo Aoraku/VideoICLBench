@@ -1,5 +1,6 @@
 """Recorder instructions must be concrete without changing executable rules."""
 from copy import deepcopy
+import pytest
 from vic import business, recording_guidance, v2
 from test_api import client, admin
 from test_application_api import clients
@@ -31,7 +32,8 @@ def test_guidance_does_not_change_recording_identity_or_inference():
         assert answer==raw[:4]+'*'*(len(raw)-8)+raw[-4:]
 
 
-def test_uploaded_clipboard_lesson_can_finish_without_reopening_mutations(clients):
+@pytest.mark.parametrize('status', ['recorded', 'completed'])
+def test_uploaded_clipboard_lesson_can_finish_without_reopening_mutations(clients, status):
     from test_lessons import create_lesson, operate, actor
     from vic.models import Run
     c,w=clients;run=create_lesson(c,43,'B');operate(w,run,'B')
@@ -44,19 +46,17 @@ def test_uploaded_clipboard_lesson_can_finish_without_reopening_mutations(client
     from test_api import SECRET
     ApplicationClient(SECRET).seal(run['id'])
     with c.app.state.sessions() as db:
-        row=db.get(Run,run['id']);row.status='recorded';db.commit()
+        row=db.get(Run,run['id']);row.status=status
+        if status == 'completed':
+            row.result = dict(success=False, completion=0, checks=[dict(id='browser_clipboard', passed=False)])
+        db.commit()
     endpoint='/v1/runs/'+run['id']+'/lesson/next'
     body=dict(epoch=run['epoch'],index=0)
-    for clipboard in (None, 'incorrect', '\n'.join(x['text'] for x in history)):
-        response=c.post(endpoint,headers=admin(),json={**body,'clipboard':clipboard})
-        assert response.status_code==409,response.text
-        assert '各文件操作已通过' in response.json()['detail']
-        assert w.get(path,headers=actor(run)).json()['status']=='sealed'
-    response=c.post(endpoint,headers=admin(),json={**body,'clipboard':history[-1]['text']})
+    response=c.post(endpoint,headers=admin(),json=body)
     assert response.status_code==200,response.text
     assert response.json()['lesson']['finished']
     saved=c.get('/v1/runs/'+run['id'],headers=admin()).json()
     assert saved['status']=='recorded'
     result=c.post('/v1/runs/'+run['id']+'/evaluate',headers=admin())
     assert result.status_code==200 and result.json()['success'],result.text
-    assert result.json()['clipboard_evidence_source']=='lesson_episode_clipboard'
+    assert result.json()['clipboard_evidence_source']=='application_clipboard'
