@@ -109,7 +109,8 @@ def build(recipe, v, rng, obj, position):
         for i in range(3):
             angle = i*math.pi/2
             parts = polygon_walls(points, .008, .012)
-            objects.append(obj(f"socket{i}", [.16, -.22+i*.22], "white", "socket", (.05, .05, .012), components=parts, marker=i))
+            objects.append(obj(f"socket{i}", [.16, -.22+i*.22], "white", "socket", (.05, .05, .012),
+                               components=parts, marker=i, hole_polygon=points))
             objects[-1]["yaw"] = angle
         goals.append(dict(type="insert", object="key", target=f"socket{v}", tolerance=.005, relative_bottom=-.012))
         move("key", [.16, -.22+v*.22], yaw=v*math.pi/2, fine=True)

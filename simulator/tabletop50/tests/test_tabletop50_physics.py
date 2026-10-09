@@ -67,6 +67,31 @@ def test_rack_slot_accepts_valid_end_offset_and_rejects_outside_or_hovering(monk
     finally: e.close()
 
 
+def test_keyed_insertion_checks_real_concave_aperture(monkeypatch):
+    e = TabletopDual(task_spec("F14"), render=False)
+    try:
+        state = e.snapshot(); goal = e.spec["goals"][0]
+        key, socket = state["key"], state[goal["target"]]
+        socket["mat"] = key["mat"] = np.eye(3)
+        key["pos"] = socket["pos"]+np.array([-.005, -.003, .018])
+        monkeypatch.setattr(e, "check_contact", lambda *args: True)
+        assert e.predicate(goal, state)  # Fits despite >5mm centre distance.
+        key["pos"] = socket["pos"]+np.array([0., 0., .018])
+        key["mat"] = np.array([[0., -1., 0.], [1., 0., 0.], [0., 0., 1.]])
+        assert not e.predicate(goal, state)  # Wrong key direction.
+        key["mat"] = np.array([[.70710678, -.70710678, 0.], [.70710678, .70710678, 0.], [0., 0., 1.]])
+        assert not e.predicate(goal, state)  # Edges cross the missing quadrant.
+        key["mat"] = np.eye(3)
+        key["pos"] = socket["pos"]+np.array([.012, 0., .018])
+        assert not e.predicate(goal, state)
+        key["pos"] = socket["pos"]+np.array([0., 0., .07])
+        assert not e.predicate(goal, state)
+        key["pos"] = socket["pos"]+np.array([0., 0., .018])
+        monkeypatch.setattr(e, "check_contact", lambda *args: False)
+        assert not e.predicate(goal, state)
+    finally: e.close()
+
+
 def test_triangle_parts_do_not_walk_off_an_idle_table():
     e = TabletopDual(task_spec("F08"), render=False)
     try:

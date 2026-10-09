@@ -4,7 +4,7 @@
 
 ## 可见性合格的作者预览
 
-当前48个条件的合格录像（按任务与规则去重），14族A/B/C完整；来自历史冻结源码，不能直接作为最新版服务的示范。
+当前66个条件的合格录像（按任务与规则去重），22族A/B/C完整；来自历史冻结源码，不能直接作为最新版服务的示范。
 
 - [可见支架穿杆](visible-preview-v46/index.html)：F13/F36/F49各三段，共九段；孔框、通道壁与铰链支撑均可见（F49与v43按条件去重）；[验收清单](visible-preview-v46/manifest.private.json)、[冻结源码](visible-source-v46.tar.gz)、[道具初态渲染](visible-scene-previews-v46/README.md)。
 - [真实铰链展示板](articulation-preview-v43/index.html)：F49-A/B/C三段；[录像验收清单](articulation-preview-v43/manifest.private.json)、[冻结源码](articulation-source-v43.tar.gz)。
@@ -79,3 +79,8 @@
 - `scene-review-v118/`：初态构图审阅图，不是成功录像。
 
 `physical-acceptance-v118/`还包含新版F19三规则成功的独立清单`F19.manifest.private.json`，与F12共享同一冻结源码。三张参照图卡与六工作格的初态构图为scene-review-v118/F19.jpg。
+
+- `ring-preview-v117/`：F11圆环分柱三规则Linux完整成功录像及解码审计；对应`reference-source-v117.tar.gz`。初态图形与终态柱穿环关系可见，终态部分底座图形被环局部遮挡，已在清单记录。
+
+- `rack-preview-v118/`：F12三规则完整成功录像，厚片竖直插入真实槽口；对应`slots-source-v118.tar.gz`。槽号从FPV画面右到左为1/2/3，已明确在录制卡。
+- `physical-acceptance-v119/` / `key-source-v119.tar.gz`：F14按真实L形孔边界判断的三规则成功物理执行，尚待录像。

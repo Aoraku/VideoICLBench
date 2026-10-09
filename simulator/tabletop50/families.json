@@ -202,7 +202,7 @@
         "C": "槽1/2/3插蓝红绿"
       },
       "reset": "三片取出放回起始立架",
-      "camera_note": "用宽槽和上边缘色条，避免细卡片；初态竖放由立架真实支撑",
+      "camera_note": "槽号从第一人称画面右到左为1/2/3；用宽槽和上边缘色条，避免细卡片；初态竖放由立架真实支撑",
       "runtime_recipe": "rack",
       "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"

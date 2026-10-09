@@ -274,6 +274,27 @@ class TabletopDual(DesktopDual):
                     if np.any(normals@point[:2]+extent > sa["inner_radius"]+.0005): return False
                 seated = abs(local[2]-sa["size"][2]+sb["size"][2]-.008) < .008
                 return bool(seated and self.check_contact(self.items[g["object"]], self.items[g["target"]]))
+            if sa["kind"] == "key" and "hole_polygon" in sb:
+                # Test the L-shaped key against the same concave aperture
+                # used to build its collision walls, including edge crossings.
+                polygon = np.asarray(sb["hole_polygon"])
+                low, high = polygon.min(axis=0), polygon.max(axis=0)
+                notch = polygon[3]+.0005
+                rotation = b["mat"].T@a["mat"]
+                for part in sa["components"]:
+                    vertices = np.array([[x, y, z] for x in (-1, 1) for y in (-1, 1) for z in (-1, 1)])
+                    vertices = (vertices*np.asarray(part["size"])+part["pos"])@rotation.T+local
+                    points = vertices[:, :2]
+                    if np.any(points < low-.0005) or np.any(points > high+.0005): return False
+                    if np.any((points[:, 0] > notch[0]) & (points[:, 1] > notch[1])): return False
+                    for p in points:
+                        for q in points:
+                            if p[0] < notch[0] < q[0]:
+                                y = p[1]+(q[1]-p[1])*(notch[0]-p[0])/(q[0]-p[0])
+                                if y > notch[1]: return False
+                return bool(a["mat"][2, 2] > .97
+                            and abs(local[2]-sa["size"][2]+sb["size"][2]) < .008
+                            and self.check_contact(self.items[g["object"]], "table_collision"))
             tolerance = g.get("tolerance", .015)
             target_bottom = g.get("relative_bottom", -sb["size"][2]+.008)
             contact = self.check_contact(self.items[g["object"]], self.items[g["target"]]) if g["type"] == "threaded" else self.check_contact(self.items[g["object"]], "table_collision")

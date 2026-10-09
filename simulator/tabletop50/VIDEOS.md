@@ -1,6 +1,6 @@
 # 50题视频索引
 
-合格历史预览60段，完整三版本20族。未完成项明确留空；不是最终统一源码150段验收。
+合格历史预览66段，完整三版本22族。未完成项明确留空；不是最终统一源码150段验收。
 
 | 任务 | A | B | C |
 | --- | --- | --- | --- |
@@ -14,8 +14,8 @@
 | F08 形状匹配插孔 | [视频](artifacts/shape-preview-v79/F08-A-0/video.mp4) | [视频](artifacts/shape-preview-v79/F08-B-0/video.mp4) | [视频](artifacts/shape-preview-v79/F08-C-0/video.mp4) |
 | F09 承重桥搭建 | 待完成 | 待完成 | 待完成 |
 | F10 参照拼板变换 | [视频](artifacts/mosaic-preview-v114/F10-A-0/video.mp4) | [视频](artifacts/mosaic-preview-v114/F10-B-0/video.mp4) | [视频](artifacts/mosaic-preview-v114/F10-C-0/video.mp4) |
-| F11 圆环分柱套放 | 待完成 | 待完成 | 待完成 |
-| F12 厚片插架 | 待完成 | 待完成 | 待完成 |
+| F11 圆环分柱套放 | [视频](artifacts/ring-preview-v117/F11-A-0/video.mp4) | [视频](artifacts/ring-preview-v117/F11-B-0/video.mp4) | [视频](artifacts/ring-preview-v117/F11-C-0/video.mp4) |
+| F12 厚片插架 | [视频](artifacts/rack-preview-v118/F12-A-0/video.mp4) | [视频](artifacts/rack-preview-v118/F12-B-0/video.mp4) | [视频](artifacts/rack-preview-v118/F12-C-0/video.mp4) |
 | F13 长杆穿双孔 | [视频](artifacts/visible-preview-v46/F13-A-0/video.mp4) | [视频](artifacts/visible-preview-v46/F13-B-0/video.mp4) | [视频](artifacts/visible-preview-v46/F13-C-0/video.mp4) |
 | F14 键向配合 | 待完成 | 待完成 | 待完成 |
 | F15 可移动孔板装配 | 待完成 | 待完成 | 待完成 |
