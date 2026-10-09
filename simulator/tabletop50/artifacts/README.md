@@ -69,3 +69,6 @@
 - [F16单空位重排三版视频](vacancy-preview-v79/index.html)与[审阅清单](vacancy-preview-v79/manifest.private.json)：按第一人称校正方向描述，保留原始变体与动作；计入54段合格历史预览，源码为full-source-v79.tar.gz。
 
 - 拼板开发证据：[v110](mosaic-development-v110.private.json)、[v111](mosaic-development-v111.private.json)、[v112–v113](mosaic-development-v112-v113.private.json)，各有同名tar.gz保存冻结源码与公开动作；均非三规则成功验收。
+
+- `mosaic-preview-v114/`：修正后的F10三规则完整录像；`mosaic-source-v114.tar.gz`为对应源码，`physical-acceptance-v114/`为Mac无渲染独立复验。
+- `stack-recovery-preview-v79/`：F17三规则完整录像及解码证据，对应`full-source-v79.tar.gz`；五层按底部起计。

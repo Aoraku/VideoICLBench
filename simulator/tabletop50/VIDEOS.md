@@ -1,6 +1,6 @@
 # 50题视频索引
 
-合格历史预览54段，完整三版本18族。未完成项明确留空；不是最终统一源码150段验收。
+合格历史预览60段，完整三版本20族。未完成项明确留空；不是最终统一源码150段验收。
 
 | 任务 | A | B | C |
 | --- | --- | --- | --- |
@@ -13,14 +13,14 @@
 | F07 交叉属性配套 | [视频](artifacts/foundation-v1/F07-A-0/video.mp4) | [视频](artifacts/foundation-v1/F07-B-0/video.mp4) | [视频](artifacts/foundation-v1/F07-C-0/video.mp4) |
 | F08 形状匹配插孔 | [视频](artifacts/shape-preview-v79/F08-A-0/video.mp4) | [视频](artifacts/shape-preview-v79/F08-B-0/video.mp4) | [视频](artifacts/shape-preview-v79/F08-C-0/video.mp4) |
 | F09 承重桥搭建 | 待完成 | 待完成 | 待完成 |
-| F10 参照拼板变换 | 待完成 | 待完成 | 待完成 |
+| F10 参照拼板变换 | [视频](artifacts/mosaic-preview-v114/F10-A-0/video.mp4) | [视频](artifacts/mosaic-preview-v114/F10-B-0/video.mp4) | [视频](artifacts/mosaic-preview-v114/F10-C-0/video.mp4) |
 | F11 圆环分柱套放 | 待完成 | 待完成 | 待完成 |
 | F12 厚片插架 | 待完成 | 待完成 | 待完成 |
 | F13 长杆穿双孔 | [视频](artifacts/visible-preview-v46/F13-A-0/video.mp4) | [视频](artifacts/visible-preview-v46/F13-B-0/video.mp4) | [视频](artifacts/visible-preview-v46/F13-C-0/video.mp4) |
 | F14 键向配合 | 待完成 | 待完成 | 待完成 |
 | F15 可移动孔板装配 | 待完成 | 待完成 | 待完成 |
 | F16 单空位循环重排 | [视频](artifacts/vacancy-preview-v79/F16-A-0/video.mp4) | [视频](artifacts/vacancy-preview-v79/F16-B-0/video.mp4) | [视频](artifacts/vacancy-preview-v79/F16-C-0/video.mp4) |
-| F17 堆叠取件与剩余结构恢复 | 待完成 | 待完成 | 待完成 |
+| F17 堆叠取件与剩余结构恢复 | [视频](artifacts/stack-recovery-preview-v79/F17-A-0/video.mp4) | [视频](artifacts/stack-recovery-preview-v79/F17-B-0/video.mp4) | [视频](artifacts/stack-recovery-preview-v79/F17-C-0/video.mp4) |
 | F18 两个占用盒交换内容 | 待完成 | 待完成 | 待完成 |
 | F19 局部纠错 | 待完成 | 待完成 | 待完成 |
 | F20 保持内部结构的搬迁 | 待完成 | 待完成 | 待完成 |

@@ -63,6 +63,22 @@ class TabletopAuthor(Author):
             self.act(arm, "YAW_POS" if error > 0 else "YAW_NEG")
         raise RuntimeError("Wrist orientation did not converge")
 
+    def align_jaw(self, arm, direction):
+        # Measure the actual finger slide axis: the Panda finger bodies have
+        # a local rotation, so the wrist x axis is not the closing direction.
+        model, data = self.env.sim.model, self.env.sim.data
+        joint = model.joint_name2id(self.env.robots[arm].gripper["right"].joints[0])
+        body = model.jnt_bodyid[joint]
+        target = math.atan2(direction[1], direction[0])
+        for _ in range(80):
+            axis = data.body_xmat[body].reshape(3, 3)@model.jnt_axis[joint]
+            heading = math.atan2(axis[1], axis[0])
+            error = (target-heading+math.pi/2) % math.pi-math.pi/2
+            if abs(error) < .035: return
+            token = "YAW_POS" if error > 0 else "YAW_NEG"
+            self.act(arm, token+("_FINE" if abs(error) < .16 else ""))
+        raise RuntimeError("Physical jaw alignment did not converge")
+
     def park(self, arm):
         super().park(arm)
         for _ in range(40):
@@ -98,6 +114,7 @@ class TabletopAuthor(Author):
             self.align(arm, math.atan2(mat[1, 0], mat[0, 0]))
             local[1] = (-1 if arm == 0 else 1)*(s["size"][1]-.004)
         if s["kind"] == "ring" and grasp_offset is None: local[0] = (s["size"][0]+s["inner_radius"])/2
+        if s["kind"] == "ring": self.align_jaw(arm, self.state(name)["mat"]@local)
         if s["kind"] == "key": local[:2] = [-.015, -.005]
         point = p+self.state(name)["mat"]@local
         approach_height = s.get("approach_height", 1.14)

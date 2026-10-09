@@ -1,0 +1,35 @@
+{
+  "revision": "tabletop50-fpv-v1",
+  "expected": 3,
+  "finished": 3,
+  "succeeded": 0,
+  "rows": [
+    {
+      "task": "F11",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": null,
+      "result": "/Users/lijieming/do_something/VideoICLBench/.local/ring-acceptance-v115/F11-A-0/result.private.json"
+    },
+    {
+      "task": "F11",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": null,
+      "result": "/Users/lijieming/do_something/VideoICLBench/.local/ring-acceptance-v115/F11-B-0/result.private.json"
+    },
+    {
+      "task": "F11",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": null,
+      "result": "/Users/lijieming/do_something/VideoICLBench/.local/ring-acceptance-v115/F11-C-0/result.private.json"
+    }
+  ]
+}

@@ -6,6 +6,22 @@ from simulator.tabletop50.catalog import task_spec
 from simulator.tabletop50.environment import TabletopDual
 
 
+def test_ring_jaw_alignment_uses_actual_finger_slide_axis(tmp_path):
+    from simulator.tabletop50.author import TabletopAuthor
+    e = TabletopDual(task_spec("F11"), render=False)
+    try:
+        author = TabletopAuthor(e, tmp_path/"author")
+        for arm in (0, 1):
+            author.yaws[arm] = 9.  # Deliberately stale command history.
+            author.align_jaw(arm, np.array([1., 0., 0.]))
+            joint = e.sim.model.joint_name2id(e.robots[arm].gripper["right"].joints[0])
+            body = e.sim.model.jnt_bodyid[joint]
+            axis = e.sim.data.body_xmat[body].reshape(3, 3)@e.sim.model.jnt_axis[joint]
+            assert abs(axis[1]) < .035
+            assert abs(axis[0]) > .99
+    finally: e.close()
+
+
 def test_triangle_parts_do_not_walk_off_an_idle_table():
     e = TabletopDual(task_spec("F08"), render=False)
     try:

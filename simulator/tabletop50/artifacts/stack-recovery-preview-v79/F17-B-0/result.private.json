@@ -1,0 +1,145 @@
+{
+  "task": "F17",
+  "variant": "B",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+  "source_unchanged": true,
+  "world_sha256": "565f64e6620f6d81c8fa2b24495fbb21bf3ba9ea1c941c3ba663b204408e79d1",
+  "initial_positions": {
+    "layer0": [
+      -0.11884813683980766,
+      -0.004459579548904495,
+      0.8241429938101927
+    ],
+    "layer1": [
+      -0.11884835724304271,
+      -0.004459359145669629,
+      0.8730150706649831
+    ],
+    "layer2": [
+      -0.11884871679648211,
+      -0.004458999592230238,
+      0.92205526555143
+    ],
+    "layer3": [
+      -0.11884920531014315,
+      -0.00445851107856907,
+      0.9713209018259547
+    ],
+    "layer4": [
+      -0.11884974934156484,
+      -0.004457967047147482,
+      1.0209064322897612
+    ]
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 0,
+    "fixtures_visible": true
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 15.6,
+    "predicates": [
+      {
+        "rule": {
+          "type": "position",
+          "object": "layer2",
+          "xy": [
+            0.2000562422698087,
+            -0.22261794586720354
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "layer0",
+          "xy": [
+            -0.11994375773019131,
+            -0.002617945867203554
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "stack",
+          "object": "layer1",
+          "target": "layer0"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "stack",
+          "object": "layer3",
+          "target": "layer1"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "stack",
+          "object": "layer4",
+          "target": "layer3"
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "layer0": [
+        -0.1178212204198775,
+        -0.003285476265564645,
+        0.8242671061273197
+      ],
+      "layer1": [
+        -0.1153167746156598,
+        -0.0005314587216264883,
+        0.8733342056120704
+      ],
+      "layer2": [
+        0.20901827783416302,
+        -0.21634330904120386,
+        0.8247844891595659
+      ],
+      "layer3": [
+        -0.12688795653907284,
+        -0.013327078914521522,
+        0.9224688077968708
+      ],
+      "layer4": [
+        -0.11577750722828059,
+        -0.0034394578950224263,
+        0.9721337529286668
+      ]
+    },
+    "events": [],
+    "metric": "success",
+    "joint_angles": {}
+  },
+  "cross_rule_predicates": {
+    "A": false,
+    "B": true,
+    "C": false
+  },
+  "actions": 610,
+  "actions_sha256": "104a5a7a74308dee6337755b4936ac7ccb1b220e424f4392da453f7deb279093",
+  "error": null,
+  "video": {
+    "recorded": true,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 2442,
+    "duration_seconds": 244.2,
+    "full_episode": true,
+    "final_success": true,
+    "sha256": "05b286d08a9abf5e9db241af690797741a1502b404e53b1d6de62e8621d3c734"
+  }
+}
