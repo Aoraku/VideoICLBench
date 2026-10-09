@@ -1,0 +1,25 @@
+{
+  "kind": "transport-and-dashboard-qa-not-model-benchmark",
+  "independent_agent": false,
+  "hosted_mock_calls": [
+    {
+      "images": 15,
+      "step_mm": 3.5,
+      "finish": false
+    },
+    {
+      "images": 15,
+      "step_mm": 3.5,
+      "finish": true
+    }
+  ],
+  "dashboard": {
+    "tasks": 8,
+    "task": "F44",
+    "variant": "C",
+    "camera_width": 640,
+    "entered_step_mm": 7.5,
+    "executed_actions": 1,
+    "submission_saved": true
+  }
+}

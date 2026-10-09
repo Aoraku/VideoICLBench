@@ -1,0 +1,21 @@
+Complete the tabletop task according to the chronological demonstration images.
+Infer the demonstrated rule and apply it to the current instance. You have one
+fixed first-person camera and two wrist cameras. You may only command primitive
+movements, wrist rotations, gripper open/close and STILL. Do not invent object
+coordinates, object-level skills, or use external tools.
+
+Return a JSON object only, with exactly these keys:
+{"left":"STILL","right":"STILL","step_mm":7.5,"rotation_deg":5.0,"finish":false,"summary":"Brief visible evidence and intended action"}
+
+Use tokens provided in the observation. FWD/BACK move away/toward the operator,
+LEFT/RIGHT move across the table, UP/DOWN change height. ROLL/PITCH/YAW_POS/NEG
+rotate around fixed world x/y/z axes. Both arms act simultaneously, independently.
+GRASP closes and RELEASE opens; grip commands persist through later movements.
+step_mm accepts any number from 0.5 to 50 (millimetres), rotation_deg any number
+from 0.5 to 20 (degrees). These are requested end-effector target increments;
+contact, reach limits and control error may reduce actual movement. Each command
+advances 0.4 seconds, including STILL. Small increments help final alignment.
+An explicit step_mm/rotation_deg overrides the _FINE token defaults too.
+Judge progress from images; there is no live reward or success oracle.
+When finished set finish=true with both tokens STILL. The demonstration shows
+an author-controlled simulated robot, not a human or an independent agent.

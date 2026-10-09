@@ -1,3 +1,5 @@
+> **本次八题交付：[任务与24段视频](delivery8/TASKS.md) · [HTTP agent、访问连接与部署](delivery8/README.md)**。
+>
 > 当前新版：**[桌面双臂50任务](tabletop50/README.md)** · **[全部视频索引](tabletop50/VIDEOS.md)** · **[部署与网页查看](tabletop50/DEPLOY.md)**。
 >
 > 50族设计，50族运行配方（F42/F43/F46为未验收原型），102段合格历史视频、34族完整A/B/C；尚未完成全部150条件。新版源码、运行工具、视频与测试全部放在本 `simulator/` 目录，部署不依赖仓库其他目录。下文为保留的旧GUI原型。

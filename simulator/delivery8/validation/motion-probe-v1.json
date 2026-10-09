@@ -1,0 +1,25 @@
+{
+  "kind": "private-free-space-motion-probe",
+  "cases": [
+    {
+      "requested_mm": 0.5,
+      "measured_z_mm": 0.3867632740033322,
+      "absolute_error_mm": 0.11323672599666779
+    },
+    {
+      "requested_mm": 7.5,
+      "measured_z_mm": 7.039454974827164,
+      "absolute_error_mm": 0.460545025172836
+    },
+    {
+      "requested_mm": 25.0,
+      "measured_z_mm": 24.13085403492299,
+      "absolute_error_mm": 0.8691459650770099
+    },
+    {
+      "requested_mm": 50.0,
+      "measured_z_mm": 48.603482084640824,
+      "absolute_error_mm": 1.3965179153591762
+    }
+  ]
+}

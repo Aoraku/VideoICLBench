@@ -1,0 +1,301 @@
+{
+  "release": "tabletop8-v1",
+  "tasks": [
+    {
+      "id": "F01",
+      "title": "三色积木叠放",
+      "length": "短程",
+      "difficulty": "简单",
+      "challenge": "从视频学习颜色支撑次序；在新布局中重建",
+      "rules": {
+        "A": "红绿蓝，自下而上",
+        "B": "绿蓝红，自下而上",
+        "C": "蓝红绿，自下而上"
+      },
+      "archive": "tabletop50/artifacts/foundation-source.tar.gz",
+      "archive_sha256": "068da9bce26ac611b1d4834fecef080aef8282f77b2088d4ba691dc949343989",
+      "demos": {
+        "A": {
+          "folder": "tabletop50/artifacts/foundation-v1/F01-A-0",
+          "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+          "world_sha256": "f85213732770d7a292e91c5df79bd7b0d605aa8c9ed7b5fbeac368fa818d0040",
+          "video_sha256": "a5a79206b0159a53cdaeb40b1c7906e9811228aa08ba619aedeccd73af183734",
+          "frames": 1654
+        },
+        "B": {
+          "folder": "tabletop50/artifacts/foundation-v1/F01-B-0",
+          "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+          "world_sha256": "f85213732770d7a292e91c5df79bd7b0d605aa8c9ed7b5fbeac368fa818d0040",
+          "video_sha256": "09dc4a7c978d79d2412c5eaa7ddafd11ad2f1dc2165212a383cf76e156d0d1d5",
+          "frames": 1654
+        },
+        "C": {
+          "folder": "tabletop50/artifacts/foundation-v1/F01-C-0",
+          "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+          "world_sha256": "f85213732770d7a292e91c5df79bd7b0d605aa8c9ed7b5fbeac368fa818d0040",
+          "video_sha256": "f2f7ef674ada592024b6a34252be3720ea901ee87972c5b1d22c73359106a662",
+          "frames": 1654
+        }
+      }
+    },
+    {
+      "id": "F11",
+      "title": "圆环分柱套放",
+      "length": "短程",
+      "difficulty": "简单",
+      "challenge": "颜色到柱标记的映射；真实套入",
+      "rules": {
+        "A": "圆/三角/方柱套红绿蓝",
+        "B": "圆/三角/方柱套绿蓝红",
+        "C": "圆/三角/方柱套蓝红绿"
+      },
+      "archive": "tabletop50/artifacts/reference-source-v117.tar.gz",
+      "archive_sha256": "000603cdb0e3ac1e10e4ccc802cebb5ac057f43bf802389724322bdfad54ccff",
+      "demos": {
+        "A": {
+          "folder": "tabletop50/artifacts/ring-preview-v117/F11-A-0",
+          "source_sha256": "258d0484f4dc06071e2d3476ebab1c7232d258ca65bbab17e81aa58a24c51878",
+          "world_sha256": "b16da2f0646bf2a4029681d0e92deb1a3ba2133fd47c9b86d236c114edcfb5d7",
+          "video_sha256": "06a4093f34eb0cf9af8519969646982612644d0e8c6e35826b8254acb2f61d6a",
+          "frames": 2478
+        },
+        "B": {
+          "folder": "tabletop50/artifacts/ring-preview-v117/F11-B-0",
+          "source_sha256": "258d0484f4dc06071e2d3476ebab1c7232d258ca65bbab17e81aa58a24c51878",
+          "world_sha256": "b16da2f0646bf2a4029681d0e92deb1a3ba2133fd47c9b86d236c114edcfb5d7",
+          "video_sha256": "9e0686e05b936d151478ba1b5fd29750b93a0b9217d4ec07bdff90f24fe9bd6a",
+          "frames": 3282
+        },
+        "C": {
+          "folder": "tabletop50/artifacts/ring-preview-v117/F11-C-0",
+          "source_sha256": "258d0484f4dc06071e2d3476ebab1c7232d258ca65bbab17e81aa58a24c51878",
+          "world_sha256": "b16da2f0646bf2a4029681d0e92deb1a3ba2133fd47c9b86d236c114edcfb5d7",
+          "video_sha256": "34eef3d92eda0a38ccb4bd2f204db5c7918bb9de10a99740dc631d41b9925792",
+          "frames": 3138
+        }
+      }
+    },
+    {
+      "id": "F10",
+      "title": "参照拼板变换",
+      "length": "中程",
+      "difficulty": "中等",
+      "challenge": "将参照板按示范变换规则映射到空框",
+      "rules": {
+        "A": "保持相对位置",
+        "B": "顺时针旋转一格",
+        "C": "左右镜像"
+      },
+      "archive": "tabletop50/artifacts/mosaic-source-v114.tar.gz",
+      "archive_sha256": "dfe76702a4396ad485095280e67b3745b5b7e30ae4dfd0263e694c7960dc0856",
+      "demos": {
+        "A": {
+          "folder": "tabletop50/artifacts/mosaic-preview-v114/F10-A-0",
+          "source_sha256": "3a7103a0cf3670c304ac8a608f2a3b22b13df1d87645a4f8e3ea4b970c8b04be",
+          "world_sha256": "c0a95576ba550f920d91fa3631b05c6b0b852e91a06b9e67734c039f6cc0c5ae",
+          "video_sha256": "261aabf0b4c78f3eda6f6268d7b9eb740f5bc2c93765de3a26b380f8ac83b803",
+          "frames": 2110
+        },
+        "B": {
+          "folder": "tabletop50/artifacts/mosaic-preview-v114/F10-B-0",
+          "source_sha256": "3a7103a0cf3670c304ac8a608f2a3b22b13df1d87645a4f8e3ea4b970c8b04be",
+          "world_sha256": "c0a95576ba550f920d91fa3631b05c6b0b852e91a06b9e67734c039f6cc0c5ae",
+          "video_sha256": "a41be08cc4a913403ff03c77867378cffb35ff51b595748416de7e21e0fd37ec",
+          "frames": 2210
+        },
+        "C": {
+          "folder": "tabletop50/artifacts/mosaic-preview-v114/F10-C-0",
+          "source_sha256": "3a7103a0cf3670c304ac8a608f2a3b22b13df1d87645a4f8e3ea4b970c8b04be",
+          "world_sha256": "c0a95576ba550f920d91fa3631b05c6b0b852e91a06b9e67734c039f6cc0c5ae",
+          "video_sha256": "dcb4e2d2652978be7a029a29fb7960e04e8c198469326089fa0eb47b222cfdbb",
+          "frames": 2294
+        }
+      }
+    },
+    {
+      "id": "F08",
+      "title": "形状匹配插孔",
+      "length": "中程",
+      "difficulty": "中等",
+      "challenge": "视频决定取哪一套，形状决定插哪个孔",
+      "rules": {
+        "A": "插入红色套件",
+        "B": "插入绿色套件",
+        "C": "插入蓝色套件"
+      },
+      "archive": "tabletop50/artifacts/full-source-v79.tar.gz",
+      "archive_sha256": "d4da35af04b8dd56dc4caff9199f10d686c6ffe5b98bcc270d5888a884ab10d6",
+      "demos": {
+        "A": {
+          "folder": "tabletop50/artifacts/shape-preview-v79/F08-A-0",
+          "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+          "world_sha256": "6fbd1e19375a6d825a898fe4a07b771e8e523e16c235b41ad9a60273f82de7ab",
+          "video_sha256": "7ff68c079593f6938f4a765d0141f141ffce2d0be7188031c58c389520687513",
+          "frames": 1862
+        },
+        "B": {
+          "folder": "tabletop50/artifacts/shape-preview-v79/F08-B-0",
+          "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+          "world_sha256": "6fbd1e19375a6d825a898fe4a07b771e8e523e16c235b41ad9a60273f82de7ab",
+          "video_sha256": "638c831c8c953f36450efa1a888a8eb17fb408e3fb7d082453c6a2242064742d",
+          "frames": 1766
+        },
+        "C": {
+          "folder": "tabletop50/artifacts/shape-preview-v79/F08-C-0",
+          "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+          "world_sha256": "6fbd1e19375a6d825a898fe4a07b771e8e523e16c235b41ad9a60273f82de7ab",
+          "video_sha256": "bdef574db3f729abaac0cd05d5c04b337812a784c43bb5bdcf672f7070a3e39a",
+          "frames": 1682
+        }
+      }
+    },
+    {
+      "id": "F22",
+      "title": "双层托盘取放",
+      "length": "长程",
+      "difficulty": "中等",
+      "challenge": "移开上层访问下层，更新后恢复上下层",
+      "rules": {
+        "A": "取出下层最大件",
+        "B": "取出下层中间尺寸件",
+        "C": "取出下层最小件"
+      },
+      "archive": "tabletop50/artifacts/assembly-source-v15.tar.gz",
+      "archive_sha256": "c32af25c4b88df72cd22f77055f1b8448bf15ef445e7fc16e4022e1c5eeff8ee",
+      "demos": {
+        "A": {
+          "folder": "tabletop50/artifacts/assembly-preview-v15/F22-A-0",
+          "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+          "world_sha256": "e6fb81fa63a76228a922b926273137eb6178d5c2daae290c08f35e94c4762592",
+          "video_sha256": "1e4d81a69d9c63c81a3ced9ae8db2c17c7db5caf986ff50cd592b9205f9d82e4",
+          "frames": 3114
+        },
+        "B": {
+          "folder": "tabletop50/artifacts/assembly-preview-v15/F22-B-0",
+          "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+          "world_sha256": "e6fb81fa63a76228a922b926273137eb6178d5c2daae290c08f35e94c4762592",
+          "video_sha256": "abd7ccb76ea29ccb27db650017ff1d8b6dd3d04b69af530a1bed71fd7f0c11b2",
+          "frames": 3126
+        },
+        "C": {
+          "folder": "tabletop50/artifacts/assembly-preview-v15/F22-C-0",
+          "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+          "world_sha256": "e6fb81fa63a76228a922b926273137eb6178d5c2daae290c08f35e94c4762592",
+          "video_sha256": "bd89b186b6cf464258840a3720ccba5262d414c1d3ee0892dc740cce72a1a199",
+          "frames": 3142
+        }
+      }
+    },
+    {
+      "id": "F17",
+      "title": "堆叠取件与剩余结构恢复",
+      "length": "长程",
+      "difficulty": "困难",
+      "challenge": "目标埋在堆叠中，拆开取件后恢复剩余相对次序",
+      "rules": {
+        "A": "从底部数取第二层",
+        "B": "从底部数取第三层",
+        "C": "从底部数取第四层"
+      },
+      "archive": "tabletop50/artifacts/full-source-v79.tar.gz",
+      "archive_sha256": "d4da35af04b8dd56dc4caff9199f10d686c6ffe5b98bcc270d5888a884ab10d6",
+      "demos": {
+        "A": {
+          "folder": "tabletop50/artifacts/stack-recovery-preview-v79/F17-A-0",
+          "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+          "world_sha256": "565f64e6620f6d81c8fa2b24495fbb21bf3ba9ea1c941c3ba663b204408e79d1",
+          "video_sha256": "c785a7259e3cd9e30416e42b6e244291e89d34235180bf15b43b19663df98b2f",
+          "frames": 3262
+        },
+        "B": {
+          "folder": "tabletop50/artifacts/stack-recovery-preview-v79/F17-B-0",
+          "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+          "world_sha256": "565f64e6620f6d81c8fa2b24495fbb21bf3ba9ea1c941c3ba663b204408e79d1",
+          "video_sha256": "05b286d08a9abf5e9db241af690797741a1502b404e53b1d6de62e8621d3c734",
+          "frames": 2442
+        },
+        "C": {
+          "folder": "tabletop50/artifacts/stack-recovery-preview-v79/F17-C-0",
+          "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+          "world_sha256": "565f64e6620f6d81c8fa2b24495fbb21bf3ba9ea1c941c3ba663b204408e79d1",
+          "video_sha256": "af4865a092e57dc35f8b0d750037664a7fd1d4c0b66722b4e0a3a61bd362051f",
+          "frames": 1418
+        }
+      }
+    },
+    {
+      "id": "F39",
+      "title": "扫拢大颗粒",
+      "length": "短程",
+      "difficulty": "困难",
+      "challenge": "根据收集区位置组织接触方向，避免把已聚拢木球扫散",
+      "rules": {
+        "A": "扫入圆形标记区",
+        "B": "扫入三角标记区",
+        "C": "扫入方形标记区"
+      },
+      "archive": "tabletop50/artifacts/sweep-source-v48.tar.gz",
+      "archive_sha256": "1bd3898e9fb7708055e110f92e9da713aa1705155caf7940a5881789fb1eec48",
+      "demos": {
+        "A": {
+          "folder": "tabletop50/artifacts/sweep-preview-v48/F39-A-0",
+          "source_sha256": "ae4819ca49369aebbde0d370527b45283920c8915280f54d9602ce2ce5d8da53",
+          "world_sha256": "e7533c683cd1a2214e9d0995a2ce583c2e7bf78b1cd6d46407b332936e98c72f",
+          "video_sha256": "d60d882ffc07a23ad730606b6e98d032cd622226e0a595399840db895a16deea",
+          "frames": 1958
+        },
+        "B": {
+          "folder": "tabletop50/artifacts/sweep-preview-v48/F39-B-0",
+          "source_sha256": "ae4819ca49369aebbde0d370527b45283920c8915280f54d9602ce2ce5d8da53",
+          "world_sha256": "e7533c683cd1a2214e9d0995a2ce583c2e7bf78b1cd6d46407b332936e98c72f",
+          "video_sha256": "09d69da21dd3bce88973db711759057e8184f5d14838bb3be734d866d0835977",
+          "frames": 2006
+        },
+        "C": {
+          "folder": "tabletop50/artifacts/sweep-preview-v48/F39-C-0",
+          "source_sha256": "ae4819ca49369aebbde0d370527b45283920c8915280f54d9602ce2ce5d8da53",
+          "world_sha256": "e7533c683cd1a2214e9d0995a2ce583c2e7bf78b1cd6d46407b332936e98c72f",
+          "video_sha256": "e5093b9d44b5dfe51828ade854ea355fa9a2bc6c72eecaad88370cb105a17149",
+          "frames": 1266
+        }
+      }
+    },
+    {
+      "id": "F44",
+      "title": "导向板送球",
+      "length": "中程",
+      "difficulty": "困难",
+      "challenge": "识别示范指定的盒标记，预测球的路径；配置导向板后提起挡球件，让球沿坡面滚入目标盒",
+      "rules": {
+        "A": "球进入圆形标记盒",
+        "B": "球进入三角标记盒",
+        "C": "球进入方形标记盒"
+      },
+      "archive": "tabletop50/artifacts/guidance-source-v81.tar.gz",
+      "archive_sha256": "7a1117044794470235dbb8af864cc79dc6bde7c3d3a6ade1683ca4af0cf3ea33",
+      "demos": {
+        "A": {
+          "folder": "tabletop50/artifacts/guidance-preview-v81/F44-A-0",
+          "source_sha256": "caa2956a08932edcb204d4c7337f255a6e5e5f0da9cbbb087e33dea7d87e678a",
+          "world_sha256": "8eac6452a8ef64d37debc2c6374bed4eb429b3f6bae3374e7a29027a43975e49",
+          "video_sha256": "a3b0cb09be33dcf2fe81a677f711a722306a71c345bc2a93335a7ff228cd4981",
+          "frames": 2518
+        },
+        "B": {
+          "folder": "tabletop50/artifacts/guidance-preview-v81/F44-B-0",
+          "source_sha256": "caa2956a08932edcb204d4c7337f255a6e5e5f0da9cbbb087e33dea7d87e678a",
+          "world_sha256": "8eac6452a8ef64d37debc2c6374bed4eb429b3f6bae3374e7a29027a43975e49",
+          "video_sha256": "fb770e5b6cce6c71f5372e6dcfc2400888c4f8c22d9f67d041b694ee210014e0",
+          "frames": 2618
+        },
+        "C": {
+          "folder": "tabletop50/artifacts/guidance-preview-v81/F44-C-0",
+          "source_sha256": "caa2956a08932edcb204d4c7337f255a6e5e5f0da9cbbb087e33dea7d87e678a",
+          "world_sha256": "8eac6452a8ef64d37debc2c6374bed4eb429b3f6bae3374e7a29027a43975e49",
+          "video_sha256": "d526c38f44154da19636acab226b4e68f89563df8060e1bc60b62e0d2ac6a652",
+          "frames": 2486
+        }
+      }
+    }
+  ]
+}

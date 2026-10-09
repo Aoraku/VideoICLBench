@@ -1,0 +1,31 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VideoICL · 八题交付控制台</title>
+<style>body{font:16px/1.6 system-ui;margin:24px auto;max-width:1250px;padding:0 18px;color:#17202a;background:#f5f6f8}section{background:white;border:1px solid #ddd;border-radius:12px;padding:18px;margin:16px 0}input,select,button{font:inherit;margin:5px;padding:7px}button{cursor:pointer}input[type=number]{width:85px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:15px}video,img{width:100%;background:#111}pre{white-space:pre-wrap;overflow-wrap:anywhere}#message{color:#a02c19}label{display:inline-block}</style>
+<h1>桌面双臂 · 八题交付控制台</h1>
+<p>选择任务后观看示范，使用 HTTP agent 执行。这里也可观察、手动调试和结束任务。仿真示范来自作者控制器。</p>
+<section><label>平台访问密钥 <input id="key" type="password" autocomplete="off"></label><button id="connect">连接</button>
+<p id="message" role="status">密钥仅保留在本标签页内存中。</p></section>
+<section><label>任务 <select id="task"></select></label><label>版本 <select id="variant"><option>A</option><option>B</option><option>C</option></select></label>
+<label>执行 seed <input id="seed" type="number" min="1" value="7"></label>
+<button id="create">创建手动调试任务</button><button id="refresh">刷新／接入当前任务</button>
+<pre id="session"></pre></section>
+<section class="grid"><div><h3>完整示范视频</h3><video id="demo" controls preload="none"></video></div><div><h3>当前第一人称画面</h3><img id="fpv" alt="创建任务后显示当前画面"></div></section>
+<section class="grid"><div><h3>左腕相机</h3><img id="leftcam" alt="左腕相机"></div><div><h3>右腕相机</h3><img id="rightcam" alt="右腕相机"></div></section>
+<section><h3>手动动作</h3><p>HTTP agent 运行时请只观察；同时手动操作会使其观察过期并暂停。距离是末端目标增量，接触和工作空间会影响实际位移。</p>
+<label>左臂 <select id="left"></select></label><label>右臂 <select id="right"></select></label>
+<label>单次移动 mm <input id="distance" type="number" min="0.5" max="50" step="any" value="20"></label>
+<label>单次旋转 ° <input id="angle" type="number" min="0.5" max="20" step="any" value="10"></label>
+<button id="move">执行一次</button><button id="submit">结束并保存执行视频</button><pre id="result"></pre></section>
+<script>
+const el=id=>document.getElementById(id);let sid=null,obs=null,busy=false;
+async function api(path,body,control=false){const r=await fetch(path,{method:body===undefined?'GET':'POST',headers:{'Content-Type':'application/json',...(control?{'Authorization':'Bearer '+el('key').value}:{})},body:body===undefined?undefined:JSON.stringify(body)});if(!r.ok){let text=await r.text();throw Error(r.status+' '+text)}return r.json()}
+async function work(fn){if(busy)return;busy=true;document.querySelectorAll('button').forEach(b=>b.disabled=true);try{await fn();el('message').textContent='已连接'}catch(e){el('message').textContent=e.message}finally{busy=false;document.querySelectorAll('button').forEach(b=>b.disabled=false)}}
+function attach(id){sid=id;el('demo').src='/actor/'+sid+'/demo';el('session').textContent='Session: '+sid+'\nActor URL: '+location.origin+'/actor/'+sid}
+async function observe(){if(!sid)throw Error('请先创建或接入任务');obs=await api('/actor/'+sid+'/observe');el('fpv').src='data:image/jpeg;base64,'+obs.images.fpv;el('leftcam').src='data:image/jpeg;base64,'+obs.images.robot0_eye_in_hand;el('rightcam').src='data:image/jpeg;base64,'+obs.images.robot1_eye_in_hand;for(const side of ['left','right']){if(!el(side).options.length)for(const t of obs.tokens)el(side).add(new Option(t,t))}el('session').textContent='Session: '+sid+'\nActor URL: '+location.origin+'/actor/'+sid+'\n已执行 '+obs.actions+' 次，剩余 '+obs.remaining+' 次'}
+el('connect').onclick=()=>work(async()=>{const ts=await api('/control/tasks',undefined,true);el('task').replaceChildren();for(const t of ts)el('task').add(new Option(t.id+' '+t.title+' · '+t.length+t.difficulty,t.id))});
+el('create').onclick=()=>work(async()=>{const r=await api('/control/sessions',{task:el('task').value,variant:el('variant').value,seed:Number(el('seed').value),trial_kind:'manual'},true);attach(r.session);el('result').textContent='';await observe()});
+el('refresh').onclick=()=>work(async()=>{const ss=await api('/control/status',undefined,true);const active=ss.find(s=>!s.closed);if(active){if(sid!==active.session)attach(active.session);await observe()}else throw Error('当前没有运行中的任务')});
+el('move').onclick=()=>work(async()=>{if(!obs)throw Error('先创建任务');await api('/actor/'+sid+'/action',{left:el('left').value,right:el('right').value,step_mm:Number(el('distance').value),rotation_deg:Number(el('angle').value),expected_observation:obs.observation_id});await observe()});
+el('submit').onclick=()=>work(async()=>{if(!sid)throw Error('先创建任务');await api('/actor/'+sid+'/submit',{});const r=await api('/control/results/'+sid,undefined,true);el('result').textContent='成功: '+r.success+'；动作数: '+r.actions+'；执行视频已保存。';obs=null});
+</script></html>
