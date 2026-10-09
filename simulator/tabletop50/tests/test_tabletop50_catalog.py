@@ -30,6 +30,27 @@ def test_top_up_has_ten_visible_four_centimetre_blocks_and_only_count_goals():
         assert all(g["type"] == "count_in" for g in spec["goals"])
 
 
+def test_relative_layout_uses_arrow_frame_and_three_distinct_shapes():
+    headings = set()
+    for seed in range(8):
+        spec = task_spec("F29", "A", seed)
+        objects = {o["id"]: o for o in spec["objects"]}
+        headings.add(round(objects["center"]["yaw"], 5))
+        assert objects["piece2"]["size"][0] > 2*objects["piece2"]["size"][1]
+        assert len(spec["zones"]) == 2
+        sides = [g for g in spec["goals"] if g["type"] == "relative_side"]
+        assert [g["direction"] for g in sides] == ["front", "left", "right"]
+    assert len(headings) > 1
+
+
+def test_length_completion_colour_does_not_encode_spare_length_across_instances():
+    palettes = set()
+    for seed in range(8):
+        objects = {o["id"]: o for o in task_spec("F33", "A", seed)["objects"]}
+        palettes.add(tuple(tuple(objects[f"spare{i}"]["rgba"]) for i in range(5)))
+    assert len(palettes) > 1
+
+
 def test_all_families_have_recording_cards_and_distinct_rules():
     assert list(BY_ID) == [f"F{i:02d}" for i in range(1, 51)]
     for f in FAMILIES:

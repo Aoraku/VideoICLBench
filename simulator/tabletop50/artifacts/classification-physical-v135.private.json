@@ -1,0 +1,43 @@
+{
+  "cases": [
+    {
+      "task": "F03",
+      "variant": "A",
+      "actions": 866,
+      "source_sha256": "46f4283d40fa78107563265e484532f4eaaaaf4f921b5f914abcfba3af80a51c",
+      "success": true,
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      }
+    },
+    {
+      "task": "F03",
+      "variant": "B",
+      "actions": 997,
+      "source_sha256": "46f4283d40fa78107563265e484532f4eaaaaf4f921b5f914abcfba3af80a51c",
+      "success": true,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      }
+    },
+    {
+      "task": "F03",
+      "variant": "C",
+      "actions": 874,
+      "source_sha256": "46f4283d40fa78107563265e484532f4eaaaaf4f921b5f914abcfba3af80a51c",
+      "success": true,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      }
+    }
+  ],
+  "kind": "privileged-author-physics",
+  "source": "cylinder-source-v135.tar.gz",
+  "evidence": "classification-physical-v135.tar.gz"
+}

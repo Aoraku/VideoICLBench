@@ -132,6 +132,23 @@ class TabletopDual(DesktopDual):
         return state
 
     def predicate(self, g, state):
+        if g["type"] == "relative_side":
+            item, reference = state[g["object"]], state[g["target"]]
+            size = np.asarray(self.by_spec[g["object"]]["size"])
+            local = reference["mat"].T@(item["pos"]-reference["pos"])
+            relative = reference["mat"].T@item["mat"]
+            extent = np.abs(relative)@size
+            vertical = (np.abs(item["mat"])@size)[2]
+            if self.by_spec[g["object"]]["kind"] == "bottle":
+                extent = size[0]*np.linalg.norm(relative[:, :2], axis=1)+size[2]*np.abs(relative[:, 2])
+                vertical = size[0]*np.linalg.norm(item["mat"][2, :2])+size[2]*abs(item["mat"][2, 2])
+            axis, sign = {"front": (0, 1), "left": (1, 1), "right": (1, -1)}[g["direction"]]
+            forward = sign*local[axis]
+            clearance = self.by_spec[g["target"]]["size"][axis]+extent[axis]+.01
+            return bool(forward > clearance and abs(local[1-axis])+extent[1-axis] < forward*.7
+                        and np.linalg.norm(local[:2]) < .30 and reference["mat"][2, 2] > .97
+                        and .799 <= item["pos"][2]-vertical <= .805
+                        and self.check_contact(self.items[g["object"]], "table_collision"))
         if g["type"] == "on_mat":
             item = state[g["object"]]
             zone = next(z for z in self.spec["zones"] if z["id"] == g["target"])
@@ -229,7 +246,10 @@ class TabletopDual(DesktopDual):
             target = self.by_spec[g["target"]]
             inner = np.array(target.get("inner_size", target["size"]))
             local = b["mat"].T@(a["pos"]-b["pos"])
-            extent = np.abs(b["mat"].T@a["mat"])@size
+            relative = b["mat"].T@a["mat"]
+            extent = np.abs(relative)@size
+            if self.by_spec[g["object"]]["kind"] == "bottle":
+                extent = size[0]*np.linalg.norm(relative[:, :2], axis=1)+size[2]*np.abs(relative[:, 2])
             if self.by_spec[g["object"]]["kind"] == "sphere": extent = size
             return bool(np.all(np.abs(local[:2])+extent[:2] < inner[:2]-.003+.005)
                 and abs(local[2]-extent[2]-(-inner[2]+.008)) < .015

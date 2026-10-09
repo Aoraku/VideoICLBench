@@ -1,0 +1,183 @@
+{
+  "task": "F33",
+  "variant": "A",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+  "source_unchanged": true,
+  "world_sha256": "a56d8db912f51d096256cd62efc8c4f05b7e0af4ef3a7f7bfa56b8712b0d255d",
+  "initial_positions": {
+    "ref0": [
+      -0.030045096852023397,
+      -0.21843612322147177,
+      0.817784485101035
+    ],
+    "ref1": [
+      -0.020045096852023398,
+      0.0015638767785282346,
+      0.817784485101025
+    ],
+    "ref2": [
+      -0.010045096852023396,
+      0.22156387677852823,
+      0.8177844851010195
+    ],
+    "spare0": [
+      -0.2300450968520234,
+      -0.2784361232214718,
+      0.817784485101035
+    ],
+    "spare1": [
+      -0.2300450968520234,
+      -0.13843612322147178,
+      0.817784485101025
+    ],
+    "spare2": [
+      -0.2300450968520234,
+      0.0015638767785282346,
+      0.8177844851010195
+    ],
+    "spare3": [
+      -0.2300450968520234,
+      0.14156387677852825,
+      0.8177844851010165
+    ],
+    "spare4": [
+      -0.2300450968520234,
+      0.28156387677852823,
+      0.8177844851010146
+    ]
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 0,
+    "fixtures_visible": true
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 18.55,
+    "predicates": [
+      {
+        "rule": {
+          "type": "position",
+          "object": "ref0",
+          "xy": [
+            -0.03114079035059503,
+            -0.21659441693158274
+          ],
+          "tolerance": 0.008
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "ref1",
+          "xy": [
+            -0.021140790350595032,
+            0.003405583068417272
+          ],
+          "tolerance": 0.008
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "ref2",
+          "xy": [
+            -0.01114079035059503,
+            0.22340558306841726
+          ],
+          "tolerance": 0.008
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "row_lengths",
+          "object": "ref0",
+          "references": [
+            "ref0",
+            "ref1",
+            "ref2"
+          ],
+          "candidates": [
+            "spare0",
+            "spare1",
+            "spare2",
+            "spare3",
+            "spare4"
+          ],
+          "relation": "equal"
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "ref0": [
+        -0.030146782693585554,
+        -0.21843956229038736,
+        0.8177844891595695
+      ],
+      "ref1": [
+        -0.02066683528186285,
+        0.001541547338425375,
+        0.8177844891595659
+      ],
+      "ref2": [
+        -0.01025365762302878,
+        0.22155852422282973,
+        0.8177844891595659
+      ],
+      "spare0": [
+        -0.2300450968520234,
+        -0.2784361232214718,
+        0.8177844891595659
+      ],
+      "spare1": [
+        -0.2300450968520234,
+        -0.13843612322147178,
+        0.8177844891595659
+      ],
+      "spare2": [
+        0.06976515824576182,
+        0.22320716670034996,
+        0.8177844891595659
+      ],
+      "spare3": [
+        0.059339069594668295,
+        0.0030198684917250277,
+        0.8177844891595695
+      ],
+      "spare4": [
+        0.04988470682740009,
+        -0.21571638625015377,
+        0.8177844891595659
+      ]
+    },
+    "events": [],
+    "metric": "success",
+    "joint_angles": {}
+  },
+  "cross_rule_predicates": {
+    "A": true,
+    "B": false,
+    "C": false
+  },
+  "actions": 558,
+  "actions_sha256": "dfda214bf30d9a6489090336d1dcc4fe8fcf6502d46635f26050d8a6fa237c4f",
+  "error": null,
+  "video": {
+    "recorded": true,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 2234,
+    "duration_seconds": 223.4,
+    "full_episode": true,
+    "final_success": true,
+    "sha256": "154e69527abffb546719914ebce5b3dec7f594874e7db8c2206d68d018bd6e01"
+  }
+}

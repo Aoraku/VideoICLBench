@@ -194,7 +194,7 @@ def extended(recipe, v, rng, obj, position):
             palette = colors[:3].copy(); rng.shuffle(palette)
             for rank in range(3):
                 name = f"part{group}_{rank}"
-                xy = [-.28+group*.14, -.22+rank*.22]
+                xy = [-.24+group*.12, -.22+rank*.22]
                 kind = ["box", "bar", "bottle"][group]
                 size = .016+rank*.004
                 dimensions = [(size, size, size), (size*2.4, size*.65, size*.85),
@@ -209,16 +209,27 @@ def extended(recipe, v, rng, obj, position):
             for rank in range(3):
                 selected = rank if group == 0 else (rank+v) % 3 if group == 1 else (rank-v) % 3
                 name = f"part{group}_{selected}"
-                move(name, [[.04, .14, .25][group], -.22+rank*.22])
+                move(name, [[.04, .14, .24][group], -.22+rank*.22+[0., -.025, .04][group]])
                 goals.append(dict(type="on_mat", object=name, target=f"kit{rank}"))
     elif recipe == "relative":
         center = [.12, 0.]
+        angle = float(rng.choice([0., math.pi/2, math.pi, -math.pi/2]))
         objects.append(obj("center", center, "yellow", "arrow_bar", (.035, .02, .015)))
+        objects[-1]["yaw"] = angle
         goals.append(position("center", center, .012))
-        locs = [[.26, 0.], [.12, -.17], [.12, .17]]
+        goals.append(dict(type="yaw", object="center", value=angle, tolerance=.18))
+        zones.extend(dict(id=f"cross{i}", xy=center, half_size=half, marker=None)
+                     for i, half in enumerate([[.20, .012], [.012, .20]]))
+        local = [[.14, 0.], [0., .17], [0., -.17]]
+        dimensions = [(.020, .020, .035), (.022, .022, .022), (.050, .020, .020)]
         for i, kind in enumerate(["bottle", "box", "bar"]):
-            objects.append(obj(f"piece{i}", [-.18, -.20+i*.20], colors[i], kind))
-            at(f"piece{i}", locs[(i+v) % 3])
+            objects.append(obj(f"piece{i}", [-.18, -.20+i*.20], colors[i], kind, dimensions[i]))
+            direction = (i+v) % 3
+            x, y = local[direction]
+            move(f"piece{i}", [center[0]+x*math.cos(angle)-y*math.sin(angle),
+                               center[1]+x*math.sin(angle)+y*math.cos(angle)])
+            goals.append(dict(type="relative_side", object=f"piece{i}", target="center",
+                              direction=["front", "left", "right"][direction]))
     elif recipe == "pair_arrows":
         for group in range(3):
             for member in range(2):

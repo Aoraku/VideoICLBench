@@ -1,0 +1,39 @@
+{
+  "kind": "privileged-author-native-physics",
+  "source": "kit-height-source-v140.tar.gz",
+  "cases": [
+    {
+      "task": "F26",
+      "variant": "A",
+      "actions": 1102,
+      "source_sha256": "c0ad75449a0f79a55d8bb0a06e8b99f03fc23062130113ec8879ee3cdc94c22e",
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      }
+    },
+    {
+      "task": "F26",
+      "variant": "B",
+      "actions": 1451,
+      "source_sha256": "c0ad75449a0f79a55d8bb0a06e8b99f03fc23062130113ec8879ee3cdc94c22e",
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      }
+    },
+    {
+      "task": "F26",
+      "variant": "C",
+      "actions": 1465,
+      "source_sha256": "c0ad75449a0f79a55d8bb0a06e8b99f03fc23062130113ec8879ee3cdc94c22e",
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      }
+    }
+  ]
+}

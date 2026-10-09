@@ -500,7 +500,7 @@
       "id": "F30",
       "title": "成对朝向与邻接",
       "group": "配套与空间规划",
-      "props": "三对带箭头长条、三组定位垫",
+      "props": "三对带箭头长条，以颜色配对；实物可用定位垫辅助复位",
       "challenge": "按配对关系组织六件，并满足组内朝向",
       "rules": {
         "A": "每对相向",
@@ -555,11 +555,11 @@
       "challenge": "给每行接一根备件，推断整体长度关系，不能移动原长条",
       "rules": {
         "A": "三行补成等长",
-        "B": "三行总长从前到后递增",
-        "C": "三行总长从前到后递减"
+        "B": "三行总长从第一人称画面右到左递增",
+        "C": "三行总长从第一人称画面右到左递减"
       },
       "reset": "将接入的三根备件取回，原长条保留",
-      "camera_note": "长条同向平放，端点清楚；三版都接三根，允许所有满足关系的合法解",
+      "camera_note": "三行沿画面横向排列，以右侧为起点，端点清楚；三版都接三根，允许所有满足关系的合法解",
       "runtime_recipe": "complete_lengths",
       "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"

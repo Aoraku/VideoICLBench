@@ -1,6 +1,6 @@
 # 50题视频索引
 
-合格历史预览93段，完整三版本31族。未完成项明确留空；不是最终统一源码150段验收。
+合格历史预览99段，完整三版本33族。未完成项明确留空；不是最终统一源码150段验收。
 
 | 任务 | A | B | C |
 | --- | --- | --- | --- |
@@ -33,10 +33,10 @@
 | F27 互补数量分装 | [视频](artifacts/topup-preview-v125/F27-A-0/video.mp4) | [视频](artifacts/topup-preview-v125/F27-B-0/video.mp4) | [视频](artifacts/topup-preview-v125/F27-C-0/video.mp4) |
 | F28 参照行关系迁移 | [视频](artifacts/reference-row-preview-v117/F28-A-0/video.mp4) | [视频](artifacts/reference-row-preview-v117/F28-B-0/video.mp4) | [视频](artifacts/reference-row-preview-v117/F28-C-0/video.mp4) |
 | F29 围绕中心的相对布局 | 待完成 | 待完成 | 待完成 |
-| F30 成对朝向与邻接 | 待完成 | 待完成 | 待完成 |
+| F30 成对朝向与邻接 | [视频](artifacts/arrows-preview-v128/F30-A-0/video.mp4) | [视频](artifacts/arrows-preview-v128/F30-B-0/video.mp4) | [视频](artifacts/arrows-preview-v128/F30-C-0/video.mp4) |
 | F31 有限空间装箱 | [视频](artifacts/contents-preview-v120/F31-A-0/video.mp4) | [视频](artifacts/contents-preview-v120/F31-B-0/video.mp4) | [视频](artifacts/contents-preview-v120/F31-C-0/video.mp4) |
 | F32 长短件错位铺排 | 待完成 | 待完成 | 待完成 |
-| F33 不等长行补全 | 待完成 | 待完成 | 待完成 |
+| F33 不等长行补全 | [视频](artifacts/lengths-preview-v128/F33-A-0/video.mp4) | [视频](artifacts/lengths-preview-v128/F33-B-0/video.mp4) | [视频](artifacts/lengths-preview-v128/F33-C-0/video.mp4) |
 | F34 按相对高度配对 | 待完成 | 待完成 | 待完成 |
 | F35 配套打包并交付 | 待完成 | 待完成 | 待完成 |
 | F36 推杆送件 | [视频](artifacts/visible-preview-v46/F36-A-0/video.mp4) | [视频](artifacts/visible-preview-v46/F36-B-0/video.mp4) | [视频](artifacts/visible-preview-v46/F36-C-0/video.mp4) |

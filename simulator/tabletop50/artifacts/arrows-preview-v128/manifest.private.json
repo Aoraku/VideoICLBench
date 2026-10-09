@@ -1,0 +1,195 @@
+{
+  "status": "engineering-author-demonstrations",
+  "expected_families": 50,
+  "expected_rule_conditions": 150,
+  "verified_videos": 3,
+  "complete_three_rule_families": 1,
+  "complete_groups": [
+    {
+      "task": "F30",
+      "seed": 0,
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9"
+    }
+  ],
+  "usable_videos": 3,
+  "usable_complete_three_rule_families": 1,
+  "human_videos": 0,
+  "independent_agent_trials": 0,
+  "cases": [
+    {
+      "task": "F30",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+      "world_sha256": "e4230768e1c6c86dd44bf275ee78c51f00e6ff1a6f2cc5be47dc2b5dbacb7b2f",
+      "video_sha256": "6049fb8c42bbd4d716c55fd731b7a8ca9627d0c7192c3cac9676103274bd78f7",
+      "decoded_frames": 3570,
+      "fps": 10.0,
+      "duration_seconds": 357.0,
+      "ending_image_mae": 2.689263343811035,
+      "initial_positions": {
+        "bar0_0": [
+          -0.2200450968520234,
+          -0.21843612322147177,
+          0.8147844851012707
+        ],
+        "bar0_1": [
+          -0.1000450968520234,
+          -0.21843612322147177,
+          0.8147844851012707
+        ],
+        "bar1_0": [
+          -0.2200450968520234,
+          0.0015638767785282346,
+          0.8147844851012707
+        ],
+        "bar1_1": [
+          -0.1000450968520234,
+          0.0015638767785282346,
+          0.8147844851012707
+        ],
+        "bar2_0": [
+          -0.2200450968520234,
+          0.22156387677852823,
+          0.8147844851012707
+        ],
+        "bar2_1": [
+          -0.1000450968520234,
+          0.22156387677852823,
+          0.8147844851012707
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 0,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F30-A-0"
+    },
+    {
+      "task": "F30",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+      "world_sha256": "e4230768e1c6c86dd44bf275ee78c51f00e6ff1a6f2cc5be47dc2b5dbacb7b2f",
+      "video_sha256": "3969a273e93e1aedd48997480fc7e51e4abb0e536bbec7ad9232aaa3c41a83f8",
+      "decoded_frames": 3534,
+      "fps": 10.0,
+      "duration_seconds": 353.4,
+      "ending_image_mae": 2.6768712997436523,
+      "initial_positions": {
+        "bar0_0": [
+          -0.2200450968520234,
+          -0.21843612322147177,
+          0.8147844851012707
+        ],
+        "bar0_1": [
+          -0.1000450968520234,
+          -0.21843612322147177,
+          0.8147844851012707
+        ],
+        "bar1_0": [
+          -0.2200450968520234,
+          0.0015638767785282346,
+          0.8147844851012707
+        ],
+        "bar1_1": [
+          -0.1000450968520234,
+          0.0015638767785282346,
+          0.8147844851012707
+        ],
+        "bar2_0": [
+          -0.2200450968520234,
+          0.22156387677852823,
+          0.8147844851012707
+        ],
+        "bar2_1": [
+          -0.1000450968520234,
+          0.22156387677852823,
+          0.8147844851012707
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 0,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F30-B-0"
+    },
+    {
+      "task": "F30",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+      "world_sha256": "e4230768e1c6c86dd44bf275ee78c51f00e6ff1a6f2cc5be47dc2b5dbacb7b2f",
+      "video_sha256": "e2480fe573a750600ba6bf5a251a5199960a33220ec044db9d0348a2f58c2793",
+      "decoded_frames": 3102,
+      "fps": 10.0,
+      "duration_seconds": 310.2,
+      "ending_image_mae": 2.676177978515625,
+      "initial_positions": {
+        "bar0_0": [
+          -0.2200450968520234,
+          -0.21843612322147177,
+          0.8147844851012707
+        ],
+        "bar0_1": [
+          -0.1000450968520234,
+          -0.21843612322147177,
+          0.8147844851012707
+        ],
+        "bar1_0": [
+          -0.2200450968520234,
+          0.0015638767785282346,
+          0.8147844851012707
+        ],
+        "bar1_1": [
+          -0.1000450968520234,
+          0.0015638767785282346,
+          0.8147844851012707
+        ],
+        "bar2_0": [
+          -0.2200450968520234,
+          0.22156387677852823,
+          0.8147844851012707
+        ],
+        "bar2_1": [
+          -0.1000450968520234,
+          0.22156387677852823,
+          0.8147844851012707
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 0,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F30-C-0"
+    }
+  ],
+  "rejected": []
+}

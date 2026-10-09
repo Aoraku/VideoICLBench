@@ -6,7 +6,7 @@ from pathlib import Path
 
 BASE = Path(__file__).resolve().parents[1]
 BATCHES = ["foundation-v1", "assembly-preview-v15", "visible-preview-v46",
-           "sweep-preview-v48", "corner-preview-v53", "clearance-preview-v67", "shovel-preview-v69", "guidance-preview-v81", "shape-preview-v79", "vacancy-preview-v79", "stack-recovery-preview-v79", "mosaic-preview-v114", "ring-preview-v117", "rack-preview-v118", "key-preview-v119", "relocate-preview-v117", "correction-preview-v118", "access-preview-v117", "reference-row-preview-v117", "contents-preview-v120", "topup-preview-v125"]
+           "sweep-preview-v48", "corner-preview-v53", "clearance-preview-v67", "shovel-preview-v69", "guidance-preview-v81", "shape-preview-v79", "vacancy-preview-v79", "stack-recovery-preview-v79", "mosaic-preview-v114", "ring-preview-v117", "rack-preview-v118", "key-preview-v119", "relocate-preview-v117", "correction-preview-v118", "access-preview-v117", "reference-row-preview-v117", "contents-preview-v120", "topup-preview-v125", "arrows-preview-v128", "lengths-preview-v128"]
 
 
 def main():

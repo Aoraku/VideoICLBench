@@ -4,7 +4,7 @@
 
 ## 可见性合格的作者预览
 
-当前93个条件的合格录像（按任务与规则去重），31族A/B/C完整；来自历史冻结源码，不能直接作为最新版服务的示范。
+当前99个条件的合格录像（按任务与规则去重），33族A/B/C完整；来自历史冻结源码，不能直接作为最新版服务的示范。
 
 - [可见支架穿杆](visible-preview-v46/index.html)：F13/F36/F49各三段，共九段；孔框、通道壁与铰链支撑均可见（F49与v43按条件去重）；[验收清单](visible-preview-v46/manifest.private.json)、[冻结源码](visible-source-v46.tar.gz)、[道具初态渲染](visible-scene-previews-v46/README.md)。
 - [真实铰链展示板](articulation-preview-v43/index.html)：F49-A/B/C三段；[录像验收清单](articulation-preview-v43/manifest.private.json)、[冻结源码](articulation-source-v43.tar.gz)。
@@ -98,3 +98,7 @@
 - [盒内交换与装盒盖合](contents-preview-v120/index.html)：F18/F31各三段；[验收清单](contents-preview-v120/manifest.private.json)、[冻结源码](contents-source-v120.tar.gz)。
 
 - [数量补齐](topup-preview-v125/index.html)：F27三段；[验收清单](topup-preview-v125/manifest.private.json)、[冻结源码](kits-topup-source-v125.tar.gz)。
+
+- [成对朝向与邻接](arrows-preview-v128/index.html)：F30三段；[验收清单](arrows-preview-v128/manifest.private.json)、[冻结源码](kits-source-v128.tar.gz)。该批实际不含定位垫，颜色表示配对，已校正当前道具卡片。
+
+- [不等长行补全](lengths-preview-v128/index.html)：F33三段；[验收清单](lengths-preview-v128/manifest.private.json)、[冻结源码](kits-source-v128.tar.gz)。该批图像中的三行从画面右到左依次为ref0/ref1/ref2，已据此校正任务卡方向。当前后续配方还将备件颜色与长度独立随机化，旧批冻结录像不改写。

@@ -269,12 +269,13 @@ def build(recipe, v, rng, obj, position):
     elif recipe == "complete_lengths":
         initial = [.02, .03, .04]
         spare = [.02, .03, .04, .05, .06]
+        spare_colours = colors[:5].copy(); rng.shuffle(spare_colours)
         for i, length in enumerate(initial):
             xy = [-.05+length, -.22+i*.22]
             objects.append(obj(f"ref{i}", xy, "white", "bar", (length, .018, .018)))
             goals.append(position(f"ref{i}", xy, .008))
         for i, length in enumerate(spare):
-            objects.append(obj(f"spare{i}", [-.23, -.28+i*.14], colors[i], "bar", (length, .018, .018)))
+            objects.append(obj(f"spare{i}", [-.23, -.28+i*.14], spare_colours[i], "bar", (length, .018, .018)))
         chosen = ([4, 3, 2], [0, 1, 2], [4, 2, 0])[v]
         for row, i in enumerate(chosen):
             move(f"spare{i}", [-.05+2*initial[row]+spare[i], -.22+row*.22], fine=True)

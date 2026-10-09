@@ -6,6 +6,58 @@ from simulator.tabletop50.catalog import task_spec
 from simulator.tabletop50.environment import TabletopDual
 
 
+def test_relative_layout_rules_follow_arrow_frame_and_reject_wrong_side_or_hover(monkeypatch):
+    e = TabletopDual(task_spec("F29"), render=False)
+    try:
+        state = e.snapshot(); reference = state["center"]
+        monkeypatch.setattr(e, "check_contact", lambda *args: True)
+        layouts = {v: [g for g in task_spec("F29", v)["goals"] if g["type"] == "relative_side"] for v in "ABC"}
+        offsets = dict(front=[.14, 0.], left=[0., .17], right=[0., -.17])
+        for variant, goals in layouts.items():
+            for goal in goals:
+                item = state[goal["object"]]; item["mat"] = np.eye(3)
+                xy = reference["pos"][:2]+reference["mat"][:2, :2]@offsets[goal["direction"]]
+                item["pos"] = np.array([*xy, .8+e.by_spec[goal["object"]]["size"][2]])
+            accepted = [v for v, other in layouts.items() if all(e.predicate(g, state) for g in other)]
+            assert accepted == [variant]
+        old_origin = reference["pos"][:2].copy()
+        rotation = np.array([[0., -1.], [1., 0.]])
+        for item in state.values():
+            item["pos"][:2] = old_origin+rotation@(item["pos"][:2]-old_origin)+[.03, -.02]
+        reference["mat"][:2, :2] = rotation@reference["mat"][:2, :2]
+        assert all(e.predicate(g, state) for g in layouts["C"])
+        goal = layouts["C"][0]; item = state[goal["object"]]
+        item["pos"][2] += .05
+        assert not e.predicate(goal, state)
+        item["pos"][2] -= .05
+        item["pos"][:2] = reference["pos"][:2]+reference["mat"][:2, :2]@offsets["front"]
+        assert not e.predicate(goal, state)  # C requires this cylinder on the right.
+        monkeypatch.setattr(e, "check_contact", lambda *args: False)
+        assert not any(e.predicate(g, state) for g in layouts["C"])
+    finally: e.close()
+
+
+def test_container_uses_circular_cylinder_footprint_instead_of_rotated_square(monkeypatch):
+    e = TabletopDual(task_spec("F03", "B"), render=False)
+    try:
+        state = e.snapshot()
+        goal = next(g for g in e.spec["goals"] if g["object"] == "part0_0")
+        bowl = state[goal["target"]]; item = state[goal["object"]]
+        bowl["mat"] = np.eye(3)
+        item["mat"] = np.array([[.70710678, -.70710678, 0.], [.70710678, .70710678, 0.], [0., 0., 1.]])
+        item["pos"] = bowl["pos"]+np.array([.0535, 0., .007])
+        monkeypatch.setattr(e, "check_contact", lambda *args: True)
+        assert e.predicate(goal, state)  # Circular rim fits, square surrogate would not.
+        item["pos"][0] += .02
+        assert not e.predicate(goal, state)
+        item["pos"][0] -= .02; item["pos"][2] += .04
+        assert not e.predicate(goal, state)
+        item["pos"][2] -= .04
+        monkeypatch.setattr(e, "check_contact", lambda *args: False)
+        assert not e.predicate(goal, state)
+    finally: e.close()
+
+
 def test_size_kits_allow_free_layout_within_mat_but_reject_wrong_mat_overhang_and_hover(monkeypatch):
     e = TabletopDual(task_spec("F26", "A"), render=False)
     try:

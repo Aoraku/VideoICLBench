@@ -1,0 +1,225 @@
+{
+  "status": "engineering-author-demonstrations",
+  "expected_families": 50,
+  "expected_rule_conditions": 150,
+  "verified_videos": 3,
+  "complete_three_rule_families": 1,
+  "complete_groups": [
+    {
+      "task": "F33",
+      "seed": 0,
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9"
+    }
+  ],
+  "usable_videos": 3,
+  "usable_complete_three_rule_families": 1,
+  "human_videos": 0,
+  "independent_agent_trials": 0,
+  "cases": [
+    {
+      "task": "F33",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+      "world_sha256": "a56d8db912f51d096256cd62efc8c4f05b7e0af4ef3a7f7bfa56b8712b0d255d",
+      "video_sha256": "154e69527abffb546719914ebce5b3dec7f594874e7db8c2206d68d018bd6e01",
+      "decoded_frames": 2234,
+      "fps": 10.0,
+      "duration_seconds": 223.4,
+      "ending_image_mae": 2.6929931640625,
+      "initial_positions": {
+        "ref0": [
+          -0.030045096852023397,
+          -0.21843612322147177,
+          0.817784485101035
+        ],
+        "ref1": [
+          -0.020045096852023398,
+          0.0015638767785282346,
+          0.817784485101025
+        ],
+        "ref2": [
+          -0.010045096852023396,
+          0.22156387677852823,
+          0.8177844851010195
+        ],
+        "spare0": [
+          -0.2300450968520234,
+          -0.2784361232214718,
+          0.817784485101035
+        ],
+        "spare1": [
+          -0.2300450968520234,
+          -0.13843612322147178,
+          0.817784485101025
+        ],
+        "spare2": [
+          -0.2300450968520234,
+          0.0015638767785282346,
+          0.8177844851010195
+        ],
+        "spare3": [
+          -0.2300450968520234,
+          0.14156387677852825,
+          0.8177844851010165
+        ],
+        "spare4": [
+          -0.2300450968520234,
+          0.28156387677852823,
+          0.8177844851010146
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 0,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F33-A-0"
+    },
+    {
+      "task": "F33",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+      "world_sha256": "a56d8db912f51d096256cd62efc8c4f05b7e0af4ef3a7f7bfa56b8712b0d255d",
+      "video_sha256": "e662826b337fc85aff4f63eca35a97c273f109e9482fb6589cd2690d3b4ebcf7",
+      "decoded_frames": 1718,
+      "fps": 10.0,
+      "duration_seconds": 171.8,
+      "ending_image_mae": 2.7073566913604736,
+      "initial_positions": {
+        "ref0": [
+          -0.030045096852023397,
+          -0.21843612322147177,
+          0.817784485101035
+        ],
+        "ref1": [
+          -0.020045096852023398,
+          0.0015638767785282346,
+          0.817784485101025
+        ],
+        "ref2": [
+          -0.010045096852023396,
+          0.22156387677852823,
+          0.8177844851010195
+        ],
+        "spare0": [
+          -0.2300450968520234,
+          -0.2784361232214718,
+          0.817784485101035
+        ],
+        "spare1": [
+          -0.2300450968520234,
+          -0.13843612322147178,
+          0.817784485101025
+        ],
+        "spare2": [
+          -0.2300450968520234,
+          0.0015638767785282346,
+          0.8177844851010195
+        ],
+        "spare3": [
+          -0.2300450968520234,
+          0.14156387677852825,
+          0.8177844851010165
+        ],
+        "spare4": [
+          -0.2300450968520234,
+          0.28156387677852823,
+          0.8177844851010146
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 0,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F33-B-0"
+    },
+    {
+      "task": "F33",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+      "world_sha256": "a56d8db912f51d096256cd62efc8c4f05b7e0af4ef3a7f7bfa56b8712b0d255d",
+      "video_sha256": "c3b74b71a9932a31b15daa8f8a0a5fa825e9ef3a3f668ae34eb755614778b68b",
+      "decoded_frames": 2654,
+      "fps": 10.0,
+      "duration_seconds": 265.4,
+      "ending_image_mae": 2.6799707412719727,
+      "initial_positions": {
+        "ref0": [
+          -0.030045096852023397,
+          -0.21843612322147177,
+          0.817784485101035
+        ],
+        "ref1": [
+          -0.020045096852023398,
+          0.0015638767785282346,
+          0.817784485101025
+        ],
+        "ref2": [
+          -0.010045096852023396,
+          0.22156387677852823,
+          0.8177844851010195
+        ],
+        "spare0": [
+          -0.2300450968520234,
+          -0.2784361232214718,
+          0.817784485101035
+        ],
+        "spare1": [
+          -0.2300450968520234,
+          -0.13843612322147178,
+          0.817784485101025
+        ],
+        "spare2": [
+          -0.2300450968520234,
+          0.0015638767785282346,
+          0.8177844851010195
+        ],
+        "spare3": [
+          -0.2300450968520234,
+          0.14156387677852825,
+          0.8177844851010165
+        ],
+        "spare4": [
+          -0.2300450968520234,
+          0.28156387677852823,
+          0.8177844851010146
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 0,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F33-C-0"
+    }
+  ],
+  "rejected": []
+}

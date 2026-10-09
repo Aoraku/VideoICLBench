@@ -1,0 +1,39 @@
+{
+  "kind": "privileged-author-native-physics",
+  "source": "relative-source-v137.tar.gz",
+  "cases": [
+    {
+      "task": "F29",
+      "variant": "A",
+      "actions": 446,
+      "source_sha256": "8086ffb274643da48a09ffb9d937044b48699b0c21387d746d5a82a649bebe0f",
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      }
+    },
+    {
+      "task": "F29",
+      "variant": "B",
+      "actions": 570,
+      "source_sha256": "8086ffb274643da48a09ffb9d937044b48699b0c21387d746d5a82a649bebe0f",
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      }
+    },
+    {
+      "task": "F29",
+      "variant": "C",
+      "actions": 466,
+      "source_sha256": "8086ffb274643da48a09ffb9d937044b48699b0c21387d746d5a82a649bebe0f",
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      }
+    }
+  ]
+}

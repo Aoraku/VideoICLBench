@@ -95,7 +95,7 @@ class TabletopAuthor(Author):
 
     def pick(self, name, arm, grasp_offset=None, lift=True):
         s = self.env.by_spec[name]
-        if self.env.spec["id"] == "F26" and s["kind"] == "bar":
+        if self.env.spec["id"] in ("F26", "F29") and s["kind"] == "bar":
             self.align_jaw(arm, self.state(name)["mat"][:, 1])
         if s["kind"] == "bottle" or (s["kind"] not in ("ring", "key", "lid", "tray", "bowl") and s["size"][0] < s["size"][1]):
             self.align(arm, math.pi/2)
@@ -123,24 +123,28 @@ class TabletopAuthor(Author):
         if s["kind"] == "ring": self.align_jaw(arm, self.state(name)["mat"]@local)
         if s["kind"] == "key": local[:2] = [-.015, -.005]
         point = p+self.state(name)["mat"]@local
-        approach_height = s.get("approach_height", 1.14)
+        approach_height = s.get("approach_height", .99 if self.env.spec["id"] == "F26" else 1.14)
         self.act(arm, "RELEASE"); self.move(arm, [*point[:2], approach_height])
         offset = min(.005, s["size"][2]*.3)
         target = point+[0., 0., offset]
         self.move(arm, target, axes=(2,))
         self.fine_move(arm, target)
         for attempt in range(3):
-            if s["kind"] == "bottle":
-                # Cylinders can roll when the descending fingers brush them.
+            shifted_bar = s["kind"] == "bar" and self.env.spec["id"] in ("F26", "F29")
+            if s["kind"] == "bottle" or shifted_bar:
+                # Props can move when the descending fingers brush them.
                 # Reacquire the actual centre instead of closing repeatedly
                 # at an obsolete coordinate.
                 current = self.state(name)
                 updated = current["pos"]+current["mat"]@local
                 if np.linalg.norm(updated-point) > .008:
                     self.move(arm, [*self.eef(arm)[:2], max(.98, updated[2]+.12)], axes=(2,))
-                    axis = current["mat"][:, 2]
-                    if abs(axis[2]) < .5:
-                        self.align(arm, math.atan2(axis[1], axis[0]))
+                    if shifted_bar:
+                        self.align_jaw(arm, current["mat"][:, 1])
+                    else:
+                        axis = current["mat"][:, 2]
+                        if abs(axis[2]) < .5:
+                            self.align(arm, math.atan2(axis[1], axis[0]))
                     point = self.state(name)["pos"]+self.state(name)["mat"]@local
                     target = point+[0., 0., offset]
                     self.move(arm, target, axes=(0, 1))
@@ -189,9 +193,14 @@ class TabletopAuthor(Author):
         for _ in range(35):
             state = self.state(name)
             extent = (np.abs(state["mat"]) @ self.env.by_spec[name]["size"])[2]
-            if state["pos"][2]-extent <= target[2]-self.env.by_spec[name]["size"][2]+.018:
+            kit_cylinder = self.env.spec["id"] == "F26" and self.env.by_spec[name]["kind"] == "bottle"
+            if kit_cylinder:
+                radius, _, height = self.env.by_spec[name]["size"]
+                extent = radius*np.linalg.norm(state["mat"][2, :2])+height*abs(state["mat"][2, 2])
+            gap = state["pos"][2]-extent-(target[2]-self.env.by_spec[name]["size"][2])
+            if gap <= (.003 if kit_cylinder else .018):
                 break
-            self.act(arm, "DOWN")
+            self.act(arm, "DOWN_FINE" if kit_cylinder and gap < .025 else "DOWN")
         if approach is None:
             state = self.state(name)
             bottom = state["pos"][2]-(np.abs(state["mat"]) @ self.env.by_spec[name]["size"])[2]
@@ -199,7 +208,8 @@ class TabletopAuthor(Author):
                 self.fine_move(arm, target+offset+[0., 0., .003], axes=(2,))
         if not release: return
         for _ in range(3): self.act(arm, "RELEASE")
-        self.move(arm, [*self.eef(arm)[:2], 1.14], axes=(2,)); self.wait(3)
+        retreat_height = 1.02 if self.env.spec["id"] == "F26" else 1.14
+        self.move(arm, [*self.eef(arm)[:2], retreat_height], axes=(2,)); self.wait(3)
 
     def horizontal(self, arm, name):
         for _ in range(50):
@@ -242,7 +252,7 @@ class TabletopAuthor(Author):
             else: raise RuntimeError("Shaft positioning did not converge")
 
     def transport(self, name, arm, xy, bottom=.8, yaw=None, fine=False, approach=None, surface_release=False):
-        if self.env.spec["id"] in ("F03", "F07", "F10"):
+        if self.env.spec["id"] in ("F03", "F07", "F10", "F29"):
             self.restore_wrist(arm)
         self.pick(name, arm)
         if yaw is not None:
@@ -371,9 +381,12 @@ class TabletopAuthor(Author):
                     for n, a in state.items())]
                 if not free: raise RuntimeError("No physically clear hand-relay location")
                 self.transport(name, arm, free[0], surface_release=True)
+                if self.env.spec["id"] == "F26":
+                    # Give the receiving fingers room to approach the relay.
+                    self.move(arm, [-.16, -.34 if arm == 0 else .34, 1.16])
                 arm = target_arm
             self.transport(name, arm, p["xy"], p["bottom"], p.get("yaw"), p.get("fine", False),
-                           p.get("approach"), surface_release=self.env.spec["id"] in ("F03", "F07", "F10", "F26"))
+                           p.get("approach"), surface_release=self.env.spec["id"] in ("F03", "F07", "F10", "F26", "F29"))
         if self.env.spec["id"] in ("F03", "F07"):
             self.repair_classification()
         if self.env.spec["id"] == "F10":
