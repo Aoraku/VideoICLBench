@@ -1,6 +1,6 @@
 # 第一人称桌面双臂任务新版
 
-**先看：[视频索引（51段）](VIDEOS.md) · [部署与网页查看](DEPLOY.md) · [实现进度](PROGRESS.md)。** 所有运行工具、任务视频和验收资料均在 `simulator/` 内；`index.html` 是本地可播放的50题总览。
+**先看：[视频索引（54段）](VIDEOS.md) · [部署与网页查看](DEPLOY.md) · [实现进度](PROGRESS.md)。** 所有运行工具、任务视频和验收资料均在 `simulator/` 内；`index.html` 是本地可播放的50题总览。
 
 2026-10-09。任务清单与真人录制卡见 [TASKS_50.md](TASKS_50.md)，机器可读清单见 [families.json](families.json)。本目录是重新设计的50族，不沿用旧 `rt/rc` 编号，也不把旧50段视频算作新版成果。
 

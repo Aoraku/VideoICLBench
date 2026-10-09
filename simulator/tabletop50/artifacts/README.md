@@ -65,3 +65,7 @@
 
 - [执行开发记录 v103–v109](execution-development-v103-v109.private.json)及[冻结源码、动作与结果归档](execution-development-v103-v109.tar.gz)：保留分类修复成功、插销盒与拼板失败，不能混作最终统一验收。
 - [v79设计审阅排除记录](design-review-v79.private.json)：旧F10拼板任务不符合文档变换关系；物理成功结果保持原样，视频不准入。
+
+- [F16单空位重排三版视频](vacancy-preview-v79/index.html)与[审阅清单](vacancy-preview-v79/manifest.private.json)：按第一人称校正方向描述，保留原始变体与动作；计入54段合格历史预览，源码为full-source-v79.tar.gz。
+
+- 拼板开发证据：[v110](mosaic-development-v110.private.json)、[v111](mosaic-development-v111.private.json)、[v112–v113](mosaic-development-v112-v113.private.json)，各有同名tar.gz保存冻结源码与公开动作；均非三规则成功验收。

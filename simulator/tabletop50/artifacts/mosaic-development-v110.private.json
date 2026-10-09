@@ -1,0 +1,707 @@
+{
+  "kind": "privileged-author-development-diagnostics",
+  "independent_agent": false,
+  "batch": {
+    "revision": "tabletop50-fpv-v1",
+    "expected": 3,
+    "finished": 3,
+    "succeeded": 1,
+    "rows": [
+      {
+        "task": "F10",
+        "variant": "A",
+        "seed": 0,
+        "success": true,
+        "exit_code": 0,
+        "error": null,
+        "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-mosaic-v110/F10-A-0/result.private.json"
+      },
+      {
+        "task": "F10",
+        "variant": "B",
+        "seed": 0,
+        "success": false,
+        "exit_code": 1,
+        "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/author.py\", line 347, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/author.py\", line 234, in transport\n    self.put(name, arm, [*xy, bottom+self.env.by_spec[name][\"size\"][2]], fine, approach, surface_release=surface_release)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/author.py\", line 175, in put\n    self.fine_move(arm, target+offset, axes=(0, 1))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/author.py\", line 140, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+        "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-mosaic-v110/F10-B-0/result.private.json"
+      },
+      {
+        "task": "F10",
+        "variant": "C",
+        "seed": 0,
+        "success": false,
+        "exit_code": 1,
+        "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/author.py\", line 347, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/author.py\", line 234, in transport\n    self.put(name, arm, [*xy, bottom+self.env.by_spec[name][\"size\"][2]], fine, approach, surface_release=surface_release)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/author.py\", line 175, in put\n    self.fine_move(arm, target+offset, axes=(0, 1))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/author.py\", line 140, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+        "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-mosaic-v110/F10-C-0/result.private.json"
+      }
+    ]
+  },
+  "proofs": [
+    {
+      "task": "F10",
+      "variant": "A",
+      "seed": 0,
+      "kind": "privileged-author-physical-acceptance",
+      "independent_agent": false,
+      "human_recorded": false,
+      "source_sha256": "b84058266f2312bfc2f2aab084d42bf89e7fd58bf600170099942b2e3a0d0a85",
+      "source_unchanged": true,
+      "world_sha256": "7ca118fc40426f4ab3a12505b629a513cb533df950dd66648713c9c1cecc1734",
+      "initial_positions": {
+        "ref0": [
+          -0.2306077140050885,
+          -0.062141778372040844,
+          0.8097844851020015
+        ],
+        "ref1": [
+          -0.2306077140050885,
+          0.06785822162795915,
+          0.8097844851020015
+        ],
+        "ref2": [
+          -0.10060771400508851,
+          -0.062141778372040844,
+          0.8097844851020015
+        ],
+        "ref3": [
+          -0.10060771400508851,
+          0.06785822162795915,
+          0.8097844851020015
+        ],
+        "piece0": [
+          -0.025607714005088506,
+          -0.21714177837204085,
+          0.8117844851016339
+        ],
+        "piece1": [
+          -0.025607714005088506,
+          -0.07214177837204086,
+          0.8117844851016339
+        ],
+        "piece2": [
+          -0.025607714005088506,
+          0.07285822162795913,
+          0.8117844851016339
+        ],
+        "piece3": [
+          -0.025607714005088506,
+          0.2178582216279591,
+          0.8117844851016339
+        ]
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 10,
+        "fixtures_visible": true
+      },
+      "score": {
+        "success": true,
+        "hold_seconds": 24.4,
+        "predicates": [
+          {
+            "rule": {
+              "type": "position",
+              "object": "ref0",
+              "xy": [
+                -0.23170340750366014,
+                -0.06030007208215181
+              ],
+              "tolerance": 0.012
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "ref1",
+              "xy": [
+                -0.23170340750366014,
+                0.0696999279178482
+              ],
+              "tolerance": 0.012
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "ref2",
+              "xy": [
+                -0.10170340750366015,
+                -0.06030007208215181
+              ],
+              "tolerance": 0.012
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "ref3",
+              "xy": [
+                -0.10170340750366015,
+                0.0696999279178482
+              ],
+              "tolerance": 0.012
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "piece0",
+              "xy": [
+                0.09829659249633986,
+                -0.06030007208215181
+              ],
+              "tolerance": 0.025
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "piece2",
+              "xy": [
+                0.09829659249633986,
+                0.0696999279178482
+              ],
+              "tolerance": 0.025
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "piece1",
+              "xy": [
+                0.22829659249633988,
+                -0.06030007208215181
+              ],
+              "tolerance": 0.025
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "piece3",
+              "xy": [
+                0.22829659249633988,
+                0.0696999279178482
+              ],
+              "tolerance": 0.025
+            },
+            "passed": true
+          }
+        ],
+        "object_positions": {
+          "ref0": [
+            -0.2306077140050885,
+            -0.062141778372040844,
+            0.8097844891595659
+          ],
+          "ref1": [
+            -0.2306077140050885,
+            0.06785822162795915,
+            0.8097844891595659
+          ],
+          "ref2": [
+            -0.10060771400508851,
+            -0.062141778372040844,
+            0.8097844891595659
+          ],
+          "ref3": [
+            -0.10060771400508851,
+            0.06785822162795915,
+            0.8097844891595659
+          ],
+          "piece0": [
+            0.09962756289264207,
+            -0.05978649640222029,
+            0.8117844891595659
+          ],
+          "piece1": [
+            0.22612600947652853,
+            -0.06068268573965679,
+            0.8117844891595659
+          ],
+          "piece2": [
+            0.09936049943001467,
+            0.07064895727827264,
+            0.8117844891595659
+          ],
+          "piece3": [
+            0.22713258320080834,
+            0.07066808122549197,
+            0.8117844891595659
+          ]
+        },
+        "events": [],
+        "metric": "success",
+        "joint_angles": {}
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "actions": 608,
+      "actions_sha256": "ec04ee8bc3d6c7c0153a5dce48fca69d306c824aebd8a9f7ded3c0187eb5c21b",
+      "error": null,
+      "video": {
+        "recorded": false,
+        "camera": "fpv",
+        "fps": 10,
+        "frames": 0,
+        "duration_seconds": 0.0,
+        "full_episode": true,
+        "final_success": true
+      }
+    },
+    {
+      "task": "F10",
+      "variant": "B",
+      "seed": 0,
+      "kind": "privileged-author-physical-acceptance",
+      "independent_agent": false,
+      "human_recorded": false,
+      "source_sha256": "b84058266f2312bfc2f2aab084d42bf89e7fd58bf600170099942b2e3a0d0a85",
+      "source_unchanged": true,
+      "world_sha256": "7ca118fc40426f4ab3a12505b629a513cb533df950dd66648713c9c1cecc1734",
+      "initial_positions": {
+        "ref0": [
+          -0.2306077140050885,
+          -0.062141778372040844,
+          0.8097844851020015
+        ],
+        "ref1": [
+          -0.2306077140050885,
+          0.06785822162795915,
+          0.8097844851020015
+        ],
+        "ref2": [
+          -0.10060771400508851,
+          -0.062141778372040844,
+          0.8097844851020015
+        ],
+        "ref3": [
+          -0.10060771400508851,
+          0.06785822162795915,
+          0.8097844851020015
+        ],
+        "piece0": [
+          -0.025607714005088506,
+          -0.21714177837204085,
+          0.8117844851016339
+        ],
+        "piece1": [
+          -0.025607714005088506,
+          -0.07214177837204086,
+          0.8117844851016339
+        ],
+        "piece2": [
+          -0.025607714005088506,
+          0.07285822162795913,
+          0.8117844851016339
+        ],
+        "piece3": [
+          -0.025607714005088506,
+          0.2178582216279591,
+          0.8117844851016339
+        ]
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 10,
+        "fixtures_visible": true
+      },
+      "score": {
+        "success": false,
+        "hold_seconds": 0.0,
+        "predicates": [
+          {
+            "rule": {
+              "type": "position",
+              "object": "ref0",
+              "xy": [
+                -0.23170340750366014,
+                -0.06030007208215181
+              ],
+              "tolerance": 0.012
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "ref1",
+              "xy": [
+                -0.23170340750366014,
+                0.0696999279178482
+              ],
+              "tolerance": 0.012
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "ref2",
+              "xy": [
+                -0.10170340750366015,
+                -0.06030007208215181
+              ],
+              "tolerance": 0.012
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "ref3",
+              "xy": [
+                -0.10170340750366015,
+                0.0696999279178482
+              ],
+              "tolerance": 0.012
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "piece1",
+              "xy": [
+                0.09829659249633986,
+                -0.06030007208215181
+              ],
+              "tolerance": 0.025
+            },
+            "passed": false
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "piece0",
+              "xy": [
+                0.09829659249633986,
+                0.0696999279178482
+              ],
+              "tolerance": 0.025
+            },
+            "passed": false
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "piece3",
+              "xy": [
+                0.22829659249633988,
+                -0.06030007208215181
+              ],
+              "tolerance": 0.025
+            },
+            "passed": false
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "piece2",
+              "xy": [
+                0.22829659249633988,
+                0.0696999279178482
+              ],
+              "tolerance": 0.025
+            },
+            "passed": false
+          }
+        ],
+        "object_positions": {
+          "ref0": [
+            -0.2306077140050885,
+            -0.062141778372040844,
+            0.8097844891595659
+          ],
+          "ref1": [
+            -0.2306077140050885,
+            0.06785822162795915,
+            0.8097844891595659
+          ],
+          "ref2": [
+            -0.10258094224368376,
+            -0.0648641451807882,
+            0.8097844891595659
+          ],
+          "ref3": [
+            -0.10060771400508851,
+            0.06785822162795915,
+            0.8097844891595659
+          ],
+          "piece0": [
+            0.09261561987080845,
+            0.12341347217292013,
+            0.8147884493043557
+          ],
+          "piece1": [
+            0.14402528756389352,
+            0.09100823023695839,
+            0.8145256092268264
+          ],
+          "piece2": [
+            -0.024958637648597765,
+            0.11705872695681654,
+            0.8117844891595659
+          ],
+          "piece3": [
+            0.09978693950481975,
+            -0.13573771864745152,
+            0.8117844891595659
+          ]
+        },
+        "events": [],
+        "metric": "success",
+        "joint_angles": {}
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": false
+      },
+      "actions": 467,
+      "actions_sha256": "d2dbc62be74909f4ee914e7cbd0792abb8259fd5cfbbe2508ec92d09c94d30ee",
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/author.py\", line 347, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/author.py\", line 234, in transport\n    self.put(name, arm, [*xy, bottom+self.env.by_spec[name][\"size\"][2]], fine, approach, surface_release=surface_release)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/author.py\", line 175, in put\n    self.fine_move(arm, target+offset, axes=(0, 1))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/author.py\", line 140, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+      "video": {
+        "recorded": false,
+        "camera": "fpv",
+        "fps": 10,
+        "frames": 0,
+        "duration_seconds": 0.0,
+        "full_episode": true,
+        "final_success": false
+      }
+    },
+    {
+      "task": "F10",
+      "variant": "C",
+      "seed": 0,
+      "kind": "privileged-author-physical-acceptance",
+      "independent_agent": false,
+      "human_recorded": false,
+      "source_sha256": "b84058266f2312bfc2f2aab084d42bf89e7fd58bf600170099942b2e3a0d0a85",
+      "source_unchanged": true,
+      "world_sha256": "7ca118fc40426f4ab3a12505b629a513cb533df950dd66648713c9c1cecc1734",
+      "initial_positions": {
+        "ref0": [
+          -0.2306077140050885,
+          -0.062141778372040844,
+          0.8097844851020015
+        ],
+        "ref1": [
+          -0.2306077140050885,
+          0.06785822162795915,
+          0.8097844851020015
+        ],
+        "ref2": [
+          -0.10060771400508851,
+          -0.062141778372040844,
+          0.8097844851020015
+        ],
+        "ref3": [
+          -0.10060771400508851,
+          0.06785822162795915,
+          0.8097844851020015
+        ],
+        "piece0": [
+          -0.025607714005088506,
+          -0.21714177837204085,
+          0.8117844851016339
+        ],
+        "piece1": [
+          -0.025607714005088506,
+          -0.07214177837204086,
+          0.8117844851016339
+        ],
+        "piece2": [
+          -0.025607714005088506,
+          0.07285822162795913,
+          0.8117844851016339
+        ],
+        "piece3": [
+          -0.025607714005088506,
+          0.2178582216279591,
+          0.8117844851016339
+        ]
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 10,
+        "fixtures_visible": true
+      },
+      "score": {
+        "success": false,
+        "hold_seconds": 0.0,
+        "predicates": [
+          {
+            "rule": {
+              "type": "position",
+              "object": "ref0",
+              "xy": [
+                -0.23170340750366014,
+                -0.06030007208215181
+              ],
+              "tolerance": 0.012
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "ref1",
+              "xy": [
+                -0.23170340750366014,
+                0.0696999279178482
+              ],
+              "tolerance": 0.012
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "ref2",
+              "xy": [
+                -0.10170340750366015,
+                -0.06030007208215181
+              ],
+              "tolerance": 0.012
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "ref3",
+              "xy": [
+                -0.10170340750366015,
+                0.0696999279178482
+              ],
+              "tolerance": 0.012
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "piece2",
+              "xy": [
+                0.09829659249633986,
+                -0.06030007208215181
+              ],
+              "tolerance": 0.025
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "piece0",
+              "xy": [
+                0.09829659249633986,
+                0.0696999279178482
+              ],
+              "tolerance": 0.025
+            },
+            "passed": true
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "piece3",
+              "xy": [
+                0.22829659249633988,
+                -0.06030007208215181
+              ],
+              "tolerance": 0.025
+            },
+            "passed": false
+          },
+          {
+            "rule": {
+              "type": "position",
+              "object": "piece1",
+              "xy": [
+                0.22829659249633988,
+                0.0696999279178482
+              ],
+              "tolerance": 0.025
+            },
+            "passed": false
+          }
+        ],
+        "object_positions": {
+          "ref0": [
+            -0.2306077140050885,
+            -0.062141778372040844,
+            0.8097844891595659
+          ],
+          "ref1": [
+            -0.2306077140050885,
+            0.06785822162795915,
+            0.8097844891595659
+          ],
+          "ref2": [
+            -0.10060771400508851,
+            -0.062141778372040844,
+            0.8097844891595659
+          ],
+          "ref3": [
+            -0.10060771400508851,
+            0.06785822162795915,
+            0.8097844891595659
+          ],
+          "piece0": [
+            0.09979697442574972,
+            0.07014296971218155,
+            0.8117844891595659
+          ],
+          "piece1": [
+            -0.025607714005088506,
+            -0.07214177837204086,
+            0.8117844891595659
+          ],
+          "piece2": [
+            0.09962038196767478,
+            -0.061185174034762056,
+            0.8117844891595659
+          ],
+          "piece3": [
+            0.24760126372885483,
+            -0.04061820062046261,
+            0.8396284412935741
+          ]
+        },
+        "events": [],
+        "metric": "success",
+        "joint_angles": {}
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": false
+      },
+      "actions": 456,
+      "actions_sha256": "68c8bcdeb67cee827628ee65500295cdce0913605c9f56dd875dc713c18dd8e1",
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/author.py\", line 347, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/author.py\", line 234, in transport\n    self.put(name, arm, [*xy, bottom+self.env.by_spec[name][\"size\"][2]], fine, approach, surface_release=surface_release)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/author.py\", line 175, in put\n    self.fine_move(arm, target+offset, axes=(0, 1))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v110/simulator/tabletop50/author.py\", line 140, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+      "video": {
+        "recorded": false,
+        "camera": "fpv",
+        "fps": 10,
+        "frames": 0,
+        "duration_seconds": 0.0,
+        "full_episode": true,
+        "final_success": false
+      }
+    }
+  ]
+}

@@ -337,3 +337,23 @@ def test_author_restores_actual_wrist_even_when_command_counters_are_stale(tmp_p
         author.restore_wrist(0)
         assert np.linalg.norm(author.wrist_matrix(0)-baseline) < .055
     finally: e.close()
+
+
+def test_mosaic_accepts_correct_cell_offsets_but_rejects_wrong_cells_and_hovering():
+    e = TabletopDual(task_spec("F10", "B"), render=False)
+    try:
+        state = e.snapshot()
+        goals = [g for g in e.spec["goals"] if g["object"].startswith("piece")]
+        zones = {z["id"]: z for z in e.spec["zones"]}
+        for g in goals:
+            state[g["object"]]["pos"] = np.array(zones[g["target"]]["xy"]+[.812])+[.030, .020, 0.]
+        assert all(e.predicate(g, state) for g in goals)
+        g = goals[0]; pos = state[g["object"]]["pos"].copy()
+        state[g["object"]]["pos"] = pos+[0., .13, 0.]
+        assert not e.predicate(g, state)
+        center = np.array(zones[g["target"]]["xy"])
+        state[g["object"]]["pos"] = np.r_[center+[.060, 0.], .812]
+        assert not e.predicate(g, state)
+        state[g["object"]]["pos"] = np.r_[center, 1.02]
+        assert not e.predicate(g, state)
+    finally: e.close()

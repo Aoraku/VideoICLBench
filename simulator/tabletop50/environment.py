@@ -57,7 +57,8 @@ class TabletopDual(DesktopDual):
                           size=" ".join(map(str, zone["half_size"]+[.001])),
                           pos=" ".join(map(str, zone["xy"]+[.801])),
                           rgba=".30 .37 .44 1", contype="0", conaffinity="0", group="1")
-            marker(arena.worldbody, zone["xy"], zone.get("marker", 0))
+            if zone.get("marker", 0) is not None:
+                marker(arena.worldbody, zone["xy"], zone.get("marker", 0))
         position = np.array([-.55, 0., 1.48])
         target = np.array([.03, 0., .82])
         back = (position-target)/np.linalg.norm(position-target)

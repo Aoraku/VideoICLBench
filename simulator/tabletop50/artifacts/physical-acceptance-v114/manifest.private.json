@@ -1,0 +1,31 @@
+{
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "source_sha256": "3a7103a0cf3670c304ac8a608f2a3b22b13df1d87645a4f8e3ea4b970c8b04be",
+  "source_archive": "../mosaic-source-v114.tar.gz",
+  "same_initial_state": true,
+  "mutually_exclusive_results": true,
+  "cases": [
+    {
+      "task": "F10",
+      "variant": "A",
+      "seed": 0,
+      "actions": 527,
+      "success": true
+    },
+    {
+      "task": "F10",
+      "variant": "B",
+      "seed": 0,
+      "actions": 552,
+      "success": true
+    },
+    {
+      "task": "F10",
+      "variant": "C",
+      "seed": 0,
+      "actions": 573,
+      "success": true
+    }
+  ]
+}

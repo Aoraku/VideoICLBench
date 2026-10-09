@@ -1,0 +1,156 @@
+{
+  "status": "engineering-author-demonstrations",
+  "expected_families": 50,
+  "expected_rule_conditions": 150,
+  "verified_videos": 3,
+  "complete_three_rule_families": 1,
+  "complete_groups": [
+    {
+      "task": "F16",
+      "seed": 0,
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7"
+    }
+  ],
+  "usable_videos": 3,
+  "usable_complete_three_rule_families": 1,
+  "human_videos": 0,
+  "independent_agent_trials": 0,
+  "cases": [
+    {
+      "task": "F16",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "world_sha256": "f9d073401fa2df07ce79f9fd5f55c53d4e96a9a6d66b10e42eedda0ba6f7e50c",
+      "video_sha256": "5dbb7717109e60d1db884c6cc37b92da9a1d2114604503c036cac9eec3935cbc",
+      "decoded_frames": 2658,
+      "fps": 10.0,
+      "duration_seconds": 265.8,
+      "ending_image_mae": 2.401606321334839,
+      "initial_positions": {
+        "piece0": [
+          0.1067092934376137,
+          -0.24354511379354915,
+          0.8247844851006771
+        ],
+        "piece2": [
+          0.1067092934376137,
+          -0.08354511379354917,
+          0.8247844851006771
+        ],
+        "piece1": [
+          0.1067092934376137,
+          0.07645488620645083,
+          0.8247844851006771
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 6,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F16-A-0"
+    },
+    {
+      "task": "F16",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "world_sha256": "f9d073401fa2df07ce79f9fd5f55c53d4e96a9a6d66b10e42eedda0ba6f7e50c",
+      "video_sha256": "f9d1b58731fc7e86c94c40bc6985f60c9eb95ecfaf7d1f1b3e832a554a3fb1bf",
+      "decoded_frames": 3294,
+      "fps": 10.0,
+      "duration_seconds": 329.4,
+      "ending_image_mae": 2.394361734390259,
+      "initial_positions": {
+        "piece0": [
+          0.1067092934376137,
+          -0.24354511379354915,
+          0.8247844851006771
+        ],
+        "piece2": [
+          0.1067092934376137,
+          -0.08354511379354917,
+          0.8247844851006771
+        ],
+        "piece1": [
+          0.1067092934376137,
+          0.07645488620645083,
+          0.8247844851006771
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 6,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F16-B-0"
+    },
+    {
+      "task": "F16",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "world_sha256": "f9d073401fa2df07ce79f9fd5f55c53d4e96a9a6d66b10e42eedda0ba6f7e50c",
+      "video_sha256": "8af1b0af6be03be689356d11b0501256725368c8036e0695b895683194399ca1",
+      "decoded_frames": 2174,
+      "fps": 10.0,
+      "duration_seconds": 217.4,
+      "ending_image_mae": 2.404932737350464,
+      "initial_positions": {
+        "piece0": [
+          0.1067092934376137,
+          -0.24354511379354915,
+          0.8247844851006771
+        ],
+        "piece2": [
+          0.1067092934376137,
+          -0.08354511379354917,
+          0.8247844851006771
+        ],
+        "piece1": [
+          0.1067092934376137,
+          0.07645488620645083,
+          0.8247844851006771
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 6,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F16-C-0"
+    }
+  ],
+  "rejected": [],
+  "visual_review": {
+    "accepted": true,
+    "fixture_visible": true,
+    "reviewed_frames": "initial and all three finals",
+    "rule_label_correction": "A means cyclic screen-right; B screen-left in FPV. Historical world-Y labels were reversed in prose; variant IDs, goals, actions and results are unchanged."
+  }
+}

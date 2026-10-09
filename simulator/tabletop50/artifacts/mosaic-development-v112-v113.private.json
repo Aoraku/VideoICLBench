@@ -1,0 +1,1226 @@
+{
+  "kind": "privileged-author-development-diagnostics",
+  "independent_agent": false,
+  "batches": [
+    {
+      "version": 112,
+      "batch": {
+        "revision": "tabletop50-fpv-v1",
+        "expected": 3,
+        "finished": 3,
+        "succeeded": 0,
+        "rows": [
+          {
+            "task": "F10",
+            "variant": "A",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 341, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 223, in transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 129, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for piece0\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-mosaic-v112/F10-A-0/result.private.json"
+          },
+          {
+            "task": "F10",
+            "variant": "B",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 341, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 223, in transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 129, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for piece1\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-mosaic-v112/F10-B-0/result.private.json"
+          },
+          {
+            "task": "F10",
+            "variant": "C",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 341, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 223, in transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 129, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for piece2\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-mosaic-v112/F10-C-0/result.private.json"
+          }
+        ]
+      },
+      "proofs": [
+        {
+          "task": "F10",
+          "variant": "A",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "5cccd9f7ae8e63515314a43ef9cc429246763e131462bda6ab46acd94dfccdfc",
+          "source_unchanged": true,
+          "world_sha256": "b94942ccd0e84a32f679071330ab373632af7b6426665f148661da716c7ae746",
+          "initial_positions": {
+            "ref0": [
+              -0.2306077140050885,
+              -0.062141778372040844,
+              0.8097844851020015
+            ],
+            "ref1": [
+              -0.2306077140050885,
+              0.06785822162795915,
+              0.8097844851020015
+            ],
+            "ref2": [
+              -0.10060771400508851,
+              -0.062141778372040844,
+              0.8097844851020015
+            ],
+            "ref3": [
+              -0.10060771400508851,
+              0.06785822162795915,
+              0.8097844851020015
+            ],
+            "piece0": [
+              -0.34060771400508855,
+              -0.21714177837204085,
+              0.8117844851016339
+            ],
+            "piece1": [
+              -0.34060771400508855,
+              -0.07214177837204086,
+              0.8117844851016339
+            ],
+            "piece2": [
+              -0.34060771400508855,
+              0.07285822162795913,
+              0.8117844851016339
+            ],
+            "piece3": [
+              -0.34060771400508855,
+              0.2178582216279591,
+              0.8117844851016339
+            ]
+          },
+          "initial_joint_angles": {},
+          "visual_environment": {
+            "fixture_count": 14,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref0",
+                  "target": "reference0"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref1",
+                  "target": "reference1"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref2",
+                  "target": "reference2"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref3",
+                  "target": "reference3"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece0",
+                  "target": "target0"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece2",
+                  "target": "target1"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece1",
+                  "target": "target2"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece3",
+                  "target": "target3"
+                },
+                "passed": false
+              }
+            ],
+            "object_positions": {
+              "ref0": [
+                -0.2306077140050885,
+                -0.062141778372040844,
+                0.8097844891595659
+              ],
+              "ref1": [
+                -0.2306077140050885,
+                0.06785822162795915,
+                0.8097844891595659
+              ],
+              "ref2": [
+                -0.10060771400508851,
+                -0.062141778372040844,
+                0.8097844891595659
+              ],
+              "ref3": [
+                -0.10060771400508851,
+                0.06785822162795915,
+                0.8097844891595659
+              ],
+              "piece0": [
+                -0.3404857545606325,
+                -0.21781478558011938,
+                0.8117839670832622
+              ],
+              "piece1": [
+                -0.34060771400508855,
+                -0.07214177837204086,
+                0.8117844891595659
+              ],
+              "piece2": [
+                -0.34060771400508855,
+                0.07285822162795913,
+                0.8117844891595659
+              ],
+              "piece3": [
+                -0.34060771400508855,
+                0.2178582216279591,
+                0.8117844891595659
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {}
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 58,
+          "actions_sha256": "f7021ac379ebd8c55a5100402e5cb1408848e8457d530985505375794b6344ab",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 341, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 223, in transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 129, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for piece0\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        },
+        {
+          "task": "F10",
+          "variant": "B",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "5cccd9f7ae8e63515314a43ef9cc429246763e131462bda6ab46acd94dfccdfc",
+          "source_unchanged": true,
+          "world_sha256": "b94942ccd0e84a32f679071330ab373632af7b6426665f148661da716c7ae746",
+          "initial_positions": {
+            "ref0": [
+              -0.2306077140050885,
+              -0.062141778372040844,
+              0.8097844851020015
+            ],
+            "ref1": [
+              -0.2306077140050885,
+              0.06785822162795915,
+              0.8097844851020015
+            ],
+            "ref2": [
+              -0.10060771400508851,
+              -0.062141778372040844,
+              0.8097844851020015
+            ],
+            "ref3": [
+              -0.10060771400508851,
+              0.06785822162795915,
+              0.8097844851020015
+            ],
+            "piece0": [
+              -0.34060771400508855,
+              -0.21714177837204085,
+              0.8117844851016339
+            ],
+            "piece1": [
+              -0.34060771400508855,
+              -0.07214177837204086,
+              0.8117844851016339
+            ],
+            "piece2": [
+              -0.34060771400508855,
+              0.07285822162795913,
+              0.8117844851016339
+            ],
+            "piece3": [
+              -0.34060771400508855,
+              0.2178582216279591,
+              0.8117844851016339
+            ]
+          },
+          "initial_joint_angles": {},
+          "visual_environment": {
+            "fixture_count": 14,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref0",
+                  "target": "reference0"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref1",
+                  "target": "reference1"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref2",
+                  "target": "reference2"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref3",
+                  "target": "reference3"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece1",
+                  "target": "target0"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece0",
+                  "target": "target1"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece3",
+                  "target": "target2"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece2",
+                  "target": "target3"
+                },
+                "passed": false
+              }
+            ],
+            "object_positions": {
+              "ref0": [
+                -0.2306077140050885,
+                -0.062141778372040844,
+                0.8097844891595659
+              ],
+              "ref1": [
+                -0.2306077140050885,
+                0.06785822162795915,
+                0.8097844891595659
+              ],
+              "ref2": [
+                -0.10060771400508851,
+                -0.062141778372040844,
+                0.8097844891595659
+              ],
+              "ref3": [
+                -0.10060771400508851,
+                0.06785822162795915,
+                0.8097844891595659
+              ],
+              "piece0": [
+                -0.34060771400508855,
+                -0.21714177837204085,
+                0.8117844891595659
+              ],
+              "piece1": [
+                -0.33977478381964443,
+                -0.08472000113554758,
+                0.8230239179280366
+              ],
+              "piece2": [
+                -0.34060771400508855,
+                0.07285822162795913,
+                0.8117844891595659
+              ],
+              "piece3": [
+                -0.34060771400508855,
+                0.2178582216279591,
+                0.8117844891595659
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {}
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 77,
+          "actions_sha256": "d70b44a71cbd11b729bdada0fda46144daad6f8e54f5f81535d6ae453129f8f9",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 341, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 223, in transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 129, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for piece1\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        },
+        {
+          "task": "F10",
+          "variant": "C",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "5cccd9f7ae8e63515314a43ef9cc429246763e131462bda6ab46acd94dfccdfc",
+          "source_unchanged": true,
+          "world_sha256": "b94942ccd0e84a32f679071330ab373632af7b6426665f148661da716c7ae746",
+          "initial_positions": {
+            "ref0": [
+              -0.2306077140050885,
+              -0.062141778372040844,
+              0.8097844851020015
+            ],
+            "ref1": [
+              -0.2306077140050885,
+              0.06785822162795915,
+              0.8097844851020015
+            ],
+            "ref2": [
+              -0.10060771400508851,
+              -0.062141778372040844,
+              0.8097844851020015
+            ],
+            "ref3": [
+              -0.10060771400508851,
+              0.06785822162795915,
+              0.8097844851020015
+            ],
+            "piece0": [
+              -0.34060771400508855,
+              -0.21714177837204085,
+              0.8117844851016339
+            ],
+            "piece1": [
+              -0.34060771400508855,
+              -0.07214177837204086,
+              0.8117844851016339
+            ],
+            "piece2": [
+              -0.34060771400508855,
+              0.07285822162795913,
+              0.8117844851016339
+            ],
+            "piece3": [
+              -0.34060771400508855,
+              0.2178582216279591,
+              0.8117844851016339
+            ]
+          },
+          "initial_joint_angles": {},
+          "visual_environment": {
+            "fixture_count": 14,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref0",
+                  "target": "reference0"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref1",
+                  "target": "reference1"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref2",
+                  "target": "reference2"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref3",
+                  "target": "reference3"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece2",
+                  "target": "target0"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece0",
+                  "target": "target1"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece3",
+                  "target": "target2"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece1",
+                  "target": "target3"
+                },
+                "passed": false
+              }
+            ],
+            "object_positions": {
+              "ref0": [
+                -0.2306077140050885,
+                -0.062141778372040844,
+                0.8097844891595659
+              ],
+              "ref1": [
+                -0.2306077140050885,
+                0.06785822162795915,
+                0.8097844891595659
+              ],
+              "ref2": [
+                -0.10060771400508851,
+                -0.062141778372040844,
+                0.8097844891595659
+              ],
+              "ref3": [
+                -0.10060771400508851,
+                0.06785822162795915,
+                0.8097844891595659
+              ],
+              "piece0": [
+                -0.34060771400508855,
+                -0.21714177837204085,
+                0.8117844891595659
+              ],
+              "piece1": [
+                -0.34060771400508855,
+                -0.07214177837204086,
+                0.8117844891595659
+              ],
+              "piece2": [
+                -0.3266060955044552,
+                0.07378861460981101,
+                0.8117829389859117
+              ],
+              "piece3": [
+                -0.34060771400508855,
+                0.2178582216279591,
+                0.8117844891595659
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {}
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 78,
+          "actions_sha256": "85b811d266c0c412c5f8df3dc68e0df9b1d4a274d021caf461cf90802e745504",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 341, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 223, in transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v112/simulator/tabletop50/author.py\", line 129, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for piece2\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        }
+      ]
+    },
+    {
+      "version": 113,
+      "batch": {
+        "revision": "tabletop50-fpv-v1",
+        "expected": 3,
+        "finished": 3,
+        "succeeded": 1,
+        "rows": [
+          {
+            "task": "F10",
+            "variant": "A",
+            "seed": 0,
+            "success": true,
+            "exit_code": 0,
+            "error": null,
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-mosaic-v113/F10-A-0/result.private.json"
+          },
+          {
+            "task": "F10",
+            "variant": "B",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v113/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v113/simulator/tabletop50/author.py\", line 341, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v113/simulator/tabletop50/author.py\", line 223, in transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v113/simulator/tabletop50/author.py\", line 132, in pick\n    if not self.state(name)[\"grasp\"][arm]: raise RuntimeError(f\"Dropped {name} after lift\")\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Dropped piece0 after lift\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-mosaic-v113/F10-B-0/result.private.json"
+          },
+          {
+            "task": "F10",
+            "variant": "C",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": null,
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-mosaic-v113/F10-C-0/result.private.json"
+          }
+        ]
+      },
+      "proofs": [
+        {
+          "task": "F10",
+          "variant": "A",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "b88e023148935035085c3391f5c5d89227d2071214954371209ecaad9d0b2e8e",
+          "source_unchanged": true,
+          "world_sha256": "99155e0de36d68613bf3a65af2d638c07bc7efc513827a7fe4983d5a265366c6",
+          "initial_positions": {
+            "ref0": [
+              -0.2306077140050885,
+              -0.062141778372040844,
+              0.8247844851006771
+            ],
+            "ref1": [
+              -0.2306077140050885,
+              0.06785822162795915,
+              0.8247844851006771
+            ],
+            "ref2": [
+              -0.10060771400508851,
+              -0.062141778372040844,
+              0.8247844851006771
+            ],
+            "ref3": [
+              -0.10060771400508851,
+              0.06785822162795915,
+              0.8247844851006771
+            ],
+            "piece0": [
+              -0.34060771400508855,
+              -0.21714177837204085,
+              0.8247844851006771
+            ],
+            "piece1": [
+              -0.34060771400508855,
+              -0.07214177837204086,
+              0.8247844851006771
+            ],
+            "piece2": [
+              -0.34060771400508855,
+              0.07285822162795913,
+              0.8247844851006771
+            ],
+            "piece3": [
+              -0.34060771400508855,
+              0.2178582216279591,
+              0.8247844851006771
+            ]
+          },
+          "initial_joint_angles": {},
+          "visual_environment": {
+            "fixture_count": 14,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": true,
+            "hold_seconds": 24.4,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref0",
+                  "target": "reference0"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref1",
+                  "target": "reference1"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref2",
+                  "target": "reference2"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref3",
+                  "target": "reference3"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece0",
+                  "target": "target0"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece2",
+                  "target": "target1"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece1",
+                  "target": "target2"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece3",
+                  "target": "target3"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "ref0": [
+                -0.2306077140050885,
+                -0.062141778372040844,
+                0.8247844891595659
+              ],
+              "ref1": [
+                -0.2306077140050885,
+                0.06785822162795915,
+                0.8247844891595659
+              ],
+              "ref2": [
+                -0.10060771400508851,
+                -0.062141778372040844,
+                0.8247844891595659
+              ],
+              "ref3": [
+                -0.10060771400508851,
+                0.06785822162795915,
+                0.8247844891595659
+              ],
+              "piece0": [
+                0.0953974408038796,
+                -0.04653082446696871,
+                0.8247844891595659
+              ],
+              "piece1": [
+                0.20126118152698813,
+                -0.05424374464981936,
+                0.8247844891595658
+              ],
+              "piece2": [
+                0.13620640770706333,
+                0.04454320375358666,
+                0.8247844891595658
+              ],
+              "piece3": [
+                0.2248725867820939,
+                0.0623303024669899,
+                0.8247844891595659
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {}
+          },
+          "cross_rule_predicates": {
+            "A": true,
+            "B": false,
+            "C": false
+          },
+          "actions": 746,
+          "actions_sha256": "8fd2ddfbbbea1f759d15c7f1772c880bc038924e89406ad625a4c53286235160",
+          "error": null,
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": true
+          }
+        },
+        {
+          "task": "F10",
+          "variant": "B",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "b88e023148935035085c3391f5c5d89227d2071214954371209ecaad9d0b2e8e",
+          "source_unchanged": true,
+          "world_sha256": "99155e0de36d68613bf3a65af2d638c07bc7efc513827a7fe4983d5a265366c6",
+          "initial_positions": {
+            "ref0": [
+              -0.2306077140050885,
+              -0.062141778372040844,
+              0.8247844851006771
+            ],
+            "ref1": [
+              -0.2306077140050885,
+              0.06785822162795915,
+              0.8247844851006771
+            ],
+            "ref2": [
+              -0.10060771400508851,
+              -0.062141778372040844,
+              0.8247844851006771
+            ],
+            "ref3": [
+              -0.10060771400508851,
+              0.06785822162795915,
+              0.8247844851006771
+            ],
+            "piece0": [
+              -0.34060771400508855,
+              -0.21714177837204085,
+              0.8247844851006771
+            ],
+            "piece1": [
+              -0.34060771400508855,
+              -0.07214177837204086,
+              0.8247844851006771
+            ],
+            "piece2": [
+              -0.34060771400508855,
+              0.07285822162795913,
+              0.8247844851006771
+            ],
+            "piece3": [
+              -0.34060771400508855,
+              0.2178582216279591,
+              0.8247844851006771
+            ]
+          },
+          "initial_joint_angles": {},
+          "visual_environment": {
+            "fixture_count": 14,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref0",
+                  "target": "reference0"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref1",
+                  "target": "reference1"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref2",
+                  "target": "reference2"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref3",
+                  "target": "reference3"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece1",
+                  "target": "target0"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece0",
+                  "target": "target1"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece3",
+                  "target": "target2"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece2",
+                  "target": "target3"
+                },
+                "passed": false
+              }
+            ],
+            "object_positions": {
+              "ref0": [
+                -0.2306077140050885,
+                -0.062141778372040844,
+                0.8247844891595659
+              ],
+              "ref1": [
+                -0.2306077140050885,
+                0.06785822162795915,
+                0.8247844891595659
+              ],
+              "ref2": [
+                -0.10060771400508851,
+                -0.062141778372040844,
+                0.8247844891595659
+              ],
+              "ref3": [
+                -0.10060771400508851,
+                0.06785822162795915,
+                0.8247844891595659
+              ],
+              "piece0": [
+                -0.37336501964140517,
+                -0.24593159075363075,
+                0.8247844891595659
+              ],
+              "piece1": [
+                0.10294195614909564,
+                -0.05268439615544526,
+                0.8247844891595658
+              ],
+              "piece2": [
+                -0.34060771400508855,
+                0.07285822162795913,
+                0.8247844891595659
+              ],
+              "piece3": [
+                -0.34060771400508855,
+                0.2178582216279591,
+                0.8247844891595659
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {}
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 328,
+          "actions_sha256": "be7ea57fc25244c8ef56941e7796393a80238e53f9e814101b4c7d3c99fa9dfc",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v113/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v113/simulator/tabletop50/author.py\", line 341, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v113/simulator/tabletop50/author.py\", line 223, in transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v113/simulator/tabletop50/author.py\", line 132, in pick\n    if not self.state(name)[\"grasp\"][arm]: raise RuntimeError(f\"Dropped {name} after lift\")\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Dropped piece0 after lift\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        },
+        {
+          "task": "F10",
+          "variant": "C",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "b88e023148935035085c3391f5c5d89227d2071214954371209ecaad9d0b2e8e",
+          "source_unchanged": true,
+          "world_sha256": "99155e0de36d68613bf3a65af2d638c07bc7efc513827a7fe4983d5a265366c6",
+          "initial_positions": {
+            "ref0": [
+              -0.2306077140050885,
+              -0.062141778372040844,
+              0.8247844851006771
+            ],
+            "ref1": [
+              -0.2306077140050885,
+              0.06785822162795915,
+              0.8247844851006771
+            ],
+            "ref2": [
+              -0.10060771400508851,
+              -0.062141778372040844,
+              0.8247844851006771
+            ],
+            "ref3": [
+              -0.10060771400508851,
+              0.06785822162795915,
+              0.8247844851006771
+            ],
+            "piece0": [
+              -0.34060771400508855,
+              -0.21714177837204085,
+              0.8247844851006771
+            ],
+            "piece1": [
+              -0.34060771400508855,
+              -0.07214177837204086,
+              0.8247844851006771
+            ],
+            "piece2": [
+              -0.34060771400508855,
+              0.07285822162795913,
+              0.8247844851006771
+            ],
+            "piece3": [
+              -0.34060771400508855,
+              0.2178582216279591,
+              0.8247844851006771
+            ]
+          },
+          "initial_joint_angles": {},
+          "visual_environment": {
+            "fixture_count": 14,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref0",
+                  "target": "reference0"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref1",
+                  "target": "reference1"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref2",
+                  "target": "reference2"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ref3",
+                  "target": "reference3"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece2",
+                  "target": "target0"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece0",
+                  "target": "target1"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece3",
+                  "target": "target2"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "piece1",
+                  "target": "target3"
+                },
+                "passed": false
+              }
+            ],
+            "object_positions": {
+              "ref0": [
+                -0.2306077140050885,
+                -0.062141778372040844,
+                0.8247844891595659
+              ],
+              "ref1": [
+                -0.2306077140050885,
+                0.06785822162795915,
+                0.8247844891595659
+              ],
+              "ref2": [
+                -0.10060771400508851,
+                -0.062141778372040844,
+                0.8247844891595659
+              ],
+              "ref3": [
+                -0.10060771400508851,
+                0.06785822162795915,
+                0.8247844891595659
+              ],
+              "piece0": [
+                0.08785826135364123,
+                0.07498439939754697,
+                0.8247844891595659
+              ],
+              "piece1": [
+                0.24154876714119877,
+                0.22670738891968037,
+                0.8247844891595659
+              ],
+              "piece2": [
+                0.1230562633880224,
+                -0.10138126886775234,
+                0.8269760587175142
+              ],
+              "piece3": [
+                0.21653910632253542,
+                -0.050058896192660705,
+                0.8247844891595659
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {}
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 801,
+          "actions_sha256": "fa901eb84199e3b857160f4dfe23f4f054860a9c1654ea5442189f5ee050070f",
+          "error": null,
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        }
+      ]
+    }
+  ]
+}

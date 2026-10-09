@@ -52,16 +52,22 @@ def extended(recipe, v, rng, obj, position):
             source = [[-.23+(i//2)*.13, -.065+(i % 2)*.13] for i in range(4)]
             dest = [[.10+(i//2)*.13, -.065+(i % 2)*.13] for i in range(4)]
             for cx in [-.165, .165]:
-                for x in [cx-.105, cx+.105]:
-                    static_box([x, 0.], [.002, .107, .002], .802)
-                for y in [-.105, .105]:
-                    static_box([cx, y], [.105, .002, .002], .802)
-                static_box([cx-.099, -.099], [.006, .006, .003], .803, (.12, .3, .85, 1))
+                for x in [cx-.130, cx+.130]:
+                    static_box([x, 0.], [.002, .132, .002], .802)
+                for y in [-.130, .130]:
+                    static_box([cx, y], [.130, .002, .002], .802)
+                static_box([cx-.124, -.124], [.006, .006, .003], .803, (.12, .3, .85, 1))
+                static_box([cx, 0.], [.002, .130, .002], .802)
+                static_box([cx, 0.], [.130, .002, .002], .802)
+            for prefix, cells in [("reference", source), ("target", dest)]:
+                zones.extend(dict(id=f"{prefix}{i}", xy=xy, half_size=[.061, .061], marker=None)
+                             for i, xy in enumerate(cells))
         if recipe in ("mosaic", "reference"):
             for i, index in enumerate(order):
-                objects.append(obj(f"ref{i}", source[i], colors[index], size=(.025, .025, .01)))
-                goals.append(position(f"ref{i}", source[i], .012))
-            movable_starts = [[-.025 if recipe == "mosaic" else -.04, -.22+i*.145] for i in range(count)]
+                objects.append(obj(f"ref{i}", source[i], colors[index], size=(.025, .025, .025 if recipe == "mosaic" else .01)))
+                goals.append(dict(type="place", object=f"ref{i}", target=f"reference{i}")
+                             if recipe == "mosaic" else position(f"ref{i}", source[i], .012))
+            movable_starts = [[0. if recipe == "mosaic" else -.04, -.22+i*.145] for i in range(count)]
         elif recipe == "relocate":
             # An asymmetric layout, with the same members in three rotations.
             source = [[-.22, -.16], [-.22, -.04], [-.10, -.16], [-.10, .08]]
@@ -85,14 +91,17 @@ def extended(recipe, v, rng, obj, position):
                 for i in range(6):
                     static_box([-.32+r*.10, -.125+i*.05], [.018, .018, .002], .803, colors_rgba(colors[p[i]]))
         for i in range(count):
-            objects.append(obj(f"piece{i}", movable_starts[i], colors[i], size=(.025, .025, .012)))
+            objects.append(obj(f"piece{i}", movable_starts[i], colors[i],
+                               size=(.025, .025, .025 if recipe == "mosaic" else .012)))
         if recipe == "correct":
             changed = [i for i in range(count) if permutation[i] != i]
             # Clear occupied targets using distinct staging locations.
             for j, i in enumerate(changed): move(f"piece{i}", [.00, -.22+j*.22])
         for slot, index in enumerate(permutation):
-            at(f"piece{index}", dest[slot])
-            if recipe == "mosaic": plan[-1]["fine"] = True
+            if recipe == "mosaic":
+                goals.append(dict(type="place", object=f"piece{index}", target=f"target{slot}"))
+                move(f"piece{index}", dest[slot])
+            else: at(f"piece{index}", dest[slot])
     elif recipe == "vacancy":
         spots = [[.10, -.24+i*.16] for i in range(4)]
         for i in range(5):

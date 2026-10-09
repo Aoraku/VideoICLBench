@@ -168,12 +168,6 @@ class TabletopAuthor(Author):
             if state["pos"][2]-extent <= target[2]-self.env.by_spec[name]["size"][2]+.018:
                 break
             self.act(arm, "DOWN")
-        if fine and approach is None and self.env.spec["id"] == "F10" and self.state(name)["grasp"][arm]:
-            # Re-measure the held-piece offset just above the board. Correct
-            # XY while it is still in the fingers, before contact unloads them.
-            offset = self.eef(arm)-self.state(name)["pos"]
-            self.fine_move(arm, target+offset, axes=(0, 1))
-            offset = self.eef(arm)-self.state(name)["pos"]
         if approach is None:
             state = self.state(name)
             bottom = state["pos"][2]-(np.abs(state["mat"]) @ self.env.by_spec[name]["size"])[2]
@@ -224,7 +218,7 @@ class TabletopAuthor(Author):
             else: raise RuntimeError("Shaft positioning did not converge")
 
     def transport(self, name, arm, xy, bottom=.8, yaw=None, fine=False, approach=None, surface_release=False):
-        if self.env.spec["id"] in ("F03", "F07"):
+        if self.env.spec["id"] in ("F03", "F07", "F10"):
             self.restore_wrist(arm)
         self.pick(name, arm)
         if yaw is not None:
@@ -345,10 +339,23 @@ class TabletopAuthor(Author):
                 self.transport(name, arm, free[0], surface_release=True)
                 arm = target_arm
             self.transport(name, arm, p["xy"], p["bottom"], p.get("yaw"), p.get("fine", False),
-                           p.get("approach"), surface_release=self.env.spec["id"] in ("F03", "F07"))
+                           p.get("approach"), surface_release=self.env.spec["id"] in ("F03", "F07", "F10"))
         if self.env.spec["id"] == "F07":
             self.repair_classification()
+        if self.env.spec["id"] == "F10":
+            self.repair_mosaic()
         self.wait(6)
+
+    def repair_mosaic(self):
+        zones = {z["id"]: z for z in self.env.spec["zones"]}
+        for _ in range(2):
+            for goal in self.env.spec["goals"]:
+                state = self.env.snapshot()
+                if self.env.predicate(goal, state): continue
+                name = goal["object"]
+                arm = 0 if state[name]["pos"][1] < 0 else 1
+                self.transport(name, arm, zones[goal["target"]]["xy"], surface_release=True)
+            if all(self.env.predicate(g, self.env.snapshot()) for g in self.env.spec["goals"]): return
 
     def repair_classification(self):
         # Containers are movable. A valid classifier follows their actual

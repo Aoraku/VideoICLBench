@@ -1,6 +1,6 @@
 # 50题视频索引
 
-合格历史预览51段，完整三版本17族。未完成项明确留空；不是最终统一源码150段验收。
+合格历史预览54段，完整三版本18族。未完成项明确留空；不是最终统一源码150段验收。
 
 | 任务 | A | B | C |
 | --- | --- | --- | --- |
@@ -19,7 +19,7 @@
 | F13 长杆穿双孔 | [视频](artifacts/visible-preview-v46/F13-A-0/video.mp4) | [视频](artifacts/visible-preview-v46/F13-B-0/video.mp4) | [视频](artifacts/visible-preview-v46/F13-C-0/video.mp4) |
 | F14 键向配合 | 待完成 | 待完成 | 待完成 |
 | F15 可移动孔板装配 | 待完成 | 待完成 | 待完成 |
-| F16 单空位循环重排 | 待完成 | 待完成 | 待完成 |
+| F16 单空位循环重排 | [视频](artifacts/vacancy-preview-v79/F16-A-0/video.mp4) | [视频](artifacts/vacancy-preview-v79/F16-B-0/video.mp4) | [视频](artifacts/vacancy-preview-v79/F16-C-0/video.mp4) |
 | F17 堆叠取件与剩余结构恢复 | 待完成 | 待完成 | 待完成 |
 | F18 两个占用盒交换内容 | 待完成 | 待完成 | 待完成 |
 | F19 局部纠错 | 待完成 | 待完成 | 待完成 |

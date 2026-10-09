@@ -63,11 +63,24 @@ def test_mosaic_rules_are_rigid_transforms_of_a_square_reference():
             pieces = {o["id"]: o for o in spec["objects"] if o["id"].startswith("piece")}
             ref_center = np.mean([o["xy"] for o in refs], axis=0)
             targets = [g for g in spec["goals"] if g["object"].startswith("piece")]
-            target_center = np.mean([g["xy"] for g in targets], axis=0)
+            zones = {z["id"]: z for z in spec["zones"]}
+            target_center = np.mean([zones[g["target"]]["xy"] for g in targets], axis=0)
             assert len({round(o["xy"][0], 6) for o in refs}) == 2
             assert len({round(o["xy"][1], 6) for o in refs}) == 2
             for goal in targets:
                 reference = next(o for o in refs if o["rgba"] == pieces[goal["object"]]["rgba"])
                 expected = target_center+transform@(np.array(reference["xy"])-ref_center)
-                assert np.allclose(goal["xy"], expected)
-            assert len(spec["fixtures"]) == 10
+                assert np.allclose(zones[goal["target"]]["xy"], expected)
+            assert len(spec["fixtures"]) == 14
+
+
+def test_vacancy_rule_labels_follow_first_person_left_and_right():
+    # The fixed FPV camera faces +X: increasing world Y is screen left.
+    for seed in [0, 19, 37]:
+        for variant in "ABC":
+            spec = task_spec("F16", variant, seed)
+            objects = {o["id"]: o for o in spec["objects"]}
+            initial = [o["id"] for o in sorted(objects.values(), key=lambda o: -o["xy"][1])]
+            final = [g["object"] for g in sorted(spec["goals"], key=lambda g: -g["xy"][1])]
+            expected = {"A": initial[-1:]+initial[:-1], "B": initial[1:]+initial[:1], "C": initial[::-1]}
+            assert final == expected[variant]
