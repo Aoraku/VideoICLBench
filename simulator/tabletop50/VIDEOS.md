@@ -1,6 +1,6 @@
 # 50题视频索引
 
-合格历史预览99段，完整三版本33族。未完成项明确留空；不是最终统一源码150段验收。
+合格历史预览102段，完整三版本34族。未完成项明确留空；不是最终统一源码150段验收。
 
 | 任务 | A | B | C |
 | --- | --- | --- | --- |
@@ -37,7 +37,7 @@
 | F31 有限空间装箱 | [视频](artifacts/contents-preview-v120/F31-A-0/video.mp4) | [视频](artifacts/contents-preview-v120/F31-B-0/video.mp4) | [视频](artifacts/contents-preview-v120/F31-C-0/video.mp4) |
 | F32 长短件错位铺排 | 待完成 | 待完成 | 待完成 |
 | F33 不等长行补全 | [视频](artifacts/lengths-preview-v128/F33-A-0/video.mp4) | [视频](artifacts/lengths-preview-v128/F33-B-0/video.mp4) | [视频](artifacts/lengths-preview-v128/F33-C-0/video.mp4) |
-| F34 按相对高度配对 | 待完成 | 待完成 | 待完成 |
+| F34 按相对高度配对 | [视频](artifacts/height-pair-preview-v128/F34-A-0/video.mp4) | [视频](artifacts/height-pair-preview-v128/F34-B-0/video.mp4) | [视频](artifacts/height-pair-preview-v128/F34-C-0/video.mp4) |
 | F35 配套打包并交付 | 待完成 | 待完成 | 待完成 |
 | F36 推杆送件 | [视频](artifacts/visible-preview-v46/F36-A-0/video.mp4) | [视频](artifacts/visible-preview-v46/F36-B-0/video.mp4) | [视频](artifacts/visible-preview-v46/F36-C-0/video.mp4) |
 | F37 钩取受限物件 | 待完成 | 待完成 | 待完成 |

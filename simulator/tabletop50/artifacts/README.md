@@ -102,3 +102,6 @@
 - [成对朝向与邻接](arrows-preview-v128/index.html)：F30三段；[验收清单](arrows-preview-v128/manifest.private.json)、[冻结源码](kits-source-v128.tar.gz)。该批实际不含定位垫，颜色表示配对，已校正当前道具卡片。
 
 - [不等长行补全](lengths-preview-v128/index.html)：F33三段；[验收清单](lengths-preview-v128/manifest.private.json)、[冻结源码](kits-source-v128.tar.gz)。该批图像中的三行从画面右到左依次为ref0/ref1/ref2，已据此校正任务卡方向。当前后续配方还将备件颜色与长度独立随机化，旧批冻结录像不改写。
+
+- `height-pair-preview-v128/`：F34三规则相对高度配对，含完整MP4、初终态、动作与解码审计，对应`kits-source-v128.tar.gz`。
+- `linux-tests-v140.log.txt`：冻结v140源码Linux完整测试，302项通过。

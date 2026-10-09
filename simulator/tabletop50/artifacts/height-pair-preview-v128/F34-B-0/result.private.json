@@ -1,0 +1,167 @@
+{
+  "task": "F34",
+  "variant": "B",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+  "source_unchanged": true,
+  "world_sha256": "9ee8950d101c68e929cdb9958fcf1cc1b4962b79031ab2993ddc7c12b24d36e0",
+  "initial_positions": {
+    "base0": [
+      0.1467092934376137,
+      -0.22354511379354916,
+      0.8147844851012435
+    ],
+    "part0": [
+      -0.1732907065623863,
+      -0.22354511379354916,
+      0.8197844851009034
+    ],
+    "base1": [
+      0.1467092934376137,
+      -0.0035451137935491777,
+      0.8297844851005153
+    ],
+    "part1": [
+      -0.1732907065623863,
+      0.21645488620645084,
+      0.8317844851004884
+    ],
+    "base2": [
+      0.1467092934376137,
+      0.21645488620645084,
+      0.8447844851002727
+    ],
+    "part2": [
+      -0.1732907065623863,
+      -0.0035451137935491777,
+      0.8437844851002998
+    ]
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 0,
+    "fixtures_visible": true
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 18.45,
+    "predicates": [
+      {
+        "rule": {
+          "type": "position",
+          "object": "base0",
+          "xy": [
+            0.14561359993904208,
+            -0.22170340750366013
+          ],
+          "tolerance": 0.012
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "base1",
+          "xy": [
+            0.14561359993904208,
+            -0.0017034075036601402
+          ],
+          "tolerance": 0.012
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "base2",
+          "xy": [
+            0.14561359993904208,
+            0.21829659249633987
+          ],
+          "tolerance": 0.012
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "stack",
+          "object": "part2",
+          "target": "base0"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "stack",
+          "object": "part1",
+          "target": "base1"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "stack",
+          "object": "part0",
+          "target": "base2"
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "base0": [
+        0.1467124293230059,
+        -0.2235444318637319,
+        0.8146883231442158
+      ],
+      "part0": [
+        0.1473122870139651,
+        0.2174506058713145,
+        0.909539263966713
+      ],
+      "base1": [
+        0.14671573819788622,
+        -0.0035507519513403403,
+        0.8297489972309736
+      ],
+      "part1": [
+        0.1429979362422216,
+        -0.003060911278502361,
+        0.8914978291085375
+      ],
+      "base2": [
+        0.1467094261961162,
+        0.216455105830624,
+        0.8447696353191952
+      ],
+      "part2": [
+        0.15350784016625674,
+        -0.2219975819235177,
+        0.8733750981710408
+      ]
+    },
+    "events": [],
+    "metric": "success",
+    "joint_angles": {}
+  },
+  "cross_rule_predicates": {
+    "A": false,
+    "B": true,
+    "C": false
+  },
+  "actions": 555,
+  "actions_sha256": "6a5e8dd23a3e87b84116a0b93f4d58b6cffe232533612a00023cde632d3375b1",
+  "error": null,
+  "video": {
+    "recorded": true,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 2222,
+    "duration_seconds": 222.2,
+    "full_episode": true,
+    "final_success": true,
+    "sha256": "90a3f347f2535dd125ee93e6402fd2f29fb39cc0d9dd840cca4249ce0b764429"
+  }
+}
