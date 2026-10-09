@@ -15,6 +15,13 @@ from .protocol import TOKENS
 
 from simulator.benchmark.environment import DesktopDual, make_object
 
+# Calibrated by public OSC translations into the common neutral park pose.
+# These are robot reset joint angles, never object poses or execution shortcuts.
+PARKED_QPOS = [
+    [-.03395135, -.22716472, -.10953163, -2.63339316, -.01123396, 2.53422036, .65174551],
+    [.03257663, -.22772450, .10904006, -2.63434086, .01100924, 2.53488572, .91832738],
+]
+
 
 def marker(body, xy, index, radius=.045, z=.803):
     count = (16, 3, 4)[index]
@@ -31,9 +38,10 @@ class TabletopDual(DesktopDual):
     def _load_model(self):
         # Preserve existing motor/controller physics; build a new tabletop scene.
         super(DesktopDual, self)._load_model()
-        for robot, offset in zip(self.robots, (-.25, .25)):
+        for robot, offset, qpos in zip(self.robots, (-.25, .25), PARKED_QPOS):
             base = np.array(robot.robot_model.base_xpos_offset["table"](.8))+[0, offset, 0]
             robot.robot_model.set_base_xpos(base)
+            robot.init_qpos = np.array(qpos)
         arena = TableArena(table_full_size=(.8, .8, .05), table_offset=self.table_offset,
                            table_friction=(1, .005, .0001))
         arena.set_origin([0, 0, 0])
@@ -79,6 +87,9 @@ class TabletopDual(DesktopDual):
             if s["id"].startswith("bin"):
                 # Marker at rim height, just beyond the interior contents.
                 marker(item.get_obj(), [0, -s["size"][1]+.012], int(s["id"][-1]), radius=.008, z=s["size"][2]+.002)
+            if "marker" in s:
+                z = -s["size"][2]+.009 if s["kind"] == "post" else s["size"][2]+.002
+                marker(item.get_obj(), [0, -s["size"][1]+.016], s["marker"], radius=.012, z=z)
             self.items[s["id"]] = item
         self.model = ManipulationTask(mujoco_arena=arena,
             mujoco_robots=[r.robot_model for r in self.robots], mujoco_objects=list(self.items.values()))
@@ -94,6 +105,7 @@ class TabletopDual(DesktopDual):
         super()._reset_internal()
         self._pour_inside = {}
         self._manually_handled = set()
+        self._tool_contact_origins = {}
         if not self.deterministic_reset:
             for s in self.spec["objects"]:
                 if "bottom" in s:
@@ -103,6 +115,24 @@ class TabletopDual(DesktopDual):
             self.sim.forward()
 
     def predicate(self, g, state):
+        if g["type"] == "through_apertures":
+            a = state[g["object"]]; mat = a["mat"]; direction = mat[:, 0]
+            if abs(direction[0]) < .9: return False
+            half_length, sy, sz = self.by_spec[g["object"]]["size"]
+            u = mat[:, 1]-direction*(mat[0, 1]/direction[0])
+            w = mat[:, 2]-direction*(mat[0, 2]/direction[0])
+            extent = np.abs(u[1:])*sy+np.abs(w[1:])*sz
+            for aperture in g["apertures"]:
+                for side in [-1, 1]:
+                    t = (aperture[0]+side*g["half_depth"]-a["pos"][0])/direction[0]
+                    if abs(t) >= half_length: return False
+                    cross = a["pos"]+t*direction
+                    if np.any(np.abs(cross[1:]-aperture[1:])+extent > np.array(g["half_opening"])+.001): return False
+            return True
+        if g["type"] in ("pushed", "hooked"):
+            return (g["type"], g["object"]) in self.events
+        if g["type"] == "not_place":
+            return not super().predicate(dict(g, type="place"), state)
         if g["type"] == "poured":
             return ("poured", g["object"]) in self.events
         if g["type"] == "collared":
@@ -198,6 +228,16 @@ class TabletopDual(DesktopDual):
 
     def track(self):
         state = self.snapshot()
+        for g in self.spec["goals"]:
+            if g["type"] not in ("pushed", "hooked"): continue
+            name, tool = g["object"], g["target"]
+            a, b = state[name], state[tool]
+            if any(a["grasp"]) and (g["type"], name) not in self.events: self._manually_handled.add(name)
+            contact = self.check_contact(self.items[name], self.items[tool])
+            if contact and any(b["grasp"]) and name not in self._manually_handled:
+                origin = self._tool_contact_origins.setdefault(name, a["pos"][:2].copy())
+                if np.linalg.norm(a["pos"][:2]-origin) >= g["distance"]:
+                    self.events.add((g["type"], name))
         for g in self.spec["goals"]:
             if g["type"] != "poured": continue
             piece, cup = state[g["object"]], state[g["target"]]

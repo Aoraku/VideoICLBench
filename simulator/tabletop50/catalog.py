@@ -120,14 +120,17 @@ def task_spec(task_id, variant="A", seed=0):
     for z in zones:
         z["xy"] = [a+b for a, b in zip(z["xy"], offset)]
     for g in goals:
+        if g["type"] == "through_apertures":
+            for aperture in g["apertures"]:
+                aperture[:2] = [a+b for a, b in zip(aperture[:2], offset)]
         if "xy" in g and g["type"] != "local_position":
             g["xy"] = [a+b for a, b in zip(g["xy"], offset)]
     for p in plan:
         p["xy"] = [a+b for a, b in zip(p["xy"], offset)]
         if "approach" in p:
             p["approach"][:2] = [a+b for a, b in zip(p["approach"][:2], offset)]
-        if "return_xy" in p:
-            p["return_xy"] = [a+b for a, b in zip(p["return_xy"], offset)]
+        for field in ("return_xy", "start_xy"):
+            if field in p: p[field] = [a+b for a, b in zip(p[field], offset)]
     for fixture in fixtures:
         fixture["xy"] = [a+b for a, b in zip(fixture["xy"], offset)]
     return dict(id=task_id, title=family["title"], revision=REVISION, task_revision=1,

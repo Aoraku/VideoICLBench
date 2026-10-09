@@ -15,10 +15,15 @@ def component_object(s, components):
         geom_quats=[p.get("quat", [1, 0, 0, 0]) for p in components],
         geom_rgbas=[p.get("rgba", s["rgba"]) for p in components],
         locations_relative_to_center=True, density=s.get("density", 300),
-        geom_frictions=[s.get("friction", (1, .005, .0001))]*len(components))
+        geom_frictions=[p.get("friction", s.get("friction", (1, .005, .0001))) for p in components])
     if "solref" in s:
         for geom in item.get_obj().iter("geom"):
             if geom.get("group") == "0": geom.set("solref", " ".join(map(str, s["solref"])))
+    if "condim" in s:
+        for geom in item.get_obj().iter("geom"):
+            if geom.get("group") == "0": geom.set("condim", str(s["condim"]))
+    for geom, part in zip((g for g in item.get_obj().iter("geom") if g.get("group") == "0"), components):
+        if "priority" in part: geom.set("priority", str(part["priority"]))
     return item
 
 
@@ -50,5 +55,9 @@ def make_prop(s):
                     geom.set("friction", "1 .005 .0001")
         return item
     if "density" in s and kind in ("box", "bar", "arrow_bar"):
-        return BoxObject(name=s["id"], size=s["size"], rgba=s["rgba"], density=s["density"], friction=s.get("friction", [1, .005, .0001]))
+        item = BoxObject(name=s["id"], size=s["size"], rgba=s["rgba"], density=s["density"], friction=s.get("friction", [1, .005, .0001]))
+        if "condim" in s:
+            for geom in item.get_obj().iter("geom"):
+                if geom.get("group") == "0": geom.set("condim", str(s["condim"]))
+        return item
     return make_object(s)

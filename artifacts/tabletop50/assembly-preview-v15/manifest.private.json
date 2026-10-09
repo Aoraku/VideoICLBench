@@ -1,0 +1,369 @@
+{
+  "status": "engineering-author-demonstrations",
+  "expected_families": 50,
+  "expected_rule_conditions": 150,
+  "verified_videos": 7,
+  "complete_three_rule_families": 2,
+  "complete_groups": [
+    {
+      "task": "F22",
+      "seed": 0,
+      "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0"
+    },
+    {
+      "task": "F47",
+      "seed": 0,
+      "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0"
+    }
+  ],
+  "human_videos": 0,
+  "independent_agent_trials": 0,
+  "cases": [
+    {
+      "task": "F22",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+      "world_sha256": "e6fb81fa63a76228a922b926273137eb6178d5c2daae290c08f35e94c4762592",
+      "video_sha256": "1e4d81a69d9c63c81a3ced9ae8db2c17c7db5caf986ff50cd592b9205f9d82e4",
+      "decoded_frames": 3114,
+      "fps": 10.0,
+      "duration_seconds": 311.4,
+      "ending_image_mae": 2.39652681350708,
+      "initial_positions": {
+        "lower": [
+          0.1199549031479766,
+          0.0015571924499894604,
+          0.8218926391589054
+        ],
+        "upper": [
+          0.1199549031479766,
+          0.0015566467504419174,
+          0.8657591824951559
+        ],
+        "piece0": [
+          0.1199549031479766,
+          -0.06344361736273653,
+          0.817669205164463
+        ],
+        "upper_piece0": [
+          0.1199549031479766,
+          -0.06344347973002054,
+          0.8655339019981557
+        ],
+        "piece1": [
+          0.1199549031479766,
+          0.0015564004130278397,
+          0.8206663566367212
+        ],
+        "upper_piece1": [
+          0.1199549031479766,
+          0.001556520857087475,
+          0.8655335333945028
+        ],
+        "piece2": [
+          0.1199549031479766,
+          0.06655641835837658,
+          0.8236635106476105
+        ],
+        "upper_piece2": [
+          0.1199549031479766,
+          0.0665565214441941,
+          0.8655331647908493
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F22-A-0"
+    },
+    {
+      "task": "F22",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+      "world_sha256": "e6fb81fa63a76228a922b926273137eb6178d5c2daae290c08f35e94c4762592",
+      "video_sha256": "abd7ccb76ea29ccb27db650017ff1d8b6dd3d04b69af530a1bed71fd7f0c11b2",
+      "decoded_frames": 3126,
+      "fps": 10.0,
+      "duration_seconds": 312.6,
+      "ending_image_mae": 2.3970134258270264,
+      "initial_positions": {
+        "lower": [
+          0.1199549031479766,
+          0.0015571924499894604,
+          0.8218926391589054
+        ],
+        "upper": [
+          0.1199549031479766,
+          0.0015566467504419174,
+          0.8657591824951559
+        ],
+        "piece0": [
+          0.1199549031479766,
+          -0.06344361736273653,
+          0.817669205164463
+        ],
+        "upper_piece0": [
+          0.1199549031479766,
+          -0.06344347973002054,
+          0.8655339019981557
+        ],
+        "piece1": [
+          0.1199549031479766,
+          0.0015564004130278397,
+          0.8206663566367212
+        ],
+        "upper_piece1": [
+          0.1199549031479766,
+          0.001556520857087475,
+          0.8655335333945028
+        ],
+        "piece2": [
+          0.1199549031479766,
+          0.06655641835837658,
+          0.8236635106476105
+        ],
+        "upper_piece2": [
+          0.1199549031479766,
+          0.0665565214441941,
+          0.8655331647908493
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F22-B-0"
+    },
+    {
+      "task": "F22",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+      "world_sha256": "e6fb81fa63a76228a922b926273137eb6178d5c2daae290c08f35e94c4762592",
+      "video_sha256": "bd89b186b6cf464258840a3720ccba5262d414c1d3ee0892dc740cce72a1a199",
+      "decoded_frames": 3142,
+      "fps": 10.0,
+      "duration_seconds": 314.2,
+      "ending_image_mae": 2.397974729537964,
+      "initial_positions": {
+        "lower": [
+          0.1199549031479766,
+          0.0015571924499894604,
+          0.8218926391589054
+        ],
+        "upper": [
+          0.1199549031479766,
+          0.0015566467504419174,
+          0.8657591824951559
+        ],
+        "piece0": [
+          0.1199549031479766,
+          -0.06344361736273653,
+          0.817669205164463
+        ],
+        "upper_piece0": [
+          0.1199549031479766,
+          -0.06344347973002054,
+          0.8655339019981557
+        ],
+        "piece1": [
+          0.1199549031479766,
+          0.0015564004130278397,
+          0.8206663566367212
+        ],
+        "upper_piece1": [
+          0.1199549031479766,
+          0.001556520857087475,
+          0.8655335333945028
+        ],
+        "piece2": [
+          0.1199549031479766,
+          0.06655641835837658,
+          0.8236635106476105
+        ],
+        "upper_piece2": [
+          0.1199549031479766,
+          0.0665565214441941,
+          0.8655331647908493
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F22-C-0"
+    },
+    {
+      "task": "F47",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+      "world_sha256": "5234b3cf9fbcdb3116336749b5d9e64035027868cc4bb2fdcd96e50fea6872a0",
+      "video_sha256": "566c1f872b9bb06e1d5f800385f80152fed3f028ef2a9d95db3eccbd631016bf",
+      "decoded_frames": 1386,
+      "fps": 10.0,
+      "duration_seconds": 138.6,
+      "ending_image_mae": 2.4043970108032227,
+      "initial_positions": {
+        "baton": [
+          -0.1600450968520234,
+          -0.23843612322147176,
+          0.8177844851022226
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F47-A-0"
+    },
+    {
+      "task": "F47",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+      "world_sha256": "5234b3cf9fbcdb3116336749b5d9e64035027868cc4bb2fdcd96e50fea6872a0",
+      "video_sha256": "921b5eb2ba9def70490ab95a606ff9786cf59d34f160f0d2b4e9514e514338b5",
+      "decoded_frames": 1414,
+      "fps": 10.0,
+      "duration_seconds": 141.4,
+      "ending_image_mae": 2.400010824203491,
+      "initial_positions": {
+        "baton": [
+          -0.1600450968520234,
+          -0.23843612322147176,
+          0.8177844851022226
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F47-B-0"
+    },
+    {
+      "task": "F47",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+      "world_sha256": "5234b3cf9fbcdb3116336749b5d9e64035027868cc4bb2fdcd96e50fea6872a0",
+      "video_sha256": "97c018d82a15e136ff974002467b57354367e8bc9393525f0b64c2c85c4bfe31",
+      "decoded_frames": 1414,
+      "fps": 10.0,
+      "duration_seconds": 141.4,
+      "ending_image_mae": 2.3909709453582764,
+      "initial_positions": {
+        "baton": [
+          -0.1600450968520234,
+          -0.23843612322147176,
+          0.8177844851022226
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F47-C-0"
+    },
+    {
+      "task": "F48",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+      "world_sha256": "16c12797e778a97c7eefc961ce9f4688fcf8933162e8316b9270e6a408c2898d",
+      "video_sha256": "6b8c86ef6c3acc1f77f2bfe6deead18774431dd026bb7108c4604ac35b7324c7",
+      "decoded_frames": 5186,
+      "fps": 10.0,
+      "duration_seconds": 518.6,
+      "ending_image_mae": 2.2629361152648926,
+      "initial_positions": {
+        "case": [
+          0.1199549031479766,
+          0.0015638767785282348,
+          0.831953756805787
+        ],
+        "divider0": [
+          0.07995490314797661,
+          0.0015638767785282085,
+          0.8317321525915141
+        ],
+        "divider1": [
+          0.1599549031479766,
+          0.0015638767785282378,
+          0.8317321525915141
+        ],
+        "lid": [
+          0.1199549031479766,
+          0.2665638767785282,
+          0.8257844851067403
+        ],
+        "part0": [
+          -0.3000450968520234,
+          -0.2684361232214718,
+          0.8177844851010121
+        ],
+        "part1": [
+          -0.3000450968520234,
+          0.0015638767785282346,
+          0.8177844851010121
+        ],
+        "part2": [
+          -0.3000450968520234,
+          0.2715638767785282,
+          0.8177844851010121
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F48-C-0"
+    }
+  ],
+  "rejected": [
+    {
+      "case": "F15-A-0",
+      "error": "Failed author execution"
+    },
+    {
+      "case": "F15-B-0",
+      "error": "Failed author execution"
+    },
+    {
+      "case": "F15-C-0",
+      "error": "Failed author execution"
+    },
+    {
+      "case": "F48-A-0",
+      "error": "Failed author execution"
+    },
+    {
+      "case": "F48-B-0",
+      "error": "Failed author execution"
+    }
+  ]
+}

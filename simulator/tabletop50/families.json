@@ -177,15 +177,15 @@
       "id": "F11",
       "title": "圆环分柱套放",
       "group": "插放与结构",
-      "props": "三个大木环、三个短粗柱",
+      "props": "三个大木环、底座带圆/三角/方标记的短粗柱",
       "challenge": "颜色到柱标记的映射；真实套入",
       "rules": {
-        "A": "柱1/2/3套红绿蓝",
-        "B": "柱1/2/3套绿蓝红",
-        "C": "柱1/2/3套蓝红绿"
+        "A": "圆/三角/方柱套红绿蓝",
+        "B": "圆/三角/方柱套绿蓝红",
+        "C": "圆/三角/方柱套蓝红绿"
       },
       "reset": "取下三环，打散",
-      "camera_note": "柱较短，环套到底后仍露出",
+      "camera_note": "柱较短，环套到底后仍露出，标记贴在底座外沿",
       "runtime_recipe": "rings",
       "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
@@ -602,34 +602,34 @@
       "id": "F36",
       "title": "推杆送件",
       "group": "工具与接触",
-      "props": "粗推杆、低矮通道、三个积木",
-      "challenge": "利用推杆接触物件，规划推送顺序避免堵塞",
+      "props": "带中部握把的木推板、三条开放窄通道、三个积木",
+      "challenge": "先用工具把积木推出窄入口，再按示范排列到三个出口垫",
       "rules": {
-        "A": "出口次序红绿蓝",
-        "B": "出口次序绿蓝红",
-        "C": "出口次序蓝红绿"
+        "A": "出口垫依次红绿蓝",
+        "B": "出口垫依次绿蓝红",
+        "C": "出口垫依次蓝红绿"
       },
-      "reset": "积木放回三入口，推杆归位",
-      "camera_note": "通道上方开放，接触点可见",
-      "runtime_recipe": null,
-      "status": "runtime-pending",
+      "reset": "积木放回三入口，推板归位",
+      "camera_note": "通道上方开放，接触点可见；末态顺序不是强制动作顺序",
+      "runtime_recipe": "push_delivery",
+      "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
     },
     {
       "id": "F37",
       "title": "钩取受限物件",
       "group": "工具与接触",
-      "props": "大号L形钩、宽环件、低矮挡板",
-      "challenge": "直接抓取受挡，选择钩入位置拉出",
+      "props": "大号带握把L形钩、三个厚木环、透明文件架、工具垫块",
+      "challenge": "直接抓取受挡，选择钩入位置，将指定尺寸环拉出后交付",
       "rules": {
         "A": "取最小环",
         "B": "取中等环",
         "C": "取最大环"
       },
-      "reset": "三环放回挡板后，钩归位",
-      "camera_note": "挡板只挡夹爪通行，不挡相机视线",
-      "runtime_recipe": null,
-      "status": "runtime-pending",
+      "reset": "三环放回文件架下，钩放回垫块",
+      "camera_note": "透明架挡夹爪通行，钩尖和圆环仍可见",
+      "runtime_recipe": "hook_retrieval",
+      "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
     },
     {

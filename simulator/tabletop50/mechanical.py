@@ -54,22 +54,15 @@ def build(recipe, v, rng, obj, position):
                 components = polygon_walls(points, .008, .012)
             objects.append(obj(f"socket{shape}", xy, "white", "socket", (.06, .06, .012),
                                components=components, density=1800, hole_shape=shape))
-            goals.append(position(f"socket{shape}", xy, .012))
             chosen = f"piece{v}_{shape}"
             goals.append(dict(type="insert", object=chosen, target=f"socket{shape}", tolerance=.004, relative_bottom=-.012))
             move(chosen, xy, fine=True)
-        for c in range(3):
-            if c != v:
-                for shape in range(3):
-                    name = f"piece{c}_{shape}"
-                    s = next(s for s in objects if s["id"] == name)
-                    goals.append(position(name, s["xy"]))
     elif recipe == "rings":
         for i, c in enumerate(colors):
             objects.append(obj(c, [-.18, -.22+i*.22], c, "ring", (.048, .048, .009), inner_radius=.030))
             xy = [.15, -.22+i*.22]
-            objects.append(obj(f"post{i}", xy, "white", "post", (.055, .055, .035), post_radius=.010, density=1600))
-            goals.append(position(f"post{i}", xy, .012))
+            objects.append(obj(f"post{i}", xy, "white", "post", (.065, .065, .035), post_radius=.010, density=1600,
+                               marker=i))
         for i in range(3):
             name = colors[(i+v) % 3]
             xy = [.15, -.22+i*.22]
@@ -93,7 +86,8 @@ def build(recipe, v, rng, obj, position):
             move(chosen, xy, fine=True)
     elif recipe == "double_hole":
         for c, color in enumerate(colors):
-            objects.append(obj(color, [-.13, -.22+c*.22], color, "bar", (.18, .014, .014), density=80, friction=[3, .1, .01], grasp_local=[-.15, 0., 0.]))
+            objects.append(obj(color, [-.13, -.22+c*.22], color, "bar", (.18, .014, .014), density=80,
+                               friction=[1.5, .006, .0001], condim=4, grasp_local=[-.15, 0., 0.]))
         for x in [.07, .25]:
             # Two real rectangular holes, aligned along X at z=.90.
             fixture([x, -.044, .9], [.010, .020, .07])
@@ -101,15 +95,12 @@ def build(recipe, v, rng, obj, position):
             fixture([x, 0., .858], [.010, .024, .018])
             fixture([x, 0., .942], [.010, .024, .018])
         chosen = colors[v]
-        goals += [position(chosen, [.16, 0.], .006), dict(type="shaft_height", object=chosen, z=.89),
-                  dict(type="yaw", object=chosen, value=0., tolerance=.08)]
+        goals.append(dict(type="through_apertures", object=chosen,
+                          apertures=[[.07, 0., .9], [.25, 0., .9]],
+                          half_opening=[.024, .024], half_depth=.010))
         # Horizontal threading, not dropping the shaft through solid frames.
         plan.append(dict(object=chosen, xy=[.16, 0.], bottom=.876, yaw=0., fine=True,
                          approach=[-.14, 0., .89], insertion_axis=0))
-        for c in colors:
-            if c != chosen:
-                s = next(s for s in objects if s["id"] == c)
-                goals.append(position(c, s["xy"]))
     elif recipe == "keyed":
         components = [dict(size=[.020, .005, .03], pos=[0., -.015, 0.]),
                       dict(size=[.005, .020, .03], pos=[-.015, 0., 0.])]
@@ -119,11 +110,9 @@ def build(recipe, v, rng, obj, position):
         for i in range(3):
             angle = i*math.pi/2
             parts = polygon_walls(points, .008, .012)
-            objects.append(obj(f"socket{i}", [.16, -.22+i*.22], "white", "socket", (.05, .05, .012), components=parts))
+            objects.append(obj(f"socket{i}", [.16, -.22+i*.22], "white", "socket", (.05, .05, .012), components=parts, marker=i))
             objects[-1]["yaw"] = angle
-            goals.append(position(f"socket{i}", objects[-1]["xy"], .012))
-        goals += [dict(type="insert", object="key", target=f"socket{v}", tolerance=.005, relative_bottom=-.012),
-                  dict(type="yaw", object="key", value=v*math.pi/2, tolerance=.1)]
+        goals.append(dict(type="insert", object="key", target=f"socket{v}", tolerance=.005, relative_bottom=-.012))
         move("key", [.16, -.22+v*.22], yaw=v*math.pi/2, fine=True)
     else:
         raise NotImplementedError(recipe)

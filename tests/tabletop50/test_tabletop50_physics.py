@@ -94,6 +94,25 @@ def test_classification_follows_marked_boxes_after_boxes_move():
     finally: e.close()
 
 
+def test_double_hole_accepts_varied_depth_but_rejects_partial_threading():
+    e = TabletopDual(task_spec("F13"), render=False)
+    try:
+        state = e.snapshot()
+        goal = e.spec["goals"][0]
+        dx = goal["apertures"][0][0]-.07
+        y = goal["apertures"][0][1]
+        rod = state[goal["object"]]
+        rod["mat"] = np.eye(3)
+        for x in [.10, .16, .22]:
+            rod["pos"] = np.array([x+dx, y, .89])
+            assert e.predicate(goal, state)
+        rod["pos"] = np.array([.05+dx, y, .89])
+        assert not e.predicate(goal, state)
+        rod["pos"] = np.array([.16+dx, y, .94])
+        assert not e.predicate(goal, state)
+    finally: e.close()
+
+
 def test_length_completion_relations_are_exclusive():
     e = TabletopDual(task_spec("F33"), render=False)
     try:

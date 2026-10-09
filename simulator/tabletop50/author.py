@@ -90,7 +90,7 @@ class TabletopAuthor(Author):
                 self.act(arm, (["FWD", "LEFT", "UP"] if error > 0 else ["BACK", "RIGHT", "DOWN"])[axis]+"_FINE")
             else: raise RuntimeError("Fine positioning did not converge")
 
-    def put(self, name, arm, target, fine=False, approach=None):
+    def put(self, name, arm, target, fine=False, approach=None, surface_release=False):
         target = np.asarray(target)
         self.move(arm, [*self.eef(arm)[:2], max(1.14, target[2]+.18)], axes=(2,))
         offset = self.eef(arm)-self.state(name)["pos"]
@@ -100,7 +100,9 @@ class TabletopAuthor(Author):
             # both apertures. It is never lowered through the frame roof.
             self.horizontal(arm, name)
             self.object_move(arm, name, np.asarray(approach))
-            self.object_move(arm, name, target, axes=(0,))
+            terminal = next((g for g in self.env.spec["goals"]
+                             if g["object"] == name and g["type"] == "through_apertures"), None)
+            self.object_move(arm, name, target, axes=(0,), stop_goal=terminal)
         elif fine:
             self.fine_move(arm, target+offset, axes=(0, 1))
         for _ in range(35):
@@ -110,7 +112,10 @@ class TabletopAuthor(Author):
                 break
             self.act(arm, "DOWN")
         if approach is None:
-            self.fine_move(arm, target+offset+[0., 0., .003], axes=(2,))
+            state = self.state(name)
+            bottom = state["pos"][2]-(np.abs(state["mat"]) @ self.env.by_spec[name]["size"])[2]
+            if not (surface_release and bottom <= target[2]-self.env.by_spec[name]["size"][2]+.018):
+                self.fine_move(arm, target+offset+[0., 0., .003], axes=(2,))
         for _ in range(3): self.act(arm, "RELEASE")
         self.move(arm, [*self.eef(arm)[:2], 1.14], axes=(2,)); self.wait(3)
 
@@ -123,12 +128,13 @@ class TabletopAuthor(Author):
             self.act(arm, token+"_FINE" if abs(angle) < .09 else token)
         raise RuntimeError("Shaft pitch did not converge")
 
-    def object_move(self, arm, name, target, axes=(0, 1, 2)):
+    def object_move(self, arm, name, target, axes=(0, 1, 2), stop_goal=None):
         # Off-centre grasps flex under load. Re-read physical pose rather than
         # assuming a fixed transform between the fingers and the shaft.
         for axis in axes:
             for step in range(180):
                 state = self.state(name)
+                if stop_goal is not None and self.env.predicate(stop_goal, self.env.snapshot()): return
                 if not state["grasp"][arm]: raise RuntimeError("Shaft slipped")
                 error = target[axis]-state["pos"][axis]
                 if abs(error) < .0025: break
@@ -197,6 +203,12 @@ class TabletopAuthor(Author):
         self.park(0); self.park(1)
         for p in self.env.spec["author_plan"]:
             name = p["object"]
+            if p.get("operation") == "hook":
+                self.hook(name, p)
+                continue
+            if p.get("operation") == "push":
+                self.push(name, p)
+                continue
             if p.get("operation") == "pour":
                 self.pour(name, p)
                 continue
@@ -264,3 +276,54 @@ class TabletopAuthor(Author):
         for _ in range(14): self.act(arm, "PITCH_NEG")
         self.put(name, arm, [*plan["return_xy"], .8+self.env.by_spec[name]["size"][2]])
         self.park(arm)
+
+    def push(self, name, plan):
+        block = plan["block"]
+        arm = 0 if plan["start_xy"][1] < .05 else 1
+        self.pick(name, arm)
+        state = self.state(block)
+        resting_height = .8+self.env.by_spec[name]["size"][2]
+        point = np.array([state["pos"][0]-.022-.12-.012, state["pos"][1], resting_height])
+        offset = self.eef(arm)-self.state(name)["pos"]
+        self.move(arm, point+offset, axes=(0, 1, 2)); self.fine_move(arm, point+offset)
+        for _ in range(150):
+            if self.state(block)["pos"][0] > .17: break
+            if not self.state(name)["grasp"][arm]: raise RuntimeError("Pusher slipped")
+            self.act(arm, "FWD_FINE")
+        if ("pushed", block) not in self.env.events: raise RuntimeError("No tool-driven displacement")
+        self.put(name, arm, [*plan["return_xy"], resting_height])
+        self.park(arm)
+        target_arm = 0 if plan["xy"][1] < -.07 else 1 if plan["xy"][1] > .07 else arm
+        if target_arm != arm:
+            self.transport(block, arm, [-.15, .10], fine=True)
+            arm = target_arm
+        self.transport(block, arm, plan["xy"], fine=True)
+
+    def hook(self, name, plan):
+        ring = plan["block"]
+        arm = 0 if plan["start_xy"][1] < .05 else 1
+        self.pick(name, arm)
+        p = self.state(ring)["pos"]
+        above = np.array([p[0]-.10, p[1], .915])
+        # Lower outside the stand, then enter below its roof. Lowering from
+        # above the ring would drive the shaft through the solid roof.
+        entry = np.array([-.08, p[1], .915])
+        self.object_move(arm, name, entry, axes=(0, 1, 2))
+        self.object_move(arm, name, above, axes=(0,))
+        resting = above.copy(); resting[2] = .875
+        self.object_move(arm, name, resting, axes=(2,))
+        for _ in range(160):
+            if self.state(ring)["pos"][0] < -.065: break
+            if not self.state(name)["grasp"][arm]: raise RuntimeError("Hook slipped")
+            self.act(arm, "BACK_FINE")
+        if ("hooked", ring) not in self.env.events: raise RuntimeError("Ring was not pulled by the hook")
+        # The hook is entirely outside the stand before raising the downturned
+        # tip. This disengages it through the real ring opening.
+        self.put(name, arm, [*plan["return_xy"], .875])
+        self.park(arm)
+        if arm != 0:
+            self.transport(ring, arm, [-.15, .10], fine=True)
+        self.pick(ring, 0)
+        self.put(ring, 0, [*plan["xy"], .8+self.env.by_spec[ring]["size"][2]],
+                 fine=True, surface_release=True)
+        self.park(0)
