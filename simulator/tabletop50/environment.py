@@ -101,6 +101,23 @@ class TabletopDual(DesktopDual):
             self.sim.forward()
 
     def predicate(self, g, state):
+        if g["type"] == "collared":
+            a, b = state[g["object"]], state[g["target"]]
+            local = b["mat"].T@(a["pos"]-b["pos"])
+            half = self.by_spec[g["object"]]["size"][2]
+            return bool(np.linalg.norm(local[:2]) < .008 and a["mat"][2, 2] > .97
+                        and abs(local[2]+half-.024) < .006
+                        and self.check_contact(self.items[g["object"]], self.items[g["target"]]))
+        if g["type"] == "nest" and "inner_size" in self.by_spec[g["target"]]:
+            a, b = state[g["object"]], state[g["target"]]
+            size = np.array(self.by_spec[g["object"]]["size"])
+            inner = np.array(self.by_spec[g["target"]]["inner_size"])
+            local = b["mat"].T@(a["pos"]-b["pos"])
+            extent = np.abs(b["mat"].T@a["mat"])@size
+            return bool(np.all(np.abs(local[:2])+extent[:2] < inner[:2]-.003+.005)
+                and abs(local[2]-extent[2]-(-inner[2]+.008)) < .015
+                and local[2]+extent[2] < inner[2]+.12
+                and self.check_contact(self.items[g["object"]], self.items[g["target"]]))
         if g["type"] == "bridge":
             beam = state[g["object"]]
             return bool(beam["mat"][2, 2] > .97 and

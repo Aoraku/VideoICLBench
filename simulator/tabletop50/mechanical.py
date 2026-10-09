@@ -93,19 +93,19 @@ def build(recipe, v, rng, obj, position):
             move(chosen, xy, fine=True)
     elif recipe == "double_hole":
         for c, color in enumerate(colors):
-            objects.append(obj(color, [-.13, -.22+c*.22], color, "bar", (.145, .014, .014)))
-        for x in [.025, .21]:
+            objects.append(obj(color, [-.13, -.22+c*.22], color, "bar", (.18, .014, .014), density=80, friction=[3, .1, .01], grasp_local=[-.15, 0., 0.]))
+        for x in [.07, .25]:
             # Two real rectangular holes, aligned along X at z=.90.
             fixture([x, -.044, .9], [.010, .020, .07])
             fixture([x, .044, .9], [.010, .020, .07])
             fixture([x, 0., .858], [.010, .024, .018])
             fixture([x, 0., .942], [.010, .024, .018])
         chosen = colors[v]
-        goals += [position(chosen, [.1175, 0.], .006), dict(type="shaft_height", object=chosen, z=.89),
+        goals += [position(chosen, [.16, 0.], .006), dict(type="shaft_height", object=chosen, z=.89),
                   dict(type="yaw", object=chosen, value=0., tolerance=.08)]
         # Horizontal threading, not dropping the shaft through solid frames.
-        plan.append(dict(object=chosen, xy=[.1175, 0.], bottom=.876, yaw=0., fine=True,
-                         approach=[-.145, 0., .89], insertion_axis=0))
+        plan.append(dict(object=chosen, xy=[.16, 0.], bottom=.876, yaw=0., fine=True,
+                         approach=[-.14, 0., .89], insertion_axis=0))
         for c in colors:
             if c != chosen:
                 s = next(s for s in objects if s["id"] == c)

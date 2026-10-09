@@ -1,0 +1,37 @@
+{
+  "task": "F01",
+  "variant": "A",
+  "seed": 0,
+  "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+  "world_sha256": "f85213732770d7a292e91c5df79bd7b0d605aa8c9ed7b5fbeac368fa818d0040",
+  "video_sha256": "a5a79206b0159a53cdaeb40b1c7906e9811228aa08ba619aedeccd73af183734",
+  "decoded_frames": 1654,
+  "fps": 10.0,
+  "duration_seconds": 165.4,
+  "ending_image_mae": 2.5751004219055176,
+  "initial_positions": {
+    "red": [
+      -0.1600450968520234,
+      0.20156387677852824,
+      0.8247844851006771
+    ],
+    "green": [
+      -0.1600450968520234,
+      -0.19843612322147178,
+      0.8247844851006771
+    ],
+    "blue": [
+      -0.1600450968520234,
+      0.0015638767785282346,
+      0.8247844851006771
+    ]
+  },
+  "cross_rule_predicates": {
+    "A": true,
+    "B": false,
+    "C": false
+  },
+  "independent_agent": false,
+  "human_recorded": false,
+  "folder": "F01-A-0"
+}

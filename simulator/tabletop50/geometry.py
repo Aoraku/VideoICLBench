@@ -45,4 +45,6 @@ def make_prop(s):
                     geom.set("solimp", ".99 .99 .001")
                     geom.set("friction", "1 .005 .0001")
         return item
+    if "density" in s and kind in ("box", "bar", "arrow_bar"):
+        return BoxObject(name=s["id"], size=s["size"], rgba=s["rgba"], density=s["density"], friction=s.get("friction", [1, .005, .0001]))
     return make_object(s)

@@ -30,7 +30,7 @@ python scripts/tabletop50/audit-media.py --recordings .local/tabletop50-batch --
 
 同族同seed的A/B/C世界完全相同；规则只影响私有目标与作者计划。`visible_world` 排除这两项。不同seed用于示范／执行分离；当前族的实例变化范围须逐项审查，不能把少量位置抖动泛称为物体或规则泛化。
 
-公共委托统一为“按照示范完成这项桌面工作”。作者清单、A/B/C标签、目标、计划、源码和验收JSON不得暴露给actor。旧 `simulator.benchmark.server` 仍加载旧catalog，不能用旧入口冒充本套件；新actor服务接入须另外验收。
+公共委托统一为“按照示范完成这项桌面工作”。作者清单、A/B/C标签、目标、计划、源码和验收JSON不得暴露给actor。旧 `simulator.benchmark.server` 仍加载旧catalog，不能用旧入口冒充本套件；新版 `simulator.tabletop50.server` 采用独立worker，并已通过Agentlab真实接口测试。
 
 ## 道具与来源
 
@@ -46,3 +46,13 @@ python scripts/tabletop50/audit-media.py --recordings .local/tabletop50-batch --
 ## Agentlab
 
 隔离工作区 `/home/qingle/services/videoicl-tabletop50-fpv-v1`，复用 `/home/qingle/services/videoicl-embodied-50/.venv/bin/python`。各批次放冻结源码和独立输出目录。现有18660服务不受本目录的批处理影响；不要将旧服务的成功率或演示数量计入本新版。
+
+新版服务独立监听 `127.0.0.1:18661`，systemd单元为 `videoicl-tabletop50-fpv.service`。部署命令：
+
+```bash
+bash scripts/tabletop50/deploy-agentlab.sh
+```
+
+管理token位于服务数据目录的 `admin.token`，不提交仓库。作者通过 `/admin/sessions` 选择task、variant、推理seed和demo_seed；动作预算统一1600。默认 `sim_video` 必须满足规则匹配、示范和推理seed不同、源码版本一致、完整成功视频及解码证据；缺失则409，不自动回退其他规则视频。把最终审计出的每个案例目录复制到服务数据目录的 `demos/`。历史foundation视频对应旧源码，不能直接作为最新版服务的示范。
+
+actor只持有随机session capability，调用 `/actor/{session}/observe`、`action`、`demo`、`submit`；无目标、状态、实时奖励或成功结果。作者结果需要管理token。当前尚无真人视频条件，不能用仿真视频替代真人条件。服务部署成功不表示50族或150视频全部验收完成。

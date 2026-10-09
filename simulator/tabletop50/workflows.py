@@ -2,7 +2,20 @@
 from .mechanical import annulus
 
 RECIPES = {"F09": "bridge", "F22": "layers", "F25": "change_cap",
-           "F27": "top_up", "F33": "complete_lengths", "F35": "kit_delivery"}
+           "F27": "top_up", "F33": "complete_lengths", "F35": "kit_delivery",
+           "F15": "mobile_board", "F47": "air_handover", "F48": "reconfigure_bin"}
+
+
+def handled_tray(obj, name, xy, x, y, z, bottom=None):
+    w = .004
+    parts = [dict(size=[x, y, w], pos=[0, 0, -z+w]),
+             dict(size=[w, y, z], pos=[-x+w, 0, 0]), dict(size=[w, y, z], pos=[x-w, 0, 0]),
+             dict(size=[x-w, w, z], pos=[0, -y+w, 0]), dict(size=[x-w, w, z], pos=[0, y-w, 0]),
+             dict(size=[.025, .018, .012], pos=[0, -y-.014, 0]),
+             dict(size=[.025, .018, .012], pos=[0, y+.014, 0])]
+    kwargs = {} if bottom is None else dict(bottom=bottom)
+    return obj(name, xy, "white", "tray", (x, y+.032, z), components=parts,
+               inner_size=[x, y, z], grasp_sides=[[0, -y-.014, .005], [0, y+.014, .005]], **kwargs)
 
 
 def build(recipe, v, rng, obj, position):
@@ -17,7 +30,81 @@ def build(recipe, v, rng, obj, position):
         objects.append(obj(name, xy, "white", "tray", size, **kwargs))
         goals.append(position(name, xy, .015))
 
-    if recipe == "bridge":
+    if recipe == "mobile_board":
+        start, finish = [-.14, 0.], [.15, 0.]
+        components = annulus(.067, .020, .012)
+        for sign in [-1, 1]:
+            components += [dict(size=[.009, .04, .008], pos=[0., sign*.085, 0.]),
+                           dict(size=[.024, .018, .012], pos=[0., sign*.12, 0.])]
+        objects.append(obj("board", start, "white", "tray", (.075, .14, .012), components=components,
+                           bottom=.88, density=600, grasp_sides=[[0., -.12, .004], [0., .12, .004]]))
+        for center in [start, finish]:
+            for dx in [-.044, .044]:
+                for dy in [-.044, .044]:
+                    fixtures.append(dict(type="box", xy=[center[0]+dx, center[1]+dy], z=.84,
+                                         size=[.012, .012, .04], rgba=[.4, .45, .5, 1]))
+        for i, half in enumerate([.03, .04, .05]):
+            parts = [dict(type="cylinder", size=[.013, half], pos=[0., 0., 0.]),
+                     dict(type="cylinder", size=[.030, .006], pos=[0., 0., half-.006])]
+            objects.append(obj(f"peg{i}", [-.16+i*.16, -.25], colors[i], "bottle", (.03, .03, half), components=parts,
+                               grasp_local=[0., 0., half-.004]))
+            if i != v: goals.append(position(f"peg{i}", [-.16+i*.16, -.25]))
+        half = [.03, .04, .05][v]
+        move(f"peg{v}", start, .916-2*half, fine=True)
+        move("board", finish, .88)
+        goals += [position("board", finish, .015),
+                  dict(type="collared", object=f"peg{v}", target="board")]
+    elif recipe == "reconfigure_bin":
+        center = [.12, 0.]
+        x, y, z, w = .17, .12, .032, .004
+        parts = [dict(size=[x, y, w], pos=[0., 0., -z+w]),
+                 dict(size=[w, y, z], pos=[-x+w, 0., 0.]), dict(size=[w, y, z], pos=[x-w, 0., 0.]),
+                 dict(size=[x, w, z], pos=[0., -y+w, 0.]), dict(size=[x, w, z], pos=[0., y-w, 0.])]
+        # End guides make real loose slots. All possible configurations are
+        # present in every rule, and no divider is welded to its slot.
+        for slot in [-.10, -.04, .04, .10]:
+            for sign in [-1, 1]:
+                for end in [-1, 1]:
+                    parts.append(dict(size=[.002, .010, .014], pos=[slot+sign*.011, end*.104, -.010]))
+        objects.append(obj("case", center, "white", "tray", (x, y, z), components=parts, density=1000))
+        goals.append(position("case", center, .015))
+        # Slotted household organisers: full-height dividers remain removable.
+        for i, x in enumerate([.08, .16]):
+            objects.append(obj(f"divider{i}", [x, 0.], "white", "bar", (.006, .108, .024), bottom=.808,
+                               grasp_local=[0., 0., .015]))
+        objects.append(obj("lid", [.12, .265], "white", "lid", (.174, .124, .026)))
+        for i in range(3):
+            objects.append(obj(f"part{i}", [-.30, -.27+i*.27], colors[i], "bar", (.045, .024, .018)))
+        offsets = ([.04, .10], [-.10, .10], [-.10, -.04])[v]
+        for i in range(2):
+            stage = [-.18, -.22+i*.44]
+            for side in [-1, 1]:
+                for end in [-1, 1]:
+                    fixtures.append(dict(type="box", xy=[stage[0]+side*.014, stage[1]+end*.09], z=.82,
+                                         size=[.006, .012, .02], rgba=[.4, .45, .5, 1]))
+            move(f"divider{i}", stage, fine=True)
+        for i, dx in enumerate(offsets):
+            move(f"divider{i}", [center[0]+dx, 0.], .808, fine=True)
+            goals += [position(f"divider{i}", [center[0]+dx, 0.], .008),
+                      dict(type="yaw", object=f"divider{i}", value=0., tolerance=.1)]
+        long_center = center[0]+[-.071, 0., .071][v]
+        # The three bars form a bundle in the enlarged compartment, rather
+        # than fitting through a narrow neighbouring compartment.
+        for i in range(3):
+            move(f"part{i}", [long_center, -.063+i*.063], .808, fine=True)
+            goals += [dict(type="nest", object=f"part{i}", target="case"),
+                      position(f"part{i}", [long_center, -.063+i*.063], .012)]
+        move("lid", center, .864)
+        goals.append(dict(type="cover", object="lid", target="case"))
+    elif recipe == "air_handover":
+        objects.append(obj("baton", [-.16, -.24], "yellow", "arrow_bar", (.025, .12, .018), density=150))
+        angles = [0., 1.5707963267948966, -1.5707963267948966]
+        zones.append(dict(id="delivery", xy=[.15, 0.], half_size=[.15, .15], marker=0))
+        goals = [position("baton", [.15, 0.], .02), dict(type="handover", object="baton"),
+                 dict(type="yaw", object="baton", value=angles[v], tolerance=.12)]
+        plan.append(dict(object="baton", operation="handover", xy=[.15, 0.], bottom=.8,
+                         yaw=angles[v], giver_grasp=[0., -.075, 0.], receiver_grasp=[0., .075, .004]))
+    elif recipe == "bridge":
         for i in range(3):
             objects.append(obj(f"pillar{i}", [-.22, -.22+i*.22], colors[i], size=(.035, .035, .045)))
         objects.append(obj("beam", [-.04, 0.], "yellow", "bar", (.035, .12, .012)))
@@ -34,10 +121,12 @@ def build(recipe, v, rng, obj, position):
                   dict(type="stack", object="load", target="beam")]
     elif recipe == "layers":
         xy = [.12, 0.]
-        bin_("lower", xy, (.085, .11, .022))
-        bin_("upper", xy, (.085, .11, .022), bottom=.844)
+        objects.append(handled_tray(obj, "lower", xy, .085, .11, .022))
+        goals.append(position("lower", xy, .015))
+        objects.append(handled_tray(obj, "upper", xy, .095, .12, .022, bottom=.844))
+        goals.append(position("upper", xy, .015))
         for i in range(3):
-            objects.append(obj(f"piece{i}", [.12, -.065+i*.065], colors[i], size=(.018, .018, .012+i*.003), bottom=.808))
+            objects.append(obj(f"piece{i}", [.12, -.065+i*.065], colors[i], size=(.018, .018, .010+i*.003), bottom=.808))
             objects.append(obj(f"upper_piece{i}", [.12, -.065+i*.065], colors[i], size=(.018, .018, .014), bottom=.852))
             goals.append(dict(type="nest", object=f"upper_piece{i}", target="upper"))
         selected = 2-v
@@ -46,6 +135,7 @@ def build(recipe, v, rng, obj, position):
         goals.append(position(f"piece{selected}", [-.16, -.24]))
         for i in range(3):
             if i != selected: goals.append(dict(type="nest", object=f"piece{i}", target="lower"))
+        move("lower", xy)
         move("upper", xy, .844)
         goals.append(dict(type="stack", object="upper", target="lower"))
     elif recipe == "change_cap":
@@ -103,7 +193,7 @@ def build(recipe, v, rng, obj, position):
                           candidates=[f"spare{i}" for i in range(5)], relation=["equal", "increasing", "decreasing"][v]))
     elif recipe == "kit_delivery":
         center = [.10, 0.]
-        objects.append(obj("carrier", center, "white", "tray", (.075, .12, .022)))
+        objects.append(handled_tray(obj, "carrier", center, .075, .12, .022))
         for group, kind in enumerate(["box", "bar", "bottle"]):
             for rank in range(3):
                 half = .016+rank*.004

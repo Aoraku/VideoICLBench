@@ -12,9 +12,13 @@ class TabletopAuthor(Author):
         self.yaws = [0., 0.]
 
     def act(self, arm, token):
+        pair = ["STILL", "STILL"]; pair[arm] = token
+        self.act_pair(*pair)
+
+    def act_pair(self, left, right):
         if len(self.actions) >= self.env.spec["action_budget"]:
             raise RuntimeError("Action budget exhausted")
-        pair = ["STILL", "STILL"]; pair[arm] = token
+        pair = [left, right]
         self.env.action(*pair)
         self.actions.append(dict(left=pair[0], right=pair[1]))
         self.frame()
@@ -22,8 +26,9 @@ class TabletopAuthor(Author):
         with (self.folder/"trace.private.jsonl").open("a") as stream:
             stream.write(json.dumps(dict(index=len(self.actions), action=pair,
                 eef0=self.eef(0).tolist(), eef1=self.eef(1).tolist(), objects=snapshot))+"\n")
-        if token.startswith("YAW_"):
-            self.yaws[arm] += math.radians(10)*(1 if token == "YAW_POS" else -1)
+        for arm, token in enumerate(pair):
+            if token.startswith("YAW_"):
+                self.yaws[arm] += math.radians(1 if token.endswith("_FINE") else 10)*(1 if token.startswith("YAW_POS") else -1)
 
     def align(self, arm, angle):
         for _ in range(20):
@@ -40,6 +45,10 @@ class TabletopAuthor(Author):
         s = self.env.by_spec[name]
         if s["kind"] == "bottle" or (s["kind"] not in ("ring", "key", "lid", "tray", "bowl") and s["size"][0] < s["size"][1]):
             self.align(arm, math.pi/2)
+        if s["kind"] == "box" and any(b["kind"] in ("tray", "bowl")
+                and np.all(np.abs(self.state(name)["pos"][:2]-self.state(n)["pos"][:2]) < np.asarray(b["size"][:2])-.01)
+                for n,b in self.env.by_spec.items() if n != name):
+            self.align(arm, math.pi/2)
         if s["kind"] == "bar" and s["size"][1] > .04:
             self.align(arm, math.pi/2)
         if s["kind"] == "cup":
@@ -48,6 +57,7 @@ class TabletopAuthor(Author):
         p = self.state(name)["pos"].copy()
         local = np.zeros(3)
         if "grasp_local" in s: local = np.array(s["grasp_local"], dtype=float)
+        if grasp_offset is not None: local = np.array(grasp_offset, dtype=float)
         if s["kind"] in ("tray", "bowl"):
             mat = self.state(name)["mat"]
             self.align(arm, math.atan2(mat[1, 0], mat[0, 0]))
@@ -85,10 +95,9 @@ class TabletopAuthor(Author):
         if approach is not None:
             # The object approaches from the open end, then translates through
             # both apertures. It is never lowered through the frame roof.
-            p = np.asarray(approach)+offset
-            self.move(arm, p, axes=(0, 1, 2)); self.fine_move(arm, p)
-            self.move(arm, target+offset, axes=(0,))
-            self.fine_move(arm, target+offset)
+            self.horizontal(arm, name)
+            self.object_move(arm, name, np.asarray(approach))
+            self.object_move(arm, name, target, axes=(0,))
         elif fine:
             self.fine_move(arm, target+offset, axes=(0, 1))
         for _ in range(35):
@@ -102,6 +111,30 @@ class TabletopAuthor(Author):
         for _ in range(3): self.act(arm, "RELEASE")
         self.move(arm, [*self.eef(arm)[:2], 1.14], axes=(2,)); self.wait(3)
 
+    def horizontal(self, arm, name):
+        for _ in range(50):
+            mat = self.state(name)["mat"]
+            angle = math.atan2(mat[2, 0], math.hypot(mat[0, 0], mat[1, 0]))
+            if abs(angle) < .025: return
+            token = "PITCH_POS" if angle > 0 else "PITCH_NEG"
+            self.act(arm, token+"_FINE" if abs(angle) < .09 else token)
+        raise RuntimeError("Shaft pitch did not converge")
+
+    def object_move(self, arm, name, target, axes=(0, 1, 2)):
+        # Off-centre grasps flex under load. Re-read physical pose rather than
+        # assuming a fixed transform between the fingers and the shaft.
+        for axis in axes:
+            for step in range(180):
+                state = self.state(name)
+                if not state["grasp"][arm]: raise RuntimeError("Shaft slipped")
+                error = target[axis]-state["pos"][axis]
+                if abs(error) < .0025: break
+                token = (["FWD", "LEFT", "UP"] if error > 0 else ["BACK", "RIGHT", "DOWN"])[axis]
+                if abs(error) < .035: token += "_FINE"
+                self.act(arm, token)
+                if step % 8 == 0: self.horizontal(arm, name)
+            else: raise RuntimeError("Shaft positioning did not converge")
+
     def transport(self, name, arm, xy, bottom=.8, yaw=None, fine=False, approach=None):
         self.pick(name, arm)
         if yaw is not None:
@@ -111,13 +144,66 @@ class TabletopAuthor(Author):
         self.put(name, arm, [*xy, bottom+self.env.by_spec[name]["size"][2]], fine, approach)
         self.park(arm)
 
+    def dual_transport(self, name, xy, bottom):
+        """Opposite wall grasps balance the load; no object attachment."""
+        s = self.env.by_spec[name]
+        for arm in (0, 1):
+            a = self.state(name)
+            self.align(arm, math.atan2(a["mat"][1, 0], a["mat"][0, 0]))
+            local = np.array(s["grasp_sides"][arm] if "grasp_sides" in s else
+                             [0., (-1 if arm == 0 else 1)*(s["size"][1]-.004), .008])
+            target = a["pos"]+a["mat"]@local
+            self.act(arm, "RELEASE"); self.move(arm, [*target[:2], 1.15])
+            self.move(arm, target, axes=(2,)); self.fine_move(arm, target)
+            for _ in range(3): self.act(arm, "GRASP")
+        for attempt in range(3):
+            if all(self.state(name)["grasp"]): break
+            for arm in (0, 1):
+                state = self.state(name)
+                if state["grasp"][arm]: continue
+                local = np.array(s["grasp_sides"][arm] if "grasp_sides" in s else
+                                 [0., (-1 if arm == 0 else 1)*(s["size"][1]-.004), .008])
+                target = state["pos"]+state["mat"]@(local+[0., 0., -.003*attempt])
+                self.act(arm, "RELEASE"); self.fine_move(arm, target)
+                for _ in range(3): self.act(arm, "GRASP")
+        if not all(self.state(name)["grasp"]): raise RuntimeError("Both tray wall grasps required")
+
+        def axis_to(axis, target):
+            history = []
+            for _ in range(100):
+                state = self.state(name)
+                error = target-state["pos"][axis]
+                if abs(error) < .003: return
+                if not all(state["grasp"]): raise RuntimeError("Tray slipped during coordinated carry")
+                history.append(state["pos"][axis])
+                if len(history) > 12 and max(history[-10:])-min(history[-10:]) < .001:
+                    raise RuntimeError("Tray translation blocked")
+                token = (["FWD", "LEFT", "UP"] if error > 0 else ["BACK", "RIGHT", "DOWN"])[axis]
+                if abs(error) < .024: token += "_FINE"
+                self.act_pair(token, token)
+            raise RuntimeError("Coordinated tray movement did not converge")
+
+        axis_to(2, 1.05)
+        axis_to(0, xy[0]); axis_to(1, xy[1])
+        axis_to(2, bottom+s["size"][2]+.003)
+        for _ in range(3): self.act_pair("RELEASE", "RELEASE")
+        for _ in range(5): self.act_pair("UP", "UP")
+        self.park(0); self.park(1); self.wait(3)
+
     def solve(self):
         self.park(0); self.park(1)
         for p in self.env.spec["author_plan"]:
             name = p["object"]
+            if p.get("operation") == "handover":
+                self.handover(name, p)
+                continue
+            if self.env.by_spec[name]["kind"] == "tray":
+                self.dual_transport(name, p["xy"], p["bottom"])
+                continue
             src = self.state(name)["pos"]
             arm = 0 if src[1] < 0 else 1
             target_arm = 0 if p["xy"][1] < -.07 else 1 if p["xy"][1] > .07 else arm
+            if abs(src[1]) < .10: arm = target_arm
             if arm != target_arm:
                 state = self.env.snapshot()
                 candidates = [[-.08, 0.], [0., 0.], [-.10, .10], [-.10, -.10], [-.28, 0.]]
@@ -130,3 +216,31 @@ class TabletopAuthor(Author):
                 arm = target_arm
             self.transport(name, arm, p["xy"], p["bottom"], p.get("yaw"), p.get("fine", False), p.get("approach"))
         self.wait(6)
+
+    def handover(self, name, plan):
+        self.pick(name, 0, plan["giver_grasp"])
+        self.object_move(0, name, np.array([-.08, 0., 1.04]))
+        state = self.state(name)
+        local = np.array(plan["receiver_grasp"])
+        point = state["pos"]+state["mat"]@local
+        self.align(1, math.pi/2)
+        self.act(1, "RELEASE")
+        self.move(1, [*point[:2], 1.15])
+        self.move(1, point, axes=(2,)); self.fine_move(1, point)
+        for attempt in range(3):
+            state = self.state(name)
+            point = state["pos"]+state["mat"]@(local+[0., 0., -.004*attempt])
+            self.fine_move(1, point)
+            for _ in range(3): self.act(1, "GRASP")
+            if self.state(name)["grasp"][1]: break
+            self.act(1, "RELEASE")
+        else: raise RuntimeError("Receiver did not grasp baton")
+        for _ in range(3): self.act(0, "RELEASE")
+        self.park(0)
+        self.wait(2)
+        if ("handover", name) not in self.env.events: raise RuntimeError("No airborne transfer recorded")
+        mat = self.state(name)["mat"]
+        current = math.atan2(mat[1, 0], mat[0, 0])
+        self.align(1, self.yaws[1]+plan["yaw"]-current)
+        self.put(name, 1, [*plan["xy"], plan["bottom"]+self.env.by_spec[name]["size"][2]], fine=True)
+        self.park(1)

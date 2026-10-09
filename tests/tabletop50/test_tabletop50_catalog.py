@@ -31,3 +31,9 @@ def test_pending_design_is_not_silently_replaced_with_generic_pick_place():
 @pytest.mark.parametrize("task", IMPLEMENTED)
 def test_demo_and_inference_can_use_different_worlds(task):
     assert world_sha256(task_spec(task, "A", 0)) != world_sha256(task_spec(task, "A", 101))
+
+
+def test_layout_randomisation_does_not_translate_container_local_goals():
+    specs = [task_spec("F35", "A", seed) for seed in [0, 19, 101]]
+    local = [[g["xy"] for g in s["goals"] if g["type"] == "local_position"] for s in specs]
+    assert local == [[[0., -.075], [0., 0.], [0., .075]]]*3

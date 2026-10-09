@@ -40,6 +40,17 @@ def test_cover_cannot_pass_when_held_above_box():
     finally: e.close()
 
 
+def test_tray_handle_does_not_count_as_container_interior():
+    e = TabletopDual(task_spec("F35"), render=False)
+    try:
+        state = e.snapshot()
+        tray = state["carrier"]
+        # Enlarged bounding box includes grip tabs; the usable cavity does not.
+        state["part0_0"]["pos"] = tray["pos"]+tray["mat"]@np.array([0., .135, 0.])
+        assert not e.predicate(dict(type="nest", object="part0_0", target="carrier"), state)
+    finally: e.close()
+
+
 def test_length_completion_relations_are_exclusive():
     e = TabletopDual(task_spec("F33"), render=False)
     try:

@@ -211,7 +211,7 @@
       "id": "F13",
       "title": "长杆穿双孔",
       "group": "插放与结构",
-      "props": "大孔双耳支架、三根彩色粗杆",
+      "props": "大孔双耳支架、三根36厘米轻质彩色粗杆",
       "challenge": "一次对准两个孔，支架可用另一手稳住",
       "rules": {
         "A": "选红杆",
@@ -246,16 +246,16 @@
       "title": "可移动孔板装配",
       "group": "插放与结构",
       "props": "有把手的轻孔板、三根粗柱、板架",
-      "challenge": "先稳定孔板，再插装，最后将完整组件立回板架",
+      "challenge": "先稳定孔板，再插装，最后将完整组件放回板架",
       "rules": {
         "A": "装最短柱",
         "B": "装中长柱",
         "C": "装最长柱"
       },
       "reset": "拔柱，板与架分离放回",
-      "camera_note": "板倾斜朝向相机，插入端露出",
-      "runtime_recipe": null,
-      "status": "runtime-pending",
+      "camera_note": "孔板架高平放，孔与柱帽同时可见",
+      "runtime_recipe": "mobile_board",
+      "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
     },
     {
@@ -364,7 +364,7 @@
       "id": "F22",
       "title": "双层托盘取放",
       "group": "受限重排",
-      "props": "两层可拆浅托盘、六件物品",
+      "props": "两层带侧把手的可拆浅托盘、六件物品",
       "challenge": "移开上层访问下层，更新后恢复上下层",
       "rules": {
         "A": "取出下层最大件",
@@ -585,15 +585,15 @@
       "id": "F35",
       "title": "配套打包并交付",
       "group": "配套与空间规划",
-      "props": "三类物品各3件、有分格的浅托盘",
-      "challenge": "按跨类别规则选三件，装入对应格后整体交付",
+      "props": "三类物品各3件、带侧把手和定位标记的浅托盘",
+      "challenge": "按跨类别规则选三件，按定位标记摆好后整体交付",
       "rules": {
         "A": "各选最小件",
         "B": "各选中间尺寸件",
         "C": "各选最大件"
       },
       "reset": "托盘退回，三件取出",
-      "camera_note": "托盘格口外露，交付后保留全套可见",
+      "camera_note": "托盘内不叠放，交付后保留全套可见",
       "runtime_recipe": "kit_delivery",
       "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
@@ -798,15 +798,15 @@
       },
       "reset": "长条放回起始侧",
       "camera_note": "选轻长条，交接点放画面中央；本族明确包含交接过程事件",
-      "runtime_recipe": null,
-      "status": "runtime-pending",
+      "runtime_recipe": "air_handover",
+      "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
     },
     {
       "id": "F48",
       "title": "分格箱重配置",
       "group": "多阶段工作",
-      "props": "带可抽隔板的浅收纳箱、长短物件",
+      "props": "带可抽隔板的浅收纳箱、三根长条、临时立架",
       "challenge": "先移动隔板形成所需空间，再装入物件并盖好",
       "rules": {
         "A": "长格在左",
@@ -814,9 +814,9 @@
         "C": "长格在右"
       },
       "reset": "取出物件，隔板回公共初态",
-      "camera_note": "隔板上沿突出，槽宽松；避免硬卡扣",
-      "runtime_recipe": null,
-      "status": "runtime-pending",
+      "camera_note": "隔板槽宽松，临时立架保持隔板竖直；避免硬卡扣",
+      "runtime_recipe": "reconfigure_bin",
+      "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
     },
     {

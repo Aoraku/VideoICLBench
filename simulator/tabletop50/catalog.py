@@ -121,7 +121,7 @@ def task_spec(task_id, variant="A", seed=0):
     for z in zones:
         z["xy"] = [a+b for a, b in zip(z["xy"], offset)]
     for g in goals:
-        if "xy" in g:
+        if "xy" in g and g["type"] != "local_position":
             g["xy"] = [a+b for a, b in zip(g["xy"], offset)]
     for p in plan:
         p["xy"] = [a+b for a, b in zip(p["xy"], offset)]

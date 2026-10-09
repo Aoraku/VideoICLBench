@@ -58,6 +58,7 @@ def main():
         for name in ("video.mp4", "initial.jpg", "final.jpg", "actions.json", "result.private.json"):
             shutil.copy2(proof.parent/name, target/name)
         row["folder"] = target.name; rows.append(row)
+        (target/"media-audit.private.json").write_text(json.dumps(row, indent=2)+"\n")
     groups = {}
     for row in rows: groups.setdefault((row["task"], row["seed"], row["source_sha256"]), []).append(row)
     complete = []
