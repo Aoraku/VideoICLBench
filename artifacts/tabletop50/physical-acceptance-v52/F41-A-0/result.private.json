@@ -1,0 +1,88 @@
+{
+  "task": "F41",
+  "variant": "A",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "42df40a5623118f1287282f220552e0d6a001bfa052799e36b60ca6e8d72e4ee",
+  "source_unchanged": true,
+  "world_sha256": "a910ccc4299282793f0533ca2e545af7cef08dad557ff0709c0fd6858ad67894",
+  "initial_positions": {
+    "paddle": [
+      -0.2132907065623863,
+      0.21645488620645084,
+      0.8747844891603278
+    ],
+    "slider": [
+      -0.1332907065623863,
+      -0.0035451137935491777,
+      0.8197844851008982
+    ]
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 1,
+    "fixtures_visible": true
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 18.05,
+    "predicates": [
+      {
+        "rule": {
+          "type": "place",
+          "object": "slider",
+          "target": "exit0"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "swept",
+          "object": "slider",
+          "target": "paddle",
+          "distance": 0.1
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "paddle": [
+        -0.28184360011124326,
+        0.2127853985241318,
+        0.8268477903621063
+      ],
+      "slider": [
+        0.22579582850538243,
+        -0.19601547563515842,
+        0.8197844891595695
+      ]
+    },
+    "events": [
+      [
+        "swept",
+        "slider"
+      ]
+    ],
+    "metric": "success",
+    "joint_angles": {}
+  },
+  "cross_rule_predicates": {
+    "A": true,
+    "B": false,
+    "C": false
+  },
+  "actions": 912,
+  "actions_sha256": "403d2715d2ba145d966818713593974b17818526d5e96e236e1293aac66d34c4",
+  "error": null,
+  "video": {
+    "recorded": false,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 0,
+    "duration_seconds": 0.0,
+    "full_episode": true,
+    "final_success": true
+  }
+}

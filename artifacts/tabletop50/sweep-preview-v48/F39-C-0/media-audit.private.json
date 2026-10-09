@@ -1,0 +1,63 @@
+{
+  "task": "F39",
+  "variant": "C",
+  "seed": 0,
+  "source_sha256": "ae4819ca49369aebbde0d370527b45283920c8915280f54d9602ce2ce5d8da53",
+  "world_sha256": "e7533c683cd1a2214e9d0995a2ce583c2e7bf78b1cd6d46407b332936e98c72f",
+  "video_sha256": "e5093b9d44b5dfe51828ade854ea355fa9a2bc6c72eecaad88370cb105a17149",
+  "decoded_frames": 1266,
+  "fps": 10.0,
+  "duration_seconds": 126.6,
+  "ending_image_mae": 2.765446901321411,
+  "initial_positions": {
+    "brush": [
+      -0.1951816996694693,
+      0.002984285115385955,
+      0.8747844894013324
+    ],
+    "bead0": [
+      -0.07518169966946929,
+      -0.023015714884614045,
+      0.8171964938463399
+    ],
+    "bead1": [
+      -0.07518169966946929,
+      0.028984285115385953,
+      0.8181444265658546
+    ],
+    "bead2": [
+      -0.02518169966946929,
+      -0.023015714884614045,
+      0.8178695561508909
+    ],
+    "bead3": [
+      -0.02518169966946929,
+      0.028984285115385953,
+      0.8171338308402653
+    ],
+    "bead4": [
+      0.024818300330530712,
+      -0.023015714884614045,
+      0.8184523106694767
+    ],
+    "bead5": [
+      0.024818300330530712,
+      0.028984285115385953,
+      0.8185983891096155
+    ]
+  },
+  "cross_rule_predicates": {
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 4,
+    "fixtures_visible": true
+  },
+  "usable_for_agent_demo": true,
+  "independent_agent": false,
+  "human_recorded": false,
+  "folder": "F39-C-0"
+}

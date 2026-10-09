@@ -129,6 +129,13 @@ class TabletopDual(DesktopDual):
         return state
 
     def predicate(self, g, state):
+        if g["type"] == "place" and self.by_spec[g["object"]]["kind"] == "sphere":
+            zone = next(z for z in self.spec["zones"] if z["id"] == g["target"])
+            radius = self.by_spec[g["object"]]["size"][0]; p = state[g["object"]]["pos"]
+            return bool(np.all(np.abs(p[:2]-zone["xy"])+radius < np.array(zone["half_size"])+.008)
+                        and .8 < p[2] < .8+radius+.025)
+        if g["type"] == "swept":
+            return ("swept", g["object"]) in self.events and g["object"] not in self._manually_handled
         if g["type"] == "hinge_angle":
             a = state[g["object"]]
             return bool(g["bounds"][0] <= a["hinge_angle"] <= g["bounds"][1]
@@ -249,6 +256,26 @@ class TabletopDual(DesktopDual):
 
     def track(self):
         state = self.snapshot()
+        sweep_goals = [g for g in self.spec["goals"] if g["type"] == "swept"]
+        if sweep_goals:
+            # Force chains through contacting beads count as tool-mediated
+            # sweeping. Every link must currently be in physical contact.
+            tool = sweep_goals[0]["target"]
+            names = {g["object"] for g in sweep_goals}
+            self._manually_handled.update(n for n in names if any(state[n]["grasp"]))
+            active = set()
+            if any(state[tool]["grasp"]):
+                active = {n for n in names if self.check_contact(self.items[n], self.items[tool])}
+                while True:
+                    reached = {n for n in names-active if any(self.check_contact(self.items[n], self.items[b]) for b in active)}
+                    if not reached: break
+                    active.update(reached)
+            for g in sweep_goals:
+                name = g["object"]
+                if name not in active or name in self._manually_handled: continue
+                origin = self._tool_contact_origins.setdefault(name, state[name]["pos"][:2].copy())
+                if np.linalg.norm(state[name]["pos"][:2]-origin) >= g["distance"]:
+                    self.events.add(("swept", name))
         for g in self.spec["goals"]:
             if g["type"] != "passed_gate": continue
             name = g["object"]; a = state[name]

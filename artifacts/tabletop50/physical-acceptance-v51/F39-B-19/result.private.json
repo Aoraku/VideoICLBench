@@ -1,0 +1,243 @@
+{
+  "task": "F39",
+  "variant": "B",
+  "seed": 19,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "f17af040cf8a39a0490326a218946aaa555a11663c822829296bc238cc6609c1",
+  "source_unchanged": true,
+  "world_sha256": "c1512cdcc71ddd38a1f519aa5be5070c65a46086c26512ffc874df0eb64813ff",
+  "initial_positions": {
+    "brush": [
+      -0.2063626421859254,
+      0.004818197172200258,
+      0.8747844894013324
+    ],
+    "bead0": [
+      -0.0863626421859254,
+      -0.02118180282779974,
+      0.8168481538136532
+    ],
+    "bead1": [
+      -0.0863626421859254,
+      0.030818197172200256,
+      0.817456551194168
+    ],
+    "bead2": [
+      -0.036362642185925394,
+      -0.02118180282779974,
+      0.8185688335737438
+    ],
+    "bead3": [
+      -0.036362642185925394,
+      0.030818197172200256,
+      0.8183018362787178
+    ],
+    "bead4": [
+      0.013637357814074609,
+      -0.02118180282779974,
+      0.8181794184594842
+    ],
+    "bead5": [
+      0.013637357814074609,
+      0.030818197172200256,
+      0.8184272210446322
+    ]
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 4,
+    "fixtures_visible": true
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 24.6,
+    "predicates": [
+      {
+        "rule": {
+          "type": "place",
+          "object": "bead0",
+          "target": "collect1"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "swept",
+          "object": "bead0",
+          "target": "brush",
+          "distance": 0.1
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "place",
+          "object": "bead1",
+          "target": "collect1"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "swept",
+          "object": "bead1",
+          "target": "brush",
+          "distance": 0.1
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "place",
+          "object": "bead2",
+          "target": "collect1"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "swept",
+          "object": "bead2",
+          "target": "brush",
+          "distance": 0.1
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "place",
+          "object": "bead3",
+          "target": "collect1"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "swept",
+          "object": "bead3",
+          "target": "brush",
+          "distance": 0.1
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "place",
+          "object": "bead4",
+          "target": "collect1"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "swept",
+          "object": "bead4",
+          "target": "brush",
+          "distance": 0.1
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "place",
+          "object": "bead5",
+          "target": "collect1"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "swept",
+          "object": "bead5",
+          "target": "brush",
+          "distance": 0.1
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "brush": [
+        -0.2063197298836441,
+        0.007151776531708778,
+        0.8747844891595659
+      ],
+      "bead0": [
+        0.1939771670237002,
+        0.22134811347123517,
+        0.8168481538136536
+      ],
+      "bead1": [
+        0.14191045220824372,
+        0.2721142694946243,
+        0.8174565511941685
+      ],
+      "bead2": [
+        0.22540396201716967,
+        0.19494339398867147,
+        0.8185688335737427
+      ],
+      "bead3": [
+        0.1656787878703905,
+        0.2442458915766915,
+        0.8183018362787182
+      ],
+      "bead4": [
+        0.23936348139836836,
+        0.15708579076012963,
+        0.8181794184594844
+      ],
+      "bead5": [
+        0.2304784511563625,
+        0.23337662022193334,
+        0.8184272210446326
+      ]
+    },
+    "events": [
+      [
+        "swept",
+        "bead0"
+      ],
+      [
+        "swept",
+        "bead1"
+      ],
+      [
+        "swept",
+        "bead2"
+      ],
+      [
+        "swept",
+        "bead3"
+      ],
+      [
+        "swept",
+        "bead4"
+      ],
+      [
+        "swept",
+        "bead5"
+      ]
+    ],
+    "metric": "success",
+    "joint_angles": {}
+  },
+  "cross_rule_predicates": {
+    "A": false,
+    "B": true,
+    "C": false
+  },
+  "actions": 502,
+  "actions_sha256": "6b605958c4ae07c537c2a72272acc03b2ce04ae9956ef201dd3f47c1ba3976d0",
+  "error": null,
+  "video": {
+    "recorded": false,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 0,
+    "duration_seconds": 0.0,
+    "full_episode": true,
+    "final_success": true
+  }
+}

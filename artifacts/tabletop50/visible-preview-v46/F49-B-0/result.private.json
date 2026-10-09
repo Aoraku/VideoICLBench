@@ -1,0 +1,136 @@
+{
+  "task": "F49",
+  "variant": "B",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "580c5c7022ecb75a951de435f05d8f96c6edfa85527feee4d3b99f48d563fcfe",
+  "source_unchanged": true,
+  "world_sha256": "42981b802d28414932650f97b4abe748c382bc21fe1e6cbd68a215b31b6c3eff",
+  "initial_positions": {
+    "panel0": [
+      0.12670933495587622,
+      -0.22354511379354916,
+      0.8147840979820986
+    ],
+    "panel1": [
+      0.12670933495587622,
+      -0.0035451137935491777,
+      0.8147840979820986
+    ],
+    "panel2": [
+      0.12670933495587622,
+      0.21645488620645084,
+      0.8147840979820986
+    ],
+    "support": [
+      -0.19280023244688343,
+      -0.0035451137935491777,
+      0.8597867317819312
+    ]
+  },
+  "initial_joint_angles": {
+    "panel0": -0.0007569894315436308,
+    "panel1": -0.0007569894315436319,
+    "panel2": -0.000756989431543632
+  },
+  "visual_environment": {
+    "fixture_count": 0,
+    "fixtures_visible": true
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 19.55,
+    "predicates": [
+      {
+        "rule": {
+          "type": "hinge_angle",
+          "object": "panel0",
+          "bounds": [
+            -0.03,
+            0.06
+          ]
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "hinge_angle",
+          "object": "panel1",
+          "bounds": [
+            1.02,
+            1.35
+          ]
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "hinge_angle",
+          "object": "panel2",
+          "bounds": [
+            -0.03,
+            0.06
+          ]
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "leaf_support",
+          "object": "panel1",
+          "target": "support"
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "panel0": [
+        0.12670933504920714,
+        -0.22354511379354916,
+        0.8147840979226086
+      ],
+      "panel1": [
+        0.12979171899154962,
+        0.006998494584412942,
+        0.8147739861362406
+      ],
+      "panel2": [
+        0.12670933504920714,
+        0.21645488620645084,
+        0.8147840979226086
+      ],
+      "support": [
+        0.09483024373973331,
+        0.007055618959196468,
+        0.8920231000347381
+      ]
+    },
+    "events": [],
+    "metric": "success",
+    "joint_angles": {
+      "panel0": -0.001081630325189361,
+      "panel1": 1.2549713805885687,
+      "panel2": -0.0010816303251893586
+    }
+  },
+  "cross_rule_predicates": {
+    "A": false,
+    "B": true,
+    "C": false
+  },
+  "actions": 659,
+  "actions_sha256": "08988c5a54ccd1f52794abf84f312624e121ca24b9facad2f65254d2c5cae4f1",
+  "error": null,
+  "video": {
+    "recorded": true,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 2638,
+    "duration_seconds": 263.8,
+    "full_episode": true,
+    "final_success": true,
+    "sha256": "e511df9ae9a60c381d088a5b7a86386618971ce04bc94a1e18ac232b669428d3"
+  }
+}

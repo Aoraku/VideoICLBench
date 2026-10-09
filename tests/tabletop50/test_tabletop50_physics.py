@@ -29,6 +29,29 @@ def test_physical_frames_are_visible_with_collision_mesh_rendering_disabled():
     finally: e.close()
 
 
+def test_sweep_rejects_manual_delivery_and_sphere_rotation_does_not_change_fit():
+    e = TabletopDual(task_spec("F39", "A"), render=False)
+    try:
+        state = e.snapshot()
+        place = next(g for g in e.spec["goals"] if g["type"] == "place")
+        swept = next(g for g in e.spec["goals"] if g["type"] == "swept")
+        name = place["object"]
+        zone = next(z for z in e.spec["zones"] if z["id"] == place["target"])
+        radius = e.by_spec[name]["size"][0]
+        state[name]["pos"] = np.array(zone["xy"]+[.8+radius])
+        state[name]["pos"][0] += zone["half_size"][0]+.008-radius-.001
+        assert e.predicate(place, state)
+        state[name]["mat"] = np.array([[.70710678, -.70710678, 0.],
+                                       [.70710678, .70710678, 0.], [0., 0., 1.]])
+        assert e.predicate(place, state)
+        assert not e.predicate(swept, state)
+        e.events.add(("swept", name))  # Detector fixture, not an execution shortcut.
+        assert e.predicate(swept, state)
+        e._manually_handled.add(name)
+        assert not e.predicate(swept, state)
+    finally: e.close()
+
+
 def test_real_initial_positions_equal_across_rule_variants():
     snapshots = []
     for variant in "ABC":

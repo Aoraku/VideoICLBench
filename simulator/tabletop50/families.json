@@ -653,17 +653,17 @@
       "id": "F39",
       "title": "扫拢大颗粒",
       "group": "工具与接触",
-      "props": "小桌刷、六个大木珠、三个收集角",
-      "challenge": "组织接触方向，避免把已聚拢物件扫散",
+      "props": "带握柄的20厘米桌刷、六个直径3.4–3.8厘米木球、三个图形收集区",
+      "challenge": "根据收集区位置组织接触方向，避免把已聚拢木球扫散",
       "rules": {
-        "A": "归集圆角区",
-        "B": "归集三角区",
-        "C": "归集方角区"
+        "A": "扫入圆形标记区",
+        "B": "扫入三角标记区",
+        "C": "扫入方形标记区"
       },
-      "reset": "六珠回到有边框的工作区",
-      "camera_note": "木珠直径足够大，桌面边框防掉落",
-      "runtime_recipe": null,
-      "status": "runtime-pending",
+      "reset": "六球回到有边框的工作区，收集区位置可交换",
+      "camera_note": "大木球与低边框同时入镜，刷柄不要遮住目标标记",
+      "runtime_recipe": "sweep_beads",
+      "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
     },
     {
@@ -687,17 +687,17 @@
       "id": "F41",
       "title": "推片绕过障碍",
       "group": "工具与接触",
-      "props": "推杆、厚滑块、开放转角通道",
-      "challenge": "拐角处需要改变接触面，不能沿直线推到底",
+      "props": "带握柄的窄推板、厚滑块、低矮长挡块、三个图形交付区",
+      "challenge": "绕过挡块后改变接触面，将滑块推到目标区，允许从挡块任一端绕行",
       "rules": {
-        "A": "送到左出口",
-        "B": "送到中出口",
-        "C": "送到右出口"
+        "A": "推入圆形区",
+        "B": "推入三角区",
+        "C": "推入方形区"
       },
-      "reset": "滑块退回入口，推杆归位",
-      "camera_note": "低矮开放通道，不使用封闭迷宫",
-      "runtime_recipe": null,
-      "status": "runtime-pending",
+      "reset": "滑块退回入口，推板归位，交付区位置可交换",
+      "camera_note": "挡块低矮、全路径开放，不使用封闭迷宫",
+      "runtime_recipe": "corner_push",
+      "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
     },
     {

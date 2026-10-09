@@ -220,6 +220,12 @@ class TabletopAuthor(Author):
         self.park(0); self.park(1)
         for p in self.env.spec["author_plan"]:
             name = p["object"]
+            if p.get("operation") == "corner_push":
+                self.corner_push(name, p)
+                continue
+            if p.get("operation") == "sweep":
+                self.sweep(name, p)
+                continue
             if p.get("operation") == "fold_display":
                 self.fold_display(name, p)
                 continue
@@ -321,6 +327,55 @@ class TabletopAuthor(Author):
             self.transport(block, arm, [-.15, .10], fine=True)
             arm = target_arm
         self.transport(block, arm, plan["xy"], fine=True)
+
+    def sweep(self, name, plan):
+        arm = 0 if plan["xy"][1] < 0 else 1
+        self.pick(name, arm)
+        initial = np.array([self.state(n)["pos"][:2] for n in plan["contents"]])
+        centre = initial.mean(axis=0)
+        direction = np.array(plan["xy"])-centre; direction /= np.linalg.norm(direction)
+        angle = math.atan2(direction[1], direction[0])
+        mat = self.state(name)["mat"]
+        self.align(arm, self.yaws[arm]+angle-math.atan2(mat[1, 0], mat[0, 0]))
+        rear = np.min((initial-centre)@direction)-.045
+        start = centre+direction*rear
+        self.object_move(arm, name, np.array([*start, .875]), axes=(0, 1, 2, 0, 1))
+        finish = np.array(plan["xy"])-direction*.035
+        for point in np.linspace(start, finish, 40)[1:]:
+            self.object_move(arm, name, np.array([*point, .875]), axes=(0, 1, 2))
+            state = self.env.snapshot()
+            if all(self.env.predicate(g, state) for g in self.env.spec["goals"]): break
+        self.put(name, arm, [*plan["return_xy"], .875], surface_release=True)
+        self.park(arm)
+
+    def corner_push(self, name, plan):
+        block = plan["block"]
+        arm = 0 if plan["waypoints"][0][1] < 0 else 1
+        self.pick(name, arm)
+        for waypoint in plan["waypoints"]:
+            target = np.array(waypoint)
+            delta = target-self.state(block)["pos"][:2]
+            if np.linalg.norm(delta) < .025: continue
+            direction = delta/np.linalg.norm(delta)
+            angle = math.atan2(direction[1], direction[0])
+            self.object_move(arm, name, self.state(name)["pos"]+[0., 0., .12], axes=(2,))
+            mat = self.state(name)["mat"]
+            self.align(arm, self.yaws[arm]+angle-math.atan2(mat[1, 0], mat[0, 0]))
+            start = self.state(block)["pos"][:2]-direction*.051
+            self.object_move(arm, name, np.array([*start, .875]), axes=(0, 1, 2))
+            for _ in range(200):
+                position = self.state(block)["pos"][:2]
+                remaining = (target-position)@direction
+                if remaining < .008: break
+                if not self.state(name)["grasp"][arm]: raise RuntimeError("Corner paddle slipped")
+                step = min(.008, remaining)
+                point = self.state(name)["pos"].copy()
+                point[:2] = position-direction*(.043-step)
+                self.object_move(arm, name, point, axes=(0, 1, 2))
+            else: raise RuntimeError("Corner pushing did not converge")
+        self.object_move(arm, name, self.state(name)["pos"]+[0., 0., .12], axes=(2,))
+        self.put(name, arm, [*plan["return_xy"], .875], surface_release=True)
+        self.park(arm)
 
     def hook(self, name, plan):
         ring = plan["block"]

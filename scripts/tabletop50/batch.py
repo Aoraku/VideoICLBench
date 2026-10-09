@@ -15,6 +15,16 @@ from simulator.tabletop50.families import REVISION
 from scripts.tabletop50.record import source_hash
 
 
+def valid_proof(r, variant, record, folder):
+    cross = r.get("cross_rule_predicates", {})
+    video = r.get("video", {})
+    return bool(r.get("score", {}).get("success") and not r.get("error")
+        and r.get("source_unchanged") and r.get("source_sha256") == source_hash()
+        and sum(cross.values()) == 1 and cross.get(variant)
+        and (not record or video.get("recorded") and video.get("final_success")
+             and (folder/"video.mp4").is_file()))
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--tasks", nargs="+", choices=IMPLEMENTED, default=IMPLEMENTED)
@@ -23,7 +33,11 @@ def main():
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--workers", type=int, default=4)
     p.add_argument("--record", action="store_true")
-    a = p.parse_args(); a.output.mkdir(parents=True, exist_ok=True)
+    a = p.parse_args()
+    # Children execute from the frozen source root, which can differ from the
+    # caller's cwd. Resolve once so logs and proofs use the same directory.
+    a.output = a.output.resolve()
+    a.output.mkdir(parents=True, exist_ok=True)
     cases = [(t, v, s) for t in a.tasks for v in a.variants for s in a.seeds]
     env = dict(os.environ, OMP_NUM_THREADS="1", OPENBLAS_NUM_THREADS="1")
 
@@ -33,13 +47,7 @@ def main():
         proof = a.output/key/"result.private.json"
         if proof.exists():
             r = json.loads(proof.read_text())
-            cross = r.get("cross_rule_predicates", {})
-            video = r.get("video", {})
-            ok = bool(r.get("score", {}).get("success") and not r.get("error")
-                and r.get("source_unchanged") and r.get("source_sha256") == source_hash()
-                and sum(cross.values()) == 1 and cross.get(v)
-                and (not a.record or video.get("recorded") and video.get("final_success")
-                     and (proof.parent/"video.mp4").is_file()))
+            ok = valid_proof(r, v, a.record, proof.parent)
             return dict(task=t, variant=v, seed=s, success=ok, existing=True, result=str(proof))
         cmd = [sys.executable, str(ROOT/"scripts/tabletop50/record.py"), "--task", t,
                "--variant", v, "--seed", str(s), "--output", str(a.output)]
@@ -47,7 +55,8 @@ def main():
         with (a.output/(key+".log")).open("x") as log:
             proc = subprocess.run(cmd, cwd=ROOT, env=env, stdout=log, stderr=subprocess.STDOUT)
         r = json.loads(proof.read_text()) if proof.exists() else {}
-        return dict(task=t, variant=v, seed=s, success=proc.returncode == 0,
+        return dict(task=t, variant=v, seed=s, success=bool(proc.returncode == 0
+                    and valid_proof(r, v, a.record, proof.parent)),
                     exit_code=proc.returncode, error=r.get("error", "No proof produced" if not r else None), result=str(proof))
 
     rows = []

@@ -1,0 +1,83 @@
+{
+  "status": "privileged-author-physical-acceptance",
+  "task": "F39",
+  "conditions": 6,
+  "source_sha256": "f17af040cf8a39a0490326a218946aaa555a11663c822829296bc238cc6609c1",
+  "source_archive": "../tools-source-v51.tar.gz",
+  "human_recorded": false,
+  "independent_agent": false,
+  "cases": [
+    {
+      "task": "F39",
+      "variant": "A",
+      "seed": 19,
+      "actions": 496,
+      "success": true,
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      }
+    },
+    {
+      "task": "F39",
+      "variant": "A",
+      "seed": 37,
+      "actions": 507,
+      "success": true,
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      }
+    },
+    {
+      "task": "F39",
+      "variant": "B",
+      "seed": 19,
+      "actions": 502,
+      "success": true,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      }
+    },
+    {
+      "task": "F39",
+      "variant": "B",
+      "seed": 37,
+      "actions": 497,
+      "success": true,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      }
+    },
+    {
+      "task": "F39",
+      "variant": "C",
+      "seed": 19,
+      "actions": 325,
+      "success": true,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      }
+    },
+    {
+      "task": "F39",
+      "variant": "C",
+      "seed": 37,
+      "actions": 324,
+      "success": true,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      }
+    }
+  ]
+}

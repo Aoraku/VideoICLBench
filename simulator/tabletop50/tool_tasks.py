@@ -1,13 +1,61 @@
 """Tool/contact tasks with real rigid contents and private process evidence."""
-RECIPES = {"F36": "push_delivery", "F37": "hook_retrieval", "F40": "pour_solids", "F45": "pass_long_bar"}
+RECIPES = {"F36": "push_delivery", "F37": "hook_retrieval", "F39": "sweep_beads", "F41": "corner_push",
+           "F40": "pour_solids", "F45": "pass_long_bar"}
 
 
 def build(recipe, v, rng, obj, position):
     if recipe == "push_delivery": return push_delivery(v, rng, obj, position)
     if recipe == "hook_retrieval": return hook_retrieval(v, rng, obj, position)
     if recipe == "pass_long_bar": return pass_long_bar(v, rng, obj, position)
+    if recipe == "sweep_beads": return sweep_beads(v, rng, obj, position)
+    if recipe == "corner_push": return corner_push(v, rng, obj, position)
     if recipe != "pour_solids": raise NotImplementedError(recipe)
     return pour_solids(v, rng, obj, position)
+
+
+def corner_push(v, rng, obj, position):
+    parts = [dict(size=[.018, .035, .018], pos=[0., 0., -.057], friction=[.3, .005, .0001], priority=1),
+             dict(size=[.014, .018, .055], pos=[0., 0., -.005])]
+    objects = [obj("paddle", [-.22, .22], "yellow", "bar", (.018, .035, .075),
+                   components=parts, bottom=.8, grasp_local=[0., 0., .035], density=180,
+                   friction=[1.5, .006, .0001], condim=4),
+               obj("slider", [-.14, 0.], "blue", size=(.025, .025, .020))]
+    slots = [[.23, -.20], [.23, 0.], [.23, .20]]; rng.shuffle(slots)
+    zones = [dict(id=f"exit{i}", xy=xy, half_size=[.055, .055], marker=i) for i, xy in enumerate(slots)]
+    # The solid barrier is shared by every rule. There is no prescribed route:
+    # either end is a valid way around it, provided the real tool moves the piece.
+    fixtures = [dict(type="box", xy=[.035, 0.], z=.83, size=[.018, .080, .03], rgba=[.4, .45, .5, 1])]
+    goals = [dict(type="place", object="slider", target=f"exit{v}"),
+             dict(type="swept", object="slider", target="paddle", distance=.10)]
+    side = .15
+    plan = [dict(object="paddle", operation="corner_push", block="slider", xy=slots[v],
+                 waypoints=[[-.14, side], [.23, side], slots[v]], return_xy=[-.22, .22])]
+    return objects, goals, plan, zones, fixtures
+
+
+def sweep_beads(v, rng, obj, position):
+    parts = [dict(size=[.012, .10, .018], pos=[0., 0., -.057], friction=[.3, .005, .0001], priority=1),
+             dict(size=[.014, .025, .055], pos=[0., 0., -.005])]
+    objects = [obj("brush", [-.20, 0.], "yellow", "bar", (.014, .10, .075),
+                   components=parts, bottom=.8, grasp_local=[0., 0., .035], density=150,
+                   friction=[1.5, .006, .0001], condim=4)]
+    slots = [[.22, -.22], [.22, 0.], [.22, .22]]; rng.shuffle(slots)
+    zones = [dict(id=f"collect{i}", xy=xy, half_size=[.09, .09], marker=i) for i, xy in enumerate(slots)]
+    goals = []
+    palette = ["red", "green", "blue"]*2; rng.shuffle(palette)
+    for i in range(6):
+        name = f"bead{i}"; radius = rng.uniform(.017, .019)
+        xy = [-.08+(i//2)*.05, -.026+(i%2)*.052]
+        objects.append(obj(name, xy, palette[i], "sphere", (radius, radius, radius), bottom=.8))
+        goals += [dict(type="place", object=name, target=f"collect{v}"),
+                  dict(type="swept", object=name, target="brush", distance=.10)]
+    fixtures = [dict(type="box", xy=[x, 0.], z=.815, size=[.006, .34, .015], rgba=[.4, .45, .5, 1])
+                for x in [-.28, .35]]
+    fixtures += [dict(type="box", xy=[.035, y], z=.815, size=[.315, .006, .015], rgba=[.4, .45, .5, 1])
+                 for y in [-.34, .34]]
+    plan = [dict(object="brush", operation="sweep", xy=slots[v], bottom=.8,
+                 return_xy=[-.20, 0.], contents=[f"bead{i}" for i in range(6)])]
+    return objects, goals, plan, zones, fixtures
 
 
 def pass_long_bar(v, rng, obj, position):

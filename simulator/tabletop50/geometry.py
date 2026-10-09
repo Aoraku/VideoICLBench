@@ -2,7 +2,7 @@
 import math
 import xml.etree.ElementTree as ET
 
-from robosuite.models.objects import BoxObject, CompositeObject, CylinderObject
+from robosuite.models.objects import BallObject, BoxObject, CompositeObject, CylinderObject
 from simulator.benchmark.environment import make_object
 from .mechanical import annulus
 
@@ -29,6 +29,12 @@ def component_object(s, components):
 
 def make_prop(s):
     kind = s["kind"]
+    if kind == "sphere":
+        item = BallObject(name=s["id"], size=[s["size"][0]], rgba=s["rgba"], density=s.get("density", 450),
+                          friction=s.get("friction", [.6, .005, .0003]))
+        for geom in item.get_obj().iter("geom"):
+            if geom.get("group") == "0": geom.set("condim", "6")
+        return item
     if kind == "hinged_panel":
         item = BoxObject(name=s["id"], size=s["size"], rgba=[.7, .7, .7, 1], density=2000)
         leaf = ET.SubElement(item.get_obj(), "body", name=item.naming_prefix+"leaf", pos="-.08 0 .027")
