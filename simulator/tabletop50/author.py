@@ -220,6 +220,9 @@ class TabletopAuthor(Author):
         self.park(0); self.park(1)
         for p in self.env.spec["author_plan"]:
             name = p["object"]
+            if p.get("operation") == "shovel":
+                self.shovel(name, p)
+                continue
             if p.get("operation") == "corner_push":
                 self.corner_push(name, p)
                 continue
@@ -345,6 +348,40 @@ class TabletopAuthor(Author):
             self.object_move(arm, name, np.array([*point, .875]), axes=(0, 1, 2))
             state = self.env.snapshot()
             if all(self.env.predicate(g, state) for g in self.env.spec["goals"]): break
+        self.put(name, arm, [*plan["return_xy"], .875], surface_release=True)
+        self.park(arm)
+
+    def shovel(self, name, plan):
+        block = plan["block"]
+        arm = 0 if plan["xy"][1] < 0 else 1
+        self.pick(name, arm)
+        self.align(arm, self.yaws[arm]-math.atan2(self.state(name)["mat"][1, 0], self.state(name)["mat"][0, 0]))
+        p = self.state(block)["pos"].copy()
+        entry = np.array([p[0]-.19, p[1], .884])
+        self.object_move(arm, name, entry, axes=(0, 1, 2, 0, 1))
+        self.object_move(arm, name, np.array([p[0]-.06, p[1], .884]), axes=(0,))
+        self.object_move(arm, name, self.state(name)["pos"]+[0., 0., .09], axes=(2,))
+        self.wait(3)
+        if ("scooped", block) not in self.env.events: raise RuntimeError("No real scoop support after lift")
+        destination = np.array([plan["xy"][0]-.11, plan["xy"][1], .94])
+        self.object_move(arm, name, destination, axes=(0, 1, 2))
+        # Tip the smooth lip toward the pad. Lowering a loaded blade and pulling
+        # it backwards can drag the wooden feet instead of releasing the load.
+        for _ in range(25): self.act(arm, "PITCH_POS_FINE")
+        self.wait(8)
+        # The feet now meet the table. Withdraw while still tilted so levelling
+        # the blade cannot scoop the deposited coaster up again.
+        for _ in range(100):
+            tool, load = self.state(name), self.state(block)
+            if not tool["grasp"][arm]: raise RuntimeError("Scoop slipped during unloading")
+            lip = tool["pos"][0]+tool["mat"][0]@np.array([.14, 0., -.073])
+            lip += .022*abs(tool["mat"][0, 1])+.002*abs(tool["mat"][0, 2])
+            back = load["pos"][0]-(np.abs(load["mat"])@self.env.by_spec[block]["size"])[0]
+            if lip < back-.01 and not self.env.check_contact(self.env.items[name], self.env.items[block]): break
+            self.act(arm, "BACK_FINE")
+        else: raise RuntimeError("Scoop could not clear the deposited coaster")
+        self.fine_move(arm, self.eef(arm)+[0., 0., .08], axes=(2,))
+        self.horizontal(arm, name)
         self.put(name, arm, [*plan["return_xy"], .875], surface_release=True)
         self.park(arm)
 

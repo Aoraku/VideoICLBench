@@ -4,7 +4,7 @@
 
 ## 可见性合格的作者预览
 
-当前36个条件的合格录像（按任务与规则去重），12族A/B/C完整；来自历史冻结源码，不能直接作为最新版服务的示范。
+当前39个条件的合格录像（按任务与规则去重），13族A/B/C完整；来自历史冻结源码，不能直接作为最新版服务的示范。
 
 - [可见支架穿杆](visible-preview-v46/index.html)：F13/F36/F49各三段，共九段；孔框、通道壁与铰链支撑均可见（F49与v43按条件去重）；[验收清单](visible-preview-v46/manifest.private.json)、[冻结源码](visible-source-v46.tar.gz)、[道具初态渲染](visible-scene-previews-v46/README.md)。
 - [真实铰链展示板](articulation-preview-v43/index.html)：F49-A/B/C三段；[录像验收清单](articulation-preview-v43/manifest.private.json)、[冻结源码](articulation-source-v43.tar.gz)。
@@ -37,4 +37,9 @@
 ## 新增物理验证
 
 - [扫拢不同布局 v51](physical-acceptance-v51/manifest.private.json)：seed19和37各三规则，六条件全部成功；[源码](tools-source-v51.tar.gz)。收集区排列、颜色、木球半径和共享布局扰动有变化；不宣称跨物体类别泛化。
-- [绕障推送 v52](physical-acceptance-v52/manifest.private.json)：三规则全部成功；[源码](tools-source-v52.tar.gz)。Agentlab的corner-recordings-v53正在录像，尚无发布视频。
+- [绕障推送 v52](physical-acceptance-v52/manifest.private.json)：三规则全部成功；[源码](tools-source-v52.tar.gz)。[三规则录像](corner-preview-v53/index.html)已全部完成并通过解码与可见性验收；[录像清单](corner-preview-v53/manifest.private.json)、[录像源码](tools-source-v53.tar.gz)。
+
+- [清障搬运物理验收 v66](physical-acceptance-v66/manifest.private.json)：F21三规则全部成功；[冻结源码](clearance-source-v66.tar.gz)。v67录像正在Agentlab进行，尚未计入视频数。
+- [宽铲开发诊断](shovel-development.private.json)：历史失败与未满足目标，不作为agent成绩。
+
+- [宽铲承托物理验收 v69](physical-acceptance-v69/manifest.private.json)：F38三规则在同一源码下全部成功（A1240/B1235/C1151动作）；[冻结源码](tools-source-v69.tar.gz)。shovel-recordings-v69正在Agentlab录制，尚未计入合格视频数。

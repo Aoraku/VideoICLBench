@@ -1,0 +1,89 @@
+{
+  "task": "F41",
+  "variant": "B",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "dc04fa83ab151089227ba929b8d6b416619805cc77ce54c18e06d6842118c3e5",
+  "source_unchanged": true,
+  "world_sha256": "a910ccc4299282793f0533ca2e545af7cef08dad557ff0709c0fd6858ad67894",
+  "initial_positions": {
+    "paddle": [
+      -0.2132907065623863,
+      0.21645488620645084,
+      0.8747844891603278
+    ],
+    "slider": [
+      -0.1332907065623863,
+      -0.0035451137935491777,
+      0.8197844851008982
+    ]
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 1,
+    "fixtures_visible": true
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 22.1,
+    "predicates": [
+      {
+        "rule": {
+          "type": "place",
+          "object": "slider",
+          "target": "exit1"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "swept",
+          "object": "slider",
+          "target": "paddle",
+          "distance": 0.1
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "paddle": [
+        -0.22427647257522887,
+        0.2287881899807477,
+        0.8747844891595659
+      ],
+      "slider": [
+        0.22617599946493078,
+        0.1935168441750336,
+        0.8197844891595695
+      ]
+    },
+    "events": [
+      [
+        "swept",
+        "slider"
+      ]
+    ],
+    "metric": "success",
+    "joint_angles": {}
+  },
+  "cross_rule_predicates": {
+    "A": false,
+    "B": true,
+    "C": false
+  },
+  "actions": 695,
+  "actions_sha256": "ea7b1ab02e4ebaa295aa22cccda787740008739e4da907d0dec512c89e0ecff5",
+  "error": null,
+  "video": {
+    "recorded": true,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 2782,
+    "duration_seconds": 278.2,
+    "full_episode": true,
+    "final_success": true,
+    "sha256": "ee2ed3bb5f8ae85b2cdd1022d46e2d88e3ac29c4cae694bef3b3f4768294b287"
+  }
+}

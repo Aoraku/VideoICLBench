@@ -109,6 +109,7 @@ class TabletopDual(DesktopDual):
         self._manually_handled = set()
         self._tool_contact_origins = {}
         self._gate_entered = set()
+        self._scoop_hold = {}
         if not self.deterministic_reset:
             for s in self.spec["objects"]:
                 if "bottom" in s:
@@ -136,6 +137,8 @@ class TabletopDual(DesktopDual):
                         and .8 < p[2] < .8+radius+.025)
         if g["type"] == "swept":
             return ("swept", g["object"]) in self.events and g["object"] not in self._manually_handled
+        if g["type"] == "scooped":
+            return ("scooped", g["object"]) in self.events and g["object"] not in self._manually_handled
         if g["type"] == "hinge_angle":
             a = state[g["object"]]
             return bool(g["bounds"][0] <= a["hinge_angle"] <= g["bounds"][1]
@@ -256,6 +259,21 @@ class TabletopDual(DesktopDual):
 
     def track(self):
         state = self.snapshot()
+        for g in self.spec["goals"]:
+            if g["type"] != "scooped": continue
+            name, tool = g["object"], g["target"]
+            a, b = state[name], state[tool]
+            if any(a["grasp"]): self._manually_handled.add(name)
+            local = b["mat"].T@(a["pos"]-b["pos"])
+            extent = (np.abs(a["mat"])@self.by_spec[name]["size"])[2]
+            # Actual underside contact while the scoop bears an airborne load.
+            supported = (any(b["grasp"]) and name not in self._manually_handled
+                         and a["pos"][2]-extent > .84 and b["mat"][2, 2] > .95
+                         and -.01 < local[0] < .13 and abs(local[1]) < .025
+                         and -.08 < local[2] < -.035
+                         and self.check_contact(self.items[name], self.items[tool]))
+            self._scoop_hold[name] = self._scoop_hold.get(name, 0)+1 if supported else 0
+            if self._scoop_hold[name] >= 4: self.events.add(("scooped", name))
         sweep_goals = [g for g in self.spec["goals"] if g["type"] == "swept"]
         if sweep_goals:
             # Force chains through contacting beads count as tool-mediated

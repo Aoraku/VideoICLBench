@@ -52,6 +52,23 @@ def test_sweep_rejects_manual_delivery_and_sphere_rotation_does_not_change_fit()
     finally: e.close()
 
 
+def test_shovel_requires_airborne_support_and_rejects_manual_delivery():
+    e = TabletopDual(task_spec("F38", "A"), render=False)
+    try:
+        goal = next(g for g in e.spec["goals"] if g["type"] == "scooped")
+        name = goal["object"]
+        # A stationary coaster and an unheld blade do not establish transport.
+        for _ in range(10): e.action()
+        assert not e.predicate(goal, e.snapshot())
+        # Even prior tool support cannot legitimise subsequent hand delivery.
+        e.events.add(("scooped", name))
+        assert e.predicate(goal, e.snapshot())
+        e._manually_handled.add(name)
+        assert not e.predicate(goal, e.snapshot())
+        assert not e.score()["success"]
+    finally: e.close()
+
+
 def test_real_initial_positions_equal_across_rule_variants():
     snapshots = []
     for variant in "ABC":

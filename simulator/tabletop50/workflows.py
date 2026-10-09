@@ -1,7 +1,7 @@
 """Multi-object dependencies using ordinary rigid household teaching props."""
 from .mechanical import annulus
 
-RECIPES = {"F09": "bridge", "F22": "layers", "F25": "change_cap",
+RECIPES = {"F09": "bridge", "F21": "clear_handles", "F22": "layers", "F25": "change_cap",
            "F27": "top_up", "F33": "complete_lengths", "F35": "kit_delivery",
            "F15": "mobile_board", "F47": "air_handover", "F48": "reconfigure_bin",
            "F49": "fold_display"}
@@ -31,7 +31,31 @@ def build(recipe, v, rng, obj, position):
         objects.append(obj(name, xy, "white", "tray", size, **kwargs))
         goals.append(position(name, xy, .015))
 
-    if recipe == "fold_display":
+    if recipe == "clear_handles":
+        start = [-.12, 0.]
+        slots = [[.18, -.23], [.18, 0.], [.18, .23]]; rng.shuffle(slots)
+        objects.append(handled_tray(obj, "carrier", start, .07, .10, .025, bottom=.8))
+        zones = [dict(id=f"delivery{i}", xy=xy, half_size=[.095, .12], marker=i)
+                 for i, xy in enumerate(slots)]
+        guards = []
+        for i, y in enumerate([-.15, .15]):
+            # Low wooden bridges cover both handles, with a real air gap above
+            # the tray. The robots may use any physically valid alternative.
+            parts = [dict(size=[.10, .030, .015], pos=[0., 0., .030])]
+            parts += [dict(size=[.010, .030, .030], pos=[x, 0., -.015]) for x in [-.09, .09]]
+            name = f"guard{i}"; xy = [start[0], y]
+            objects.append(obj(name, xy, ["red", "blue"][i], "bar", (.10, .030, .045),
+                               components=parts, bottom=.8, grasp_local=[0., 0., .030], density=350,
+                               condim=4, friction=[1.5, .006, .0001]))
+            zones.append(dict(id=f"home{i}", xy=xy, half_size=[.115, .047], marker=i))
+            goals += [dict(type="place", object=name, target=f"home{i}"),
+                      dict(type="yaw", object=name, value=0., tolerance=.13)]
+            guards.append((name, xy))
+            move(name, [-.23, -.28 if i == 0 else .28], fine=True)
+        move("carrier", slots[v])
+        for name, xy in guards: move(name, xy, fine=True)
+        goals.append(position("carrier", slots[v]))
+    elif recipe == "fold_display":
         selected = 2-v  # Left-to-right in the first-person camera.
         palette = ["red", "green", "blue"]; rng.shuffle(palette)
         for i in range(3):

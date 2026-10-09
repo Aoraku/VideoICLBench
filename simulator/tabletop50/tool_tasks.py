@@ -1,5 +1,5 @@
 """Tool/contact tasks with real rigid contents and private process evidence."""
-RECIPES = {"F36": "push_delivery", "F37": "hook_retrieval", "F39": "sweep_beads", "F41": "corner_push",
+RECIPES = {"F36": "push_delivery", "F37": "hook_retrieval", "F38": "shovel_delivery", "F39": "sweep_beads", "F41": "corner_push",
            "F40": "pour_solids", "F45": "pass_long_bar"}
 
 
@@ -9,8 +9,34 @@ def build(recipe, v, rng, obj, position):
     if recipe == "pass_long_bar": return pass_long_bar(v, rng, obj, position)
     if recipe == "sweep_beads": return sweep_beads(v, rng, obj, position)
     if recipe == "corner_push": return corner_push(v, rng, obj, position)
+    if recipe == "shovel_delivery": return shovel_delivery(v, rng, obj, position)
     if recipe != "pour_solids": raise NotImplementedError(recipe)
     return pour_solids(v, rng, obj, position)
+
+
+def shovel_delivery(v, rng, obj, position):
+    # An ordinary broad scoop and wooden coasters with two low feet provide
+    # visible clearance for the lip. No contact attachment or weld is used.
+    parts = [dict(size=[.080, .022, .002], pos=[.06, 0., -.073], friction=[.35, .005, .0001], priority=1),
+             dict(size=[.015, .018, .055], pos=[0., 0., -.005])]
+    objects = [obj("scoop", [-.25, 0.], "yellow", "bar", (.14, .022, .075),
+                   components=parts, bottom=.8, grasp_local=[0., 0., .035], density=150,
+                   friction=[1.5, .006, .0001], condim=4)]
+    slots = [[.23, -.25], [.23, 0.], [.23, .25]]; rng.shuffle(slots)
+    zones = [dict(id=f"plate{i}", xy=xy, half_size=[.14, .09], marker=i) for i, xy in enumerate(slots)]
+    goals, plan = [], []
+    for i, color in enumerate(["red", "green", "blue"]):
+        width = .027+i*.002
+        pieces = [dict(size=[width, .035, .009], pos=[0., 0., .011])]
+        pieces += [dict(size=[width-.004, .004, .011], pos=[0., y, -.009]) for y in [-.031, .031]]
+        name = f"coaster{i}"
+        objects.append(obj(name, [.02, -.12+i*.12], color, "bar", (width, .035, .020),
+                           components=pieces, bottom=.8, density=180, condim=4))
+        goals += [dict(type="place", object=name, target=f"plate{v}"),
+                  dict(type="scooped", object=name, target="scoop")]
+        xy = [slots[v][0]+(i-1)*.075, slots[v][1]]
+        plan.append(dict(object="scoop", operation="shovel", block=name, xy=xy, return_xy=[-.25, 0.]))
+    return objects, goals, plan, zones, []
 
 
 def corner_push(v, rng, obj, position):

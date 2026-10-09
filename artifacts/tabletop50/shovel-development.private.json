@@ -1,0 +1,1162 @@
+{
+  "status": "historical-development-diagnostics",
+  "human_recorded": false,
+  "independent_agent": false,
+  "cases": [
+    {
+      "revision": "v55",
+      "task": "F38",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "a291ee5b190c0ec3f0f0bd809cbca116c44cc47e452cb1fe07a9668cc53ab7e3",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 190,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v55/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v55/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v55/simulator/tabletop50/author.py\", line 362, in shovel\n    self.object_move(arm, name, np.array([p[0]-.06, p[1], .875]), axes=(0,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v55/simulator/tabletop50/author.py\", line 155, in object_move\n    if not state[\"grasp\"][arm]: raise RuntimeError(\"Shaft slipped\")\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Shaft slipped\n",
+      "events": [],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate0"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster0",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate0"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster1",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate0"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v55",
+      "task": "F38",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "a291ee5b190c0ec3f0f0bd809cbca116c44cc47e452cb1fe07a9668cc53ab7e3",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 190,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v55/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v55/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v55/simulator/tabletop50/author.py\", line 362, in shovel\n    self.object_move(arm, name, np.array([p[0]-.06, p[1], .875]), axes=(0,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v55/simulator/tabletop50/author.py\", line 155, in object_move\n    if not state[\"grasp\"][arm]: raise RuntimeError(\"Shaft slipped\")\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Shaft slipped\n",
+      "events": [],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster0",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster1",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v55",
+      "task": "F38",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "a291ee5b190c0ec3f0f0bd809cbca116c44cc47e452cb1fe07a9668cc53ab7e3",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 190,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v55/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v55/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v55/simulator/tabletop50/author.py\", line 362, in shovel\n    self.object_move(arm, name, np.array([p[0]-.06, p[1], .875]), axes=(0,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v55/simulator/tabletop50/author.py\", line 155, in object_move\n    if not state[\"grasp\"][arm]: raise RuntimeError(\"Shaft slipped\")\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Shaft slipped\n",
+      "events": [],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate2"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster0",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate2"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster1",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate2"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v56",
+      "task": "F38",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "1fa05e9338dabc48c351f7f5568f0c76015371795c92bc0b81a7887b680cadab",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 199,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v56/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v56/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v56/simulator/tabletop50/author.py\", line 362, in shovel\n    self.object_move(arm, name, np.array([p[0]-.06, p[1], .884]), axes=(0,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v56/simulator/tabletop50/author.py\", line 155, in object_move\n    if not state[\"grasp\"][arm]: raise RuntimeError(\"Shaft slipped\")\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Shaft slipped\n",
+      "events": [],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate0"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster0",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate0"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster1",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate0"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v56",
+      "task": "F38",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "1fa05e9338dabc48c351f7f5568f0c76015371795c92bc0b81a7887b680cadab",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 199,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v56/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v56/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v56/simulator/tabletop50/author.py\", line 362, in shovel\n    self.object_move(arm, name, np.array([p[0]-.06, p[1], .884]), axes=(0,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v56/simulator/tabletop50/author.py\", line 155, in object_move\n    if not state[\"grasp\"][arm]: raise RuntimeError(\"Shaft slipped\")\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Shaft slipped\n",
+      "events": [],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster0",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster1",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v56",
+      "task": "F38",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "1fa05e9338dabc48c351f7f5568f0c76015371795c92bc0b81a7887b680cadab",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 199,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v56/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v56/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v56/simulator/tabletop50/author.py\", line 362, in shovel\n    self.object_move(arm, name, np.array([p[0]-.06, p[1], .884]), axes=(0,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v56/simulator/tabletop50/author.py\", line 155, in object_move\n    if not state[\"grasp\"][arm]: raise RuntimeError(\"Shaft slipped\")\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Shaft slipped\n",
+      "events": [],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate2"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster0",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate2"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster1",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate2"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v57",
+      "task": "F38",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "8b86b97372094ff6e279ef4511f0612ceab22b05eeed23070322c079d717a522",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 804,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v57/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v57/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v57/simulator/tabletop50/author.py\", line 365, in shovel\n    if (\"scooped\", block) not in self.env.events: raise RuntimeError(\"No real scoop support after lift\")\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: No real scoop support after lift\n",
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ],
+        [
+          "scooped",
+          "coaster1"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate0"
+        },
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate0"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate0"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v57",
+      "task": "F38",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "8b86b97372094ff6e279ef4511f0612ceab22b05eeed23070322c079d717a522",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 257,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v57/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v57/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v57/simulator/tabletop50/author.py\", line 371, in shovel\n    self.object_move(arm, name, self.state(name)[\"pos\"]+[0., 0., .12], axes=(2,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v57/simulator/tabletop50/author.py\", line 155, in object_move\n    if not state[\"grasp\"][arm]: raise RuntimeError(\"Shaft slipped\")\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Shaft slipped\n",
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate1"
+        },
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster1",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v57",
+      "task": "F38",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "8b86b97372094ff6e279ef4511f0612ceab22b05eeed23070322c079d717a522",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 440,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v57/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v57/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v57/simulator/tabletop50/author.py\", line 365, in shovel\n    if (\"scooped\", block) not in self.env.events: raise RuntimeError(\"No real scoop support after lift\")\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: No real scoop support after lift\n",
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate2"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster1",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate2"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v58",
+      "task": "F38",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "94548b8523589dd2f35d41c3e5ac628401a48775c1902626448dcd803c0a8926",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 254,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v58/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v58/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v58/simulator/tabletop50/author.py\", line 365, in shovel\n    if (\"scooped\", block) not in self.env.events: raise RuntimeError(\"No real scoop support after lift\")\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: No real scoop support after lift\n",
+      "events": [],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate0"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster0",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate0"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster1",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate0"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v58",
+      "task": "F38",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "94548b8523589dd2f35d41c3e5ac628401a48775c1902626448dcd803c0a8926",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 254,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v58/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v58/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v58/simulator/tabletop50/author.py\", line 365, in shovel\n    if (\"scooped\", block) not in self.env.events: raise RuntimeError(\"No real scoop support after lift\")\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: No real scoop support after lift\n",
+      "events": [],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster0",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster1",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v58",
+      "task": "F38",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "94548b8523589dd2f35d41c3e5ac628401a48775c1902626448dcd803c0a8926",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 254,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v58/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v58/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v58/simulator/tabletop50/author.py\", line 365, in shovel\n    if (\"scooped\", block) not in self.env.events: raise RuntimeError(\"No real scoop support after lift\")\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: No real scoop support after lift\n",
+      "events": [],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate2"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster0",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate2"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster1",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate2"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v59",
+      "task": "F38",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "9b0acc6286354375bbbc11f3903be063b891870e215828182c5ff2c92a891fae",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 811,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v59/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v59/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v59/simulator/tabletop50/author.py\", line 365, in shovel\n    if (\"scooped\", block) not in self.env.events: raise RuntimeError(\"No real scoop support after lift\")\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: No real scoop support after lift\n",
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ],
+        [
+          "scooped",
+          "coaster1"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate0"
+        },
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate0"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate0"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v59",
+      "task": "F38",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "9b0acc6286354375bbbc11f3903be063b891870e215828182c5ff2c92a891fae",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 372,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v59/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v59/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v59/simulator/tabletop50/author.py\", line 371, in shovel\n    self.object_move(arm, name, self.state(name)[\"pos\"]+[0., 0., .12], axes=(2,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v59/simulator/tabletop50/author.py\", line 161, in object_move\n    if step % 8 == 0: self.horizontal(arm, name)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v59/simulator/tabletop50/author.py\", line 146, in horizontal\n    raise RuntimeError(\"Shaft pitch did not converge\")\nRuntimeError: Shaft pitch did not converge\n",
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster1",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v59",
+      "task": "F38",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "9b0acc6286354375bbbc11f3903be063b891870e215828182c5ff2c92a891fae",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 825,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v59/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v59/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v59/simulator/tabletop50/author.py\", line 365, in shovel\n    if (\"scooped\", block) not in self.env.events: raise RuntimeError(\"No real scoop support after lift\")\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: No real scoop support after lift\n",
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ],
+        [
+          "scooped",
+          "coaster1"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate2"
+        },
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate2"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate2"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v60",
+      "task": "F38",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "bc08a7801c405a3e2b59c852e6852491dd6e00ec5b00059b9d7be07e5130cb55",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 808,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v60/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v60/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v60/simulator/tabletop50/author.py\", line 367, in shovel\n    self.object_move(arm, name, destination, axes=(0, 1, 2))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v60/simulator/tabletop50/author.py\", line 155, in object_move\n    if not state[\"grasp\"][arm]: raise RuntimeError(\"Shaft slipped\")\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Shaft slipped\n",
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ],
+        [
+          "scooped",
+          "coaster1"
+        ],
+        [
+          "scooped",
+          "coaster2"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate0"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate0"
+        }
+      ]
+    },
+    {
+      "revision": "v60",
+      "task": "F38",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "bc08a7801c405a3e2b59c852e6852491dd6e00ec5b00059b9d7be07e5130cb55",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 424,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v60/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v60/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v60/simulator/tabletop50/author.py\", line 375, in shovel\n    self.park(arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v60/simulator/tabletop50/author.py\", line 49, in park\n    super().park(arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v60/simulator/benchmark/pilot.py\", line 55, in park\n    def park(self,arm):self.move(arm,[-.12,-.31 if arm==0 else .31,1.15])\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v60/simulator/benchmark/pilot.py\", line 52, in move\n    raise RuntimeError(f'Arm {arm} stalled axis {axis} at {pos.tolist()} target {target.tolist()}')\nRuntimeError: Arm 0 stalled axis 0 at [-0.0672920868113003, -0.2396398528373623, 1.0706617636440583] target [-0.12, -0.31, 1.15]\n",
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate1"
+        },
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster1",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v60",
+      "task": "F38",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "bc08a7801c405a3e2b59c852e6852491dd6e00ec5b00059b9d7be07e5130cb55",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 969,
+      "error": null,
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ],
+        [
+          "scooped",
+          "coaster1"
+        ],
+        [
+          "scooped",
+          "coaster2"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate2"
+        }
+      ]
+    },
+    {
+      "revision": "v61",
+      "task": "F38",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "7ca9e0bd29ea8298efd7998c3fab3b820ac039bc9fde4a040c78e37a6d5665de",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 1059,
+      "error": null,
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ],
+        [
+          "scooped",
+          "coaster1"
+        ],
+        [
+          "scooped",
+          "coaster2"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate0"
+        }
+      ]
+    },
+    {
+      "revision": "v61",
+      "task": "F38",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "7ca9e0bd29ea8298efd7998c3fab3b820ac039bc9fde4a040c78e37a6d5665de",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 858,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v61/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v61/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v61/simulator/tabletop50/author.py\", line 365, in shovel\n    if (\"scooped\", block) not in self.env.events: raise RuntimeError(\"No real scoop support after lift\")\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: No real scoop support after lift\n",
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster1",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v61",
+      "task": "F38",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "7ca9e0bd29ea8298efd7998c3fab3b820ac039bc9fde4a040c78e37a6d5665de",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 1032,
+      "error": null,
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ],
+        [
+          "scooped",
+          "coaster1"
+        ],
+        [
+          "scooped",
+          "coaster2"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate2"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate2"
+        }
+      ]
+    },
+    {
+      "revision": "v63",
+      "task": "F38",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "c0467fd7d347d633d31cad46a9c7d8cc81ac61c2667407fff18009440c26ea80",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 1013,
+      "error": null,
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ],
+        [
+          "scooped",
+          "coaster1"
+        ],
+        [
+          "scooped",
+          "coaster2"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate0"
+        },
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate0"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate0"
+        }
+      ]
+    },
+    {
+      "revision": "v63",
+      "task": "F38",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "c0467fd7d347d633d31cad46a9c7d8cc81ac61c2667407fff18009440c26ea80",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 540,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v63/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v63/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v63/simulator/tabletop50/author.py\", line 357, in shovel\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v63/simulator/tabletop50/author.py\", line 88, in pick\n    self.move(arm, target, axes=(2,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v63/simulator/benchmark/pilot.py\", line 52, in move\n    raise RuntimeError(f'Arm {arm} stalled axis {axis} at {pos.tolist()} target {target.tolist()}')\nRuntimeError: Arm 0 stalled axis 2 at [-0.3569029579915594, 0.35363813922592985, 0.8494829516685556] target [-0.38508273542978644, 0.3242868458271754, 0.8232917324515886]\n",
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate1"
+        },
+        {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster1",
+          "target": "scoop"
+        },
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v63",
+      "task": "F38",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "c0467fd7d347d633d31cad46a9c7d8cc81ac61c2667407fff18009440c26ea80",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 975,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v63/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v63/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v63/simulator/tabletop50/author.py\", line 376, in shovel\n    self.horizontal(arm, name)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v63/simulator/tabletop50/author.py\", line 146, in horizontal\n    raise RuntimeError(\"Shaft pitch did not converge\")\nRuntimeError: Shaft pitch did not converge\n",
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ],
+        [
+          "scooped",
+          "coaster1"
+        ],
+        [
+          "scooped",
+          "coaster2"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate2"
+        }
+      ]
+    },
+    {
+      "revision": "v65",
+      "task": "F38",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "cc3cd8c690afae322a7182f509be9868270ca9c0ee4093c4aa30826f5ce5a035",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 1010,
+      "error": null,
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ],
+        [
+          "scooped",
+          "coaster1"
+        ],
+        [
+          "scooped",
+          "coaster2"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate0"
+        }
+      ]
+    },
+    {
+      "revision": "v65",
+      "task": "F38",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "cc3cd8c690afae322a7182f509be9868270ca9c0ee4093c4aa30826f5ce5a035",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 629,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v65/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v65/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v65/simulator/tabletop50/author.py\", line 376, in shovel\n    self.horizontal(arm, name)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v65/simulator/tabletop50/author.py\", line 146, in horizontal\n    raise RuntimeError(\"Shaft pitch did not converge\")\nRuntimeError: Shaft pitch did not converge\n",
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ],
+        [
+          "scooped",
+          "coaster1"
+        ]
+      ],
+      "unsatisfied_goals": [
+        {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate1"
+        },
+        {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        }
+      ]
+    },
+    {
+      "revision": "v65",
+      "task": "F38",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "cc3cd8c690afae322a7182f509be9868270ca9c0ee4093c4aa30826f5ce5a035",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 893,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v65/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v65/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v65/simulator/tabletop50/author.py\", line 376, in shovel\n    self.horizontal(arm, name)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v65/simulator/tabletop50/author.py\", line 146, in horizontal\n    raise RuntimeError(\"Shaft pitch did not converge\")\nRuntimeError: Shaft pitch did not converge\n",
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ],
+        [
+          "scooped",
+          "coaster1"
+        ],
+        [
+          "scooped",
+          "coaster2"
+        ]
+      ],
+      "unsatisfied_goals": []
+    },
+    {
+      "revision": "v67",
+      "task": "F38",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "44f55e2fc7577a5f2f45b6c7a8578061fd8a74a2143d32234203fc1011425e2b",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 1126,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v67/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v67/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v67/simulator/tabletop50/author.py\", line 374, in shovel\n    self.fine_move(arm, self.eef(arm)+[-.10, 0., 0.], axes=(0,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v67/simulator/tabletop50/author.py\", line 105, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ],
+        [
+          "scooped",
+          "coaster1"
+        ],
+        [
+          "scooped",
+          "coaster2"
+        ]
+      ],
+      "unsatisfied_goals": []
+    },
+    {
+      "revision": "v67",
+      "task": "F38",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "44f55e2fc7577a5f2f45b6c7a8578061fd8a74a2143d32234203fc1011425e2b",
+      "source_unchanged": true,
+      "success": true,
+      "actions": 1262,
+      "error": null,
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ],
+        [
+          "scooped",
+          "coaster1"
+        ],
+        [
+          "scooped",
+          "coaster2"
+        ]
+      ],
+      "unsatisfied_goals": []
+    },
+    {
+      "revision": "v67",
+      "task": "F38",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "44f55e2fc7577a5f2f45b6c7a8578061fd8a74a2143d32234203fc1011425e2b",
+      "source_unchanged": true,
+      "success": false,
+      "actions": 1049,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v67/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v67/simulator/tabletop50/author.py\", line 224, in solve\n    self.shovel(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v67/simulator/tabletop50/author.py\", line 374, in shovel\n    self.fine_move(arm, self.eef(arm)+[-.10, 0., 0.], axes=(0,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v67/simulator/tabletop50/author.py\", line 105, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+      "events": [
+        [
+          "scooped",
+          "coaster0"
+        ],
+        [
+          "scooped",
+          "coaster1"
+        ],
+        [
+          "scooped",
+          "coaster2"
+        ]
+      ],
+      "unsatisfied_goals": []
+    }
+  ]
+}

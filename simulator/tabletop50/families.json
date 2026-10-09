@@ -347,17 +347,17 @@
       "id": "F21",
       "title": "清障搬运并恢复",
       "group": "受限重排",
-      "props": "长托盘、两个挡块、三处交付标记",
-      "challenge": "先解除真实通道阻碍，搬运后恢复挡块",
+      "props": "带两侧把手的浅托盘、两座低矮木桥挡块、三个图形交付垫",
+      "challenge": "挡块遮住把手，搬运托盘后须恢复挡块；允许其他真实可行的抓取路径",
       "rules": {
         "A": "交付圆区",
         "B": "交付三角区",
         "C": "交付方区"
       },
-      "reset": "托盘退回，挡块放回通道入口",
-      "camera_note": "用低矮挡块，通道不能被手臂遮住",
-      "runtime_recipe": null,
-      "status": "runtime-pending",
+      "reset": "托盘退回两木桥之间，挡块放回标记位置",
+      "camera_note": "木桥可用积木粘成，横梁与托盘把手之间保留可见空隙，侧方留暂存区",
+      "runtime_recipe": "clear_handles",
+      "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
     },
     {
@@ -636,17 +636,17 @@
       "id": "F38",
       "title": "铲取后分区交付",
       "group": "工具与接触",
-      "props": "宽口薄铲、三块厚片、三个浅盘",
-      "challenge": "从下方承托而不是夹取，并在运输时保持载荷",
+      "props": "带握柄的薄铲、三块带约2厘米低脚的厚木片、三个图形交付垫",
+      "challenge": "从木片下方进铲并承托搬运，轻缓倾斜卸到垫上，不夹取木片",
       "rules": {
-        "A": "厚片送圆盘",
-        "B": "厚片送三角盘",
-        "C": "厚片送方盘"
+        "A": "三片送圆形垫",
+        "B": "三片送三角垫",
+        "C": "三片送方形垫"
       },
-      "reset": "三厚片取出平放，铲归位",
-      "camera_note": "不用细碎颗粒，铲头和盘口都可见",
-      "runtime_recipe": null,
-      "status": "runtime-pending",
+      "reset": "三木片平放回起点，铲归位，交付垫可交换位置",
+      "camera_note": "木片底部可贴两条木脚，进铲间隙及承托运输全程入镜",
+      "runtime_recipe": "shovel_delivery",
+      "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
     },
     {

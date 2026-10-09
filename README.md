@@ -1,6 +1,6 @@
 # VideoICL-Bench
 
-具身任务新增入口：[50题桌面双臂任务与运行说明](simulator/benchmark/README.md)（RoboTwin／RoboCasa 来源，统一 robosuite）。
+具身任务入口：[50族桌面双臂任务与运行说明](simulator/tabletop50/README.md)、[逐题第一人称录制卡](simulator/tabletop50/TASKS_50.md)、[仿真视频与验收清单](artifacts/tabletop50/README.md)。任务建立在 robosuite 双 Panda 上，使用普通桌面道具的程序化场景；设计、实现、物理验收和录像的实际进度见 [进度记录](simulator/tabletop50/PROGRESS.md)。
 
 VideoICL-Bench 为人类录制者和 GUI Agent 提供统一的应用、任务、截图输入、录像和状态评测平台。
 
