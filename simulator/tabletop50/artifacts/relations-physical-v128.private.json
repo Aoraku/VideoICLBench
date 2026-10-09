@@ -1,0 +1,126 @@
+{
+  "kind": "privileged-author-native-physics",
+  "cases": [
+    {
+      "task": "F30",
+      "variant": "A",
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+      "world_sha256": "e4230768e1c6c86dd44bf275ee78c51f00e6ff1a6f2cc5be47dc2b5dbacb7b2f",
+      "actions": 892,
+      "success": true,
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      }
+    },
+    {
+      "task": "F30",
+      "variant": "B",
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+      "world_sha256": "e4230768e1c6c86dd44bf275ee78c51f00e6ff1a6f2cc5be47dc2b5dbacb7b2f",
+      "actions": 883,
+      "success": true,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      }
+    },
+    {
+      "task": "F30",
+      "variant": "C",
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+      "world_sha256": "e4230768e1c6c86dd44bf275ee78c51f00e6ff1a6f2cc5be47dc2b5dbacb7b2f",
+      "actions": 775,
+      "success": true,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      }
+    },
+    {
+      "task": "F33",
+      "variant": "A",
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+      "world_sha256": "a56d8db912f51d096256cd62efc8c4f05b7e0af4ef3a7f7bfa56b8712b0d255d",
+      "actions": 558,
+      "success": true,
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      }
+    },
+    {
+      "task": "F33",
+      "variant": "B",
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+      "world_sha256": "a56d8db912f51d096256cd62efc8c4f05b7e0af4ef3a7f7bfa56b8712b0d255d",
+      "actions": 429,
+      "success": true,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      }
+    },
+    {
+      "task": "F33",
+      "variant": "C",
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+      "world_sha256": "a56d8db912f51d096256cd62efc8c4f05b7e0af4ef3a7f7bfa56b8712b0d255d",
+      "actions": 663,
+      "success": true,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      }
+    },
+    {
+      "task": "F34",
+      "variant": "A",
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+      "world_sha256": "9ee8950d101c68e929cdb9958fcf1cc1b4962b79031ab2993ddc7c12b24d36e0",
+      "actions": 423,
+      "success": true,
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      }
+    },
+    {
+      "task": "F34",
+      "variant": "B",
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+      "world_sha256": "9ee8950d101c68e929cdb9958fcf1cc1b4962b79031ab2993ddc7c12b24d36e0",
+      "actions": 555,
+      "success": true,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      }
+    },
+    {
+      "task": "F34",
+      "variant": "C",
+      "source_sha256": "cc6df44e85047bd51fd830cd0ea04180119ae924522ef1921f55efb5c9b3d7f9",
+      "world_sha256": "9ee8950d101c68e929cdb9958fcf1cc1b4962b79031ab2993ddc7c12b24d36e0",
+      "actions": 414,
+      "success": true,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      }
+    }
+  ],
+  "evidence": "relations-physical-v128.tar.gz",
+  "source": "kits-source-v128.tar.gz",
+  "human_recorded": false,
+  "independent_agent": false
+}

@@ -1,6 +1,6 @@
 # 50题视频索引
 
-合格历史预览90段，完整三版本30族。未完成项明确留空；不是最终统一源码150段验收。
+合格历史预览93段，完整三版本31族。未完成项明确留空；不是最终统一源码150段验收。
 
 | 任务 | A | B | C |
 | --- | --- | --- | --- |
@@ -30,7 +30,7 @@
 | F24 受压薄片取出 | [视频](artifacts/access-preview-v117/F24-A-0/video.mp4) | [视频](artifacts/access-preview-v117/F24-B-0/video.mp4) | [视频](artifacts/access-preview-v117/F24-C-0/video.mp4) |
 | F25 已装组件局部换件 | 待完成 | 待完成 | 待完成 |
 | F26 按关系配齐工作套件 | 待完成 | 待完成 | 待完成 |
-| F27 互补数量分装 | 待完成 | 待完成 | 待完成 |
+| F27 互补数量分装 | [视频](artifacts/topup-preview-v125/F27-A-0/video.mp4) | [视频](artifacts/topup-preview-v125/F27-B-0/video.mp4) | [视频](artifacts/topup-preview-v125/F27-C-0/video.mp4) |
 | F28 参照行关系迁移 | [视频](artifacts/reference-row-preview-v117/F28-A-0/video.mp4) | [视频](artifacts/reference-row-preview-v117/F28-B-0/video.mp4) | [视频](artifacts/reference-row-preview-v117/F28-C-0/video.mp4) |
 | F29 围绕中心的相对布局 | 待完成 | 待完成 | 待完成 |
 | F30 成对朝向与邻接 | 待完成 | 待完成 | 待完成 |

@@ -23,7 +23,7 @@ def test_size_kits_allow_free_layout_within_mat_but_reject_wrong_mat_overhang_an
         item["pos"][1] += .22
         assert not e.predicate(g, state)  # Wrong kit.
         zone = next(z for z in e.spec["zones"] if z["id"] == g["target"])
-        item["pos"][:2] = np.asarray(zone["xy"])+[.149, 0.]
+        item["pos"][:2] = np.asarray(zone["xy"])+[zone["half_size"][0]-.001, 0.]
         assert not e.predicate(g, state)  # Centre inside, footprint outside.
         item["pos"][:2] = zone["xy"]; item["pos"][2] += .05
         assert not e.predicate(g, state)

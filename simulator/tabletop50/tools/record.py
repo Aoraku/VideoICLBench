@@ -16,8 +16,9 @@ from simulator.tabletop50.catalog import IMPLEMENTED, task_spec, world_sha256
 def source_hash():
     digest = hashlib.sha256()
     files = sorted([*ROOT.glob("simulator/tabletop50/*.py"),
-                    *ROOT.glob("simulator/tabletop50/tools/*.py"),
+                    ROOT/"simulator/tabletop50/tools/record.py",
                     ROOT/"simulator/benchmark/environment.py", ROOT/"simulator/benchmark/pilot.py",
+                    ROOT/"simulator/benchmark/catalog.py",
                     ROOT/"simulator/benchmark/protocol.py"])
     for path in files:
         digest.update(str(path.relative_to(ROOT)).encode()+b"\0"+path.read_bytes()+b"\0")

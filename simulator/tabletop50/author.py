@@ -80,6 +80,10 @@ class TabletopAuthor(Author):
         raise RuntimeError("Physical jaw alignment did not converge")
 
     def park(self, arm):
+        if self.env.spec["id"] == "F26":
+            self.move(arm, [-.16, -.18 if arm == 0 else .18, 1.08])
+            self.restore_wrist(arm)
+            return
         super().park(arm)
         for _ in range(40):
             error = self.pitches[arm]
@@ -160,7 +164,8 @@ class TabletopAuthor(Author):
 
     def put(self, name, arm, target, fine=False, approach=None, surface_release=False, object_yaw=None, release=True):
         target = np.asarray(target)
-        self.move(arm, [*self.eef(arm)[:2], max(1.14, target[2]+.18)], axes=(2,))
+        clearance = max(1.04, target[2]+.15) if self.env.spec["id"] == "F26" else max(1.14, target[2]+.18)
+        self.move(arm, [*self.eef(arm)[:2], clearance], axes=(2,))
         offset = self.eef(arm)-self.state(name)["pos"]
         if approach is None:
             self.move(arm, target+offset, axes=(0, 1)); self.wait(2)
@@ -237,14 +242,16 @@ class TabletopAuthor(Author):
             else: raise RuntimeError("Shaft positioning did not converge")
 
     def transport(self, name, arm, xy, bottom=.8, yaw=None, fine=False, approach=None, surface_release=False):
-        if self.env.spec["id"] in ("F03", "F07", "F10", "F26"):
+        if self.env.spec["id"] in ("F03", "F07", "F10"):
             self.restore_wrist(arm)
         self.pick(name, arm)
         if yaw is not None:
             a = self.state(name)["mat"]
             current = math.atan2(a[1, 0], a[0, 0])
             self.align(arm, self.yaws[arm]+yaw-current)
-        self.put(name, arm, [*xy, bottom+self.env.by_spec[name]["size"][2]], fine, approach, surface_release=surface_release)
+        kit_bar = self.env.spec["id"] == "F26" and self.env.by_spec[name]["kind"] == "bar"
+        self.put(name, arm, [*xy, bottom+self.env.by_spec[name]["size"][2]], fine, approach,
+                 surface_release=surface_release, object_yaw=math.pi/2 if kit_bar else None)
         self.park(arm)
 
     def dual_transport(self, name, xy, bottom):
@@ -352,8 +359,9 @@ class TabletopAuthor(Author):
                 target_arm = arm
             if self.env.spec["id"] == "F26":
                 # Grasp narrow bars and cylinders from their source side;
-                # an opposite-side low approach brushes and rolls the props.
-                target_arm = arm
+                # relay a full cross-table transfer to the destination arm.
+                if abs(float(src[1])-p["xy"][1]) < .30:
+                    target_arm = arm
             if arm != target_arm:
                 state = self.env.snapshot()
                 candidates = [[-.08, 0.], [0., 0.], [-.10, .10], [-.10, -.10], [-.28, 0.]]
@@ -366,7 +374,7 @@ class TabletopAuthor(Author):
                 arm = target_arm
             self.transport(name, arm, p["xy"], p["bottom"], p.get("yaw"), p.get("fine", False),
                            p.get("approach"), surface_release=self.env.spec["id"] in ("F03", "F07", "F10", "F26"))
-        if self.env.spec["id"] == "F07":
+        if self.env.spec["id"] in ("F03", "F07"):
             self.repair_classification()
         if self.env.spec["id"] == "F10":
             self.repair_mosaic()

@@ -9,6 +9,27 @@ from simulator.tabletop50.tools.batch import valid_proof
 ROOT = Path(__file__).resolve().parents[3]
 
 
+def test_gallery_updates_preserve_demo_fingerprint_but_runtime_changes_invalidate_it(tmp_path, monkeypatch):
+    from simulator.tabletop50.tools import record
+    names = ["tabletop50/environment.py", "tabletop50/author.py", "tabletop50/tools/record.py",
+             "benchmark/environment.py", "benchmark/pilot.py", "benchmark/catalog.py", "benchmark/protocol.py",
+             "tabletop50/tools/build-review.py", "tabletop50/tools/package-deploy.py"]
+    for name in names:
+        path = tmp_path / "simulator" / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("original\n")
+    monkeypatch.setattr(record, "ROOT", tmp_path)
+    original = record.source_hash()
+    for name in ["tabletop50/tools/build-review.py", "tabletop50/tools/package-deploy.py"]:
+        (tmp_path / "simulator" / name).write_text("updated gallery or package\n")
+    assert record.source_hash() == original
+    for name in ["tabletop50/environment.py", "tabletop50/author.py", "tabletop50/tools/record.py", "benchmark/catalog.py"]:
+        path = tmp_path / "simulator" / name
+        path.write_text("changed simulation or capture\n")
+        assert record.source_hash() != original
+        path.write_text("original\n")
+
+
 def test_fresh_and_resumed_jobs_require_unambiguous_current_proof(tmp_path):
     assert not valid_proof({}, "A", False, tmp_path)
     proof = dict(score={"success": True}, error=None, source_unchanged=True,
