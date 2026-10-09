@@ -8,14 +8,18 @@ from .mechanical import annulus
 
 
 def component_object(s, components):
-    return CompositeObject(name=s["id"], total_size=s["size"],
+    item = CompositeObject(name=s["id"], total_size=s["size"],
         geom_types=[p.get("type", "box") for p in components],
         geom_sizes=[p["size"] for p in components],
         geom_locations=[p["pos"] for p in components],
         geom_quats=[p.get("quat", [1, 0, 0, 0]) for p in components],
         geom_rgbas=[p.get("rgba", s["rgba"]) for p in components],
         locations_relative_to_center=True, density=s.get("density", 300),
-        geom_frictions=[(1, .005, .0001)]*len(components))
+        geom_frictions=[s.get("friction", (1, .005, .0001))]*len(components))
+    if "solref" in s:
+        for geom in item.get_obj().iter("geom"):
+            if geom.get("group") == "0": geom.set("solref", " ".join(map(str, s["solref"])))
+    return item
 
 
 def make_prop(s):

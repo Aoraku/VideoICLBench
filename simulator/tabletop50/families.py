@@ -57,7 +57,7 @@ FAMILIES = [
     family(37, "钩取受限物件", "工具与接触", "大号L形钩、宽环件、低矮挡板", "直接抓取受挡，选择钩入位置拉出", ["取最小环", "取中等环", "取最大环"], "三环放回挡板后，钩归位", "挡板只挡夹爪通行，不挡相机视线"),
     family(38, "铲取后分区交付", "工具与接触", "宽口薄铲、三块厚片、三个浅盘", "从下方承托而不是夹取，并在运输时保持载荷", ["厚片送圆盘", "厚片送三角盘", "厚片送方盘"], "三厚片取出平放，铲归位", "不用细碎颗粒，铲头和盘口都可见"),
     family(39, "扫拢大颗粒", "工具与接触", "小桌刷、六个大木珠、三个收集角", "组织接触方向，避免把已聚拢物件扫散", ["归集圆角区", "归集三角区", "归集方角区"], "六珠回到有边框的工作区", "木珠直径足够大，桌面边框防掉落"),
-    family(40, "硬件倾倒", "工具与接触", "透明或浅口方杯、六块大木珠、三个浅盒", "控制杯口方向与倾角，将内容倒入目标盒", ["倒入圆盒", "倒入三角盒", "倒入方盒"], "木珠装回杯中", "不使用液体；杯口和落点同时入镜"),
+    family(40, "硬件倾倒", "工具与接触", "带侧把手的透明杯（儿童双耳杯即可）、六块约2厘米木块、三个浅盒", "控制杯口方向与倾角，将内容倒入目标盒", ["倒入圆盒", "倒入三角盒", "倒入方盒"], "木珠装回杯中", "不使用液体；杯口和落点同时入镜"),
     family(41, "推片绕过障碍", "工具与接触", "推杆、厚滑块、开放转角通道", "拐角处需要改变接触面，不能沿直线推到底", ["送到左出口", "送到中出口", "送到右出口"], "滑块退回入口，推杆归位", "低矮开放通道，不使用封闭迷宫"),
     family(42, "工具接长后取件", "工具与接触", "宽松套筒接杆、粗杆、钩头、远端环件", "先形成可用工具，完成取件后拆回", ["交付最短标记环", "交付中长标记环", "交付最长标记环"], "环归远端，杆和钩拆开", "接口和钩头明显，禁止细线和小螺丝"),
     family(43, "夹持搬运厚片", "工具与接触", "大号塑料夹具或宽口夹、三块厚片、浅架", "选取夹持位置，让厚片搬运后能插入浅架", ["搬最小片", "搬中等片", "搬最大片"], "厚片取回，夹具松开", "夹具轻力即可闭合，夹点从上方可见"),
@@ -73,10 +73,11 @@ FAMILIES = [
 from .recipes import RECIPES
 from .mechanical import RECIPES as MECHANICAL_RECIPES
 from .workflows import RECIPES as WORKFLOW_RECIPES
+from .tool_tasks import RECIPES as TOOL_RECIPES
 
 for f in FAMILIES:
-    if f["id"] in {**RECIPES, **MECHANICAL_RECIPES, **WORKFLOW_RECIPES}:
-        f["runtime_recipe"] = {**RECIPES, **MECHANICAL_RECIPES, **WORKFLOW_RECIPES}[f["id"]]
+    if f["id"] in {**RECIPES, **MECHANICAL_RECIPES, **WORKFLOW_RECIPES, **TOOL_RECIPES}:
+        f["runtime_recipe"] = {**RECIPES, **MECHANICAL_RECIPES, **WORKFLOW_RECIPES, **TOOL_RECIPES}[f["id"]]
         f["status"] = "implemented-awaiting-acceptance"
 
 BY_ID = {f["id"]: f for f in FAMILIES}

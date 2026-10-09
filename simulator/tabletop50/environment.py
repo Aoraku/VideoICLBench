@@ -92,6 +92,8 @@ class TabletopDual(DesktopDual):
 
     def _reset_internal(self):
         super()._reset_internal()
+        self._pour_inside = {}
+        self._manually_handled = set()
         if not self.deterministic_reset:
             for s in self.spec["objects"]:
                 if "bottom" in s:
@@ -101,6 +103,8 @@ class TabletopDual(DesktopDual):
             self.sim.forward()
 
     def predicate(self, g, state):
+        if g["type"] == "poured":
+            return ("poured", g["object"]) in self.events
         if g["type"] == "collared":
             a, b = state[g["object"]], state[g["target"]]
             local = b["mat"].T@(a["pos"]-b["pos"])
@@ -194,6 +198,18 @@ class TabletopDual(DesktopDual):
 
     def track(self):
         state = self.snapshot()
+        for g in self.spec["goals"]:
+            if g["type"] != "poured": continue
+            piece, cup = state[g["object"]], state[g["target"]]
+            local = cup["mat"].T@(piece["pos"]-cup["pos"])
+            size = self.by_spec[g["target"]].get("cavity_size", self.by_spec[g["target"]]["size"])
+            outside = abs(local[0]) > size[0] or abs(local[1]) > size[1] or local[2] > size[2]+.012
+            if any(piece["grasp"]): self._manually_handled.add(g["object"])
+            was_inside = self._pour_inside.get(g["object"], True)
+            if (cup["mat"][2, 2] < .85 and any(cup["grasp"]) and g["object"] not in self._manually_handled
+                    and was_inside and outside):
+                self.events.add(("poured", g["object"]))
+            self._pour_inside[g["object"]] = not outside
         for name, a in state.items():
             extent = (np.abs(a["mat"]) @ self.by_spec[name]["size"])[2]
             airborne = a["pos"][2]-extent > .83

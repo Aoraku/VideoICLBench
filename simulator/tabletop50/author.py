@@ -22,7 +22,7 @@ class TabletopAuthor(Author):
         self.env.action(*pair)
         self.actions.append(dict(left=pair[0], right=pair[1]))
         self.frame()
-        snapshot = {k: dict(pos=v["pos"].tolist(), grasp=v["grasp"]) for k, v in self.env.snapshot().items()}
+        snapshot = {k: dict(pos=v["pos"].tolist(), mat=v["mat"].tolist(), grasp=v["grasp"]) for k, v in self.env.snapshot().items()}
         with (self.folder/"trace.private.jsonl").open("a") as stream:
             stream.write(json.dumps(dict(index=len(self.actions), action=pair,
                 eef0=self.eef(0).tolist(), eef1=self.eef(1).tolist(), objects=snapshot))+"\n")
@@ -51,12 +51,15 @@ class TabletopAuthor(Author):
             self.align(arm, math.pi/2)
         if s["kind"] == "bar" and s["size"][1] > .04:
             self.align(arm, math.pi/2)
-        if s["kind"] == "cup":
+        if s["kind"] == "cup" and "grasp_local" not in s:
             self.align(arm, math.pi/2)
             return super().pick(name, arm, .015)
         p = self.state(name)["pos"].copy()
         local = np.zeros(3)
         if "grasp_local" in s: local = np.array(s["grasp_local"], dtype=float)
+        if s["kind"] == "cup" and "grasp_sides" in s:
+            local = np.array(s["grasp_sides"][arm], dtype=float)
+            self.align(arm, math.pi/2 if arm == 0 else -math.pi/2)
         if grasp_offset is not None: local = np.array(grasp_offset, dtype=float)
         if s["kind"] in ("tray", "bowl"):
             mat = self.state(name)["mat"]
@@ -194,6 +197,9 @@ class TabletopAuthor(Author):
         self.park(0); self.park(1)
         for p in self.env.spec["author_plan"]:
             name = p["object"]
+            if p.get("operation") == "pour":
+                self.pour(name, p)
+                continue
             if p.get("operation") == "handover":
                 self.handover(name, p)
                 continue
@@ -244,3 +250,17 @@ class TabletopAuthor(Author):
         self.align(1, self.yaws[1]+plan["yaw"]-current)
         self.put(name, 1, [*plan["xy"], plan["bottom"]+self.env.by_spec[name]["size"][2]], fine=True)
         self.park(1)
+
+    def pour(self, name, plan):
+        arm = 0 if plan["xy"][1] < 0. else 1
+        self.pick(name, arm)
+        offset = self.eef(arm)-self.state(name)["pos"]
+        target = np.array([plan["xy"][0]-.035, plan["xy"][1], 1.02])+offset
+        self.move(arm, target); self.fine_move(arm, target)
+        for _ in range(14): self.act(arm, "PITCH_POS")
+        self.wait(12)
+        if not all(("poured", n) in self.env.events for n in plan["contents"]):
+            raise RuntimeError("Some contents did not physically pour from the cup")
+        for _ in range(14): self.act(arm, "PITCH_NEG")
+        self.put(name, arm, [*plan["return_xy"], .8+self.env.by_spec[name]["size"][2]])
+        self.park(arm)

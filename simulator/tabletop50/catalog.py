@@ -16,7 +16,7 @@ IMPLEMENTED = tuple(k for k, f in BY_ID.items() if f["runtime_recipe"])
 
 
 def obj(name, xy, color="red", kind="box", size=(.025, .025, .025), **extra):
-    return dict(id=name, kind=kind, rgba=COLORS[color], size=list(size), xy=list(xy), yaw=0., **extra)
+    return dict(id=name, kind=kind, rgba=list(COLORS[color]), size=list(size), xy=list(xy), yaw=0., **extra)
 
 
 def position(name, xy, tolerance=.025):
@@ -99,8 +99,6 @@ def task_spec(task_id, variant="A", seed=0):
             offset = (siblings.index(name) - .5)*.065
             xy = [locations[dest][0], locations[dest][1] + offset]
             move(name, xy, .808)
-        for i, xy in enumerate(locations):
-            goals.append(position(f"bin{i}", xy, .012))
     elif recipe == "orient":
         objects = [obj(c, starts[i], c, "arrow_bar", (.05, .018, .018)) for i, c in enumerate(["red", "blue"])]
         angles = ([0., 0.], [math.pi, math.pi], [0., math.pi])[v]
@@ -112,7 +110,8 @@ def task_spec(task_id, variant="A", seed=0):
         from .recipes import extended
         from .mechanical import RECIPES as mechanical_recipes, build
         from .workflows import RECIPES as workflow_recipes, build as workflow_build
-        generator = build if task_id in mechanical_recipes else workflow_build if task_id in workflow_recipes else extended
+        from .tool_tasks import RECIPES as tool_recipes, build as tool_build
+        generator = build if task_id in mechanical_recipes else workflow_build if task_id in workflow_recipes else tool_build if task_id in tool_recipes else extended
         objects, goals, plan, zones, fixtures = generator(recipe, v, rng, obj, position)
     # Continuous jitter tests movement, not rule. It is recorded in both views.
     offset = [rng.uniform(-.006, .006), rng.uniform(-.006, .006)]
@@ -127,6 +126,8 @@ def task_spec(task_id, variant="A", seed=0):
         p["xy"] = [a+b for a, b in zip(p["xy"], offset)]
         if "approach" in p:
             p["approach"][:2] = [a+b for a, b in zip(p["approach"][:2], offset)]
+        if "return_xy" in p:
+            p["return_xy"] = [a+b for a, b in zip(p["return_xy"], offset)]
     for fixture in fixtures:
         fixture["xy"] = [a+b for a, b in zip(fixture["xy"], offset)]
     return dict(id=task_id, title=family["title"], revision=REVISION, task_revision=1,

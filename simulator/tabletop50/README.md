@@ -32,6 +32,8 @@ python scripts/tabletop50/audit-media.py --recordings .local/tabletop50-batch --
 
 公共委托统一为“按照示范完成这项桌面工作”。作者清单、A/B/C标签、目标、计划、源码和验收JSON不得暴露给actor。旧 `simulator.benchmark.server` 仍加载旧catalog，不能用旧入口冒充本套件；新版 `simulator.tabletop50.server` 采用独立worker，并已通过Agentlab真实接口测试。
 
+唯一汇总指标是任务成功率。判定应只描述任务本身：分类看物件进入哪个标记盒，允许盒子被移动；恢复任务才要求恢复结构。工具倾倒和空中交接包含定义该操作的过程证据，用于排除逐件抓放和桌面转手冒充任务；没有轨迹打分、双手动作配额或强制模仿作者路径。静止与释放检查用于排除尚在夹爪中或短暂经过目标的物件。当前仍需逐项审查其余配方是否存在无关的绝对位置限制。
+
 ## 道具与来源
 
 新道具为程序生成的刚体代理，不分发RoboTwin、RLBench或其他套件资产。已有操作原型用于任务设计参考：

@@ -51,6 +51,49 @@ def test_tray_handle_does_not_count_as_container_interior():
     finally: e.close()
 
 
+def test_drop_is_caught_by_box_but_does_not_count_as_pouring():
+    e = TabletopDual(task_spec("F40"), render=False)
+    try:
+        xy = e.snapshot()["bin0"]["pos"][:2].tolist()
+        # Initialise a negative episode with one piece released above the box.
+        # This setup is test-only, never part of an author execution.
+        e.sim.data.set_joint_qpos(e.items["wood0"].joints[0], xy+[.91, 1., 0., 0., 0.])
+        e.sim.forward()
+        for _ in range(20): e.action()
+        state = e.snapshot()
+        assert state["wood0"]["pos"][2] > .82
+        assert e.predicate(dict(type="nest", object="wood0", target="bin0"), state)
+        assert not e.predicate(dict(type="poured", object="wood0", target="cup"), state)
+    finally: e.close()
+
+
+def test_classification_follows_marked_boxes_after_boxes_move():
+    e = TabletopDual(task_spec("F07", "A"), render=False)
+    try:
+        state = e.snapshot()
+        centers = {}
+        for i in range(2):
+            centers[i] = state[f"bin{i}"]["pos"][:2]+[.035, 0.]
+            e.sim.data.set_joint_qpos(e.items[f"bin{i}"].joints[0],
+                centers[i].tolist()+[.825, 1., 0., 0., 0.])
+        for shape in range(2):
+            for color in range(2):
+                name = f"part{shape}_{color}"
+                xy = centers[color]+[0., -.032+shape*.064]
+                z = .808+e.by_spec[name]["size"][2]
+                e.sim.data.set_joint_qpos(e.items[name].joints[0], xy.tolist()+[z, 1., 0., 0., 0.])
+        e.sim.forward()
+        for _ in range(20): e.action()
+        assert e.score()["success"]
+        # Correct box identity still matters after dropping coordinate quotas.
+        e.sim.data.set_joint_qpos(e.items["part0_0"].joints[0],
+            (centers[1]+[0., -.032]).tolist()+[.832, 1., 0., 0., 0.])
+        e.sim.forward()
+        for _ in range(20): e.action()
+        assert not e.score()["success"]
+    finally: e.close()
+
+
 def test_length_completion_relations_are_exclusive():
     e = TabletopDual(task_spec("F33"), render=False)
     try:

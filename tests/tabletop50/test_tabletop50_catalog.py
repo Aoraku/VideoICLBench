@@ -37,3 +37,12 @@ def test_layout_randomisation_does_not_translate_container_local_goals():
     specs = [task_spec("F35", "A", seed) for seed in [0, 19, 101]]
     local = [[g["xy"] for g in s["goals"] if g["type"] == "local_position"] for s in specs]
     assert local == [[[0., -.075], [0., 0.], [0., .075]]]*3
+
+
+def test_prop_colours_do_not_share_mutable_catalogue_state():
+    first = task_spec("F02")
+    expected = visible_world(task_spec("F02"))
+    first["objects"][0]["rgba"][0] = 0.
+    task_spec("F40")  # Its transparent cup must not turn all white props transparent.
+    assert visible_world(task_spec("F02")) == expected
+    assert all(o["rgba"][3] == 1. for o in task_spec("F40")["objects"] if o["id"].startswith("bin"))

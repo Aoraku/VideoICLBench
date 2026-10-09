@@ -670,7 +670,7 @@
       "id": "F40",
       "title": "硬件倾倒",
       "group": "工具与接触",
-      "props": "透明或浅口方杯、六块大木珠、三个浅盒",
+      "props": "带侧把手的透明杯（儿童双耳杯即可）、六块约2厘米木块、三个浅盒",
       "challenge": "控制杯口方向与倾角，将内容倒入目标盒",
       "rules": {
         "A": "倒入圆盒",
@@ -679,8 +679,8 @@
       },
       "reset": "木珠装回杯中",
       "camera_note": "不使用液体；杯口和落点同时入镜",
-      "runtime_recipe": null,
-      "status": "runtime-pending",
+      "runtime_recipe": "pour_solids",
+      "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
     },
     {
