@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "audience": "author_and_evaluator_only",
+  "backends": {
+    "mujoco-stack": {
+      "status": "implemented",
+      "upstream": "custom MuJoCo, not RoboTwin"
+    },
+    "robocasa-mug": {
+      "status": "implemented",
+      "upstream": "RoboCasa v0.2"
+    },
+    "robotwin": {
+      "status": "not_integrated"
+    },
+    "maniskill": {
+      "status": "not_integrated"
+    },
+    "rlbench": {
+      "status": "not_integrated"
+    }
+  },
+  "tasks": [
+    {
+      "id": "stack-abc",
+      "difficulty_rule": "low",
+      "difficulty_control": "multi_pick_place",
+      "status": "runnable",
+      "backend": "mujoco-stack",
+      "sim_demos": [
+        "A",
+        "B",
+        "C"
+      ],
+      "human_demos": [],
+      "real_robot_evaluations": 0
+    },
+    {
+      "id": "process-rule-medium",
+      "difficulty_rule": "medium",
+      "status": "design_only",
+      "backend": null,
+      "human_demos": [],
+      "sim_demos": []
+    },
+    {
+      "id": "microwave-mug",
+      "difficulty_rule": "low",
+      "difficulty_control": "high",
+      "status": "runnable_with_external_assets",
+      "backend": "robocasa-mug",
+      "human_demos": [
+        "backends/robocasa/media/human_demo.mp4"
+      ],
+      "sim_demos": [
+        "backends/robocasa/media/sim_demo.mp4"
+      ],
+      "real_robot_evaluations": 0
+    }
+  ]
+}

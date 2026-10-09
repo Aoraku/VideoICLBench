@@ -1,0 +1,45 @@
+{
+  "task": "F13",
+  "variant": "B",
+  "seed": 0,
+  "source_sha256": "b925e02d8ada002d7f402d8c6edd17beb82b69d17f3c3a79b9f0788ad56619d9",
+  "world_sha256": "7088fff256cc5b25cf7a647fca86f536924d4d1ce3242c46c8bc72fa5097be5a",
+  "video_sha256": "d9e943829d6361da851095c2a0f5b917831ada42f70ab85011c4ec10c3cb8fe8",
+  "decoded_frames": 762,
+  "fps": 10.0,
+  "duration_seconds": 76.2,
+  "ending_image_mae": 2.5312602519989014,
+  "initial_positions": {
+    "red": [
+      -0.1300450968520234,
+      -0.21843612322147177,
+      0.8137844851056993
+    ],
+    "green": [
+      -0.1300450968520234,
+      0.0015638767785282346,
+      0.8137844851056993
+    ],
+    "blue": [
+      -0.1300450968520234,
+      0.22156387677852823,
+      0.8137844851056993
+    ]
+  },
+  "cross_rule_predicates": {
+    "A": false,
+    "B": true,
+    "C": false
+  },
+  "initial_joint_angles": {},
+  "independent_agent": false,
+  "human_recorded": false,
+  "folder": "F13-B-0",
+  "usable_for_agent_demo": false,
+  "visual_environment": {
+    "fixtures_visible": false,
+    "fixture_count": 8,
+    "evidence": "source-and-render-review"
+  },
+  "visual_defect": "Static collision fixtures were in hidden render group 0; re-record required"
+}

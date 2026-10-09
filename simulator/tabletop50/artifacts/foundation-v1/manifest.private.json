@@ -1,0 +1,863 @@
+{
+  "status": "engineering-author-demonstrations",
+  "expected_families": 50,
+  "expected_rule_conditions": 150,
+  "verified_videos": 18,
+  "complete_three_rule_families": 6,
+  "complete_groups": [
+    {
+      "task": "F01",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f"
+    },
+    {
+      "task": "F02",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f"
+    },
+    {
+      "task": "F04",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f"
+    },
+    {
+      "task": "F05",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f"
+    },
+    {
+      "task": "F06",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f"
+    },
+    {
+      "task": "F07",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f"
+    }
+  ],
+  "human_videos": 0,
+  "independent_agent_trials": 0,
+  "cases": [
+    {
+      "task": "F01",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "f85213732770d7a292e91c5df79bd7b0d605aa8c9ed7b5fbeac368fa818d0040",
+      "video_sha256": "a5a79206b0159a53cdaeb40b1c7906e9811228aa08ba619aedeccd73af183734",
+      "decoded_frames": 1654,
+      "fps": 10.0,
+      "duration_seconds": 165.4,
+      "ending_image_mae": 2.324357748031616,
+      "initial_positions": {
+        "red": [
+          -0.1600450968520234,
+          0.20156387677852824,
+          0.8247844851006771
+        ],
+        "green": [
+          -0.1600450968520234,
+          -0.19843612322147178,
+          0.8247844851006771
+        ],
+        "blue": [
+          -0.1600450968520234,
+          0.0015638767785282346,
+          0.8247844851006771
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F01-A-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F01",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "f85213732770d7a292e91c5df79bd7b0d605aa8c9ed7b5fbeac368fa818d0040",
+      "video_sha256": "09dc4a7c978d79d2412c5eaa7ddafd11ad2f1dc2165212a383cf76e156d0d1d5",
+      "decoded_frames": 1654,
+      "fps": 10.0,
+      "duration_seconds": 165.4,
+      "ending_image_mae": 2.322993040084839,
+      "initial_positions": {
+        "red": [
+          -0.1600450968520234,
+          0.20156387677852824,
+          0.8247844851006771
+        ],
+        "green": [
+          -0.1600450968520234,
+          -0.19843612322147178,
+          0.8247844851006771
+        ],
+        "blue": [
+          -0.1600450968520234,
+          0.0015638767785282346,
+          0.8247844851006771
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F01-B-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F01",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "f85213732770d7a292e91c5df79bd7b0d605aa8c9ed7b5fbeac368fa818d0040",
+      "video_sha256": "f2f7ef674ada592024b6a34252be3720ea901ee87972c5b1d22c73359106a662",
+      "decoded_frames": 1654,
+      "fps": 10.0,
+      "duration_seconds": 165.4,
+      "ending_image_mae": 2.32523250579834,
+      "initial_positions": {
+        "red": [
+          -0.1600450968520234,
+          0.20156387677852824,
+          0.8247844851006771
+        ],
+        "green": [
+          -0.1600450968520234,
+          -0.19843612322147178,
+          0.8247844851006771
+        ],
+        "blue": [
+          -0.1600450968520234,
+          0.0015638767785282346,
+          0.8247844851006771
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F01-C-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F02",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "8aac171d47508fe690997bb0e7b59be67f01886ca89e28c3d10f557af4922350",
+      "video_sha256": "955c80f2ee86ef6c3da0d6221a0dadd4c875f412ef47293092d5c8605208a6d1",
+      "decoded_frames": 1206,
+      "fps": 10.0,
+      "duration_seconds": 120.6,
+      "ending_image_mae": 2.440277099609375,
+      "initial_positions": {
+        "cup": [
+          -0.1600450968520234,
+          0.20156387677852824,
+          0.8419562970082799
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F02-A-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F02",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "8aac171d47508fe690997bb0e7b59be67f01886ca89e28c3d10f557af4922350",
+      "video_sha256": "e6cf8e314cbbab7d7ee4f9f8ecdf1f0b427863865c027b353d2e7ca45b12a9f6",
+      "decoded_frames": 638,
+      "fps": 10.0,
+      "duration_seconds": 63.8,
+      "ending_image_mae": 2.44891357421875,
+      "initial_positions": {
+        "cup": [
+          -0.1600450968520234,
+          0.20156387677852824,
+          0.8419562970082799
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F02-B-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F02",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "8aac171d47508fe690997bb0e7b59be67f01886ca89e28c3d10f557af4922350",
+      "video_sha256": "83c18fc0368c4cfccc7c455bacb1c84ebc796195fceb816a3f8edc6753de320e",
+      "decoded_frames": 718,
+      "fps": 10.0,
+      "duration_seconds": 71.8,
+      "ending_image_mae": 2.4348857402801514,
+      "initial_positions": {
+        "cup": [
+          -0.1600450968520234,
+          0.20156387677852824,
+          0.8419562970082799
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F02-C-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F04",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "00661a142f611a76b16f3177fd5cf453fb0b903834f667a956a37acd5f6bc644",
+      "video_sha256": "65394d4f0ffdc172ab34822b334650ce85a750d7397be3c166feb75b4b184db1",
+      "decoded_frames": 622,
+      "fps": 10.0,
+      "duration_seconds": 62.2,
+      "ending_image_mae": 2.391918659210205,
+      "initial_positions": {
+        "tall": [
+          -0.1600450968520234,
+          0.20156387677852824,
+          0.8497844851002408
+        ],
+        "wide": [
+          -0.1600450968520234,
+          -0.19843612322147178,
+          0.8197844851008911
+        ],
+        "blue": [
+          -0.1600450968520234,
+          0.0015638767785282346,
+          0.8297844851005302
+        ],
+        "stand": [
+          0.1499549031479766,
+          0.0015638767785282346,
+          0.819784485100878
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F04-A-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F04",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "00661a142f611a76b16f3177fd5cf453fb0b903834f667a956a37acd5f6bc644",
+      "video_sha256": "2382487c06e831c2ecfcc940bfccdd2d919d08ca1dc93382cc669ef306747a2a",
+      "decoded_frames": 662,
+      "fps": 10.0,
+      "duration_seconds": 66.2,
+      "ending_image_mae": 2.3872783184051514,
+      "initial_positions": {
+        "tall": [
+          -0.1600450968520234,
+          0.20156387677852824,
+          0.8497844851002408
+        ],
+        "wide": [
+          -0.1600450968520234,
+          -0.19843612322147178,
+          0.8197844851008911
+        ],
+        "blue": [
+          -0.1600450968520234,
+          0.0015638767785282346,
+          0.8297844851005302
+        ],
+        "stand": [
+          0.1499549031479766,
+          0.0015638767785282346,
+          0.819784485100878
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F04-B-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F04",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "00661a142f611a76b16f3177fd5cf453fb0b903834f667a956a37acd5f6bc644",
+      "video_sha256": "10ebacb5bc4f5ad7f566903d770dac8516618320e2008860e3f0c89d962ec26d",
+      "decoded_frames": 646,
+      "fps": 10.0,
+      "duration_seconds": 64.6,
+      "ending_image_mae": 2.397954225540161,
+      "initial_positions": {
+        "tall": [
+          -0.1600450968520234,
+          0.20156387677852824,
+          0.8497844851002408
+        ],
+        "wide": [
+          -0.1600450968520234,
+          -0.19843612322147178,
+          0.8197844851008911
+        ],
+        "blue": [
+          -0.1600450968520234,
+          0.0015638767785282346,
+          0.8297844851005302
+        ],
+        "stand": [
+          0.1499549031479766,
+          0.0015638767785282346,
+          0.819784485100878
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F04-C-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F05",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "6fd40856372209215a777178f8996c4c627276812f5cec88a57811a6769b3c9d",
+      "video_sha256": "8c307cf700a83c34557b9eda1c96ebf46f6b3b533c2946c4f636e407502133c5",
+      "decoded_frames": 3102,
+      "fps": 10.0,
+      "duration_seconds": 310.2,
+      "ending_image_mae": 2.389294147491455,
+      "initial_positions": {
+        "size0": [
+          -0.1606077140050885,
+          0.20285822162795916,
+          0.8177844851010382
+        ],
+        "size1": [
+          -0.1606077140050885,
+          -0.19714177837204086,
+          0.8227844851007574
+        ],
+        "size2": [
+          -0.1606077140050885,
+          0.002858221627959152,
+          0.8277844851005791
+        ],
+        "size3": [
+          -0.030607714005088504,
+          -0.19714177837204086,
+          0.8327844851004561
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F05-A-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F05",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "6fd40856372209215a777178f8996c4c627276812f5cec88a57811a6769b3c9d",
+      "video_sha256": "2edf2bc678e27a4f3f89c38fd93ba00736498f38d1fdee9eca5a183d1b70b72d",
+      "decoded_frames": 2958,
+      "fps": 10.0,
+      "duration_seconds": 295.8,
+      "ending_image_mae": 2.3687117099761963,
+      "initial_positions": {
+        "size0": [
+          -0.1606077140050885,
+          0.20285822162795916,
+          0.8177844851010382
+        ],
+        "size1": [
+          -0.1606077140050885,
+          -0.19714177837204086,
+          0.8227844851007574
+        ],
+        "size2": [
+          -0.1606077140050885,
+          0.002858221627959152,
+          0.8277844851005791
+        ],
+        "size3": [
+          -0.030607714005088504,
+          -0.19714177837204086,
+          0.8327844851004561
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F05-B-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F05",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "6fd40856372209215a777178f8996c4c627276812f5cec88a57811a6769b3c9d",
+      "video_sha256": "7e391e2a86716aa05cd3303b43eb9fa626b7c0b897ad2ea992217c7a6c6e3b45",
+      "decoded_frames": 2126,
+      "fps": 10.0,
+      "duration_seconds": 212.6,
+      "ending_image_mae": 2.3766191005706787,
+      "initial_positions": {
+        "size0": [
+          -0.1606077140050885,
+          0.20285822162795916,
+          0.8177844851010382
+        ],
+        "size1": [
+          -0.1606077140050885,
+          -0.19714177837204086,
+          0.8227844851007574
+        ],
+        "size2": [
+          -0.1606077140050885,
+          0.002858221627959152,
+          0.8277844851005791
+        ],
+        "size3": [
+          -0.030607714005088504,
+          -0.19714177837204086,
+          0.8327844851004561
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F05-C-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F06",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "190246984772b23787a4f0afbaef0dc10dac8b0c4a701b4b80b2f6e2ed67ab59",
+      "video_sha256": "77d790174e53fdeffa9a1e7893daededa8f8660b787233bbac69fda6136cbcbb",
+      "decoded_frames": 2070,
+      "fps": 10.0,
+      "duration_seconds": 207.0,
+      "ending_image_mae": 2.3591597080230713,
+      "initial_positions": {
+        "red": [
+          -0.1600450968520234,
+          0.20156387677852824,
+          0.8177844851010165
+        ],
+        "blue": [
+          -0.1600450968520234,
+          -0.19843612322147178,
+          0.8177844851010165
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F06-A-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F06",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "190246984772b23787a4f0afbaef0dc10dac8b0c4a701b4b80b2f6e2ed67ab59",
+      "video_sha256": "c7ffe33bbaf02d232fa800005ee50c686ffb667f6569edd0dc967ecebfd7ac1a",
+      "decoded_frames": 2374,
+      "fps": 10.0,
+      "duration_seconds": 237.4,
+      "ending_image_mae": 2.35026216506958,
+      "initial_positions": {
+        "red": [
+          -0.1600450968520234,
+          0.20156387677852824,
+          0.8177844851010165
+        ],
+        "blue": [
+          -0.1600450968520234,
+          -0.19843612322147178,
+          0.8177844851010165
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F06-B-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F06",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "190246984772b23787a4f0afbaef0dc10dac8b0c4a701b4b80b2f6e2ed67ab59",
+      "video_sha256": "2df23096ef308e18b03eb335bc9d1b67a4e6427515b57f6a09d3d38f4191fe6d",
+      "decoded_frames": 2222,
+      "fps": 10.0,
+      "duration_seconds": 222.2,
+      "ending_image_mae": 2.3584492206573486,
+      "initial_positions": {
+        "red": [
+          -0.1600450968520234,
+          0.20156387677852824,
+          0.8177844851010165
+        ],
+        "blue": [
+          -0.1600450968520234,
+          -0.19843612322147178,
+          0.8177844851010165
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F06-C-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F07",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "eb95928ded4a3e3d4d01ed6b5c817cab5fdd62a1f8c8130614a6fd67760bcdb7",
+      "video_sha256": "01acca9447f7b1ff2dd16a891118b1c7d71a4c305249920e6aa3cc1cf50b763e",
+      "decoded_frames": 3030,
+      "fps": 10.0,
+      "duration_seconds": 303.0,
+      "ending_image_mae": 2.4010534286499023,
+      "initial_positions": {
+        "bin0": [
+          0.1499549031479766,
+          -0.18843612322147177,
+          0.8249562970124547
+        ],
+        "bin1": [
+          0.1499549031479766,
+          0.19156387677852824,
+          0.8249562970124547
+        ],
+        "part0_0": [
+          -0.23005540049862933,
+          -0.1584165293117732,
+          0.8245527101573753
+        ],
+        "part0_1": [
+          -0.12004940777957418,
+          -0.15842541042694633,
+          0.8245469894880475
+        ],
+        "part1_0": [
+          -0.2300450968520234,
+          0.16156387677852824,
+          0.8177844851010382
+        ],
+        "part1_1": [
+          -0.1200450968520234,
+          0.16156387677852824,
+          0.8177844851010382
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F07-A-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F07",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "eb95928ded4a3e3d4d01ed6b5c817cab5fdd62a1f8c8130614a6fd67760bcdb7",
+      "video_sha256": "547fe7cecb440cc1e0285a181846fbfa7504a553052116c359acc92c458ccb06",
+      "decoded_frames": 2046,
+      "fps": 10.0,
+      "duration_seconds": 204.6,
+      "ending_image_mae": 2.3995563983917236,
+      "initial_positions": {
+        "bin0": [
+          0.1499549031479766,
+          -0.18843612322147177,
+          0.8249562970124547
+        ],
+        "bin1": [
+          0.1499549031479766,
+          0.19156387677852824,
+          0.8249562970124547
+        ],
+        "part0_0": [
+          -0.23005540049862933,
+          -0.1584165293117732,
+          0.8245527101573753
+        ],
+        "part0_1": [
+          -0.12004940777957418,
+          -0.15842541042694633,
+          0.8245469894880475
+        ],
+        "part1_0": [
+          -0.2300450968520234,
+          0.16156387677852824,
+          0.8177844851010382
+        ],
+        "part1_1": [
+          -0.1200450968520234,
+          0.16156387677852824,
+          0.8177844851010382
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F07-B-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    },
+    {
+      "task": "F07",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "world_sha256": "eb95928ded4a3e3d4d01ed6b5c817cab5fdd62a1f8c8130614a6fd67760bcdb7",
+      "video_sha256": "bf48ee3a5e186618d203ae738983f89023af1dbd880a06ef6cafda84a6e3e6ec",
+      "decoded_frames": 3030,
+      "fps": 10.0,
+      "duration_seconds": 303.0,
+      "ending_image_mae": 2.391423463821411,
+      "initial_positions": {
+        "bin0": [
+          0.1499549031479766,
+          -0.18843612322147177,
+          0.8249562970124547
+        ],
+        "bin1": [
+          0.1499549031479766,
+          0.19156387677852824,
+          0.8249562970124547
+        ],
+        "part0_0": [
+          -0.23005540049862933,
+          -0.1584165293117732,
+          0.8245527101573753
+        ],
+        "part0_1": [
+          -0.12004940777957418,
+          -0.15842541042694633,
+          0.8245469894880475
+        ],
+        "part1_0": [
+          -0.2300450968520234,
+          0.16156387677852824,
+          0.8177844851010382
+        ],
+        "part1_1": [
+          -0.1200450968520234,
+          0.16156387677852824,
+          0.8177844851010382
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      },
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F07-C-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
+    }
+  ],
+  "rejected": [
+    {
+      "case": "F03-A-0",
+      "error": "Failed author execution"
+    },
+    {
+      "case": "F03-B-0",
+      "error": "Failed author execution"
+    },
+    {
+      "case": "F03-C-0",
+      "error": "Failed author execution"
+    }
+  ],
+  "usable_videos": 18,
+  "usable_complete_three_rule_families": 6
+}

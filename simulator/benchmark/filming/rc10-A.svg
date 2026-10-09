@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1030" viewBox="0 0 900 1030">
+<rect width="900" height="1030" fill="#f6f8fa"/>
+<g font-family="Arial, sans-serif" fill="#172334">
+<text x="50" y="28" font-size="20">rc10 A · 积木从左收纳盒转到右收纳盒</text>
+<rect x="50" y="50" width="800" height="800" fill="white" stroke="#203044" stroke-width="2"/>
+<path d="M 150 50 V 850 M 50 150 H 850" stroke="#e4e9ee" stroke-width="1"/>
+<path d="M 250 50 V 850 M 50 250 H 850" stroke="#e4e9ee" stroke-width="1"/>
+<path d="M 350 50 V 850 M 50 350 H 850" stroke="#e4e9ee" stroke-width="1"/>
+<path d="M 450 50 V 850 M 50 450 H 850" stroke="#e4e9ee" stroke-width="1"/>
+<path d="M 550 50 V 850 M 50 550 H 850" stroke="#e4e9ee" stroke-width="1"/>
+<path d="M 650 50 V 850 M 50 650 H 850" stroke="#e4e9ee" stroke-width="1"/>
+<path d="M 750 50 V 850 M 50 750 H 850" stroke="#e4e9ee" stroke-width="1"/>
+<path d="M 450 50 V 850 M 50 450 H 850" stroke="#abb8c4" stroke-dasharray="5 5"/>
+<text x="55" y="73" font-size="14">Far edge: X = −400 mm · hands enter from this side</text>
+<text x="55" y="838" font-size="14">Near edge: X = +400 mm · camera on this side</text>
+<rect x="360.0" y="510.0" width="180.0" height="200.0" fill="#8298ab" opacity=".45"/>
+<text x="450" y="610.0" text-anchor="middle" font-size="14">mat</text>
+<g transform="rotate(-0.0 250.0 330.0)">
+<rect x="185.0" y="265.0" width="130.0" height="130.0" fill="#1f4cd9" stroke="#172334"/>
+<rect x="193.0" y="273.0" width="114.0" height="114.0" fill="white"/>
+</g>
+<text x="250.0" y="257.0" text-anchor="middle" font-size="14">开口收纳盒</text>
+<g transform="rotate(-0.0 610.0 600.0)">
+<rect x="545.0" y="535.0" width="130.0" height="130.0" fill="#1fb238" stroke="#172334"/>
+<rect x="553.0" y="543.0" width="114.0" height="114.0" fill="white"/>
+</g>
+<text x="610.0" y="527.0" text-anchor="middle" font-size="14">开口收纳盒</text>
+<g transform="rotate(-0.0 250.0 330.0)">
+<rect x="232.0" y="312.0" width="36.0" height="36.0" fill="#d91f1a" stroke="#172334"/>
+</g>
+<text x="250.0" y="304.0" text-anchor="middle" font-size="14">积木</text>
+<text x="50" y="880" font-size="16">Top view · 1 px = 1 mm · origin at table center · +Y right, +X down</text>
+<text x="50" y="905" font-size="15">Nominal A layout; omit the ±4 mm simulator seed jitter for physical filming.</text>
+<text x="50" y="932" font-size="14">food: center (X,Y)=(-120,-200) mm; full size X×Y×Z = 36 × 36 × 36 mm</text>
+<text x="50" y="953" font-size="14">left: center (X,Y)=(-120,-200) mm; full size X×Y×Z = 130 × 130 × 50 mm</text>
+<text x="50" y="974" font-size="14">right: center (X,Y)=(150,160) mm; full size X×Y×Z = 130 × 130 × 50 mm</text>
+<text x="50" y="1012" font-size="13">AUTHOR ONLY · Never show this sheet, labels or coordinates in agent demonstration media.</text>
+</g></svg>

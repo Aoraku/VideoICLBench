@@ -1,0 +1,48 @@
+{
+  "task": "F36",
+  "variant": "B",
+  "seed": 0,
+  "source_sha256": "580c5c7022ecb75a951de435f05d8f96c6edfa85527feee4d3b99f48d563fcfe",
+  "world_sha256": "4a7d3226349ac31efcbd4ff797f02459393eb41feb350d22cc6e092baad916fa",
+  "video_sha256": "befbecbdffaffa690cabe47e8b6665d3bbe25cdafbaa87788a5209f4c6ad3718",
+  "decoded_frames": 4722,
+  "fps": 10.0,
+  "duration_seconds": 472.2,
+  "ending_image_mae": 2.581834554672241,
+  "initial_positions": {
+    "pusher": [
+      -0.2200450968520234,
+      0.0015638767785283152,
+      0.8747844851008899
+    ],
+    "red": [
+      -0.035045096852023394,
+      -0.21843612322147177,
+      0.8217844851008027
+    ],
+    "green": [
+      -0.035045096852023394,
+      0.0015638767785282346,
+      0.8217844851008027
+    ],
+    "blue": [
+      -0.035045096852023394,
+      0.22156387677852823,
+      0.8217844851008027
+    ]
+  },
+  "cross_rule_predicates": {
+    "A": false,
+    "B": true,
+    "C": false
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 6,
+    "fixtures_visible": true
+  },
+  "usable_for_agent_demo": true,
+  "independent_agent": false,
+  "human_recorded": false,
+  "folder": "F36-B-0"
+}

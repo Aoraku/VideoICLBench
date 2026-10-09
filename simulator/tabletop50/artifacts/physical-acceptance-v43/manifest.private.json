@@ -1,0 +1,43 @@
+{
+  "status": "headless-author-physical-acceptance",
+  "source_sha256": "0b6db904e741b93fb8874fa7029da351d106bc9b8e817212e64010692a7fd05e",
+  "complete_families": [
+    "F49"
+  ],
+  "conditions": 3,
+  "videos": 0,
+  "human_videos": 0,
+  "independent_agent_trials": 0,
+  "cases": [
+    {
+      "task": "F49",
+      "variant": "A",
+      "actions": 645,
+      "joint_angles": {
+        "panel0": -0.001081630325189361,
+        "panel1": -0.001081630325189358,
+        "panel2": 1.174554385772952
+      }
+    },
+    {
+      "task": "F49",
+      "variant": "B",
+      "actions": 659,
+      "joint_angles": {
+        "panel0": -0.001081630325189364,
+        "panel1": 1.2550472110788593,
+        "panel2": -0.0010816303251893619
+      }
+    },
+    {
+      "task": "F49",
+      "variant": "C",
+      "actions": 633,
+      "joint_angles": {
+        "panel0": 1.219884546884734,
+        "panel1": -0.001081630325189359,
+        "panel2": -0.0010816303251893803
+      }
+    }
+  ]
+}

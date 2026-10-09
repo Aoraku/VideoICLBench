@@ -1,0 +1,1863 @@
+{
+  "benchmark": "VideoICL-Embodied-50",
+  "scope": "50 author demonstrations, A layout, seed 0",
+  "fps": 20,
+  "independent_agent_trials": 0,
+  "human_demonstrations_collected": 0,
+  "author_visual_review": "passed",
+  "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+  "rows": [
+    {
+      "task": "rt01",
+      "title": "红块叠在蓝块上",
+      "task_revision": 2,
+      "source": {
+        "project": "RoboTwin",
+        "task": "stack_blocks_two",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/stack_blocks_two.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 129,
+      "recorded_actions": 94,
+      "fps": 20,
+      "duration_seconds": 37.65,
+      "video": "videos/rt01.mp4",
+      "video_sha256": "2dffcbde0c403bfb84c9ba0775bf23033ad9b43e17dd203afe28a570230d83b4",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "dd8c97062238d9b6e252ab202a15ef879f860d3c8d6ff26bf6645bfdd6eb621e",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt02",
+      "title": "红绿蓝三层塔（蓝在底）",
+      "task_revision": 2,
+      "source": {
+        "project": "RoboTwin",
+        "task": "stack_blocks_three",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/stack_blocks_three.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 371,
+      "recorded_actions": 336,
+      "fps": 20,
+      "duration_seconds": 134.45,
+      "video": "videos/rt02.mp4",
+      "video_sha256": "43565cdfebd9586cfc508f466b3a7baabf25055b50b96f985abbf6badaf6a19a",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "15333f482bf50daea08be8da1f2abb8419df54837756fa9944b55bbfe4ffba35",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt03",
+      "title": "小收纳盒嵌入大收纳盒",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboTwin",
+        "task": "stack_bowls_two",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/stack_bowls_two.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 127,
+      "recorded_actions": 94,
+      "fps": 20,
+      "duration_seconds": 37.65,
+      "video": "videos/rt03.mp4",
+      "video_sha256": "8c1366b647f8cc12c1d0a5dfa1d9ce5eac6e1135a6a27b4dfc25a741befb9963",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "250bb90b9b0a35c28b41400bc76a980d8f4b2b98d3865ce0b6fa5de5ad49c1d0",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt04",
+      "title": "三个收纳盒按大小嵌套",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboTwin",
+        "task": "stack_bowls_three",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/stack_bowls_three.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 413,
+      "recorded_actions": 360,
+      "fps": 20,
+      "duration_seconds": 144.05,
+      "video": "videos/rt04.mp4",
+      "video_sha256": "365fb5dd386b7cf44c7378dd9fee5693852c9e558e2941f3671ef4b6521496e7",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "351c85ed2d183303d321fa3dd20c4fa1e97507a2bcfd2ce4ae7ed7e4c3b4d77e",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt05",
+      "title": "红绿蓝从左至右排列",
+      "task_revision": 2,
+      "source": {
+        "project": "RoboTwin",
+        "task": "blocks_ranking_rgb",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/blocks_ranking_rgb.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 393,
+      "recorded_actions": 353,
+      "fps": 20,
+      "duration_seconds": 141.25,
+      "video": "videos/rt05.mp4",
+      "video_sha256": "5c112f3ae2359edae734c192ca94666c3ef07bc2516f1736444b1b38f70c6f0a",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "c17507e622c7996970ec2911b9d68f4c9d3441b02e1f2c38a6f1952dd6bf879b",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt06",
+      "title": "块按小中大排列",
+      "task_revision": 2,
+      "source": {
+        "project": "RoboTwin",
+        "task": "blocks_ranking_size",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/blocks_ranking_size.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 389,
+      "recorded_actions": 350,
+      "fps": 20,
+      "duration_seconds": 140.05,
+      "video": "videos/rt06.mp4",
+      "video_sha256": "bcbd5c9240f784f7cce3f7cab0a0c435f9fea8b879b848b92378fd6356c77516",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "9ad043cb28653822b664d6ac0953d749d68a4d59c0dd128d9c8938537b2a2dbb",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt07",
+      "title": "左臂夹起并交给右臂，再放到目标垫",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboTwin",
+        "task": "handover_block",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/handover_block.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 232,
+      "recorded_actions": 183,
+      "fps": 20,
+      "duration_seconds": 73.25,
+      "video": "videos/rt07.mp4",
+      "video_sha256": "57801956c168436a5ed57370c41a38bac502551860af75c5fbd47ef264d5e143",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "256a4ab720d0e759a6b73d826270da75ebb38fa5915f9153e4d74ba32cfcd45d",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt08",
+      "title": "左臂夹起并交给右臂，再放到目标垫",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboTwin",
+        "task": "handover_mic",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/handover_mic.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 221,
+      "recorded_actions": 177,
+      "fps": 20,
+      "duration_seconds": 70.85,
+      "video": "videos/rt08.mp4",
+      "video_sha256": "2da4cbe78634badcc27e1425b6cd53d713aceba6719294727796ec88f205879c",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "985a2564ab83bd2f78886b1bdab465edc5ea4c5580f4737570db2a1b3064c11c",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt09",
+      "title": "双臂同时抬起托盘",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboTwin",
+        "task": "lift_pot",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/lift_pot.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 103,
+      "recorded_actions": 102,
+      "fps": 20,
+      "duration_seconds": 40.85,
+      "video": "videos/rt09.mp4",
+      "video_sha256": "0e051962db002cfeb148fd7587b92e8e10db0c1a0fd9874ac997491c9e681ff1",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "1519daa570abe437a75e52f7b78cd92c7d8d1daff1f01d318e0d9c5ff63d515a",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt10",
+      "title": "双臂同时夹起两瓶",
+      "task_revision": 2,
+      "source": {
+        "project": "RoboTwin",
+        "task": "pick_dual_bottles",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/pick_dual_bottles.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 99,
+      "recorded_actions": 98,
+      "fps": 20,
+      "duration_seconds": 39.25,
+      "video": "videos/rt10.mp4",
+      "video_sha256": "3f02257519a98e49f67e76de3cbbf43f67a3c588eb83071bb8e7c4ece1ee6b1d",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "309dc50bda7acc93c09097a7bb67f0432f52964622c5b911ffcb9e8509d35ea3",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt11",
+      "title": "高矮两瓶移入不同垫",
+      "task_revision": 2,
+      "source": {
+        "project": "RoboTwin",
+        "task": "pick_diverse_bottles",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/pick_diverse_bottles.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 285,
+      "recorded_actions": 237,
+      "fps": 20,
+      "duration_seconds": 94.85,
+      "video": "videos/rt11.mp4",
+      "video_sha256": "cf2b60477933d4478823fdbbb2a288fe2ac2ac905494be8c6aaf5be9394ae044",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "ccc0eec907b8fbff75cc4dd8aa4409c98a2412538a43c8bdc4bd3d8deca31fd4",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt12",
+      "title": "夹杯并放到目标垫",
+      "task_revision": 2,
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_empty_cup",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_empty_cup.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 175,
+      "recorded_actions": 119,
+      "fps": 20,
+      "duration_seconds": 47.65,
+      "video": "videos/rt12.mp4",
+      "video_sha256": "40bab0823e6aec011234fe9e4983ea8fe08e6461841bea3e89cbfb4e002a992f",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "c40e429d51ba60929f4a887bead9dcd3a92b284b44c9cb3dc865d99a5e67b23d",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt13",
+      "title": "长条积木放入收纳托盘",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_bread_basket",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_bread_basket.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 157,
+      "recorded_actions": 110,
+      "fps": 20,
+      "duration_seconds": 44.05,
+      "video": "videos/rt13.mp4",
+      "video_sha256": "ce441e7e3dfa7d23a60c83fb5d6864e0d1f32b50a8a4767a468e13e88faca704",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "49bfd2196ecf2a26c8cfc5a0f41da366b063554022f3af8c71a6caea6d0b32e7",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt14",
+      "title": "圆柱件放入收纳托盘",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_can_basket",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_can_basket.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 155,
+      "recorded_actions": 108,
+      "fps": 20,
+      "duration_seconds": 43.25,
+      "video": "videos/rt14.mp4",
+      "video_sha256": "43d459ffa08819bc6f455285fe455801d156f3cca00069d50bb0a29294f4b397",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "8577a87c7ecc08a257eeb76c19d899c356acf3e53785513b5d147c0903103068",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt15",
+      "title": "两块积木放入收纳盒",
+      "task_revision": 4,
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_cans_plasticbox",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_cans_plasticbox.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 287,
+      "recorded_actions": 241,
+      "fps": 20,
+      "duration_seconds": 96.45,
+      "video": "videos/rt15.mp4",
+      "video_sha256": "7e2d4364e616c706c5ad5d1b58da53909852630e16d9eb9b4127b75be9db4edb",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "cc0188a52380b9c82912ca9c2c2fdd08f4e89025149ce4aff441dffb1041bf4a",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt16",
+      "title": "笔筒放到圆形底座上",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_container_plate",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_container_plate.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 173,
+      "recorded_actions": 127,
+      "fps": 20,
+      "duration_seconds": 50.85,
+      "video": "videos/rt16.mp4",
+      "video_sha256": "da972b941a74583a4497f60efce1f5750ec328d017e3a6facc245282b69c207b",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "aafe109b7fdde08f01eae8135ef5ab0f1bb0c96acadafd81b6ac23ba24eb652f",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt17",
+      "title": "物块放到秤台",
+      "task_revision": 2,
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_object_scale",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_object_scale.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 153,
+      "recorded_actions": 108,
+      "fps": 20,
+      "duration_seconds": 43.25,
+      "video": "videos/rt17.mp4",
+      "video_sha256": "4be7826888631bfce605940dbf59cbc776b7935aeec07d872c4be918efd4f6f5",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "13dbf30b2f2cd46bed2f77611beb1c94e14fdb42afee0ce153d4e855eacdfa7b",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt18",
+      "title": "瓶放到展示台",
+      "task_revision": 2,
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_object_stand",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_object_stand.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 143,
+      "recorded_actions": 103,
+      "fps": 20,
+      "duration_seconds": 41.25,
+      "video": "videos/rt18.mp4",
+      "video_sha256": "c6c498f757917a552523fb149ad0d2028242fd8badb4b9c108a9cd055a48f5de",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "1da347e74cb9a351e149c1fb6e5d62fcbdc870cf56082a8e15b0add83f0de3c3",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt19",
+      "title": "手机竖立在支架上",
+      "task_revision": 9,
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_phone_stand",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_phone_stand.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 314,
+      "recorded_actions": 250,
+      "fps": 20,
+      "duration_seconds": 100.05,
+      "video": "videos/rt19.mp4",
+      "video_sha256": "eea9824b34ca3bae881afc491629ee8b54440bf0af3c27343a1e3d2450fb3b54",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "f8a47a6ec0d1da084f98ff6223a454cf65c53fb52357c7a9087900b366dcf96b",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt20",
+      "title": "鼠标移至鼠标垫",
+      "task_revision": 2,
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_mouse_pad",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_mouse_pad.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 161,
+      "recorded_actions": 112,
+      "fps": 20,
+      "duration_seconds": 44.85,
+      "video": "videos/rt20.mp4",
+      "video_sha256": "6aba55f6aa9d90eb1eceb836caea0d0e66acc3d8a91fb3a8940154267899a725",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "ac2a9fae559f970504d71158024d93bb5bea1c8065907daf878b160f0b5ec7da",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt21",
+      "title": "两只鞋并排朝前",
+      "task_revision": 2,
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_dual_shoes",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_dual_shoes.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 285,
+      "recorded_actions": 241,
+      "fps": 20,
+      "duration_seconds": 96.45,
+      "video": "videos/rt21.mp4",
+      "video_sha256": "ba9e255b0ff1418a24720f4093276323a94763eca6f88678f4b018e118538460",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "31f66355c23e5ae9b2e78c92e6ac14992812de8a612164579139aa9c533f0654",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt22",
+      "title": "扶正横倒的长方积木",
+      "task_revision": 6,
+      "source": {
+        "project": "RoboTwin",
+        "task": "adjust_bottle",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/adjust_bottle.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 289,
+      "recorded_actions": 248,
+      "fps": 20,
+      "duration_seconds": 99.25,
+      "video": "videos/rt22.mp4",
+      "video_sha256": "96a355a9830536f5d3ea074bde8bbcc1f6f371021a6640ff80447d5b6ae7e317",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "37af73d0f171e519b8c0ee8f5317faebfef94b7c38555d9da84658df2523c292",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt23",
+      "title": "订书机移到垫上",
+      "task_revision": 2,
+      "source": {
+        "project": "RoboTwin",
+        "task": "move_stapler_pad",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/move_stapler_pad.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 161,
+      "recorded_actions": 112,
+      "fps": 20,
+      "duration_seconds": 44.85,
+      "video": "videos/rt23.mp4",
+      "video_sha256": "c4a118810b5f5f60097a727d46cdfd836382421a150f8d0f9f5379772d5a0297",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "084f9938f15fd3093e1d81e964ad3be84057dd31044737f988b85088185f6471",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt24",
+      "title": "药瓶移到垫上",
+      "task_revision": 2,
+      "source": {
+        "project": "RoboTwin",
+        "task": "move_pillbottle_pad",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/move_pillbottle_pad.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 175,
+      "recorded_actions": 118,
+      "fps": 20,
+      "duration_seconds": 47.25,
+      "video": "videos/rt24.mp4",
+      "video_sha256": "981829db22608bee815f99935273c69fd1a8cfae6631cb1c46766aa3f716b865",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "63fa03ad464ab10c9c25207ace3a951d0b6cca856c46f139546024a8d39cf056",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rt25",
+      "title": "右侧物块跨桌放到左侧",
+      "task_revision": 2,
+      "source": {
+        "project": "RoboTwin",
+        "task": "place_a2b_left",
+        "revision": "ea8b21121ebb3cd201ff5b3fe361944ac94eda3f",
+        "url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/ea8b21121ebb3cd201ff5b3fe361944ac94eda3f/envs/place_a2b_left.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 257,
+      "recorded_actions": 222,
+      "fps": 20,
+      "duration_seconds": 88.85,
+      "video": "videos/rt25.mp4",
+      "video_sha256": "f2936b2e4d838641ead0f127a559ef6452c05ea7ad0bcf3db4432d81dbd20772",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "264b809b42a8d3cedd4204b2e39f1c460794cfa42c807631d0c3c76ac1a76587",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc01",
+      "title": "三个圆柱件排成一排",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "BeverageOrganization",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/setting_the_table/beverage_organization.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 369,
+      "recorded_actions": 331,
+      "fps": 20,
+      "duration_seconds": 132.45,
+      "video": "videos/rc01.mp4",
+      "video_sha256": "b46bc1fef63e943b68cbe53e3f8927a076648393096b231dd7251cadc87e8bdd",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "e27564ee91e2322c0bdf08148b0fb217d5b5553d91a4f8819e47d379ddaa82a4",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc02",
+      "title": "两个笔筒集中到托盘",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "DrinkwareConsolidation",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/clearing_table/drinkware_consolidation.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 323,
+      "recorded_actions": 265,
+      "fps": 20,
+      "duration_seconds": 106.05,
+      "video": "videos/rc02.mp4",
+      "video_sha256": "090d4a2682b0d3f08ad05373be38b17b9b1ad610ae36f5e054b76da56b1c3781",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "aed253898b804cc0bbc4e73362170dac7aa795c06eefe4d45df0f3665d42237d",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc03",
+      "title": "收纳盒与笔筒分置两个区域",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "BowlAndCup",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/clearing_table/bowl_and_cup.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 289,
+      "recorded_actions": 241,
+      "fps": 20,
+      "duration_seconds": 96.45,
+      "video": "videos/rc03.mp4",
+      "video_sha256": "5e6b3b37014fd153739617346a6a928886d20e7d2cd798aa45505a19f0602c25",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "9771f671edf8477ce77f8b3cdefc9be9eb8fa3505a395d5c8db7454af0bca22b",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc04",
+      "title": "两个收纳盒分别就位",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "SetBowlsForSoup",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/setting_the_table/set_bowls_for_soup.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 269,
+      "recorded_actions": 232,
+      "fps": 20,
+      "duration_seconds": 92.85,
+      "video": "videos/rc04.mp4",
+      "video_sha256": "8f02feb5b4b642919f4e1e1ac6851cf5553269117cd9f8ebaf1e0741ec4bd2cc",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "1d8fac6eeca97ff34414c0daa9df3dbd09780c5975e752b306cbdf72e33dc07a",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc05",
+      "title": "积木按大小沿桌面纵向排列",
+      "task_revision": 6,
+      "source": {
+        "project": "RoboCasa",
+        "task": "SizeSorting",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/setting_the_table/size_sorting.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 389,
+      "recorded_actions": 339,
+      "fps": 20,
+      "duration_seconds": 135.65,
+      "video": "videos/rc05.mp4",
+      "video_sha256": "ac378a3dd79b1b7252067554240401bd69380e8a8253a6f5ef5eb64983cb3404",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "0a3570bf82af81d791f699544421863a838ac0154c7b35b87caacab6eac78561",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc06",
+      "title": "两个短圆柱件集中到托盘",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "CondimentCollection",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/clearing_table/condiment_collection.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 323,
+      "recorded_actions": 270,
+      "fps": 20,
+      "duration_seconds": 108.05,
+      "video": "videos/rc06.mp4",
+      "video_sha256": "72d77f6c4db5a4249b82ddb831d06e5e7033f77bbe4ad04bb6f00904f65ffa54",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "3fc740b3bbb42775299badad4f53147132a56b3fe66e3f0acd68b3424b03c40c",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc07",
+      "title": "小收纳盒嵌套归置",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "RestockBowls",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/restocking_supplies/restock_bowls.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 129,
+      "recorded_actions": 96,
+      "fps": 20,
+      "duration_seconds": 38.45,
+      "video": "videos/rc07.mp4",
+      "video_sha256": "9d686b85a753d4dee03bf216148b97d53504583619e7649a7f3a64e39f4bee43",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "2457de9352a36b059f3bc6454bf6b53aa5211081f2cc08e41542d70b924cc2aa",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc08",
+      "title": "收纳盒与两块积木排列",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "AssembleCookingArray",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/frying/assemble_cooking_array.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 387,
+      "recorded_actions": 347,
+      "fps": 20,
+      "duration_seconds": 138.85,
+      "video": "videos/rc08.mp4",
+      "video_sha256": "099165b25ac8f5f6f00b1ef6cf06d4265e771260bf278dfc15c8b6af38614fd6",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "2971972ed243a72d5cbd0a2dc5860b011270cd1a33bbeb9b92cfda7cbae76f92",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc09",
+      "title": "长方收纳托盘旋转九十度",
+      "task_revision": 4,
+      "source": {
+        "project": "RoboCasa",
+        "task": "FryingPanAdjustment",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/frying/frying_pan_adjustment.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 171,
+      "recorded_actions": 128,
+      "fps": 20,
+      "duration_seconds": 51.25,
+      "video": "videos/rc09.mp4",
+      "video_sha256": "29136784305b6ec0a23c3b301f32b79995d7b264df841b9fd7c99f2ee6b82834",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "4c0924b2f31fcd5c2a8f89061d59cbca819049a4f4d259380d1039bcbcb09f4f",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc10",
+      "title": "积木从左收纳盒转到右收纳盒",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "PanTransfer",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/serving_food/pan_transfer.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 271,
+      "recorded_actions": 232,
+      "fps": 20,
+      "duration_seconds": 92.85,
+      "video": "videos/rc10.mp4",
+      "video_sha256": "eedbeb9430c416f8baeaee2b1416440129baf746d98cb0edf35a5a0812d95662",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "18f25487fdc880a9e72e29a80a6c0ae9e37bf679ca5f8e4f7a2bd206907c9190",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc11",
+      "title": "两色积木分别放入对应收纳盒",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "PlaceFoodInBowls",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/serving_food/place_food_in_bowls.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 269,
+      "recorded_actions": 231,
+      "fps": 20,
+      "duration_seconds": 92.45,
+      "video": "videos/rc11.mp4",
+      "video_sha256": "9799caa0644d80e2aef74831809e04de0f5b6eb44cee5c88c84a6f53cefb09ab",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "1dd7e9e3137437968d36d26b8caa244a0d52f6047d9040ad98b5d6f8bc25071a",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc12",
+      "title": "两色积木集中到同一个收纳盒",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "MakeFruitBowl",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/snack_preparation/make_fruit_bowl.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 283,
+      "recorded_actions": 239,
+      "fps": 20,
+      "duration_seconds": 95.65,
+      "video": "videos/rc12.mp4",
+      "video_sha256": "928e2f61c1b08b43a9d87402d5218d5ca28aca015caebb9c6b8b01d5b651f49f",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "87639f2b2b8d0519213f7cbc221ab451765f73c2b347568980696e3bf65abf45",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc13",
+      "title": "竖放积木与收纳盒配对摆放",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "CerealAndBowl",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/snack_preparation/cereal_and_bowl.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 273,
+      "recorded_actions": 234,
+      "fps": 20,
+      "duration_seconds": 93.65,
+      "video": "videos/rc13.mp4",
+      "video_sha256": "29eeb1c0210b107cb0cd61d3c189aed131ec7854a141c5be6764a3c68c736e19",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "c7c9ddf74fa3f331535bec31d7261f6a0db3ee01e780abcfedbf93aa1a84b88d",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc14",
+      "title": "黄色薄片叠到红色底块上",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "BreadAndCheese",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/snack_preparation/bread_and_cheese.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 135,
+      "recorded_actions": 98,
+      "fps": 20,
+      "duration_seconds": 39.25,
+      "video": "videos/rc14.mp4",
+      "video_sha256": "c8799f77809ae58a2547274b341d43afeb013851543cd098165b083eed9deb1a",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "0266764981e238602f44acfece32f681255cb66045e374be175fcafe1238b8a3",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc15",
+      "title": "方块放到圆形底座上",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "DessertAssembly",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/clearing_table/dessert_assembly.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 157,
+      "recorded_actions": 116,
+      "fps": 20,
+      "duration_seconds": 46.45,
+      "video": "videos/rc15.mp4",
+      "video_sha256": "d387898eb9a34cdbc403afa29bd21b0b8fce8d2e3f4fd7b3b7c54af30e7e7dd7",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "5e54b65c64b54e858525bac399a2dde20a84ffa60a16406b2b1c3b426cd2852b",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc16",
+      "title": "三种桌面零件分类排列",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "OrganizeBakingIngredients",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/baking/organize_baking_ingredients.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 379,
+      "recorded_actions": 339,
+      "fps": 20,
+      "duration_seconds": 135.65,
+      "video": "videos/rc16.mp4",
+      "video_sha256": "2a6667fddca8c1aeae6cd8e7dd6f3b0a7008fab4e077acc62aafecc85f961b10",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "51319db5a2ca6ad6a3d06a55f4befc5b01fe4cfeffb84d0ae62550e5eb3a636b",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc17",
+      "title": "圆柱件与扁块集中到目标垫",
+      "task_revision": 4,
+      "source": {
+        "project": "RoboCasa",
+        "task": "ClearingCleaningReceptacles",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/clearing_table/clearing_cleaning_receptacles.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 309,
+      "recorded_actions": 264,
+      "fps": 20,
+      "duration_seconds": 105.65,
+      "video": "videos/rc17.mp4",
+      "video_sha256": "284c28244dde4c7fc54811b3ecd1a22edd075d6feb1d0c6ec48f75abeecb6765",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "4c289610237845119a8fbee66f7e2b5c99844669776a06fa7099e983fccc16b3",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc18",
+      "title": "长短积木集中到收纳盒",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "PrewashFoodAssembly",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/washing_fruits_and_vegetables/prewash_food_assembly.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 285,
+      "recorded_actions": 241,
+      "fps": 20,
+      "duration_seconds": 96.45,
+      "video": "videos/rc18.mp4",
+      "video_sha256": "965e8477414d6307c50ff1fc4c05d09aa3941feec4027cccf855197cce116fcc",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "b8549acb22a942441f440aebc7a500ebc233a54d56362df6a208264813e13707",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc19",
+      "title": "两种长条积木分别摆放并朝前",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "OrganizeVegetables",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/chopping_food/organize_vegetables.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 281,
+      "recorded_actions": 238,
+      "fps": 20,
+      "duration_seconds": 95.25,
+      "video": "videos/rc19.mp4",
+      "video_sha256": "65934645be1f83f4ad3aeafe77e0a1a99fa0dc409112013789411ad5ac2a679f",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "d8e57beead8c5afad597c3ffd23e279c46bff9f6d73f1fe057ff5eea455cb935",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc20",
+      "title": "长条积木从收纳盒转到圆形底座",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "DrainVeggies",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/washing_fruits_and_vegetables/drain_veggies.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 267,
+      "recorded_actions": 225,
+      "fps": 20,
+      "duration_seconds": 90.05,
+      "video": "videos/rc20.mp4",
+      "video_sha256": "0526d4e99f546d8b618fa9cf68418a930b969564a711e357b9dc250f2fa8426f",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "1e7a3cdff19d4a8b88703819252e1a33767422e0aaca54b8dcc9b769a799a0af",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc21",
+      "title": "两种积木分类归盒",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "SnackSorting",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/tidying_cabinets_and_drawers/snack_sorting.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 271,
+      "recorded_actions": 233,
+      "fps": 20,
+      "duration_seconds": 93.25,
+      "video": "videos/rc21.mp4",
+      "video_sha256": "8d8b4ed6dba196e2610b31b4240f0f7cfcde59cb299cc9844e1a5d26e3fd523e",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "89fbde41e0b0d6251ffad8ef6a8ecc34b08f879d15071b8f0e795d6766c87a77",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc22",
+      "title": "交换两个圆柱件的位置",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "ShakerShuffle",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/tidying_cabinets_and_drawers/shaker_shuffle.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 415,
+      "recorded_actions": 391,
+      "fps": 20,
+      "duration_seconds": 156.45,
+      "video": "videos/rc22.mp4",
+      "video_sha256": "dce199109c687afe1c64ca490f9a9404196b5879cca6fbd06f548576ac83a420",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "c9942b4c647c8c4b66d01106abd661cf59988df12f360d4e3ad24290a851cfaf",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc23",
+      "title": "三色积木有序展示",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "PastryDisplay",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/baking/pastry_display.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 393,
+      "recorded_actions": 353,
+      "fps": 20,
+      "duration_seconds": 141.25,
+      "video": "videos/rc23.mp4",
+      "video_sha256": "90ffc5bffb4add43487f4c82899a0598f92f4f16d0bfa189672d0fd2b2fdf1f9",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "ecd9c86dd1073b30c5074cb47155e9463a63f5fa1b9929c2c13c4eff83cd9feb",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc24",
+      "title": "扁积木放入收纳盒",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "PrepMarinatingMeat",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/meat_preparation/prep_marinating_meat.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 157,
+      "recorded_actions": 112,
+      "fps": 20,
+      "duration_seconds": 44.85,
+      "video": "videos/rc24.mp4",
+      "video_sha256": "a7d3e60dce91287717178b3ce33d325c5bb739ba1323449e2d0cf953652101e4",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "c5bf6b0207d00ce5a4502ac76e575e5c0c3b71236f3dcf8be907070aa85f9df3",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    },
+    {
+      "task": "rc25",
+      "title": "两条积木并排装入托盘",
+      "task_revision": 3,
+      "source": {
+        "project": "RoboCasa",
+        "task": "ArrangeBreadBasket",
+        "revision": "756598a5be52e052339bb2d957426e39015c2afb",
+        "url": "https://github.com/robocasa/robocasa/blob/756598a5be52e052339bb2d957426e39015c2afb/robocasa/environments/kitchen/multi_stage/setting_the_table/arrange_bread_basket.py"
+      },
+      "variant": "A",
+      "seed": 0,
+      "scene_domain": "desktop-non-kitchen",
+      "camera": {
+        "name": "agentview",
+        "fovy_degrees": 60,
+        "resolution": [
+          512,
+          384
+        ]
+      },
+      "render_backend": "egl",
+      "kind": "privileged-author-simulation-demo",
+      "independent_agent": false,
+      "success": true,
+      "actions": 289,
+      "recorded_actions": 243,
+      "fps": 20,
+      "duration_seconds": 97.25,
+      "video": "videos/rc25.mp4",
+      "video_sha256": "8aa2a2f96164fdaaa2994497c9c86b95a7c278d63e9f1f7d2543d45c34976f67",
+      "controller_sha256": "44006955d37cb2046a3da272bf1ae3a7ce3479288b8b814642fa4271f83e6c5b",
+      "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+      "task_spec_sha256": "536a9e39d3b0a24e3d8f7557c9cdd1762b29325e7eb85f3fa81416f406ff831f",
+      "environment_sha256": "b6f586ae74b31cbec3c596ed99f9c180d05f0aa1705129e3b7df8e9515d7562c",
+      "author_visual_review": "passed"
+    }
+  ],
+  "visual_review_method": "All 50 initial/midpoint/final contact sheets reviewed; physical terminal conditions checked by harness, not a frame-by-frame manual audit.",
+  "date": "2026-10-09"
+}

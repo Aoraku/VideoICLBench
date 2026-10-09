@@ -1,0 +1,135 @@
+{
+  "status": "engineering-author-demonstrations",
+  "expected_families": 50,
+  "expected_rule_conditions": 150,
+  "verified_videos": 3,
+  "complete_three_rule_families": 1,
+  "complete_groups": [
+    {
+      "task": "F41",
+      "seed": 0,
+      "source_sha256": "dc04fa83ab151089227ba929b8d6b416619805cc77ce54c18e06d6842118c3e5"
+    }
+  ],
+  "usable_videos": 3,
+  "usable_complete_three_rule_families": 1,
+  "human_videos": 0,
+  "independent_agent_trials": 0,
+  "cases": [
+    {
+      "task": "F41",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "dc04fa83ab151089227ba929b8d6b416619805cc77ce54c18e06d6842118c3e5",
+      "world_sha256": "a910ccc4299282793f0533ca2e545af7cef08dad557ff0709c0fd6858ad67894",
+      "video_sha256": "1bb693fe1889c363f59be464c449cc37a8502631d865d2ed96c4070dad444528",
+      "decoded_frames": 3622,
+      "fps": 10.0,
+      "duration_seconds": 362.2,
+      "ending_image_mae": 2.507054567337036,
+      "initial_positions": {
+        "paddle": [
+          -0.2132907065623863,
+          0.21645488620645084,
+          0.8747844891603278
+        ],
+        "slider": [
+          -0.1332907065623863,
+          -0.0035451137935491777,
+          0.8197844851008982
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 1,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F41-A-0"
+    },
+    {
+      "task": "F41",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "dc04fa83ab151089227ba929b8d6b416619805cc77ce54c18e06d6842118c3e5",
+      "world_sha256": "a910ccc4299282793f0533ca2e545af7cef08dad557ff0709c0fd6858ad67894",
+      "video_sha256": "ee2ed3bb5f8ae85b2cdd1022d46e2d88e3ac29c4cae694bef3b3f4768294b287",
+      "decoded_frames": 2782,
+      "fps": 10.0,
+      "duration_seconds": 278.2,
+      "ending_image_mae": 2.4704997539520264,
+      "initial_positions": {
+        "paddle": [
+          -0.2132907065623863,
+          0.21645488620645084,
+          0.8747844891603278
+        ],
+        "slider": [
+          -0.1332907065623863,
+          -0.0035451137935491777,
+          0.8197844851008982
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 1,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F41-B-0"
+    },
+    {
+      "task": "F41",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "dc04fa83ab151089227ba929b8d6b416619805cc77ce54c18e06d6842118c3e5",
+      "world_sha256": "a910ccc4299282793f0533ca2e545af7cef08dad557ff0709c0fd6858ad67894",
+      "video_sha256": "0ce919e388a1c3ceadff83fbf896cab6f8f9bd17a924119b28b2e74a12de98fd",
+      "decoded_frames": 2846,
+      "fps": 10.0,
+      "duration_seconds": 284.6,
+      "ending_image_mae": 2.4887847900390625,
+      "initial_positions": {
+        "paddle": [
+          -0.2132907065623863,
+          0.21645488620645084,
+          0.8747844891603278
+        ],
+        "slider": [
+          -0.1332907065623863,
+          -0.0035451137935491777,
+          0.8197844851008982
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 1,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F41-C-0"
+    }
+  ],
+  "rejected": []
+}

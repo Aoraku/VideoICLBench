@@ -1,0 +1,122 @@
+{
+  "task": "F21",
+  "variant": "B",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "00a2c20a59d585bbfc75f8ebd0573e195b98afd5da03c0cef3658ef067a660b3",
+  "source_unchanged": true,
+  "world_sha256": "dcb45564f82848827c3e810f5cc7ee155ef36341c140bba62b2ece0347cfe0bd",
+  "initial_positions": {
+    "carrier": [
+      -0.1132907065623863,
+      -0.0035451137935491777,
+      0.8249563040914685
+    ],
+    "guard0": [
+      -0.1132907065623863,
+      -0.15354511379354915,
+      0.8448910929317379
+    ],
+    "guard1": [
+      -0.1132907065623863,
+      0.14645488620645083,
+      0.8448910929317379
+    ]
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 0,
+    "fixtures_visible": true
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 14.8,
+    "predicates": [
+      {
+        "rule": {
+          "type": "place",
+          "object": "guard0",
+          "target": "home0"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "yaw",
+          "object": "guard0",
+          "value": 0.0,
+          "tolerance": 0.13
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "place",
+          "object": "guard1",
+          "target": "home1"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "yaw",
+          "object": "guard1",
+          "value": 0.0,
+          "tolerance": 0.13
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "carrier",
+          "xy": [
+            0.18561359993904206,
+            0.22829659249633988
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "carrier": [
+        0.17681394295010727,
+        0.2213684333722459,
+        0.8249563043931604
+      ],
+      "guard0": [
+        -0.11372275326512607,
+        -0.1517769399696569,
+        0.8448910930981318
+      ],
+      "guard1": [
+        -0.1137972398521451,
+        0.14670027630420454,
+        0.8448910930981318
+      ]
+    },
+    "events": [],
+    "metric": "success",
+    "joint_angles": {}
+  },
+  "cross_rule_predicates": {
+    "A": false,
+    "B": true,
+    "C": false
+  },
+  "actions": 692,
+  "actions_sha256": "f562ee4d09192c49765a8b95de378df7e05a11a0a74453f44aba2eb7f0935562",
+  "error": null,
+  "video": {
+    "recorded": false,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 0,
+    "duration_seconds": 0.0,
+    "full_episode": true,
+    "final_success": true
+  }
+}

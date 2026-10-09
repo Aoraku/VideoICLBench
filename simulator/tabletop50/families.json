@@ -1,0 +1,857 @@
+{
+  "revision": "tabletop50-fpv-v1",
+  "family_count": 50,
+  "condition_count": 150,
+  "families": [
+    {
+      "id": "F01",
+      "title": "三色积木叠放",
+      "group": "基线与关系",
+      "props": "红绿蓝大积木各1块",
+      "challenge": "从视频学习颜色支撑次序；在新布局中重建",
+      "rules": {
+        "A": "红绿蓝，自下而上",
+        "B": "绿蓝红，自下而上",
+        "C": "蓝红绿，自下而上"
+      },
+      "reset": "拆塔，三块分开放回起始区",
+      "camera_note": "塔置于画面中部，保留侧面视线",
+      "runtime_recipe": "stack3",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F02",
+      "title": "方杯归位",
+      "group": "基线与关系",
+      "props": "方杯1个、三种图形杯垫",
+      "challenge": "识别示范选择的图形，不记住杯垫坐标",
+      "rules": {
+        "A": "圆形底座",
+        "B": "三角底座",
+        "C": "方形底座"
+      },
+      "reset": "杯移回起点，杯垫重新打散",
+      "camera_note": "杯垫标记露在杯底外侧",
+      "runtime_recipe": "cup",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F03",
+      "title": "形状分类装盒",
+      "group": "基线与关系",
+      "props": "圆柱、方块、长条各2件，三个浅盒",
+      "challenge": "学到形状到盒标记的映射，六件均需归类",
+      "rules": {
+        "A": "圆柱/方块/长条→圆/三角/方盒",
+        "B": "圆柱/方块/长条→三角/方/圆盒",
+        "C": "圆柱/方块/长条→方/圆/三角盒"
+      },
+      "reset": "倒空浅盒，将六件打散",
+      "camera_note": "盒深不超过物件高度，外侧贴标",
+      "runtime_recipe": "classify",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F04",
+      "title": "比较选件并放上展示座",
+      "group": "基线与关系",
+      "props": "高度和宽度不同的3个积木、展示座",
+      "challenge": "比较属性；最高、最宽、指定色须对应不同物件",
+      "rules": {
+        "A": "选最高件",
+        "B": "选最宽件",
+        "C": "选蓝色件"
+      },
+      "reset": "三件放回起始区，展示座清空",
+      "camera_note": "三件并排留间隙，侧面高度可见",
+      "runtime_recipe": "select",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F05",
+      "title": "尺寸序列整理",
+      "group": "基线与关系",
+      "props": "四块大小不同积木、四个定位垫",
+      "challenge": "尺寸与颜色无关，根据视频规则排列",
+      "rules": {
+        "A": "从小到大",
+        "B": "从大到小",
+        "C": "第二小、最大、最小、第二大"
+      },
+      "reset": "积木打散，定位垫保持空",
+      "camera_note": "四垫沿桌面横向排开",
+      "runtime_recipe": "rank",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F06",
+      "title": "成对长条定向",
+      "group": "基线与关系",
+      "props": "两根带箭头的彩色长条、定位框",
+      "challenge": "同时满足相对位置与方向关系",
+      "rules": {
+        "A": "两箭头同朝前",
+        "B": "两箭头同朝后",
+        "C": "红前蓝后"
+      },
+      "reset": "长条移出定位框，朝向打散",
+      "camera_note": "箭头贴在顶面，避免只贴端部",
+      "runtime_recipe": "orient",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F07",
+      "title": "交叉属性配套",
+      "group": "基线与关系",
+      "props": "两色×两形状共4件、两个浅盒",
+      "challenge": "在颜色、形状和交叉配对之间切换分组规则",
+      "rules": {
+        "A": "按颜色分组",
+        "B": "按形状分组",
+        "C": "红圆柱配蓝方块，另两件成组"
+      },
+      "reset": "四件取出打散",
+      "camera_note": "盒内每件均可见，不叠放",
+      "runtime_recipe": "group",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F08",
+      "title": "形状匹配插孔",
+      "group": "插放与结构",
+      "props": "宽松形状盒、三色圆方三角件各1套",
+      "challenge": "视频决定取哪一套，形状决定插哪个孔",
+      "rules": {
+        "A": "插入红色套件",
+        "B": "插入绿色套件",
+        "C": "插入蓝色套件"
+      },
+      "reset": "从开放底部取出零件，全部摆回",
+      "camera_note": "选浅孔板，插入后顶面仍可见",
+      "runtime_recipe": "shape_insert",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F09",
+      "title": "承重桥搭建",
+      "group": "插放与结构",
+      "props": "三块支柱、横梁、轻载块",
+      "challenge": "选择支柱、调整间距，横梁需承托载块",
+      "rules": {
+        "A": "红绿支柱",
+        "B": "绿蓝支柱",
+        "C": "蓝红支柱"
+      },
+      "reset": "拆桥，四类部件分区放回",
+      "camera_note": "梁下空间和两端支撑露出，载块不遮桥",
+      "runtime_recipe": "bridge",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F10",
+      "title": "参照拼板变换",
+      "group": "插放与结构",
+      "props": "两套四色厚片、两个2×2浅框",
+      "challenge": "将参照板按示范变换规则映射到空框",
+      "rules": {
+        "A": "保持相对位置",
+        "B": "顺时针旋转一格",
+        "C": "左右镜像"
+      },
+      "reset": "目标框清空，参照板换一种排列",
+      "camera_note": "参照与目标同时入镜，框角有方向标记",
+      "runtime_recipe": "mosaic",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F11",
+      "title": "圆环分柱套放",
+      "group": "插放与结构",
+      "props": "三个大木环、底座带圆/三角/方标记的短粗柱",
+      "challenge": "颜色到柱标记的映射；真实套入",
+      "rules": {
+        "A": "圆/三角/方柱套红绿蓝",
+        "B": "圆/三角/方柱套绿蓝红",
+        "C": "圆/三角/方柱套蓝红绿"
+      },
+      "reset": "取下三环，打散",
+      "camera_note": "柱较短，环套到底后仍露出，标记贴在底座外沿",
+      "runtime_recipe": "rings",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F12",
+      "title": "厚片插架",
+      "group": "插放与结构",
+      "props": "三块厚塑料片、起始立架、三槽宽口目标架",
+      "challenge": "选择槽位并保持厚片竖直，插入窄于夹爪的槽",
+      "rules": {
+        "A": "槽1/2/3插红绿蓝",
+        "B": "槽1/2/3插绿蓝红",
+        "C": "槽1/2/3插蓝红绿"
+      },
+      "reset": "三片取出放回起始立架",
+      "camera_note": "用宽槽和上边缘色条，避免细卡片；初态竖放由立架真实支撑",
+      "runtime_recipe": "rack",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F13",
+      "title": "长杆穿双孔",
+      "group": "插放与结构",
+      "props": "大孔双耳支架、三根36厘米轻质彩色粗杆",
+      "challenge": "一次对准两个孔，支架可用另一手稳住",
+      "rules": {
+        "A": "选红杆",
+        "B": "选绿杆",
+        "C": "选蓝杆"
+      },
+      "reset": "抽杆，三杆并排放回",
+      "camera_note": "支架侧放，让两个孔和杆端都可见",
+      "runtime_recipe": "double_hole",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F14",
+      "title": "键向配合",
+      "group": "插放与结构",
+      "props": "儿童大号D形或带缺口插块、三个同接口座",
+      "challenge": "缺口限制旋转，不能只把物件放在孔上",
+      "rules": {
+        "A": "安装到圆标记座",
+        "B": "安装到三角标记座",
+        "C": "安装到方标记座"
+      },
+      "reset": "拔出插块，座位与朝向打散",
+      "camera_note": "缺口标在顶面，采用宽松接口",
+      "runtime_recipe": "keyed",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F15",
+      "title": "可移动孔板装配",
+      "group": "插放与结构",
+      "props": "有把手的轻孔板、三根粗柱、板架",
+      "challenge": "先稳定孔板，再插装，最后将完整组件放回板架",
+      "rules": {
+        "A": "装最短柱",
+        "B": "装中长柱",
+        "C": "装最长柱"
+      },
+      "reset": "拔柱，板与架分离放回",
+      "camera_note": "孔板架高平放，孔与柱帽同时可见",
+      "runtime_recipe": "mobile_board",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F16",
+      "title": "单空位循环重排",
+      "group": "受限重排",
+      "props": "四格浅架、三个标记积木",
+      "challenge": "目标位被占据，利用真实空格完成循环置换",
+      "rules": {
+        "A": "相对初态循环左移",
+        "B": "相对初态循环右移",
+        "C": "首尾交换"
+      },
+      "reset": "按新初态放三块，留一个空格",
+      "camera_note": "四格和移动过程完整入镜；不禁止合法的其他解法",
+      "runtime_recipe": "vacancy",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F17",
+      "title": "堆叠取件与剩余结构恢复",
+      "group": "受限重排",
+      "props": "五块大积木、交付垫",
+      "challenge": "目标埋在堆叠中，拆开取件后恢复剩余相对次序",
+      "rules": {
+        "A": "取第二层",
+        "B": "取第三层",
+        "C": "取第四层"
+      },
+      "reset": "按初始五层次序重搭",
+      "camera_note": "塔不高于相机视野，取件放前方交付垫",
+      "runtime_recipe": "extract_stack",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F18",
+      "title": "两个占用盒交换内容",
+      "group": "受限重排",
+      "props": "两个浅盒、各两件物品、暂存垫",
+      "challenge": "处理已占用容器，保持组内配套关系",
+      "rules": {
+        "A": "交换两盒整套内容",
+        "B": "交换两盒圆柱，方块保留",
+        "C": "交换两盒方块，圆柱保留"
+      },
+      "reset": "各盒恢复初始一柱一块",
+      "camera_note": "浅盒与暂存垫同时入镜",
+      "runtime_recipe": "swap_contents",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F19",
+      "title": "局部纠错",
+      "group": "受限重排",
+      "props": "六件积木、六格框、三张可见参照卡",
+      "challenge": "找出指定参照下的错位，只修改需要变化的位置",
+      "rules": {
+        "A": "匹配参照圆卡",
+        "B": "匹配参照三角卡",
+        "C": "匹配参照方卡"
+      },
+      "reset": "恢复同一错误排列",
+      "camera_note": "三个参照都可见；每版错位数相同",
+      "runtime_recipe": "correct",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F20",
+      "title": "保持内部结构的搬迁",
+      "group": "受限重排",
+      "props": "四块积木形成不对称图案、三个目标框",
+      "challenge": "搬迁后保持组内朝向与邻接，不是只集中到一处",
+      "rules": {
+        "A": "整体图案朝前",
+        "B": "整体图案转90度",
+        "C": "整体图案转180度"
+      },
+      "reset": "四块恢复起始图案，目标区清空",
+      "camera_note": "起始区和目标区均留足手部空间",
+      "runtime_recipe": "relocate",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F21",
+      "title": "清障搬运并恢复",
+      "group": "受限重排",
+      "props": "带两侧把手的浅托盘、两座低矮木桥挡块、三个图形交付垫",
+      "challenge": "挡块遮住把手，搬运托盘后须恢复挡块；允许其他真实可行的抓取路径",
+      "rules": {
+        "A": "交付圆区",
+        "B": "交付三角区",
+        "C": "交付方区"
+      },
+      "reset": "托盘退回两木桥之间，挡块放回标记位置",
+      "camera_note": "木桥可用积木粘成，横梁与托盘把手之间保留可见空隙，侧方留暂存区",
+      "runtime_recipe": "clear_handles",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F22",
+      "title": "双层托盘取放",
+      "group": "受限重排",
+      "props": "两层带侧把手的可拆浅托盘、六件物品",
+      "challenge": "移开上层访问下层，更新后恢复上下层",
+      "rules": {
+        "A": "取出下层最大件",
+        "B": "取出下层中间尺寸件",
+        "C": "取出下层最小件"
+      },
+      "reset": "物件放回下层，上层归位",
+      "camera_note": "只用两层；拆下上层放侧方可见垫",
+      "runtime_recipe": "layers",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F23",
+      "title": "盖盒取件并复原",
+      "group": "受限重排",
+      "props": "三个浅盒、三个松盖、每盒1件物品",
+      "challenge": "开指定盒取件，盖回，保持未选盒完整",
+      "rules": {
+        "A": "取圆盒物件",
+        "B": "取三角盒物件",
+        "C": "取方盒物件"
+      },
+      "reset": "物件放回，三盖盖好",
+      "camera_note": "盖有大把手，盒标记贴外沿",
+      "runtime_recipe": "uncover",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F24",
+      "title": "受压薄片取出",
+      "group": "受限重排",
+      "props": "三块大厚片、压条、压条定位垫",
+      "challenge": "解除压条遮挡，取目标厚片，再归位压条",
+      "rules": {
+        "A": "取最左厚片",
+        "B": "取中间厚片",
+        "C": "取最右厚片"
+      },
+      "reset": "厚片归位，压条搭回",
+      "camera_note": "用硬厚片而非纸张，取出过程保持可见",
+      "runtime_recipe": "under_bar",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F25",
+      "title": "已装组件局部换件",
+      "group": "受限重排",
+      "props": "三个大柱帽组件、替换帽、回收盒",
+      "challenge": "只拆目标组件，替换旧帽，其余组件保留",
+      "rules": {
+        "A": "更新最高组件",
+        "B": "更新中间高度组件",
+        "C": "更新最矮组件"
+      },
+      "reset": "替换帽取下，旧帽装回",
+      "camera_note": "柱帽用松配合套接，避免卡扣和螺纹",
+      "runtime_recipe": "change_cap",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F26",
+      "title": "按关系配齐工作套件",
+      "group": "配套与空间规划",
+      "props": "底块、长条、厚片各3种尺寸，三个浅垫",
+      "challenge": "跨类别选件，尺寸关系而非同色决定配套",
+      "rules": {
+        "A": "每套同尺寸等级",
+        "B": "长条比底块大一档循环配对",
+        "C": "长条比底块小一档循环配对"
+      },
+      "reset": "各类别取出并打散",
+      "camera_note": "不叠放，配套三件呈一行",
+      "runtime_recipe": "kits",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F27",
+      "title": "互补数量分装",
+      "group": "配套与空间规划",
+      "props": "三盒已有1/2/3块，四块待放积木",
+      "challenge": "读取盒内初始数量，推断每盒还需要补几块",
+      "rules": {
+        "A": "三盒补成3/4/3块",
+        "B": "三盒补成4/3/3块",
+        "C": "三盒补成3/3/4块"
+      },
+      "reset": "各盒恢复1/2/3块，四块取出",
+      "camera_note": "总数固定且三版工作量相等；不重叠遮挡计数",
+      "runtime_recipe": "top_up",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F28",
+      "title": "参照行关系迁移",
+      "group": "配套与空间规划",
+      "props": "一行三块参照物、另一套三块、目标三格",
+      "challenge": "从示范推断复制、反转、循环关系",
+      "rules": {
+        "A": "复制参照次序",
+        "B": "反转参照次序",
+        "C": "循环左移一位"
+      },
+      "reset": "目标取空，参照次序更换",
+      "camera_note": "参照和目标在上下两行，不露规则文字",
+      "runtime_recipe": "reference",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F29",
+      "title": "围绕中心的相对布局",
+      "group": "配套与空间规划",
+      "props": "中心块、三件不同形状物、十字定位垫",
+      "challenge": "辨认相对方向与物件角色，中心位置随机",
+      "rules": {
+        "A": "柱前、方左、条右",
+        "B": "柱左、方右、条前",
+        "C": "柱右、方前、条左"
+      },
+      "reset": "外围三件移回起始区",
+      "camera_note": "方向由中心顶面箭头定义，不用相机左右代替",
+      "runtime_recipe": "relative",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F30",
+      "title": "成对朝向与邻接",
+      "group": "配套与空间规划",
+      "props": "三对带箭头长条、三组定位垫",
+      "challenge": "按配对关系组织六件，并满足组内朝向",
+      "rules": {
+        "A": "每对相向",
+        "B": "每对背向",
+        "C": "每对同向朝前"
+      },
+      "reset": "六条拆散，朝向打散",
+      "camera_note": "顶面箭头大而清楚，各组留间隔",
+      "runtime_recipe": "pair_arrows",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F31",
+      "title": "有限空间装箱",
+      "group": "配套与空间规划",
+      "props": "两个长条、两个方块、紧凑浅盒、松盖",
+      "challenge": "规划物件朝向和位置，全部装下且盖能就位",
+      "rules": {
+        "A": "两长条沿盒左边并排",
+        "B": "两长条沿盒右边并排",
+        "C": "两长条分置盒两边"
+      },
+      "reset": "开盖取出四件",
+      "camera_note": "先拍清空盒内部；选有足够余量的三种可行布局",
+      "runtime_recipe": "packing",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F32",
+      "title": "长短件错位铺排",
+      "group": "配套与空间规划",
+      "props": "三对长短积木、三行浅框",
+      "challenge": "安排端点对齐关系，不能只按中心放置",
+      "rules": {
+        "A": "左端对齐",
+        "B": "右端对齐",
+        "C": "中心对齐"
+      },
+      "reset": "六件移出浅框",
+      "camera_note": "行框有中线和端线，顶视能辨认端点",
+      "runtime_recipe": "end_align",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F33",
+      "title": "不等长行补全",
+      "group": "配套与空间规划",
+      "props": "三根已放长条、五根不同长度备件",
+      "challenge": "给每行接一根备件，推断整体长度关系，不能移动原长条",
+      "rules": {
+        "A": "三行补成等长",
+        "B": "三行总长从前到后递增",
+        "C": "三行总长从前到后递减"
+      },
+      "reset": "将接入的三根备件取回，原长条保留",
+      "camera_note": "长条同向平放，端点清楚；三版都接三根，允许所有满足关系的合法解",
+      "runtime_recipe": "complete_lengths",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F34",
+      "title": "按相对高度配对",
+      "group": "配套与空间规划",
+      "props": "三个高低不同底座、三个高低不同柱件",
+      "challenge": "区分同等级配对、互补配对和循环配对",
+      "rules": {
+        "A": "高配高、中配中、低配低",
+        "B": "高配低、中配中、低配高",
+        "C": "高配中、中配低、低配高"
+      },
+      "reset": "柱件从座上取下",
+      "camera_note": "底座高度侧面可见；不宣称叠成相同高度",
+      "runtime_recipe": "height_pair",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F35",
+      "title": "配套打包并交付",
+      "group": "配套与空间规划",
+      "props": "三类物品各3件、带侧把手和定位标记的浅托盘",
+      "challenge": "按跨类别规则选三件，按定位标记摆好后整体交付",
+      "rules": {
+        "A": "各选最小件",
+        "B": "各选中间尺寸件",
+        "C": "各选最大件"
+      },
+      "reset": "托盘退回，三件取出",
+      "camera_note": "托盘内不叠放，交付后保留全套可见",
+      "runtime_recipe": "kit_delivery",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F36",
+      "title": "推杆送件",
+      "group": "工具与接触",
+      "props": "带中部握把的木推板、三条开放窄通道、三个积木",
+      "challenge": "先用工具把积木推出窄入口，再按示范排列到三个出口垫",
+      "rules": {
+        "A": "圆/三角/方垫放红绿蓝",
+        "B": "圆/三角/方垫放绿蓝红",
+        "C": "圆/三角/方垫放蓝红绿"
+      },
+      "reset": "积木放回三入口，推板归位",
+      "camera_note": "通道上方开放，接触点可见；末态顺序不是强制动作顺序",
+      "runtime_recipe": "push_delivery",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F37",
+      "title": "钩取受限物件",
+      "group": "工具与接触",
+      "props": "大号带握把L形钩、三个厚木环、透明文件架、工具垫块",
+      "challenge": "直接抓取受挡，选择钩入位置，将指定尺寸环拉出后交付",
+      "rules": {
+        "A": "取最小环",
+        "B": "取中等环",
+        "C": "取最大环"
+      },
+      "reset": "三环放回文件架下，钩放回垫块",
+      "camera_note": "透明架挡夹爪通行，钩尖和圆环仍可见",
+      "runtime_recipe": "hook_retrieval",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F38",
+      "title": "铲取后分区交付",
+      "group": "工具与接触",
+      "props": "带握柄的薄铲、三块带约2厘米低脚的厚木片、三个图形交付垫",
+      "challenge": "从木片下方进铲并承托搬运，轻缓倾斜卸到垫上，不夹取木片",
+      "rules": {
+        "A": "三片送圆形垫",
+        "B": "三片送三角垫",
+        "C": "三片送方形垫"
+      },
+      "reset": "三木片平放回起点，铲归位，交付垫可交换位置",
+      "camera_note": "木片底部可贴两条木脚，进铲间隙及承托运输全程入镜",
+      "runtime_recipe": "shovel_delivery",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F39",
+      "title": "扫拢大颗粒",
+      "group": "工具与接触",
+      "props": "带握柄的20厘米桌刷、六个直径3.4–3.8厘米木球、三个图形收集区",
+      "challenge": "根据收集区位置组织接触方向，避免把已聚拢木球扫散",
+      "rules": {
+        "A": "扫入圆形标记区",
+        "B": "扫入三角标记区",
+        "C": "扫入方形标记区"
+      },
+      "reset": "六球回到有边框的工作区，收集区位置可交换",
+      "camera_note": "大木球与低边框同时入镜，刷柄不要遮住目标标记",
+      "runtime_recipe": "sweep_beads",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F40",
+      "title": "硬件倾倒",
+      "group": "工具与接触",
+      "props": "带侧把手的透明杯（儿童双耳杯即可）、六块约2厘米木块、三个浅盒",
+      "challenge": "控制杯口方向与倾角，将内容倒入目标盒",
+      "rules": {
+        "A": "倒入圆盒",
+        "B": "倒入三角盒",
+        "C": "倒入方盒"
+      },
+      "reset": "木珠装回杯中",
+      "camera_note": "不使用液体；杯口和落点同时入镜",
+      "runtime_recipe": "pour_solids",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F41",
+      "title": "推片绕过障碍",
+      "group": "工具与接触",
+      "props": "带握柄的窄推板、厚滑块、低矮长挡块、三个图形交付区",
+      "challenge": "绕过挡块后改变接触面，将滑块推到目标区，允许从挡块任一端绕行",
+      "rules": {
+        "A": "推入圆形区",
+        "B": "推入三角区",
+        "C": "推入方形区"
+      },
+      "reset": "滑块退回入口，推板归位，交付区位置可交换",
+      "camera_note": "挡块低矮、全路径开放，不使用封闭迷宫",
+      "runtime_recipe": "corner_push",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F42",
+      "title": "工具接长后取件",
+      "group": "工具与接触",
+      "props": "宽松套筒接杆、粗杆、钩头、远端环件",
+      "challenge": "先形成可用工具，完成取件后拆回",
+      "rules": {
+        "A": "交付最短标记环",
+        "B": "交付中长标记环",
+        "C": "交付最长标记环"
+      },
+      "reset": "环归远端，杆和钩拆开",
+      "camera_note": "接口和钩头明显，禁止细线和小螺丝",
+      "runtime_recipe": null,
+      "status": "runtime-pending",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F43",
+      "title": "夹持搬运厚片",
+      "group": "工具与接触",
+      "props": "大号塑料夹具或宽口夹、三块厚片、浅架",
+      "challenge": "选取夹持位置，让厚片搬运后能插入浅架",
+      "rules": {
+        "A": "搬最小片",
+        "B": "搬中等片",
+        "C": "搬最大片"
+      },
+      "reset": "厚片取回，夹具松开",
+      "camera_note": "夹具轻力即可闭合，夹点从上方可见",
+      "runtime_recipe": null,
+      "status": "runtime-pending",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F44",
+      "title": "导向板送球",
+      "group": "工具与接触",
+      "props": "三块可摆放导向板、大木球、浅坡底板",
+      "challenge": "预测球的路径，配置挡板后释放球",
+      "rules": {
+        "A": "球进入左盒",
+        "B": "球进入中盒",
+        "C": "球进入右盒"
+      },
+      "reset": "球回起点，三板回公共初态",
+      "camera_note": "坡度小、全路径开放；不用快速弹射",
+      "runtime_recipe": null,
+      "status": "runtime-pending",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F45",
+      "title": "细长件穿口搬运",
+      "group": "工具与接触",
+      "props": "带中部把手的30厘米轻长条、约38厘米高的桌面门框、交付垫",
+      "challenge": "先调整长条轴向穿过真实窄口，再在另一侧按示范定向交付",
+      "rules": {
+        "A": "交付时箭头朝前",
+        "B": "交付时箭头朝左",
+        "C": "交付时箭头朝右"
+      },
+      "reset": "长条移回门框前，横向摆放",
+      "camera_note": "门框从侧面拍摄，长条两端与通行过程可见",
+      "runtime_recipe": "pass_long_bar",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F46",
+      "title": "解锁取件后重新锁闭",
+      "group": "多阶段工作",
+      "props": "带大号可抽插销的开放盒、三个物件",
+      "challenge": "先抽销开盖，取件后盖回并插销",
+      "rules": {
+        "A": "取最大件",
+        "B": "取中间件",
+        "C": "取最小件"
+      },
+      "reset": "插销抽出，物件放回，盖回锁闭",
+      "camera_note": "选玩具级大插销，锁孔在朝相机一侧",
+      "runtime_recipe": null,
+      "status": "runtime-pending",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F47",
+      "title": "长条交接与定向交付",
+      "group": "多阶段工作",
+      "props": "一根两端可抓的长条、三个定位垫",
+      "challenge": "一手从受限起始侧取件，空中交给另一手，再定向交付",
+      "rules": {
+        "A": "交付时箭头朝前",
+        "B": "交付时箭头朝左",
+        "C": "交付时箭头朝右"
+      },
+      "reset": "长条放回起始侧",
+      "camera_note": "选轻长条，交接点放画面中央；本族明确包含交接过程事件",
+      "runtime_recipe": "air_handover",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F48",
+      "title": "分格箱重配置",
+      "group": "多阶段工作",
+      "props": "带可抽隔板的浅收纳箱、三根长条、临时立架",
+      "challenge": "先移动隔板形成所需空间，再装入物件并盖好",
+      "rules": {
+        "A": "长格在左",
+        "B": "长格在中",
+        "C": "长格在右"
+      },
+      "reset": "取出物件，隔板回公共初态",
+      "camera_note": "隔板槽宽松，临时立架保持隔板竖直；避免硬卡扣",
+      "runtime_recipe": "reconfigure_bin",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F49",
+      "title": "折叠展示板配置",
+      "group": "多阶段工作",
+      "props": "三片用玩具铰链或宽胶带连接到底板的16厘米硬板、一个约12厘米高且有前伸握把的支撑块",
+      "challenge": "将指定板面折起，插入支撑块并让板面实际抵住支撑",
+      "rules": {
+        "A": "只将左板立起",
+        "B": "只将中板立起",
+        "C": "只将右板立起"
+      },
+      "reset": "撤支撑，三片板放平",
+      "camera_note": "采用大板面和宽松铰链，模拟有少量摩擦的玩具铰链；折起角度和支撑接触面均需可见",
+      "runtime_recipe": "fold_display",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    },
+    {
+      "id": "F50",
+      "title": "替换底座而保持上层配套",
+      "group": "多阶段工作",
+      "props": "三块底座、两件上层积木、暂存托盘",
+      "challenge": "先安全卸载上层，替换底座，再恢复上层相对布局",
+      "rules": {
+        "A": "换最高底座",
+        "B": "换中高底座",
+        "C": "换最低底座"
+      },
+      "reset": "恢复原底座，上层两件归位",
+      "camera_note": "不要求悬空承重换件；允许暂存，避免真人操作风险",
+      "runtime_recipe": "replace_base",
+      "status": "implemented-awaiting-acceptance",
+      "human_recording_status": "not-recorded-not-user-validated"
+    }
+  ]
+}

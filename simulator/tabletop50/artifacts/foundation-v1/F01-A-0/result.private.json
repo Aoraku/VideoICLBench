@@ -1,0 +1,99 @@
+{
+  "task": "F01",
+  "variant": "A",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+  "source_unchanged": true,
+  "world_sha256": "f85213732770d7a292e91c5df79bd7b0d605aa8c9ed7b5fbeac368fa818d0040",
+  "initial_positions": {
+    "red": [
+      -0.1600450968520234,
+      0.20156387677852824,
+      0.8247844851006771
+    ],
+    "green": [
+      -0.1600450968520234,
+      -0.19843612322147178,
+      0.8247844851006771
+    ],
+    "blue": [
+      -0.1600450968520234,
+      0.0015638767785282346,
+      0.8247844851006771
+    ]
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 21.2,
+    "predicates": [
+      {
+        "rule": {
+          "type": "position",
+          "object": "red",
+          "xy": [
+            0.11885920964940497,
+            0.003405583068417272
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "stack",
+          "object": "green",
+          "target": "red"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "stack",
+          "object": "blue",
+          "target": "green"
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "red": [
+        0.12101868488011018,
+        0.009276595386558098,
+        0.8244134304051789
+      ],
+      "green": [
+        0.12074780389105394,
+        0.010565560662782181,
+        0.8740263762757648
+      ],
+      "blue": [
+        0.11165917016296285,
+        0.01011691902721462,
+        0.9235542618578663
+      ]
+    },
+    "events": [],
+    "metric": "success"
+  },
+  "cross_rule_predicates": {
+    "A": true,
+    "B": false,
+    "C": false
+  },
+  "actions": 413,
+  "actions_sha256": "bb27a2723301b45a3fc77c1498d574a4319ad68f8264f9b411f78a3c2f9f9c3d",
+  "error": null,
+  "video": {
+    "recorded": true,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 1654,
+    "duration_seconds": 165.4,
+    "full_episode": true,
+    "final_success": true,
+    "sha256": "a5a79206b0159a53cdaeb40b1c7906e9811228aa08ba619aedeccd73af183734"
+  }
+}

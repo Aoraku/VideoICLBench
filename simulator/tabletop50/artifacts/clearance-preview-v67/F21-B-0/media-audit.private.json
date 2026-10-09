@@ -1,0 +1,43 @@
+{
+  "task": "F21",
+  "variant": "B",
+  "seed": 0,
+  "source_sha256": "44f55e2fc7577a5f2f45b6c7a8578061fd8a74a2143d32234203fc1011425e2b",
+  "world_sha256": "dcb45564f82848827c3e810f5cc7ee155ef36341c140bba62b2ece0347cfe0bd",
+  "video_sha256": "553797ce4f016024a3bb8691872e292f9c57475d711a6d5fe365c455113bac03",
+  "decoded_frames": 2770,
+  "fps": 10.0,
+  "duration_seconds": 277.0,
+  "ending_image_mae": 2.664984703063965,
+  "initial_positions": {
+    "carrier": [
+      -0.1132907065623863,
+      -0.0035451137935491777,
+      0.8249563040914685
+    ],
+    "guard0": [
+      -0.1132907065623863,
+      -0.15354511379354915,
+      0.8448910929317379
+    ],
+    "guard1": [
+      -0.1132907065623863,
+      0.14645488620645083,
+      0.8448910929317379
+    ]
+  },
+  "cross_rule_predicates": {
+    "A": false,
+    "B": true,
+    "C": false
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 0,
+    "fixtures_visible": true
+  },
+  "usable_for_agent_demo": true,
+  "independent_agent": false,
+  "human_recorded": false,
+  "folder": "F21-B-0"
+}

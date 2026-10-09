@@ -1,0 +1,2279 @@
+{
+  "kind": "historical-author-diagnostic",
+  "source_directory": "/home/qingle/services/videoicl-tabletop50-fpv-v1/tools-v26",
+  "recordings_directory": "/home/qingle/services/videoicl-tabletop50-fpv-v1/tools-headless-v26",
+  "conditions": 117,
+  "successful_conditions": 76,
+  "human_videos": 0,
+  "independent_agent_trials": 0,
+  "not_current_source_acceptance": true,
+  "cases": [
+    {
+      "task": "F01",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 437,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F01",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 437,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F01",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 434,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F02",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 316,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F02",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 166,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F02",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 186,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F03",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 1005,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F03",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 1584,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F03",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 997,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F04",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 172,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F04",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 175,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F04",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 176,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F05",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 844,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F05",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 695,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F05",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 573,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F06",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 558,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F06",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 630,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F06",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 594,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F07",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 938,
+      "error": null,
+      "failed_goals": [
+        {
+          "type": "nest",
+          "object": "part0_0",
+          "target": "bin0"
+        }
+      ]
+    },
+    {
+      "task": "F07",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 670,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F07",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 895,
+      "error": [
+        "RuntimeError: Physical grasp failed for part1_1"
+      ],
+      "failed_goals": [
+        {
+          "type": "nest",
+          "object": "part1_1",
+          "target": "bin0"
+        }
+      ]
+    },
+    {
+      "task": "F08",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 484,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F08",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 464,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F08",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 448,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F09",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 605,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F09",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 598,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F09",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 210,
+      "error": [
+        "RuntimeError: No physically clear hand-relay location"
+      ],
+      "failed_goals": [
+        {
+          "type": "position",
+          "object": "pillar0",
+          "xy": [
+            0.14885920964940497,
+            0.07340558306841728
+          ],
+          "tolerance": 0.025
+        },
+        {
+          "type": "bridge",
+          "object": "beam",
+          "supports": [
+            "pillar2",
+            "pillar0"
+          ]
+        },
+        {
+          "type": "stack",
+          "object": "load",
+          "target": "beam"
+        }
+      ]
+    },
+    {
+      "task": "F10",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 579,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F10",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 833,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F10",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 865,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F11",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 79,
+      "error": [
+        "RuntimeError: Dropped red after lift"
+      ],
+      "failed_goals": [
+        {
+          "type": "threaded",
+          "object": "red",
+          "target": "post0"
+        },
+        {
+          "type": "threaded",
+          "object": "green",
+          "target": "post1"
+        },
+        {
+          "type": "threaded",
+          "object": "blue",
+          "target": "post2"
+        }
+      ]
+    },
+    {
+      "task": "F11",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 93,
+      "error": [
+        "RuntimeError: Dropped green after lift"
+      ],
+      "failed_goals": [
+        {
+          "type": "threaded",
+          "object": "green",
+          "target": "post0"
+        },
+        {
+          "type": "threaded",
+          "object": "blue",
+          "target": "post1"
+        },
+        {
+          "type": "threaded",
+          "object": "red",
+          "target": "post2"
+        }
+      ]
+    },
+    {
+      "task": "F11",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 75,
+      "error": [
+        "RuntimeError: Dropped blue after lift"
+      ],
+      "failed_goals": [
+        {
+          "type": "threaded",
+          "object": "blue",
+          "target": "post0"
+        },
+        {
+          "type": "threaded",
+          "object": "red",
+          "target": "post1"
+        },
+        {
+          "type": "threaded",
+          "object": "green",
+          "target": "post2"
+        }
+      ]
+    },
+    {
+      "task": "F12",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 411,
+      "error": null,
+      "failed_goals": [
+        {
+          "type": "position",
+          "object": "red",
+          "xy": [
+            0.15885920964940498,
+            -0.21659441693158274
+          ],
+          "tolerance": 0.006
+        },
+        {
+          "type": "position",
+          "object": "green",
+          "xy": [
+            0.15885920964940498,
+            0.003405583068417272
+          ],
+          "tolerance": 0.006
+        },
+        {
+          "type": "position",
+          "object": "blue",
+          "xy": [
+            0.15885920964940498,
+            0.22340558306841726
+          ],
+          "tolerance": 0.006
+        }
+      ]
+    },
+    {
+      "task": "F12",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 590,
+      "error": null,
+      "failed_goals": [
+        {
+          "type": "position",
+          "object": "green",
+          "xy": [
+            0.15885920964940498,
+            -0.21659441693158274
+          ],
+          "tolerance": 0.006
+        },
+        {
+          "type": "position",
+          "object": "blue",
+          "xy": [
+            0.15885920964940498,
+            0.003405583068417272
+          ],
+          "tolerance": 0.006
+        },
+        {
+          "type": "position",
+          "object": "red",
+          "xy": [
+            0.15885920964940498,
+            0.22340558306841726
+          ],
+          "tolerance": 0.006
+        }
+      ]
+    },
+    {
+      "task": "F12",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 578,
+      "error": null,
+      "failed_goals": [
+        {
+          "type": "position",
+          "object": "blue",
+          "xy": [
+            0.15885920964940498,
+            -0.21659441693158274
+          ],
+          "tolerance": 0.006
+        },
+        {
+          "type": "position",
+          "object": "red",
+          "xy": [
+            0.15885920964940498,
+            0.003405583068417272
+          ],
+          "tolerance": 0.006
+        }
+      ]
+    },
+    {
+      "task": "F13",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 200,
+      "error": [
+        "RuntimeError: Shaft slipped"
+      ],
+      "failed_goals": [
+        {
+          "type": "through_apertures",
+          "object": "red",
+          "apertures": [
+            [
+              0.06885920964940498,
+              0.003405583068417272,
+              0.9
+            ],
+            [
+              0.24885920964940497,
+              0.003405583068417272,
+              0.9
+            ]
+          ],
+          "half_opening": [
+            0.024,
+            0.024
+          ],
+          "half_depth": 0.01
+        }
+      ]
+    },
+    {
+      "task": "F13",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 261,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F13",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 295,
+      "error": [
+        "RuntimeError: Shaft pitch did not converge"
+      ],
+      "failed_goals": [
+        {
+          "type": "through_apertures",
+          "object": "blue",
+          "apertures": [
+            [
+              0.06885920964940498,
+              0.003405583068417272,
+              0.9
+            ],
+            [
+              0.24885920964940497,
+              0.003405583068417272,
+              0.9
+            ]
+          ],
+          "half_opening": [
+            0.024,
+            0.024
+          ],
+          "half_depth": 0.01
+        }
+      ]
+    },
+    {
+      "task": "F14",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 183,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F14",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 211,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F14",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 257,
+      "error": null,
+      "failed_goals": [
+        {
+          "type": "insert",
+          "object": "key",
+          "target": "socket2",
+          "tolerance": 0.005,
+          "relative_bottom": -0.012
+        }
+      ]
+    },
+    {
+      "task": "F15",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 355,
+      "error": [
+        "RuntimeError: Fine positioning did not converge"
+      ],
+      "failed_goals": [
+        {
+          "type": "position",
+          "object": "board",
+          "xy": [
+            0.14885920964940497,
+            0.003405583068417272
+          ],
+          "tolerance": 0.015
+        },
+        {
+          "type": "collared",
+          "object": "peg0",
+          "target": "board"
+        }
+      ]
+    },
+    {
+      "task": "F15",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 378,
+      "error": [
+        "RuntimeError: Fine positioning did not converge"
+      ],
+      "failed_goals": [
+        {
+          "type": "position",
+          "object": "board",
+          "xy": [
+            0.14885920964940497,
+            0.003405583068417272
+          ],
+          "tolerance": 0.015
+        },
+        {
+          "type": "collared",
+          "object": "peg1",
+          "target": "board"
+        }
+      ]
+    },
+    {
+      "task": "F15",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 366,
+      "error": [
+        "RuntimeError: Fine positioning did not converge"
+      ],
+      "failed_goals": [
+        {
+          "type": "position",
+          "object": "board",
+          "xy": [
+            0.14885920964940497,
+            0.003405583068417272
+          ],
+          "tolerance": 0.015
+        },
+        {
+          "type": "collared",
+          "object": "peg2",
+          "target": "board"
+        }
+      ]
+    },
+    {
+      "task": "F16",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 686,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F16",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 846,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F16",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 565,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F17",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 836,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F17",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 632,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F17",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 378,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F18",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 384,
+      "error": [
+        "RuntimeError: Dropped piece1_0 after lift"
+      ],
+      "failed_goals": [
+        {
+          "type": "nest",
+          "object": "piece0_0",
+          "target": "bin1"
+        },
+        {
+          "type": "nest",
+          "object": "piece0_1",
+          "target": "bin1"
+        },
+        {
+          "type": "nest",
+          "object": "piece1_0",
+          "target": "bin0"
+        },
+        {
+          "type": "nest",
+          "object": "piece1_1",
+          "target": "bin0"
+        }
+      ]
+    },
+    {
+      "task": "F18",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 238,
+      "error": [
+        "RuntimeError: Dropped piece1_0 after lift"
+      ],
+      "failed_goals": [
+        {
+          "type": "nest",
+          "object": "piece0_0",
+          "target": "bin1"
+        },
+        {
+          "type": "nest",
+          "object": "piece1_0",
+          "target": "bin0"
+        }
+      ]
+    },
+    {
+      "task": "F18",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 735,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F19",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 1237,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F19",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 1239,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F19",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 1127,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F20",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 604,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F20",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 705,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F20",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 857,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F22",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 778,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F22",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 781,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F22",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 785,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F23",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 463,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F23",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 485,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F23",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 603,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F24",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 502,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F24",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 513,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F24",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 664,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F25",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 193,
+      "error": [
+        "RuntimeError: Fine positioning did not converge"
+      ],
+      "failed_goals": [
+        {
+          "type": "cap_on",
+          "object": "cap0",
+          "target": "post0"
+        },
+        {
+          "type": "cap_on",
+          "object": "cap1",
+          "target": "post1"
+        },
+        {
+          "type": "position",
+          "object": "post2",
+          "xy": [
+            0.13885920964940499,
+            0.22340558306841726
+          ],
+          "tolerance": 0.012
+        },
+        {
+          "type": "nest",
+          "object": "cap2",
+          "target": "recycle"
+        },
+        {
+          "type": "cap_on",
+          "object": "new_cap",
+          "target": "post2"
+        }
+      ]
+    },
+    {
+      "task": "F25",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 179,
+      "error": [
+        "RuntimeError: Fine positioning did not converge"
+      ],
+      "failed_goals": [
+        {
+          "type": "position",
+          "object": "post1",
+          "xy": [
+            0.13885920964940499,
+            0.003405583068417272
+          ],
+          "tolerance": 0.012
+        },
+        {
+          "type": "cap_on",
+          "object": "cap2",
+          "target": "post2"
+        },
+        {
+          "type": "nest",
+          "object": "cap1",
+          "target": "recycle"
+        },
+        {
+          "type": "cap_on",
+          "object": "new_cap",
+          "target": "post1"
+        }
+      ]
+    },
+    {
+      "task": "F25",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 161,
+      "error": [
+        "RuntimeError: Fine positioning did not converge"
+      ],
+      "failed_goals": [
+        {
+          "type": "cap_on",
+          "object": "cap1",
+          "target": "post1"
+        },
+        {
+          "type": "cap_on",
+          "object": "cap2",
+          "target": "post2"
+        },
+        {
+          "type": "nest",
+          "object": "cap0",
+          "target": "recycle"
+        },
+        {
+          "type": "cap_on",
+          "object": "new_cap",
+          "target": "post0"
+        }
+      ]
+    },
+    {
+      "task": "F26",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 1278,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F26",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 1600,
+      "error": [
+        "RuntimeError: Action budget exhausted"
+      ],
+      "failed_goals": []
+    },
+    {
+      "task": "F26",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 1600,
+      "error": [
+        "RuntimeError: Action budget exhausted"
+      ],
+      "failed_goals": []
+    },
+    {
+      "task": "F27",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 539,
+      "error": [
+        "RuntimeError: Physical grasp failed for spare2"
+      ],
+      "failed_goals": [
+        {
+          "type": "count_in",
+          "object": "initial0_0",
+          "target": "bin1",
+          "objects": [
+            "initial0_0",
+            "initial1_0",
+            "initial1_1",
+            "initial2_0",
+            "initial2_1",
+            "initial2_2",
+            "spare0",
+            "spare1",
+            "spare2",
+            "spare3"
+          ],
+          "count": 4
+        }
+      ]
+    },
+    {
+      "task": "F27",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 539,
+      "error": [
+        "RuntimeError: Physical grasp failed for spare2"
+      ],
+      "failed_goals": [
+        {
+          "type": "count_in",
+          "object": "initial0_0",
+          "target": "bin0",
+          "objects": [
+            "initial0_0",
+            "initial1_0",
+            "initial1_1",
+            "initial2_0",
+            "initial2_1",
+            "initial2_2",
+            "spare0",
+            "spare1",
+            "spare2",
+            "spare3"
+          ],
+          "count": 4
+        },
+        {
+          "type": "count_in",
+          "object": "initial0_0",
+          "target": "bin1",
+          "objects": [
+            "initial0_0",
+            "initial1_0",
+            "initial1_1",
+            "initial2_0",
+            "initial2_1",
+            "initial2_2",
+            "spare0",
+            "spare1",
+            "spare2",
+            "spare3"
+          ],
+          "count": 3
+        }
+      ]
+    },
+    {
+      "task": "F27",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 539,
+      "error": [
+        "RuntimeError: Physical grasp failed for spare2"
+      ],
+      "failed_goals": [
+        {
+          "type": "count_in",
+          "object": "initial0_0",
+          "target": "bin1",
+          "objects": [
+            "initial0_0",
+            "initial1_0",
+            "initial1_1",
+            "initial2_0",
+            "initial2_1",
+            "initial2_2",
+            "spare0",
+            "spare1",
+            "spare2",
+            "spare3"
+          ],
+          "count": 3
+        },
+        {
+          "type": "count_in",
+          "object": "initial0_0",
+          "target": "bin2",
+          "objects": [
+            "initial0_0",
+            "initial1_0",
+            "initial1_1",
+            "initial2_0",
+            "initial2_1",
+            "initial2_2",
+            "spare0",
+            "spare1",
+            "spare2",
+            "spare3"
+          ],
+          "count": 4
+        }
+      ]
+    },
+    {
+      "task": "F28",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 449,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F28",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 578,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F28",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 592,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F29",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 471,
+      "error": null,
+      "failed_goals": [
+        {
+          "type": "position",
+          "object": "piece0",
+          "xy": [
+            0.25885920964940495,
+            0.003405583068417272
+          ],
+          "tolerance": 0.025
+        }
+      ]
+    },
+    {
+      "task": "F29",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 470,
+      "error": null,
+      "failed_goals": [
+        {
+          "type": "position",
+          "object": "piece2",
+          "xy": [
+            0.25885920964940495,
+            0.003405583068417272
+          ],
+          "tolerance": 0.025
+        }
+      ]
+    },
+    {
+      "task": "F29",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 722,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F30",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 917,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F30",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 906,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F30",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 799,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F31",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 852,
+      "error": null,
+      "failed_goals": [
+        {
+          "type": "position",
+          "object": "bin0",
+          "xy": [
+            0.11885920964940497,
+            0.003405583068417272
+          ],
+          "tolerance": 0.012
+        },
+        {
+          "type": "position",
+          "object": "piece0",
+          "xy": [
+            0.11885920964940497,
+            -0.06159441693158273
+          ],
+          "tolerance": 0.015
+        },
+        {
+          "type": "nest",
+          "object": "piece1",
+          "target": "bin0"
+        },
+        {
+          "type": "position",
+          "object": "piece1",
+          "xy": [
+            0.11885920964940497,
+            -0.02159441693158273
+          ],
+          "tolerance": 0.015
+        },
+        {
+          "type": "position",
+          "object": "piece2",
+          "xy": [
+            0.07885920964940496,
+            0.048405583068417274
+          ],
+          "tolerance": 0.015
+        },
+        {
+          "type": "position",
+          "object": "piece3",
+          "xy": [
+            0.15885920964940498,
+            0.048405583068417274
+          ],
+          "tolerance": 0.015
+        },
+        {
+          "type": "cover",
+          "object": "lid",
+          "target": "bin0"
+        }
+      ]
+    },
+    {
+      "task": "F31",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 345,
+      "error": [
+        "RuntimeError: Fine positioning did not converge"
+      ],
+      "failed_goals": [
+        {
+          "type": "position",
+          "object": "bin0",
+          "xy": [
+            0.11885920964940497,
+            0.003405583068417272
+          ],
+          "tolerance": 0.012
+        },
+        {
+          "type": "position",
+          "object": "piece0",
+          "xy": [
+            0.11885920964940497,
+            0.028405583068417273
+          ],
+          "tolerance": 0.015
+        },
+        {
+          "type": "position",
+          "object": "piece1",
+          "xy": [
+            0.11885920964940497,
+            0.06840558306841728
+          ],
+          "tolerance": 0.015
+        },
+        {
+          "type": "nest",
+          "object": "piece2",
+          "target": "bin0"
+        },
+        {
+          "type": "position",
+          "object": "piece2",
+          "xy": [
+            0.07885920964940496,
+            -0.04159441693158272
+          ],
+          "tolerance": 0.015
+        },
+        {
+          "type": "nest",
+          "object": "piece3",
+          "target": "bin0"
+        },
+        {
+          "type": "position",
+          "object": "piece3",
+          "xy": [
+            0.15885920964940498,
+            -0.04159441693158272
+          ],
+          "tolerance": 0.015
+        },
+        {
+          "type": "cover",
+          "object": "lid",
+          "target": "bin0"
+        }
+      ]
+    },
+    {
+      "task": "F31",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 797,
+      "error": null,
+      "failed_goals": [
+        {
+          "type": "position",
+          "object": "bin0",
+          "xy": [
+            0.11885920964940497,
+            0.003405583068417272
+          ],
+          "tolerance": 0.012
+        },
+        {
+          "type": "nest",
+          "object": "piece1",
+          "target": "bin0"
+        },
+        {
+          "type": "position",
+          "object": "piece1",
+          "xy": [
+            0.11885920964940497,
+            0.06840558306841728
+          ],
+          "tolerance": 0.015
+        },
+        {
+          "type": "cover",
+          "object": "lid",
+          "target": "bin0"
+        }
+      ]
+    },
+    {
+      "task": "F32",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 787,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F32",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 806,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F32",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 793,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F33",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 589,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F33",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 449,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F33",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 692,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F34",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 430,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F34",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 579,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F34",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 436,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F35",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 886,
+      "error": null,
+      "failed_goals": [
+        {
+          "type": "local_position",
+          "object": "part2_0",
+          "target": "carrier",
+          "xy": [
+            0.0,
+            0.075
+          ],
+          "tolerance": 0.02
+        }
+      ]
+    },
+    {
+      "task": "F35",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 674,
+      "error": [
+        "RuntimeError: Both tray wall grasps required"
+      ],
+      "failed_goals": [
+        {
+          "type": "local_position",
+          "object": "part1_1",
+          "target": "carrier",
+          "xy": [
+            0.0,
+            0.0
+          ],
+          "tolerance": 0.02
+        },
+        {
+          "type": "local_position",
+          "object": "part2_1",
+          "target": "carrier",
+          "xy": [
+            0.0,
+            0.075
+          ],
+          "tolerance": 0.02
+        },
+        {
+          "type": "position",
+          "object": "carrier",
+          "xy": [
+            0.17885920964940497,
+            0.003405583068417272
+          ],
+          "tolerance": 0.02
+        }
+      ]
+    },
+    {
+      "task": "F35",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 457,
+      "error": [
+        "RuntimeError: Fine positioning did not converge"
+      ],
+      "failed_goals": [
+        {
+          "type": "nest",
+          "object": "part1_2",
+          "target": "carrier"
+        },
+        {
+          "type": "local_position",
+          "object": "part1_2",
+          "target": "carrier",
+          "xy": [
+            0.0,
+            0.0
+          ],
+          "tolerance": 0.02
+        },
+        {
+          "type": "nest",
+          "object": "part2_2",
+          "target": "carrier"
+        },
+        {
+          "type": "local_position",
+          "object": "part2_2",
+          "target": "carrier",
+          "xy": [
+            0.0,
+            0.075
+          ],
+          "tolerance": 0.02
+        },
+        {
+          "type": "position",
+          "object": "carrier",
+          "xy": [
+            0.17885920964940497,
+            0.003405583068417272
+          ],
+          "tolerance": 0.02
+        }
+      ]
+    },
+    {
+      "task": "F36",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 117,
+      "error": [
+        "RuntimeError: Pusher slipped"
+      ],
+      "failed_goals": [
+        {
+          "type": "pushed",
+          "object": "red",
+          "target": "pusher",
+          "distance": 0.1
+        },
+        {
+          "type": "position",
+          "object": "red",
+          "xy": [
+            0.19885920964940498,
+            -0.21659441693158274
+          ],
+          "tolerance": 0.025
+        },
+        {
+          "type": "pushed",
+          "object": "green",
+          "target": "pusher",
+          "distance": 0.1
+        },
+        {
+          "type": "position",
+          "object": "green",
+          "xy": [
+            0.19885920964940498,
+            0.003405583068417272
+          ],
+          "tolerance": 0.025
+        },
+        {
+          "type": "pushed",
+          "object": "blue",
+          "target": "pusher",
+          "distance": 0.1
+        },
+        {
+          "type": "position",
+          "object": "blue",
+          "xy": [
+            0.19885920964940498,
+            0.22340558306841726
+          ],
+          "tolerance": 0.025
+        }
+      ]
+    },
+    {
+      "task": "F36",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 121,
+      "error": [
+        "RuntimeError: Pusher slipped"
+      ],
+      "failed_goals": [
+        {
+          "type": "pushed",
+          "object": "green",
+          "target": "pusher",
+          "distance": 0.1
+        },
+        {
+          "type": "position",
+          "object": "green",
+          "xy": [
+            0.19885920964940498,
+            -0.21659441693158274
+          ],
+          "tolerance": 0.025
+        },
+        {
+          "type": "pushed",
+          "object": "blue",
+          "target": "pusher",
+          "distance": 0.1
+        },
+        {
+          "type": "position",
+          "object": "blue",
+          "xy": [
+            0.19885920964940498,
+            0.003405583068417272
+          ],
+          "tolerance": 0.025
+        },
+        {
+          "type": "pushed",
+          "object": "red",
+          "target": "pusher",
+          "distance": 0.1
+        },
+        {
+          "type": "position",
+          "object": "red",
+          "xy": [
+            0.19885920964940498,
+            0.22340558306841726
+          ],
+          "tolerance": 0.025
+        }
+      ]
+    },
+    {
+      "task": "F36",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 116,
+      "error": [
+        "RuntimeError: Pusher slipped"
+      ],
+      "failed_goals": [
+        {
+          "type": "pushed",
+          "object": "blue",
+          "target": "pusher",
+          "distance": 0.1
+        },
+        {
+          "type": "position",
+          "object": "blue",
+          "xy": [
+            0.19885920964940498,
+            -0.21659441693158274
+          ],
+          "tolerance": 0.025
+        },
+        {
+          "type": "pushed",
+          "object": "red",
+          "target": "pusher",
+          "distance": 0.1
+        },
+        {
+          "type": "position",
+          "object": "red",
+          "xy": [
+            0.19885920964940498,
+            0.003405583068417272
+          ],
+          "tolerance": 0.025
+        },
+        {
+          "type": "pushed",
+          "object": "green",
+          "target": "pusher",
+          "distance": 0.1
+        },
+        {
+          "type": "position",
+          "object": "green",
+          "xy": [
+            0.19885920964940498,
+            0.22340558306841726
+          ],
+          "tolerance": 0.025
+        }
+      ]
+    },
+    {
+      "task": "F40",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 281,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F40",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 155,
+      "error": [
+        "RuntimeError: Some contents did not physically pour from the cup"
+      ],
+      "failed_goals": [
+        {
+          "type": "nest",
+          "object": "wood1",
+          "target": "bin1"
+        },
+        {
+          "type": "poured",
+          "object": "wood1",
+          "target": "cup"
+        }
+      ]
+    },
+    {
+      "task": "F40",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 315,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F47",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 346,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F47",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 353,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F47",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 353,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F48",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 1294,
+      "error": null,
+      "failed_goals": [
+        {
+          "type": "position",
+          "object": "divider1",
+          "xy": [
+            0.21885920964940497,
+            0.003405583068417272
+          ],
+          "tolerance": 0.008
+        },
+        {
+          "type": "yaw",
+          "object": "divider1",
+          "value": 0.0,
+          "tolerance": 0.1
+        }
+      ]
+    },
+    {
+      "task": "F48",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 1300,
+      "error": null,
+      "failed_goals": [
+        {
+          "type": "position",
+          "object": "divider1",
+          "xy": [
+            0.21885920964940497,
+            0.003405583068417272
+          ],
+          "tolerance": 0.008
+        },
+        {
+          "type": "yaw",
+          "object": "divider1",
+          "value": 0.0,
+          "tolerance": 0.1
+        }
+      ]
+    },
+    {
+      "task": "F48",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 1296,
+      "error": null,
+      "failed_goals": []
+    },
+    {
+      "task": "F50",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 584,
+      "error": [
+        "RuntimeError: Fine positioning did not converge"
+      ],
+      "failed_goals": [
+        {
+          "type": "stack",
+          "object": "upper0",
+          "target": "base2"
+        },
+        {
+          "type": "position",
+          "object": "upper0",
+          "xy": [
+            0.11885920964940497,
+            -0.02959441693158273
+          ],
+          "tolerance": 0.025
+        },
+        {
+          "type": "stack",
+          "object": "upper1",
+          "target": "base2"
+        },
+        {
+          "type": "position",
+          "object": "upper1",
+          "xy": [
+            0.11885920964940497,
+            0.03640558306841728
+          ],
+          "tolerance": 0.025
+        }
+      ]
+    },
+    {
+      "task": "F50",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 877,
+      "error": null,
+      "failed_goals": [
+        {
+          "type": "stack",
+          "object": "upper0",
+          "target": "base1"
+        },
+        {
+          "type": "stack",
+          "object": "upper1",
+          "target": "base1"
+        }
+      ]
+    },
+    {
+      "task": "F50",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "source_sha256": "b4452fed84fdfb9062d1ce3ae63d2bbaaef46ec796ce3b18ca764c68d4cfc723",
+      "source_unchanged": true,
+      "actions": 920,
+      "error": null,
+      "failed_goals": []
+    }
+  ]
+}

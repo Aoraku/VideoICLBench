@@ -1,0 +1,23 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VideoICL 双臂操作台</title><style>
+body{font:16px system-ui;background:#111923;color:#e6edf4;margin:24px;max-width:1440px}h1{font-size:24px}img{width:100%;border-radius:8px}#views{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}.arms{display:flex;gap:24px;margin-top:20px}.arm{background:#1d2a38;padding:16px;flex:1;border-radius:8px}button,select{padding:12px;margin:4px;font-size:15px;cursor:pointer}button:disabled{opacity:.45}#demo img{width:180px;margin:4px}video{width:600px;max-width:100%}#status{min-height:30px}small{color:#adbac7}</style>
+<h1>VideoICL 双臂操作台</h1><p id="status">正在连接…</p><div id="demo"></div><div id="views"></div>
+<div class="arms"><div class="arm"><h2>左臂 · Arm 0</h2><div id="left"></div></div><div class="arm"><h2>右臂 · Arm 1</h2><div id="right"></div></div></div>
+<p><button id="both">同时执行两臂所选动作</button><select id="ls"></select><select id="rs"></select><button id="wait">静止等待 0.4 秒</button><button id="submit">提交并结束</button></p>
+<small>移动每次 2 cm，旋转每次 10°。FWD/BACK 为桌面 ±X，LEFT/RIGHT 为 ±Y，UP/DOWN 为 ±Z；方向按世界坐标，不随镜头变化。夹爪保持上次开合指令。提交后结束本轮。</small>
+<script>
+const sid='__SESSION__',base='/actor/'+sid;
+const tokens=['STILL','FWD','BACK','LEFT','RIGHT','UP','DOWN','ROLL_POS','ROLL_NEG','PITCH_POS','PITCH_NEG','YAW_POS','YAW_NEG','GRASP','RELEASE'];
+const names=['静止','前进','后退','左移','右移','上移','下移','滚转 +','滚转 −','俯仰 +','俯仰 −','偏航 +','偏航 −','夹紧','松开'];
+let busy=false,ended=false;
+function disable(b){busy=b;document.querySelectorAll('button').forEach(x=>x.disabled=b||ended)}
+async function api(path,body){let r=await fetch(base+path,body===undefined?{}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});if(!r.ok)throw Error((await r.json()).detail||r.status);return r.json()}
+async function observe(){let o=await api('/observe');document.getElementById('status').textContent=`已执行 ${o.actions} 次 · 剩余 ${o.remaining} 次 · 剩余 ${o.seconds_remaining} 秒`;let v=document.getElementById('views');v.replaceChildren();for(let [camera,data] of Object.entries(o.images)){let d=document.createElement('div'),label=document.createElement('p'),im=new Image();label.textContent=camera;im.src='data:image/jpeg;base64,'+data;d.append(label,im);v.append(d)}}
+async function act(left,right){if(busy||ended)return;disable(true);try{await api('/action',{left,right});await observe()}catch(e){document.getElementById('status').textContent=e.message}finally{disable(false)}}
+for(let arm of ['left','right'])tokens.forEach((t,i)=>{let b=document.createElement('button');b.textContent=names[i];b.dataset.action=t;b.onclick=()=>act(arm==='left'?t:'STILL',arm==='right'?t:'STILL');document.getElementById(arm).append(b)});
+for(let s of ['ls','rs'])tokens.forEach((t,i)=>document.getElementById(s).add(new Option(names[i],t)));
+document.getElementById('both').onclick=()=>act(document.getElementById('ls').value,document.getElementById('rs').value);
+document.getElementById('wait').onclick=()=>act('STILL','STILL');
+document.getElementById('submit').onclick=async()=>{if(busy)return;disable(true);try{await api('/submit',{});ended=true;document.getElementById('status').textContent='本轮已结束'}catch(e){document.getElementById('status').textContent=e.message}finally{disable(false)}};
+(async()=>{disable(true);try{const d=await api('/demo'),root=document.getElementById('demo');if(d.instruction){let p=document.createElement('p');p.textContent=d.instruction;root.append(p)}if(d.video){let v=document.createElement('video');v.controls=true;v.src=d.video;root.append(v)}if(d.frames)for(let f of d.frames){let im=new Image();im.src='data:image/jpeg;base64,'+f;root.append(im)}await observe()}catch(e){document.getElementById('status').textContent=e.message}finally{disable(false)}})();
+</script></html>

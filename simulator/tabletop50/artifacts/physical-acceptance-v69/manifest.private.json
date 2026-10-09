@@ -1,0 +1,44 @@
+{
+  "status": "privileged-author-physical-acceptance",
+  "task": "F38",
+  "conditions": 3,
+  "source_sha256": "500d3bc993cf51b9bddd6402c734badf96a83bdeaf12871806e757c6d926a72f",
+  "source_archive": "../tools-source-v69.tar.gz",
+  "human_recorded": false,
+  "independent_agent": false,
+  "cases": [
+    {
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "actions": 1240,
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      }
+    },
+    {
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "actions": 1235,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      }
+    },
+    {
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "actions": 1151,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      }
+    }
+  ]
+}

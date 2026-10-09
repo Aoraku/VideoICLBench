@@ -1,0 +1,84 @@
+{
+  "task": "F47",
+  "variant": "A",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+  "source_unchanged": true,
+  "world_sha256": "5234b3cf9fbcdb3116336749b5d9e64035027868cc4bb2fdcd96e50fea6872a0",
+  "initial_positions": {
+    "baton": [
+      -0.1600450968520234,
+      -0.23843612322147176,
+      0.8177844851022226
+    ]
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 26.1,
+    "predicates": [
+      {
+        "rule": {
+          "type": "position",
+          "object": "baton",
+          "xy": [
+            0.14885920964940497,
+            0.003405583068417272
+          ],
+          "tolerance": 0.02
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "handover",
+          "object": "baton"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "yaw",
+          "object": "baton",
+          "value": 0.0,
+          "tolerance": 0.12
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "baton": [
+        0.15032224604443734,
+        0.0049357960523524706,
+        0.8177844891595659
+      ]
+    },
+    "events": [
+      [
+        "handover",
+        "baton"
+      ]
+    ],
+    "metric": "success"
+  },
+  "cross_rule_predicates": {
+    "A": true,
+    "B": false,
+    "C": false
+  },
+  "actions": 346,
+  "actions_sha256": "ac1487d48c09bf1c3ac717a5ae7247c4e6b34f26f5717b754b8030acb9a8591c",
+  "error": null,
+  "video": {
+    "recorded": true,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 1386,
+    "duration_seconds": 138.6,
+    "full_episode": true,
+    "final_success": true,
+    "sha256": "566c1f872b9bb06e1d5f800385f80152fed3f028ef2a9d95db3eccbd631016bf"
+  }
+}

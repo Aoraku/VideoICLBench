@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>VideoICL · GUMI Physical</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!--
+  Dual-arm teleop console (white), wired to the real backend served by
+  scripts/trajectory/webui/collect_rollouts_web_dual.py (default port 8620).
+
+  Launch with scripts/trajectory/webui/dual_live.sh - it installs this file as
+  the server's UI (backing up the stock one once) and starts the collector:
+
+      scripts/trajectory/webui/dual_live.sh data/rollouts_dual --sim   # no hardware
+      scripts/trajectory/webui/dual_live.sh data/rollouts_dual         # real dual-Piper rig
+
+  Reads  GET  /api/state · /stream/agentview · /stream/wrist_left · /stream/wrist_right
+  Writes POST /api/step {left:[tok...],right:[tok...]} · /api/start · /api/stop · /api/cancel
+
+  Keys - left arm : WASD move · QE up/down · Left-Shift grasp · Left-Ctrl still · R release · ZX rotate
+         right arm: IJKL move · UO up/down · Right-Shift grasp · Right-Ctrl still · . release · NM rotate
+         1-9 prefix repeats · Enter commits · Backspace clears · P start/stop · CC cancel · ? help
+-->
+<style>
+  :root{
+    --blue:#669ED3;    /* left arm  */
+    --green:#67A651;   /* right arm · ok · task done */
+    --orange-ink:#c47c21; /* armed direction key - readable form of slLogoOrange #F3AA68 */
+    --purple:#9b7fc4;     /* the QUEUED slot only */
+    --blue-ink:#3a72a6;   /* left-arm text: the accent is too light at 14px */
+    --green-ink:#4a7a38;  /* right-arm text, same reason */
+    --ink:#16191d; --ink2:#464c54; --dim:#8b929b;
+    --line:#e5e8ec; --soft:#f7f9fb; --soft2:#eef1f5;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#fff;color:var(--ink);
+    font-family:"Segoe UI",system-ui,-apple-system,Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+    -webkit-font-smoothing:antialiased}
+  body:focus{outline:none}
+  body{min-height:100vh}
+  #app{display:flex;flex-direction:column;gap:10px;min-height:100vh;padding:12px}
+  button{font:inherit;cursor:pointer;color:inherit}
+
+  /* Every band is its own rounded module on the white page. */
+
+  /* ---------- task bar ---------- */
+  #topbar{flex:0 0 auto;display:flex;align-items:center;gap:14px;padding:12px 16px;
+    border:1px solid var(--line);border-radius:12px;background:var(--soft)}
+  #topbar .lb{font-size:11px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
+  #v-task{font-size:17px;font-weight:600;color:var(--ink);overflow:hidden;
+    text-overflow:ellipsis;white-space:nowrap}
+  #saved{margin-left:auto;font-size:13px;color:var(--dim);white-space:nowrap}
+
+  /* ---------- camera views ---------- */
+  #views{flex:1 1 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;min-height:210px}
+  .view{position:relative;background:var(--soft2);border:1px solid var(--line);border-radius:12px;
+    overflow:hidden;display:flex;align-items:center;justify-content:center;min-height:0}
+  .view img{width:100%;height:100%;object-fit:contain}
+  .view .tag{position:absolute;top:10px;left:10px;font-size:16px;font-weight:700;letter-spacing:.05em;
+    background:#fffffff2;border:1px solid var(--line);padding:5px 12px;border-radius:9px;color:var(--ink2)}
+  .view .tag.l{color:var(--blue-ink);border-color:#cfe0f0}
+  .view .tag.r{color:var(--green-ink);border-color:#d5e6cc}
+
+  /* ---------- result line + banners ---------- */
+  #result{flex:0 0 auto;padding:13px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;
+    font-family:var(--mono);font-size:17px;font-weight:600;white-space:nowrap;
+    overflow:hidden;text-overflow:ellipsis;color:var(--ink)}
+  #result.err{background:#fdf5f5;color:#a8413f;border-color:#f0cfce}
+  #result.flash{background:#f1f7ee;border-color:#d6e6cd}
+  #banners{flex:0 0 auto;display:flex;flex-direction:column;gap:10px}
+  .banner{padding:11px 16px;font-size:15px;font-weight:700;display:none;
+    border:1px solid;border-radius:12px}
+  #banner-gap{background:#fbeeee;color:#a8413f;border-color:#f0cfce}
+  #banner-done{background:#eef5ea;color:#4d7f3c;border-color:#d6e6cd}
+  .banner.on{display:block}
+
+  /* ---------- control deck ---------- */
+  #deck{flex:0 0 auto;display:flex;align-items:stretch;gap:10px}
+  .cluster{flex:1 1 0;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+  .cluster.l{border-top:3px solid var(--blue)}
+  .cluster.r{border-top:3px solid var(--green)}
+  .cluster h3{margin:0 0 10px;font-size:14px;letter-spacing:.08em;font-weight:700;
+    display:flex;justify-content:space-between;align-items:baseline}
+  .cluster.l h3 .nm{color:var(--blue-ink)}
+  .cluster.r h3 .nm{color:var(--green-ink)}
+  .hold-chip{font-size:13px;font-weight:600;padding:3px 10px;border-radius:7px;
+    background:var(--soft2);color:var(--dim)}
+  .hold-chip.yes{background:#eef5ea;color:#4d7f3c}
+
+  /* WASD proper: FWD alone on top, LEFT/BACK/RIGHT underneath - nothing in the middle. */
+  .wasd{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .pairrow{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+  .pairrow.three{grid-template-columns:1fr 1fr 1fr}
+
+  /* One neutral ground for every action key; the border carries the 3:1
+     control-boundary contrast. .armed stays LAST so a queued key reads amber. */
+  .abtn{min-height:58px;border:1px solid #8695a7;border-radius:10px;background:#eef1f6;
+    color:#232930;font-family:var(--mono);font-size:18px;font-weight:700;position:relative;
+    transition:.12s}
+  .abtn:hover{background:#e2e7ee;border-color:#6d7d90}
+  .abtn:active{transform:translateY(1px)}
+  .abtn.armed{background:#fadfb8;border-color:var(--orange-ink);color:#6f4310;
+    box-shadow:inset 0 0 0 1px #c47c2159}
+  .abtn.armed:hover{background:#f7d3a2}
+  .abtn .kk{position:absolute;left:8px;bottom:5px;font-size:11px;font-weight:700;
+    font-style:normal;color:#6d7d90;letter-spacing:.04em}
+  .abtn.armed .kk{color:#96631d}
+  .abtn .n{position:absolute;top:4px;right:9px;font-size:13px;color:#6f4310;font-weight:800}
+
+  .qrow{margin-top:8px}
+  .qchip{width:100%;min-height:42px;border:1px dashed #8695a7;border-radius:10px;background:#f7f9fb;
+    color:#3d444c;font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.04em}
+  .qchip:hover{background:#eef1f6;border-color:#6d7d90}
+  .qchip.set{border-style:solid;border-color:var(--purple);color:#55397e;background:#ece5f6}
+
+  #center{flex:0 0 262px;display:flex;flex-direction:column;gap:10px}
+  #rec-chip{font-size:14px;font-weight:700;padding:9px 10px;border-radius:10px;white-space:nowrap;
+    overflow:hidden;text-overflow:ellipsis;text-align:center;background:var(--soft2);color:var(--ink2)}
+  #rec-chip.on{background:#fbeeee;color:#a8413f}
+  #rec-chip.off{visibility:hidden}   /* keeps the slot so COMMIT never shifts */
+  #commit{flex:1 1 auto;min-height:96px;border-radius:12px;border:2px solid var(--orange-ink);
+    background:#fadfb8;color:#6f4310;font-size:18px;font-weight:800;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+  #commit:hover{background:#f7d3a2}
+  #commit .sub{font-family:var(--mono);font-size:13px;font-weight:700;color:#6f4310}
+  #commit.idle{border-color:#8695a7;background:#eef1f6;color:#4a525b}
+  #commit.idle:hover{background:#e2e7ee}
+  #commit.idle .sub{color:#5b636c}
+  .recrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .recrow button{min-height:52px;border-radius:10px;border:1px solid #8695a7;background:#eef1f6;
+    color:#232930;font-size:16px;font-weight:700}
+  .recrow button:hover{background:#e2e7ee;border-color:#6d7d90}
+  #btn-start.on{border-color:#cd7876;color:#83322f;background:#fae3e2}
+  #btn-start.on:hover{background:#f6d8d6}
+  #btn-stop.ready{border-color:#6ba153;color:#356426;background:#e3eeda}
+  #btn-stop.ready:hover{background:#d6e6cb}
+  #btn-cancel{min-width:150px;height:40px;font-size:14px;font-weight:600;background:#eef1f6;
+    border:1px solid #8695a7;border-radius:10px;color:#732624}
+  #btn-cancel:hover{border-color:#cd7876;background:#fae3e2}
+  #btn-cancel.armed2{border-color:#c06d6b;color:#732624;background:#f6d8d6}
+
+  /* ---------- help overlay ---------- */
+  #help{position:fixed;inset:0;background:#16191d59;z-index:20;display:none;
+    align-items:center;justify-content:center;padding:24px}
+  #help.on{display:flex}
+  #help-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px 26px;
+    max-width:900px;max-height:100%;overflow:auto;box-shadow:0 24px 60px #16191d26}
+  #help h1{font-size:17px;margin:0 0 4px;letter-spacing:.04em}
+  #help p{font-size:13px;color:var(--ink2);margin:0 0 12px;line-height:1.6}
+  #help table{border-collapse:collapse;font-size:13px;width:100%}
+  #help td{padding:4px 12px 4px 0;vertical-align:top;color:var(--ink2)}
+  #help td.k{white-space:nowrap;width:1%}
+  #help h2{font-size:11px;letter-spacing:.12em;color:var(--dim);margin:16px 0 6px;font-weight:700}
+  #help code{font-family:var(--mono);color:#96631d}
+  kbd{background:#eef1f6;color:#232930;border:1px solid #8695a7;border-bottom-width:2px;
+    border-radius:4px;padding:1px 6px;font-family:var(--mono);font-size:12px;font-weight:600}
+
+  @media(max-width:1100px){#deck{flex-wrap:wrap}#center{flex:1 1 100%;order:-1}
+    #views{grid-template-columns:1fr;min-height:0}}
+
+#views{flex:none;grid-template-columns:repeat(4,1fr);height:235px;min-height:0}
+.view img{height:235px} .view .tag{font-size:11px;top:3px;left:3px;padding:3px}
+.abtn{min-height:36px;font-size:14px}.abtn .kk{font-size:8px;bottom:1px}
+.cluster{padding:8px}.cluster h3{margin-bottom:6px}.tcp{font:11px monospace;margin:5px 0}
+#result{padding:7px;font-size:14px}#guide{font-size:12px;color:#444;line-height:1.5}
+#demo-section{border:1px solid #ddd;border-radius:8px;padding:8px}summary{cursor:pointer;font-weight:600}
+#demo-frames{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}#demo-frames[hidden]{display:none}
+#demo-frames figure{margin:0}#demo-frames img{width:100%}#demo-frames figcaption{font-size:11px}
+#center{flex-basis:230px}#step-size{padding:6px}.recrow button{min-height:38px}
+#deck{flex-wrap:nowrap}#center{order:0}button:disabled{opacity:.45;cursor:default}
+@media(max-width:900px){#views{grid-template-columns:1fr 1fr;height:auto}.view{height:230px}.view img{height:230px}#deck{flex-wrap:wrap}#center{flex:1 1 100%;order:-1}#demo-frames{grid-template-columns:1fr 1fr}}
+</style>
+<style>.click-ring{position:fixed;width:34px;height:34px;border:4px solid #ff5827;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:99999;animation:clickfade .9s forwards}@keyframes clickfade{to{opacity:0;transform:translate(-50%,-50%) scale(1.7)}}.screenbar{padding:8px;display:flex;gap:8px;align-items:center;font-size:12px}.screenbar button{padding:6px 12px}</style></head>
+<body tabindex="-1"><div class="screenbar"><button id="screen-start">开始网页录屏</button><button id="screen-stop" disabled>停止并保存录屏</button><span id="screen-status">只录网页，不录麦克风</span></div>
+<div id="app">
+
+  <div id="topbar">
+    <span class="lb">Task</span>
+    <span id="v-task">根据演示，在当前环境中完成任务。</span>
+    <span id="saved"></span>
+  </div>
+
+  <details id="demo-section"><summary>Demonstration</summary><video id="demo" controls src="/demo.mp4" style="max-width:640px"></video><button id="show-frames">Show chronological frames</button><div id="demo-frames" hidden></div></details>
+  <div id="guide">Use only the demonstration to infer the task. Right arm only. Movement and rotation buttons request relative increments; visually verify every action.</div>
+  <div id="views">
+    <div class="view"><span class="tag">EXTERNAL LEFT</span><img alt="overhead" src="/snapshot/overhead"></div>
+    <div class="view"><span class="tag l">EXTERNAL RIGHT</span>
+      <img id="img-wl" alt="left wrist" src="/snapshot/wrist_left" data-stream="/stream/wrist_left"></div>
+    <div class="view"><span class="tag">FRONT</span>
+      <img id="img-front" alt="front" src="/snapshot/agentview" data-stream="/stream/agentview"></div>
+    <div class="view"><span class="tag r">RIGHT WRIST</span>
+      <img id="img-wr" alt="right wrist" src="/snapshot/wrist_right" data-stream="/stream/wrist_right"></div>
+  </div>
+
+  <div id="result">ready — click START, then queue arm actions and COMMIT</div>
+  <div id="banners">
+    <div class="banner" id="banner-gap">&#9888; ARMS CLOSE (&lt; 8 cm) — move ONE arm at a time</div>
+
+  </div>
+
+  <div id="deck">
+    <div class="cluster l">
+      <h3><span class="nm">LEFT ARM · unavailable</span><span class="hold-chip" id="hold-l">hand empty</span></h3>
+      <div class="wasd">
+        <span></span><button class="abtn" data-side="left" data-token="MV_FWD">FWD<i class="kk">W</i></button><span></span>
+        <button class="abtn" data-side="left" data-token="MV_LEFT">LEFT<i class="kk">A</i></button>
+        <button class="abtn" data-side="left" data-token="MV_BACK">BACK<i class="kk">S</i></button>
+        <button class="abtn" data-side="left" data-token="MV_RIGHT">RIGHT<i class="kk">D</i></button>
+      </div>
+      <div class="pairrow">
+        <button class="abtn" data-side="left" data-token="MV_UP">UP<i class="kk">Q</i></button>
+        <button class="abtn" data-side="left" data-token="MV_DOWN">DOWN<i class="kk">E</i></button>
+      </div>
+      <div class="pairrow three">
+        <button class="abtn grasp" data-side="left" data-token="GRASP">GRASP<i class="kk">L-Shift</i></button>
+        <button class="abtn release" data-side="left" data-token="RELEASE">RELEASE<i class="kk">R</i></button>
+        <button class="abtn still" data-side="left" data-token="STILL">STILL<i class="kk">L-Ctrl</i></button>
+      </div>
+      <div class="pairrow"><button class="abtn" data-side="left" data-token="ROTATE_CCW">ROTATE CCW</button><button class="abtn" data-side="left" data-token="ROTATE_CW">ROTATE CW</button></div><div class="qrow">
+        <button class="qchip" id="q-left" title="queued action — click to clear">QUEUED  &mdash;</button>
+      </div>
+    </div>
+
+    <div id="center">
+      <div id="rec-chip" class="off"></div>
+      <button id="commit" class="idle">
+        <span>COMMIT</span>
+        <span class="sub" id="commit-sub">nothing queued</span>
+      </button>
+      <div class="recrow">
+        <button id="btn-start">&#9679; START</button>
+        <button id="btn-stop">SUBMIT &amp; FINISH</button>
+      </div>
+      <div class="recrow">
+        <label>移动步长 <select id="step-size"><option value="0.02">20 mm</option><option value="0.01">10 mm</option><option value="0.005">5 mm</option></select></label>
+      </div>
+    </div>
+
+    <div class="cluster r">
+      <h3><span class="nm">RIGHT ARM</span><span class="hold-chip" id="hold-r">hand empty</span></h3>
+      <div class="wasd">
+        <span></span><button class="abtn" data-side="right" data-token="MV_FWD">FWD<i class="kk">I</i></button><span></span>
+        <button class="abtn" data-side="right" data-token="MV_LEFT">LEFT<i class="kk">J</i></button>
+        <button class="abtn" data-side="right" data-token="MV_BACK">BACK<i class="kk">K</i></button>
+        <button class="abtn" data-side="right" data-token="MV_RIGHT">RIGHT<i class="kk">L</i></button>
+      </div>
+      <div class="pairrow">
+        <button class="abtn" data-side="right" data-token="MV_UP">UP<i class="kk">U</i></button>
+        <button class="abtn" data-side="right" data-token="MV_DOWN">DOWN<i class="kk">O</i></button>
+      </div>
+      <div class="pairrow three">
+        <button class="abtn grasp" data-side="right" data-token="GRASP">GRASP<i class="kk">R-Shift</i></button>
+        <button class="abtn release" data-side="right" data-token="RELEASE">RELEASE<i class="kk">.</i></button>
+        <button class="abtn still" data-side="right" data-token="STILL">STILL<i class="kk">R-Ctrl</i></button>
+      </div>
+      <div class="pairrow"><button class="abtn" data-side="right" data-token="ROLL_POS">ROLL POS</button><button class="abtn" data-side="right" data-token="ROLL_NEG">ROLL NEG</button></div><div class="pairrow"><button class="abtn" data-side="right" data-token="PITCH_POS">PITCH POS</button><button class="abtn" data-side="right" data-token="PITCH_NEG">PITCH NEG</button></div><div class="pairrow"><button class="abtn" data-side="right" data-token="ROTATE_CCW">ROTATE CCW</button><button class="abtn" data-side="right" data-token="ROTATE_CW">ROTATE CW</button></div><div class="qrow">
+        <button class="qchip" id="q-right" title="queued action — click to clear">QUEUED  &mdash;</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+let state={}, pending={left:null,right:null}, busy=false;
+const short=p=>p?p.token.replace('MV_','')+(p.count>1?'×'+p.count:''):'—';
+function audit(body){fetch('/api/ui-event',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).catch(()=>{});}
+function deck(){
+ for(const side of ['left','right']){
+  const p=pending[side];$('q-'+side).textContent='QUEUED '+short(p);
+  document.querySelectorAll('.abtn[data-side='+side+']').forEach(b=>b.classList.toggle('armed',!!p&&b.dataset.token===p.token));
+ }
+ $('commit-sub').textContent='L:'+short(pending.left)+' + R:'+short(pending.right);
+}
+function render(s){
+ state=s;const locked=busy||Boolean(s.controls_locked);if(!busy&&s.message)$('result').textContent=s.message;$('v-task').textContent='根据演示，在当前环境中完成任务。';
+ $('rec-chip').className='on';$('rec-chip').textContent=s.status+' · '+s.steps+' / '+s.max_pairs+' pairs';
+ for(const side of ['left','right']){
+  $('hold-'+side[0]).textContent=s.gripper_closed[side]?'command: closed':'command: open';
+ }
+ const closed=s.status==='submitted';
+ $('btn-start').disabled=locked||s.status!=='ready';
+ $('btn-stop').disabled=locked||s.status!=='running';
+ $('commit').disabled=locked||s.status!=='running';
+ document.querySelectorAll('.abtn').forEach(b=>b.disabled=locked||closed||b.dataset.side==='left');
+ $('saved').textContent=closed?'Submitted · locked':'';
+}
+async function post(path,body){
+ busy=true;render(state);$('result').textContent='Executing…';
+ try{
+  const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const d=await r.json();busy=false;if(d.state)render(d.state);
+  $('result').textContent=d.ok?(d.message||('Completed · '+d.state.steps+' pairs')):('Not executed: '+d.message);
+ }catch(e){busy=false;$('result').textContent='Connection error. Check status before retrying.';}
+}
+document.querySelectorAll('.abtn').forEach(b=>b.onclick=()=>{
+ const side=b.dataset.side,token=b.dataset.token,p=pending[side];
+ const repeat=!['GRASP','RELEASE','STILL'].includes(token);
+ pending[side]={token,count:repeat&&p&&p.token===token?Math.min(9,p.count+1):1};
+ audit({kind:'queue',side,token,count:pending[side].count});deck();
+});
+for(const side of ['left','right'])$('q-'+side).onclick=()=>{pending[side]=null;audit({kind:'clear',side});deck();};
+$('commit').onclick=()=>{
+ if(!pending.left&&!pending.right)return;
+ const body={step_m:Number($('step-size').value)};
+ for(const side of ['left','right']){const p=pending[side];body[side]=p?Array(p.count).fill(p.token):['STILL'];}
+ audit({kind:'commit',step_m:body.step_m});pending={left:null,right:null};deck();post('/api/step',body);
+};
+$('btn-start').onclick=()=>{audit({kind:'start'});post('/api/start',{});};
+$('btn-stop').onclick=()=>{audit({kind:'submit'});post('/api/stop',{});};
+$('show-frames').onclick=()=>{
+ const box=$('demo-frames');box.hidden=!box.hidden;
+ if(!box.childElementCount)for(let i=0;i<16;i++){
+  const fig=document.createElement('figure'),img=document.createElement('img'),cap=document.createElement('figcaption');
+  img.src='/demo-frame/'+String(i).padStart(2,'0')+'.jpg';img.alt='Demonstration frame '+(i+1);
+  cap.textContent='Frame '+(i+1)+' / 16';fig.append(img,cap);box.append(fig);
+ }
+ audit({kind:'view_demo_frames'});
+};
+$('demo').addEventListener('play',()=>audit({kind:'play_demo'}));
+async function poll(){try{const r=await fetch('/api/state');render(await r.json());}catch(e){}setTimeout(poll,800);}
+poll();deck();
+</script><script>// Record actual browser pixels. No task state or simulation coordinates are accessed.
+let recStream, screenRecorder, uploadChain=Promise.resolve(), seq=0, localChunks=[];
+const recStatus=document.getElementById('screen-status');
+document.getElementById('screen-start').onclick=async()=>{
+ try{
+  recStream=await navigator.mediaDevices.getDisplayMedia({video:{frameRate:15},audio:false,preferCurrentTab:true,selfBrowserSurface:'include'});
+  const mime=['video/webm;codecs=vp9','video/webm;codecs=vp8','video/mp4'].find(x=>MediaRecorder.isTypeSupported(x));
+  screenRecorder=new MediaRecorder(recStream,{mimeType:mime,videoBitsPerSecond:3000000});localChunks=[];
+  screenRecorder.ondataavailable=e=>{if(e.data.size)localChunks.push(e.data);};
+  screenRecorder.onstop=()=>{recStream.getTracks().forEach(t=>t.stop());const blob=new Blob(localChunks,{type:mime});const link=document.createElement('a');link.href=URL.createObjectURL(blob);link.download='VideoICL_webpage_part2.'+(mime.includes('mp4')?'mp4':'webm');link.textContent='下载续录视频';document.querySelector('.screenbar').appendChild(link);link.click();recStatus.textContent='网页续录已导出';};
+  screenRecorder.start(2000);recStatus.textContent='● 正在录制网页';document.getElementById('screen-start').disabled=true;document.getElementById('screen-stop').disabled=false;
+ }catch(e){recStatus.textContent='录屏未启动：'+e.message;}
+};
+document.getElementById('screen-stop').onclick=()=>{if(screenRecorder&&screenRecorder.state!=='inactive'){screenRecorder.stop();document.getElementById('screen-stop').disabled=true;recStatus.textContent='保存录屏中…';}};
+document.addEventListener('pointerdown',e=>{const ring=document.createElement('div');ring.className='click-ring';ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';document.body.appendChild(ring);setTimeout(()=>ring.remove(),900);},true);
+</script><script>for(const im of document.querySelectorAll('img[src^="/snapshot/"]')) {const path=im.getAttribute("src"); const next=()=>setTimeout(()=>{im.src=path+"?t="+Date.now()},1500); im.onload=next; im.onerror=next; if(im.complete)next();}</script></body></html>

@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-09",
+  "scene_domain": "desktop-non-kitchen",
+  "evaluation_protocol": "table-support-v2",
+  "catalog_sha256": "47dec6d38d79dcf4863c7f66aa5073c79c79b48fca6244a64d8fde4007feb690",
+  "harness_sha256": "5fbc80dfddf0c2558fc10db333b3ac0906a79952d36f70212e3bce3efc79b8d5",
+  "local": {
+    "platform": "macOS-arm64",
+    "pytest_passed": 13,
+    "pytest_total": 13
+  },
+  "rendered_smoke": {
+    "host": "ubuntu-descfly",
+    "backend": "GPU-EGL",
+    "passed": 150,
+    "total": 150,
+    "variants": [
+      "A",
+      "B",
+      "C"
+    ],
+    "cameras_per_scene": 3,
+    "seed": 0,
+    "unfinished_negative_checks": true,
+    "agent_solvability_test": false
+  },
+  "author_acceptance": {
+    "passed": 50,
+    "total": 50,
+    "variant": "A",
+    "seed": 0,
+    "backend": "GPU-EGL",
+    "fps": 20,
+    "report": "desktop50_validation.json",
+    "visual_review": "50 initial/midpoint/final contact sheets checked",
+    "independent_agent": false
+  },
+  "agentlab": {
+    "user": "qingle",
+    "service": "videoicl-embodied-50.service",
+    "port": 18660,
+    "data_root": "/home/qingle/services/videoicl-embodied-50/data-desktop50",
+    "sim_demonstrations": 50,
+    "demonstration_frames": 800,
+    "human_demonstrations": 0,
+    "runner_end_to_end": {
+      "task": "rt12",
+      "variant": "A",
+      "seed": 0,
+      "condition": "sim_frames",
+      "trial_kind": "author_replay",
+      "success": true,
+      "actions": 175,
+      "hold_seconds": 24.65,
+      "wall_seconds": 66.709,
+      "independent_agent": false
+    }
+  },
+  "media_bundle": {
+    "filename": "desktop50-media-release.zip",
+    "bytes": 38725817,
+    "sha256": "0774ed570c7c6d7c374c670b947c5aaa8f7520bce7b666e1d184ce105781c55b",
+    "total_duration_seconds": 4258.9
+  },
+  "human_demonstrations_collected": 0,
+  "independent_agent_trials": 0,
+  "limits": [
+    "50 successful privileged author runs validate A/seed0 only; they are not independent agent results.",
+    "B/C layouts pass initial physics and render smoke; successful B/C and multi-seed demonstrations remain uncollected.",
+    "Neutral proxy props and adapted goals run in robosuite; these are not native upstream task results.",
+    "Four tasks require bimanual coordination; the rest allow either or both arms.",
+    "Visual review samples initial/midpoint/final frames and is not a frame-by-frame human audit."
+  ]
+}
