@@ -92,6 +92,52 @@ def test_keyed_insertion_checks_real_concave_aperture(monkeypatch):
     finally: e.close()
 
 
+def test_contents_exchange_accepts_moved_boxes_but_rejects_wrong_membership(monkeypatch):
+    e = TabletopDual(task_spec("F18"), render=False)
+    try:
+        state = e.snapshot()
+        monkeypatch.setattr(e, "check_contact", lambda *args: True)
+        for goal in e.spec["goals"]:
+            item, box = state[goal["object"]], state[goal["target"]]
+            item["mat"] = box["mat"] = np.eye(3)
+            side = -.0325 if goal["object"].endswith("_0") else .0325
+            item["pos"] = box["pos"]+np.array([0., side, .008])
+        assert all(e.predicate(g, state) for g in e.spec["goals"])
+        for item in state.values(): item["pos"] += np.array([.12, .035, 0.])
+        assert all(e.predicate(g, state) for g in e.spec["goals"])
+        goal = e.spec["goals"][0]
+        item = state[goal["object"]]
+        item["pos"][0] += .12
+        assert not e.predicate(goal, state)
+        other = "bin0" if goal["target"] == "bin1" else "bin1"
+        item["pos"] = state[other]["pos"]+np.array([0., 0., .008])
+        assert not e.predicate(goal, state)
+    finally: e.close()
+
+
+@pytest.mark.parametrize("variant", list("ABC"))
+def test_packing_layout_follows_moved_rotated_box_and_keeps_rules_exclusive(monkeypatch, variant):
+    e = TabletopDual(task_spec("F31", variant), render=False)
+    try:
+        state = e.snapshot(); box = state["bin0"]
+        angle = .4
+        box["mat"] = np.array([[np.cos(angle), -np.sin(angle), 0.],
+                               [np.sin(angle), np.cos(angle), 0.], [0., 0., 1.]])
+        box["pos"] += np.array([.08, .06, 0.])
+        for plan in e.spec["author_plan"]:
+            item = state[plan["object"]]
+            relative = np.asarray(plan["xy"])-e.by_spec["bin0"]["xy"]
+            height = .051 if plan["object"] == "lid" else 0.
+            item["mat"] = box["mat"].copy()
+            item["pos"] = box["pos"]+box["mat"]@np.array([*relative, height])
+        monkeypatch.setattr(e, "check_contact", lambda *args: True)
+        cross = {v: all(e.predicate(g, state) for g in task_spec("F31", v)["goals"]) for v in "ABC"}
+        assert cross == {v: v == variant for v in "ABC"}
+        state["piece2"]["pos"][0] += .3
+        assert not all(e.predicate(g, state) for g in e.spec["goals"])
+    finally: e.close()
+
+
 def test_triangle_parts_do_not_walk_off_an_idle_table():
     e = TabletopDual(task_spec("F08"), render=False)
     try:

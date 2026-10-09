@@ -1,0 +1,39 @@
+{
+  "task": "F31",
+  "successful_rules": [
+    "A",
+    "B",
+    "C"
+  ],
+  "independent_agent": false,
+  "source_sha256": "1538c10bddd8d375371eabf4cbba4e86ce64922e43dbeb2f65e20dc363b8b5bc",
+  "cases": [
+    {
+      "variant": "A",
+      "actions": 715,
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      }
+    },
+    {
+      "variant": "B",
+      "actions": 715,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      }
+    },
+    {
+      "variant": "C",
+      "actions": 718,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      }
+    }
+  ]
+}

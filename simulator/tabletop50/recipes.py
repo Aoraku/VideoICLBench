@@ -23,9 +23,9 @@ def extended(recipe, v, rng, obj, position):
             goals.append(dict(type="yaw", object=name, value=yaw, tolerance=.18))
         move(name, xy, bottom, yaw)
 
-    def bin_(name, xy, size=(.075, .075, .025)):
+    def bin_(name, xy, size=(.075, .075, .025), restore=True):
         objects.append(obj(name, xy, "white", "bowl", size))
-        goals.append(position(name, xy, .012))
+        if restore: goals.append(position(name, xy, .012))
 
     def inside(name, target, xy):
         goals.append(dict(type="nest", object=name, target=target))
@@ -147,11 +147,13 @@ def extended(recipe, v, rng, obj, position):
     elif recipe == "swap_contents":
         locs = [[-.12, -.20], [-.12, .20]]
         for i in range(2):
-            bin_(f"bin{i}", locs[i])
+            bin_(f"bin{i}", locs[i], restore=False)
             for shape in range(2):
                 name = f"piece{i}_{shape}"
                 objects.append(obj(name, [locs[i][0], locs[i][1] + (shape-.5)*.065], colors[i],
                                    "bottle" if shape == 0 else "box", (.018, .018, .025), bottom=.808))
+        zones.extend(dict(id=f"staging{i}", xy=[.14, -.23+i*.15],
+                          half_size=[.045, .045], marker=None) for i in range(4))
         for i in range(2):
             for shape in range(2):
                 name = f"piece{i}_{shape}"
@@ -216,7 +218,7 @@ def extended(recipe, v, rng, obj, position):
                 angle = (0 if member == 0 else math.pi) if v == 0 else (math.pi if member == 0 else 0) if v == 1 else 0
                 at(name, [.05+member*.15, -.22+group*.22], yaw=angle)
     elif recipe == "packing":
-        bin_("bin0", [.12, 0.], (.10, .10, .026))
+        bin_("bin0", [.12, 0.], (.10, .10, .026), restore=False)
         objects.append(obj("lid", [-.20, .22], "yellow", "lid", (.105, .105, .025)))
         for i in range(4):
             objects.append(obj(f"piece{i}", [-.22+(i//2)*.12, -.22+(i % 2)*.13], colors[i],
@@ -228,9 +230,12 @@ def extended(recipe, v, rng, obj, position):
         for i, (dy, dx) in enumerate(placements):
             xy = [.12+dx, dy]
             inside(f"piece{i}", "bin0", xy)
-            goals.append(position(f"piece{i}", xy, .015))
+            if i < 2:
+                side = (-1 if v == 0 else 1) if v != 2 else (-1 if i == 0 else 1)
+                goals.append(dict(type="container_half", object=f"piece{i}", target="bin0", side=side))
         move("lid", [.12, 0.], .852)
         goals.append(dict(type="cover", object="lid", target="bin0"))
+        for p in plan: p["operation"] = "pack"
     elif recipe == "end_align":
         for group in range(3):
             for member, length in enumerate([.035, .06]):

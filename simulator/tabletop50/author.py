@@ -295,6 +295,9 @@ class TabletopAuthor(Author):
         self.park(0); self.park(1)
         for p in self.env.spec["author_plan"]:
             name = p["object"]
+            if p.get("operation") == "pack":
+                self.pack_item(name, p)
+                continue
             if p.get("operation") == "guide_roll":
                 self.guide_roll(name, p)
                 continue
@@ -362,6 +365,22 @@ class TabletopAuthor(Author):
         if self.env.spec["id"] == "F10":
             self.repair_mosaic()
         self.wait(6)
+
+    def pack_item(self, name, plan):
+        # The loose box can slide while being loaded. Use its actual frame,
+        # including for closing the lid, instead of its reset coordinates.
+        box = self.state("bin0")
+        relative = np.asarray(plan["xy"])-self.env.by_spec["bin0"]["xy"]
+        point = box["pos"]+box["mat"]@np.array([*relative, 0.])
+        half = self.env.by_spec["bin0"]["size"][2]
+        bottom = box["pos"][2]+half if name == "lid" else box["pos"][2]-half+.008
+        arm = 0 if self.state(name)["pos"][1] < 0 else 1
+        self.restore_wrist(arm)
+        self.pick(name, arm)
+        self.put(name, arm, [*point[:2], bottom+self.env.by_spec[name]["size"][2]],
+                 fine=True, surface_release=True,
+                 object_yaw=math.atan2(box["mat"][1, 0], box["mat"][0, 0]))
+        self.park(arm)
 
     def repair_mosaic(self):
         zones = {z["id"]: z for z in self.env.spec["zones"]}

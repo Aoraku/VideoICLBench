@@ -1,0 +1,179 @@
+{
+  "task": "F19",
+  "variant": "A",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "28f24755fd0d0e740d3556da0910fa5fa8ca282df72a247b994105fe89b4603b",
+  "source_unchanged": true,
+  "world_sha256": "232f2fd6ea7caa84f02e2df4c0c0114e8c82a6c5d8fdce3a84602f5aa70e33f7",
+  "initial_positions": {
+    "piece0": [
+      0.04115193576838032,
+      -0.22445965215709257,
+      0.8117844851016339
+    ],
+    "piece1": [
+      0.04115193576838032,
+      -0.004459652157092592,
+      0.8117844851016339
+    ],
+    "piece2": [
+      0.04115193576838032,
+      0.21554034784290743,
+      0.8117844851016339
+    ],
+    "piece3": [
+      0.22115193576838033,
+      -0.22445965215709257,
+      0.8117844851016339
+    ],
+    "piece4": [
+      0.22115193576838033,
+      -0.004459652157092592,
+      0.8117844851016339
+    ],
+    "piece5": [
+      0.22115193576838033,
+      0.21554034784290743,
+      0.8117844851016339
+    ]
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 18,
+    "fixtures_visible": true
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 22.0,
+    "predicates": [
+      {
+        "rule": {
+          "type": "position",
+          "object": "piece1",
+          "xy": [
+            0.04005624226980868,
+            -0.22261794586720354
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "piece2",
+          "xy": [
+            0.04005624226980868,
+            -0.002617945867203554
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "piece0",
+          "xy": [
+            0.04005624226980868,
+            0.21738205413279646
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "piece3",
+          "xy": [
+            0.2200562422698087,
+            -0.22261794586720354
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "piece4",
+          "xy": [
+            0.2200562422698087,
+            -0.002617945867203554
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "piece5",
+          "xy": [
+            0.2200562422698087,
+            0.21738205413279646
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "piece0": [
+        0.042219978471097055,
+        0.21474307327605427,
+        0.8117844891595659
+      ],
+      "piece1": [
+        0.04274114784560155,
+        -0.22397225297947201,
+        0.8117844891595659
+      ],
+      "piece2": [
+        0.042393680846780774,
+        -0.005268670923816988,
+        0.8117844891595659
+      ],
+      "piece3": [
+        0.22286065360433502,
+        -0.2239875937141931,
+        0.8117844891595659
+      ],
+      "piece4": [
+        0.209292355660253,
+        -0.00512518948965889,
+        0.8117844891595659
+      ],
+      "piece5": [
+        0.22243684347760953,
+        0.21483613757632092,
+        0.8117844891595659
+      ]
+    },
+    "events": [],
+    "metric": "success",
+    "joint_angles": {}
+  },
+  "cross_rule_predicates": {
+    "A": true,
+    "B": false,
+    "C": false
+  },
+  "actions": 1279,
+  "actions_sha256": "2b0eb95ab39558d101666bca5a8b59e6ecf1a1f6ca1f0e1062d57fb45d94ce80",
+  "error": null,
+  "video": {
+    "recorded": true,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 5118,
+    "duration_seconds": 511.8,
+    "full_episode": true,
+    "final_success": true,
+    "sha256": "06f181bb645c9bff64409d84a41559a9fcfa05a4504ae5c1da4381340a69f4f5"
+  }
+}

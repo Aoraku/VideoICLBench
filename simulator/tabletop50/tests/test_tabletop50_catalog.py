@@ -12,6 +12,17 @@ def test_all_families_have_recording_cards_and_distinct_rules():
         assert f["human_recording_status"] == "not-recorded-not-user-validated"
 
 
+def test_contents_exchange_is_judged_by_container_membership():
+    for variant in "ABC":
+        spec = task_spec("F18", variant)
+        assert len(spec["goals"]) == 4
+        assert all(g["type"] == "nest" for g in spec["goals"])
+        expected = {f"piece{i}_{shape}": f"bin{1-i if variant == 'A' or shape == 'ABC'.index(variant)-1 else i}"
+                    for i in range(2) for shape in range(2)}
+        assert {g["object"]: g["target"] for g in spec["goals"]} == expected
+        assert len(spec["zones"]) == 4  # Visible staging pads, not a forced route.
+
+
 @pytest.mark.parametrize("task", IMPLEMENTED)
 @pytest.mark.parametrize("seed", [0, 1, 19, 101])
 def test_rule_never_changes_visible_initial_world(task, seed):

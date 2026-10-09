@@ -1,0 +1,186 @@
+{
+  "status": "engineering-author-demonstrations",
+  "expected_families": 50,
+  "expected_rule_conditions": 150,
+  "verified_videos": 3,
+  "complete_three_rule_families": 1,
+  "complete_groups": [
+    {
+      "task": "F20",
+      "seed": 0,
+      "source_sha256": "258d0484f4dc06071e2d3476ebab1c7232d258ca65bbab17e81aa58a24c51878"
+    }
+  ],
+  "usable_videos": 3,
+  "usable_complete_three_rule_families": 1,
+  "human_videos": 0,
+  "independent_agent_trials": 0,
+  "cases": [
+    {
+      "task": "F20",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "258d0484f4dc06071e2d3476ebab1c7232d258ca65bbab17e81aa58a24c51878",
+      "world_sha256": "8ef6dd243803643aad76ee3548f5bcecfb86f9c3819804a7404b7127abf96645",
+      "video_sha256": "e2565f750b98ee4b3d32985c65b670d1300581e218f2f94ee02c84ea629ef6c3",
+      "decoded_frames": 2338,
+      "fps": 10.0,
+      "duration_seconds": 233.8,
+      "ending_image_mae": 2.436577796936035,
+      "initial_positions": {
+        "piece0": [
+          -0.2206077140050885,
+          -0.15714177837204085,
+          0.8117844851016339
+        ],
+        "piece1": [
+          -0.2206077140050885,
+          -0.03714177837204085,
+          0.8117844851016339
+        ],
+        "piece2": [
+          -0.10060771400508851,
+          -0.15714177837204085,
+          0.8117844851016339
+        ],
+        "piece3": [
+          -0.10060771400508851,
+          0.08285822162795915,
+          0.8117844851016339
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 0,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F20-A-0",
+      "visual_review": {
+        "initial_and_all_final_frames": true,
+        "sampled_full_process": true,
+        "target_board_visible": true,
+        "asymmetric_pattern_preserved": true,
+        "rules": "A translate; B quarter turn; C half turn"
+      }
+    },
+    {
+      "task": "F20",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "258d0484f4dc06071e2d3476ebab1c7232d258ca65bbab17e81aa58a24c51878",
+      "world_sha256": "8ef6dd243803643aad76ee3548f5bcecfb86f9c3819804a7404b7127abf96645",
+      "video_sha256": "de4b856937beb5864eb395bbf872d98db71fc3f2fad9e2eb8a06c0af68e56019",
+      "decoded_frames": 2726,
+      "fps": 10.0,
+      "duration_seconds": 272.6,
+      "ending_image_mae": 2.4258642196655273,
+      "initial_positions": {
+        "piece0": [
+          -0.2206077140050885,
+          -0.15714177837204085,
+          0.8117844851016339
+        ],
+        "piece1": [
+          -0.2206077140050885,
+          -0.03714177837204085,
+          0.8117844851016339
+        ],
+        "piece2": [
+          -0.10060771400508851,
+          -0.15714177837204085,
+          0.8117844851016339
+        ],
+        "piece3": [
+          -0.10060771400508851,
+          0.08285822162795915,
+          0.8117844851016339
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 0,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F20-B-0",
+      "visual_review": {
+        "initial_and_all_final_frames": true,
+        "sampled_full_process": true,
+        "target_board_visible": true,
+        "asymmetric_pattern_preserved": true,
+        "rules": "A translate; B quarter turn; C half turn"
+      }
+    },
+    {
+      "task": "F20",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "258d0484f4dc06071e2d3476ebab1c7232d258ca65bbab17e81aa58a24c51878",
+      "world_sha256": "8ef6dd243803643aad76ee3548f5bcecfb86f9c3819804a7404b7127abf96645",
+      "video_sha256": "8206bc1e59e27509d9acb18b1956b33ba931cedbcdcf854c4070bee8c114bcb2",
+      "decoded_frames": 3330,
+      "fps": 10.0,
+      "duration_seconds": 333.0,
+      "ending_image_mae": 2.4297077655792236,
+      "initial_positions": {
+        "piece0": [
+          -0.2206077140050885,
+          -0.15714177837204085,
+          0.8117844851016339
+        ],
+        "piece1": [
+          -0.2206077140050885,
+          -0.03714177837204085,
+          0.8117844851016339
+        ],
+        "piece2": [
+          -0.10060771400508851,
+          -0.15714177837204085,
+          0.8117844851016339
+        ],
+        "piece3": [
+          -0.10060771400508851,
+          0.08285822162795915,
+          0.8117844851016339
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 0,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F20-C-0",
+      "visual_review": {
+        "initial_and_all_final_frames": true,
+        "sampled_full_process": true,
+        "target_board_visible": true,
+        "asymmetric_pattern_preserved": true,
+        "rules": "A translate; B quarter turn; C half turn"
+      }
+    }
+  ],
+  "rejected": []
+}

@@ -1,6 +1,6 @@
 # 50题视频索引
 
-合格历史预览66段，完整三版本22族。未完成项明确留空；不是最终统一源码150段验收。
+合格历史预览75段，完整三版本25族。未完成项明确留空；不是最终统一源码150段验收。
 
 | 任务 | A | B | C |
 | --- | --- | --- | --- |
@@ -17,13 +17,13 @@
 | F11 圆环分柱套放 | [视频](artifacts/ring-preview-v117/F11-A-0/video.mp4) | [视频](artifacts/ring-preview-v117/F11-B-0/video.mp4) | [视频](artifacts/ring-preview-v117/F11-C-0/video.mp4) |
 | F12 厚片插架 | [视频](artifacts/rack-preview-v118/F12-A-0/video.mp4) | [视频](artifacts/rack-preview-v118/F12-B-0/video.mp4) | [视频](artifacts/rack-preview-v118/F12-C-0/video.mp4) |
 | F13 长杆穿双孔 | [视频](artifacts/visible-preview-v46/F13-A-0/video.mp4) | [视频](artifacts/visible-preview-v46/F13-B-0/video.mp4) | [视频](artifacts/visible-preview-v46/F13-C-0/video.mp4) |
-| F14 键向配合 | 待完成 | 待完成 | 待完成 |
+| F14 键向配合 | [视频](artifacts/key-preview-v119/F14-A-0/video.mp4) | [视频](artifacts/key-preview-v119/F14-B-0/video.mp4) | [视频](artifacts/key-preview-v119/F14-C-0/video.mp4) |
 | F15 可移动孔板装配 | 待完成 | 待完成 | 待完成 |
 | F16 单空位循环重排 | [视频](artifacts/vacancy-preview-v79/F16-A-0/video.mp4) | [视频](artifacts/vacancy-preview-v79/F16-B-0/video.mp4) | [视频](artifacts/vacancy-preview-v79/F16-C-0/video.mp4) |
 | F17 堆叠取件与剩余结构恢复 | [视频](artifacts/stack-recovery-preview-v79/F17-A-0/video.mp4) | [视频](artifacts/stack-recovery-preview-v79/F17-B-0/video.mp4) | [视频](artifacts/stack-recovery-preview-v79/F17-C-0/video.mp4) |
 | F18 两个占用盒交换内容 | 待完成 | 待完成 | 待完成 |
-| F19 局部纠错 | 待完成 | 待完成 | 待完成 |
-| F20 保持内部结构的搬迁 | 待完成 | 待完成 | 待完成 |
+| F19 局部纠错 | [视频](artifacts/correction-preview-v118/F19-A-0/video.mp4) | [视频](artifacts/correction-preview-v118/F19-B-0/video.mp4) | [视频](artifacts/correction-preview-v118/F19-C-0/video.mp4) |
+| F20 保持内部结构的搬迁 | [视频](artifacts/relocate-preview-v117/F20-A-0/video.mp4) | [视频](artifacts/relocate-preview-v117/F20-B-0/video.mp4) | [视频](artifacts/relocate-preview-v117/F20-C-0/video.mp4) |
 | F21 清障搬运并恢复 | [视频](artifacts/clearance-preview-v67/F21-A-0/video.mp4) | [视频](artifacts/clearance-preview-v67/F21-B-0/video.mp4) | [视频](artifacts/clearance-preview-v67/F21-C-0/video.mp4) |
 | F22 双层托盘取放 | [视频](artifacts/assembly-preview-v15/F22-A-0/video.mp4) | [视频](artifacts/assembly-preview-v15/F22-B-0/video.mp4) | [视频](artifacts/assembly-preview-v15/F22-C-0/video.mp4) |
 | F23 盖盒取件并复原 | 待完成 | 待完成 | 待完成 |

@@ -12,7 +12,7 @@ python3 -m http.server 18662 --bind 127.0.0.1 --directory simulator/tabletop50
 
 打开 <http://127.0.0.1:18662/>。页面列出全部50题，各有A/B/C三个位置；已有视频直接播放，没有视频的明确标为待完成。GitHub上可直接打开 [视频索引](VIDEOS.md)，逐条点击MP4；GitHub文件页不会执行HTML。
 
-目前随仓库附66段合格历史预览，覆盖22族完整三版本。录像对应的冻结源码、解码证据和失败诊断放在 `artifacts/`。这不是最终统一源码的150段交付。
+目前随仓库附75段合格历史预览，覆盖25族完整三版本。录像对应的冻结源码、解码证据和失败诊断放在 `artifacts/`。这不是最终统一源码的150段交付。
 
 预览页面包含私有规则和验收资料，只供设计者查看。不要把预览静态服务器作为agent评测接口。
 
@@ -55,7 +55,7 @@ actor仅开放 `/actor/{session}/observe`、`action`、`demo`、`submit`。完�
 
 ## Agentlab 已部署的视频预览
 
-2026-10-09 已部署独立预览副本 `/home/qingle/services/videoicl-tabletop50-fpv-v1/main-review-v92`，只包含 `simulator/`，媒体已增量更新至66段历史合格MP4与50题卡片。systemd用户服务 `videoicl-tabletop50-review.service` 监听服务器 `127.0.0.1:18662`，已通过HTTP健康检查。此入口用于维护者审阅；生产actor服务18661仍使用tools-v69，未切换到未验收原型。
+2026-10-09 已部署独立预览副本 `/home/qingle/services/videoicl-tabletop50-fpv-v1/main-review-v92`，只包含 `simulator/`，媒体已增量更新至75段历史合格MP4与50题卡片。systemd用户服务 `videoicl-tabletop50-review.service` 监听服务器 `127.0.0.1:18662`，已通过HTTP健康检查。此入口用于维护者审阅；生产actor服务18661仍使用tools-v69，未切换到未验收原型。
 
 在自己的电脑运行：
 
@@ -76,3 +76,7 @@ ssh -N -L 18663:127.0.0.1:18662 agentlab-qingle
 最新增量包含F10和F17各三段。服务器已逐一验证60个MP4的HTTP路径和字节大小；本次仅更新媒体与维护者页面，运行Python源码保持不变。
 
 2026-10-10最新媒体为66段、22族完整A/B/C：新增F11套环和F12厚片插架各三段。仅更新维护者预览静态资料，生产actor服务保持原版本。
+
+2026-10-10媒体进一步增至72段、24族完整A/B/C：新增F14键向插孔和F20结构搬迁各三段。均有随包MP4、动作、初终态和解码证据，对应历史冻结源码；不直接装作当前actor服务的正式示范。
+
+最新媒体为75段、25族完整A/B/C，追加F19新版2×3图卡纠错三段；旧行式图卡版本保留在开发批次，不混入新版索引。

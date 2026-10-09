@@ -210,10 +210,12 @@ class TabletopDual(DesktopDual):
             return bool(np.linalg.norm(local[:2]) < .008 and a["mat"][2, 2] > .97
                         and abs(local[2]+half-.024) < .006
                         and self.check_contact(self.items[g["object"]], self.items[g["target"]]))
-        if g["type"] == "nest" and "inner_size" in self.by_spec[g["target"]]:
+        if g["type"] == "nest" and ("inner_size" in self.by_spec[g["target"]]
+                or self.by_spec[g["target"]]["kind"] in ("bowl", "tray")):
             a, b = state[g["object"]], state[g["target"]]
             size = np.array(self.by_spec[g["object"]]["size"])
-            inner = np.array(self.by_spec[g["target"]]["inner_size"])
+            target = self.by_spec[g["target"]]
+            inner = np.array(target.get("inner_size", target["size"]))
             local = b["mat"].T@(a["pos"]-b["pos"])
             extent = np.abs(b["mat"].T@a["mat"])@size
             if self.by_spec[g["object"]]["kind"] == "sphere": extent = size
@@ -238,6 +240,11 @@ class TabletopDual(DesktopDual):
             a, b = state[g["object"]], state[g["target"]]
             local = b["mat"].T@(a["pos"]-b["pos"])
             return bool(np.linalg.norm(local[:2]-g["xy"]) < g["tolerance"])
+        if g["type"] == "container_half":
+            a, b = state[g["object"]], state[g["target"]]
+            local = b["mat"].T@(a["pos"]-b["pos"])
+            extent = np.abs(b["mat"].T@a["mat"])@np.asarray(self.by_spec[g["object"]]["size"])
+            return bool(g["side"]*local[1] >= extent[1]-.004)
         if g["type"] == "row_lengths":
             used, totals = set(), []
             for ref in g["references"]:

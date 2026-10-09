@@ -1,0 +1,58 @@
+{
+  "task": "F19",
+  "variant": "A",
+  "seed": 0,
+  "source_sha256": "28f24755fd0d0e740d3556da0910fa5fa8ca282df72a247b994105fe89b4603b",
+  "world_sha256": "232f2fd6ea7caa84f02e2df4c0c0114e8c82a6c5d8fdce3a84602f5aa70e33f7",
+  "video_sha256": "06f181bb645c9bff64409d84a41559a9fcfa05a4504ae5c1da4381340a69f4f5",
+  "decoded_frames": 5118,
+  "fps": 10.0,
+  "duration_seconds": 511.8,
+  "ending_image_mae": 3.1239116191864014,
+  "initial_positions": {
+    "piece0": [
+      0.04115193576838032,
+      -0.22445965215709257,
+      0.8117844851016339
+    ],
+    "piece1": [
+      0.04115193576838032,
+      -0.004459652157092592,
+      0.8117844851016339
+    ],
+    "piece2": [
+      0.04115193576838032,
+      0.21554034784290743,
+      0.8117844851016339
+    ],
+    "piece3": [
+      0.22115193576838033,
+      -0.22445965215709257,
+      0.8117844851016339
+    ],
+    "piece4": [
+      0.22115193576838033,
+      -0.004459652157092592,
+      0.8117844851016339
+    ],
+    "piece5": [
+      0.22115193576838033,
+      0.21554034784290743,
+      0.8117844851016339
+    ]
+  },
+  "cross_rule_predicates": {
+    "A": true,
+    "B": false,
+    "C": false
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 18,
+    "fixtures_visible": true
+  },
+  "usable_for_agent_demo": true,
+  "independent_agent": false,
+  "human_recorded": false,
+  "folder": "F19-A-0"
+}

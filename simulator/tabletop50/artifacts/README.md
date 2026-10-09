@@ -4,7 +4,7 @@
 
 ## 可见性合格的作者预览
 
-当前66个条件的合格录像（按任务与规则去重），22族A/B/C完整；来自历史冻结源码，不能直接作为最新版服务的示范。
+当前75个条件的合格录像（按任务与规则去重），25族A/B/C完整；来自历史冻结源码，不能直接作为最新版服务的示范。
 
 - [可见支架穿杆](visible-preview-v46/index.html)：F13/F36/F49各三段，共九段；孔框、通道壁与铰链支撑均可见（F49与v43按条件去重）；[验收清单](visible-preview-v46/manifest.private.json)、[冻结源码](visible-source-v46.tar.gz)、[道具初态渲染](visible-scene-previews-v46/README.md)。
 - [真实铰链展示板](articulation-preview-v43/index.html)：F49-A/B/C三段；[录像验收清单](articulation-preview-v43/manifest.private.json)、[冻结源码](articulation-source-v43.tar.gz)。
@@ -84,3 +84,10 @@
 
 - `rack-preview-v118/`：F12三规则完整成功录像，厚片竖直插入真实槽口；对应`slots-source-v118.tar.gz`。槽号从FPV画面右到左为1/2/3，已明确在录制卡。
 - `physical-acceptance-v119/` / `key-source-v119.tar.gz`：F14按真实L形孔边界判断的三规则成功物理执行，尚待录像。
+
+- `key-preview-v119/`：F14三规则完整成功录像，真实L形插块进入对应L形孔；对应`key-source-v119.tar.gz`。
+- `relocate-preview-v117/`：F20三规则完整成功录像，在可见目标板中保持不对称图案、旋转90度或180度；对应`reference-source-v117.tar.gz`。
+
+- `physical-acceptance-v120/`：F18盒内成员交换、F31有限空间装箱各三规则物理成功，有分任务清单；对应`contents-source-v120.tar.gz`。盒子允许平移与旋转，仍要求真实装入及任务所需盖闭。
+
+- `correction-preview-v118/`：F19新版2×3参照图卡三规则成功录像、完整解码和视觉审阅证据；对应`slots-source-v118.tar.gz`。初终态均可见三张图卡与工作六格。

@@ -1,0 +1,179 @@
+{
+  "task": "F19",
+  "variant": "C",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "28f24755fd0d0e740d3556da0910fa5fa8ca282df72a247b994105fe89b4603b",
+  "source_unchanged": true,
+  "world_sha256": "232f2fd6ea7caa84f02e2df4c0c0114e8c82a6c5d8fdce3a84602f5aa70e33f7",
+  "initial_positions": {
+    "piece0": [
+      0.04115193576838032,
+      -0.22445965215709257,
+      0.8117844851016339
+    ],
+    "piece1": [
+      0.04115193576838032,
+      -0.004459652157092592,
+      0.8117844851016339
+    ],
+    "piece2": [
+      0.04115193576838032,
+      0.21554034784290743,
+      0.8117844851016339
+    ],
+    "piece3": [
+      0.22115193576838033,
+      -0.22445965215709257,
+      0.8117844851016339
+    ],
+    "piece4": [
+      0.22115193576838033,
+      -0.004459652157092592,
+      0.8117844851016339
+    ],
+    "piece5": [
+      0.22115193576838033,
+      0.21554034784290743,
+      0.8117844851016339
+    ]
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 18,
+    "fixtures_visible": true
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 22.0,
+    "predicates": [
+      {
+        "rule": {
+          "type": "position",
+          "object": "piece2",
+          "xy": [
+            0.04005624226980868,
+            -0.22261794586720354
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "piece1",
+          "xy": [
+            0.04005624226980868,
+            -0.002617945867203554
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "piece4",
+          "xy": [
+            0.04005624226980868,
+            0.21738205413279646
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "piece3",
+          "xy": [
+            0.2200562422698087,
+            -0.22261794586720354
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "piece0",
+          "xy": [
+            0.2200562422698087,
+            -0.002617945867203554
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "piece5",
+          "xy": [
+            0.2200562422698087,
+            0.21738205413279646
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "piece0": [
+        0.2079514834851098,
+        -0.009354571081882677,
+        0.8117844891595659
+      ],
+      "piece1": [
+        0.04191276599233567,
+        -0.0038565909500108027,
+        0.8117844891595659
+      ],
+      "piece2": [
+        0.04274363929131568,
+        -0.22396649027322732,
+        0.8117844891595659
+      ],
+      "piece3": [
+        0.22309708633897224,
+        -0.22374245915116125,
+        0.8117844891595659
+      ],
+      "piece4": [
+        0.041811452548707724,
+        0.20917048280327863,
+        0.8117844891595659
+      ],
+      "piece5": [
+        0.22387119305125017,
+        0.21490150141074318,
+        0.8117844891595659
+      ]
+    },
+    "events": [],
+    "metric": "success",
+    "joint_angles": {}
+  },
+  "cross_rule_predicates": {
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  "actions": 1185,
+  "actions_sha256": "301ea1f7cbfd5849a0756bcaed37f1cc2ae8cd9823337bb0e9f141e213cd94e6",
+  "error": null,
+  "video": {
+    "recorded": true,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 4742,
+    "duration_seconds": 474.2,
+    "full_episode": true,
+    "final_success": true,
+    "sha256": "bc55934acc4e821cf1e29f8d4b0499b9d52c1cabf90103e2c3d5c5d7bd3f9878"
+  }
+}
