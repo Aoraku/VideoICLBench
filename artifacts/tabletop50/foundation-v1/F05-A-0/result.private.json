@@ -1,0 +1,129 @@
+{
+  "task": "F05",
+  "variant": "A",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+  "source_unchanged": true,
+  "world_sha256": "6fd40856372209215a777178f8996c4c627276812f5cec88a57811a6769b3c9d",
+  "initial_positions": {
+    "size0": [
+      -0.1606077140050885,
+      0.20285822162795916,
+      0.8177844851010382
+    ],
+    "size1": [
+      -0.1606077140050885,
+      -0.19714177837204086,
+      0.8227844851007574
+    ],
+    "size2": [
+      -0.1606077140050885,
+      0.002858221627959152,
+      0.8277844851005791
+    ],
+    "size3": [
+      -0.030607714005088504,
+      -0.19714177837204086,
+      0.8327844851004561
+    ]
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 19.6,
+    "predicates": [
+      {
+        "rule": {
+          "type": "position",
+          "object": "size0",
+          "xy": [
+            0.14829659249633986,
+            -0.22030007208215183
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "size1",
+          "xy": [
+            0.14829659249633986,
+            -0.07030007208215182
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "size2",
+          "xy": [
+            0.14829659249633986,
+            0.07969992791784818
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "size3",
+          "xy": [
+            0.14829659249633986,
+            0.22969992791784813
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "size0": [
+        0.14057222491554167,
+        -0.2101895041039642,
+        0.8177844891595659
+      ],
+      "size1": [
+        0.14116868029876975,
+        -0.0701447769444039,
+        0.8227844891595658
+      ],
+      "size2": [
+        0.15175077697199324,
+        0.06962354819639037,
+        0.8277844891595659
+      ],
+      "size3": [
+        0.15278952752440197,
+        0.23025553489547032,
+        0.8327844891595658
+      ]
+    },
+    "events": [],
+    "metric": "success"
+  },
+  "cross_rule_predicates": {
+    "A": true,
+    "B": false,
+    "C": false
+  },
+  "actions": 775,
+  "actions_sha256": "f3546bfe4811a7b2cd50a5200d2878fcc0b81d5633e2366da797bf414af640b6",
+  "error": null,
+  "video": {
+    "recorded": true,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 3102,
+    "duration_seconds": 310.2,
+    "full_episode": true,
+    "final_success": true,
+    "sha256": "8c307cf700a83c34557b9eda1c96ebf46f6b3b533c2946c4f636e407502133c5"
+  }
+}
