@@ -84,3 +84,20 @@ def test_vacancy_rule_labels_follow_first_person_left_and_right():
             final = [g["object"] for g in sorted(spec["goals"], key=lambda g: -g["xy"][1])]
             expected = {"A": initial[-1:]+initial[:-1], "B": initial[1:]+initial[:1], "C": initial[::-1]}
             assert final == expected[variant]
+
+
+def test_reference_row_and_extraction_labels_follow_first_person_direction():
+    for seed in [0, 19, 37]:
+        for variant in "ABC":
+            spec = task_spec("F28", variant, seed)
+            objects = {o["id"]: o for o in spec["objects"]}
+            refs = sorted((o for o in objects.values() if o["id"].startswith("ref")), key=lambda o: -o["xy"][1])
+            initial = [o["rgba"] for o in refs]
+            goals = sorted((g for g in spec["goals"] if g["object"].startswith("piece")), key=lambda g: -g["xy"][1])
+            final = [objects[g["object"]]["rgba"] for g in goals]
+            expected = {"A": initial, "B": initial[::-1], "C": initial[-1:]+initial[:-1]}
+            assert final == expected[variant]
+            spec = task_spec("F24", variant, seed)
+            selected = next(p["object"] for p in spec["author_plan"] if p["object"].startswith("piece"))
+            pieces = sorted((o for o in spec["objects"] if o["id"].startswith("piece")), key=lambda o: -o["xy"][1])
+            assert selected == pieces[{"A": 2, "B": 1, "C": 0}[variant]]["id"]

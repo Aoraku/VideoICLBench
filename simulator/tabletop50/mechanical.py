@@ -81,8 +81,7 @@ def build(recipe, v, rng, obj, position):
         for slot in range(3):
             chosen = colors[(slot+v) % 3]
             xy = [.16, -.22+slot*.22]
-            goals += [position(chosen, xy, .006), dict(type="upright", object=chosen, axis=2),
-                      dict(type="yaw", object=chosen, value=0., tolerance=.12)]
+            goals.append(dict(type="rack_slot", object=chosen, xy=xy, half_opening=[.045, .014]))
             move(chosen, xy, fine=True)
     elif recipe == "double_hole":
         for c, color in enumerate(colors):

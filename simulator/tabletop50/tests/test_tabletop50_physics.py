@@ -22,6 +22,51 @@ def test_ring_jaw_alignment_uses_actual_finger_slide_axis(tmp_path):
     finally: e.close()
 
 
+def test_threaded_ring_uses_hole_clearance_and_requires_seating_and_contact(monkeypatch):
+    e = TabletopDual(task_spec("F11"), render=False)
+    try:
+        state = e.snapshot()
+        goal = e.spec["goals"][0]
+        ring, post = state[goal["object"]], state[goal["target"]]
+        ring["mat"] = post["mat"] = np.eye(3)
+        ring["pos"] = post["pos"]+np.array([.019, 0., -.018])
+        monkeypatch.setattr(e, "check_contact", lambda *args: True)
+        assert e.predicate(goal, state)  # Off-centre, but the shaft fits.
+        ring["pos"][0] += .004
+        assert not e.predicate(goal, state)  # Shaft intersects annular wall.
+        ring["pos"] = post["pos"]+np.array([0., 0., .05])
+        assert not e.predicate(goal, state)  # Ring hovering over the post.
+        ring["pos"] = post["pos"]+np.array([0., 0., -.018])
+        ring["mat"] = np.array([[1., 0., 0.], [0., 0., -1.], [0., 1., 0.]])
+        assert not e.predicate(goal, state)  # Ring resting on its edge.
+        ring["mat"] = np.eye(3)
+        monkeypatch.setattr(e, "check_contact", lambda *args: False)
+        assert not e.predicate(goal, state)
+    finally: e.close()
+
+
+def test_rack_slot_accepts_valid_end_offset_and_rejects_outside_or_hovering(monkeypatch):
+    e = TabletopDual(task_spec("F12"), render=False)
+    try:
+        goal = e.spec["goals"][0]
+        state = e.snapshot(); item = state[goal["object"]]
+        item["mat"] = np.eye(3)
+        item["pos"] = np.array([*goal["xy"], .855])
+        item["pos"][0] += .007
+        monkeypatch.setattr(e, "check_contact", lambda *args: True)
+        assert e.predicate(goal, state)
+        item["pos"][0] += .008
+        assert not e.predicate(goal, state)
+        item["pos"] = np.array([*goal["xy"], .855]); item["pos"][1] += .006
+        assert not e.predicate(goal, state)
+        item["pos"] = np.array([*goal["xy"], .90])
+        assert not e.predicate(goal, state)
+        item["pos"] = np.array([*goal["xy"], .855])
+        monkeypatch.setattr(e, "check_contact", lambda *args: False)
+        assert not e.predicate(goal, state)
+    finally: e.close()
+
+
 def test_triangle_parts_do_not_walk_off_an_idle_table():
     e = TabletopDual(task_spec("F08"), render=False)
     try:

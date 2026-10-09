@@ -72,3 +72,10 @@
 
 - `mosaic-preview-v114/`：修正后的F10三规则完整录像；`mosaic-source-v114.tar.gz`为对应源码，`physical-acceptance-v114/`为Mac无渲染独立复验。
 - `stack-recovery-preview-v79/`：F17三规则完整录像及解码证据，对应`full-source-v79.tar.gz`；五层按底部起计。
+
+- `physical-acceptance-v116/` / `ring-source-v116.tar.gz`：F11真实套环三规则成功；旧`ring-diagnostics-v115/`继续保留失败。
+- `physical-acceptance-v118/` / `slots-source-v118.tar.gz`：F12按实际槽口判定的三规则物理成功。
+- `reference-source-v117.tar.gz`：六组录像批次的精确冻结源码，含可见标记和方向修正；F19最终改用v118的2×3图卡版本。
+- `scene-review-v118/`：初态构图审阅图，不是成功录像。
+
+`physical-acceptance-v118/`还包含新版F19三规则成功的独立清单`F19.manifest.private.json`，与F12共享同一冻结源码。三张参照图卡与六工作格的初态构图为scene-review-v118/F19.jpg。

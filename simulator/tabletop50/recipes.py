@@ -63,6 +63,9 @@ def extended(recipe, v, rng, obj, position):
                 zones.extend(dict(id=f"{prefix}{i}", xy=xy, half_size=[.061, .061], marker=None)
                              for i, xy in enumerate(cells))
         if recipe in ("mosaic", "reference"):
+            if recipe == "reference":
+                zones.extend(dict(id=f"target{i}", xy=xy, half_size=[.045, .045], marker=None)
+                             for i, xy in enumerate(dest))
             for i, index in enumerate(order):
                 objects.append(obj(f"ref{i}", source[i], colors[index], size=(.025, .025, .025 if recipe == "mosaic" else .01)))
                 goals.append(dict(type="place", object=f"ref{i}", target=f"reference{i}")
@@ -77,26 +80,36 @@ def extended(recipe, v, rng, obj, position):
             dest = [[center[0]+x*math.cos(angle)-y*math.sin(angle),
                      center[1]+x*math.sin(angle)+y*math.cos(angle)] for x,y in relative]
             permutation = list(range(count)); movable_starts = source
+            zones.append(dict(id="target_board", xy=center, half_size=[.22, .22], marker=None))
         else:
             # Six occupied pads, with exactly three locations changed per rule.
-            dest = [[-.16+(i//3)*.28, -.22+(i % 3)*.22] for i in range(6)]
+            dest = [[.04+(i//3)*.18, -.22+(i % 3)*.22] for i in range(6)]
+            zones.extend(dict(id=f"work_cell{i}", xy=xy, half_size=[.04, .04], marker=None)
+                         for i, xy in enumerate(dest))
             movable_starts = dest
             permutation = list(range(6))
             selected = ([0, 1, 2], [3, 4, 5], [0, 2, 4])[v]
             for a, b in zip(selected, selected[1:]+selected[:1]): permutation[a] = b
-            # All reference configurations coexist as actor-visible chip rows.
+            # Three visible 2x3 diagrams use the same row/column topology as
+            # the working grid; keep them in front of all movable pieces.
             for r, selected in enumerate(([0, 1, 2], [3, 4, 5], [0, 2, 4])):
+                card_y = -.25+r*.25
+                zones.append(dict(id=f"reference_card{r}", xy=[-.26, card_y],
+                                  half_size=[.065, .095], marker=None))
+                zones.append(dict(id=f"reference_label{r}", xy=[-.355, card_y],
+                                  half_size=[.024, .024], marker=r))
                 p = list(range(6))
                 for a, b in zip(selected, selected[1:]+selected[:1]): p[a] = b
                 for i in range(6):
-                    static_box([-.32+r*.10, -.125+i*.05], [.018, .018, .002], .803, colors_rgba(colors[p[i]]))
+                    static_box([-.29+(i//3)*.06, card_y-.06+(i % 3)*.06],
+                               [.018, .018, .002], .803, colors_rgba(colors[p[i]]))
         for i in range(count):
             objects.append(obj(f"piece{i}", movable_starts[i], colors[i],
                                size=(.025, .025, .025 if recipe == "mosaic" else .012)))
         if recipe == "correct":
             changed = [i for i in range(count) if permutation[i] != i]
             # Clear occupied targets using distinct staging locations.
-            for j, i in enumerate(changed): move(f"piece{i}", [.00, -.22+j*.22])
+            for j, i in enumerate(changed): move(f"piece{i}", [-.02, -.22+j*.22])
         for slot, index in enumerate(permutation):
             if recipe == "mosaic":
                 goals.append(dict(type="place", object=f"piece{index}", target=f"target{slot}"))
@@ -154,6 +167,8 @@ def extended(recipe, v, rng, obj, position):
             locs = [[.12, -.22], [.12, 0.], [.12, .22]]
             for i, xy in enumerate(locs):
                 bin_(f"bin{i}", xy, (.065, .065, .025))
+                zones.append(dict(id=f"box_label{i}", xy=[xy[0]-.11, xy[1]],
+                                  half_size=[.025, .025], marker=i))
                 objects.append(obj(f"piece{i}", xy, colors[i], size=(.018, .018, .018), bottom=.808))
                 objects.append(obj(f"lid{i}", xy, "yellow", "lid", (.07, .07, .025), bottom=.85))
                 goals.append(dict(type="cover", object=f"lid{i}", target=f"bin{i}"))
@@ -167,6 +182,7 @@ def extended(recipe, v, rng, obj, position):
                 objects.append(obj(f"piece{i}", xy, colors[i], size=(.035, .045, .012)))
                 if i != v: goals.append(position(f"piece{i}", xy))
             objects.append(obj("cover_bar", [.12, 0.], "yellow", "bar", (.02, .23, .018), bottom=.824))
+            zones.append(dict(id="bar_return", xy=[.12, 0.], half_size=[.027, .24], marker=None))
             move("cover_bar", [-.13, .05])
             at(f"piece{v}", [-.13, -.22])
             move("cover_bar", [.12, 0.])

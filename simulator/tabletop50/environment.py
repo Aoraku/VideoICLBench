@@ -132,6 +132,14 @@ class TabletopDual(DesktopDual):
         return state
 
     def predicate(self, g, state):
+        if g["type"] == "rack_slot":
+            item = state[g["object"]]
+            extent = np.abs(item["mat"])@np.asarray(self.by_spec[g["object"]]["size"])
+            inside = np.all(np.abs(item["pos"][:2]-g["xy"])+extent[:2]
+                            <= np.asarray(g["half_opening"])+.0005)
+            bottom = item["pos"][2]-extent[2]
+            return bool(inside and .799 <= bottom <= .805 and item["mat"][2, 2] > .97
+                        and self.check_contact(self.items[g["object"]], "table_collision"))
         if g["type"] == "extended_hook":
             return ("extended_hook", g["object"]) in self.events
         if g["type"] == "bolt_engaged":
@@ -249,6 +257,23 @@ class TabletopDual(DesktopDual):
             sa = self.by_spec[g["object"]]
             sb = self.by_spec[g["target"]]
             local = b["mat"].T@(a["pos"]-b["pos"])
+            if g["type"] == "threaded":
+                # Completion is a post passing through the real annular hole
+                # with the ring seated on its base, not concentric centres.
+                center = a["mat"].T@(b["pos"]-a["pos"])
+                axis = a["mat"].T@b["mat"][:, 2]
+                if abs(axis[2]) < .5: return False
+                angles = np.arange(24)*2*np.pi/24
+                normals = np.column_stack([np.cos(angles), np.sin(angles)])
+                radius = sb["post_radius"]
+                extent = radius*np.sqrt(1+(normals@axis[:2]/axis[2])**2)
+                for side in (-1, 1):
+                    t = (side*sa["size"][2]-center[2])/axis[2]
+                    point = center+t*axis
+                    if not (-sb["size"][2]+.008-.001 <= t <= sb["size"][2]+.001): return False
+                    if np.any(normals@point[:2]+extent > sa["inner_radius"]+.0005): return False
+                seated = abs(local[2]-sa["size"][2]+sb["size"][2]-.008) < .008
+                return bool(seated and self.check_contact(self.items[g["object"]], self.items[g["target"]]))
             tolerance = g.get("tolerance", .015)
             target_bottom = g.get("relative_bottom", -sb["size"][2]+.008)
             contact = self.check_contact(self.items[g["object"]], self.items[g["target"]]) if g["type"] == "threaded" else self.check_contact(self.items[g["object"]], "table_collision")
