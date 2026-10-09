@@ -1,0 +1,157 @@
+{
+  "task": "F36",
+  "variant": "A",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "2a8e1555a6fb295bcca6acbe1ff985bb94ab16f25c6d837d3ade97b7f4e885c3",
+  "source_unchanged": true,
+  "world_sha256": "4a7d3226349ac31efcbd4ff797f02459393eb41feb350d22cc6e092baad916fa",
+  "initial_positions": {
+    "pusher": [
+      -0.2200450968520234,
+      0.0015638767785283152,
+      0.8747844851008899
+    ],
+    "red": [
+      -0.035045096852023394,
+      -0.21843612322147177,
+      0.8217844851008027
+    ],
+    "green": [
+      -0.035045096852023394,
+      0.0015638767785282346,
+      0.8217844851008027
+    ],
+    "blue": [
+      -0.035045096852023394,
+      0.22156387677852823,
+      0.8217844851008027
+    ]
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 20.85,
+    "predicates": [
+      {
+        "rule": {
+          "type": "pushed",
+          "object": "red",
+          "target": "pusher",
+          "distance": 0.1
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "red",
+          "xy": [
+            0.19885920964940498,
+            -0.21659441693158274
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "pushed",
+          "object": "green",
+          "target": "pusher",
+          "distance": 0.1
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "green",
+          "xy": [
+            0.19885920964940498,
+            0.003405583068417272
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "pushed",
+          "object": "blue",
+          "target": "pusher",
+          "distance": 0.1
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "blue",
+          "xy": [
+            0.19885920964940498,
+            0.22340558306841726
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "pusher": [
+        -0.23070564755009046,
+        0.0021906518338265443,
+        0.8747844891595659
+      ],
+      "red": [
+        0.2001819970007803,
+        -0.21787090118624847,
+        0.8217844891595659
+      ],
+      "green": [
+        0.19910418002434113,
+        0.002767940753141155,
+        0.8217844891595659
+      ],
+      "blue": [
+        0.20056444123907247,
+        0.2231729952627643,
+        0.8217844891595659
+      ]
+    },
+    "events": [
+      [
+        "pushed",
+        "blue"
+      ],
+      [
+        "pushed",
+        "green"
+      ],
+      [
+        "pushed",
+        "red"
+      ]
+    ],
+    "metric": "success"
+  },
+  "cross_rule_predicates": {
+    "A": true,
+    "B": false,
+    "C": false
+  },
+  "actions": 1247,
+  "actions_sha256": "da6b951f4cee38cbb34a3f2c3ba81f71a92cf5201a600eacd7d552b8e738b5b4",
+  "error": null,
+  "video": {
+    "recorded": true,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 4990,
+    "duration_seconds": 499.0,
+    "full_episode": true,
+    "final_success": true,
+    "sha256": "a80a19f31b08b4931a7e3dcc979649abd3a479427368349a2b6e93612b841fe2"
+  }
+}

@@ -64,6 +64,7 @@ def validated_demo(req):
         assert (p["task"], p["variant"], p["seed"]) == (req.task, req.variant, req.demo_seed)
         assert p["score"]["success"] and not p["error"] and p["source_unchanged"]
         assert p["source_sha256"] == source_hash()
+        assert p["visual_environment"]["fixtures_visible"]
         assert cross[req.variant] and sum(cross.values()) == 1
         assert p["video"]["recorded"] and p["video"]["full_episode"] and p["video"]["final_success"]
         assert hashlib.sha256((folder/"video.mp4").read_bytes()).hexdigest() == p["video"]["sha256"]
@@ -71,6 +72,7 @@ def validated_demo(req):
         audit = json.loads((folder/"media-audit.private.json").read_text())
         assert audit["video_sha256"] == p["video"]["sha256"]
         assert audit["decoded_frames"] == p["video"]["frames"] and audit["ending_image_mae"] < 20
+        assert audit["visual_environment"]["fixtures_visible"] and audit["usable_for_agent_demo"]
     except (OSError, ValueError, KeyError, AssertionError):
         raise HTTPException(409, "Matching current-source decoded demonstration unavailable")
     return folder/"video.mp4"

@@ -53,5 +53,12 @@
   },
   "independent_agent": false,
   "human_recorded": false,
-  "folder": "F48-C-0"
+  "folder": "F48-C-0",
+  "usable_for_agent_demo": false,
+  "visual_environment": {
+    "fixtures_visible": false,
+    "fixture_count": 8,
+    "evidence": "source-and-render-review"
+  },
+  "visual_defect": "Static collision fixtures were in hidden render group 0; re-record required"
 }

@@ -79,7 +79,13 @@
       },
       "independent_agent": false,
       "human_recorded": false,
-      "folder": "F22-A-0"
+      "folder": "F22-A-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
     },
     {
       "task": "F22",
@@ -141,7 +147,13 @@
       },
       "independent_agent": false,
       "human_recorded": false,
-      "folder": "F22-B-0"
+      "folder": "F22-B-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
     },
     {
       "task": "F22",
@@ -203,7 +215,13 @@
       },
       "independent_agent": false,
       "human_recorded": false,
-      "folder": "F22-C-0"
+      "folder": "F22-C-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
     },
     {
       "task": "F47",
@@ -230,7 +248,13 @@
       },
       "independent_agent": false,
       "human_recorded": false,
-      "folder": "F47-A-0"
+      "folder": "F47-A-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
     },
     {
       "task": "F47",
@@ -257,7 +281,13 @@
       },
       "independent_agent": false,
       "human_recorded": false,
-      "folder": "F47-B-0"
+      "folder": "F47-B-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
     },
     {
       "task": "F47",
@@ -284,7 +314,13 @@
       },
       "independent_agent": false,
       "human_recorded": false,
-      "folder": "F47-C-0"
+      "folder": "F47-C-0",
+      "usable_for_agent_demo": true,
+      "visual_environment": {
+        "fixtures_visible": true,
+        "fixture_count": 0,
+        "evidence": "source-and-render-review"
+      }
     },
     {
       "task": "F48",
@@ -341,7 +377,14 @@
       },
       "independent_agent": false,
       "human_recorded": false,
-      "folder": "F48-C-0"
+      "folder": "F48-C-0",
+      "usable_for_agent_demo": false,
+      "visual_environment": {
+        "fixtures_visible": false,
+        "fixture_count": 8,
+        "evidence": "source-and-render-review"
+      },
+      "visual_defect": "Static collision fixtures were in hidden render group 0; re-record required"
     }
   ],
   "rejected": [
@@ -365,5 +408,7 @@
       "case": "F48-B-0",
       "error": "Failed author execution"
     }
-  ]
+  ],
+  "usable_videos": 6,
+  "usable_complete_three_rule_families": 2
 }

@@ -18,6 +18,17 @@ def test_triangle_parts_do_not_walk_off_an_idle_table():
     finally: e.close()
 
 
+def test_physical_frames_are_visible_with_collision_mesh_rendering_disabled():
+    e = TabletopDual(task_spec("F13"), render=False)
+    try:
+        for i in range(len(e.spec["fixtures"])):
+            gid = e.sim.model.geom_name2id(f"fixture{i}")
+            assert e.sim.model.geom_group[gid] == 1
+            assert e.sim.model.geom_contype[gid] != 0
+            assert e.sim.model.geom_conaffinity[gid] != 0
+    finally: e.close()
+
+
 def test_real_initial_positions_equal_across_rule_variants():
     snapshots = []
     for variant in "ABC":
@@ -27,6 +38,48 @@ def test_real_initial_positions_equal_across_rule_variants():
             assert not e.score()["success"]
         finally: e.close()
     assert snapshots[0] == snapshots[1] == snapshots[2]
+
+
+def test_hinged_display_is_connected_and_needs_a_real_support():
+    e = TabletopDual(task_spec("F49", "B"), render=False)
+    try:
+        panel = e.items["panel1"]
+        assert len(panel.joints) == 2  # Free base and attached hinge, not separate rigid tiles.
+        joint = panel.naming_prefix+"hinge"
+        e.sim.data.set_joint_qpos(joint, 1.15)  # Test fixture, never an author execution.
+        e.sim.forward()
+        for _ in range(40): e.action()
+        state = e.snapshot()
+        assert abs(state["panel1"]["hinge_angle"]-1.15) < .01
+        angle = next(g for g in e.spec["goals"] if g["object"] == "panel1" and g["type"] == "hinge_angle")
+        assert e.predicate(angle, state)
+        support = next(g for g in e.spec["goals"] if g["type"] == "leaf_support")
+        assert not e.predicate(support, state)
+        assert not e.score()["success"]
+    finally: e.close()
+
+
+def test_flying_over_door_does_not_count_as_passing_through_it():
+    e = TabletopDual(task_spec("F45"), render=False)
+    try:
+        goal = next(g for g in e.spec["goals"] if g["type"] == "passed_gate")
+        x, y, _ = goal["apertures"][0]
+        joint = e.items["long_bar"].joints[0]
+        e.sim.data.set_joint_qpos(joint, [x, y, 1.45, 1., 0., 0., 0.])
+        e.sim.forward(); e.action()
+        assert not e.predicate(dict(goal, type="through_apertures"), e.snapshot())
+        e.sim.data.set_joint_qpos(joint, [x+.25, y, 1.4, 1., 0., 0., 0.])
+        e.sim.forward(); e.action()
+        assert not e.predicate(goal, e.snapshot())
+        # Positive detector fixture uses the real aperture before leaving it.
+        e.sim.data.set_joint_qvel(joint, [0.]*6)
+        e.sim.data.set_joint_qpos(joint, [x, y, .90, 1., 0., 0., 0.])
+        e.sim.forward(); e.action()
+        e.sim.data.set_joint_qvel(joint, [0.]*6)
+        e.sim.data.set_joint_qpos(joint, [x+.25, y, .90, 1., 0., 0., 0.])
+        e.sim.forward(); e.action()
+        assert e.predicate(goal, e.snapshot())
+    finally: e.close()
 
 
 def test_cover_cannot_pass_when_held_above_box():

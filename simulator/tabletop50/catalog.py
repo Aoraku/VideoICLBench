@@ -120,7 +120,7 @@ def task_spec(task_id, variant="A", seed=0):
     for z in zones:
         z["xy"] = [a+b for a, b in zip(z["xy"], offset)]
     for g in goals:
-        if g["type"] == "through_apertures":
+        if g["type"] in ("through_apertures", "passed_gate"):
             for aperture in g["apertures"]:
                 aperture[:2] = [a+b for a, b in zip(aperture[:2], offset)]
         if "xy" in g and g["type"] != "local_position":

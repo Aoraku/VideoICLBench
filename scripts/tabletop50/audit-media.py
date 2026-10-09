@@ -9,10 +9,21 @@ from pathlib import Path
 import imageio_ffmpeg
 import numpy as np
 from PIL import Image
+import sys
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT))
+from simulator.tabletop50.catalog import task_spec, world_sha256
 
 
 def audit(folder):
     proof = json.loads((folder/"result.private.json").read_text())
+    visual = proof.get("visual_environment")
+    if visual is None:
+        spec = task_spec(proof["task"], proof["variant"], proof["seed"])
+        assert world_sha256(spec) == proof["world_sha256"] and not spec["fixtures"], "Legacy fixture visibility is unverified"
+        visual = dict(fixture_count=0, fixtures_visible=True, evidence="matching-world-without-fixtures")
+    assert visual["fixtures_visible"], "Physical fixtures are invisible in the actor camera"
     cross = proof.get("cross_rule_predicates", {})
     assert proof["score"]["success"] and not proof["error"], "Failed author execution"
     assert proof["source_unchanged"], "Source changed during execution"
@@ -39,6 +50,9 @@ def audit(folder):
                 video_sha256=digest, decoded_frames=count, fps=meta["fps"],
                 duration_seconds=count/meta["fps"], ending_image_mae=mae,
                 initial_positions=proof["initial_positions"], cross_rule_predicates=cross,
+                initial_joint_angles=proof.get("initial_joint_angles", {}),
+                visual_environment=visual,
+                usable_for_agent_demo=True,
                 independent_agent=False, human_recorded=False)
 
 
@@ -67,10 +81,13 @@ def main():
         assert len({r["world_sha256"] for r in group}) == 1, f"{task}: world depends on rule"
         initial = [r["initial_positions"] for r in group]
         assert initial[0] == initial[1] == initial[2], f"{task}: physical initial state differs"
+        joints = [r["initial_joint_angles"] for r in group]
+        assert joints[0] == joints[1] == joints[2], f"{task}: initial articulation differs"
         complete.append(dict(task=task, seed=seed, source_sha256=source))
     manifest = dict(status="engineering-author-demonstrations", expected_families=50,
                     expected_rule_conditions=150, verified_videos=len(rows),
                     complete_three_rule_families=len(complete), complete_groups=complete,
+                    usable_videos=len(rows), usable_complete_three_rule_families=len(complete),
                     human_videos=0, independent_agent_trials=0, cases=rows, rejected=rejected)
     (a.output/"manifest.private.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+"\n")
     cards = ["<!doctype html><meta charset='utf-8'><title>Tabletop50 author previews</title>",

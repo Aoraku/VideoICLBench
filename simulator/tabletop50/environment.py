@@ -47,6 +47,7 @@ class TabletopDual(DesktopDual):
         arena.set_origin([0, 0, 0])
         for i, f in enumerate(self.spec.get("fixtures", [])):
             ET.SubElement(arena.worldbody, "geom", name=f"fixture{i}", type=f["type"],
+                          group="1",
                           size=" ".join(map(str, f["size"])),
                           pos=" ".join(map(str, f["xy"]+[f["z"]])),
                           rgba=" ".join(map(str, f["rgba"])), friction="1 .005 .0001")
@@ -78,6 +79,7 @@ class TabletopDual(DesktopDual):
             if s["kind"] == "arrow_bar":
                 b = item.get_obj()
                 x, y, z = s["size"]
+                z = s.get("arrow_z", z)
                 for a, end in (([-x*.6, 0, z+.002], [x*.6, 0, z+.002]),
                                ([x*.6, 0, z+.002], [x*.2, y*.65, z+.002]),
                                ([x*.6, 0, z+.002], [x*.2, -y*.65, z+.002])):
@@ -106,6 +108,7 @@ class TabletopDual(DesktopDual):
         self._pour_inside = {}
         self._manually_handled = set()
         self._tool_contact_origins = {}
+        self._gate_entered = set()
         if not self.deterministic_reset:
             for s in self.spec["objects"]:
                 if "bottom" in s:
@@ -114,7 +117,25 @@ class TabletopDual(DesktopDual):
                         (np.array(s["xy"])+self.layout_jitter).tolist()+[s["bottom"]+s["size"][2]]+q)
             self.sim.forward()
 
+    def snapshot(self):
+        state = super().snapshot()
+        for name, spec in self.by_spec.items():
+            if spec["kind"] != "hinged_panel": continue
+            prefix = self.items[name].naming_prefix
+            state[name]["hinge_angle"] = float(self.sim.data.get_joint_qpos(prefix+"hinge"))
+            state[name]["hinge_velocity"] = float(self.sim.data.get_joint_qvel(prefix+"hinge"))
+            state[name]["leaf_pos"] = self.sim.data.get_body_xpos(prefix+"leaf").copy()
+            state[name]["leaf_mat"] = self.sim.data.get_body_xmat(prefix+"leaf").reshape(3, 3).copy()
+        return state
+
     def predicate(self, g, state):
+        if g["type"] == "hinge_angle":
+            a = state[g["object"]]
+            return bool(g["bounds"][0] <= a["hinge_angle"] <= g["bounds"][1]
+                        and abs(a["hinge_velocity"]) < .04 and a["mat"][2, 2] > .98)
+        if g["type"] == "leaf_support":
+            panel = self.items[g["object"]]
+            return self.check_contact(panel.naming_prefix+"leaf_collision", self.items[g["target"]])
         if g["type"] == "through_apertures":
             a = state[g["object"]]; mat = a["mat"]; direction = mat[:, 0]
             if abs(direction[0]) < .9: return False
@@ -129,7 +150,7 @@ class TabletopDual(DesktopDual):
                     cross = a["pos"]+t*direction
                     if np.any(np.abs(cross[1:]-aperture[1:])+extent > np.array(g["half_opening"])+.001): return False
             return True
-        if g["type"] in ("pushed", "hooked"):
+        if g["type"] in ("pushed", "hooked", "passed_gate"):
             return (g["type"], g["object"]) in self.events
         if g["type"] == "not_place":
             return not super().predicate(dict(g, type="place"), state)
@@ -229,6 +250,14 @@ class TabletopDual(DesktopDual):
     def track(self):
         state = self.snapshot()
         for g in self.spec["goals"]:
+            if g["type"] != "passed_gate": continue
+            name = g["object"]; a = state[name]
+            if self.predicate(dict(g, type="through_apertures"), state):
+                self._gate_entered.add(name)
+            extent = (np.abs(a["mat"]) @ self.by_spec[name]["size"])[0]
+            if name in self._gate_entered and a["pos"][0]-extent > g["apertures"][0][0]+g["half_depth"]:
+                self.events.add(("passed_gate", name))
+        for g in self.spec["goals"]:
             if g["type"] not in ("pushed", "hooked"): continue
             name, tool = g["object"], g["target"]
             a, b = state[name], state[tool]
@@ -287,4 +316,6 @@ class TabletopDual(DesktopDual):
         # The only benchmark metric is terminal success. Hold time is settling,
         # never an additional weighted score or a mandated human motion.
         result["metric"] = "success"
+        result["joint_angles"] = {name: a["hinge_angle"] for name, a in self.snapshot().items()
+                                  if "hinge_angle" in a}
         return result

@@ -35,6 +35,9 @@ def record(task, variant, seed, output, render):
     digest = source_hash()
     folder = output/f"{task}-{variant}-{seed}"
     env = TabletopDual(spec, seed=seed, render=render)
+    fixture_groups = [int(env.sim.model.geom_group[env.sim.model.geom_name2id(f"fixture{i}")])
+                      for i in range(len(spec.get("fixtures", [])))]
+    visual_environment = dict(fixture_count=len(fixture_groups), fixtures_visible=all(g == 1 for g in fixture_groups))
     author = TabletopAuthor(env, folder, seed)
     writer = None
     frame_count = 0
@@ -81,6 +84,8 @@ def record(task, variant, seed, output, render):
             kind="privileged-author-physical-acceptance", independent_agent=False,
             human_recorded=False, source_sha256=digest, source_unchanged=source_hash() == digest,
             world_sha256=world_sha256(spec), initial_positions={k:v["pos"].tolist() for k,v in initial.items()},
+            initial_joint_angles={k:v["hinge_angle"] for k,v in initial.items() if "hinge_angle" in v},
+            visual_environment=visual_environment,
             score=score, cross_rule_predicates=cross, actions=len(author.actions),
             actions_sha256=hashlib.sha256(actions.read_bytes()).hexdigest(), error=error,
             video=dict(recorded=render, camera="fpv", fps=10, frames=frame_count,

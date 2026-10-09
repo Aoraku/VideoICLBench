@@ -1,12 +1,36 @@
 """Tool/contact tasks with real rigid contents and private process evidence."""
-RECIPES = {"F36": "push_delivery", "F37": "hook_retrieval", "F40": "pour_solids"}
+RECIPES = {"F36": "push_delivery", "F37": "hook_retrieval", "F40": "pour_solids", "F45": "pass_long_bar"}
 
 
 def build(recipe, v, rng, obj, position):
     if recipe == "push_delivery": return push_delivery(v, rng, obj, position)
     if recipe == "hook_retrieval": return hook_retrieval(v, rng, obj, position)
+    if recipe == "pass_long_bar": return pass_long_bar(v, rng, obj, position)
     if recipe != "pour_solids": raise NotImplementedError(recipe)
     return pour_solids(v, rng, obj, position)
+
+
+def pass_long_bar(v, rng, obj, position):
+    import math
+    parts = [dict(size=[.15, .024, .014], pos=[0., 0., -.061]),
+             dict(size=[.025, .014, .055], pos=[0., 0., -.005])]
+    bar = obj("long_bar", [-.16, 0.], "yellow", "arrow_bar", (.15, .024, .075),
+              components=parts, bottom=.8, grasp_local=[0., 0., .035], density=100,
+              condim=4, friction=[1.5, .006, .0001], arrow_z=-.047)
+    bar["yaw"] = math.pi/2
+    fixtures = [dict(type="box", xy=[.12, sign*.142], z=.99,
+                     size=[.012, .012, .19], rgba=[.4, .45, .5, 1]) for sign in [-1, 1]]
+    fixtures.append(dict(type="box", xy=[.12, 0.], z=1.192,
+                         size=[.012, .154, .012], rgba=[.4, .45, .5, 1]))
+    heading = [0., math.pi/2, -math.pi/2][v]
+    goals = [dict(type="passed_gate", object="long_bar", apertures=[[.12, 0., .99]],
+                  half_opening=[.13, .19], half_depth=.012),
+             position("long_bar", [.30, 0.]),
+             dict(type="yaw", object="long_bar", value=heading, tolerance=.13)]
+    plan = [dict(object="long_bar", operation="pass_gate", xy=[.30, 0.], bottom=.8,
+                 approach=[-.20, 0., .90], yaw=heading)]
+    zones = [dict(id="delivery", xy=[.30, 0.], half_size=[.08, .20], marker=0)]
+    return [bar], goals, plan, zones, fixtures
 
 
 def pour_solids(v, rng, obj, position):
@@ -76,7 +100,7 @@ def hook_retrieval(v, rng, obj, position):
     objects.append(obj("hook", [-.20, 0.], "yellow", "bar", (.12, .025, .075), components=parts,
                        bottom=.8, grasp_local=[-.09, 0., .045], density=80,
                        friction=[1.5, .006, .0001], condim=4))
-    fixtures.append(dict(type="box", xy=[-.29, 0.], z=.82, size=[.03, .025, .02], rgba=[.4, .45, .5, 1]))
+    fixtures.append(dict(type="box", xy=[-.29, -.05], z=.82, size=[.03, .075, .02], rgba=[.4, .45, .5, 1]))
     # A transparent document stand keeps the tool tip visible while blocking
     # the robot palm. The clearance is deliberately generous for the hook.
     fixtures.append(dict(type="box", xy=[.17, 0.], z=.925, size=[.12, .34, .015], rgba=[.65, .8, .9, .18]))
@@ -90,5 +114,5 @@ def hook_retrieval(v, rng, obj, position):
         goals.append(dict(type="place" if i == v else "not_place", object=f"ring{i}", target="delivery"))
     goals.append(dict(type="hooked", object=f"ring{v}", target="hook", distance=.10))
     plan.append(dict(object="hook", operation="hook", block=f"ring{v}",
-                     start_xy=[.15, -.22+v*.22], xy=[-.18, -.24], bottom=.8, return_xy=[-.20, 0.]))
+                     start_xy=[.15, -.22+v*.22], xy=[-.18, -.24], bottom=.8, return_xy=[-.20, -.10]))
     return objects, goals, plan, zones, fixtures

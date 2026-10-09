@@ -1,0 +1,101 @@
+{
+  "task": "F13",
+  "variant": "A",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "580c5c7022ecb75a951de435f05d8f96c6edfa85527feee4d3b99f48d563fcfe",
+  "source_unchanged": true,
+  "world_sha256": "7088fff256cc5b25cf7a647fca86f536924d4d1ce3242c46c8bc72fa5097be5a",
+  "initial_positions": {
+    "red": [
+      -0.1300450968520234,
+      -0.21843612322147177,
+      0.8137844851056993
+    ],
+    "green": [
+      -0.1300450968520234,
+      0.0015638767785282346,
+      0.8137844851056993
+    ],
+    "blue": [
+      -0.1300450968520234,
+      0.22156387677852823,
+      0.8137844851056993
+    ]
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 8,
+    "fixtures_visible": true
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 20.5,
+    "predicates": [
+      {
+        "rule": {
+          "type": "through_apertures",
+          "object": "red",
+          "apertures": [
+            [
+              0.06885920964940498,
+              0.003405583068417272,
+              0.9
+            ],
+            [
+              0.24885920964940497,
+              0.003405583068417272,
+              0.9
+            ]
+          ],
+          "half_opening": [
+            0.024,
+            0.024
+          ],
+          "half_depth": 0.01
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "red": [
+        0.08941107161724679,
+        0.00016413708087372137,
+        0.8899141578971826
+      ],
+      "green": [
+        -0.1300450968520234,
+        0.0015638767785282346,
+        0.8137844891595659
+      ],
+      "blue": [
+        -0.1300450968520234,
+        0.22156387677852823,
+        0.8137844891595659
+      ]
+    },
+    "events": [],
+    "metric": "success",
+    "joint_angles": {}
+  },
+  "cross_rule_predicates": {
+    "A": true,
+    "B": false,
+    "C": false
+  },
+  "actions": 220,
+  "actions_sha256": "39ffbd2f5be19042cf18153f40da07b40afdfc3ff5a2f22062b129f06cba9f3e",
+  "error": null,
+  "video": {
+    "recorded": true,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 882,
+    "duration_seconds": 88.2,
+    "full_episode": true,
+    "final_success": true,
+    "sha256": "1dba0706a572fc9ecfc70d001ee9c23beb0439a25fc3b87879804b9b0494fda6"
+  }
+}

@@ -29,6 +29,27 @@ def component_object(s, components):
 
 def make_prop(s):
     kind = s["kind"]
+    if kind == "hinged_panel":
+        item = BoxObject(name=s["id"], size=s["size"], rgba=[.7, .7, .7, 1], density=2000)
+        leaf = ET.SubElement(item.get_obj(), "body", name=item.naming_prefix+"leaf", pos="-.08 0 .027")
+        ET.SubElement(leaf, "joint", name=item.naming_prefix+"hinge", type="hinge",
+                      axis="0 -1 0", limited="true", range="0 1.6", damping=".02",
+                      frictionloss=".025", armature=".0001",
+                      solreffriction=".004 1", solimpfriction=".99 .99 .001")
+        for name, size, pos in [("leaf_collision", ".08 .045 .006", ".08 0 0"),
+                                ("handle_collision", ".020 .014 .018", ".145 0 .018")]:
+            for group in [0, 1]:
+                label = name if group == 0 else name.replace("collision", "visual")
+                ET.SubElement(leaf, "geom", name=item.naming_prefix+label, type="box", size=size,
+                              pos=pos, rgba=" ".join(map(str, s["rgba"])), density="80" if group == 0 else "0",
+                              friction="1.5 .006 .0001", condim="4", group=str(group),
+                              contype="1" if group == 0 else "0", conaffinity="1" if group == 0 else "0")
+        # Composite metadata is cached before appending this articulated child.
+        # Extend the raw names once; robosuite applies its usual object prefix.
+        item._bodies.append("leaf"); item._joints.append("hinge")
+        item._contact_geoms.extend(["leaf_collision", "handle_collision"])
+        item._visual_geoms.extend(["leaf_visual", "handle_visual"])
+        return item
     if "components" in s:
         return component_object(s, s["components"])
     if kind == "ring":

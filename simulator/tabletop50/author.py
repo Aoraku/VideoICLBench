@@ -10,6 +10,7 @@ class TabletopAuthor(Author):
     def __init__(self, env, folder, seed=0):
         super().__init__(env, folder, record=False, seed=seed)
         self.yaws = [0., 0.]
+        self.pitches = [0., 0.]
 
     def act(self, arm, token):
         pair = ["STILL", "STILL"]; pair[arm] = token
@@ -23,12 +24,18 @@ class TabletopAuthor(Author):
         self.actions.append(dict(left=pair[0], right=pair[1]))
         self.frame()
         snapshot = {k: dict(pos=v["pos"].tolist(), mat=v["mat"].tolist(), grasp=v["grasp"]) for k, v in self.env.snapshot().items()}
+        for name, state in self.env.snapshot().items():
+            if "hinge_angle" in state:
+                snapshot[name].update(hinge_angle=state["hinge_angle"], hinge_velocity=state["hinge_velocity"],
+                                      leaf_pos=state["leaf_pos"].tolist(), leaf_mat=state["leaf_mat"].tolist())
         with (self.folder/"trace.private.jsonl").open("a") as stream:
             stream.write(json.dumps(dict(index=len(self.actions), action=pair,
                 eef0=self.eef(0).tolist(), eef1=self.eef(1).tolist(), objects=snapshot))+"\n")
         for arm, token in enumerate(pair):
             if token.startswith("YAW_"):
                 self.yaws[arm] += math.radians(1 if token.endswith("_FINE") else 10)*(1 if token.startswith("YAW_POS") else -1)
+            if token.startswith("PITCH_"):
+                self.pitches[arm] += math.radians(1 if token.endswith("_FINE") else 10)*(1 if token.startswith("PITCH_POS") else -1)
 
     def align(self, arm, angle):
         for _ in range(20):
@@ -39,7 +46,14 @@ class TabletopAuthor(Author):
         raise RuntimeError("Wrist orientation did not converge")
 
     def park(self, arm):
-        super().park(arm); self.align(arm, 0.)
+        super().park(arm)
+        for _ in range(40):
+            error = self.pitches[arm]
+            if abs(error) < .01: break
+            token = "PITCH_NEG" if error > 0 else "PITCH_POS"
+            self.act(arm, token+"_FINE" if abs(error) < .09 else token)
+        else: raise RuntimeError("Park wrist pitch did not converge")
+        self.align(arm, 0.)
 
     def pick(self, name, arm, grasp_offset=None):
         s = self.env.by_spec[name]
@@ -94,12 +108,15 @@ class TabletopAuthor(Author):
         target = np.asarray(target)
         self.move(arm, [*self.eef(arm)[:2], max(1.14, target[2]+.18)], axes=(2,))
         offset = self.eef(arm)-self.state(name)["pos"]
-        self.move(arm, target+offset, axes=(0, 1)); self.wait(2)
+        if approach is None:
+            self.move(arm, target+offset, axes=(0, 1)); self.wait(2)
         if approach is not None:
             # The object approaches from the open end, then translates through
             # both apertures. It is never lowered through the frame roof.
             self.horizontal(arm, name)
-            self.object_move(arm, name, np.asarray(approach))
+            entry = np.asarray(approach).copy(); entry[0] -= .05
+            self.object_move(arm, name, entry, axes=(0, 1))
+            self.object_move(arm, name, np.asarray(approach), axes=(2, 0, 1))
             terminal = next((g for g in self.env.spec["goals"]
                              if g["object"] == name and g["type"] == "through_apertures"), None)
             self.object_move(arm, name, target, axes=(0,), stop_goal=terminal)
@@ -203,6 +220,12 @@ class TabletopAuthor(Author):
         self.park(0); self.park(1)
         for p in self.env.spec["author_plan"]:
             name = p["object"]
+            if p.get("operation") == "fold_display":
+                self.fold_display(name, p)
+                continue
+            if p.get("operation") == "pass_gate":
+                self.pass_gate(name, p)
+                continue
             if p.get("operation") == "hook":
                 self.hook(name, p)
                 continue
@@ -220,7 +243,7 @@ class TabletopAuthor(Author):
                 continue
             src = self.state(name)["pos"]
             arm = 0 if src[1] < 0 else 1
-            target_arm = 0 if p["xy"][1] < -.07 else 1 if p["xy"][1] > .07 else arm
+            target_arm = p.get("arm", 0 if p["xy"][1] < -.07 else 1 if p["xy"][1] > .07 else arm)
             if abs(src[1]) < .10: arm = target_arm
             if arm != target_arm:
                 state = self.env.snapshot()
@@ -289,7 +312,7 @@ class TabletopAuthor(Author):
         for _ in range(150):
             if self.state(block)["pos"][0] > .17: break
             if not self.state(name)["grasp"][arm]: raise RuntimeError("Pusher slipped")
-            self.act(arm, "FWD_FINE")
+            self.act(arm, "FWD" if self.state(block)["pos"][0] < .13 else "FWD_FINE")
         if ("pushed", block) not in self.env.events: raise RuntimeError("No tool-driven displacement")
         self.put(name, arm, [*plan["return_xy"], resting_height])
         self.park(arm)
@@ -313,7 +336,8 @@ class TabletopAuthor(Author):
         resting = above.copy(); resting[2] = .875
         self.object_move(arm, name, resting, axes=(2,))
         for _ in range(160):
-            if self.state(ring)["pos"][0] < -.065: break
+            # Leave enough clearance for the palm, not only the ring edge.
+            if self.state(ring)["pos"][0] < -.12: break
             if not self.state(name)["grasp"][arm]: raise RuntimeError("Hook slipped")
             self.act(arm, "BACK_FINE")
         if ("hooked", ring) not in self.env.events: raise RuntimeError("Ring was not pulled by the hook")
@@ -327,3 +351,84 @@ class TabletopAuthor(Author):
         self.put(ring, 0, [*plan["xy"], .8+self.env.by_spec[ring]["size"][2]],
                  fine=True, surface_release=True)
         self.park(0)
+
+    def pass_gate(self, name, plan):
+        arm = 0
+        self.pick(name, arm)
+        mat = self.state(name)["mat"]
+        self.align(arm, self.yaws[arm]-math.atan2(mat[1, 0], mat[0, 0]))
+        self.horizontal(arm, name)
+        self.object_move(arm, name, np.asarray(plan["approach"]), axes=(0, 1, 2, 0, 1))
+        for x in np.linspace(plan["approach"][0], plan["xy"][0], 13)[1:]:
+            self.object_move(arm, name, np.array([x, plan["xy"][1], plan["approach"][2]]), axes=(0, 1, 2))
+        if ("passed_gate", name) not in self.env.events:
+            raise RuntimeError("The complete bar did not pass through the doorway")
+        self.move(arm, [*self.eef(arm)[:2], 1.14], axes=(2,))
+        mat = self.state(name)["mat"]
+        self.align(arm, self.yaws[arm]+plan["yaw"]-math.atan2(mat[1, 0], mat[0, 0]))
+        self.put(name, arm, [*plan["xy"], .8+self.env.by_spec[name]["size"][2]],
+                 fine=True, surface_release=True)
+        self.park(arm)
+
+    def panel_grasp(self, name, arm):
+        state = self.state(name)
+        angle = state["hinge_angle"]
+        point = state["leaf_pos"]+state["leaf_mat"]@np.array([.145, 0., .018])
+        self.act(arm, "RELEASE")
+        self.move(arm, [*point[:2], max(1.10, point[2]+.08)])
+        desired_pitch = -angle
+        for _ in range(100):
+            error = desired_pitch-self.pitches[arm]
+            if abs(error) < .025: break
+            self.act(arm, "PITCH_POS_FINE" if error > 0 else "PITCH_NEG_FINE")
+        self.move(arm, point, axes=(2,)); self.fine_move(arm, point)
+        for _ in range(3): self.act(arm, "GRASP")
+        if not self.state(name)["grasp"][arm]: raise RuntimeError("Panel handle grasp failed")
+
+    def fold_to(self, name, arm, target, support=None):
+        start = self.state(name)["hinge_angle"]
+        count = max(1, int(abs(target-start)/math.radians(5)))
+        for angle in np.linspace(start, target, count+1)[1:]:
+            state = self.state(name)
+            if not state["grasp"][arm]: raise RuntimeError("Panel handle slipped")
+            if support is not None and self.env.predicate(support, self.env.snapshot()): return
+            desired_pitch = -angle
+            for _ in range(8):
+                error = desired_pitch-self.pitches[arm]
+                if abs(error) < .02: break
+                self.act(arm, "PITCH_POS_FINE" if error > 0 else "PITCH_NEG_FINE")
+            c, s = math.cos(angle), math.sin(angle)
+            rotation = np.array([[c, 0., -s], [0., 1., 0.], [s, 0., c]])
+            point = state["leaf_pos"]+state["mat"]@rotation@np.array([.145, 0., .018])
+            for axis in (2, 0, 1):
+                for _ in range(25):
+                    if support is not None and self.env.predicate(support, self.env.snapshot()): return
+                    error = point[axis]-self.eef(arm)[axis]
+                    if abs(error) < .003: break
+                    self.act(arm, (["FWD_FINE", "LEFT_FINE", "UP_FINE"] if error > 0 else
+                                   ["BACK_FINE", "RIGHT_FINE", "DOWN_FINE"])[axis])
+                else: raise RuntimeError("Panel arc positioning failed")
+
+    def fold_display(self, name, plan):
+        arm = 0 if plan["xy"][1] < 0 else 1
+        self.panel_grasp(name, arm)
+        self.fold_to(name, arm, 1.45)
+        self.act(arm, "RELEASE"); self.park(arm)
+        panel = self.state(name)
+        xy = (panel["pos"]+panel["mat"]@np.array([-.04, 0., 0.]))[:2]
+        self.pick(plan["support"], arm)
+        self.put(plan["support"], arm, [*xy, .83+self.env.by_spec[plan["support"]]["size"][2]],
+                 fine=True, surface_release=True)
+        self.park(arm)
+        support = dict(type="leaf_support", object=name, target=plan["support"])
+        state = self.state(name)
+        handle = state["leaf_pos"]+state["leaf_mat"]@np.array([.145, 0., .018])
+        behind = handle+[-.035, 0., 0.]
+        self.act(arm, "GRASP")
+        self.move(arm, behind, axes=(0, 1, 2)); self.fine_move(arm, behind)
+        for _ in range(90):
+            state = self.state(name)
+            if 1.02 <= state["hinge_angle"] <= 1.35 and self.env.predicate(support, self.env.snapshot()): break
+            self.act(arm, "FWD_FINE")
+        else: raise RuntimeError("Display panel did not settle onto its support")
+        self.act(arm, "RELEASE"); self.park(arm)

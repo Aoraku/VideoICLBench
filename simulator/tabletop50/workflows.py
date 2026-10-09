@@ -3,7 +3,8 @@ from .mechanical import annulus
 
 RECIPES = {"F09": "bridge", "F22": "layers", "F25": "change_cap",
            "F27": "top_up", "F33": "complete_lengths", "F35": "kit_delivery",
-           "F15": "mobile_board", "F47": "air_handover", "F48": "reconfigure_bin"}
+           "F15": "mobile_board", "F47": "air_handover", "F48": "reconfigure_bin",
+           "F49": "fold_display"}
 
 
 def handled_tray(obj, name, xy, x, y, z, bottom=None):
@@ -30,7 +31,23 @@ def build(recipe, v, rng, obj, position):
         objects.append(obj(name, xy, "white", "tray", size, **kwargs))
         goals.append(position(name, xy, .015))
 
-    if recipe == "mobile_board":
+    if recipe == "fold_display":
+        selected = 2-v  # Left-to-right in the first-person camera.
+        palette = ["red", "green", "blue"]; rng.shuffle(palette)
+        for i in range(3):
+            name = f"panel{i}"
+            objects.append(obj(name, [.12, -.22+i*.22], palette[i], "hinged_panel", (.10, .065, .015), bottom=.8))
+            goals.append(dict(type="hinge_angle", object=name,
+                              bounds=[1.02, 1.35] if i == selected else [-.03, .06]))
+        support_parts = [dict(size=[.018, .035, .060], pos=[0., 0., 0.]),
+                         dict(size=[.050, .014, .014], pos=[.060, 0., -.020])]
+        objects.append(obj("support", [-.20, 0.], "white", "bar", (.11, .035, .060),
+                           components=support_parts, density=200, grasp_local=[.075, 0., -.020],
+                           condim=4, friction=[1.5, .006, .0001]))
+        goals.append(dict(type="leaf_support", object=f"panel{selected}", target="support"))
+        plan.append(dict(object=f"panel{selected}", operation="fold_display",
+                         xy=[.12, -.22+selected*.22], bottom=.8, support="support"))
+    elif recipe == "mobile_board":
         start, finish = [-.14, 0.], [.15, 0.]
         components = annulus(.067, .020, .012)
         for sign in [-1, 1]:

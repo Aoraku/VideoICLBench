@@ -87,7 +87,7 @@ def build(recipe, v, rng, obj, position):
     elif recipe == "double_hole":
         for c, color in enumerate(colors):
             objects.append(obj(color, [-.13, -.22+c*.22], color, "bar", (.18, .014, .014), density=80,
-                               friction=[1.5, .006, .0001], condim=4, grasp_local=[-.15, 0., 0.]))
+                               friction=[1.5, .006, .0001], condim=4, grasp_local=[-.12 if c == 2 else -.15, 0., 0.]))
         for x in [.07, .25]:
             # Two real rectangular holes, aligned along X at z=.90.
             fixture([x, -.044, .9], [.010, .020, .07])
@@ -99,8 +99,8 @@ def build(recipe, v, rng, obj, position):
                           apertures=[[.07, 0., .9], [.25, 0., .9]],
                           half_opening=[.024, .024], half_depth=.010))
         # Horizontal threading, not dropping the shaft through solid frames.
-        plan.append(dict(object=chosen, xy=[.16, 0.], bottom=.876, yaw=0., fine=True,
-                         approach=[-.14, 0., .89], insertion_axis=0))
+        plan.append(dict(object=chosen, xy=[.16, 0.], bottom=.886, yaw=0., fine=True,
+                         approach=[-.14, 0., .90], insertion_axis=0))
     elif recipe == "keyed":
         components = [dict(size=[.020, .005, .03], pos=[0., -.015, 0.]),
                       dict(size=[.005, .020, .03], pos=[-.015, 0., 0.])]

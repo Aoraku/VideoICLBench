@@ -1,7 +1,36 @@
 import importlib
 import json
+import hashlib
+import pytest
 
 from fastapi.testclient import TestClient
+
+
+def test_invisible_fixture_demonstration_cannot_be_served(tmp_path, monkeypatch):
+    from simulator.tabletop50 import server
+    monkeypatch.setattr(server, "DATA", tmp_path)
+    monkeypatch.setattr(server, "source_hash", lambda: "fixture-source")
+    folder = tmp_path/"demos"/"F01-A-0"; folder.mkdir(parents=True)
+    (folder/"video.mp4").write_bytes(b"test-only-decoder-cache-fixture")
+    digest = hashlib.sha256((folder/"video.mp4").read_bytes()).hexdigest()
+    proof = dict(task="F01", variant="A", seed=0, score=dict(success=True), error=None,
+                 source_unchanged=True, source_sha256="fixture-source", cross_rule_predicates=dict(A=True,B=False,C=False),
+                 video=dict(recorded=True,full_episode=True,final_success=True,frames=1,sha256=digest),
+                 visual_environment=dict(fixtures_visible=True))
+    audit = dict(video_sha256=digest,decoded_frames=1,ending_image_mae=0,
+                 visual_environment=dict(fixtures_visible=True),usable_for_agent_demo=True)
+    request = server.Create(task="F01",variant="A",seed=1)
+    (folder/"result.private.json").write_text(json.dumps(proof))
+    (folder/"media-audit.private.json").write_text(json.dumps(audit))
+    assert server.validated_demo(request) == folder/"video.mp4"
+    proof["visual_environment"]["fixtures_visible"] = False
+    (folder/"result.private.json").write_text(json.dumps(proof))
+    with pytest.raises(server.HTTPException): server.validated_demo(request)
+    proof["visual_environment"]["fixtures_visible"] = True
+    (folder/"result.private.json").write_text(json.dumps(proof))
+    audit["usable_for_agent_demo"] = False
+    (folder/"media-audit.private.json").write_text(json.dumps(audit))
+    with pytest.raises(server.HTTPException): server.validated_demo(request)
 
 
 def test_actor_boundary_and_rule_matching(tmp_path, monkeypatch):

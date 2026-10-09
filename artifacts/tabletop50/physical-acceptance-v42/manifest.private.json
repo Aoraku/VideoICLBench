@@ -1,0 +1,44 @@
+{
+  "status": "headless-author-physical-acceptance",
+  "source_sha256": "b925e02d8ada002d7f402d8c6edd17beb82b69d17f3c3a79b9f0788ad56619d9",
+  "complete_families": [
+    "F13",
+    "F36"
+  ],
+  "conditions": 6,
+  "videos": 0,
+  "human_videos": 0,
+  "independent_agent_trials": 0,
+  "cases": [
+    {
+      "task": "F13",
+      "variant": "A",
+      "actions": 220
+    },
+    {
+      "task": "F13",
+      "variant": "B",
+      "actions": 190
+    },
+    {
+      "task": "F13",
+      "variant": "C",
+      "actions": 240
+    },
+    {
+      "task": "F36",
+      "variant": "A",
+      "actions": 993
+    },
+    {
+      "task": "F36",
+      "variant": "B",
+      "actions": 1182
+    },
+    {
+      "task": "F36",
+      "variant": "C",
+      "actions": 1365
+    }
+  ]
+}

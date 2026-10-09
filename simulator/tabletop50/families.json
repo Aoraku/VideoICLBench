@@ -605,9 +605,9 @@
       "props": "带中部握把的木推板、三条开放窄通道、三个积木",
       "challenge": "先用工具把积木推出窄入口，再按示范排列到三个出口垫",
       "rules": {
-        "A": "出口垫依次红绿蓝",
-        "B": "出口垫依次绿蓝红",
-        "C": "出口垫依次蓝红绿"
+        "A": "圆/三角/方垫放红绿蓝",
+        "B": "圆/三角/方垫放绿蓝红",
+        "C": "圆/三角/方垫放蓝红绿"
       },
       "reset": "积木放回三入口，推板归位",
       "camera_note": "通道上方开放，接触点可见；末态顺序不是强制动作顺序",
@@ -755,17 +755,17 @@
       "id": "F45",
       "title": "细长件穿口搬运",
       "group": "工具与接触",
-      "props": "带把手长条、低矮门框、三个交付垫",
-      "challenge": "搬运过程中调整朝向，穿过宽松但限向的口",
+      "props": "带中部把手的30厘米轻长条、约38厘米高的桌面门框、交付垫",
+      "challenge": "先调整长条轴向穿过真实窄口，再在另一侧按示范定向交付",
       "rules": {
         "A": "交付时箭头朝前",
         "B": "交付时箭头朝左",
         "C": "交付时箭头朝右"
       },
-      "reset": "长条移回门框前",
-      "camera_note": "门框不高于手掌，通行过程可见",
-      "runtime_recipe": null,
-      "status": "runtime-pending",
+      "reset": "长条移回门框前，横向摆放",
+      "camera_note": "门框从侧面拍摄，长条两端与通行过程可见",
+      "runtime_recipe": "pass_long_bar",
+      "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
     },
     {
@@ -823,17 +823,17 @@
       "id": "F49",
       "title": "折叠展示板配置",
       "group": "多阶段工作",
-      "props": "三块用宽胶带或玩具铰链连接的硬板、低矮支撑块",
-      "challenge": "展开和折起不同板面，放置支撑使展示结构稳定",
+      "props": "三片用玩具铰链或宽胶带连接到底板的16厘米硬板、一个约12厘米高且有前伸握把的支撑块",
+      "challenge": "将指定板面折起，插入支撑块并让板面实际抵住支撑",
       "rules": {
         "A": "只将左板立起",
         "B": "只将中板立起",
         "C": "只将右板立起"
       },
-      "reset": "撤支撑，三块板铺平",
-      "camera_note": "采用大板面和大余量限位；折起角度能从第一人称辨认",
-      "runtime_recipe": null,
-      "status": "runtime-pending",
+      "reset": "撤支撑，三片板放平",
+      "camera_note": "采用大板面和宽松铰链，模拟有少量摩擦的玩具铰链；折起角度和支撑接触面均需可见",
+      "runtime_recipe": "fold_display",
+      "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
     },
     {

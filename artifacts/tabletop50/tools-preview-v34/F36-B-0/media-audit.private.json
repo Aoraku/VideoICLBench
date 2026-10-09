@@ -1,0 +1,49 @@
+{
+  "task": "F36",
+  "variant": "B",
+  "seed": 0,
+  "source_sha256": "2a8e1555a6fb295bcca6acbe1ff985bb94ab16f25c6d837d3ade97b7f4e885c3",
+  "world_sha256": "4a7d3226349ac31efcbd4ff797f02459393eb41feb350d22cc6e092baad916fa",
+  "video_sha256": "f58470d6cba423cd17791b71f91d9d1016776d2c091e691b248fdc098436220c",
+  "decoded_frames": 5738,
+  "fps": 10.0,
+  "duration_seconds": 573.8,
+  "ending_image_mae": 2.45108699798584,
+  "initial_positions": {
+    "pusher": [
+      -0.2200450968520234,
+      0.0015638767785283152,
+      0.8747844851008899
+    ],
+    "red": [
+      -0.035045096852023394,
+      -0.21843612322147177,
+      0.8217844851008027
+    ],
+    "green": [
+      -0.035045096852023394,
+      0.0015638767785282346,
+      0.8217844851008027
+    ],
+    "blue": [
+      -0.035045096852023394,
+      0.22156387677852823,
+      0.8217844851008027
+    ]
+  },
+  "cross_rule_predicates": {
+    "A": false,
+    "B": true,
+    "C": false
+  },
+  "independent_agent": false,
+  "human_recorded": false,
+  "folder": "F36-B-0",
+  "usable_for_agent_demo": false,
+  "visual_environment": {
+    "fixtures_visible": false,
+    "fixture_count": 6,
+    "evidence": "source-and-render-review"
+  },
+  "visual_defect": "Static collision fixtures were in hidden render group 0; re-record required"
+}
