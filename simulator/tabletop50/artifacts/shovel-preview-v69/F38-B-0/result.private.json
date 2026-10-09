@@ -1,0 +1,148 @@
+{
+  "task": "F38",
+  "variant": "B",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "500d3bc993cf51b9bddd6402c734badf96a83bdeaf12871806e757c6d926a72f",
+  "source_unchanged": true,
+  "world_sha256": "148f52fc4049ba7d9e4df20133ba744bbee70879dcc3e227e049b1f6a40ac955",
+  "initial_positions": {
+    "scoop": [
+      -0.24340931140398261,
+      -0.0035451137935491777,
+      0.8746924745501177
+    ],
+    "coaster0": [
+      0.026709293437613694,
+      -0.12354511379354918,
+      0.8198910929317378
+    ],
+    "coaster1": [
+      0.026709293437613694,
+      -0.0035451137935491777,
+      0.8198910929317378
+    ],
+    "coaster2": [
+      0.026709293437613694,
+      0.11645488620645081,
+      0.8198910929317378
+    ]
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 0,
+    "fixtures_visible": true
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 20.5,
+    "predicates": [
+      {
+        "rule": {
+          "type": "place",
+          "object": "coaster0",
+          "target": "plate1"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "scooped",
+          "object": "coaster0",
+          "target": "scoop"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "place",
+          "object": "coaster1",
+          "target": "plate1"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "scooped",
+          "object": "coaster1",
+          "target": "scoop"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "place",
+          "object": "coaster2",
+          "target": "plate1"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "scooped",
+          "object": "coaster2",
+          "target": "scoop"
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "scoop": [
+        -0.2404194928780073,
+        0.007142945327997307,
+        0.8746924745184935
+      ],
+      "coaster0": [
+        0.12296783999588748,
+        0.245198215412529,
+        0.8198910930981319
+      ],
+      "coaster1": [
+        0.1794890938067262,
+        0.24275476557106537,
+        0.8198910955545158
+      ],
+      "coaster2": [
+        0.23948469513071236,
+        0.2431163235846917,
+        0.8198910910580944
+      ]
+    },
+    "events": [
+      [
+        "scooped",
+        "coaster0"
+      ],
+      [
+        "scooped",
+        "coaster1"
+      ],
+      [
+        "scooped",
+        "coaster2"
+      ]
+    ],
+    "metric": "success",
+    "joint_angles": {}
+  },
+  "cross_rule_predicates": {
+    "A": false,
+    "B": true,
+    "C": false
+  },
+  "actions": 1236,
+  "actions_sha256": "f8f2527364b04402151a5d6971a6bb976bcff50079476bb7d16f20a4035dba91",
+  "error": null,
+  "video": {
+    "recorded": true,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 4946,
+    "duration_seconds": 494.6,
+    "full_episode": true,
+    "final_success": true,
+    "sha256": "3f459632a61c37dbdc17539f6ff52a374031e18b2504c99ff7ce5c1c2a833d12"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "kind": "task-design-visual-review",
+  "excluded": [
+    {
+      "task": "F10",
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "reason": "Reference and destination are not congruent square 2x2 grids; old recordings do not implement the designed rigid transformations."
+    }
+  ]
+}

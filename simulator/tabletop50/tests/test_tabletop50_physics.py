@@ -69,10 +69,84 @@ def test_shovel_requires_airborne_support_and_rejects_manual_delivery():
     finally: e.close()
 
 
-def test_real_initial_positions_equal_across_rule_variants():
+def test_guided_ball_has_real_slope_and_direct_drop_is_not_guidance():
+    e = TabletopDual(task_spec("F44", "A"), render=False)
+    try:
+        gid = e.sim.model.geom_name2id("fixture0")
+        rotation = e.sim.data.geom_xmat[gid].reshape(3, 3)
+        assert rotation[2, 0] < -.1  # Downhill toward the open-front catch trays.
+        assert e.sim.model.geom_group[gid] == 1
+        goal = next(g for g in e.spec["goals"] if g["type"] == "guided_roll")
+        target = next(g["target"] for g in e.spec["goals"] if g["type"] == "nest")
+        xy = e.snapshot()[target]["pos"][:2].tolist()
+        # Test-only negative fixture: a dropped ball reaches the correct tray,
+        # but never interacts with the ramp or any guide board.
+        e.sim.data.set_joint_qpos(e.items["ball"].joints[0], xy+[.9, 1., 0., 0., 0.])
+        e.sim.forward()
+        for _ in range(15): e.action()
+        state = e.snapshot()
+        assert e.predicate(dict(type="nest", object="ball", target=target), state)
+        assert not e.predicate(goal, state)
+        assert not e.score()["success"]
+        # Past guide contact cannot legitimise later direct hand transport.
+        e.events.add(("guided_roll", "ball"))
+        e._manually_handled.add("ball")
+        assert not e.predicate(goal, state)
+    finally: e.close()
+
+
+def test_spring_clip_has_passive_hinge_and_direct_delivery_is_rejected():
+    e = TabletopDual(task_spec("F43", "A"), render=False)
+    try:
+        clip = e.items["clip"]
+        jid = e.sim.model.joint_name2id(clip.naming_prefix+"hinge")
+        assert e.sim.model.jnt_stiffness[jid] > 0
+        assert e.sim.model.jnt_limited[jid]
+        goal = next(g for g in e.spec["goals"] if g["type"] == "clipped")
+        name = goal["object"]
+        zone = e.spec["zones"][0]
+        # Test-only setup: correct delivery without using the tool is not a
+        # successful clip task, even when the plate is stable in the rack.
+        e.sim.data.set_joint_qpos(e.items[name].joints[0], zone["xy"]+[.825, 1., 0., 0., 0.])
+        e.sim.forward()
+        for _ in range(10): e.action()
+        assert e.predicate(dict(type="place", object=name, target="rack"), e.snapshot())
+        assert not e.predicate(goal, e.snapshot())
+        assert not e.score()["success"]
+        e.events.add(("clipped", name))
+        e._manually_handled.add(name)
+        assert not e.predicate(goal, e.snapshot())
+    finally: e.close()
+
+
+def test_real_bolt_blocks_lid_and_removal_allows_it_to_open():
+    angles = []
+    for removed in [False, True]:
+        e = TabletopDual(task_spec("F46", "A"), render=False)
+        try:
+            latch = next(g for g in e.spec["goals"] if g["type"] == "bolt_engaged")
+            assert e.predicate(latch, e.snapshot())
+            if removed:
+                # Test-only fixture, never used by the author controller.
+                e.sim.data.set_joint_qpos(e.items["bolt"].joints[0], [-.25, -.25, .85, 1., 0., 0., 0.])
+                e.sim.forward()
+                assert not e.predicate(latch, e.snapshot())
+            jid = e.sim.model.joint_name2id(e.items["cabinet"].naming_prefix+"hinge")
+            # Apply identical test torque to the real hinge in both conditions.
+            e.sim.data.qfrc_applied[e.sim.model.jnt_dofadr[jid]] = .3
+            for _ in range(15): e.action()
+            angles.append(e.snapshot()["cabinet"]["hinge_angle"])
+            assert not e.score()["success"]
+        finally: e.close()
+    assert angles[0] < .06
+    assert angles[1] > 1.2
+
+
+@pytest.mark.parametrize("task", ["F16", "F42", "F43", "F44", "F46"])
+def test_real_initial_positions_equal_across_rule_variants(task):
     snapshots = []
     for variant in "ABC":
-        e = TabletopDual(task_spec("F16", variant, 19), render=False)
+        e = TabletopDual(task_spec(task, variant, 19), render=False)
         try:
             snapshots.append({k:v["pos"].tolist() for k,v in e.snapshot().items()})
             assert not e.score()["success"]
@@ -224,4 +298,42 @@ def test_length_completion_relations_are_exclusive():
             half = e.by_spec[f"ref{row}"]["size"][0]+e.by_spec[f"spare{spare}"]["size"][0]
             state[f"spare{spare}"]["pos"] = ref["pos"]+np.array([half, 0., 0.])
         assert e.predicate(goals[0], state)
+    finally: e.close()
+
+
+def test_extended_hook_has_separate_free_parts_and_direct_delivery_is_rejected():
+    e = TabletopDual(task_spec("F42", "A"), render=False)
+    try:
+        # Mechanical assembly must be earned by contact; no equality weld.
+        assert len(e.items["rod"].joints) == len(e.items["hook"].joints) == 1
+        assert e.items["rod"].joints[0] != e.items["hook"].joints[0]
+        assert e.sim.model.neq == 0
+        goal = next(g for g in e.spec["goals"] if g["type"] == "extended_hook")
+        name = goal["object"]
+        zone = e.spec["zones"][0]
+        # Test-only setup: correct final delivery without assembled-tool load
+        # transfer must not earn this tool task.
+        e.sim.data.set_joint_qpos(e.items[name].joints[0], zone["xy"]+[.808, 1., 0., 0., 0.])
+        e.sim.forward()
+        for _ in range(15): e.action()
+        state = e.snapshot()
+        assert e.predicate(dict(type="place", object=name, target="delivery"), state)
+        assert not e.predicate(goal, state)
+        assert not e.score()["success"]
+    finally: e.close()
+
+
+def test_author_restores_actual_wrist_even_when_command_counters_are_stale(tmp_path):
+    from simulator.tabletop50.author import TabletopAuthor
+    e = TabletopDual(task_spec("F46"), render=False)
+    try:
+        author = TabletopAuthor(e, tmp_path/"author")
+        baseline = author.wrist_matrix(0)
+        for _ in range(3): author.act(0, "PITCH_POS")
+        assert np.linalg.norm(author.wrist_matrix(0)-baseline) > .2
+        # A blocked wrist can diverge from accumulated command angles. Reset
+        # just the controller's estimates; leave the physical robot untouched.
+        author.pitches[0] = author.yaws[0] = 0.
+        author.restore_wrist(0)
+        assert np.linalg.norm(author.wrist_matrix(0)-baseline) < .055
     finally: e.close()

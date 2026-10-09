@@ -704,25 +704,25 @@
       "id": "F42",
       "title": "工具接长后取件",
       "group": "工具与接触",
-      "props": "宽松套筒接杆、粗杆、钩头、远端环件",
+      "props": "大号软衬套筒接杆、粗杆、钩头、三个带不同长度标签的木环、透明文件架",
       "challenge": "先形成可用工具，完成取件后拆回",
       "rules": {
-        "A": "交付最短标记环",
-        "B": "交付中长标记环",
-        "C": "交付最长标记环"
+        "A": "交付标签最短的环",
+        "B": "交付标签中长的环",
+        "C": "交付标签最长的环"
       },
       "reset": "环归远端，杆和钩拆开",
       "camera_note": "接口和钩头明显，禁止细线和小螺丝",
-      "runtime_recipe": null,
-      "status": "runtime-pending",
+      "runtime_recipe": "extend_hook",
+      "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
     },
     {
       "id": "F43",
       "title": "夹持搬运厚片",
       "group": "工具与接触",
-      "props": "大号塑料夹具或宽口夹、三块厚片、浅架",
-      "challenge": "选取夹持位置，让厚片搬运后能插入浅架",
+      "props": "带独立提握点的宽口弹簧夹、三块不同尺寸木质厚片、浅架",
+      "challenge": "按尺寸选件；捏后柄张开夹口，松开后靠弹簧夹住厚片，再从独立提握点搬运并放入浅架",
       "rules": {
         "A": "搬最小片",
         "B": "搬中等片",
@@ -730,25 +730,25 @@
       },
       "reset": "厚片取回，夹具松开",
       "camera_note": "夹具轻力即可闭合，夹点从上方可见",
-      "runtime_recipe": null,
-      "status": "runtime-pending",
+      "runtime_recipe": "clip_transport",
+      "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
     },
     {
       "id": "F44",
       "title": "导向板送球",
       "group": "工具与接触",
-      "props": "三块可摆放导向板、大木球、浅坡底板",
-      "challenge": "预测球的路径，配置挡板后释放球",
+      "props": "三块带握柄的木质导向板、直径约4厘米木球、浅坡底板、可提起挡球件、三个带图形标记的浅接球盒",
+      "challenge": "识别示范指定的盒标记，预测球的路径；配置导向板后提起挡球件，让球沿坡面滚入目标盒",
       "rules": {
-        "A": "球进入左盒",
-        "B": "球进入中盒",
-        "C": "球进入右盒"
+        "A": "球进入圆形标记盒",
+        "B": "球进入三角标记盒",
+        "C": "球进入方形标记盒"
       },
-      "reset": "球回起点，三板回公共初态",
-      "camera_note": "坡度小、全路径开放；不用快速弹射",
-      "runtime_recipe": null,
-      "status": "runtime-pending",
+      "reset": "球放回挡球件后方，三板回公共初态，三个盒的位置可交换",
+      "camera_note": "坡度小、全路径开放；不用快速弹射；挡球件与导向板均应能从上方抓取",
+      "runtime_recipe": "guide_ball",
+      "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
     },
     {
@@ -772,7 +772,7 @@
       "id": "F46",
       "title": "解锁取件后重新锁闭",
       "group": "多阶段工作",
-      "props": "带大号可抽插销的开放盒、三个物件",
+      "props": "带大号可抽插销和摩擦合页的盒、三块横向尺寸不同且带大握钮的木件、两块用于托放插销的小木块",
       "challenge": "先抽销开盖，取件后盖回并插销",
       "rules": {
         "A": "取最大件",
@@ -781,8 +781,8 @@
       },
       "reset": "插销抽出，物件放回，盖回锁闭",
       "camera_note": "选玩具级大插销，锁孔在朝相机一侧",
-      "runtime_recipe": null,
-      "status": "runtime-pending",
+      "runtime_recipe": "unlock_box",
+      "status": "implemented-awaiting-acceptance",
       "human_recording_status": "not-recorded-not-user-validated"
     },
     {

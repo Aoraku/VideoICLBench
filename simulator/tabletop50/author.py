@@ -11,6 +11,24 @@ class TabletopAuthor(Author):
         super().__init__(env, folder, record=False, seed=seed)
         self.yaws = [0., 0.]
         self.pitches = [0., 0.]
+        self.rest_orientation = [self.wrist_matrix(arm) for arm in (0, 1)]
+
+    def wrist_matrix(self, arm):
+        site = self.env.robots[arm].eef_site_id["right"]
+        return self.env.sim.data.site_xmat[site].reshape(3, 3).copy()
+
+    def restore_wrist(self, arm):
+        from scipy.spatial.transform import Rotation
+        for _ in range(120):
+            error = Rotation.from_matrix(self.rest_orientation[arm]@self.wrist_matrix(arm).T).as_rotvec()
+            if np.linalg.norm(error) < .035:
+                self.yaws[arm] = self.pitches[arm] = 0.
+                return
+            axis = int(np.argmax(np.abs(error)))
+            token = ["ROLL", "PITCH", "YAW"][axis]+("_POS" if error[axis] > 0 else "_NEG")
+            if abs(error[axis]) < .16: token += "_FINE"
+            self.act(arm, token)
+        raise RuntimeError("Physical wrist orientation did not converge")
 
     def act(self, arm, token):
         pair = ["STILL", "STILL"]; pair[arm] = token
@@ -55,7 +73,7 @@ class TabletopAuthor(Author):
         else: raise RuntimeError("Park wrist pitch did not converge")
         self.align(arm, 0.)
 
-    def pick(self, name, arm, grasp_offset=None):
+    def pick(self, name, arm, grasp_offset=None, lift=True):
         s = self.env.by_spec[name]
         if s["kind"] == "bottle" or (s["kind"] not in ("ring", "key", "lid", "tray", "bowl") and s["size"][0] < s["size"][1]):
             self.align(arm, math.pi/2)
@@ -79,22 +97,39 @@ class TabletopAuthor(Author):
             mat = self.state(name)["mat"]
             self.align(arm, math.atan2(mat[1, 0], mat[0, 0]))
             local[1] = (-1 if arm == 0 else 1)*(s["size"][1]-.004)
-        if s["kind"] == "ring": local[0] = (s["size"][0]+s["inner_radius"])/2
+        if s["kind"] == "ring" and grasp_offset is None: local[0] = (s["size"][0]+s["inner_radius"])/2
         if s["kind"] == "key": local[:2] = [-.015, -.005]
         point = p+self.state(name)["mat"]@local
-        self.act(arm, "RELEASE"); self.move(arm, [*point[:2], 1.14])
+        approach_height = s.get("approach_height", 1.14)
+        self.act(arm, "RELEASE"); self.move(arm, [*point[:2], approach_height])
         offset = min(.005, s["size"][2]*.3)
         target = point+[0., 0., offset]
         self.move(arm, target, axes=(2,))
         self.fine_move(arm, target)
         for attempt in range(3):
+            if s["kind"] == "bottle":
+                # Cylinders can roll when the descending fingers brush them.
+                # Reacquire the actual centre instead of closing repeatedly
+                # at an obsolete coordinate.
+                current = self.state(name)
+                updated = current["pos"]+current["mat"]@local
+                if np.linalg.norm(updated-point) > .008:
+                    self.move(arm, [*self.eef(arm)[:2], max(.98, updated[2]+.12)], axes=(2,))
+                    axis = current["mat"][:, 2]
+                    if abs(axis[2]) < .5:
+                        self.align(arm, math.atan2(axis[1], axis[0]))
+                    point = self.state(name)["pos"]+self.state(name)["mat"]@local
+                    target = point+[0., 0., offset]
+                    self.move(arm, target, axes=(0, 1))
+                    self.move(arm, target, axes=(2,)); self.fine_move(arm, target)
             for _ in range(3): self.act(arm, "GRASP")
             if self.state(name)["grasp"][arm]: break
             self.act(arm, "RELEASE")
             self.fine_move(arm, target+[0., 0., -.003*(attempt+1)], axes=(2,))
         else: raise RuntimeError(f"Physical grasp failed for {name}")
-        self.move(arm, [*point[:2], 1.14], axes=(2,))
-        if not self.state(name)["grasp"][arm]: raise RuntimeError(f"Dropped {name} after lift")
+        if lift:
+            self.move(arm, [*point[:2], approach_height], axes=(2,))
+            if not self.state(name)["grasp"][arm]: raise RuntimeError(f"Dropped {name} after lift")
 
     def fine_move(self, arm, target, axes=(0, 1, 2), tol=.0018):
         for axis in axes:
@@ -104,12 +139,17 @@ class TabletopAuthor(Author):
                 self.act(arm, (["FWD", "LEFT", "UP"] if error > 0 else ["BACK", "RIGHT", "DOWN"])[axis]+"_FINE")
             else: raise RuntimeError("Fine positioning did not converge")
 
-    def put(self, name, arm, target, fine=False, approach=None, surface_release=False):
+    def put(self, name, arm, target, fine=False, approach=None, surface_release=False, object_yaw=None, release=True):
         target = np.asarray(target)
         self.move(arm, [*self.eef(arm)[:2], max(1.14, target[2]+.18)], axes=(2,))
         offset = self.eef(arm)-self.state(name)["pos"]
         if approach is None:
             self.move(arm, target+offset, axes=(0, 1)); self.wait(2)
+        if object_yaw is not None:
+            self.align_object_yaw(arm, name, object_yaw)
+            point = self.state(name)["pos"].copy(); point[:2] = target[:2]
+            self.object_move(arm, name, point, axes=(0, 1), level=False)
+            offset = self.eef(arm)-self.state(name)["pos"]
         if approach is not None:
             # The object approaches from the open end, then translates through
             # both apertures. It is never lowered through the frame roof.
@@ -128,11 +168,18 @@ class TabletopAuthor(Author):
             if state["pos"][2]-extent <= target[2]-self.env.by_spec[name]["size"][2]+.018:
                 break
             self.act(arm, "DOWN")
+        if fine and approach is None and self.env.spec["id"] == "F10" and self.state(name)["grasp"][arm]:
+            # Re-measure the held-piece offset just above the board. Correct
+            # XY while it is still in the fingers, before contact unloads them.
+            offset = self.eef(arm)-self.state(name)["pos"]
+            self.fine_move(arm, target+offset, axes=(0, 1))
+            offset = self.eef(arm)-self.state(name)["pos"]
         if approach is None:
             state = self.state(name)
             bottom = state["pos"][2]-(np.abs(state["mat"]) @ self.env.by_spec[name]["size"])[2]
             if not (surface_release and bottom <= target[2]-self.env.by_spec[name]["size"][2]+.018):
                 self.fine_move(arm, target+offset+[0., 0., .003], axes=(2,))
+        if not release: return
         for _ in range(3): self.act(arm, "RELEASE")
         self.move(arm, [*self.eef(arm)[:2], 1.14], axes=(2,)); self.wait(3)
 
@@ -145,7 +192,22 @@ class TabletopAuthor(Author):
             self.act(arm, token+"_FINE" if abs(angle) < .09 else token)
         raise RuntimeError("Shaft pitch did not converge")
 
-    def object_move(self, arm, name, target, axes=(0, 1, 2), stop_goal=None):
+    def align_object_yaw(self, arm, name, target):
+        # A held object can twist between the fingertips. Wrist command counts
+        # alone do not establish its physical heading.
+        for _ in range(70):
+            state = self.state(name)
+            if not state["grasp"][arm]: raise RuntimeError("Object slipped during yaw alignment")
+            heading = math.atan2(state["mat"][1, 0], state["mat"][0, 0])
+            # These guide boards have identical ends. Use the nearest
+            # equivalent axis heading rather than twisting the wrist 180°.
+            error = (target-heading+math.pi/2) % math.pi-math.pi/2
+            if abs(error) < .035: return
+            token = "YAW_POS" if error > 0 else "YAW_NEG"
+            self.act(arm, token+"_FINE" if abs(error) < .17 else token)
+        raise RuntimeError("Object yaw did not converge")
+
+    def object_move(self, arm, name, target, axes=(0, 1, 2), stop_goal=None, level=True):
         # Off-centre grasps flex under load. Re-read physical pose rather than
         # assuming a fixed transform between the fingers and the shaft.
         for axis in axes:
@@ -158,16 +220,18 @@ class TabletopAuthor(Author):
                 token = (["FWD", "LEFT", "UP"] if error > 0 else ["BACK", "RIGHT", "DOWN"])[axis]
                 if abs(error) < .035: token += "_FINE"
                 self.act(arm, token)
-                if step % 8 == 0: self.horizontal(arm, name)
+                if level and step % 8 == 0: self.horizontal(arm, name)
             else: raise RuntimeError("Shaft positioning did not converge")
 
-    def transport(self, name, arm, xy, bottom=.8, yaw=None, fine=False, approach=None):
+    def transport(self, name, arm, xy, bottom=.8, yaw=None, fine=False, approach=None, surface_release=False):
+        if self.env.spec["id"] in ("F03", "F07"):
+            self.restore_wrist(arm)
         self.pick(name, arm)
         if yaw is not None:
             a = self.state(name)["mat"]
             current = math.atan2(a[1, 0], a[0, 0])
             self.align(arm, self.yaws[arm]+yaw-current)
-        self.put(name, arm, [*xy, bottom+self.env.by_spec[name]["size"][2]], fine, approach)
+        self.put(name, arm, [*xy, bottom+self.env.by_spec[name]["size"][2]], fine, approach, surface_release=surface_release)
         self.park(arm)
 
     def dual_transport(self, name, xy, bottom):
@@ -220,6 +284,18 @@ class TabletopAuthor(Author):
         self.park(0); self.park(1)
         for p in self.env.spec["author_plan"]:
             name = p["object"]
+            if p.get("operation") == "guide_roll":
+                self.guide_roll(name, p)
+                continue
+            if p.get("operation") == "clip_transport":
+                self.clip_transport(name, p)
+                continue
+            if p.get("operation") == "unlock_box":
+                self.unlock_box(name, p)
+                continue
+            if p.get("operation") == "extend_hook":
+                self.extend_hook(name, p)
+                continue
             if p.get("operation") == "shovel":
                 self.shovel(name, p)
                 continue
@@ -254,6 +330,10 @@ class TabletopAuthor(Author):
             arm = 0 if src[1] < 0 else 1
             target_arm = p.get("arm", 0 if p["xy"][1] < -.07 else 1 if p["xy"][1] > .07 else arm)
             if abs(src[1]) < .10: arm = target_arm
+            if self.env.spec["id"] == "F07":
+                # This compact tabletop classification has no handoff
+                # requirement; retain the source-side arm for direct delivery.
+                target_arm = arm
             if arm != target_arm:
                 state = self.env.snapshot()
                 candidates = [[-.08, 0.], [0., 0.], [-.10, .10], [-.10, -.10], [-.28, 0.]]
@@ -262,10 +342,32 @@ class TabletopAuthor(Author):
                         np.asarray(self.env.by_spec[n]["size"][:2])+np.asarray(self.env.by_spec[name]["size"][:2])+.012)
                     for n, a in state.items())]
                 if not free: raise RuntimeError("No physically clear hand-relay location")
-                self.transport(name, arm, free[0])
+                self.transport(name, arm, free[0], surface_release=True)
                 arm = target_arm
-            self.transport(name, arm, p["xy"], p["bottom"], p.get("yaw"), p.get("fine", False), p.get("approach"))
+            self.transport(name, arm, p["xy"], p["bottom"], p.get("yaw"), p.get("fine", False),
+                           p.get("approach"), surface_release=self.env.spec["id"] in ("F03", "F07"))
+        if self.env.spec["id"] == "F07":
+            self.repair_classification()
         self.wait(6)
+
+    def repair_classification(self):
+        # Containers are movable. A valid classifier follows their actual
+        # poses and repairs a spilled item, rather than treating nominal table
+        # coordinates as the goal.
+        goals = [g for g in self.env.spec["goals"] if g["type"] == "nest"]
+        for _ in range(2):
+            for goal in goals:
+                state = self.env.snapshot()
+                if self.env.predicate(goal, state): continue
+                name, target = goal["object"], goal["target"]
+                siblings = [g["object"] for g in goals if g["target"] == target]
+                offset = (siblings.index(name)-.5)*.065
+                bowl = state[target]
+                point = bowl["pos"]+bowl["mat"]@np.array([0., offset, 0.])
+                bottom = bowl["pos"][2]-self.env.by_spec[target]["size"][2]+.008
+                arm = 0 if state[name]["pos"][1] < 0 else 1
+                self.transport(name, arm, point[:2], bottom, surface_release=True)
+            if all(self.env.predicate(g, self.env.snapshot()) for g in goals): return
 
     def handover(self, name, plan):
         self.pick(name, 0, plan["giver_grasp"])
@@ -385,6 +487,170 @@ class TabletopAuthor(Author):
         self.put(name, arm, [*plan["return_xy"], .875], surface_release=True)
         self.park(arm)
 
+    def extend_hook(self, name, plan):
+        hook, ring = plan["hook"], plan["ring"]
+        arm = 0 if self.state(ring)["pos"][1] < 0 else 1; other = 1-arm
+        # Pick the rod while the other wrist is parked, then hold it clear of
+        # the hook workspace. Crowding two wrists at table level bumps parts.
+        self.pick(name, arm)
+        self.align_object_yaw(arm, name, 0.)
+        self.horizontal(arm, name)
+        self.move(arm, [-.35, -.28 if arm == 0 else .28, 1.25])
+        self.pick(hook, other)
+        self.align_object_yaw(other, hook, 0.); self.horizontal(other, hook)
+        self.put(hook, other, [-.12, .15 if other else -.15, .89], release=False)
+        self.align_object_yaw(other, hook, 0.)
+        target = self.state(hook)["pos"].copy(); target[0] -= .25
+        self.object_move(arm, name, target, axes=(1, 2, 0))
+        target[0] = self.state(hook)["pos"][0]-.16
+        self.object_move(arm, name, target, axes=(0,))
+        self.act(other, "RELEASE"); self.move(other, [*self.eef(other)[:2], 1.14], axes=(2,)); self.park(other)
+        # Enter below the real canopy; only the extended shaft reaches the ring.
+        ring_pos = self.state(ring)["pos"].copy()
+        target = [ring_pos[0]-.16-.16, ring_pos[1], .89]
+        self.object_move(arm, name, np.array([target[0]-.26, target[1], 1.04]))
+        self.object_move(arm, name, np.array([target[0]-.26, target[1], .89]), axes=(2,))
+        self.object_move(arm, name, np.array(target), axes=(0,))
+        for _ in range(180):
+            if self.state(ring)["pos"][0] < .035: break
+            self.act(arm, "BACK_FINE")
+        else: raise RuntimeError("Extended hook did not retrieve the ring")
+        if ("extended_hook", ring) not in self.env.events: raise RuntimeError("No real load transfer through the assembled tool")
+        self.object_move(arm, name, self.state(name)["pos"]+[0., 0., .10], axes=(2,))
+        self.put(name, arm, [-.19, 0., .89])
+        self.park(arm)
+        self.pick(hook, other, lift=False)
+        self.pick(name, arm, lift=False)
+        target = self.state(name)["pos"].copy(); target[0] -= .13
+        self.object_move(arm, name, target, axes=(0,))
+        self.put(name, arm, [*plan["return_xy"], .89]); self.park(arm)
+        self.put(hook, other, [*plan["hook_home"], .89]); self.park(other)
+        self.pick(ring, 0, grasp_offset=[-.0325, 0., 0.])
+        self.put(ring, 0, [*plan["xy"], .808]); self.park(0)
+
+    def unlock_box(self, name, plan):
+        bolt = plan["bolt"]
+        bolt_arm = plan["bolt_arm"]; arm = 1-bolt_arm
+        self.pick(bolt, bolt_arm, lift=False)
+        point = self.state(bolt)["pos"]-self.state(name)["mat"]@np.array([0., .23, 0.])
+        self.object_move(bolt_arm, bolt, point, axes=(1,), level=False)
+        self.put(bolt, bolt_arm, [*plan["bolt_rest"], .927], surface_release=True)
+        self.park(bolt_arm)
+        self.panel_grasp(name, arm)
+        self.fold_to(name, arm, 1.45)
+        for _ in range(3): self.act(arm, "RELEASE")
+        # Leave the inclined lid along its outward normal. A vertical retreat
+        # sweeps the wrist through the lid and physically knocks it closed.
+        normal = self.state(name)["leaf_mat"][:, 2]
+        clearance = self.eef(arm)+normal*.12
+        axes = tuple(int(i) for i in np.argsort(-np.abs(normal)))
+        self.move(arm, clearance, axes=axes)
+        safe = [.10, -.28 if arm == 0 else .28, 1.26]
+        self.move(arm, safe, axes=(2, 1, 0)); self.park(arm)
+        self.restore_wrist(arm)
+        self.tip_lid(name, arm, opening=True)
+        # Items form a Y row inside the box; close across X so the fingers
+        # descend through the empty side lanes rather than neighbouring items.
+        item_arm = 0 if self.state(plan["item"])["pos"][1] < 0 else 1
+        self.restore_wrist(item_arm)
+        self.align(item_arm, math.pi/2)
+        self.pick(plan["item"], item_arm)
+        self.put(plan["item"], item_arm, [*plan["xy"], .8+self.env.by_spec[plan["item"]]["size"][2]])
+        self.park(item_arm)
+        self.restore_wrist(arm)
+        self.tip_lid(name, arm, opening=False)
+        self.panel_grasp(name, arm)
+        self.fold_to(name, arm, .002)
+        self.act(arm, "RELEASE")
+        self.move(arm, safe, axes=(2, 1, 0)); self.park(arm)
+        self.restore_wrist(bolt_arm)
+        self.pick(bolt, bolt_arm)
+        self.align_object_yaw(bolt_arm, bolt, math.atan2(self.state(name)["mat"][1, 0], self.state(name)["mat"][0, 0]))
+        box = self.state(name)
+        target = box["pos"]+box["mat"]@np.array([.165, -.23, .065])
+        self.object_move(bolt_arm, bolt, target, axes=(0, 1, 2, 0), level=False)
+        target = box["pos"]+box["mat"]@np.array([.165, 0., .065])
+        self.object_move(bolt_arm, bolt, target, axes=(1,), level=False)
+        for _ in range(3): self.act(bolt_arm, "RELEASE")
+        self.move(bolt_arm, [*self.eef(bolt_arm)[:2], 1.14], axes=(2,)); self.park(bolt_arm)
+
+    def tip_lid(self, name, arm, opening):
+        angle = self.state(name)["hinge_angle"]
+        if (opening and angle > 1.75) or (not opening and angle < 1.35): return
+        self.restore_wrist(arm)
+        self.act(arm, "GRASP")
+        panel = self.state(name)
+        point = panel["leaf_pos"]+panel["leaf_mat"]@np.array([.18, 0., .006])
+        direction = 1 if opening else -1
+        entry = point+[-direction*.055, 0., 0.]
+        self.move(arm, [*entry[:2], 1.32])
+        self.move(arm, entry, axes=(2,)); self.fine_move(arm, entry)
+        for _ in range(100):
+            angle = self.state(name)["hinge_angle"]
+            if (opening and angle > 1.75) or (not opening and angle < 1.35): break
+            self.act(arm, "FWD_FINE" if opening else "BACK_FINE")
+        else: raise RuntimeError("Lid side push did not reach the clear angle")
+        self.move(arm, self.eef(arm)+[-direction*.08, 0., 0.], axes=(0,))
+        self.move(arm, [*self.eef(arm)[:2], 1.32], axes=(2,))
+        self.act(arm, "RELEASE"); self.park(arm)
+        self.restore_wrist(arm)
+
+    def clip_transport(self, name, plan):
+        plate = plan["plate"]
+        arm = 0 if self.state(plate)["pos"][1] < 0 else 1
+        handles = [-.055, 0., -.055]
+        self.pick(name, arm, grasp_offset=handles)
+        angle = self.state(name)["hinge_angle"]
+        if angle < .20: raise RuntimeError("Clip jaws did not open under handle pressure")
+        point = self.state(plate)["pos"]
+        middle = (-.025+.080*math.sin(angle)+.025*math.cos(angle))/2
+        target = [point[0]-.080, point[1]-middle, .90]
+        self.put(name, arm, target)
+        self.park(arm)
+        self.pick(name, arm)
+        if ("clipped", plate) not in self.env.events: raise RuntimeError("No real two-jaw support after clip lift")
+        delta = self.state(plate)["pos"]-self.state(name)["pos"]
+        target = [plan["xy"][0]-delta[0], plan["xy"][1]-delta[1], .90]
+        self.put(name, arm, target, surface_release=True, release=False)
+        # Keep the rigid grip steady while the other hand opens the spring
+        # clip. Releasing the whole tool first can tip its upright grip.
+        other = 1-arm
+        self.pick(name, other, grasp_offset=handles, lift=False)
+        if self.state(name)["hinge_angle"] < .20: raise RuntimeError("Clip did not release the racked plate")
+        for _ in range(6): self.act_pair("UP", "UP")
+        self.act(other, "RELEASE")
+        self.park(other)
+        self.put(name, arm, [*plan["return_xy"], .90], surface_release=True)
+        self.park(arm)
+
+    def guide_roll(self, name, plan):
+        start = self.state("ball")["pos"][:2].copy()
+        # Leave the gate and its lifting handle unobstructed. The ball first
+        # rolls down the open approach, then meets the short guide segments.
+        start[0] += .105
+        destination = self.state(plan["target"])["pos"][:2].copy()
+        end = destination.copy(); end[0] -= .09
+        vector = end-start; length = np.linalg.norm(vector)
+        direction = vector/length; normal = np.array([-direction[1], direction[0]])
+        side = 1 if vector[1] < 0 else -1
+        angle = math.atan2(direction[1], direction[0])
+        points = [start+direction*.04+normal*side*.038,
+                  start+direction*.17+normal*side*.038,
+                  start+direction*(length-.04)-normal*side*.050]
+        ramp_x = self.env.spec["fixtures"][0]["xy"][0]
+        for guide, xy in zip(plan["guides"], points):
+            arm = 0 if xy[1] < 0 else 1
+            self.pick(guide, arm)
+            self.align_object_yaw(arm, guide, angle)
+            height = .87-math.tan(plan["slope"])*(xy[0]-ramp_x)
+            self.put(guide, arm, [*xy, height+.06], surface_release=True, object_yaw=angle)
+            self.park(arm)
+        arm = 0 if destination[1] < 0 else 1
+        self.pick(name, arm)
+        self.put(name, arm, [*plan["return_xy"], .88], surface_release=True)
+        self.park(arm)
+        self.wait(20)
+
     def corner_push(self, name, plan):
         block = plan["block"]
         arm = 0 if plan["waypoints"][0][1] < 0 else 1
@@ -465,10 +731,11 @@ class TabletopAuthor(Author):
     def panel_grasp(self, name, arm):
         state = self.state(name)
         angle = state["hinge_angle"]
-        point = state["leaf_pos"]+state["leaf_mat"]@np.array([.145, 0., .018])
+        grasp = self.env.by_spec[name].get("leaf_grasp", [.145, 0., .018])
+        point = state["leaf_pos"]+state["leaf_mat"]@np.array(grasp)
         self.act(arm, "RELEASE")
         self.move(arm, [*point[:2], max(1.10, point[2]+.08)])
-        desired_pitch = -angle
+        desired_pitch = self.env.by_spec[name].get("leaf_pitch_sign", -1)*angle
         for _ in range(100):
             error = desired_pitch-self.pitches[arm]
             if abs(error) < .025: break
@@ -478,20 +745,36 @@ class TabletopAuthor(Author):
         if not self.state(name)["grasp"][arm]: raise RuntimeError("Panel handle grasp failed")
 
     def fold_to(self, name, arm, target, support=None):
-        start = self.state(name)["hinge_angle"]
+        start_state = self.state(name)
+        start = start_state["hinge_angle"]
+        grasp = self.env.by_spec[name].get("leaf_grasp", [.145, 0., .018])
+        if self.env.by_spec[name].get("leaf_grasp_feedback"):
+            grasp = start_state["leaf_mat"].T@(self.eef(arm)-start_state["leaf_pos"])
         count = max(1, int(abs(target-start)/math.radians(5)))
         for angle in np.linspace(start, target, count+1)[1:]:
             state = self.state(name)
             if not state["grasp"][arm]: raise RuntimeError("Panel handle slipped")
             if support is not None and self.env.predicate(support, self.env.snapshot()): return
-            desired_pitch = -angle
+            desired_pitch = self.env.by_spec[name].get("leaf_pitch_sign", -1)*angle
             for _ in range(8):
                 error = desired_pitch-self.pitches[arm]
                 if abs(error) < .02: break
                 self.act(arm, "PITCH_POS_FINE" if error > 0 else "PITCH_NEG_FINE")
             c, s = math.cos(angle), math.sin(angle)
             rotation = np.array([[c, 0., -s], [0., 1., 0.], [s, 0., c]])
-            point = state["leaf_pos"]+state["mat"]@rotation@np.array([.145, 0., .018])
+            point = state["leaf_pos"]+state["mat"]@rotation@np.array(grasp)
+            if self.env.by_spec[name].get("leaf_grasp_feedback"):
+                # A jointed lid couples X and Z motion. Correct the current
+                # largest error rather than letting it sag during an entire
+                # single-axis phase. All corrections are public actions.
+                for _ in range(100):
+                    error = point-self.eef(arm)
+                    if np.max(np.abs(error)) < .004: break
+                    axis = int(np.argmax(np.abs(error)))
+                    self.act(arm, (["FWD_FINE", "LEFT_FINE", "UP_FINE"] if error[axis] > 0 else
+                                   ["BACK_FINE", "RIGHT_FINE", "DOWN_FINE"])[axis])
+                else: raise RuntimeError("Coupled lid arc positioning failed")
+                continue
             for axis in (2, 0, 1):
                 for _ in range(25):
                     if support is not None and self.env.predicate(support, self.env.snapshot()): return

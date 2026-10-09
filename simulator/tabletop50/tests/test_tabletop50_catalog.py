@@ -24,8 +24,12 @@ def test_rule_never_changes_visible_initial_world(task, seed):
         assert all(p["object"] in names for p in s["author_plan"])
 
 
-def test_pending_design_is_not_silently_replaced_with_generic_pick_place():
-    with pytest.raises(NotImplementedError): task_spec("F43")
+@pytest.mark.parametrize("task", ["F42"])
+def test_missing_recipe_is_not_silently_replaced_with_generic_pick_place(task, monkeypatch):
+    # All 50 now have recipes. Simulate a missing future implementation to
+    # preserve the explicit refusal policy rather than a generic fallback.
+    monkeypatch.setitem(BY_ID[task], "runtime_recipe", None)
+    with pytest.raises(NotImplementedError): task_spec(task)
 
 
 @pytest.mark.parametrize("task", IMPLEMENTED)
@@ -46,3 +50,24 @@ def test_prop_colours_do_not_share_mutable_catalogue_state():
     task_spec("F40")  # Its transparent cup must not turn all white props transparent.
     assert visible_world(task_spec("F02")) == expected
     assert all(o["rgba"][3] == 1. for o in task_spec("F40")["objects"] if o["id"].startswith("bin"))
+
+
+def test_mosaic_rules_are_rigid_transforms_of_a_square_reference():
+    import numpy as np
+    transforms = {"A": np.eye(2), "B": np.array([[0., 1.], [-1., 0.]]),
+                  "C": np.array([[1., 0.], [0., -1.]])}
+    for seed in [0, 19, 37]:
+        for variant, transform in transforms.items():
+            spec = task_spec("F10", variant, seed)
+            refs = [o for o in spec["objects"] if o["id"].startswith("ref")]
+            pieces = {o["id"]: o for o in spec["objects"] if o["id"].startswith("piece")}
+            ref_center = np.mean([o["xy"] for o in refs], axis=0)
+            targets = [g for g in spec["goals"] if g["object"].startswith("piece")]
+            target_center = np.mean([g["xy"] for g in targets], axis=0)
+            assert len({round(o["xy"][0], 6) for o in refs}) == 2
+            assert len({round(o["xy"][1], 6) for o in refs}) == 2
+            for goal in targets:
+                reference = next(o for o in refs if o["rgba"] == pieces[goal["object"]]["rgba"])
+                expected = target_center+transform@(np.array(reference["xy"])-ref_center)
+                assert np.allclose(goal["xy"], expected)
+            assert len(spec["fixtures"]) == 10

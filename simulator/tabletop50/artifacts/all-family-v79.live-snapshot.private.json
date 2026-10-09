@@ -1,0 +1,795 @@
+{
+  "revision": "tabletop50-fpv-v1",
+  "expected": 141,
+  "finished": 87,
+  "succeeded": 62,
+  "rows": [
+    {
+      "task": "F01",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F01-B-0/result.private.json"
+    },
+    {
+      "task": "F01",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F01-A-0/result.private.json"
+    },
+    {
+      "task": "F02",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F02-A-0/result.private.json"
+    },
+    {
+      "task": "F01",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F01-C-0/result.private.json"
+    },
+    {
+      "task": "F02",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F02-B-0/result.private.json"
+    },
+    {
+      "task": "F02",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F02-C-0/result.private.json"
+    },
+    {
+      "task": "F03",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F03-A-0/result.private.json"
+    },
+    {
+      "task": "F03",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F03-B-0/result.private.json"
+    },
+    {
+      "task": "F04",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F04-A-0/result.private.json"
+    },
+    {
+      "task": "F04",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F04-B-0/result.private.json"
+    },
+    {
+      "task": "F04",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F04-C-0/result.private.json"
+    },
+    {
+      "task": "F03",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F03-C-0/result.private.json"
+    },
+    {
+      "task": "F05",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F05-A-0/result.private.json"
+    },
+    {
+      "task": "F05",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F05-B-0/result.private.json"
+    },
+    {
+      "task": "F05",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F05-C-0/result.private.json"
+    },
+    {
+      "task": "F06",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F06-A-0/result.private.json"
+    },
+    {
+      "task": "F06",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F06-C-0/result.private.json"
+    },
+    {
+      "task": "F06",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F06-B-0/result.private.json"
+    },
+    {
+      "task": "F07",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 288, in solve\n    self.transport(name, arm, free[0])\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 185, in transport\n    self.pick(name, arm)\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for part0_1\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F07-A-0/result.private.json"
+    },
+    {
+      "task": "F07",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 290, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False), p.get(\"approach\"))\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 185, in transport\n    self.pick(name, arm)\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for part0_1\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F07-B-0/result.private.json"
+    },
+    {
+      "task": "F07",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 288, in solve\n    self.transport(name, arm, free[0])\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 185, in transport\n    self.pick(name, arm)\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for part0_1\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F07-C-0/result.private.json"
+    },
+    {
+      "task": "F08",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F08-A-0/result.private.json"
+    },
+    {
+      "task": "F08",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F08-B-0/result.private.json"
+    },
+    {
+      "task": "F09",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F09-A-0/result.private.json"
+    },
+    {
+      "task": "F08",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F08-C-0/result.private.json"
+    },
+    {
+      "task": "F09",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 287, in solve\n    if not free: raise RuntimeError(\"No physically clear hand-relay location\")\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: No physically clear hand-relay location\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F09-C-0/result.private.json"
+    },
+    {
+      "task": "F09",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F09-B-0/result.private.json"
+    },
+    {
+      "task": "F10",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F10-A-0/result.private.json"
+    },
+    {
+      "task": "F10",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F10-B-0/result.private.json"
+    },
+    {
+      "task": "F11",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 290, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False), p.get(\"approach\"))\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 185, in transport\n    self.pick(name, arm)\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 97, in pick\n    if not self.state(name)[\"grasp\"][arm]: raise RuntimeError(f\"Dropped {name} after lift\")\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Dropped red after lift\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F11-A-0/result.private.json"
+    },
+    {
+      "task": "F11",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 290, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False), p.get(\"approach\"))\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 185, in transport\n    self.pick(name, arm)\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 97, in pick\n    if not self.state(name)[\"grasp\"][arm]: raise RuntimeError(f\"Dropped {name} after lift\")\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Dropped green after lift\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F11-B-0/result.private.json"
+    },
+    {
+      "task": "F10",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F10-C-0/result.private.json"
+    },
+    {
+      "task": "F11",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 288, in solve\n    self.transport(name, arm, free[0])\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 185, in transport\n    self.pick(name, arm)\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 97, in pick\n    if not self.state(name)[\"grasp\"][arm]: raise RuntimeError(f\"Dropped {name} after lift\")\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Dropped blue after lift\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F11-C-0/result.private.json"
+    },
+    {
+      "task": "F12",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F12-A-0/result.private.json"
+    },
+    {
+      "task": "F12",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F12-B-0/result.private.json"
+    },
+    {
+      "task": "F13",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F13-A-0/result.private.json"
+    },
+    {
+      "task": "F12",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F12-C-0/result.private.json"
+    },
+    {
+      "task": "F13",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F13-B-0/result.private.json"
+    },
+    {
+      "task": "F13",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F13-C-0/result.private.json"
+    },
+    {
+      "task": "F14",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F14-A-0/result.private.json"
+    },
+    {
+      "task": "F14",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F14-B-0/result.private.json"
+    },
+    {
+      "task": "F14",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F14-C-0/result.private.json"
+    },
+    {
+      "task": "F15",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 274, in solve\n    self.dual_transport(name, p[\"xy\"], p[\"bottom\"])\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 213, in dual_transport\n    self.act(arm, \"RELEASE\"); self.fine_move(arm, target)\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 105, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F15-A-0/result.private.json"
+    },
+    {
+      "task": "F15",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 274, in solve\n    self.dual_transport(name, p[\"xy\"], p[\"bottom\"])\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 213, in dual_transport\n    self.act(arm, \"RELEASE\"); self.fine_move(arm, target)\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 105, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F15-B-0/result.private.json"
+    },
+    {
+      "task": "F15",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 274, in solve\n    self.dual_transport(name, p[\"xy\"], p[\"bottom\"])\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 213, in dual_transport\n    self.act(arm, \"RELEASE\"); self.fine_move(arm, target)\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 105, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F15-C-0/result.private.json"
+    },
+    {
+      "task": "F16",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F16-A-0/result.private.json"
+    },
+    {
+      "task": "F16",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F16-C-0/result.private.json"
+    },
+    {
+      "task": "F16",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F16-B-0/result.private.json"
+    },
+    {
+      "task": "F17",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F17-B-0/result.private.json"
+    },
+    {
+      "task": "F17",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F17-A-0/result.private.json"
+    },
+    {
+      "task": "F17",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F17-C-0/result.private.json"
+    },
+    {
+      "task": "F18",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F18-B-0/result.private.json"
+    },
+    {
+      "task": "F18",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F18-A-0/result.private.json"
+    },
+    {
+      "task": "F18",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F18-C-0/result.private.json"
+    },
+    {
+      "task": "F19",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F19-A-0/result.private.json"
+    },
+    {
+      "task": "F19",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F19-B-0/result.private.json"
+    },
+    {
+      "task": "F20",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F20-A-0/result.private.json"
+    },
+    {
+      "task": "F19",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F19-C-0/result.private.json"
+    },
+    {
+      "task": "F20",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F20-B-0/result.private.json"
+    },
+    {
+      "task": "F20",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F20-C-0/result.private.json"
+    },
+    {
+      "task": "F21",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F21-A-0/result.private.json"
+    },
+    {
+      "task": "F21",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F21-B-0/result.private.json"
+    },
+    {
+      "task": "F21",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F21-C-0/result.private.json"
+    },
+    {
+      "task": "F22",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F22-A-0/result.private.json"
+    },
+    {
+      "task": "F22",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F22-B-0/result.private.json"
+    },
+    {
+      "task": "F23",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F23-A-0/result.private.json"
+    },
+    {
+      "task": "F22",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F22-C-0/result.private.json"
+    },
+    {
+      "task": "F23",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F23-B-0/result.private.json"
+    },
+    {
+      "task": "F23",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F23-C-0/result.private.json"
+    },
+    {
+      "task": "F24",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F24-A-0/result.private.json"
+    },
+    {
+      "task": "F24",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F24-B-0/result.private.json"
+    },
+    {
+      "task": "F24",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F24-C-0/result.private.json"
+    },
+    {
+      "task": "F25",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 288, in solve\n    self.transport(name, arm, free[0])\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 190, in transport\n    self.put(name, arm, [*xy, bottom+self.env.by_spec[name][\"size\"][2]], fine, approach)\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 140, in put\n    self.fine_move(arm, target+offset+[0., 0., .003], axes=(2,))\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 105, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F25-A-0/result.private.json"
+    },
+    {
+      "task": "F25",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 290, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False), p.get(\"approach\"))\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 190, in transport\n    self.put(name, arm, [*xy, bottom+self.env.by_spec[name][\"size\"][2]], fine, approach)\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 140, in put\n    self.fine_move(arm, target+offset+[0., 0., .003], axes=(2,))\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 105, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F25-C-0/result.private.json"
+    },
+    {
+      "task": "F25",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 290, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False), p.get(\"approach\"))\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 190, in transport\n    self.put(name, arm, [*xy, bottom+self.env.by_spec[name][\"size\"][2]], fine, approach)\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 140, in put\n    self.fine_move(arm, target+offset+[0., 0., .003], axes=(2,))\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 105, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F25-B-0/result.private.json"
+    },
+    {
+      "task": "F26",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F26-A-0/result.private.json"
+    },
+    {
+      "task": "F26",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 68, in record\n    author.wait(5)\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/benchmark/pilot.py\", line 39, in wait\n    for _ in range(n):self.act(0,'STILL')\n                      ^^^^^^^^^^^^^^^^^^^\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 17, in act\n    self.act_pair(*pair)\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 21, in act_pair\n    raise RuntimeError(\"Action budget exhausted\")\nRuntimeError: Action budget exhausted\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F26-B-0/result.private.json"
+    },
+    {
+      "task": "F27",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 290, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False), p.get(\"approach\"))\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 185, in transport\n    self.pick(name, arm)\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for spare2\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F27-A-0/result.private.json"
+    },
+    {
+      "task": "F26",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F26-C-0/result.private.json"
+    },
+    {
+      "task": "F27",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 290, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False), p.get(\"approach\"))\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 185, in transport\n    self.pick(name, arm)\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for spare2\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F27-B-0/result.private.json"
+    },
+    {
+      "task": "F27",
+      "variant": "C",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": "Traceback (most recent call last):\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 290, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False), p.get(\"approach\"))\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 185, in transport\n    self.pick(name, arm)\n  File \"/home/qingle/services/videoicl-tabletop50-fpv-v1/full-v79/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for spare2\n",
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F27-C-0/result.private.json"
+    },
+    {
+      "task": "F28",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F28-A-0/result.private.json"
+    },
+    {
+      "task": "F28",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F28-B-0/result.private.json"
+    },
+    {
+      "task": "F28",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F28-C-0/result.private.json"
+    },
+    {
+      "task": "F29",
+      "variant": "A",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F29-A-0/result.private.json"
+    },
+    {
+      "task": "F29",
+      "variant": "B",
+      "seed": 0,
+      "success": false,
+      "exit_code": 1,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F29-B-0/result.private.json"
+    },
+    {
+      "task": "F29",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/home/qingle/services/videoicl-tabletop50-fpv-v1/all-family-acceptance-v79/F29-C-0/result.private.json"
+    }
+  ],
+  "snapshot_only": true,
+  "final_acceptance": false,
+  "designed_conditions": 150,
+  "source_archive": "full-source-v79.tar.gz"
+}

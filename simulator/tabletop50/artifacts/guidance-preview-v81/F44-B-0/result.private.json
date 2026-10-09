@@ -1,0 +1,153 @@
+{
+  "task": "F44",
+  "variant": "B",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "caa2956a08932edcb204d4c7337f255a6e5e5f0da9cbbb087e33dea7d87e678a",
+  "source_unchanged": true,
+  "world_sha256": "8eac6452a8ef64d37debc2c6374bed4eb429b3f6bae3374e7a29027a43975e49",
+  "initial_positions": {
+    "ball": [
+      -0.12470452116116472,
+      -0.003555494168941966,
+      0.9085365845075303
+    ],
+    "gate": [
+      -0.08417203461426843,
+      -0.0035067949198495625,
+      0.9639591947418598
+    ],
+    "guide0": [
+      -0.2832907065623863,
+      -0.16354511379354916,
+      0.8599272490513241
+    ],
+    "guide1": [
+      -0.2832907065623863,
+      -0.0035451137935491777,
+      0.8599272490513241
+    ],
+    "guide2": [
+      -0.2832907065623863,
+      0.15645488620645084,
+      0.8599272490513241
+    ],
+    "catch0": [
+      0.29761488040712225,
+      -0.26378996767241597,
+      0.8149310129521042
+    ],
+    "catch1": [
+      0.29799061964624135,
+      0.21645488620645084,
+      0.8149130316538569
+    ],
+    "catch2": [
+      0.29799062025305467,
+      -0.09354511379354918,
+      0.8149130316180451
+    ]
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 9,
+    "fixtures_visible": true
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 36.8,
+    "predicates": [
+      {
+        "rule": {
+          "type": "nest",
+          "object": "ball",
+          "target": "catch1"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "guided_roll",
+          "object": "ball",
+          "guides": [
+            "guide0",
+            "guide1",
+            "guide2"
+          ],
+          "ramp": "fixture0"
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "ball": [
+        0.36538587564121866,
+        0.2644012082171743,
+        0.8265603900336373
+      ],
+      "gate": [
+        -0.2795929133434233,
+        -0.09067760673877988,
+        0.8797844891595656
+      ],
+      "guide0": [
+        0.06569985946098379,
+        0.01343764227498461,
+        0.9216410436258279
+      ],
+      "guide1": [
+        0.33013792707143275,
+        0.04521919963850288,
+        0.8172729609793664
+      ],
+      "guide2": [
+        0.19985211722914317,
+        0.2302205362863145,
+        0.9013552658503317
+      ],
+      "catch0": [
+        0.29800439763299197,
+        -0.2637757304329986,
+        0.8149433874324185
+      ],
+      "catch1": [
+        0.29836461054714364,
+        0.21643825155235544,
+        0.8149401672852822
+      ],
+      "catch2": [
+        0.29834233228868323,
+        -0.09354511382547077,
+        0.8149433874324185
+      ]
+    },
+    "events": [
+      [
+        "guided_roll",
+        "ball"
+      ]
+    ],
+    "metric": "success",
+    "joint_angles": {}
+  },
+  "cross_rule_predicates": {
+    "A": false,
+    "B": true,
+    "C": false
+  },
+  "actions": 654,
+  "actions_sha256": "6a9693554cdb9e5bc50dce82c84247c01bf34b8b995ad92f77811630136a308a",
+  "error": null,
+  "video": {
+    "recorded": true,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 2618,
+    "duration_seconds": 261.8,
+    "full_episode": true,
+    "final_success": true,
+    "sha256": "fb770e5b6cce6c71f5372e6dcfc2400888c4f8c22d9f67d041b694ee210014e0"
+  }
+}

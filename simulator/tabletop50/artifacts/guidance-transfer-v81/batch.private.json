@@ -1,0 +1,35 @@
+{
+  "revision": "tabletop50-fpv-v1",
+  "expected": 3,
+  "finished": 3,
+  "succeeded": 2,
+  "rows": [
+    {
+      "task": "F44",
+      "variant": "B",
+      "seed": 19,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-transfer-v81/F44-B-19/result.private.json"
+    },
+    {
+      "task": "F44",
+      "variant": "A",
+      "seed": 19,
+      "success": false,
+      "exit_code": 1,
+      "error": null,
+      "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-transfer-v81/F44-A-19/result.private.json"
+    },
+    {
+      "task": "F44",
+      "variant": "C",
+      "seed": 19,
+      "success": true,
+      "exit_code": 0,
+      "error": null,
+      "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-transfer-v81/F44-C-19/result.private.json"
+    }
+  ]
+}

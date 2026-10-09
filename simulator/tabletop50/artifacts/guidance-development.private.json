@@ -1,0 +1,402 @@
+{
+  "kind": "privileged-author-development-diagnostics",
+  "independent_agent": false,
+  "batches": [
+    {
+      "version": 70,
+      "revision": "tabletop50-fpv-v1",
+      "expected": 3,
+      "finished": 3,
+      "succeeded": 0,
+      "rows": [
+        {
+          "task": "F44",
+          "variant": "A",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/author.py\", line 224, in solve\n    self.guide_roll(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/author.py\", line 405, in guide_roll\n    self.pick(guide, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/author.py\", line 85, in pick\n    self.act(arm, \"RELEASE\"); self.move(arm, [*point[:2], 1.14])\n    ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/author.py\", line 17, in act\n    self.act_pair(*pair)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/author.py\", line 23, in act_pair\n    self.env.action(*pair)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/environment.py\", line 261, in action\n    self.step(action); self.track()\n                       ^^^^^^^^^^^^\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/environment.py\", line 269, in track\n    if any(state[name][\"grasp\"]) or any(self.check_contact(self.items[name], r.gripper.contact_geoms) for r in self.robots):\n                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/environment.py\", line 269, in <genexpr>\n    if any(state[name][\"grasp\"]) or any(self.check_contact(self.items[name], r.gripper.contact_geoms) for r in self.robots):\n                                                                             ^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'dict' object has no attribute 'contact_geoms'\n",
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v70/F44-A-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "B",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/author.py\", line 224, in solve\n    self.guide_roll(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/author.py\", line 405, in guide_roll\n    self.pick(guide, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/author.py\", line 85, in pick\n    self.act(arm, \"RELEASE\"); self.move(arm, [*point[:2], 1.14])\n    ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/author.py\", line 17, in act\n    self.act_pair(*pair)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/author.py\", line 23, in act_pair\n    self.env.action(*pair)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/environment.py\", line 261, in action\n    self.step(action); self.track()\n                       ^^^^^^^^^^^^\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/environment.py\", line 269, in track\n    if any(state[name][\"grasp\"]) or any(self.check_contact(self.items[name], r.gripper.contact_geoms) for r in self.robots):\n                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/environment.py\", line 269, in <genexpr>\n    if any(state[name][\"grasp\"]) or any(self.check_contact(self.items[name], r.gripper.contact_geoms) for r in self.robots):\n                                                                             ^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'dict' object has no attribute 'contact_geoms'\n",
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v70/F44-B-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "C",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/scripts/tabletop50/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/author.py\", line 224, in solve\n    self.guide_roll(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/author.py\", line 405, in guide_roll\n    self.pick(guide, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/author.py\", line 85, in pick\n    self.act(arm, \"RELEASE\"); self.move(arm, [*point[:2], 1.14])\n    ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/author.py\", line 17, in act\n    self.act_pair(*pair)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/author.py\", line 23, in act_pair\n    self.env.action(*pair)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/environment.py\", line 261, in action\n    self.step(action); self.track()\n                       ^^^^^^^^^^^^\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/environment.py\", line 269, in track\n    if any(state[name][\"grasp\"]) or any(self.check_contact(self.items[name], r.gripper.contact_geoms) for r in self.robots):\n                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v70/simulator/tabletop50/environment.py\", line 269, in <genexpr>\n    if any(state[name][\"grasp\"]) or any(self.check_contact(self.items[name], r.gripper.contact_geoms) for r in self.robots):\n                                                                             ^^^^^^^^^^^^^^^^^^^^^^^\nAttributeError: 'dict' object has no attribute 'contact_geoms'\n",
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v70/F44-C-0/result.private.json"
+        }
+      ]
+    },
+    {
+      "version": 71,
+      "revision": "tabletop50-fpv-v1",
+      "expected": 3,
+      "finished": 3,
+      "succeeded": 0,
+      "rows": [
+        {
+          "task": "F44",
+          "variant": "B",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v71/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v71/simulator/tabletop50/author.py\", line 224, in solve\n    self.guide_roll(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v71/simulator/tabletop50/author.py\", line 412, in guide_roll\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v71/simulator/tabletop50/author.py\", line 94, in pick\n    self.fine_move(arm, target+[0., 0., -.003*(attempt+1)], axes=(2,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v71/simulator/tabletop50/author.py\", line 105, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v71/F44-B-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "A",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v71/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v71/simulator/tabletop50/author.py\", line 224, in solve\n    self.guide_roll(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v71/simulator/tabletop50/author.py\", line 412, in guide_roll\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v71/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for gate\n",
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v71/F44-A-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "C",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v71/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v71/simulator/tabletop50/author.py\", line 224, in solve\n    self.guide_roll(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v71/simulator/tabletop50/author.py\", line 412, in guide_roll\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v71/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for gate\n",
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v71/F44-C-0/result.private.json"
+        }
+      ]
+    },
+    {
+      "version": 72,
+      "revision": "tabletop50-fpv-v1",
+      "expected": 3,
+      "finished": 3,
+      "succeeded": 0,
+      "rows": [
+        {
+          "task": "F44",
+          "variant": "A",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v72/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v72/simulator/tabletop50/author.py\", line 224, in solve\n    self.guide_roll(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v72/simulator/tabletop50/author.py\", line 412, in guide_roll\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v72/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for gate\n",
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v72/F44-A-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "B",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v72/F44-B-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "C",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v72/F44-C-0/result.private.json"
+        }
+      ]
+    },
+    {
+      "version": 73,
+      "revision": "tabletop50-fpv-v1",
+      "expected": 3,
+      "finished": 3,
+      "succeeded": 0,
+      "rows": [
+        {
+          "task": "F44",
+          "variant": "B",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v73/F44-B-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "C",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v73/F44-C-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "A",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v73/F44-A-0/result.private.json"
+        }
+      ]
+    },
+    {
+      "version": 74,
+      "revision": "tabletop50-fpv-v1",
+      "expected": 3,
+      "finished": 3,
+      "succeeded": 2,
+      "rows": [
+        {
+          "task": "F44",
+          "variant": "B",
+          "seed": 0,
+          "success": true,
+          "exit_code": 0,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v74/F44-B-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "C",
+          "seed": 0,
+          "success": true,
+          "exit_code": 0,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v74/F44-C-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "A",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v74/F44-A-0/result.private.json"
+        }
+      ]
+    },
+    {
+      "version": 75,
+      "revision": "tabletop50-fpv-v1",
+      "expected": 3,
+      "finished": 3,
+      "succeeded": 2,
+      "rows": [
+        {
+          "task": "F44",
+          "variant": "B",
+          "seed": 0,
+          "success": true,
+          "exit_code": 0,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v75/F44-B-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "C",
+          "seed": 0,
+          "success": true,
+          "exit_code": 0,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v75/F44-C-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "A",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v75/F44-A-0/result.private.json"
+        }
+      ]
+    },
+    {
+      "version": 76,
+      "revision": "tabletop50-fpv-v1",
+      "expected": 3,
+      "finished": 3,
+      "succeeded": 0,
+      "rows": [
+        {
+          "task": "F44",
+          "variant": "B",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v76/F44-B-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "A",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v76/F44-A-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "C",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v76/F44-C-0/result.private.json"
+        }
+      ]
+    },
+    {
+      "version": 77,
+      "revision": "tabletop50-fpv-v1",
+      "expected": 3,
+      "finished": 3,
+      "succeeded": 0,
+      "rows": [
+        {
+          "task": "F44",
+          "variant": "A",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v77/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v77/simulator/tabletop50/author.py\", line 239, in solve\n    self.guide_roll(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v77/simulator/tabletop50/author.py\", line 423, in guide_roll\n    self.pick(guide, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v77/simulator/tabletop50/author.py\", line 88, in pick\n    self.move(arm, target, axes=(2,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v77/simulator/benchmark/pilot.py\", line 52, in move\n    raise RuntimeError(f'Arm {arm} stalled axis {axis} at {pos.tolist()} target {target.tolist()}')\nRuntimeError: Arm 0 stalled axis 2 at [-0.1162291640984573, 0.0030676930615396013, 0.9019867418698969] target [-0.2832907065623863, -0.0035451137935491777, 0.8849272492916251]\n",
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v77/F44-A-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "B",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v77/F44-B-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "C",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v77/F44-C-0/result.private.json"
+        }
+      ]
+    },
+    {
+      "version": 78,
+      "revision": "tabletop50-fpv-v1",
+      "expected": 3,
+      "finished": 3,
+      "succeeded": 1,
+      "rows": [
+        {
+          "task": "F44",
+          "variant": "A",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v78/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v78/simulator/tabletop50/author.py\", line 244, in solve\n    self.guide_roll(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v78/simulator/tabletop50/author.py\", line 432, in guide_roll\n    self.park(arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v78/simulator/tabletop50/author.py\", line 49, in park\n    super().park(arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v78/simulator/benchmark/pilot.py\", line 55, in park\n    def park(self,arm):self.move(arm,[-.12,-.31 if arm==0 else .31,1.15])\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v78/simulator/benchmark/pilot.py\", line 52, in move\n    raise RuntimeError(f'Arm {arm} stalled axis {axis} at {pos.tolist()} target {target.tolist()}')\nRuntimeError: Arm 1 stalled axis 0 at [-0.18540601753471103, -0.24528721487775967, 1.0626651016989621] target [-0.12, 0.31, 1.15]\n",
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v78/F44-A-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "C",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v78/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v78/simulator/tabletop50/author.py\", line 244, in solve\n    self.guide_roll(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v78/simulator/tabletop50/author.py\", line 431, in guide_roll\n    self.put(guide, arm, [*xy, height+.06], surface_release=True, object_yaw=angle)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v78/simulator/tabletop50/author.py\", line 140, in put\n    self.fine_move(arm, target+offset+[0., 0., .003], axes=(2,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v78/simulator/tabletop50/author.py\", line 105, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v78/F44-C-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "B",
+          "seed": 0,
+          "success": true,
+          "exit_code": 0,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v78/F44-B-0/result.private.json"
+        }
+      ]
+    },
+    {
+      "version": 79,
+      "revision": "tabletop50-fpv-v1",
+      "expected": 3,
+      "finished": 3,
+      "succeeded": 1,
+      "rows": [
+        {
+          "task": "F44",
+          "variant": "C",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v79/simulator/tabletop50/author.py\", line 244, in solve\n    self.guide_roll(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v79/simulator/tabletop50/author.py\", line 431, in guide_roll\n    self.put(guide, arm, [*xy, height+.06], surface_release=True, object_yaw=angle)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v79/simulator/tabletop50/author.py\", line 140, in put\n    self.fine_move(arm, target+offset+[0., 0., .003], axes=(2,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v79/simulator/tabletop50/author.py\", line 105, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v79/F44-C-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "A",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v79/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v79/simulator/tabletop50/author.py\", line 244, in solve\n    self.guide_roll(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v79/simulator/tabletop50/author.py\", line 432, in guide_roll\n    self.park(arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v79/simulator/tabletop50/author.py\", line 49, in park\n    super().park(arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v79/simulator/benchmark/pilot.py\", line 55, in park\n    def park(self,arm):self.move(arm,[-.12,-.31 if arm==0 else .31,1.15])\n                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v79/simulator/benchmark/pilot.py\", line 52, in move\n    raise RuntimeError(f'Arm {arm} stalled axis {axis} at {pos.tolist()} target {target.tolist()}')\nRuntimeError: Arm 0 stalled axis 0 at [-0.08405796959163761, 0.01145008908970245, 0.9916712121570669] target [-0.12, -0.31, 1.15]\n",
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v79/F44-A-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "B",
+          "seed": 0,
+          "success": true,
+          "exit_code": 0,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v79/F44-B-0/result.private.json"
+        }
+      ]
+    },
+    {
+      "version": 80,
+      "revision": "tabletop50-fpv-v1",
+      "expected": 3,
+      "finished": 3,
+      "succeeded": 2,
+      "rows": [
+        {
+          "task": "F44",
+          "variant": "C",
+          "seed": 0,
+          "success": true,
+          "exit_code": 0,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v80/F44-C-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "A",
+          "seed": 0,
+          "success": true,
+          "exit_code": 0,
+          "error": null,
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v80/F44-A-0/result.private.json"
+        },
+        {
+          "task": "F44",
+          "variant": "B",
+          "seed": 0,
+          "success": false,
+          "exit_code": 1,
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v80/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v80/simulator/tabletop50/author.py\", line 244, in solve\n    self.guide_roll(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v80/simulator/tabletop50/author.py\", line 432, in guide_roll\n    self.park(arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v80/simulator/tabletop50/author.py\", line 55, in park\n    else: raise RuntimeError(\"Park wrist pitch did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Park wrist pitch did not converge\n",
+          "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-guides-v80/F44-B-0/result.private.json"
+        }
+      ]
+    }
+  ]
+}

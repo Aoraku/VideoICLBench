@@ -1,0 +1,68 @@
+{
+  "task": "F44",
+  "variant": "A",
+  "seed": 0,
+  "source_sha256": "caa2956a08932edcb204d4c7337f255a6e5e5f0da9cbbb087e33dea7d87e678a",
+  "world_sha256": "8eac6452a8ef64d37debc2c6374bed4eb429b3f6bae3374e7a29027a43975e49",
+  "video_sha256": "a3b0cb09be33dcf2fe81a677f711a722306a71c345bc2a93335a7ff228cd4981",
+  "decoded_frames": 2518,
+  "fps": 10.0,
+  "duration_seconds": 251.8,
+  "ending_image_mae": 2.67767333984375,
+  "initial_positions": {
+    "ball": [
+      -0.12470452116116472,
+      -0.003555494168941966,
+      0.9085365845075303
+    ],
+    "gate": [
+      -0.08417203461426843,
+      -0.0035067949198495625,
+      0.9639591947418598
+    ],
+    "guide0": [
+      -0.2832907065623863,
+      -0.16354511379354916,
+      0.8599272490513241
+    ],
+    "guide1": [
+      -0.2832907065623863,
+      -0.0035451137935491777,
+      0.8599272490513241
+    ],
+    "guide2": [
+      -0.2832907065623863,
+      0.15645488620645084,
+      0.8599272490513241
+    ],
+    "catch0": [
+      0.29761488040712225,
+      -0.26378996767241597,
+      0.8149310129521042
+    ],
+    "catch1": [
+      0.29799061964624135,
+      0.21645488620645084,
+      0.8149130316538569
+    ],
+    "catch2": [
+      0.29799062025305467,
+      -0.09354511379354918,
+      0.8149130316180451
+    ]
+  },
+  "cross_rule_predicates": {
+    "A": true,
+    "B": false,
+    "C": false
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 9,
+    "fixtures_visible": true
+  },
+  "usable_for_agent_demo": true,
+  "independent_agent": false,
+  "human_recorded": false,
+  "folder": "F44-A-0"
+}

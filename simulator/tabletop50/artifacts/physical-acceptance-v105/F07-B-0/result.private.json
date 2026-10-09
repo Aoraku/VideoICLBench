@@ -1,0 +1,138 @@
+{
+  "task": "F07",
+  "variant": "B",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "e230f4c5d284c0b56c21481f851f3a1a8876d855688319eebf98a8e85e8e4c7d",
+  "source_unchanged": true,
+  "world_sha256": "4249fa12a7a189a2961515b5684d3ba57fd90861c6d7ac4f1a36df608500b21f",
+  "initial_positions": {
+    "bin0": [
+      0.1499549031479766,
+      -0.18843612322147177,
+      0.8249562970124547
+    ],
+    "bin1": [
+      0.1499549031479766,
+      0.19156387677852824,
+      0.8249562970124547
+    ],
+    "part0_0": [
+      -0.23004544360163368,
+      -0.15843683278029233,
+      0.8249717939139777
+    ],
+    "part0_1": [
+      -0.12004568510135277,
+      -0.15843677003024442,
+      0.824971828773222
+    ],
+    "part1_0": [
+      -0.2300450968520234,
+      0.16156387677852824,
+      0.8177844851010382
+    ],
+    "part1_1": [
+      -0.1200450968520234,
+      0.16156387677852824,
+      0.8177844851010382
+    ]
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 0,
+    "fixtures_visible": true
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 18.2,
+    "predicates": [
+      {
+        "rule": {
+          "type": "nest",
+          "object": "part0_0",
+          "target": "bin0"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "nest",
+          "object": "part0_1",
+          "target": "bin0"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "nest",
+          "object": "part1_0",
+          "target": "bin1"
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "nest",
+          "object": "part1_1",
+          "target": "bin1"
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "bin0": [
+        0.1303576247127733,
+        -0.18689045176886449,
+        0.8249452727311898
+      ],
+      "bin1": [
+        0.15148005790368574,
+        0.17634731863435632,
+        0.8249444945714365
+      ],
+      "part0_0": [
+        0.1334691026494937,
+        -0.22328314407500716,
+        0.8329137098243484
+      ],
+      "part0_1": [
+        0.1128829729704229,
+        -0.15342435276532018,
+        0.8329134422649418
+      ],
+      "part1_0": [
+        0.154046258513968,
+        0.1494625232230881,
+        0.8257011823206833
+      ],
+      "part1_1": [
+        0.14916404104885297,
+        0.21668878186627077,
+        0.8257001944852892
+      ]
+    },
+    "events": [],
+    "metric": "success",
+    "joint_angles": {}
+  },
+  "cross_rule_predicates": {
+    "A": false,
+    "B": true,
+    "C": false
+  },
+  "actions": 659,
+  "actions_sha256": "739546ce03bc4e9a048e9ab11e5d0748cffb7a7d8fa44d8dfb8260620ebe6487",
+  "error": null,
+  "video": {
+    "recorded": false,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 0,
+    "duration_seconds": 0.0,
+    "full_episode": true,
+    "final_success": true
+  }
+}

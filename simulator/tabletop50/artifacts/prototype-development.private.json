@@ -1,0 +1,1343 @@
+{
+  "kind": "privileged-author-development-diagnostics",
+  "independent_agent": false,
+  "batches": [
+    {
+      "version": 88,
+      "batch": {
+        "revision": "tabletop50-fpv-v1",
+        "expected": 1,
+        "finished": 1,
+        "succeeded": 0,
+        "rows": [
+          {
+            "task": "F46",
+            "variant": "A",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v88/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v88/simulator/tabletop50/author.py\", line 252, in solve\n    self.unlock_box(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v88/simulator/tabletop50/author.py\", line 427, in unlock_box\n    self.fold_to(name, arm, 1.35)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v88/simulator/tabletop50/author.py\", line 619, in fold_to\n    else: raise RuntimeError(\"Panel arc positioning failed\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Panel arc positioning failed\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-locks-v88/F46-A-0/result.private.json"
+          }
+        ]
+      },
+      "proofs": [
+        {
+          "task": "F46",
+          "variant": "A",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "566777ea9a83574dc21c81c72acad74a0fdf2b8b5a2da66dec02336a649e9c01",
+          "source_unchanged": true,
+          "world_sha256": "7284cdb184d53ec63289383805ec53fa791cfc19b239760af61e8c8457098389",
+          "initial_positions": {
+            "cabinet": [
+              -0.053292947848095386,
+              -0.003544973023875557,
+              0.859955479988788
+            ],
+            "bolt": [
+              -0.21829450606766224,
+              -0.001196694304516403,
+              0.9247587316381786
+            ],
+            "item0": [
+              -0.053291557565767436,
+              -0.07354505993944865,
+              0.8227397715467645
+            ],
+            "item1": [
+              -0.053291937441548747,
+              -0.0035450360786417365,
+              0.8327393658477859
+            ],
+            "item2": [
+              -0.053292320390420825,
+              0.06645498797530659,
+              0.8427389601716863
+            ]
+          },
+          "initial_joint_angles": {
+            "cabinet": -7.95895285344469e-06
+          },
+          "visual_environment": {
+            "fixture_count": 0,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "item2",
+                  "target": "delivery"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "hinge_angle",
+                  "object": "cabinet",
+                  "bounds": [
+                    -0.03,
+                    0.04
+                  ]
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "bolt_engaged",
+                  "object": "bolt",
+                  "target": "cabinet"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "nest",
+                  "object": "item0",
+                  "target": "cabinet"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "nest",
+                  "object": "item1",
+                  "target": "cabinet"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "cabinet": [
+                -0.0532100579009724,
+                -0.0035720782712825635,
+                0.8599440558401791
+              ],
+              "bolt": [
+                -0.14090645947327426,
+                0.19941850767424216,
+                1.0900442890903785
+              ],
+              "item0": [
+                -0.0532185263530739,
+                -0.07357215134655794,
+                0.8227282087001212
+              ],
+              "item1": [
+                -0.05322279796863923,
+                -0.0035721480420164682,
+                0.8327279443922029
+              ],
+              "item2": [
+                -0.053227031048451307,
+                0.06642785537388844,
+                0.8427276800897989
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {
+              "cabinet": 0.20316875082393054
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 195,
+          "actions_sha256": "53a5fc5fdf5cd9f956fd6d59398fdc93c90a196b08ea405aecf2db974f3ba4fe",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v88/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v88/simulator/tabletop50/author.py\", line 252, in solve\n    self.unlock_box(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v88/simulator/tabletop50/author.py\", line 427, in unlock_box\n    self.fold_to(name, arm, 1.35)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v88/simulator/tabletop50/author.py\", line 619, in fold_to\n    else: raise RuntimeError(\"Panel arc positioning failed\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Panel arc positioning failed\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        }
+      ]
+    },
+    {
+      "version": 89,
+      "batch": {
+        "revision": "tabletop50-fpv-v1",
+        "expected": 1,
+        "finished": 1,
+        "succeeded": 0,
+        "rows": [
+          {
+            "task": "F42",
+            "variant": "A",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v89/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v89/simulator/tabletop50/author.py\", line 255, in solve\n    self.extend_hook(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v89/simulator/tabletop50/author.py\", line 425, in extend_hook\n    self.pick(hook, other)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v89/simulator/tabletop50/author.py\", line 98, in pick\n    if not self.state(name)[\"grasp\"][arm]: raise RuntimeError(f\"Dropped {name} after lift\")\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Dropped hook after lift\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-extension-v89/F42-A-0/result.private.json"
+          }
+        ]
+      },
+      "proofs": [
+        {
+          "task": "F42",
+          "variant": "A",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "2518485ecea38bd244c75c897f0147150fec2523946f2df60530801264241fe2",
+          "source_unchanged": true,
+          "world_sha256": "95edcb98cbf777b4acbb402bf07a05068ab5354bd743cfd7733c263cd4bffb58",
+          "initial_positions": {
+            "rod": [
+              -0.213274011858247,
+              -0.18354511379354915,
+              0.8897752574842056
+            ],
+            "hook": [
+              0.03670067705243287,
+              0.17645488620645083,
+              0.8899186322491087
+            ],
+            "ring0": [
+              0.27670929643337955,
+              -0.20354553283762766,
+              0.8079909277951998
+            ],
+            "ring1": [
+              0.2767092934340712,
+              -0.0035458411646231342,
+              0.8079908913175502
+            ],
+            "ring2": [
+              0.27670929355392543,
+              0.19645379947191308,
+              0.8079909106982845
+            ]
+          },
+          "initial_joint_angles": {},
+          "visual_environment": {
+            "fixture_count": 5,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ring0",
+                  "target": "delivery"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "extended_hook",
+                  "object": "ring0",
+                  "rod": "rod",
+                  "hook": "hook"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "rod",
+                  "xy": [
+                    -0.21438640006095794,
+                    -0.18170340750366012
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "hook",
+                  "xy": [
+                    0.035613599939042055,
+                    0.17829659249633986
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "ring1",
+                  "target": "delivery"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "ring2",
+                  "target": "delivery"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "rod": [
+                -0.21327401183986627,
+                -0.18354511379354915,
+                0.8897752574746056
+              ],
+              "hook": [
+                0.009176444270522922,
+                0.18093920229210866,
+                0.8899186322491401
+              ],
+              "ring0": [
+                0.27670929343761635,
+                -0.20354552633567052,
+                0.8079908916681291
+              ],
+              "ring1": [
+                0.2767092934377026,
+                -0.003545841161891872,
+                0.8079908916724438
+              ],
+              "ring2": [
+                0.27670929343768874,
+                0.1964537596601618,
+                0.8079912949985555
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {}
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 38,
+          "actions_sha256": "b759559f12597510a1e192e8ab8edf05b5f686c7d4464f4840b42d3e5636835b",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v89/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v89/simulator/tabletop50/author.py\", line 255, in solve\n    self.extend_hook(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v89/simulator/tabletop50/author.py\", line 425, in extend_hook\n    self.pick(hook, other)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v89/simulator/tabletop50/author.py\", line 98, in pick\n    if not self.state(name)[\"grasp\"][arm]: raise RuntimeError(f\"Dropped {name} after lift\")\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Dropped hook after lift\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        }
+      ]
+    },
+    {
+      "version": 90,
+      "batch": {
+        "revision": "tabletop50-fpv-v1",
+        "expected": 1,
+        "finished": 1,
+        "succeeded": 0,
+        "rows": [
+          {
+            "task": "F42",
+            "variant": "A",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v90/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v90/simulator/tabletop50/author.py\", line 255, in solve\n    self.extend_hook(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v90/simulator/tabletop50/author.py\", line 428, in extend_hook\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v90/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for rod\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-extension-v90/F42-A-0/result.private.json"
+          }
+        ]
+      },
+      "proofs": [
+        {
+          "task": "F42",
+          "variant": "A",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "d80d8cdfdbf201922111ce7003316b91adcf63e52ecc39359e8247882c4dddb0",
+          "source_unchanged": true,
+          "world_sha256": "31953afcf48ac9f7178368cb0348dfd8652beeed4c43f33e81276756a61f8e50",
+          "initial_positions": {
+            "rod": [
+              -0.213274011858247,
+              -0.18354511379354915,
+              0.8897752574842056
+            ],
+            "hook": [
+              -0.1432993229475672,
+              0.17645488620645083,
+              0.8899186322491087
+            ],
+            "ring0": [
+              0.2767092934370679,
+              -0.2035455263362982,
+              0.8079908913015093
+            ],
+            "ring1": [
+              0.2767092934336769,
+              -0.0035458411651732888,
+              0.8079908913196063
+            ],
+            "ring2": [
+              0.2767092934376137,
+              0.19645379045388545,
+              0.8079912731730721
+            ]
+          },
+          "initial_joint_angles": {},
+          "visual_environment": {
+            "fixture_count": 5,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ring0",
+                  "target": "delivery"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "extended_hook",
+                  "object": "ring0",
+                  "rod": "rod",
+                  "hook": "hook"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "rod",
+                  "xy": [
+                    -0.21438640006095794,
+                    -0.18170340750366012
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "hook",
+                  "xy": [
+                    -0.14438640006095793,
+                    0.17829659249633986
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "ring1",
+                  "target": "delivery"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "ring2",
+                  "target": "delivery"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "rod": [
+                -0.24378774007431442,
+                -0.15391316724963655,
+                0.8890184217538164
+              ],
+              "hook": [
+                -0.11747897865540417,
+                -0.00442263203913045,
+                0.8976048578666875
+              ],
+              "ring0": [
+                0.2767092934380684,
+                -0.20354552633512032,
+                0.8079908916681254
+              ],
+              "ring1": [
+                0.2767092934377236,
+                -0.003545841160667326,
+                0.8079908916724438
+              ],
+              "ring2": [
+                0.27670929343760015,
+                0.19645379994210155,
+                0.8079908916802696
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {}
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 154,
+          "actions_sha256": "1c536ee15ee69180086c6addaa854522e19960dff6fcac74a6369c7e55b99801",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v90/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v90/simulator/tabletop50/author.py\", line 255, in solve\n    self.extend_hook(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v90/simulator/tabletop50/author.py\", line 428, in extend_hook\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v90/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for rod\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        }
+      ]
+    },
+    {
+      "version": 91,
+      "batch": {
+        "revision": "tabletop50-fpv-v1",
+        "expected": 2,
+        "finished": 2,
+        "succeeded": 0,
+        "rows": [
+          {
+            "task": "F46",
+            "variant": "A",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/author.py\", line 252, in solve\n    self.unlock_box(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/author.py\", line 471, in unlock_box\n    self.fold_to(name, arm, 1.35)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/author.py\", line 666, in fold_to\n    else: raise RuntimeError(\"Panel arc positioning failed\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Panel arc positioning failed\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-prototypes-v91/F46-A-0/result.private.json"
+          },
+          {
+            "task": "F42",
+            "variant": "A",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/author.py\", line 255, in solve\n    self.extend_hook(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/author.py\", line 436, in extend_hook\n    self.object_move(arm, name, target, axes=(1, 2, 0))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/author.py\", line 183, in object_move\n    if level and step % 8 == 0: self.horizontal(arm, name)\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/author.py\", line 153, in horizontal\n    raise RuntimeError(\"Shaft pitch did not converge\")\nRuntimeError: Shaft pitch did not converge\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-prototypes-v91/F42-A-0/result.private.json"
+          }
+        ]
+      },
+      "proofs": [
+        {
+          "task": "F42",
+          "variant": "A",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "6d08ff0460ea6d0f861c8188fbc71f4fe439a61c7e46fa465c883c5792e1de11",
+          "source_unchanged": true,
+          "world_sha256": "31953afcf48ac9f7178368cb0348dfd8652beeed4c43f33e81276756a61f8e50",
+          "initial_positions": {
+            "rod": [
+              -0.213274011858247,
+              -0.18354511379354915,
+              0.8897752574842056
+            ],
+            "hook": [
+              -0.1432993229475672,
+              0.17645488620645083,
+              0.8899186322491087
+            ],
+            "ring0": [
+              0.2767092934370679,
+              -0.2035455263362982,
+              0.8079908913015093
+            ],
+            "ring1": [
+              0.2767092934336769,
+              -0.0035458411651732888,
+              0.8079908913196063
+            ],
+            "ring2": [
+              0.2767092934376137,
+              0.19645379045388545,
+              0.8079912731730721
+            ]
+          },
+          "initial_joint_angles": {},
+          "visual_environment": {
+            "fixture_count": 5,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "ring0",
+                  "target": "delivery"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "extended_hook",
+                  "object": "ring0",
+                  "rod": "rod",
+                  "hook": "hook"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "rod",
+                  "xy": [
+                    -0.21438640006095794,
+                    -0.18170340750366012
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "hook",
+                  "xy": [
+                    -0.14438640006095793,
+                    0.17829659249633986
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "ring1",
+                  "target": "delivery"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "ring2",
+                  "target": "delivery"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "rod": [
+                -0.438581392790655,
+                0.058790308139549545,
+                0.9107475356956168
+              ],
+              "hook": [
+                -0.12411373962510454,
+                0.17310638155901367,
+                0.896702720212882
+              ],
+              "ring0": [
+                0.2767092934381213,
+                -0.2035455263365318,
+                0.8079908916681291
+              ],
+              "ring1": [
+                0.2767092934377539,
+                -0.003545841167644265,
+                0.8079908916724438
+              ],
+              "ring2": [
+                0.2767092934376006,
+                0.19645379993394832,
+                0.8079908916802696
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {}
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 218,
+          "actions_sha256": "2ef6343ceef745bd9b9fd952f99b52a2abee9cdeebd730f3a4823e5ab3b2b73d",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/author.py\", line 255, in solve\n    self.extend_hook(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/author.py\", line 436, in extend_hook\n    self.object_move(arm, name, target, axes=(1, 2, 0))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/author.py\", line 183, in object_move\n    if level and step % 8 == 0: self.horizontal(arm, name)\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/author.py\", line 153, in horizontal\n    raise RuntimeError(\"Shaft pitch did not converge\")\nRuntimeError: Shaft pitch did not converge\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        },
+        {
+          "task": "F46",
+          "variant": "A",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "6d08ff0460ea6d0f861c8188fbc71f4fe439a61c7e46fa465c883c5792e1de11",
+          "source_unchanged": true,
+          "world_sha256": "0429a950e79c08461cee0f7a048ffb4c49fc5ce4236c83d5bd41442dffe011fa",
+          "initial_positions": {
+            "cabinet": [
+              -0.053292947848095386,
+              -0.003544973023875557,
+              0.859955479988788
+            ],
+            "bolt": [
+              -0.21829450606766224,
+              -0.001196694304516403,
+              0.9247587316381786
+            ],
+            "item0": [
+              -0.053291557565767436,
+              -0.07354505993944865,
+              0.8227397715467645
+            ],
+            "item1": [
+              -0.053291937441548747,
+              -0.0035450360786417365,
+              0.8327393658477859
+            ],
+            "item2": [
+              -0.053292320390420825,
+              0.06645498797530659,
+              0.8427389601716863
+            ]
+          },
+          "initial_joint_angles": {
+            "cabinet": -7.95895285344469e-06
+          },
+          "visual_environment": {
+            "fixture_count": 0,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "item2",
+                  "target": "delivery"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "hinge_angle",
+                  "object": "cabinet",
+                  "bounds": [
+                    -0.03,
+                    0.04
+                  ]
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "bolt_engaged",
+                  "object": "bolt",
+                  "target": "cabinet"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "nest",
+                  "object": "item0",
+                  "target": "cabinet"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "nest",
+                  "object": "item1",
+                  "target": "cabinet"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "cabinet": [
+                -0.0532100579009724,
+                -0.0035720782712825635,
+                0.8599440558401791
+              ],
+              "bolt": [
+                -0.14090645947327426,
+                0.19941850767424216,
+                1.0900442890903785
+              ],
+              "item0": [
+                -0.0532185263530739,
+                -0.07357215134655794,
+                0.8227282087001212
+              ],
+              "item1": [
+                -0.05322279796863923,
+                -0.0035721480420164682,
+                0.8327279443922029
+              ],
+              "item2": [
+                -0.053227031048451307,
+                0.06642785537388844,
+                0.8427276800897989
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {
+              "cabinet": 0.20316875082393054
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 195,
+          "actions_sha256": "53a5fc5fdf5cd9f956fd6d59398fdc93c90a196b08ea405aecf2db974f3ba4fe",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/author.py\", line 252, in solve\n    self.unlock_box(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/author.py\", line 471, in unlock_box\n    self.fold_to(name, arm, 1.35)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v91/simulator/tabletop50/author.py\", line 666, in fold_to\n    else: raise RuntimeError(\"Panel arc positioning failed\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Panel arc positioning failed\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        }
+      ]
+    },
+    {
+      "version": 92,
+      "batch": {
+        "revision": "tabletop50-fpv-v1",
+        "expected": 1,
+        "finished": 1,
+        "succeeded": 0,
+        "rows": [
+          {
+            "task": "F46",
+            "variant": "A",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v92/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v92/simulator/tabletop50/author.py\", line 252, in solve\n    self.unlock_box(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v92/simulator/tabletop50/author.py\", line 471, in unlock_box\n    self.fold_to(name, arm, 1.35)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v92/simulator/tabletop50/author.py\", line 666, in fold_to\n    else: raise RuntimeError(\"Panel arc positioning failed\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Panel arc positioning failed\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-locks-v92/F46-A-0/result.private.json"
+          }
+        ]
+      },
+      "proofs": [
+        {
+          "task": "F46",
+          "variant": "A",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "c425a445e36fd82918066981ceb04941be0e01de6f25d05d258ea9f4bc967df8",
+          "source_unchanged": true,
+          "world_sha256": "9ddcff13b712551c6c11549d9752dbd548291828546a50a79f1d0a9e7e4c782a",
+          "initial_positions": {
+            "cabinet": [
+              -0.05329295615997887,
+              -0.0035449730609165794,
+              0.8599554756677285
+            ],
+            "bolt": [
+              -0.21829451968375999,
+              -0.0011966945240563282,
+              0.924758704631242
+            ],
+            "item0": [
+              -0.053291560776161186,
+              -0.07354505995362015,
+              0.8227397672777638
+            ],
+            "item1": [
+              -0.053291942060736106,
+              -0.0035450360990912726,
+              0.8327393616853835
+            ],
+            "item2": [
+              -0.05329232642978702,
+              0.06645498794852783,
+              0.8427389561158699
+            ]
+          },
+          "initial_joint_angles": {
+            "cabinet": -7.813829627137957e-06
+          },
+          "visual_environment": {
+            "fixture_count": 0,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "item2",
+                  "target": "delivery"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "hinge_angle",
+                  "object": "cabinet",
+                  "bounds": [
+                    -0.03,
+                    0.04
+                  ]
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "bolt_engaged",
+                  "object": "bolt",
+                  "target": "cabinet"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "nest",
+                  "object": "item0",
+                  "target": "cabinet"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "nest",
+                  "object": "item1",
+                  "target": "cabinet"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "cabinet": [
+                -0.05308925848417377,
+                -0.003518162636430308,
+                0.86004549086053
+              ],
+              "bolt": [
+                -0.15707349141020974,
+                0.2012810198818943,
+                1.0714727726875362
+              ],
+              "item0": [
+                -0.053153296580292685,
+                -0.07352074213858283,
+                0.8228346733302326
+              ],
+              "item1": [
+                -0.053131596359281046,
+                -0.0035200220052960607,
+                0.8328294551399404
+              ],
+              "item2": [
+                -0.053109732549649576,
+                0.06648070494156995,
+                0.8428242367286102
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {
+              "cabinet": 0.11340378544678957
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 172,
+          "actions_sha256": "3913d95af0823d24d20216aca1cd421b737f61863075d0b3a9d93d43d7d124c3",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v92/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v92/simulator/tabletop50/author.py\", line 252, in solve\n    self.unlock_box(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v92/simulator/tabletop50/author.py\", line 471, in unlock_box\n    self.fold_to(name, arm, 1.35)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v92/simulator/tabletop50/author.py\", line 666, in fold_to\n    else: raise RuntimeError(\"Panel arc positioning failed\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Panel arc positioning failed\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        }
+      ]
+    },
+    {
+      "version": 93,
+      "batch": {
+        "revision": "tabletop50-fpv-v1",
+        "expected": 1,
+        "finished": 1,
+        "succeeded": 0,
+        "rows": [
+          {
+            "task": "F46",
+            "variant": "A",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v93/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v93/simulator/tabletop50/author.py\", line 252, in solve\n    self.unlock_box(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v93/simulator/tabletop50/author.py\", line 475, in unlock_box\n    self.pick(plan[\"item\"], arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v93/simulator/tabletop50/author.py\", line 88, in pick\n    self.move(arm, target, axes=(2,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v93/simulator/benchmark/pilot.py\", line 52, in move\n    raise RuntimeError(f'Arm {arm} stalled axis {axis} at {pos.tolist()} target {target.tolist()}')\nRuntimeError: Arm 0 stalled axis 2 at [-0.04251426164607338, 0.08464763173527473, 0.9241541592133481] target [-0.05317347371998714, 0.06631607347268, 0.8477394224063609]\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-locks-v93/F46-A-0/result.private.json"
+          }
+        ]
+      },
+      "proofs": [
+        {
+          "task": "F46",
+          "variant": "A",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "5df774e1a7a93ff9b3ef87fa8a11dad08e392350f832a16274cbd90295cc9e69",
+          "source_unchanged": true,
+          "world_sha256": "9ddcff13b712551c6c11549d9752dbd548291828546a50a79f1d0a9e7e4c782a",
+          "initial_positions": {
+            "cabinet": [
+              -0.05329295615997887,
+              -0.0035449730609165794,
+              0.8599554756677285
+            ],
+            "bolt": [
+              -0.21829451968375999,
+              -0.0011966945240563282,
+              0.924758704631242
+            ],
+            "item0": [
+              -0.053291560776161186,
+              -0.07354505995362015,
+              0.8227397672777638
+            ],
+            "item1": [
+              -0.053291942060736106,
+              -0.0035450360990912726,
+              0.8327393616853835
+            ],
+            "item2": [
+              -0.05329232642978702,
+              0.06645498794852783,
+              0.8427389561158699
+            ]
+          },
+          "initial_joint_angles": {
+            "cabinet": -7.813829627137957e-06
+          },
+          "visual_environment": {
+            "fixture_count": 0,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "item2",
+                  "target": "delivery"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "hinge_angle",
+                  "object": "cabinet",
+                  "bounds": [
+                    -0.03,
+                    0.04
+                  ]
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "bolt_engaged",
+                  "object": "bolt",
+                  "target": "cabinet"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "nest",
+                  "object": "item0",
+                  "target": "cabinet"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "nest",
+                  "object": "item1",
+                  "target": "cabinet"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "cabinet": [
+                -0.053020882382756464,
+                -0.00354480593595594,
+                0.8597893438630838
+              ],
+              "bolt": [
+                -0.15653914208170755,
+                0.1963827223443258,
+                1.0940917997314576
+              ],
+              "item0": [
+                -0.05314544217271048,
+                -0.07357186334937624,
+                0.8226243888457031
+              ],
+              "item1": [
+                -0.0530384196724082,
+                -0.0035645712484672345,
+                0.8325732432758398
+              ],
+              "item2": [
+                -0.052931346399763934,
+                0.0664427801758413,
+                0.8425220976578909
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {
+              "cabinet": -0.0021468124115339234
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 601,
+          "actions_sha256": "b7caded07eda364acbcbc93b9dc2240ba9648c6cfbf03cc4c35f656763d50d83",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v93/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v93/simulator/tabletop50/author.py\", line 252, in solve\n    self.unlock_box(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v93/simulator/tabletop50/author.py\", line 475, in unlock_box\n    self.pick(plan[\"item\"], arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v93/simulator/tabletop50/author.py\", line 88, in pick\n    self.move(arm, target, axes=(2,))\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v93/simulator/benchmark/pilot.py\", line 52, in move\n    raise RuntimeError(f'Arm {arm} stalled axis {axis} at {pos.tolist()} target {target.tolist()}')\nRuntimeError: Arm 0 stalled axis 2 at [-0.04251426164607338, 0.08464763173527473, 0.9241541592133481] target [-0.05317347371998714, 0.06631607347268, 0.8477394224063609]\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        }
+      ]
+    },
+    {
+      "version": 94,
+      "batch": {
+        "revision": "tabletop50-fpv-v1",
+        "expected": 1,
+        "finished": 1,
+        "succeeded": 0,
+        "rows": [
+          {
+            "task": "F46",
+            "variant": "A",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v94/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v94/simulator/tabletop50/author.py\", line 252, in solve\n    self.unlock_box(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v94/simulator/tabletop50/author.py\", line 475, in unlock_box\n    self.pick(plan[\"item\"], arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v94/simulator/tabletop50/author.py\", line 89, in pick\n    self.fine_move(arm, target)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v94/simulator/tabletop50/author.py\", line 106, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-locks-v94/F46-A-0/result.private.json"
+          }
+        ]
+      },
+      "proofs": [
+        {
+          "task": "F46",
+          "variant": "A",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "cb9ce649d6a13e5e166af518cf61451d9e2e7b06ce0e5005d7627c8d39586d14",
+          "source_unchanged": true,
+          "world_sha256": "9ddcff13b712551c6c11549d9752dbd548291828546a50a79f1d0a9e7e4c782a",
+          "initial_positions": {
+            "cabinet": [
+              -0.053292956157196654,
+              -0.003544973060932582,
+              0.8599554756677283
+            ],
+            "bolt": [
+              -0.2182945194820227,
+              -0.001196694523359715,
+              0.9247587046312283
+            ],
+            "item0": [
+              -0.053291560490917156,
+              -0.07354505995361833,
+              0.8227397672777823
+            ],
+            "item1": [
+              -0.05329194177555278,
+              -0.0035450360990893917,
+              0.8327393616854019
+            ],
+            "item2": [
+              -0.05329232614468756,
+              0.06645498794852966,
+              0.8427389561158883
+            ]
+          },
+          "initial_joint_angles": {
+            "cabinet": -7.813829627137808e-06
+          },
+          "visual_environment": {
+            "fixture_count": 0,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "item2",
+                  "target": "delivery"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "hinge_angle",
+                  "object": "cabinet",
+                  "bounds": [
+                    -0.03,
+                    0.04
+                  ]
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "bolt_engaged",
+                  "object": "bolt",
+                  "target": "cabinet"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "nest",
+                  "object": "item0",
+                  "target": "cabinet"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "nest",
+                  "object": "item1",
+                  "target": "cabinet"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "cabinet": [
+                -0.0678817983586255,
+                0.004667589171314218,
+                0.8598346282260791
+              ],
+              "bolt": [
+                -0.15716030963965325,
+                0.19641439542319983,
+                1.0944418156254978
+              ],
+              "item0": [
+                -0.07564280790180727,
+                -0.07140228562131422,
+                0.8227032452159144
+              ],
+              "item1": [
+                -0.04609070881985959,
+                0.023658219454071337,
+                0.8292726874249504
+              ],
+              "item2": [
+                -0.051584041196952896,
+                0.08923490555871842,
+                0.8274198588631408
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {
+              "cabinet": 1.118105746557845
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 660,
+          "actions_sha256": "3d4d0b92a9fe550c9a0bb9bedaf9f54e69dd18ed789d66eb21d2ecd8c41e5003",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v94/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v94/simulator/tabletop50/author.py\", line 252, in solve\n    self.unlock_box(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v94/simulator/tabletop50/author.py\", line 475, in unlock_box\n    self.pick(plan[\"item\"], arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v94/simulator/tabletop50/author.py\", line 89, in pick\n    self.fine_move(arm, target)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v94/simulator/tabletop50/author.py\", line 106, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        }
+      ]
+    }
+  ]
+}

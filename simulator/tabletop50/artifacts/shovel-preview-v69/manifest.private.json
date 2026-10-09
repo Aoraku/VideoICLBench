@@ -1,0 +1,165 @@
+{
+  "status": "engineering-author-demonstrations",
+  "expected_families": 50,
+  "expected_rule_conditions": 150,
+  "verified_videos": 3,
+  "complete_three_rule_families": 1,
+  "complete_groups": [
+    {
+      "task": "F38",
+      "seed": 0,
+      "source_sha256": "500d3bc993cf51b9bddd6402c734badf96a83bdeaf12871806e757c6d926a72f"
+    }
+  ],
+  "usable_videos": 3,
+  "usable_complete_three_rule_families": 1,
+  "human_videos": 0,
+  "independent_agent_trials": 0,
+  "cases": [
+    {
+      "task": "F38",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "500d3bc993cf51b9bddd6402c734badf96a83bdeaf12871806e757c6d926a72f",
+      "world_sha256": "148f52fc4049ba7d9e4df20133ba744bbee70879dcc3e227e049b1f6a40ac955",
+      "video_sha256": "bf355d15d2661fca71d05725428957eaba5be6c04e8cd9ca8444eb9b8f41b4d1",
+      "decoded_frames": 4942,
+      "fps": 10.0,
+      "duration_seconds": 494.2,
+      "ending_image_mae": 2.5813870429992676,
+      "initial_positions": {
+        "scoop": [
+          -0.24340931140398261,
+          -0.0035451137935491777,
+          0.8746924745501177
+        ],
+        "coaster0": [
+          0.026709293437613694,
+          -0.12354511379354918,
+          0.8198910929317378
+        ],
+        "coaster1": [
+          0.026709293437613694,
+          -0.0035451137935491777,
+          0.8198910929317378
+        ],
+        "coaster2": [
+          0.026709293437613694,
+          0.11645488620645081,
+          0.8198910929317378
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 0,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F38-A-0"
+    },
+    {
+      "task": "F38",
+      "variant": "B",
+      "seed": 0,
+      "source_sha256": "500d3bc993cf51b9bddd6402c734badf96a83bdeaf12871806e757c6d926a72f",
+      "world_sha256": "148f52fc4049ba7d9e4df20133ba744bbee70879dcc3e227e049b1f6a40ac955",
+      "video_sha256": "3f459632a61c37dbdc17539f6ff52a374031e18b2504c99ff7ce5c1c2a833d12",
+      "decoded_frames": 4946,
+      "fps": 10.0,
+      "duration_seconds": 494.6,
+      "ending_image_mae": 2.5749120712280273,
+      "initial_positions": {
+        "scoop": [
+          -0.24340931140398261,
+          -0.0035451137935491777,
+          0.8746924745501177
+        ],
+        "coaster0": [
+          0.026709293437613694,
+          -0.12354511379354918,
+          0.8198910929317378
+        ],
+        "coaster1": [
+          0.026709293437613694,
+          -0.0035451137935491777,
+          0.8198910929317378
+        ],
+        "coaster2": [
+          0.026709293437613694,
+          0.11645488620645081,
+          0.8198910929317378
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 0,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F38-B-0"
+    },
+    {
+      "task": "F38",
+      "variant": "C",
+      "seed": 0,
+      "source_sha256": "500d3bc993cf51b9bddd6402c734badf96a83bdeaf12871806e757c6d926a72f",
+      "world_sha256": "148f52fc4049ba7d9e4df20133ba744bbee70879dcc3e227e049b1f6a40ac955",
+      "video_sha256": "f11bfda0698cfcbac61c0388e4e3eddb1cad5a1dd29efd7b09ea493bf91b7eb2",
+      "decoded_frames": 4610,
+      "fps": 10.0,
+      "duration_seconds": 461.0,
+      "ending_image_mae": 2.69260835647583,
+      "initial_positions": {
+        "scoop": [
+          -0.24340931140398261,
+          -0.0035451137935491777,
+          0.8746924745501177
+        ],
+        "coaster0": [
+          0.026709293437613694,
+          -0.12354511379354918,
+          0.8198910929317378
+        ],
+        "coaster1": [
+          0.026709293437613694,
+          -0.0035451137935491777,
+          0.8198910929317378
+        ],
+        "coaster2": [
+          0.026709293437613694,
+          0.11645488620645081,
+          0.8198910929317378
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 0,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F38-C-0"
+    }
+  ],
+  "rejected": []
+}

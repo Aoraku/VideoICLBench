@@ -1,0 +1,44 @@
+{
+  "status": "privileged-author-physical-acceptance",
+  "task": "F44",
+  "conditions": 3,
+  "source_sha256": "caa2956a08932edcb204d4c7337f255a6e5e5f0da9cbbb087e33dea7d87e678a",
+  "source_archive": "../guidance-source-v81.tar.gz",
+  "human_recorded": false,
+  "independent_agent": false,
+  "cases": [
+    {
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "actions": 629,
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      }
+    },
+    {
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "actions": 654,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": true,
+        "C": false
+      }
+    },
+    {
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "actions": 621,
+      "cross_rule_predicates": {
+        "A": false,
+        "B": false,
+        "C": true
+      }
+    }
+  ]
+}

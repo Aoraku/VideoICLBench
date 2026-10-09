@@ -1,0 +1,180 @@
+{
+  "status": "engineering-author-demonstrations",
+  "expected_families": 50,
+  "expected_rule_conditions": 150,
+  "verified_videos": 2,
+  "complete_three_rule_families": 0,
+  "complete_groups": [],
+  "usable_videos": 1,
+  "usable_complete_three_rule_families": 0,
+  "human_videos": 0,
+  "independent_agent_trials": 0,
+  "cases": [
+    {
+      "task": "F08",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "world_sha256": "6fbd1e19375a6d825a898fe4a07b771e8e523e16c235b41ad9a60273f82de7ab",
+      "video_sha256": "7ff68c079593f6938f4a765d0141f141ffce2d0be7188031c58c389520687513",
+      "decoded_frames": 1862,
+      "fps": 10.0,
+      "duration_seconds": 186.2,
+      "ending_image_mae": 2.56154203414917,
+      "initial_positions": {
+        "piece0_0": [
+          -0.260045551315823,
+          -0.2184367649783696,
+          0.8309713668364319
+        ],
+        "piece0_1": [
+          -0.2600450968520234,
+          0.0015638767785282346,
+          0.8297844851005383
+        ],
+        "piece0_2": [
+          -0.26004588108516835,
+          0.2215657397821465,
+          0.8299748569959645
+        ],
+        "piece1_0": [
+          -0.15004549098731243,
+          -0.2184367585667068,
+          0.830971664480337
+        ],
+        "piece1_1": [
+          -0.1500450968520234,
+          0.0015638767785282346,
+          0.8297844851005383
+        ],
+        "piece1_2": [
+          -0.1500470875590713,
+          0.22156607593681824,
+          0.829975111076104
+        ],
+        "piece2_0": [
+          -0.0400450420010833,
+          -0.21843641603551883,
+          0.8309721977156126
+        ],
+        "piece2_1": [
+          -0.0400450968520234,
+          0.001563876778528235,
+          0.8297844851005383
+        ],
+        "piece2_2": [
+          -0.04004607675705424,
+          0.22156890319079248,
+          0.8299781034168197
+        ],
+        "socket0": [
+          0.1799549031479766,
+          -0.21843612322147177,
+          0.8119908838351613
+        ],
+        "socket1": [
+          0.1799549031479766,
+          0.0015638767785282346,
+          0.8119453911668254
+        ],
+        "socket2": [
+          0.1799549031479766,
+          0.22156432309766344,
+          0.8119267568656964
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 0,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": true,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F08-A-0"
+    },
+    {
+      "task": "F10",
+      "variant": "A",
+      "seed": 0,
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "world_sha256": "c22233a0b61d4b89916e4023f8f4c688b841d1d6c1765b04b4a5de95ebb87fd0",
+      "video_sha256": "d6809ea2ff321b6e7dfd6a8a97f1df9c5015707ae70f29845af7fc36a27acf9c",
+      "decoded_frames": 2230,
+      "fps": 10.0,
+      "duration_seconds": 223.0,
+      "ending_image_mae": 2.454132080078125,
+      "initial_positions": {
+        "ref0": [
+          -0.2206077140050885,
+          -0.21714177837204085,
+          0.8097844851020015
+        ],
+        "ref1": [
+          -0.2206077140050885,
+          0.002858221627959152,
+          0.8097844851020015
+        ],
+        "ref2": [
+          -0.2206077140050885,
+          0.22285822162795915,
+          0.8097844851020015
+        ],
+        "ref3": [
+          -0.10060771400508851,
+          -0.21714177837204085,
+          0.8097844851020015
+        ],
+        "piece0": [
+          -0.0406077140050885,
+          -0.21714177837204085,
+          0.8117844851016339
+        ],
+        "piece1": [
+          -0.0406077140050885,
+          -0.07214177837204086,
+          0.8117844851016339
+        ],
+        "piece2": [
+          -0.0406077140050885,
+          0.07285822162795913,
+          0.8117844851016339
+        ],
+        "piece3": [
+          -0.0406077140050885,
+          0.2178582216279591,
+          0.8117844851016339
+        ]
+      },
+      "cross_rule_predicates": {
+        "A": true,
+        "B": false,
+        "C": false
+      },
+      "initial_joint_angles": {},
+      "visual_environment": {
+        "fixture_count": 0,
+        "fixtures_visible": true
+      },
+      "usable_for_agent_demo": false,
+      "independent_agent": false,
+      "human_recorded": false,
+      "folder": "F10-A-0",
+      "design_alignment": false,
+      "manual_review_reason": "The reference is not a congruent 2x2 grid; the claimed rotation/mirror task is not implemented faithfully."
+    }
+  ],
+  "rejected": [],
+  "manual_review_rejections": [
+    {
+      "task": "F10",
+      "variant": "A",
+      "reason": "reference grid differs from designed 2x2 mosaic"
+    }
+  ]
+}

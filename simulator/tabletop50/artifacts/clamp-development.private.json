@@ -1,0 +1,1825 @@
+{
+  "kind": "privileged-author-development-diagnostics",
+  "independent_agent": false,
+  "batches": [
+    {
+      "version": 82,
+      "batch": {
+        "revision": "tabletop50-fpv-v1",
+        "expected": 1,
+        "finished": 1,
+        "succeeded": 0,
+        "rows": [
+          {
+            "task": "F43",
+            "variant": "A",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v82/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v82/simulator/tabletop50/author.py\", line 247, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v82/simulator/tabletop50/author.py\", line 418, in clip_transport\n    self.pick(name, arm, grasp_offset=handles)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v82/simulator/tabletop50/author.py\", line 97, in pick\n    if not self.state(name)[\"grasp\"][arm]: raise RuntimeError(f\"Dropped {name} after lift\")\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Dropped clip after lift\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-clips-v82/F43-A-0/result.private.json"
+          }
+        ]
+      },
+      "proofs": [
+        {
+          "task": "F43",
+          "variant": "A",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "138ec13b019ba2408892687a9aaf728a09ba9ca8100dd9d241578f156fe502a0",
+          "source_unchanged": true,
+          "world_sha256": "475838fb897fba260cc4f2777584e4a17c221ab7274ed88faf2c7c74ffc28908",
+          "initial_positions": {
+            "clip": [
+              -0.22808277433463725,
+              0.0033916978316791036,
+              0.8999199718770393
+            ],
+            "plate0": [
+              0.04209627797203201,
+              -0.176944351667545,
+              0.8247844891603278
+            ],
+            "plate1": [
+              0.04209627797203201,
+              0.183055648332455,
+              0.8247844891603278
+            ],
+            "plate2": [
+              0.04209627797203201,
+              0.003055648332454984,
+              0.8247844891603278
+            ]
+          },
+          "initial_joint_angles": {
+            "clip": -0.020037960659602654
+          },
+          "visual_environment": {
+            "fixture_count": 3,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "plate0",
+                  "target": "rack"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "clipped",
+                  "object": "plate0",
+                  "target": "clip"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "clip",
+                  "xy": [
+                    -0.22899941552653963,
+                    0.004897354622344021
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate1",
+                  "target": "rack"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate2",
+                  "target": "rack"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "clip": [
+                -0.22166351454267483,
+                -0.01800616410694075,
+                0.8999038905270865
+              ],
+              "plate0": [
+                0.04209627797203201,
+                -0.176944351667545,
+                0.8247844891595695
+              ],
+              "plate1": [
+                0.04209627797203201,
+                0.183055648332455,
+                0.8247844891595695
+              ],
+              "plate2": [
+                0.04209627797203201,
+                0.0030556483324549848,
+                0.8247844891595695
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {
+              "clip": -0.24890695625625509
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 86,
+          "actions_sha256": "e3aa28e4a2944cc66b5a1bd5e0b5542f11a056a3db6de765efe8e6117a321716",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v82/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v82/simulator/tabletop50/author.py\", line 247, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v82/simulator/tabletop50/author.py\", line 418, in clip_transport\n    self.pick(name, arm, grasp_offset=handles)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v82/simulator/tabletop50/author.py\", line 97, in pick\n    if not self.state(name)[\"grasp\"][arm]: raise RuntimeError(f\"Dropped {name} after lift\")\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Dropped clip after lift\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        }
+      ]
+    },
+    {
+      "version": 83,
+      "batch": {
+        "revision": "tabletop50-fpv-v1",
+        "expected": 1,
+        "finished": 1,
+        "succeeded": 0,
+        "rows": [
+          {
+            "task": "F43",
+            "variant": "A",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v83/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v83/simulator/tabletop50/author.py\", line 247, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v83/simulator/tabletop50/author.py\", line 434, in clip_transport\n    self.pick(name, arm, grasp_offset=handles)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v83/simulator/tabletop50/author.py\", line 97, in pick\n    if not self.state(name)[\"grasp\"][arm]: raise RuntimeError(f\"Dropped {name} after lift\")\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Dropped clip after lift\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-clips-v83/F43-A-0/result.private.json"
+          }
+        ]
+      },
+      "proofs": [
+        {
+          "task": "F43",
+          "variant": "A",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "508dc2e84b63208f1213782a2aff5dcc0fdc737e678dff1021ef1d4cd643166a",
+          "source_unchanged": true,
+          "world_sha256": "d69c0f684b301022126a28f080ad9c785914cc3f1852ecc8a6c12bfce2989b86",
+          "initial_positions": {
+            "clip": [
+              -0.22804097335391812,
+              0.0034400691079087614,
+              0.8999390861127068
+            ],
+            "plate0": [
+              0.04209627797203201,
+              -0.176944351667545,
+              0.8247844891603278
+            ],
+            "plate1": [
+              0.04209627797203201,
+              0.183055648332455,
+              0.8247844891603278
+            ],
+            "plate2": [
+              0.04209627797203201,
+              0.003055648332454984,
+              0.8247844891603278
+            ]
+          },
+          "initial_joint_angles": {
+            "clip": -0.018433893519355666
+          },
+          "visual_environment": {
+            "fixture_count": 3,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "plate0",
+                  "target": "rack"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "clipped",
+                  "object": "plate0",
+                  "target": "clip"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "clip",
+                  "xy": [
+                    -0.22899941552653963,
+                    0.004897354622344021
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate1",
+                  "target": "rack"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate2",
+                  "target": "rack"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "clip": [
+                0.12985131711563203,
+                -0.06634533318272069,
+                0.9155171488189705
+              ],
+              "plate0": [
+                0.20865771247302423,
+                -0.03954649306713066,
+                0.8253531974113851
+              ],
+              "plate1": [
+                0.04209627797203201,
+                0.183055648332455,
+                0.8247844891595695
+              ],
+              "plate2": [
+                0.04807064668121136,
+                -0.053674616023614584,
+                0.8244134921539252
+              ]
+            },
+            "events": [
+              [
+                "clipped",
+                "plate0"
+              ]
+            ],
+            "metric": "success",
+            "joint_angles": {
+              "clip": -0.1012595548376756
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 325,
+          "actions_sha256": "a5819dd4b645f45bf6287fd3e9c75c78051c6f22aa74461f038266be4cdf9dc5",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v83/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v83/simulator/tabletop50/author.py\", line 247, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v83/simulator/tabletop50/author.py\", line 434, in clip_transport\n    self.pick(name, arm, grasp_offset=handles)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v83/simulator/tabletop50/author.py\", line 97, in pick\n    if not self.state(name)[\"grasp\"][arm]: raise RuntimeError(f\"Dropped {name} after lift\")\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Dropped clip after lift\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        }
+      ]
+    },
+    {
+      "version": 84,
+      "batch": {
+        "revision": "tabletop50-fpv-v1",
+        "expected": 3,
+        "finished": 3,
+        "succeeded": 0,
+        "rows": [
+          {
+            "task": "F43",
+            "variant": "B",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/author.py\", line 247, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/author.py\", line 427, in clip_transport\n    if (\"clipped\", plate) not in self.env.events: raise RuntimeError(\"No real two-jaw support after clip lift\")\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: No real two-jaw support after clip lift\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-clips-v84/F43-B-0/result.private.json"
+          },
+          {
+            "task": "F43",
+            "variant": "A",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/author.py\", line 247, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/author.py\", line 434, in clip_transport\n    self.pick(name, arm, grasp_offset=handles)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for clip\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-clips-v84/F43-A-0/result.private.json"
+          },
+          {
+            "task": "F43",
+            "variant": "C",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/author.py\", line 247, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/author.py\", line 426, in clip_transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for clip\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-clips-v84/F43-C-0/result.private.json"
+          }
+        ]
+      },
+      "proofs": [
+        {
+          "task": "F43",
+          "variant": "A",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "195dd9132c4a7daf56f3426cab28802788022bb1bfde1b822d3ede0c2fc910bb",
+          "source_unchanged": true,
+          "world_sha256": "24cae50dcde3e818cd213ed25df31733ee458052d12b8879125014ed6cae5c2d",
+          "initial_positions": {
+            "clip": [
+              -0.22804097335391812,
+              0.0034400691079087614,
+              0.8999390861127068
+            ],
+            "plate0": [
+              0.04209627797203201,
+              -0.176944351667545,
+              0.8247844891603278
+            ],
+            "plate1": [
+              0.04209627797203201,
+              0.183055648332455,
+              0.8247844891603278
+            ],
+            "plate2": [
+              0.04209627797203201,
+              0.003055648332454984,
+              0.8247844891603278
+            ]
+          },
+          "initial_joint_angles": {
+            "clip": -0.018433893519355666
+          },
+          "visual_environment": {
+            "fixture_count": 3,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "plate0",
+                  "target": "rack"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "clipped",
+                  "object": "plate0",
+                  "target": "clip"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "clip",
+                  "xy": [
+                    -0.22899941552653963,
+                    0.004897354622344021
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate1",
+                  "target": "rack"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate2",
+                  "target": "rack"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "clip": [
+                0.13767381987402616,
+                -0.14907870484281638,
+                0.8824000656458914
+              ],
+              "plate0": [
+                0.21127276525027364,
+                -0.05670735647428363,
+                0.828679959313888
+              ],
+              "plate1": [
+                0.04209627797203201,
+                0.183055648332455,
+                0.8247844891595695
+              ],
+              "plate2": [
+                0.044449384663223984,
+                -0.03889939935446094,
+                0.8229334005047266
+              ]
+            },
+            "events": [
+              [
+                "clipped",
+                "plate0"
+              ]
+            ],
+            "metric": "success",
+            "joint_angles": {
+              "clip": 0.06594524436977331
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 318,
+          "actions_sha256": "adddbc8593b8735faa1440da028ac20a39e56b5a519884e525a841bfda03d92e",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/author.py\", line 247, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/author.py\", line 434, in clip_transport\n    self.pick(name, arm, grasp_offset=handles)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for clip\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        },
+        {
+          "task": "F43",
+          "variant": "B",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "195dd9132c4a7daf56f3426cab28802788022bb1bfde1b822d3ede0c2fc910bb",
+          "source_unchanged": true,
+          "world_sha256": "24cae50dcde3e818cd213ed25df31733ee458052d12b8879125014ed6cae5c2d",
+          "initial_positions": {
+            "clip": [
+              -0.22804097335391812,
+              0.0034400691079087614,
+              0.8999390861127068
+            ],
+            "plate0": [
+              0.04209627797203201,
+              -0.176944351667545,
+              0.8247844891603278
+            ],
+            "plate1": [
+              0.04209627797203201,
+              0.183055648332455,
+              0.8247844891603278
+            ],
+            "plate2": [
+              0.04209627797203201,
+              0.003055648332454984,
+              0.8247844891603278
+            ]
+          },
+          "initial_joint_angles": {
+            "clip": -0.018433893519355666
+          },
+          "visual_environment": {
+            "fixture_count": 3,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "plate1",
+                  "target": "rack"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "clipped",
+                  "object": "plate1",
+                  "target": "clip"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "clip",
+                  "xy": [
+                    -0.22899941552653963,
+                    0.004897354622344021
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate0",
+                  "target": "rack"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate2",
+                  "target": "rack"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "clip": [
+                -0.0527778512271358,
+                0.1723509389293951,
+                1.099139031657016
+              ],
+              "plate0": [
+                0.04209627797203201,
+                -0.176944351667545,
+                0.8247844891595695
+              ],
+              "plate1": [
+                0.045884374124706286,
+                0.22321468129603303,
+                0.8197844891595659
+              ],
+              "plate2": [
+                0.04209627797203201,
+                0.003055648332454984,
+                0.8247844891595695
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {
+              "clip": -0.24832606122970996
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 166,
+          "actions_sha256": "23bbe6b9fbe4e55bf3b9b2727c094bc3fa878589b6554436e170a419f857382b",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/author.py\", line 247, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/author.py\", line 427, in clip_transport\n    if (\"clipped\", plate) not in self.env.events: raise RuntimeError(\"No real two-jaw support after clip lift\")\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: No real two-jaw support after clip lift\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        },
+        {
+          "task": "F43",
+          "variant": "C",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "195dd9132c4a7daf56f3426cab28802788022bb1bfde1b822d3ede0c2fc910bb",
+          "source_unchanged": true,
+          "world_sha256": "24cae50dcde3e818cd213ed25df31733ee458052d12b8879125014ed6cae5c2d",
+          "initial_positions": {
+            "clip": [
+              -0.22804097335391812,
+              0.0034400691079087614,
+              0.8999390861127068
+            ],
+            "plate0": [
+              0.04209627797203201,
+              -0.176944351667545,
+              0.8247844891603278
+            ],
+            "plate1": [
+              0.04209627797203201,
+              0.183055648332455,
+              0.8247844891603278
+            ],
+            "plate2": [
+              0.04209627797203201,
+              0.003055648332454984,
+              0.8247844891603278
+            ]
+          },
+          "initial_joint_angles": {
+            "clip": -0.018433893519355666
+          },
+          "visual_environment": {
+            "fixture_count": 3,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "plate2",
+                  "target": "rack"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "clipped",
+                  "object": "plate2",
+                  "target": "clip"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "clip",
+                  "xy": [
+                    -0.22899941552653963,
+                    0.004897354622344021
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate0",
+                  "target": "rack"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate1",
+                  "target": "rack"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "clip": [
+                -0.05021584770165259,
+                -0.14597531111086293,
+                0.8244273252599575
+              ],
+              "plate0": [
+                0.04209627797203201,
+                -0.176944351667545,
+                0.8247844891595695
+              ],
+              "plate1": [
+                0.04209627797203201,
+                0.183055648332455,
+                0.8247844891595695
+              ],
+              "plate2": [
+                0.04794679144884789,
+                0.012696068101004557,
+                0.8247844891595659
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {
+              "clip": -0.2528987800195593
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 291,
+          "actions_sha256": "6adfb0fde45267f7de9f3d0168e8c222c3e59b55a2a06820cae6a19086f6c4d4",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/author.py\", line 247, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/author.py\", line 426, in clip_transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v84/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for clip\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        }
+      ]
+    },
+    {
+      "version": 85,
+      "batch": {
+        "revision": "tabletop50-fpv-v1",
+        "expected": 1,
+        "finished": 1,
+        "succeeded": 0,
+        "rows": [
+          {
+            "task": "F43",
+            "variant": "A",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v85/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v85/simulator/tabletop50/author.py\", line 248, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v85/simulator/tabletop50/author.py\", line 436, in clip_transport\n    self.pick(name, other, lift=False)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v85/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for clip\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-clips-v85/F43-A-0/result.private.json"
+          }
+        ]
+      },
+      "proofs": [
+        {
+          "task": "F43",
+          "variant": "A",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "944746ed5dc058c183eb0abbf3853735f50e3fe8ce233577a608367b15d44123",
+          "source_unchanged": true,
+          "world_sha256": "24cae50dcde3e818cd213ed25df31733ee458052d12b8879125014ed6cae5c2d",
+          "initial_positions": {
+            "clip": [
+              -0.22804097335391812,
+              0.0034400691079087614,
+              0.8999390861127068
+            ],
+            "plate0": [
+              0.04209627797203201,
+              -0.176944351667545,
+              0.8247844891603278
+            ],
+            "plate1": [
+              0.04209627797203201,
+              0.183055648332455,
+              0.8247844891603278
+            ],
+            "plate2": [
+              0.04209627797203201,
+              0.003055648332454984,
+              0.8247844891603278
+            ]
+          },
+          "initial_joint_angles": {
+            "clip": -0.018433893519355666
+          },
+          "visual_environment": {
+            "fixture_count": 3,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "plate0",
+                  "target": "rack"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "clipped",
+                  "object": "plate0",
+                  "target": "clip"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "clip",
+                  "xy": [
+                    -0.22899941552653963,
+                    0.004897354622344021
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate1",
+                  "target": "rack"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate2",
+                  "target": "rack"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "clip": [
+                0.13246716132390524,
+                -0.1436692309439631,
+                0.8868742271280484
+              ],
+              "plate0": [
+                0.20967807690511525,
+                -0.06690697382580016,
+                0.8266366364699236
+              ],
+              "plate1": [
+                0.04209627797203201,
+                0.183055648332455,
+                0.8247844891595695
+              ],
+              "plate2": [
+                0.04370810457159115,
+                -0.040003497041910155,
+                0.8247844891595659
+              ]
+            },
+            "events": [
+              [
+                "clipped",
+                "plate0"
+              ]
+            ],
+            "metric": "success",
+            "joint_angles": {
+              "clip": -0.09588236159657859
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 322,
+          "actions_sha256": "d32194f714e9720be0b5d2bf2006a471ff2d1c62a4fadcd32282022265631cc7",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v85/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v85/simulator/tabletop50/author.py\", line 248, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v85/simulator/tabletop50/author.py\", line 436, in clip_transport\n    self.pick(name, other, lift=False)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v85/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for clip\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        }
+      ]
+    },
+    {
+      "version": 86,
+      "batch": {
+        "revision": "tabletop50-fpv-v1",
+        "expected": 3,
+        "finished": 3,
+        "succeeded": 0,
+        "rows": [
+          {
+            "task": "F43",
+            "variant": "B",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 249, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 429, in clip_transport\n    if (\"clipped\", plate) not in self.env.events: raise RuntimeError(\"No real two-jaw support after clip lift\")\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: No real two-jaw support after clip lift\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-clips-v86/F43-B-0/result.private.json"
+          },
+          {
+            "task": "F43",
+            "variant": "A",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 249, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 436, in clip_transport\n    self.pick(name, other, grasp_offset=handles, lift=False)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 89, in pick\n    self.fine_move(arm, target)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 106, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-clips-v86/F43-A-0/result.private.json"
+          },
+          {
+            "task": "F43",
+            "variant": "C",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 249, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 428, in clip_transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for clip\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-clips-v86/F43-C-0/result.private.json"
+          }
+        ]
+      },
+      "proofs": [
+        {
+          "task": "F43",
+          "variant": "A",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "cce640acf9f5ffd51cb94d8915bc5d312bd4e295c67d62c847ac0ff70f3c7ee4",
+          "source_unchanged": true,
+          "world_sha256": "24cae50dcde3e818cd213ed25df31733ee458052d12b8879125014ed6cae5c2d",
+          "initial_positions": {
+            "clip": [
+              -0.22804097335391812,
+              0.0034400691079087614,
+              0.8999390861127068
+            ],
+            "plate0": [
+              0.04209627797203201,
+              -0.176944351667545,
+              0.8247844891603278
+            ],
+            "plate1": [
+              0.04209627797203201,
+              0.183055648332455,
+              0.8247844891603278
+            ],
+            "plate2": [
+              0.04209627797203201,
+              0.003055648332454984,
+              0.8247844891603278
+            ]
+          },
+          "initial_joint_angles": {
+            "clip": -0.018433893519355666
+          },
+          "visual_environment": {
+            "fixture_count": 3,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "plate0",
+                  "target": "rack"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "clipped",
+                  "object": "plate0",
+                  "target": "clip"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "clip",
+                  "xy": [
+                    -0.22899941552653963,
+                    0.004897354622344021
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate1",
+                  "target": "rack"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate2",
+                  "target": "rack"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "clip": [
+                0.008422415585758397,
+                -0.05718729422364101,
+                0.9084573099887933
+              ],
+              "plate0": [
+                0.08322506601485871,
+                -0.06715167732359226,
+                0.824336263582016
+              ],
+              "plate1": [
+                -0.005992718613427579,
+                0.14903556234526072,
+                0.8197844891595659
+              ],
+              "plate2": [
+                0.027797541674883155,
+                -0.11285431260256337,
+                0.8252135252810675
+              ]
+            },
+            "events": [
+              [
+                "clipped",
+                "plate0"
+              ]
+            ],
+            "metric": "success",
+            "joint_angles": {
+              "clip": -0.08981393381054684
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 405,
+          "actions_sha256": "694a9683bc79e0baf23972ed3b06df08c70c76679ebbd10d22ea5a728f046ab0",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 249, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 436, in clip_transport\n    self.pick(name, other, grasp_offset=handles, lift=False)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 89, in pick\n    self.fine_move(arm, target)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 106, in fine_move\n    else: raise RuntimeError(\"Fine positioning did not converge\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Fine positioning did not converge\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        },
+        {
+          "task": "F43",
+          "variant": "B",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "cce640acf9f5ffd51cb94d8915bc5d312bd4e295c67d62c847ac0ff70f3c7ee4",
+          "source_unchanged": true,
+          "world_sha256": "24cae50dcde3e818cd213ed25df31733ee458052d12b8879125014ed6cae5c2d",
+          "initial_positions": {
+            "clip": [
+              -0.22804097335391812,
+              0.0034400691079087614,
+              0.8999390861127068
+            ],
+            "plate0": [
+              0.04209627797203201,
+              -0.176944351667545,
+              0.8247844891603278
+            ],
+            "plate1": [
+              0.04209627797203201,
+              0.183055648332455,
+              0.8247844891603278
+            ],
+            "plate2": [
+              0.04209627797203201,
+              0.003055648332454984,
+              0.8247844891603278
+            ]
+          },
+          "initial_joint_angles": {
+            "clip": -0.018433893519355666
+          },
+          "visual_environment": {
+            "fixture_count": 3,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "plate1",
+                  "target": "rack"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "clipped",
+                  "object": "plate1",
+                  "target": "clip"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "clip",
+                  "xy": [
+                    -0.22899941552653963,
+                    0.004897354622344021
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate0",
+                  "target": "rack"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate2",
+                  "target": "rack"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "clip": [
+                -0.0527778512271358,
+                0.1723509389293951,
+                1.099139031657016
+              ],
+              "plate0": [
+                0.04209627797203201,
+                -0.176944351667545,
+                0.8247844891595695
+              ],
+              "plate1": [
+                0.045884374124706286,
+                0.22321468129603303,
+                0.8197844891595659
+              ],
+              "plate2": [
+                0.04209627797203201,
+                0.003055648332454984,
+                0.8247844891595695
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {
+              "clip": -0.24832606122970996
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 166,
+          "actions_sha256": "23bbe6b9fbe4e55bf3b9b2727c094bc3fa878589b6554436e170a419f857382b",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 249, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 429, in clip_transport\n    if (\"clipped\", plate) not in self.env.events: raise RuntimeError(\"No real two-jaw support after clip lift\")\n                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: No real two-jaw support after clip lift\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        },
+        {
+          "task": "F43",
+          "variant": "C",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "cce640acf9f5ffd51cb94d8915bc5d312bd4e295c67d62c847ac0ff70f3c7ee4",
+          "source_unchanged": true,
+          "world_sha256": "24cae50dcde3e818cd213ed25df31733ee458052d12b8879125014ed6cae5c2d",
+          "initial_positions": {
+            "clip": [
+              -0.22804097335391812,
+              0.0034400691079087614,
+              0.8999390861127068
+            ],
+            "plate0": [
+              0.04209627797203201,
+              -0.176944351667545,
+              0.8247844891603278
+            ],
+            "plate1": [
+              0.04209627797203201,
+              0.183055648332455,
+              0.8247844891603278
+            ],
+            "plate2": [
+              0.04209627797203201,
+              0.003055648332454984,
+              0.8247844891603278
+            ]
+          },
+          "initial_joint_angles": {
+            "clip": -0.018433893519355666
+          },
+          "visual_environment": {
+            "fixture_count": 3,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "plate2",
+                  "target": "rack"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "clipped",
+                  "object": "plate2",
+                  "target": "clip"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "clip",
+                  "xy": [
+                    -0.22899941552653963,
+                    0.004897354622344021
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate0",
+                  "target": "rack"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate1",
+                  "target": "rack"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "clip": [
+                -0.05021584770165259,
+                -0.14597531111086293,
+                0.8244273252599575
+              ],
+              "plate0": [
+                0.04209627797203201,
+                -0.176944351667545,
+                0.8247844891595695
+              ],
+              "plate1": [
+                0.04209627797203201,
+                0.183055648332455,
+                0.8247844891595695
+              ],
+              "plate2": [
+                0.04794679144884789,
+                0.012696068101004557,
+                0.8247844891595659
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {
+              "clip": -0.2528987800195593
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 291,
+          "actions_sha256": "6adfb0fde45267f7de9f3d0168e8c222c3e59b55a2a06820cae6a19086f6c4d4",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 249, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 428, in clip_transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v86/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for clip\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        }
+      ]
+    },
+    {
+      "version": 87,
+      "batch": {
+        "revision": "tabletop50-fpv-v1",
+        "expected": 3,
+        "finished": 3,
+        "succeeded": 0,
+        "rows": [
+          {
+            "task": "F43",
+            "variant": "A",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 249, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 428, in clip_transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for clip\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-clips-v87/F43-A-0/result.private.json"
+          },
+          {
+            "task": "F43",
+            "variant": "B",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 249, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 436, in clip_transport\n    self.pick(name, other, grasp_offset=handles, lift=False)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for clip\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-clips-v87/F43-B-0/result.private.json"
+          },
+          {
+            "task": "F43",
+            "variant": "C",
+            "seed": 0,
+            "success": false,
+            "exit_code": 1,
+            "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 249, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 428, in clip_transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for clip\n",
+            "result": "/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-clips-v87/F43-C-0/result.private.json"
+          }
+        ]
+      },
+      "proofs": [
+        {
+          "task": "F43",
+          "variant": "A",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "b695cb3888c724292f44912097ce23bbd16315a7ca8fa57cd19f6f347d1db308",
+          "source_unchanged": true,
+          "world_sha256": "a7aa798d4048ba2e7097e6c1ec90ff4e7d963954daef5e5f2bd919822efad6c3",
+          "initial_positions": {
+            "clip": [
+              -0.1580196431366256,
+              0.0034270459996916663,
+              0.8999376502291464
+            ],
+            "plate0": [
+              0.04209627797203201,
+              -0.176944351667545,
+              0.8247844891603278
+            ],
+            "plate1": [
+              0.04209627797203201,
+              0.183055648332455,
+              0.8247844891603278
+            ],
+            "plate2": [
+              0.04209627797203201,
+              0.003055648332454984,
+              0.8247844891603278
+            ]
+          },
+          "initial_joint_angles": {
+            "clip": -0.01715789114280584
+          },
+          "visual_environment": {
+            "fixture_count": 3,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "plate0",
+                  "target": "rack"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "clipped",
+                  "object": "plate0",
+                  "target": "clip"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "clip",
+                  "xy": [
+                    -0.15899941552653962,
+                    0.004897354622344021
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate1",
+                  "target": "rack"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate2",
+                  "target": "rack"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "clip": [
+                0.006944436611273562,
+                -0.35998046709472714,
+                0.8242088725140954
+              ],
+              "plate0": [
+                0.10129338939941576,
+                -0.2906709103659826,
+                0.8341858383896389
+              ],
+              "plate1": [
+                0.04209627797203201,
+                0.183055648332455,
+                0.8247844891595695
+              ],
+              "plate2": [
+                0.04209627797203201,
+                0.003055648332454988,
+                0.8247844891595695
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {
+              "clip": -0.10942824410923714
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 227,
+          "actions_sha256": "bb4674d2e3d9dc6c0eb1d3da50c18e8fffadaf161990615837476a51b3d44011",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 249, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 428, in clip_transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for clip\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        },
+        {
+          "task": "F43",
+          "variant": "B",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "b695cb3888c724292f44912097ce23bbd16315a7ca8fa57cd19f6f347d1db308",
+          "source_unchanged": true,
+          "world_sha256": "a7aa798d4048ba2e7097e6c1ec90ff4e7d963954daef5e5f2bd919822efad6c3",
+          "initial_positions": {
+            "clip": [
+              -0.1580196431366256,
+              0.0034270459996916663,
+              0.8999376502291464
+            ],
+            "plate0": [
+              0.04209627797203201,
+              -0.176944351667545,
+              0.8247844891603278
+            ],
+            "plate1": [
+              0.04209627797203201,
+              0.183055648332455,
+              0.8247844891603278
+            ],
+            "plate2": [
+              0.04209627797203201,
+              0.003055648332454984,
+              0.8247844891603278
+            ]
+          },
+          "initial_joint_angles": {
+            "clip": -0.01715789114280584
+          },
+          "visual_environment": {
+            "fixture_count": 3,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "plate1",
+                  "target": "rack"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "clipped",
+                  "object": "plate1",
+                  "target": "clip"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "clip",
+                  "xy": [
+                    -0.15899941552653962,
+                    0.004897354622344021
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate0",
+                  "target": "rack"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate2",
+                  "target": "rack"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "clip": [
+                0.01872496070036329,
+                0.30723834442008047,
+                0.8309410729998975
+              ],
+              "plate0": [
+                0.04209627797203201,
+                -0.176944351667545,
+                0.8247844891595697
+              ],
+              "plate1": [
+                0.15799677913356022,
+                0.32003254794915065,
+                0.8471471170255125
+              ],
+              "plate2": [
+                0.041073647440455635,
+                -0.02803538028762265,
+                0.8247844891595697
+              ]
+            },
+            "events": [
+              [
+                "clipped",
+                "plate1"
+              ]
+            ],
+            "metric": "success",
+            "joint_angles": {
+              "clip": 0.09512767829227319
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 314,
+          "actions_sha256": "49b8135858da5a5b96abe7cadc65d766617d6dc4f02cf1e6cf4b12052f131b41",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 249, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 436, in clip_transport\n    self.pick(name, other, grasp_offset=handles, lift=False)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for clip\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        },
+        {
+          "task": "F43",
+          "variant": "C",
+          "seed": 0,
+          "kind": "privileged-author-physical-acceptance",
+          "independent_agent": false,
+          "human_recorded": false,
+          "source_sha256": "b695cb3888c724292f44912097ce23bbd16315a7ca8fa57cd19f6f347d1db308",
+          "source_unchanged": true,
+          "world_sha256": "a7aa798d4048ba2e7097e6c1ec90ff4e7d963954daef5e5f2bd919822efad6c3",
+          "initial_positions": {
+            "clip": [
+              -0.1580196431366256,
+              0.0034270459996916663,
+              0.8999376502291464
+            ],
+            "plate0": [
+              0.04209627797203201,
+              -0.176944351667545,
+              0.8247844891603278
+            ],
+            "plate1": [
+              0.04209627797203201,
+              0.183055648332455,
+              0.8247844891603278
+            ],
+            "plate2": [
+              0.04209627797203201,
+              0.003055648332454984,
+              0.8247844891603278
+            ]
+          },
+          "initial_joint_angles": {
+            "clip": -0.01715789114280584
+          },
+          "visual_environment": {
+            "fixture_count": 3,
+            "fixtures_visible": true
+          },
+          "score": {
+            "success": false,
+            "hold_seconds": 0.0,
+            "predicates": [
+              {
+                "rule": {
+                  "type": "place",
+                  "object": "plate2",
+                  "target": "rack"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "clipped",
+                  "object": "plate2",
+                  "target": "clip"
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "position",
+                  "object": "clip",
+                  "xy": [
+                    -0.15899941552653962,
+                    0.004897354622344021
+                  ],
+                  "tolerance": 0.045
+                },
+                "passed": false
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate0",
+                  "target": "rack"
+                },
+                "passed": true
+              },
+              {
+                "rule": {
+                  "type": "not_place",
+                  "object": "plate1",
+                  "target": "rack"
+                },
+                "passed": true
+              }
+            ],
+            "object_positions": {
+              "clip": [
+                -0.017433445695101458,
+                -0.11506291176487658,
+                0.8175116903819755
+              ],
+              "plate0": [
+                0.04209627797203201,
+                -0.176944351667545,
+                0.8247844891595695
+              ],
+              "plate1": [
+                0.04209627797203201,
+                0.183055648332455,
+                0.8247844891595695
+              ],
+              "plate2": [
+                0.049626682044119255,
+                0.011720703905371823,
+                0.824851739565207
+              ]
+            },
+            "events": [],
+            "metric": "success",
+            "joint_angles": {
+              "clip": -0.25267372769981405
+            }
+          },
+          "cross_rule_predicates": {
+            "A": false,
+            "B": false,
+            "C": false
+          },
+          "actions": 254,
+          "actions_sha256": "c4b6876ce1948c4ee7937d361ff1e7dfda244c4b62704cccc3d600c00099e1d0",
+          "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 249, in solve\n    self.clip_transport(name, p)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 428, in clip_transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/.local/tabletop50-source-v87/simulator/tabletop50/author.py\", line 95, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for clip\n",
+          "video": {
+            "recorded": false,
+            "camera": "fpv",
+            "fps": 10,
+            "frames": 0,
+            "duration_seconds": 0.0,
+            "full_episode": true,
+            "final_success": false
+          }
+        }
+      ]
+    }
+  ]
+}

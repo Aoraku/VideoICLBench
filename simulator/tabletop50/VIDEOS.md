@@ -1,6 +1,6 @@
 # 50题视频索引
 
-合格历史预览42段，完整三版本14族。未完成项明确留空；不是最终统一源码150段验收。
+合格历史预览51段，完整三版本17族。未完成项明确留空；不是最终统一源码150段验收。
 
 | 任务 | A | B | C |
 | --- | --- | --- | --- |
@@ -11,7 +11,7 @@
 | F05 尺寸序列整理 | [视频](artifacts/foundation-v1/F05-A-0/video.mp4) | [视频](artifacts/foundation-v1/F05-B-0/video.mp4) | [视频](artifacts/foundation-v1/F05-C-0/video.mp4) |
 | F06 成对长条定向 | [视频](artifacts/foundation-v1/F06-A-0/video.mp4) | [视频](artifacts/foundation-v1/F06-B-0/video.mp4) | [视频](artifacts/foundation-v1/F06-C-0/video.mp4) |
 | F07 交叉属性配套 | [视频](artifacts/foundation-v1/F07-A-0/video.mp4) | [视频](artifacts/foundation-v1/F07-B-0/video.mp4) | [视频](artifacts/foundation-v1/F07-C-0/video.mp4) |
-| F08 形状匹配插孔 | 待完成 | 待完成 | 待完成 |
+| F08 形状匹配插孔 | [视频](artifacts/shape-preview-v79/F08-A-0/video.mp4) | [视频](artifacts/shape-preview-v79/F08-B-0/video.mp4) | [视频](artifacts/shape-preview-v79/F08-C-0/video.mp4) |
 | F09 承重桥搭建 | 待完成 | 待完成 | 待完成 |
 | F10 参照拼板变换 | 待完成 | 待完成 | 待完成 |
 | F11 圆环分柱套放 | 待完成 | 待完成 | 待完成 |
@@ -41,13 +41,13 @@
 | F35 配套打包并交付 | 待完成 | 待完成 | 待完成 |
 | F36 推杆送件 | [视频](artifacts/visible-preview-v46/F36-A-0/video.mp4) | [视频](artifacts/visible-preview-v46/F36-B-0/video.mp4) | [视频](artifacts/visible-preview-v46/F36-C-0/video.mp4) |
 | F37 钩取受限物件 | 待完成 | 待完成 | 待完成 |
-| F38 铲取后分区交付 | 待完成 | 待完成 | 待完成 |
+| F38 铲取后分区交付 | [视频](artifacts/shovel-preview-v69/F38-A-0/video.mp4) | [视频](artifacts/shovel-preview-v69/F38-B-0/video.mp4) | [视频](artifacts/shovel-preview-v69/F38-C-0/video.mp4) |
 | F39 扫拢大颗粒 | [视频](artifacts/sweep-preview-v48/F39-A-0/video.mp4) | [视频](artifacts/sweep-preview-v48/F39-B-0/video.mp4) | [视频](artifacts/sweep-preview-v48/F39-C-0/video.mp4) |
 | F40 硬件倾倒 | 待完成 | 待完成 | 待完成 |
 | F41 推片绕过障碍 | [视频](artifacts/corner-preview-v53/F41-A-0/video.mp4) | [视频](artifacts/corner-preview-v53/F41-B-0/video.mp4) | [视频](artifacts/corner-preview-v53/F41-C-0/video.mp4) |
 | F42 工具接长后取件 | 待完成 | 待完成 | 待完成 |
 | F43 夹持搬运厚片 | 待完成 | 待完成 | 待完成 |
-| F44 导向板送球 | 待完成 | 待完成 | 待完成 |
+| F44 导向板送球 | [视频](artifacts/guidance-preview-v81/F44-A-0/video.mp4) | [视频](artifacts/guidance-preview-v81/F44-B-0/video.mp4) | [视频](artifacts/guidance-preview-v81/F44-C-0/video.mp4) |
 | F45 细长件穿口搬运 | 待完成 | 待完成 | 待完成 |
 | F46 解锁取件后重新锁闭 | 待完成 | 待完成 | 待完成 |
 | F47 长条交接与定向交付 | [视频](artifacts/assembly-preview-v15/F47-A-0/video.mp4) | [视频](artifacts/assembly-preview-v15/F47-B-0/video.mp4) | [视频](artifacts/assembly-preview-v15/F47-C-0/video.mp4) |

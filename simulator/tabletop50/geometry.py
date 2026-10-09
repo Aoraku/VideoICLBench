@@ -35,6 +35,52 @@ def make_prop(s):
         for geom in item.get_obj().iter("geom"):
             if geom.get("group") == "0": geom.set("condim", "6")
         return item
+    if kind == "latched_box":
+        item = component_object(s, s["components"])
+        leaf = ET.SubElement(item.get_obj(), "body", name=item.naming_prefix+"leaf", pos="-.12 0 .055")
+        ET.SubElement(leaf, "joint", name=item.naming_prefix+"hinge", type="hinge", axis="0 -1 0",
+                      limited="true", range="0 1.95", damping=".02", frictionloss=".10",
+                      armature=".0001", solreflimit=".004 1", solimplimit=".99 .99 .001",
+                      solreffriction=".004 1", solimpfriction=".99 .99 .001")
+        pieces = [([.13, .13, .006], [.13, 0., 0.]),
+                  ([.012, .014, .050], [.24, 0., .055]),
+                  ([.020, .020, .006], [.270, 0., 0.])]
+        pieces += [([.006, .008, .025], [.285+xx, 0., -.020]) for xx in [-.018, .018]]
+        pieces += [([.012, .008, .006], [.285, 0., -.020+zz]) for zz in [-.018, .018]]
+        names = []
+        for i, (size, pos) in enumerate(pieces):
+            for group in [0, 1]:
+                name = f"lid{i}_"+("collision" if group == 0 else "visual")
+                ET.SubElement(leaf, "geom", name=item.naming_prefix+name, type="box",
+                              size=" ".join(map(str, size)), pos=" ".join(map(str, pos)),
+                              rgba=".35 .6 .8 1", density="80" if group == 0 else "0",
+                              friction="1.5 .006 .0001", condim="4", group=str(group),
+                              contype="1" if group == 0 else "0", conaffinity="1" if group == 0 else "0")
+                names.append((group, name))
+        item._bodies.append("leaf"); item._joints.append("hinge")
+        item._contact_geoms.extend(n for g, n in names if g == 0)
+        item._visual_geoms.extend(n for g, n in names if g == 1)
+        return item
+    if kind == "spring_clip":
+        item = component_object(s, s["components"])
+        leaf = ET.SubElement(item.get_obj(), "body", name=item.naming_prefix+"leaf")
+        ET.SubElement(leaf, "joint", name=item.naming_prefix+"hinge", type="hinge",
+                      axis="0 0 1", limited="true", range="-.25 .48", damping=".005",
+                      stiffness=".5", springref="-.25", armature=".00001")
+        moving = [("lever_collision", [.090, .006, .012], [.025, .025, -.055], [1.5, .006, .0001]),
+                  ("leaf_collision", [.045, .006, .025], [.080, .025, -.075], [3, .006, .0001])]
+        for name, size, pos, friction in moving:
+            for group in [0, 1]:
+                label = name if group == 0 else name.replace("collision", "visual")
+                ET.SubElement(leaf, "geom", name=item.naming_prefix+label, type="box",
+                              size=" ".join(map(str, size)), pos=" ".join(map(str, pos)),
+                              rgba=" ".join(map(str, s["rgba"])), density="450" if group == 0 else "0",
+                              friction=" ".join(map(str, friction)), condim="4", group=str(group),
+                              contype="1" if group == 0 else "0", conaffinity="1" if group == 0 else "0")
+        item._bodies.append("leaf"); item._joints.append("hinge")
+        item._contact_geoms.extend(["lever_collision", "leaf_collision"])
+        item._visual_geoms.extend(["lever_visual", "leaf_visual"])
+        return item
     if kind == "hinged_panel":
         item = BoxObject(name=s["id"], size=s["size"], rgba=[.7, .7, .7, 1], density=2000)
         leaf = ET.SubElement(item.get_obj(), "body", name=item.naming_prefix+"leaf", pos="-.08 0 .027")

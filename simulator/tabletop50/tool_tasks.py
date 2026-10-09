@@ -1,6 +1,6 @@
 """Tool/contact tasks with real rigid contents and private process evidence."""
 RECIPES = {"F36": "push_delivery", "F37": "hook_retrieval", "F38": "shovel_delivery", "F39": "sweep_beads", "F41": "corner_push",
-           "F40": "pour_solids", "F45": "pass_long_bar"}
+           "F40": "pour_solids", "F42": "extend_hook", "F43": "clip_transport", "F44": "guide_ball", "F45": "pass_long_bar"}
 
 
 def build(recipe, v, rng, obj, position):
@@ -10,8 +10,140 @@ def build(recipe, v, rng, obj, position):
     if recipe == "sweep_beads": return sweep_beads(v, rng, obj, position)
     if recipe == "corner_push": return corner_push(v, rng, obj, position)
     if recipe == "shovel_delivery": return shovel_delivery(v, rng, obj, position)
+    if recipe == "guide_ball": return guide_ball(v, rng, obj, position)
+    if recipe == "clip_transport": return clip_transport(v, rng, obj, position)
+    if recipe == "extend_hook": return extend_hook(v, rng, obj, position)
     if recipe != "pour_solids": raise NotImplementedError(recipe)
     return pour_solids(v, rng, obj, position)
+
+
+def extend_hook(v, rng, obj, position):
+    from .mechanical import annulus
+    rod_parts = [dict(size=[.130, .012, .012], pos=[0., 0., -.055]),
+                 dict(size=[.014, .016, .050], pos=[-.100, 0., .015]),
+                 dict(size=[.090, .025, .010], pos=[-.050, 0., -.080])]
+    objects = [obj("rod", [-.22, -.18], "yellow", "bar", (.13, .025, .09),
+                   components=rod_parts, bottom=.8, density=150, condim=4,
+                   grasp_local=[-.100, 0., .035], friction=[1.5, .006, .0001])]
+    socket = []
+    for yy in [-.0185, .0185]:
+        socket.append(dict(size=[.045, .0075, .026], pos=[-.070, yy, -.055]))
+    for zz in [-.0185, .0185]:
+        socket.append(dict(size=[.045, .011, .0075], pos=[-.070, 0., -.055+zz]))
+    hook_parts = socket+[dict(size=[.100, .008, .008], pos=[.070, 0., -.055]),
+                         dict(size=[.008, .008, .020], pos=[.160, 0., -.065]),
+                         dict(size=[.014, .016, .050], pos=[-.100, 0., .015]),
+                         dict(size=[.080, .025, .010], pos=[-.040, 0., -.080])]
+    # A slightly compressible, friction-lined socket retains the inserted
+    # shaft through real contact. The two objects remain separate free bodies.
+    objects.append(obj("hook", [-.15, .18], "white", "bar", (.17, .026, .09),
+                       components=hook_parts, bottom=.8, density=150, condim=4,
+                       grasp_local=[-.100, 0., .035], friction=[1.5, .006, .0001], solref=[.005, 1]))
+    colors = ["red", "green", "blue"]; rng.shuffle(colors)
+    for i in range(3):
+        length = .025+i*.015
+        pieces = annulus(.040, .025, .008)
+        pieces.append(dict(size=[.010, length/2, .004], pos=[0., -.040-length/2, 0.]))
+        objects.append(obj(f"ring{i}", [.27, -.20+i*.20], colors[i], "ring",
+                           (.040, .040+length, .008), components=pieces, inner_radius=.025,
+                           bottom=.8, density=200, condim=4, friction=[1, .005, .0001]))
+    fixtures = [dict(type="box", xy=[.19, 0.], z=.900, size=[.13, .31, .008], rgba=[.6, .75, .85, .28])]
+    fixtures += [dict(type="box", xy=[x, y], z=.846, size=[.012, .012, .046], rgba=[.4, .45, .5, 1])
+                 for x in [.075, .305] for y in [-.325, .325]]
+    zones = [dict(id="delivery", xy=[0., -.25], half_size=[.09, .14], marker=0)]
+    goals = [dict(type="place", object=f"ring{v}", target="delivery"),
+             dict(type="extended_hook", object=f"ring{v}", rod="rod", hook="hook"),
+             position("rod", [-.22, -.18], .045), position("hook", [-.15, .18], .045)]
+    goals += [dict(type="not_place", object=f"ring{i}", target="delivery") for i in range(3) if i != v]
+    plan = [dict(object="rod", operation="extend_hook", hook="hook", ring=f"ring{v}",
+                 xy=[0., -.25], return_xy=[-.22, -.18], hook_home=[-.15, .18])]
+    return objects, goals, plan, zones, fixtures
+
+
+def clip_transport(v, rng, obj, position):
+    # A spring clip: squeezing the rear handles opens the front jaws. A
+    # separate upright grip lets a robot carry it without opening those jaws.
+    parts = [dict(size=[.090, .006, .012], pos=[.025, -.025, -.055]),
+             dict(size=[.045, .006, .025], pos=[.080, -.025, -.075], friction=[3, .006, .0001]),
+             dict(size=[.018, .040, .010], pos=[-.200, 0., -.090]),
+             dict(size=[.075, .010, .010], pos=[-.130, -.025, -.090]),
+             dict(size=[.012, .014, .060], pos=[-.200, 0., .015])]
+    objects = [obj("clip", [-.16, 0.], "yellow", "spring_clip", (.220, .065, .100),
+                   components=parts, bottom=.8, density=450, condim=4,
+                   grasp_local=[-.200, 0., .055], friction=[1.5, .006, .0001])]
+    starts = [[.04, -.18], [.04, 0.], [.04, .18]]
+    rng.shuffle(starts)
+    colors = ["red", "green", "blue"]; rng.shuffle(colors)
+    for i in range(3):
+        objects.append(obj(f"plate{i}", starts[i], colors[i], "box",
+                           (.025+i*.005, .015+i*.005, .025), bottom=.8,
+                           density=180, friction=[1.5, .006, .0001], condim=4))
+    zones = [dict(id="rack", xy=[.22, 0.], half_size=[.09, .110], marker=0)]
+    fixtures = [dict(type="box", xy=[.32, 0.], z=.815, size=[.008, .13, .015], rgba=[.4, .45, .5, 1])]
+    fixtures += [dict(type="box", xy=[.22, y], z=.815, size=[.10, .008, .015], rgba=[.4, .45, .5, 1]) for y in [-.13, .13]]
+    goals = [dict(type="place", object=f"plate{v}", target="rack"),
+             dict(type="clipped", object=f"plate{v}", target="clip"),
+             position("clip", [-.16, 0.], .045)]
+    goals += [dict(type="not_place", object=f"plate{i}", target="rack") for i in range(3) if i != v]
+    plan = [dict(object="clip", operation="clip_transport", plate=f"plate{v}", xy=[.22, 0.], return_xy=[-.16, 0.])]
+    return objects, goals, plan, zones, fixtures
+
+
+def guide_ball(v, rng, obj, position):
+    import math
+    slope = .15
+    fixtures = [dict(type="box", xy=[0., 0.], z=.86, size=[.20, .31, .01],
+                     quat=[math.cos(slope/2), 0., math.sin(slope/2), 0.], rgba=[.65, .7, .74, 1])]
+    for x in [-.17, .16]:
+        top = .85-math.tan(slope)*x
+        for y in [-.25, .25]:
+            fixtures.append(dict(type="box", xy=[x, y], z=(.8+top)/2,
+                                 size=[.015, .015, (top-.8)/2], rgba=[.4, .45, .5, 1]))
+    # A removable gate slides vertically between two pairs of real cheek
+    # blocks, like a wooden marble-run stopper. The supports resist downhill
+    # drift; lifting the gate is unconstrained and releases the ball.
+    gate_surface = .87+math.tan(slope)*.10
+    for x in [-.13, -.07]:
+        for y in [-.090, .090]:
+            fixtures.append(dict(type="box", xy=[x, y], z=gate_surface+.025,
+                                 size=[.010, .018, .035], rgba=[.45, .5, .55, 1]))
+    objects = [obj("ball", [-.145, 0.], "red", "sphere", (.019, .019, .019),
+                   bottom=.87+math.tan(slope)*.145, density=450)]
+    gate_parts = [dict(size=[.015, .090, .020], pos=[0., 0., -.060]),
+                  dict(size=[.012, .015, .055], pos=[0., 0., -.005])]
+    objects.append(obj("gate", [-.10, 0.], "yellow", "bar", (.015, .090, .080),
+                       components=gate_parts, bottom=.87+math.tan(slope)*.10,
+                       grasp_local=[0., 0., .025], density=600, condim=4,
+                       friction=[1.5, .006, .0001]))
+    board_parts = [dict(size=[.075, .018, .014], pos=[0., 0., -.044],
+                        friction=[.06, .001, .0001], priority=1),
+                   dict(size=[.012, .015, .050], pos=[0., 0., -.010])]
+    # Rubber feet hold the board on the slope; its smooth vertical faces let
+    # the ball slide/roll along them. A single high-friction material on both
+    # surfaces can wedge a ball against an otherwise correctly placed wall.
+    board_parts += [dict(size=[.008, .018, .001], pos=[x, 0., -.059],
+                         friction=[1.5, .006, .0001], priority=2) for x in [-.060, .060]]
+    for i, color in enumerate(["blue", "green", "purple"]):
+        board = obj(f"guide{i}", [-.29, -.16+i*.16], color, "bar", (.075, .018, .060),
+                    components=board_parts, bottom=.8, grasp_local=[0., 0., .020], density=250,
+                    friction=[1.5, .006, .0001], condim=4)
+        board["yaw"] = 0.
+        objects.append(board)
+    slots = [[.29, -.26], [.29, -.09], [.29, .22]]; rng.shuffle(slots)
+    for i, xy in enumerate(slots):
+        x, y, z, w = .095, .075, .015, .004
+        # Open approach edge avoids a lip that would stop a slowly rolling ball.
+        parts = [dict(size=[x, y, w], pos=[0., 0., -z+w]),
+                 dict(size=[w, y, z], pos=[x-w, 0., 0.]),
+                 dict(size=[x, w, z], pos=[0., -y+w, 0.]),
+                 dict(size=[x, w, z], pos=[0., y-w, 0.])]
+        objects.append(obj(f"catch{i}", xy, "white", "tray", (x, y, z),
+                           components=parts, bottom=.8, inner_size=[x, y, z], marker=i, density=600))
+    goals = [dict(type="nest", object="ball", target=f"catch{v}"),
+             dict(type="guided_roll", object="ball", guides=[f"guide{i}" for i in range(3)], ramp="fixture0")]
+    plan = [dict(object="gate", operation="guide_roll", target=f"catch{v}", xy=slots[v],
+                 guides=[f"guide{i}" for i in range(3)], return_xy=[-.29, 0.], slope=slope)]
+    return objects, goals, plan, [], fixtures
 
 
 def shovel_delivery(v, rng, obj, position):

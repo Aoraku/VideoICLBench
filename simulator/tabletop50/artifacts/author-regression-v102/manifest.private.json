@@ -1,0 +1,17 @@
+{
+  "kind": "privileged-author-regression",
+  "independent_agent": false,
+  "video_recorded": false,
+  "source_archive": "../execution-development-v95-v102.tar.gz",
+  "source_archive_prefix": "tabletop50-source-v102",
+  "cases": [
+    {
+      "task": "F03",
+      "variant": "A",
+      "seed": 0,
+      "actions": 866,
+      "source_sha256": "087546bb21e438366c3dc809f4f325c1dd9d62f17d7670a5b88e2820a5e808d0",
+      "success": true
+    }
+  ]
+}

@@ -1,10 +1,11 @@
 """Multi-object dependencies using ordinary rigid household teaching props."""
+import math
 from .mechanical import annulus
 
 RECIPES = {"F09": "bridge", "F21": "clear_handles", "F22": "layers", "F25": "change_cap",
            "F27": "top_up", "F33": "complete_lengths", "F35": "kit_delivery",
            "F15": "mobile_board", "F47": "air_handover", "F48": "reconfigure_bin",
-           "F49": "fold_display"}
+           "F49": "fold_display", "F46": "unlock_box"}
 
 
 def handled_tray(obj, name, xy, x, y, z, bottom=None):
@@ -31,7 +32,54 @@ def build(recipe, v, rng, obj, position):
         objects.append(obj(name, xy, "white", "tray", size, **kwargs))
         goals.append(position(name, xy, .015))
 
-    if recipe == "clear_handles":
+    if recipe == "unlock_box":
+        x, y, z, w = .12, .13, .06, .008
+        parts = [dict(size=[x, y, .004], pos=[0., 0., -z+.004]),
+                 dict(size=[w, y, .05], pos=[-x+w, 0., -.01]),
+                 dict(size=[w, y, .05], pos=[x-w, 0., -.01]),
+                 dict(size=[x-w, w, .05], pos=[0., -y+w, -.01]),
+                 dict(size=[x-w, w, .05], pos=[0., y-w, -.01])]
+        # Two fixed rectangular rings flank the matching ring on the lid.
+        for yy in [-.075, .075]:
+            parts.append(dict(size=[.028, .015, .010], pos=[.14, yy, .005]))
+            for xx in [-.018, .018]:
+                parts.append(dict(size=[.006, .010, .025], pos=[.165+xx, yy, .035]))
+            for zz in [-.018, .018]:
+                parts.append(dict(size=[.012, .010, .006], pos=[.165, yy, .035+zz]))
+        objects.append(obj("cabinet", [-.06, 0.], "white", "latched_box", (x, y, z),
+                           components=parts, bottom=.8, density=3000, inner_size=[x, y, z],
+                           leaf_grasp=[.24, 0., .075], leaf_pitch_sign=1, leaf_grasp_feedback=True))
+        objects[-1]["yaw"] = math.pi  # Put the lock toward the first-person camera.
+        bolt_parts = [dict(size=[.007, .110, .007], pos=[0., 0., -.030]),
+                      dict(size=[.014, .018, .050], pos=[0., -.130, 0.])]
+        objects.append(obj("bolt", [-.225, 0.], "yellow", "bar", (.014, .150, .050),
+                           components=bolt_parts, bottom=.875, density=350,
+                           grasp_local=[0., -.130, .035], condim=4, friction=[1.5, .006, .0001]))
+        objects[-1]["yaw"] = math.pi
+        palette = ["red", "green", "blue"]; rng.shuffle(palette)
+        for i in range(3):
+            width = .018+i*.007
+            # A large wooden knob is an ordinary accessible grasp, avoiding
+            # forcing a robot palm into the gap between box contents.
+            pieces = [dict(size=[width, width, .020], pos=[0., 0., -.030]),
+                      dict(size=[.009, .011, .028], pos=[0., 0., .018])]
+            objects.append(obj(f"item{i}", [-.06, -.070+i*.070], palette[i], "box",
+                               (width, width, .050), bottom=.808, density=180,
+                               components=pieces, grasp_local=[0., 0., .032], approach_height=1.30))
+        selected = 2-v
+        zones = [dict(id="delivery", xy=[.23, -.22], half_size=[.075, .075], marker=0)]
+        goals = [dict(type="place", object=f"item{selected}", target="delivery"),
+                 dict(type="hinge_angle", object="cabinet", bounds=[-.03, .04]),
+                 dict(type="bolt_engaged", object="bolt", target="cabinet")]
+        goals += [dict(type="nest", object=f"item{i}", target="cabinet") for i in range(3) if i != selected]
+        # Two ordinary blocks support the removed bolt horizontally, leaving
+        # both hands free for the lid and box contents.
+        fixtures += [dict(type="box", xy=[-.28, yy], z=.845,
+                          size=[.025, .015, .045], rgba=[.65, .48, .28, 1])
+                     for yy in [.115, .245]]
+        plan = [dict(object="cabinet", operation="unlock_box", bolt="bolt", bolt_arm=1,
+                     bolt_rest=[-.28, .18], item=f"item{selected}", xy=[.23, -.22])]
+    elif recipe == "clear_handles":
         start = [-.12, 0.]
         slots = [[.18, -.23], [.18, 0.], [.18, .23]]; rng.shuffle(slots)
         objects.append(handled_tray(obj, "carrier", start, .07, .10, .025, bottom=.8))

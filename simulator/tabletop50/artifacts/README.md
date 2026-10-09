@@ -4,7 +4,7 @@
 
 ## 可见性合格的作者预览
 
-当前42个条件的合格录像（按任务与规则去重），14族A/B/C完整；来自历史冻结源码，不能直接作为最新版服务的示范。
+当前48个条件的合格录像（按任务与规则去重），14族A/B/C完整；来自历史冻结源码，不能直接作为最新版服务的示范。
 
 - [可见支架穿杆](visible-preview-v46/index.html)：F13/F36/F49各三段，共九段；孔框、通道壁与铰链支撑均可见（F49与v43按条件去重）；[验收清单](visible-preview-v46/manifest.private.json)、[冻结源码](visible-source-v46.tar.gz)、[道具初态渲染](visible-scene-previews-v46/README.md)。
 - [真实铰链展示板](articulation-preview-v43/index.html)：F49-A/B/C三段；[录像验收清单](articulation-preview-v43/manifest.private.json)、[冻结源码](articulation-source-v43.tar.gz)。
@@ -41,5 +41,27 @@
 
 - [清障搬运物理验收 v66](physical-acceptance-v66/manifest.private.json)：F21三规则全部成功；[冻结源码](clearance-source-v66.tar.gz)。[v67三规则录像](clearance-preview-v67/index.html)已完成解码、可见性和互斥终态审计，计入合格视频数。
 - [宽铲开发诊断](shovel-development.private.json)：历史失败与未满足目标，不作为agent成绩。
+- [导向板开发诊断](guidance-development.private.json)与[冻结源码、动作及结果归档](guidance-development-history.tar.gz)：保存F44各次真实失败及部分成功；这些开发批次不计入合格视频数；完整三规则成功录像见v81。
 
-- [宽铲承托物理验收 v69](physical-acceptance-v69/manifest.private.json)：F38三规则在同一源码下全部成功（A1240/B1235/C1151动作）；[冻结源码](tools-source-v69.tar.gz)。shovel-recordings-v69正在Agentlab录制，尚未计入合格视频数。
+- [宽铲承托物理验收 v69](physical-acceptance-v69/manifest.private.json)：F38三规则在同一源码下全部成功（A1240/B1235/C1151动作）；[冻结源码](tools-source-v69.tar.gz)。[宽铲三规则录像](shovel-preview-v69/index.html)已完成完整解码、道具可见性和终态互斥审计，计入合格视频数。
+
+- [导向板送球物理验收 v81](physical-acceptance-v81/manifest.private.json)：同一源码A629/B654/C621动作全部成功，初态一致、终态互斥；[冻结源码](guidance-source-v81.tar.gz)。[三规则视频](guidance-preview-v81/index.html)已通过完整解码、末帧、可见性、实际初态一致和互斥终态审计，计入48段历史合格预览。
+
+- [导向板seed19补充结果](guidance-transfer-v81/batch.private.json)：A失败、B/C成功，不能宣称跨布局全部通过。
+- [夹具开发诊断](clamp-development.private.json)及[冻结源码与动作归档](clamp-development-history.tar.gz)：F43仍未通过三规则，不计入合格视频。
+- [47族完整诊断进度快照](all-family-v79.live-snapshot.private.json)：冻结[full-v79源码](full-source-v79.tar.gz)，批次仍在运行；不是最终验收结果。
+
+- [接杆与插销盒开发诊断](prototype-development.private.json)及[冻结源码、动作与失败归档](prototype-development-history.tar.gz)：原型未通过完整执行，不能作为示范视频。
+
+- [插销盒失败动作真实重放](lock-debug-v95/README.md)：首帧、打开盖后和失败末帧，用于检查第一人称可见性与实际碰撞，不作为成功示范。
+
+- [执行修复诊断 v95–v102](execution-development-v95-v102.private.json)及[冻结源码与公开动作](execution-development-v95-v102.tar.gz)：分类抓取和插销盒开盖后取件仍失败，原结果保留。
+
+- [分类作者回归 v102](author-regression-v102/manifest.private.json)：F03-A seed0经866个公开动作完整成功，互斥终态检查通过；不是三规则或视频验收。
+
+- [F07分类三规则物理验收 v105](physical-acceptance-v105/manifest.private.json)：A729/B659/C914动作完整成功，初态一致、终态互斥；[冻结源码](classification-source-v105.tar.gz)。三规则录像正在Agentlab执行。
+- [F08形状插孔三规则视频](shape-preview-v79/index.html)与[完整审计](shape-preview-v79/manifest.private.json)：已检查孔壁与首末帧，计入51段合格历史视频；[精确源码](full-source-v79.tar.gz)。
+- [v79首批画面诊断](verified-preview-v79-first/index.html)：F10-A虽解码通过，但参照不是2×2，与设计不一致，明确排除合格示范；不把物理判定成功冒充设计验收。
+
+- [执行开发记录 v103–v109](execution-development-v103-v109.private.json)及[冻结源码、动作与结果归档](execution-development-v103-v109.tar.gz)：保留分类修复成功、插销盒与拼板失败，不能混作最终统一验收。
+- [v79设计审阅排除记录](design-review-v79.private.json)：旧F10拼板任务不符合文档变换关系；物理成功结果保持原样，视频不准入。

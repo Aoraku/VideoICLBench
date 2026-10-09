@@ -46,11 +46,22 @@ def extended(recipe, v, rng, obj, position):
             source = [[-.22+(i//3)*.12, -.22+(i % 3)*.22] for i in range(count)]
             permutation = (order, [order[2], order[0], order[3], order[1]],
                            [order[1], order[0], order[3], order[2]])[v] if count == 4 else order
+        if recipe == "mosaic":
+            # Congruent square grids are necessary for an actual quarter-turn
+            # or mirror, rather than merely permuting a ragged reference row.
+            source = [[-.23+(i//2)*.13, -.065+(i % 2)*.13] for i in range(4)]
+            dest = [[.10+(i//2)*.13, -.065+(i % 2)*.13] for i in range(4)]
+            for cx in [-.165, .165]:
+                for x in [cx-.105, cx+.105]:
+                    static_box([x, 0.], [.002, .107, .002], .802)
+                for y in [-.105, .105]:
+                    static_box([cx, y], [.105, .002, .002], .802)
+                static_box([cx-.099, -.099], [.006, .006, .003], .803, (.12, .3, .85, 1))
         if recipe in ("mosaic", "reference"):
             for i, index in enumerate(order):
                 objects.append(obj(f"ref{i}", source[i], colors[index], size=(.025, .025, .01)))
                 goals.append(position(f"ref{i}", source[i], .012))
-            movable_starts = [[-.04, -.22+i*.145] for i in range(count)]
+            movable_starts = [[-.025 if recipe == "mosaic" else -.04, -.22+i*.145] for i in range(count)]
         elif recipe == "relocate":
             # An asymmetric layout, with the same members in three rotations.
             source = [[-.22, -.16], [-.22, -.04], [-.10, -.16], [-.10, .08]]
@@ -81,6 +92,7 @@ def extended(recipe, v, rng, obj, position):
             for j, i in enumerate(changed): move(f"piece{i}", [.00, -.22+j*.22])
         for slot, index in enumerate(permutation):
             at(f"piece{index}", dest[slot])
+            if recipe == "mosaic": plan[-1]["fine"] = True
     elif recipe == "vacancy":
         spots = [[.10, -.24+i*.16] for i in range(4)]
         for i in range(5):

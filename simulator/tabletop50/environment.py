@@ -48,6 +48,7 @@ class TabletopDual(DesktopDual):
         for i, f in enumerate(self.spec.get("fixtures", [])):
             ET.SubElement(arena.worldbody, "geom", name=f"fixture{i}", type=f["type"],
                           group="1",
+                          quat=" ".join(map(str, f.get("quat", [1, 0, 0, 0]))),
                           size=" ".join(map(str, f["size"])),
                           pos=" ".join(map(str, f["xy"]+[f["z"]])),
                           rgba=" ".join(map(str, f["rgba"])), friction="1 .005 .0001")
@@ -121,7 +122,7 @@ class TabletopDual(DesktopDual):
     def snapshot(self):
         state = super().snapshot()
         for name, spec in self.by_spec.items():
-            if spec["kind"] != "hinged_panel": continue
+            if spec["kind"] not in ("hinged_panel", "spring_clip", "latched_box"): continue
             prefix = self.items[name].naming_prefix
             state[name]["hinge_angle"] = float(self.sim.data.get_joint_qpos(prefix+"hinge"))
             state[name]["hinge_velocity"] = float(self.sim.data.get_joint_qvel(prefix+"hinge"))
@@ -130,6 +131,29 @@ class TabletopDual(DesktopDual):
         return state
 
     def predicate(self, g, state):
+        if g["type"] == "extended_hook":
+            return ("extended_hook", g["object"]) in self.events
+        if g["type"] == "bolt_engaged":
+            rod, box = state[g["object"]], state[g["target"]]
+            shaft = rod["pos"]+rod["mat"]@np.array([0., 0., -.030])
+            rings = [(box["pos"]+box["mat"]@np.array([.165, yy, .035]), box["mat"], .010)
+                     for yy in [-.075, .075]]
+            rings.append((box["leaf_pos"]+box["leaf_mat"]@np.array([.285, 0., -.020]), box["leaf_mat"], .008))
+            # Both faces of all three rings must contain the shaft, allowing
+            # different insertion depths through the real rectangular holes.
+            for center, frame, depth in rings:
+                mat = frame.T@rod["mat"]; origin = frame.T@(shaft-center)
+                direction = mat[:, 1]
+                if abs(direction[1]) < .95: return False
+                u = mat[:, 0]-direction*(mat[1, 0]/direction[1])
+                w = mat[:, 2]-direction*(mat[1, 2]/direction[1])
+                extent = np.abs(u[[0, 2]])*.007+np.abs(w[[0, 2]])*.007
+                for side in [-1, 1]:
+                    t = (side*depth-origin[1])/direction[1]
+                    if abs(t) > .108: return False
+                    cross = origin+t*direction
+                    if np.any(np.abs(cross[[0, 2]])+extent > .013): return False
+            return True
         if g["type"] == "place" and self.by_spec[g["object"]]["kind"] == "sphere":
             zone = next(z for z in self.spec["zones"] if z["id"] == g["target"])
             radius = self.by_spec[g["object"]]["size"][0]; p = state[g["object"]]["pos"]
@@ -139,6 +163,10 @@ class TabletopDual(DesktopDual):
             return ("swept", g["object"]) in self.events and g["object"] not in self._manually_handled
         if g["type"] == "scooped":
             return ("scooped", g["object"]) in self.events and g["object"] not in self._manually_handled
+        if g["type"] == "clipped":
+            return ("clipped", g["object"]) in self.events and g["object"] not in self._manually_handled
+        if g["type"] == "guided_roll":
+            return ("guided_roll", g["object"]) in self.events and g["object"] not in self._manually_handled
         if g["type"] == "hinge_angle":
             a = state[g["object"]]
             return bool(g["bounds"][0] <= a["hinge_angle"] <= g["bounds"][1]
@@ -179,6 +207,7 @@ class TabletopDual(DesktopDual):
             inner = np.array(self.by_spec[g["target"]]["inner_size"])
             local = b["mat"].T@(a["pos"]-b["pos"])
             extent = np.abs(b["mat"].T@a["mat"])@size
+            if self.by_spec[g["object"]]["kind"] == "sphere": extent = size
             return bool(np.all(np.abs(local[:2])+extent[:2] < inner[:2]-.003+.005)
                 and abs(local[2]-extent[2]-(-inner[2]+.008)) < .015
                 and local[2]+extent[2] < inner[2]+.12
@@ -259,6 +288,42 @@ class TabletopDual(DesktopDual):
 
     def track(self):
         state = self.snapshot()
+        for goal in self.spec["goals"]:
+            if goal["type"] != "extended_hook": continue
+            name, rod, hook = goal["object"], goal["rod"], goal["hook"]
+            a, b, load = state[rod], state[hook], state[name]
+            local = b["mat"].T@(a["pos"]-b["pos"])
+            aligned = abs(a["mat"][:, 0]@b["mat"][:, 0]) > .97
+            walls = self.items[hook].contact_geoms[:4]
+            connected = (aligned and -.20 < local[0] < -.12 and abs(local[1]) < .006
+                         and abs(local[2]) < .006
+                         and sum(self.check_contact(self.items[rod], wall) for wall in walls) >= 2)
+            initial = self.by_spec[name]["xy"][0]+self.layout_jitter[0]
+            if (connected and any(a["grasp"]) and not any(b["grasp"]) and not any(load["grasp"])
+                    and load["pos"][0] < initial-.10 and self.check_contact(self.items[hook], self.items[name])):
+                self.events.add(("extended_hook", name))
+        for goal in self.spec["goals"]:
+            if goal["type"] != "clipped": continue
+            name, tool = goal["object"], goal["target"]
+            load, clip = state[name], state[tool]
+            if any(load["grasp"]): self._manually_handled.add(name)
+            prefix = self.items[tool].naming_prefix
+            fixed_jaw = self.items[tool].contact_geoms[1]
+            extent = (np.abs(load["mat"])@self.by_spec[name]["size"])[2]
+            if (any(clip["grasp"]) and name not in self._manually_handled
+                    and load["pos"][2]-extent > .835
+                    and self.check_contact(self.items[name], fixed_jaw)
+                    and self.check_contact(self.items[name], prefix+"leaf_collision")):
+                self.events.add(("clipped", name))
+        for g in self.spec["goals"]:
+            if g["type"] != "guided_roll": continue
+            name = g["object"]
+            if any(state[name]["grasp"]) or any(self.check_contact(self.items[name], gripper.contact_geoms)
+                    for robot in self.robots for gripper in robot.gripper.values()):
+                self._manually_handled.add(name)
+            if (name not in self._manually_handled and self.check_contact(self.items[name], g["ramp"])
+                    and any(self.check_contact(self.items[name], self.items[n]) for n in g["guides"])):
+                self.events.add(("guided_roll", name))
         for g in self.spec["goals"]:
             if g["type"] != "scooped": continue
             name, tool = g["object"], g["target"]

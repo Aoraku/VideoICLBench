@@ -1,0 +1,31 @@
+{
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "source_sha256": "e230f4c5d284c0b56c21481f851f3a1a8876d855688319eebf98a8e85e8e4c7d",
+  "source_archive": "../classification-source-v105.tar.gz",
+  "same_initial_state": true,
+  "mutually_exclusive_results": true,
+  "cases": [
+    {
+      "task": "F07",
+      "variant": "A",
+      "seed": 0,
+      "success": true,
+      "actions": 729
+    },
+    {
+      "task": "F07",
+      "variant": "B",
+      "seed": 0,
+      "success": true,
+      "actions": 659
+    },
+    {
+      "task": "F07",
+      "variant": "C",
+      "seed": 0,
+      "success": true,
+      "actions": 914
+    }
+  ]
+}
