@@ -1,6 +1,6 @@
 # 50题视频索引
 
-合格历史预览75段，完整三版本25族。未完成项明确留空；不是最终统一源码150段验收。
+合格历史预览90段，完整三版本30族。未完成项明确留空；不是最终统一源码150段验收。
 
 | 任务 | A | B | C |
 | --- | --- | --- | --- |
@@ -21,20 +21,20 @@
 | F15 可移动孔板装配 | 待完成 | 待完成 | 待完成 |
 | F16 单空位循环重排 | [视频](artifacts/vacancy-preview-v79/F16-A-0/video.mp4) | [视频](artifacts/vacancy-preview-v79/F16-B-0/video.mp4) | [视频](artifacts/vacancy-preview-v79/F16-C-0/video.mp4) |
 | F17 堆叠取件与剩余结构恢复 | [视频](artifacts/stack-recovery-preview-v79/F17-A-0/video.mp4) | [视频](artifacts/stack-recovery-preview-v79/F17-B-0/video.mp4) | [视频](artifacts/stack-recovery-preview-v79/F17-C-0/video.mp4) |
-| F18 两个占用盒交换内容 | 待完成 | 待完成 | 待完成 |
+| F18 两个占用盒交换内容 | [视频](artifacts/contents-preview-v120/F18-A-0/video.mp4) | [视频](artifacts/contents-preview-v120/F18-B-0/video.mp4) | [视频](artifacts/contents-preview-v120/F18-C-0/video.mp4) |
 | F19 局部纠错 | [视频](artifacts/correction-preview-v118/F19-A-0/video.mp4) | [视频](artifacts/correction-preview-v118/F19-B-0/video.mp4) | [视频](artifacts/correction-preview-v118/F19-C-0/video.mp4) |
 | F20 保持内部结构的搬迁 | [视频](artifacts/relocate-preview-v117/F20-A-0/video.mp4) | [视频](artifacts/relocate-preview-v117/F20-B-0/video.mp4) | [视频](artifacts/relocate-preview-v117/F20-C-0/video.mp4) |
 | F21 清障搬运并恢复 | [视频](artifacts/clearance-preview-v67/F21-A-0/video.mp4) | [视频](artifacts/clearance-preview-v67/F21-B-0/video.mp4) | [视频](artifacts/clearance-preview-v67/F21-C-0/video.mp4) |
 | F22 双层托盘取放 | [视频](artifacts/assembly-preview-v15/F22-A-0/video.mp4) | [视频](artifacts/assembly-preview-v15/F22-B-0/video.mp4) | [视频](artifacts/assembly-preview-v15/F22-C-0/video.mp4) |
-| F23 盖盒取件并复原 | 待完成 | 待完成 | 待完成 |
-| F24 受压薄片取出 | 待完成 | 待完成 | 待完成 |
+| F23 盖盒取件并复原 | [视频](artifacts/access-preview-v117/F23-A-0/video.mp4) | [视频](artifacts/access-preview-v117/F23-B-0/video.mp4) | [视频](artifacts/access-preview-v117/F23-C-0/video.mp4) |
+| F24 受压薄片取出 | [视频](artifacts/access-preview-v117/F24-A-0/video.mp4) | [视频](artifacts/access-preview-v117/F24-B-0/video.mp4) | [视频](artifacts/access-preview-v117/F24-C-0/video.mp4) |
 | F25 已装组件局部换件 | 待完成 | 待完成 | 待完成 |
 | F26 按关系配齐工作套件 | 待完成 | 待完成 | 待完成 |
 | F27 互补数量分装 | 待完成 | 待完成 | 待完成 |
-| F28 参照行关系迁移 | 待完成 | 待完成 | 待完成 |
+| F28 参照行关系迁移 | [视频](artifacts/reference-row-preview-v117/F28-A-0/video.mp4) | [视频](artifacts/reference-row-preview-v117/F28-B-0/video.mp4) | [视频](artifacts/reference-row-preview-v117/F28-C-0/video.mp4) |
 | F29 围绕中心的相对布局 | 待完成 | 待完成 | 待完成 |
 | F30 成对朝向与邻接 | 待完成 | 待完成 | 待完成 |
-| F31 有限空间装箱 | 待完成 | 待完成 | 待完成 |
+| F31 有限空间装箱 | [视频](artifacts/contents-preview-v120/F31-A-0/video.mp4) | [视频](artifacts/contents-preview-v120/F31-B-0/video.mp4) | [视频](artifacts/contents-preview-v120/F31-C-0/video.mp4) |
 | F32 长短件错位铺排 | 待完成 | 待完成 | 待完成 |
 | F33 不等长行补全 | 待完成 | 待完成 | 待完成 |
 | F34 按相对高度配对 | 待完成 | 待完成 | 待完成 |

@@ -3,6 +3,33 @@ from simulator.tabletop50.catalog import IMPLEMENTED, task_spec, visible_world, 
 from simulator.tabletop50.families import BY_ID, FAMILIES
 
 
+def test_size_kits_use_real_shapes_without_fixed_colour_size_mapping():
+    colour_mappings = set()
+    for seed in range(8):
+        spec = task_spec("F26", "A", seed)
+        objects = {o["id"]: o for o in spec["objects"]}
+        assert len(spec["zones"]) == 3
+        assert all(g["type"] == "on_mat" for g in spec["goals"])
+        for rank in range(3):
+            bar = objects[f"part1_{rank}"]
+            cylinder = objects[f"part2_{rank}"]
+            assert bar["size"][0] > 3 * bar["size"][1]
+            assert cylinder["size"][2] > cylinder["size"][0]
+        colour_mappings.add(tuple(tuple(objects[f"part{group}_{rank}"]["rgba"])
+                                  for group in range(3) for rank in range(3)))
+    assert len(colour_mappings) > 1
+
+
+def test_top_up_has_ten_visible_four_centimetre_blocks_and_only_count_goals():
+    for variant, expected in zip("ABC", [[3, 4, 3], [4, 3, 3], [3, 3, 4]]):
+        spec = task_spec("F27", variant)
+        blocks = [o for o in spec["objects"] if o["id"].startswith(("initial", "spare"))]
+        assert len(blocks) == 10
+        assert all(o["size"] == [.02, .02, .02] for o in blocks)
+        assert [g["count"] for g in spec["goals"]] == expected
+        assert all(g["type"] == "count_in" for g in spec["goals"])
+
+
 def test_all_families_have_recording_cards_and_distinct_rules():
     assert list(BY_ID) == [f"F{i:02d}" for i in range(1, 51)]
     for f in FAMILIES:

@@ -27,10 +27,10 @@ def build(recipe, v, rng, obj, position):
     def move(name, xy, bottom=.8, yaw=None, fine=False):
         plan.append(dict(object=name, xy=list(xy), bottom=bottom, yaw=yaw, fine=fine))
 
-    def bin_(name, xy, size=(.09, .10, .025), bottom=None):
+    def bin_(name, xy, size=(.09, .10, .025), bottom=None, restore=True):
         kwargs = {} if bottom is None else dict(bottom=bottom)
         objects.append(obj(name, xy, "white", "tray", size, **kwargs))
-        goals.append(position(name, xy, .015))
+        if restore: goals.append(position(name, xy, .015))
 
     if recipe == "unlock_box":
         x, y, z, w = .12, .13, .06, .008
@@ -250,14 +250,14 @@ def build(recipe, v, rng, obj, position):
         names = []
         for i in range(3):
             center = [.15, -.22+i*.22]
-            bin_(f"bin{i}", center)
+            bin_(f"bin{i}", center, restore=False)
             for j in range(i+1):
                 name = f"initial{i}_{j}"; names.append(name)
                 offset = positions[j]
-                objects.append(obj(name, [center[0]+offset[0], center[1]+offset[1]], "yellow", size=(.014, .014, .014), bottom=.808))
+                objects.append(obj(name, [center[0]+offset[0], center[1]+offset[1]], "yellow", size=(.020, .020, .020), bottom=.808))
         for j in range(4):
             name = f"spare{j}"; names.append(name)
-            objects.append(obj(name, [-.23+(j//2)*.10, -.15+(j % 2)*.30], "yellow", size=(.014, .014, .014)))
+            objects.append(obj(name, [-.23+(j//2)*.10, -.15+(j % 2)*.30], "yellow", size=(.020, .020, .020)))
         next_spare = 0
         for i, count in enumerate(desired):
             center = [.15, -.22+i*.22]

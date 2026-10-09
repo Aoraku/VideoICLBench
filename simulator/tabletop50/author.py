@@ -91,6 +91,8 @@ class TabletopAuthor(Author):
 
     def pick(self, name, arm, grasp_offset=None, lift=True):
         s = self.env.by_spec[name]
+        if self.env.spec["id"] == "F26" and s["kind"] == "bar":
+            self.align_jaw(arm, self.state(name)["mat"][:, 1])
         if s["kind"] == "bottle" or (s["kind"] not in ("ring", "key", "lid", "tray", "bowl") and s["size"][0] < s["size"][1]):
             self.align(arm, math.pi/2)
         if s["kind"] == "box" and any(b["kind"] in ("tray", "bowl")
@@ -235,7 +237,7 @@ class TabletopAuthor(Author):
             else: raise RuntimeError("Shaft positioning did not converge")
 
     def transport(self, name, arm, xy, bottom=.8, yaw=None, fine=False, approach=None, surface_release=False):
-        if self.env.spec["id"] in ("F03", "F07", "F10"):
+        if self.env.spec["id"] in ("F03", "F07", "F10", "F26"):
             self.restore_wrist(arm)
         self.pick(name, arm)
         if yaw is not None:
@@ -348,6 +350,10 @@ class TabletopAuthor(Author):
                 # This compact tabletop classification has no handoff
                 # requirement; retain the source-side arm for direct delivery.
                 target_arm = arm
+            if self.env.spec["id"] == "F26":
+                # Grasp narrow bars and cylinders from their source side;
+                # an opposite-side low approach brushes and rolls the props.
+                target_arm = arm
             if arm != target_arm:
                 state = self.env.snapshot()
                 candidates = [[-.08, 0.], [0., 0.], [-.10, .10], [-.10, -.10], [-.28, 0.]]
@@ -359,7 +365,7 @@ class TabletopAuthor(Author):
                 self.transport(name, arm, free[0], surface_release=True)
                 arm = target_arm
             self.transport(name, arm, p["xy"], p["bottom"], p.get("yaw"), p.get("fine", False),
-                           p.get("approach"), surface_release=self.env.spec["id"] in ("F03", "F07", "F10"))
+                           p.get("approach"), surface_release=self.env.spec["id"] in ("F03", "F07", "F10", "F26"))
         if self.env.spec["id"] == "F07":
             self.repair_classification()
         if self.env.spec["id"] == "F10":

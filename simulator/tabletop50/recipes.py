@@ -191,16 +191,23 @@ def extended(recipe, v, rng, obj, position):
             goals.append(position("cover_bar", [.12, 0.]))
     elif recipe == "kits":
         for group in range(3):
+            palette = colors[:3].copy(); rng.shuffle(palette)
             for rank in range(3):
                 name = f"part{group}_{rank}"
-                xy = [-.24+group*.085, -.22+rank*.22]
+                xy = [-.28+group*.14, -.22+rank*.22]
                 kind = ["box", "bar", "bottle"][group]
                 size = .016+rank*.004
-                objects.append(obj(name, xy, colors[(rank+group) % 3], kind, (size, size, size)))
+                dimensions = [(size, size, size), (size*2.4, size*.65, size*.85),
+                              (size*.85, size*.85, size*1.7)][group]
+                objects.append(obj(name, xy, palette[rank], kind, dimensions))
+        zones.extend(dict(id=f"kit{rank}", xy=[.19, -.22+rank*.22],
+                          half_size=[.15, .09], marker=None) for rank in range(3))
         for rank in range(3):
             for group in range(3):
                 selected = rank if group == 0 else (rank+v) % 3 if group == 1 else (rank-v) % 3
-                at(f"part{group}_{selected}", [.04+group*.09, -.22+rank*.22])
+                name = f"part{group}_{selected}"
+                move(name, [.08+group*.11, -.22+rank*.22])
+                goals.append(dict(type="on_mat", object=name, target=f"kit{rank}"))
     elif recipe == "relative":
         center = [.12, 0.]
         objects.append(obj("center", center, "yellow", "arrow_bar", (.035, .02, .015)))

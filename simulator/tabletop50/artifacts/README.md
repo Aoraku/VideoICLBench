@@ -4,7 +4,7 @@
 
 ## 可见性合格的作者预览
 
-当前75个条件的合格录像（按任务与规则去重），25族A/B/C完整；来自历史冻结源码，不能直接作为最新版服务的示范。
+当前90个条件的合格录像（按任务与规则去重），30族A/B/C完整；来自历史冻结源码，不能直接作为最新版服务的示范。
 
 - [可见支架穿杆](visible-preview-v46/index.html)：F13/F36/F49各三段，共九段；孔框、通道壁与铰链支撑均可见（F49与v43按条件去重）；[验收清单](visible-preview-v46/manifest.private.json)、[冻结源码](visible-source-v46.tar.gz)、[道具初态渲染](visible-scene-previews-v46/README.md)。
 - [真实铰链展示板](articulation-preview-v43/index.html)：F49-A/B/C三段；[录像验收清单](articulation-preview-v43/manifest.private.json)、[冻结源码](articulation-source-v43.tar.gz)。
@@ -91,3 +91,8 @@
 - `physical-acceptance-v120/`：F18盒内成员交换、F31有限空间装箱各三规则物理成功，有分任务清单；对应`contents-source-v120.tar.gz`。盒子允许平移与旋转，仍要求真实装入及任务所需盖闭。
 
 - `correction-preview-v118/`：F19新版2×3参照图卡三规则成功录像、完整解码和视觉审阅证据；对应`slots-source-v118.tar.gz`。初终态均可见三张图卡与工作六格。
+
+- [盖盒与压条取件](access-preview-v117/index.html)：F23/F24各三段；[验收清单](access-preview-v117/manifest.private.json)。
+- [参照行迁移](reference-row-preview-v117/index.html)：F28三段；[验收清单](reference-row-preview-v117/manifest.private.json)。两批均对应[reference-source-v117](reference-source-v117.tar.gz)。
+
+- [盒内交换与装盒盖合](contents-preview-v120/index.html)：F18/F31各三段；[验收清单](contents-preview-v120/manifest.private.json)、[冻结源码](contents-source-v120.tar.gz)。

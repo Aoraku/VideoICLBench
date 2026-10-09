@@ -132,6 +132,15 @@ class TabletopDual(DesktopDual):
         return state
 
     def predicate(self, g, state):
+        if g["type"] == "on_mat":
+            item = state[g["object"]]
+            zone = next(z for z in self.spec["zones"] if z["id"] == g["target"])
+            extent = np.abs(item["mat"])@np.asarray(self.by_spec[g["object"]]["size"])
+            inside = np.all(np.abs(item["pos"][:2]-zone["xy"])+extent[:2]
+                            <= np.asarray(zone["half_size"])+.0005)
+            bottom = item["pos"][2]-extent[2]
+            return bool(inside and .799 <= bottom <= .805
+                        and self.check_contact(self.items[g["object"]], "table_collision"))
         if g["type"] == "rack_slot":
             item = state[g["object"]]
             extent = np.abs(item["mat"])@np.asarray(self.by_spec[g["object"]]["size"])

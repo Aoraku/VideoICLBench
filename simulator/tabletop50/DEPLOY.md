@@ -12,11 +12,28 @@ python3 -m http.server 18662 --bind 127.0.0.1 --directory simulator/tabletop50
 
 打开 <http://127.0.0.1:18662/>。页面列出全部50题，各有A/B/C三个位置；已有视频直接播放，没有视频的明确标为待完成。GitHub上可直接打开 [视频索引](VIDEOS.md)，逐条点击MP4；GitHub文件页不会执行HTML。
 
-目前随仓库附75段合格历史预览，覆盖25族完整三版本。录像对应的冻结源码、解码证据和失败诊断放在 `artifacts/`。这不是最终统一源码的150段交付。
+目前随仓库附90段合格历史预览，覆盖30族完整三版本。录像对应的冻结源码、解码证据和失败诊断放在 `artifacts/`。这不是最终统一源码的150段交付。
 
 预览页面包含私有规则和验收资料，只供设计者查看。不要把预览静态服务器作为agent评测接口。
 
 ## Agentlab服务
+
+先生成包含代码、已纳入Git的MP4和验收资料的部署包：
+
+```bash
+python3 simulator/tabletop50/tools/package-deploy.py --output simulator/tabletop50/runs/deploy-with-videos.tar.gz
+scp simulator/tabletop50/runs/deploy-with-videos.tar.gz agentlab-qingle:/home/qingle/services/deploy-with-videos.tar.gz
+```
+
+打包会逐一核对视频索引中的文件、Git收录情况和已审计SHA256；缺失或不符会停止。包内附 `bundle-manifest.json` 文件校验和。它打包当前工作区中Git已收录的 `simulator/` 文件，运行日志、虚拟环境和服务token不随包带出。视频目前供维护者预览，正式评测示范仍需遵循下文的源码一致性要求。
+
+在Agentlab上解压到新的目录，然后从该目录运行后续安装命令：
+
+```bash
+mkdir -p /home/qingle/services/videoicl-main
+tar -xzf /home/qingle/services/deploy-with-videos.tar.gz -C /home/qingle/services/videoicl-main
+cd /home/qingle/services/videoicl-main
+```
 
 把 `simulator/` 放到 Agentlab 的任意工作目录中，例如 `/home/qingle/services/videoicl-main/simulator`。以下命令从它的父目录执行。Linux需Python3.11和OSMesa动态库（Ubuntu包 `libosmesa6`）；已有环境可直接复用。
 
@@ -80,3 +97,7 @@ ssh -N -L 18663:127.0.0.1:18662 agentlab-qingle
 2026-10-10媒体进一步增至72段、24族完整A/B/C：新增F14键向插孔和F20结构搬迁各三段。均有随包MP4、动作、初终态和解码证据，对应历史冻结源码；不直接装作当前actor服务的正式示范。
 
 最新媒体为75段、25族完整A/B/C，追加F19新版2×3图卡纠错三段；旧行式图卡版本保留在开发批次，不混入新版索引。
+
+2026-10-10本地媒体索引增至84段、28族完整A/B/C：追加F23盖盒取件、F24压条下取件、F28参照行重排。均通过解码与画面检查；服务器预览已同步，84个MP4的HTTP路径与大小均验证通过，运行Python源码未变。
+
+2026-10-10新增F18盒内交换和F31装盒盖合六段，累计90段、30族完整A/B/C。完整解码、相同初态、互斥结果及过程画面检查通过，来源contents-source-v120。服务器预览已同步，90个MP4的HTTP路径与文件大小全部核对通过，运行Python源码未变。

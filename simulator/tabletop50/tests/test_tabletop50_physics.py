@@ -6,6 +6,33 @@ from simulator.tabletop50.catalog import task_spec
 from simulator.tabletop50.environment import TabletopDual
 
 
+def test_size_kits_allow_free_layout_within_mat_but_reject_wrong_mat_overhang_and_hover(monkeypatch):
+    e = TabletopDual(task_spec("F26", "A"), render=False)
+    try:
+        state = e.snapshot()
+        monkeypatch.setattr(e, "check_contact", lambda *args: True)
+        for g in e.spec["goals"]:
+            zone = next(z for z in e.spec["zones"] if z["id"] == g["target"])
+            item = state[g["object"]]
+            item["mat"] = np.eye(3)
+            item["pos"] = np.array(zone["xy"]+[.8+e.by_spec[g["object"]]["size"][2]])
+        assert all(e.predicate(g, state) for g in e.spec["goals"])
+        g = e.spec["goals"][0]; item = state[g["object"]]
+        item["pos"][:2] += [.07, .04]
+        assert e.predicate(g, state)  # Valid alternative placement.
+        item["pos"][1] += .22
+        assert not e.predicate(g, state)  # Wrong kit.
+        zone = next(z for z in e.spec["zones"] if z["id"] == g["target"])
+        item["pos"][:2] = np.asarray(zone["xy"])+[.149, 0.]
+        assert not e.predicate(g, state)  # Centre inside, footprint outside.
+        item["pos"][:2] = zone["xy"]; item["pos"][2] += .05
+        assert not e.predicate(g, state)
+        item["pos"][2] -= .05
+        monkeypatch.setattr(e, "check_contact", lambda *args: False)
+        assert not e.predicate(g, state)
+    finally: e.close()
+
+
 def test_ring_jaw_alignment_uses_actual_finger_slide_axis(tmp_path):
     from simulator.tabletop50.author import TabletopAuthor
     e = TabletopDual(task_spec("F11"), render=False)

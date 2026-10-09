@@ -1,0 +1,179 @@
+{
+  "task": "F28",
+  "variant": "C",
+  "seed": 0,
+  "kind": "privileged-author-physical-acceptance",
+  "independent_agent": false,
+  "human_recorded": false,
+  "source_sha256": "258d0484f4dc06071e2d3476ebab1c7232d258ca65bbab17e81aa58a24c51878",
+  "source_unchanged": true,
+  "world_sha256": "00f42616040dded92a2386a9e23d7b96f5fef13e460e289427eb4b74c8f57cce",
+  "initial_positions": {
+    "ref0": [
+      -0.1832907065623863,
+      -0.18354511379354915,
+      0.8097844851020015
+    ],
+    "ref1": [
+      -0.1832907065623863,
+      -0.0035451137935491777,
+      0.8097844851020015
+    ],
+    "ref2": [
+      -0.1832907065623863,
+      0.17645488620645083,
+      0.8097844851020015
+    ],
+    "piece0": [
+      -0.03329070656238631,
+      -0.22354511379354916,
+      0.8117844851016339
+    ],
+    "piece1": [
+      -0.03329070656238631,
+      -0.0785451137935492,
+      0.8117844851016339
+    ],
+    "piece2": [
+      -0.03329070656238631,
+      0.06645488620645079,
+      0.8117844851016339
+    ]
+  },
+  "initial_joint_angles": {},
+  "visual_environment": {
+    "fixture_count": 0,
+    "fixtures_visible": true
+  },
+  "score": {
+    "success": true,
+    "hold_seconds": 21.2,
+    "predicates": [
+      {
+        "rule": {
+          "type": "position",
+          "object": "ref0",
+          "xy": [
+            -0.18438640006095794,
+            -0.18170340750366012
+          ],
+          "tolerance": 0.012
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "ref1",
+          "xy": [
+            -0.18438640006095794,
+            -0.0017034075036601402
+          ],
+          "tolerance": 0.012
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "ref2",
+          "xy": [
+            -0.18438640006095794,
+            0.17829659249633986
+          ],
+          "tolerance": 0.012
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "piece2",
+          "xy": [
+            0.14561359993904208,
+            -0.18170340750366012
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "piece1",
+          "xy": [
+            0.14561359993904208,
+            -0.0017034075036601402
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      },
+      {
+        "rule": {
+          "type": "position",
+          "object": "piece0",
+          "xy": [
+            0.14561359993904208,
+            0.17829659249633986
+          ],
+          "tolerance": 0.025
+        },
+        "passed": true
+      }
+    ],
+    "object_positions": {
+      "ref0": [
+        -0.1832907065623863,
+        -0.18354511379354915,
+        0.8097844891595659
+      ],
+      "ref1": [
+        -0.1832907065623863,
+        -0.0035451137935491777,
+        0.8097844891595659
+      ],
+      "ref2": [
+        -0.1832907065623863,
+        0.17645488620645083,
+        0.8097844891595659
+      ],
+      "piece0": [
+        0.1482266630607983,
+        0.17714002977985221,
+        0.8117844891595659
+      ],
+      "piece1": [
+        0.1473949126725982,
+        0.0022136571174143924,
+        0.8117844891595659
+      ],
+      "piece2": [
+        0.1482650962302131,
+        -0.1739849717791282,
+        0.8117844891595659
+      ]
+    },
+    "events": [],
+    "metric": "success",
+    "joint_angles": {}
+  },
+  "cross_rule_predicates": {
+    "A": false,
+    "B": false,
+    "C": true
+  },
+  "actions": 571,
+  "actions_sha256": "492401526d474140e28e8b7c453f7a9c0f8784f903d0efe7e9a1e49b433bbcf0",
+  "error": null,
+  "video": {
+    "recorded": true,
+    "camera": "fpv",
+    "fps": 10,
+    "frames": 2286,
+    "duration_seconds": 228.6,
+    "full_episode": true,
+    "final_success": true,
+    "sha256": "b3b7053a02c431789120c2a01674e757e27e21760372ba9e8157d38a03ba7af3"
+  }
+}

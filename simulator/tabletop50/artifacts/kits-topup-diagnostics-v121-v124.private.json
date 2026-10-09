@@ -1,0 +1,58 @@
+{
+  "cases": [
+    {
+      "folder": "topup-baseline-v121/F27-A-0/result.private.json",
+      "source": "2ba445a7fc3431df513a5b088137241a657e81e83361d31c91a3b509c5879867",
+      "success": false,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v121/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v121/simulator/tabletop50/author.py\", line 361, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v121/simulator/tabletop50/author.py\", line 240, in transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v121/simulator/tabletop50/author.py\", line 146, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for spare2\n"
+    },
+    {
+      "folder": "topup-acceptance-v122/F27-C-0/result.private.json",
+      "source": "ab15c25ccafcc68d2a2f1ffc7954f92a89d157ccabfbd67daa95bc557ad39a03",
+      "success": false,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v122/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v122/simulator/tabletop50/author.py\", line 361, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v122/simulator/tabletop50/author.py\", line 240, in transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v122/simulator/tabletop50/author.py\", line 146, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for spare2\n"
+    },
+    {
+      "folder": "topup-acceptance-v122/F27-B-0/result.private.json",
+      "source": "ab15c25ccafcc68d2a2f1ffc7954f92a89d157ccabfbd67daa95bc557ad39a03",
+      "success": false,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v122/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v122/simulator/tabletop50/author.py\", line 361, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v122/simulator/tabletop50/author.py\", line 240, in transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v122/simulator/tabletop50/author.py\", line 146, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for spare2\n"
+    },
+    {
+      "folder": "topup-acceptance-v122/F27-A-0/result.private.json",
+      "source": "ab15c25ccafcc68d2a2f1ffc7954f92a89d157ccabfbd67daa95bc557ad39a03",
+      "success": false,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v122/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v122/simulator/tabletop50/author.py\", line 361, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v122/simulator/tabletop50/author.py\", line 240, in transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v122/simulator/tabletop50/author.py\", line 146, in pick\n    else: raise RuntimeError(f\"Physical grasp failed for {name}\")\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Physical grasp failed for spare2\n"
+    },
+    {
+      "folder": "kit-baseline-v123/F26-C-0/result.private.json",
+      "source": "ab15c25ccafcc68d2a2f1ffc7954f92a89d157ccabfbd67daa95bc557ad39a03",
+      "success": true,
+      "error": null
+    },
+    {
+      "folder": "kit-baseline-v123/F26-B-0/result.private.json",
+      "source": "ab15c25ccafcc68d2a2f1ffc7954f92a89d157ccabfbd67daa95bc557ad39a03",
+      "success": true,
+      "error": null
+    },
+    {
+      "folder": "kit-baseline-v123/F26-A-0/result.private.json",
+      "source": "ab15c25ccafcc68d2a2f1ffc7954f92a89d157ccabfbd67daa95bc557ad39a03",
+      "success": true,
+      "error": null
+    },
+    {
+      "folder": "topup-acceptance-v124/F27-A-0/result.private.json",
+      "source": "09de2b35ce82d428dd337c0edfe5a0bbe2e86fd1e5e904769ed1074c7fc6e8bd",
+      "success": false,
+      "error": "Traceback (most recent call last):\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v124/simulator/tabletop50/tools/record.py\", line 66, in record\n    author.solve()\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v124/simulator/tabletop50/author.py\", line 361, in solve\n    self.transport(name, arm, p[\"xy\"], p[\"bottom\"], p.get(\"yaw\"), p.get(\"fine\", False),\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v124/simulator/tabletop50/author.py\", line 240, in transport\n    self.pick(name, arm)\n  File \"/Users/lijieming/do_something/VideoICLBench/simulator/tabletop50/runs/frozen-topup-v124/simulator/tabletop50/author.py\", line 149, in pick\n    if not self.state(name)[\"grasp\"][arm]: raise RuntimeError(f\"Dropped {name} after lift\")\n                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Dropped spare0 after lift\n"
+    }
+  ],
+  "notes": [
+    "v121/v122: full F27 spare2 grasp failure; wrist reset did not resolve it",
+    "v124: elevated grasp failed at spare0 after lift",
+    "v123 F26 native ABC succeeded for old geometry; not acceptance of redesigned v125",
+    "Isolated spare2 pick succeeds but is not full-family acceptance"
+  ]
+}
