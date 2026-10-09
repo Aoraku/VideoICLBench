@@ -1,0 +1,1064 @@
+{
+  "schema_version": 1,
+  "scope": "author-only-design-proposal-not-runtime-catalog",
+  "date": "2026-10-09",
+  "execution_backend": "robosuite-dual-panda-tabletop",
+  "family_count": 50,
+  "rule_conditions": 150,
+  "sources": {
+    "RS": {
+      "title": "robosuite 官方环境：Stack / PickPlace / NutAssembly / ToolHang / TwoArmPegInHole / TwoArmTransport / Door / Wipe",
+      "url": "https://robosuite.ai/docs/_sources/modules/environments.html"
+    },
+    "RT": {
+      "title": "RoboTwin 官方任务表：排序、叠放、抓放、旋转、盖章等",
+      "url": "https://robotwin-platform.github.io/doc/tasks/"
+    },
+    "MS": {
+      "title": "ManiSkill 桌面任务表：AssemblingKits / PegInsertionSide / PlugCharger 等",
+      "url": "https://maniskill.readthedocs.io/en/latest/tasks/table_top_gripper/"
+    }
+  },
+  "families": [
+    {
+      "id": "F01",
+      "title": "三色积木叠放",
+      "props": "红绿蓝三块同尺寸积木",
+      "rule_variants": {
+        "A": "自下而上红—绿—蓝",
+        "B": "绿—蓝—红",
+        "C": "蓝—红—绿"
+      },
+      "outcome_check": "三层颜色和支撑关系",
+      "skills": "抓放、叠放",
+      "difficulty": "低",
+      "engineering": "基础",
+      "transfer": "新布局、新积木外观；颜色身份保留",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F02",
+      "title": "方杯归位",
+      "props": "一个方杯，圆／三角／方形标记的三个底座",
+      "rule_variants": {
+        "A": "放到圆标记底座",
+        "B": "放到三角标记底座",
+        "C": "放到方标记底座"
+      },
+      "outcome_check": "杯所在的唯一底座",
+      "skills": "杯体抓取、放置",
+      "difficulty": "低",
+      "engineering": "基础",
+      "transfer": "底座位置打散，标记与颜色独立",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F03",
+      "title": "零件分类装盒",
+      "props": "圆柱、方块、长条各两件；三个标记盒",
+      "rule_variants": {
+        "A": "圆柱→圆盒、方块→三角盒、长条→方盒",
+        "B": "圆柱→三角盒、方块→方盒、长条→圆盒",
+        "C": "圆柱→方盒、方块→圆盒、长条→三角盒"
+      },
+      "outcome_check": "六件零件的完整盒归属",
+      "skills": "批量抓放、分类",
+      "difficulty": "低",
+      "engineering": "基础",
+      "transfer": "更换颜色、尺寸及初始位置，保留形状类别",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F04",
+      "title": "选择配件并安装支架",
+      "props": "三个接口相同的配件：最高、最宽、蓝色分别是不同候选；一个支架",
+      "rule_variants": {
+        "A": "安装最高配件",
+        "B": "安装最宽配件",
+        "C": "安装蓝色配件"
+      },
+      "outcome_check": "唯一安装配件身份，其他两个未安装",
+      "skills": "属性比较、插装",
+      "difficulty": "中",
+      "engineering": "新几何",
+      "transfer": "随机属性组合，最高／最宽／蓝色候选两两不同",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F05",
+      "title": "整理尺寸序列",
+      "props": "四块大小各异的积木，四个位置",
+      "rule_variants": {
+        "A": "从小到大",
+        "B": "从大到小",
+        "C": "第二小—最大—最小—第二大"
+      },
+      "outcome_check": "四个位置的尺寸序列",
+      "skills": "比较、排序、摆放",
+      "difficulty": "低",
+      "engineering": "基础",
+      "transfer": "改变实际尺寸，颜色和初始位置不与大小绑定",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F06",
+      "title": "对齐两件长条",
+      "props": "红蓝两根长条，各有不对称箭头标记",
+      "rule_variants": {
+        "A": "两箭头均朝前",
+        "B": "两箭头均朝后",
+        "C": "红朝前、蓝朝后"
+      },
+      "outcome_check": "两根方向及并排位置",
+      "skills": "抓放、旋转",
+      "difficulty": "低",
+      "engineering": "基础",
+      "transfer": "打散初态朝向，位置和长度适度变化",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F07",
+      "title": "成套收纳",
+      "props": "红圆柱、蓝圆柱、红方块、蓝方块；两个标记盒",
+      "rule_variants": {
+        "A": "左盒红色两件，右盒蓝色两件",
+        "B": "左盒圆柱两件，右盒方块两件",
+        "C": "左盒红圆柱＋蓝方块，右盒另两件"
+      },
+      "outcome_check": "两个盒内的成员集合",
+      "skills": "配对、分组",
+      "difficulty": "低",
+      "engineering": "基础",
+      "transfer": "更换尺寸与布局；三种划分在每个实例中均不同",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F08",
+      "title": "形状匹配插孔",
+      "props": "圆／方／三角柱各有红绿蓝三件，共九件；三个对应形状孔",
+      "rule_variants": {
+        "A": "插入红色三件",
+        "B": "插入绿色三件",
+        "C": "插入蓝色三件"
+      },
+      "outcome_check": "三个孔中的颜色与形状，真实插入到位",
+      "skills": "抓取、转向、直插",
+      "difficulty": "中",
+      "engineering": "新几何",
+      "transfer": "打散位置和孔板朝向；九候选始终同时存在",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F09",
+      "title": "搭建双柱桥",
+      "props": "红绿蓝三个等高支柱、一根横梁；两个支柱位及一个余件位",
+      "rule_variants": {
+        "A": "红绿作支柱，蓝放余件位",
+        "B": "绿蓝作支柱，红放余件位",
+        "C": "蓝红作支柱，绿放余件位"
+      },
+      "outcome_check": "支柱身份、横梁跨接和余件位置",
+      "skills": "结构搭建、稳定放置",
+      "difficulty": "中",
+      "engineering": "新几何",
+      "transfer": "支柱尺寸同族一致，柱距与横梁长度匹配",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F10",
+      "title": "平面拼板",
+      "props": "红绿蓝黄四块同形板，2×2浅槽框",
+      "rule_variants": {
+        "A": "按左上起顺时针红绿蓝黄",
+        "B": "绿蓝黄红",
+        "C": "蓝黄红绿"
+      },
+      "outcome_check": "四槽的完整颜色布局",
+      "skills": "对齐、浅槽嵌入",
+      "difficulty": "中",
+      "engineering": "新几何",
+      "transfer": "颜色不变，板框姿态和零件位置改变",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F11",
+      "title": "圆环套柱",
+      "props": "红绿蓝三只同孔径环，三个相同直径的标记柱",
+      "rule_variants": {
+        "A": "柱1/2/3套红绿蓝",
+        "B": "柱1/2/3套绿蓝红",
+        "C": "柱1/2/3套蓝红绿"
+      },
+      "outcome_check": "每柱套环身份",
+      "skills": "孔对轴、套入",
+      "difficulty": "中",
+      "engineering": "新几何",
+      "transfer": "柱位随机化，按可见柱标记认目标，不固定屏幕顺序",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F12",
+      "title": "同轴叠环",
+      "props": "红绿蓝三只相同尺寸环，一个竖柱",
+      "rule_variants": {
+        "A": "从下到上红绿蓝",
+        "B": "绿蓝红",
+        "C": "蓝红绿"
+      },
+      "outcome_check": "同一轴上的叠环次序",
+      "skills": "连续套入、装配顺序",
+      "difficulty": "中",
+      "engineering": "新几何",
+      "transfer": "改变环初始姿态；柱高容纳三环",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F13",
+      "title": "薄板插架",
+      "props": "红绿蓝三块同尺寸薄板，三个标记插槽",
+      "rule_variants": {
+        "A": "槽1/2/3插红绿蓝",
+        "B": "绿蓝红",
+        "C": "蓝红绿"
+      },
+      "outcome_check": "三个槽中的板身份与插入深度",
+      "skills": "薄片抓取、侧向对准",
+      "difficulty": "中",
+      "engineering": "新几何",
+      "transfer": "插架位姿变化，插槽标记可见",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F14",
+      "title": "长轴穿双孔",
+      "props": "红绿蓝三根同规格长轴，可抓持的双孔支架",
+      "rule_variants": {
+        "A": "用红轴贯穿两孔",
+        "B": "用绿轴贯穿两孔",
+        "C": "用蓝轴贯穿两孔"
+      },
+      "outcome_check": "贯穿两个孔的唯一轴身份",
+      "skills": "双孔同轴对准、穿轴",
+      "difficulty": "高",
+      "engineering": "新几何",
+      "transfer": "支架和轴的起始姿态变化，接口尺寸不泄漏规则",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F15",
+      "title": "双销定位装配",
+      "props": "红绿蓝三个同规格双销连接件，一个带双孔的底板",
+      "rule_variants": {
+        "A": "安装红色连接件",
+        "B": "安装绿色连接件",
+        "C": "安装蓝色连接件"
+      },
+      "outcome_check": "选中连接件两销同时到位",
+      "skills": "双点对准、压入",
+      "difficulty": "高",
+      "engineering": "新几何",
+      "transfer": "连接件位置及底板朝向变化；所有候选均兼容",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F16",
+      "title": "榫槽拼接",
+      "props": "一个榫头件，带圆／三角／方标记的三个相同榫槽座",
+      "rule_variants": {
+        "A": "接到圆标记座",
+        "B": "接到三角标记座",
+        "C": "接到方标记座"
+      },
+      "outcome_check": "唯一接合座身份及接合深度",
+      "skills": "水平对接、滑入",
+      "difficulty": "中",
+      "engineering": "新几何",
+      "transfer": "改变座位置和朝向，使用同规格非自锁接口",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F17",
+      "title": "模型插头连接",
+      "props": "红绿蓝三个相同键型的硬质模型插头，一个插座模型",
+      "rule_variants": {
+        "A": "接红插头",
+        "B": "接绿插头",
+        "C": "接蓝插头"
+      },
+      "outcome_check": "插座中唯一插头身份",
+      "skills": "有键接口对准、插入",
+      "difficulty": "高",
+      "engineering": "新几何",
+      "transfer": "无电气功能、无软线；插头初态方向变化",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F18",
+      "title": "键向插孔",
+      "props": "一个D形截面销，三个标记的D孔座，开口分别朝不同方向",
+      "rule_variants": {
+        "A": "插入圆标记座",
+        "B": "插入三角标记座",
+        "C": "插入方标记座"
+      },
+      "outcome_check": "孔座身份和销的键向匹配",
+      "skills": "绕轴转向、插入",
+      "difficulty": "高",
+      "engineering": "新几何",
+      "transfer": "座标记与开口方向随机配对，三版共享同一配对",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F19",
+      "title": "插销锁板",
+      "props": "可翻动小盖板，三个标记的锁止通道，一根插销",
+      "rule_variants": {
+        "A": "用通道1锁住盖板",
+        "B": "用通道2锁住盖板",
+        "C": "用通道3锁住盖板"
+      },
+      "outcome_check": "盖板闭合、插销实际穿过所选通道",
+      "skills": "合板、侧向穿销",
+      "difficulty": "高",
+      "engineering": "关节结构",
+      "transfer": "三个通道都可锁同一盖板；需要真实几何阻挡而非状态标签",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F20",
+      "title": "工具挂架装配",
+      "props": "红绿蓝三件相同挂孔的模型工具，一个挂架",
+      "rule_variants": {
+        "A": "挂红色工具",
+        "B": "挂绿色工具",
+        "C": "挂蓝色工具"
+      },
+      "outcome_check": "挂架上的唯一工具身份和支撑关系",
+      "skills": "翻转、穿挂",
+      "difficulty": "高",
+      "engineering": "新几何",
+      "transfer": "挂架方向与工具初态改变；工具均可挂",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F21",
+      "title": "挂环归位",
+      "props": "红绿蓝三个环，三个同规格标记挂钩",
+      "rule_variants": {
+        "A": "钩1/2/3挂红绿蓝",
+        "B": "绿蓝红",
+        "C": "蓝红绿"
+      },
+      "outcome_check": "各挂钩所挂环身份",
+      "skills": "抬升、套钩、松手",
+      "difficulty": "中",
+      "engineering": "新几何",
+      "transfer": "挂钩布局变化，环尺寸保持兼容",
+      "inspiration_refs": [
+        "RS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F22",
+      "title": "盖盒归位",
+      "props": "一个可抓取盒盖，三个同尺寸标记盒",
+      "rule_variants": {
+        "A": "盖圆标记盒",
+        "B": "盖三角标记盒",
+        "C": "盖方标记盒"
+      },
+      "outcome_check": "唯一被盖盒身份，其他两盒保持打开",
+      "skills": "盖体对齐、覆盖",
+      "difficulty": "中",
+      "engineering": "新几何",
+      "transfer": "盒位变化，盖无需磁吸／卡扣即可稳定放置",
+      "inspiration_refs": [
+        "RS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F23",
+      "title": "翻盖盒取件",
+      "props": "三个带标记的翻盖盒，内部各有一件相同零件",
+      "rule_variants": {
+        "A": "从圆标记盒取件到交付垫并关回",
+        "B": "从三角标记盒取件并关回",
+        "C": "从方标记盒取件并关回"
+      },
+      "outcome_check": "所选盒清空、另两盒有件、三盖关闭、交付垫一件",
+      "skills": "翻盖、取件、复位",
+      "difficulty": "中",
+      "engineering": "关节结构",
+      "transfer": "盒位改变，零件身份由初态来源记录对应",
+      "inspiration_refs": [
+        "RS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F24",
+      "title": "抽屉收纳",
+      "props": "桌面三格抽屉柜、一个零件",
+      "rule_variants": {
+        "A": "放入标记1抽屉并关回",
+        "B": "放入标记2抽屉并关回",
+        "C": "放入标记3抽屉并关回"
+      },
+      "outcome_check": "零件所在抽屉，全部抽屉关回",
+      "skills": "拉开、取放、推回",
+      "difficulty": "中",
+      "engineering": "关节结构",
+      "transfer": "柜体位置变化；三格深度和可达性一致",
+      "inspiration_refs": [
+        "RS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F25",
+      "title": "滑盖开口选择",
+      "props": "带三个标记停位的滑盖盒，停位分别露出不同格口",
+      "rule_variants": {
+        "A": "滑到圆标记停位",
+        "B": "滑到三角标记停位",
+        "C": "滑到方标记停位"
+      },
+      "outcome_check": "滑盖停位及露出的唯一格口",
+      "skills": "抓柄、直线滑动",
+      "difficulty": "中",
+      "engineering": "关节结构",
+      "transfer": "停位均有物理限位或稳定导轨，不能仅靠悬空停住",
+      "inspiration_refs": [
+        "RS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F26",
+      "title": "拨杆面板配置",
+      "props": "三根带标记的两档拨杆，全部初始在中间暂置位",
+      "rule_variants": {
+        "A": "1/2朝前，3朝后",
+        "B": "2/3朝前，1朝后",
+        "C": "1/3朝前，2朝后"
+      },
+      "outcome_check": "三拨杆完整方向向量",
+      "skills": "接触、拨动",
+      "difficulty": "中",
+      "engineering": "关节结构",
+      "transfer": "三杆起始中位相同，三版操作数接近；标记位置打散",
+      "inspiration_refs": [
+        "RS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F27",
+      "title": "旋钮指针定位",
+      "props": "一个大号可抓旋钮，三个圆周标记",
+      "rule_variants": {
+        "A": "指向圆标记",
+        "B": "指向三角标记",
+        "C": "指向方标记"
+      },
+      "outcome_check": "旋钮指针的最终角度",
+      "skills": "夹持、绕轴旋转",
+      "difficulty": "中",
+      "engineering": "关节结构",
+      "transfer": "标记与角度配对随机化；使用相同旋转行程等级",
+      "inspiration_refs": [
+        "RS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F28",
+      "title": "三轨滑块配置",
+      "props": "三条带编号导轨，每轨低／中／高三个停位；初始均在统一暂置位",
+      "rule_variants": {
+        "A": "轨1/2/3为低中高",
+        "B": "中高低",
+        "C": "高低中"
+      },
+      "outcome_check": "三个滑块的终态位置向量",
+      "skills": "滑动、相对位置控制",
+      "difficulty": "中",
+      "engineering": "关节结构",
+      "transfer": "导轨位置变化，三版分别占用三个不同档位",
+      "inspiration_refs": [
+        "RS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F29",
+      "title": "转盘工位定位",
+      "props": "转盘上固定三种标记夹具，一个桌面工作窗口",
+      "rule_variants": {
+        "A": "圆标记转到窗口",
+        "B": "三角标记转到窗口",
+        "C": "方标记转到窗口"
+      },
+      "outcome_check": "窗口处的夹具身份，其他夹具随盘转动",
+      "skills": "整体转动、角度定位",
+      "difficulty": "中",
+      "engineering": "关节结构",
+      "transfer": "夹具在盘上的排列变化；初态不处于任一目标停位",
+      "inspiration_refs": [
+        "RS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F30",
+      "title": "翻页展示板",
+      "props": "桌面支架上三张可翻转硬板，均有不同图形标记；初态全部翻下",
+      "rule_variants": {
+        "A": "只展示圆标记板",
+        "B": "只展示三角标记板",
+        "C": "只展示方标记板"
+      },
+      "outcome_check": "唯一翻起展示的板身份",
+      "skills": "抓边、铰链转动",
+      "difficulty": "中",
+      "engineering": "关节结构",
+      "transfer": "图形所在板位变化；展示位有真实限位支撑",
+      "inspiration_refs": [
+        "RS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F31",
+      "title": "共同搬运托盘",
+      "props": "有双侧把手的负载托盘，三个标记停放区",
+      "rule_variants": {
+        "A": "停到圆标记区",
+        "B": "停到三角标记区",
+        "C": "停到方标记区"
+      },
+      "outcome_check": "托盘位置、负载完整且稳定",
+      "skills": "两手协调、平稳搬运",
+      "difficulty": "中",
+      "engineering": "新几何",
+      "transfer": "区域位置变化；不将左右手使用次数作为额外分数",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F32",
+      "title": "托盘装载后交付",
+      "props": "一个带三格定位槽的托盘、红绿蓝三件、固定交付区",
+      "rule_variants": {
+        "A": "槽1/2/3装红绿蓝后交付",
+        "B": "绿蓝红后交付",
+        "C": "蓝红绿后交付"
+      },
+      "outcome_check": "交付区内托盘的三格成员与负载完整",
+      "skills": "装载、整盘搬运",
+      "difficulty": "高",
+      "engineering": "新几何",
+      "transfer": "装载配方与移动耦合；三槽限制运输时滑动",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F33",
+      "title": "定额搬出收纳箱",
+      "props": "初始箱中红绿蓝三件，外部两个交付位",
+      "rule_variants": {
+        "A": "搬出红绿，蓝留箱",
+        "B": "搬出绿蓝，红留箱",
+        "C": "搬出蓝红，绿留箱"
+      },
+      "outcome_check": "交付的两件及箱内剩余件身份",
+      "skills": "箱内取物、选择性转移",
+      "difficulty": "低",
+      "engineering": "基础",
+      "transfer": "零件位置打散；每版均搬出两件",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F34",
+      "title": "倾倒硬质颗粒",
+      "props": "一个带把手料杯，内装相同大颗粒；三个相同标记接收盒",
+      "rule_variants": {
+        "A": "全部倒入圆标记盒",
+        "B": "全部倒入三角标记盒",
+        "C": "全部倒入方标记盒"
+      },
+      "outcome_check": "颗粒全部归属目标盒，无散落",
+      "skills": "倾斜、重力转移",
+      "difficulty": "高",
+      "engineering": "颗粒接触",
+      "transfer": "只用可数的大颗粒，不做流体；固定三版相同颗粒数与盒尺寸",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F35",
+      "title": "铲取散件归盒",
+      "props": "平头小铲、六个硬质扁件、三个标记收纳盒",
+      "rule_variants": {
+        "A": "集中到圆标记盒",
+        "B": "集中到三角标记盒",
+        "C": "集中到方标记盒"
+      },
+      "outcome_check": "六件最终盒归属，无遗留散件",
+      "skills": "低位铲取、搬运、卸载",
+      "difficulty": "高",
+      "engineering": "工具接触",
+      "transfer": "扁件适配铲面；不靠隐藏工具使用计数判分",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F36",
+      "title": "推杆重排积木",
+      "props": "一根推杆、红绿蓝三块、三个通道末端位",
+      "rule_variants": {
+        "A": "末端1/2/3为红绿蓝",
+        "B": "绿蓝红",
+        "C": "蓝红绿"
+      },
+      "outcome_check": "通道末端完整颜色排列",
+      "skills": "工具推移、接触规划",
+      "difficulty": "中",
+      "engineering": "工具接触",
+      "transfer": "通道有可见侧壁和规划空间；允许任何产生合法终态的方法",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F37",
+      "title": "钩拉受限环件",
+      "props": "三个带标记环件位于可见窄挡板后，一个钩杆，一个交付垫",
+      "rule_variants": {
+        "A": "取出圆标记环",
+        "B": "取出三角标记环",
+        "C": "取出方标记环"
+      },
+      "outcome_check": "交付垫环身份，其他两件留原位",
+      "skills": "钩取、受限空间拉动",
+      "difficulty": "高",
+      "engineering": "工具接触",
+      "transfer": "挡板是真实碰撞物，钩头可达通道；单次取件不改变其他通道",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F38",
+      "title": "扫拢桌面散件",
+      "props": "六个大颗粒、小扫板、三个标记围挡区",
+      "rule_variants": {
+        "A": "全部扫入圆标记区",
+        "B": "全部扫入三角标记区",
+        "C": "全部扫入方标记区"
+      },
+      "outcome_check": "六件位于唯一目标区，无散落",
+      "skills": "平面接触、批量推动",
+      "difficulty": "中",
+      "engineering": "工具接触",
+      "transfer": "围挡高度低于扫板工作高度，三版移动距离匹配",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F39",
+      "title": "选择性擦除标记",
+      "props": "三个图形分区的可擦板，每区有相同数量污点；一块板擦",
+      "rule_variants": {
+        "A": "只擦净圆区",
+        "B": "只擦净三角区",
+        "C": "只擦净方区"
+      },
+      "outcome_check": "所选区污点清除，其他两区保留",
+      "skills": "面接触、覆盖",
+      "difficulty": "中",
+      "engineering": "接触留痕",
+      "transfer": "复用接触触发擦除思想，需要接触日志对应可见擦除；不凭声明改图",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F40",
+      "title": "盖章定位",
+      "props": "一个印章、三个标记区域的纸板",
+      "rule_variants": {
+        "A": "只在圆标记区留一个章",
+        "B": "只在三角标记区留一个章",
+        "C": "只在方标记区留一个章"
+      },
+      "outcome_check": "唯一有效印迹所在区域",
+      "skills": "抓取、竖直接触",
+      "difficulty": "中",
+      "engineering": "接触留痕",
+      "transfer": "印迹必须由实际印面接触生成；视频显示可见印迹",
+      "inspiration_refs": [
+        "RS",
+        "RT"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F41",
+      "title": "配齐三件装配套件",
+      "props": "三种接口零件各有红绿蓝三色，三格套件盒",
+      "rule_variants": {
+        "A": "底座红、连接杆绿、端帽蓝",
+        "B": "底座绿、连接杆蓝、端帽红",
+        "C": "底座蓝、连接杆红、端帽绿"
+      },
+      "outcome_check": "三格分别装正确类型和颜色，其他六件不取",
+      "skills": "跨属性选件、成套备料",
+      "difficulty": "中",
+      "engineering": "基础",
+      "transfer": "类型×颜色完全交叉；新布局不能泄漏配方",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F42",
+      "title": "分装并封盖套盒",
+      "props": "两种形状×两种颜色四件，两个带标记盒及盒盖",
+      "rule_variants": {
+        "A": "按颜色分盒后两盒封盖",
+        "B": "按形状分盒后两盒封盖",
+        "C": "按对角配对分盒后两盒封盖"
+      },
+      "outcome_check": "两个盒内完整成员集合与盖体就位",
+      "skills": "分类、遮挡前规划、封盖",
+      "difficulty": "高",
+      "engineering": "新几何",
+      "transfer": "这是分类到封盖的组合任务，与单步分组共用规则但增加后续依赖",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F43",
+      "title": "小车轮轴装配",
+      "props": "一个底盘、红绿蓝三套同规格轮轴模块",
+      "rule_variants": {
+        "A": "装红轮轴模块",
+        "B": "装绿轮轴模块",
+        "C": "装蓝轮轴模块"
+      },
+      "outcome_check": "底盘连接的模块身份、轮轴真实留在连接座内",
+      "skills": "支撑、轴孔装配",
+      "difficulty": "高",
+      "engineering": "机械连接",
+      "transfer": "需开发可真人复现的卡接／限位结构；没有真实保留结构不得声称装配完成",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F44",
+      "title": "模块轨道拼接",
+      "props": "三类方向轨道片有重复件；三张可见端点标记位图，全版本初态相同",
+      "rule_variants": {
+        "A": "拼出向左转的连续路线",
+        "B": "拼出向右转的连续路线",
+        "C": "拼出直行的连续路线"
+      },
+      "outcome_check": "由入口到所选出口的连续轨道和剩余件归位",
+      "skills": "模块拼接、空间规划",
+      "difficulty": "高",
+      "engineering": "新几何",
+      "transfer": "每条路线使用相同片数；连接结构、桌面面积和出口可达性需先验证",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F45",
+      "title": "杠杆天平配重",
+      "props": "带固定支点的桌面天平、三种已知质量配重、三个标记挂位",
+      "rule_variants": {
+        "A": "挂位1/2/3装轻中重",
+        "B": "中重轻",
+        "C": "重轻中"
+      },
+      "outcome_check": "挂位配重身份及真实支撑，不以是否水平代替指定配置",
+      "skills": "套挂、力矩下装配",
+      "difficulty": "高",
+      "engineering": "关节结构",
+      "transfer": "三版均装三件；用可见尺寸／标记区分质量，避免依赖不可观测属性",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F46",
+      "title": "撑杆支起翻板",
+      "props": "带铰链翻板，三根不同长度的刚性撑杆与三个对应稳定位",
+      "rule_variants": {
+        "A": "使用最短撑杆支起",
+        "B": "使用中长撑杆支起",
+        "C": "使用最长撑杆支起"
+      },
+      "outcome_check": "选中撑杆身份、翻板角度与真实支撑",
+      "skills": "抬板、撑杆插座、稳定支撑",
+      "difficulty": "高",
+      "engineering": "机械连接",
+      "transfer": "长度与支撑角物理匹配，每根都能形成稳定结构；需试制碰撞和支点",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F47",
+      "title": "取出被压零件并复位",
+      "props": "红绿蓝三件均位于可抬盖板下，一个交付垫",
+      "rule_variants": {
+        "A": "取红件并恢复盖板",
+        "B": "取绿件并恢复盖板",
+        "C": "取蓝件并恢复盖板"
+      },
+      "outcome_check": "交付件身份、剩余两件未取、盖板复位",
+      "skills": "解除遮挡、抓取、恢复",
+      "difficulty": "中",
+      "engineering": "新几何",
+      "transfer": "盖板有抓边且不能压坏物件；初态三件均可在抬板后取出",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F48",
+      "title": "拆卸并改装模块",
+      "props": "三个带标记的可拆套柱模块，每个初始有相同旧端帽；一只新端帽",
+      "rule_variants": {
+        "A": "只替换圆标记模块端帽",
+        "B": "只替换三角标记模块端帽",
+        "C": "只替换方标记模块端帽"
+      },
+      "outcome_check": "唯一改装模块身份、旧端帽在回收位，另两模块不变",
+      "skills": "拔出、拆卸、重新装入",
+      "difficulty": "高",
+      "engineering": "新几何",
+      "transfer": "采用可拔出的摩擦／重力配合，三模块接口相同",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F49",
+      "title": "盖板穿杆锁盒",
+      "props": "一个收纳盒、带三条兼容通道的盖板、一根锁杆",
+      "rule_variants": {
+        "A": "盖好后从圆标记通道穿杆",
+        "B": "从三角标记通道穿杆",
+        "C": "从方标记通道穿杆"
+      },
+      "outcome_check": "盒盖就位且锁杆通过所选盖体—盒体共同通道",
+      "skills": "合盖、双件对孔、穿杆",
+      "difficulty": "高",
+      "engineering": "机械连接",
+      "transfer": "与单个翻板插销区分为可拿起盖板的完整装配；须真实几何锁止",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    },
+    {
+      "id": "F50",
+      "title": "装配支柱组件并交付",
+      "props": "底座、立柱、端帽各红绿蓝三色，接口全兼容；交付托盘",
+      "rule_variants": {
+        "A": "红底座＋绿立柱＋蓝端帽",
+        "B": "绿底座＋蓝立柱＋红端帽",
+        "C": "蓝底座＋红立柱＋绿端帽"
+      },
+      "outcome_check": "托盘中完整组件的三部件身份与真实连接",
+      "skills": "选件、分层装配、交付",
+      "difficulty": "高",
+      "engineering": "机械连接",
+      "transfer": "采用大间隙套接和稳定支撑；部件尺寸、接口和夹爪净空需要验证",
+      "inspiration_refs": [
+        "RS",
+        "MS"
+      ],
+      "status": "design-proposal-unimplemented",
+      "requires_author_validation": true
+    }
+  ]
+}
