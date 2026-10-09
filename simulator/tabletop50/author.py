@@ -353,7 +353,7 @@ class TabletopAuthor(Author):
             arm = 0 if src[1] < 0 else 1
             target_arm = p.get("arm", 0 if p["xy"][1] < -.07 else 1 if p["xy"][1] > .07 else arm)
             if abs(src[1]) < .10: arm = target_arm
-            if self.env.spec["id"] == "F07":
+            if self.env.spec["id"] in ("F03", "F07"):
                 # This compact tabletop classification has no handoff
                 # requirement; retain the source-side arm for direct delivery.
                 target_arm = arm

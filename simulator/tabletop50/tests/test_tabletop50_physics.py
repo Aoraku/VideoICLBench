@@ -17,6 +17,12 @@ def test_size_kits_allow_free_layout_within_mat_but_reject_wrong_mat_overhang_an
             item["mat"] = np.eye(3)
             item["pos"] = np.array(zone["xy"]+[.8+e.by_spec[g["object"]]["size"][2]])
         assert all(e.predicate(g, state) for g in e.spec["goals"])
+        cylinder_goal = next(g for g in e.spec["goals"] if g["object"] == "part2_0")
+        cylinder = state["part2_0"]
+        cylinder["mat"] = np.array([[0., 0., 1.], [.70710678, -.70710678, 0.],
+                                     [.70710678, .70710678, 0.]])
+        cylinder["pos"][2] = .8+e.by_spec["part2_0"]["size"][0]
+        assert e.predicate(cylinder_goal, state)  # Real horizontal cylindrical support.
         g = e.spec["goals"][0]; item = state[g["object"]]
         item["pos"][:2] += [.07, .04]
         assert e.predicate(g, state)  # Valid alternative placement.

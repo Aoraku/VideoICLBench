@@ -136,6 +136,9 @@ class TabletopDual(DesktopDual):
             item = state[g["object"]]
             zone = next(z for z in self.spec["zones"] if z["id"] == g["target"])
             extent = np.abs(item["mat"])@np.asarray(self.by_spec[g["object"]]["size"])
+            if self.by_spec[g["object"]]["kind"] == "bottle":
+                radius, _, height = self.by_spec[g["object"]]["size"]
+                extent = radius*np.linalg.norm(item["mat"][:, :2], axis=1)+height*np.abs(item["mat"][:, 2])
             inside = np.all(np.abs(item["pos"][:2]-zone["xy"])+extent[:2]
                             <= np.asarray(zone["half_size"])+.0005)
             bottom = item["pos"][2]-extent[2]

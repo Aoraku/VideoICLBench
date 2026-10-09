@@ -199,13 +199,14 @@ def extended(recipe, v, rng, obj, position):
                 size = .016+rank*.004
                 dimensions = [(size, size, size), (size*2.4, size*.65, size*.85),
                               (size*.85, size*.85, size*1.7)][group]
-                objects.append(obj(name, xy, palette[rank], kind, dimensions))
-        zones.extend(dict(id=f"kit{rank}", xy=[.16, -.22+rank*.22],
-                          half_size=[.15, .09], marker=None) for rank in range(3))
-        for rank in range(3):
+                kwargs = dict(grasp_local=[0., 0., .008]) if group == 2 else {}
+                objects.append(obj(name, xy, palette[rank], kind, dimensions, **kwargs))
+        zones.extend(dict(id=f"kit{rank}", xy=[.185, -.22+rank*.22],
+                          half_size=[.175, .09], marker=None) for rank in range(3))
+        for group in (2, 1, 0):
             # Fill the far edge before the near edge so descending fingers do
             # not sweep through already delivered bars and cylinders.
-            for group in (2, 1, 0):
+            for rank in range(3):
                 selected = rank if group == 0 else (rank+v) % 3 if group == 1 else (rank-v) % 3
                 name = f"part{group}_{selected}"
                 move(name, [[.04, .14, .25][group], -.22+rank*.22])
