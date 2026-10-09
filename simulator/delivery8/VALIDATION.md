@@ -19,7 +19,7 @@
 
 以上是单一自由空间探针，说明参数确实改变物理控制；不保证接触或工作空间边缘同样达到请求位移。
 
-原始证据：[HTTP24条件](validation/http-smoke-v1.json)、[末端位移](validation/motion-probe-v1.json)、[Linux18项检查](validation/unit-tests-v1.log)、[Hosted与浏览器](validation/report.json)。
+原始证据：[HTTP24条件](validation/http-smoke-v1.json)、[末端位移](validation/motion-probe-v1.json)、[Linux18项检查](validation/unit-tests-v1.log.txt)、[Hosted与浏览器](validation/report.json)。
 
 `protocol_smoke`和手动面板测试均单独标记，不计入agent成功率。真人录制、真实模型的完整八题成功率仍未验收。
 
