@@ -19,6 +19,9 @@ def item_reference(state, variant, delivery=True):
 
 def batch_reference(state,variant,delivery=True):
     """Shared test helper; each action addresses a real object in one database."""
+    if state.get('board_documents'):
+        from vic_apps.board_collection import project
+        return [('board.'+op,key,value,[target] if target else []) for key in state['board_documents'] for op,target,value,ids in item_reference(project(state,key),variant,delivery)]
     if not state.get('atomic_inputs'): return item_reference(state,variant,delivery)
     actions=[];t=state['task_id']
     for entry in state['atomic_inputs']:
@@ -75,3 +78,22 @@ def test_correct_relation_and_unchanged_demo(task_id,tmp_path):
     act(store,'rules',batch_reference(initial,'A'))
     assert v2.evaluate(initial,store.snapshot('rules'),'A',store.events('rules'))['success']
     assert not v2.evaluate(initial,store.snapshot('rules'),'B',store.events('rules'))['success']
+
+
+@pytest.mark.parametrize('task_id',[66,67,68,70,71,72,73,75])
+@pytest.mark.parametrize('variant',list('ABC'))
+def test_three_board_documents_are_one_persistent_workspace(task_id,variant,tmp_path):
+    initial=v2.generate(task_id,10001,'eval')
+    assert len(initial['board_documents'])==3 and 'work_batch' not in initial
+    assert len({str(x['board']) for x in initial['board_documents'].values()})==3
+    store=ApplicationStore(tmp_path);store.initialize('boards',initial)
+    actions=batch_reference(initial,variant)
+    act(store,'boards',[a for a in actions if a[1]=='board-3'],'last')
+    partial=v2.evaluate(initial,store.snapshot('boards'),variant,store.events('boards'))
+    assert partial['completion']==pytest.approx(1/3) and not partial['success']
+    before=store.snapshot('boards')['board_documents']
+    act(store,'boards',[('board.view','board-2','',[])],'view')
+    assert store.snapshot('boards')['board_documents']==before
+    act(store,'boards',[a for a in actions if a[1]!='board-3'],'others')
+    assert v2.evaluate(initial,store.snapshot('boards'),variant,store.events('boards'))['success']
+    assert ApplicationStore(tmp_path).snapshot('boards')==store.snapshot('boards')

@@ -497,16 +497,24 @@ void benchmark_scene(const char* directory) {
         for (int i=0;i<count;i++) {int r,c;input >> r >> c;candidates.push_back({c,r});}
         input >> count;
         for (int i=0;i<count;i++) {int r,c;input >> r >> c;marks.push_back({c,r});}
+        int boardCount=0,boardIndex=0;input >> boardCount >> boardIndex;
         while (SDL_PollEvent(&event)) {
             if (event.type==SDL_QUIT) quit=true;
             if (event.type==SDL_MOUSEBUTTONDOWN && event.button.button==SDL_BUTTON_LEFT) {
                 int x=event.button.x,y=event.button.y;
+                if(boardCount && y>=670 && y<=730 && x>=850 && x<1210) {
+                    int selected=(x-850)/120;
+                    if(selected<boardCount){std::ofstream out(base+"/gomoku-intents.txt",std::ios::app);out << "view " << selected << " 0" << std::endl;}
+                    continue;
+                }
                 if(x>=885 && x<=1205 && y>=180 && y<=245) {opened=!opened;continue;}
                 if(!opened || (task==67 && chosen)) continue;
                 for(const auto& p:candidates) {
                     if(abs(x-(p.x*50+100))<21 && abs(y-(p.y*50+50))<21) {
                         std::ofstream out(base+"/gomoku-intents.txt",std::ios::app);
-                        out << (task==66?"mark":"choose") << " " << p.y << " " << p.x << std::endl;
+                        out << (task==66?"mark":"choose") << " " << p.y << " " << p.x;
+                        if(boardCount)out << " " << boardIndex;
+                        out << std::endl;
                         break;
                     }
                 }
@@ -519,6 +527,14 @@ void benchmark_scene(const char* directory) {
         SDL_Rect button={885,180,320,65};
         SDL_SetRenderDrawColor(renderer,227,237,231,255);SDL_RenderFillRect(renderer,&button);
         RenderText(opened?"返回首页":"打开练习棋谱",918,197,dark);
+        if(boardCount){
+            RenderText("棋谱库",900,620,muted);
+            for(int i=0;i<boardCount;i++){
+                SDL_Rect tab={850+i*120,670,110,60};
+                SDL_SetRenderDrawColor(renderer,i==boardIndex?177:227,219,207,255);SDL_RenderFillRect(renderer,&tab);
+                std::string title="棋谱 "+std::to_string(i+1);RenderText(title.c_str(),860+i*120,685,dark);
+            }
+        }
         if(opened) {
             for(const auto& p:candidates) {
                 SDL_Rect box={p.x*50+76,p.y*50+26,48,48};
@@ -537,7 +553,7 @@ void benchmark_scene(const char* directory) {
         } else {
             RenderText("欢迎来到棋谱练习室",870,330,dark);
             RenderText("打开棋谱后查看局面",870,385,muted);
-            RenderText("再按示范完成操作",885,425,muted);
+            RenderText(boardCount?"棋谱中的结果自动保存":"再按示范完成操作",boardCount?855:885,425,muted);
         }
         SDL_RenderPresent(renderer);SDL_Delay(40);
     }

@@ -75,7 +75,7 @@ def test_low_tasks_repeat_rule_on_independent_work(task_id, inference_states):
         assert len(state['atomic_inputs'])==3
         assert len({x['id'] for x in state['items']})==len(state['items'])
     else:
-        assert minimum==1 and state['board'] and 'work_batch' not in state
+        assert minimum==3 and len(state['board_documents'])==3 and 'work_batch' not in state
 
 
 @pytest.mark.parametrize("task_id", MEDIUM)

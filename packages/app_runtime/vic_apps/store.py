@@ -202,6 +202,9 @@ class ApplicationStore(WorkspaceStore):
             elif state.get('workflow') == 'music_projects':
                 from .music_projects import apply
                 state = apply(state, mutation.op, mutation.target, mutation.value, mutation.ids)
+            elif state.get('board_documents'):
+                from .board_collection import apply
+                state = apply(state, mutation.op, mutation.target, mutation.value, mutation.ids)
             elif state.get('atomic_inputs'):
                 from .atomic_objects import apply
                 state = apply(state, mutation.op, mutation.target, mutation.value, mutation.ids)

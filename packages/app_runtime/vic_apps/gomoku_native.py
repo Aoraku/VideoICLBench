@@ -19,11 +19,17 @@ class GomokuBridge:
 
     def export(self, run_id):
         state = self.store.snapshot(run_id)
+        documents=state.get('board_documents',{})
+        view=state.get('board_view','board-1')
+        if documents:
+            from .board_collection import project
+            state=project(state,view)
         lines = [f"{state['task_id']} {state['color']} {int(state['selection'] is not None)}"]
         lines.extend(" ".join(map(str, row)) for row in state["board"])
         for key in ("candidates", "marks"):
             lines.append(str(len(state[key])))
             lines.extend(f"{r} {c}" for r, c in state[key])
+        lines.append(f"{len(documents)} {list(documents).index(view) if documents else 0}")
         path = self.root / run_id / "gomoku-state.txt"
         temporary = path.with_suffix(".tmp")
         temporary.write_text("\n".join(lines) + "\n")
@@ -41,11 +47,17 @@ class GomokuBridge:
         start = self.offsets.get(run_id, 0)
         for index, line in enumerate(lines[start:], start):
             try:
-                op, r, c = line.split()
-                if op not in ("mark", "choose"):
-                    raise ValueError("Unknown desktop command")
+                parts=line.split();op,r,c=parts[:3]
+                documents=self.store.snapshot(run_id).get('board_documents')
+                ids=[];target=f"{int(r)},{int(c)}"
+                if documents:
+                    if op=='view':op='board.view';target=f'board-{int(r)+1}'
+                    elif op in ('mark','choose') and len(parts)==4:
+                        ids=[target];target=f'board-{int(parts[3])+1}';op='board.'+op
+                    else:raise ValueError('Choose a board document')
+                elif op not in ('mark','choose'):raise ValueError('Unknown desktop command')
                 self.store.mutate(run_id, Mutation(
-                    op=op, target=f"{int(r)},{int(c)}", epoch=meta["epoch"],
+                    op=op, target=target, ids=ids, epoch=meta["epoch"],
                     action_id=f"sdl-{meta['epoch']}-{index}",
                 ))
             except ValueError as exc:

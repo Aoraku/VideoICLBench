@@ -74,8 +74,11 @@ async def main():
           await page.screenshot(path=str(directory/f'{task}-{variant}-home.png'))
           batch_initial=initial
           work_items=[dict(id=e['id'],state={**initial,'source':e['source'],'items':[x for x in initial['items'] if x['id'] in e['item_ids']]}) for e in initial.get('atomic_inputs',[])] or [dict(id='single',state=initial)]
+          if initial.get('board_documents'):
+           from vic_apps.board_collection import project
+           work_items=[dict(id=key,state=project(initial,key)) for key in initial['board_documents']]
           for work_index,work_item in enumerate(work_items):
-           if work_index and module!='code':
+           if work_index and module!='code' and not batch_initial.get('board_documents'):
             await page.goto('http://127.0.0.1:8782'+native_path(module,rid)+'#'+token)
             await page.reload()
             if module=='code':await page.get_by_role('heading',name='题目列表',exact=True).wait_for(timeout=60000)
@@ -310,13 +313,16 @@ async def main():
             async def board_click(x,y):
              await page.mouse.click(box['x']+x*box['width']/1280,box['y']+y*box['height']/960)
              await page.wait_for_timeout(300)
-            await board_click(1000,210)
+            if not work_index:await board_click(1000,210)
+            if batch_initial.get('board_documents'):await board_click(900+work_index*120,695)
             wanted=expected(t,variant,s)
             for row,col in (wanted if t==66 else [wanted]):await board_click(col*50+100,row*50+50)
             await page.wait_for_timeout(500)
            elif module=='games':
             from vic.games import expected, stopping_paths
-            await button('打开练习棋盘 →')
+            if batch_initial.get('board_documents'):
+             await click(page.get_by_role('navigation',name='棋谱库').get_by_role('button',name=f'棋谱 {work_index+1}',exact=False))
+            if not work_index:await button('打开练习棋盘 →')
             wanted=expected(t,variant,s)
             if t==68:await button(wanted)
             elif t==69:

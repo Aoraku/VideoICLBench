@@ -151,3 +151,17 @@ async def test_recorder_preserves_first_frame_without_rule_overlay(tmp_path):
         assert metadata['rule_overlay'] is False
     finally:
         await recorder.close()
+
+
+def test_native_board_documents_keep_mouse_edits_separate(tmp_path):
+    from vic import v2
+    from vic_apps.board_collection import project
+    rid='b'*32;store=ApplicationStore(tmp_path);initial=v2.generate(67,10001,'eval');store.initialize(rid,initial)
+    bridge=GomokuBridge(tmp_path,store,lambda _:dict(app='gomoku',status='active',epoch=0));bridge.export(rid)
+    path=tmp_path/rid/'gomoku-intents.txt';lines=[]
+    for index in (2,0,1):
+        key=f'board-{index+1}';r,c=expected(67,'A',project(initial,key))
+        lines.extend([f'view {index} 0',f'choose {r} {c} {index}'])
+        path.write_text('\n'.join(lines)+'\n');bridge.drain(rid)
+        assert store.snapshot(rid)['board_documents'][key]['selection']==[r,c]
+    assert v2.evaluate(initial,store.snapshot(rid),'A',store.events(rid))['success']

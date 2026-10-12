@@ -51,7 +51,9 @@ def test_68_accepts_every_tied_maximum_and_rejects_lower_values(seed,variant):
 
 @pytest.mark.parametrize('seed',[1000,10001,12345,98765])
 def test_68_execution_avoids_vacuous_boards_and_separates_rules(seed):
-    batch=[dict(state=v2.generate(68,seed,'eval'))]
+    from vic_apps.board_collection import project
+    shared=v2.generate(68,seed,'eval')
+    batch=[dict(state=project(shared,key)) for key in shared['board_documents']]
     distinct=False
     for u in batch:
         s=u['state'];legal=[d for d in games.DIRECTIONS if games.move_2048(s['board'],d)[1]['changed']]

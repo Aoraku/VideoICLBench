@@ -1,4 +1,4 @@
-"""Repeated rule practice through native work batches and multi-object lists."""
+"""Repeated rule application to documents in one persistent native workspace."""
 from copy import deepcopy
 from itertools import combinations
 import json
@@ -188,15 +188,15 @@ TEXT_OBJECT_TASKS = {1,3,4,17,19,20,21,36,37,59}
 
 
 def generate(task_id, seed, spec):
+    if task_id >= 66:
+        from vic_apps.board_collection import FIELDS
+        units=_legacy_generate(task_id,seed,spec)['work_batch']['units']
+        state=deepcopy(units[0]['state'])
+        state['board_documents']={f'board-{i+1}':{k:deepcopy(u['state'][k]) for k in FIELDS if k in u['state']} for i,u in enumerate(units)}
+        state['board_view']='board-1'
+        state['execution']=dict(assignment=spec['assignment'],instructions=spec['inference']['instructions'],delivery=spec['delivery'])
+        return state
     if task_id not in MULTI_OBJECT_TASKS:
-        if task_id == 68:
-            for offset in range(2000):
-                candidate = _generate_item(task_id, seed+offset, spec)
-                choices = [games.best_2048_directions(candidate, v) for v in 'AB']
-                legal = [d for d in games.DIRECTIONS if games.move_2048(candidate['board'], d)[1]['changed']]
-                if all(len(c) < len(legal) for c in choices) and set(choices[0]) != set(choices[1]):
-                    return candidate
-            raise ValueError('Cannot construct informative board')
         return _generate_item(task_id, seed, spec)
     # Sources are immutable document metadata. There is one domain database,
     # one object list and no active environment or state swapping operation.
@@ -300,6 +300,18 @@ def _batch_states(state):
 
 
 def evaluate(initial,state,variant,events,clipboard=None):
+    if initial.get('board_documents'):
+        from vic_apps.board_collection import project
+        keys=list(initial['board_documents'])
+        if list(state.get('board_documents',{}))!=keys:
+            return dict(success=False,completion=0,checks=[],violations=['board_documents_integrity'])
+        checks=[];violations=[]
+        for key in keys:
+            own=[{**e,'op':e['op'].removeprefix('board.'),'target':(e.get('ids') or [''])[0]} for e in events if e.get('target')==key and e['op']!='board.view']
+            result=_evaluate_item(project(initial,key),project(state,key),variant,own)
+            checks.append(dict(id=key,passed=result['success']))
+            violations.extend(key+':'+v for v in result['violations'])
+        return dict(success=all(c['passed'] for c in checks) and not violations,completion=sum(c['passed'] for c in checks)/len(checks),checks=checks,violations=violations)
     if initial.get('atomic_inputs'):
         return _evaluate_objects(initial,state,variant,events)
     if not initial.get('work_batch'):

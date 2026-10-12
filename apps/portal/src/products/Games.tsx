@@ -1,6 +1,13 @@
 import { useEffect, useLayoutEffect, useState } from "react";
 import { Frame, PageHead, Notice, type ProductAPI } from "./kit";
 export function Games({ api }: { api: ProductAPI }) {
+  const [active,setActive]=useState('board-1');
+  if(!api.s.board_documents)return <GameBoard api={api}/>;
+  const key=api.s.board_documents[active]?active:'board-1';
+  const selected={...api,s:{...api.s,...api.s.board_documents[key]},mutate:(op:string,target='',value='',ids:string[]=[])=>api.mutate('board.'+op,key,value,target?[target]:ids)};
+  return <div><GameBoard api={selected} documents={<nav aria-label="棋谱库" style={{display:'flex',gap:12,flexWrap:'wrap',marginBottom:20}}>{Object.keys(api.s.board_documents).map((id,i)=><button className="product-secondary" key={id} aria-pressed={id===key} onClick={()=>setActive(id)}>棋谱 {i+1}{api.s.board_documents[id].selection!==null?(api.s.game==='2048'?' · 已移动':' · 已保存'):api.s.board_documents[id].marks.length?' · 已标记':''}</button>)}</nav>}/></div>;
+}
+function GameBoard({ api,documents }: { api: ProductAPI;documents?:React.ReactNode }) {
   const { s } = api,
     [page, setPage] = useState("home"),
     [focus, setFocus] = useState("");
@@ -12,6 +19,7 @@ export function Games({ api }: { api: ProductAPI }) {
     },
     name = names[s.game];
   const [instructions, setInstructions] = useState(false);
+  useEffect(()=>setFocus(""),[s.seed]);
   const [turnStage,setTurnStage] = useState<'player'|'opponent'>('opponent');
   const lastTurn=s.v2_reversi?s.turns.at(-1):null;
   useLayoutEffect(()=>{if(!lastTurn?.player_board)return;setTurnStage('player');const timer=setTimeout(()=>setTurnStage('opponent'),1400);return()=>clearTimeout(timer)},[s.turns?.length]);
@@ -50,7 +58,7 @@ export function Games({ api }: { api: ProductAPI }) {
     }
     window.addEventListener("keydown", key);
     return () => window.removeEventListener("keydown", key);
-  }, [page, settled, api.busy]);
+  }, [page, settled, api.busy,s.seed]);
   function click(r: number, c: number) {
     const p = point(r, c);
     if ([70, 73].includes(s.task_id)) void api.mutate("mark", p);
@@ -69,7 +77,7 @@ export function Games({ api }: { api: ProductAPI }) {
       ]}
     >
       <main className={`product-main games-main game-${s.game}`}>
-        <Notice api={api} />{s.task_id===68&&!s.v2_atomic&&<p className="product-notice">多个方向同样满足视频规则时，任选一个都可；不按固定方向顺序破除并列。每组只移动一次，棋盘必须发生变化。</p>}{s.task_id===72&&!s.v2_atomic&&<p className="product-notice">候选格并列时先选行号最小者，同一行再选列号最小者。行从上到下、列从左到右编号。</p>}
+        {documents}<Notice api={api} />{s.task_id===68&&!s.v2_atomic&&<p className="product-notice">多个方向同样满足视频规则时，任选一个都可；不按固定方向顺序破除并列。每组只移动一次，棋盘必须发生变化。</p>}{s.task_id===72&&!s.v2_atomic&&<p className="product-notice">候选格并列时先选行号最小者，同一行再选列号最小者。行从上到下、列从左到右编号。</p>}
         {page === "home" ? (
           <>
             <PageHead
@@ -289,12 +297,12 @@ export function Games({ api }: { api: ProductAPI }) {
                     )}
                   </>
                 )}
-                <hr />
+                {!s.v2_atomic&&!s.v2_2048&&!s.v2_reversi&&<><hr />
                 <p className="product-muted">
                   {s.task_id === 69
                     ? '每次有效移动后会出现一个新方块。点击“停止操作”保存本次练习的棋盘和操作记录。'
                     : s.task_id === 68 ? '本题不生成随机新方块。并列方向任选其一；不改变棋盘的方向不算有效移动。' : '棋盘并列位置按行、列顺序。'}
-                </p>
+                </p></>}
               </aside>
             </div>
           </>
