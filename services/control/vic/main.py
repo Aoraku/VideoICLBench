@@ -910,6 +910,7 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
         app.mount("/assets", StaticFiles(directory=dist / "assets"), name="assets")
 
     @app.get("/")
+    @app.get("/review")
     @app.get("/workspace/{run_id}")
     def index(run_id=None):
         if not (dist / "index.html").exists():
@@ -918,5 +919,10 @@ def create_app(database_url=None, data_dir=None, secret=None, browser=None):
 
     from .os_integration import install_os_routes
     install_os_routes(app, manager, secret, data)
+
+    from .task_review import install_review
+    install_review(app, manager, secret, data, v2_tasks, recording_library, video)
+    from .embodied_integration import install_embodied
+    install_embodied(app)
 
     return app

@@ -8,6 +8,14 @@ VideoICL-Bench 为人类录制者和 GUI Agent 提供统一的应用、任务、
 
 OS 任务入口为主页 **OS · 36 题**：包含同事提供的 108 段规则示范、独立执行环境与原始 evaluator，支持原生 Codex / Claude Code。访问、部署和运行命令见 [OS-ICL 使用说明](docs/os-icl.md)。
 
+## 任务审阅与具身入口
+
+独立审阅页为 `/review`，使用录制台的平台访问密钥。目录包含 Web 75 题、OS 36 题和 Embodied 8 题；可按平台、难度或名称筛选，查看 A/B/C 规则、服务器录像及执行任务描述。选择版本后点击“打开 inference 环境”进入应用；意见按任务和版本保存在服务器，支持署名、评价结论和修改建议。未提交的文字草稿暂存在当前浏览器标签页。
+
+主页的 **Embodied · 8 题** 接入服务器上的 Tabletop8 控制台。具身示范标记为“仿真作者控制器示范”，Web 录像保留审核状态及历史轮次，OS 显示配套示范。具身控制台每次运行一个任务，创建新任务遇到占用时返回提示，不会结束已有任务。
+
+部署时同时加载 `infra/compose.yaml` 与 `infra/compose.os.yaml`。`VIC_EMBODIED_SOURCE_HOST` 指向冻结的 Tabletop8 发布目录，`VIC_EMBODIED_KEY` 在服务器私有环境文件中设置。`embodied-relay` 经共享 Unix socket 连接宿主机 `127.0.0.1:18664`，无额外公开端口；具身密钥仅由后端使用。审阅意见存储于 `run_data` 卷内的 `/data/task-reviews.sqlite3`，需与录像卷一同备份。原 Tabletop8 HTTP agent 接口仍可按其独立服务说明使用。
+
 ## 录制前就绪范围
 
 - **75 个软件／游戏任务，225 个 A/B/C 规则版本**：具有业务状态与 eval 实现；应用任务路径的自动检查与人工视觉验收分别记录。

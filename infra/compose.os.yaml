@@ -5,10 +5,23 @@ services:
     environment:
       VIC_OS_BASE: http://os:8790
       VIC_OS_SOURCE: /opt/os-icl
+      VIC_EMBODIED_SOURCE: /opt/tabletop8/simulator
+      VIC_EMBODIED_SOCKET: /bridge/tabletop8.sock
+      VIC_EMBODIED_KEY: ${VIC_EMBODIED_KEY:-}
     volumes:
       - ${VIC_OS_SOURCE_HOST:-/home/qingle/services/os-icl-e6c8050}:/opt/os-icl:ro
+      - ${VIC_EMBODIED_SOURCE_HOST:-/home/qingle/services/videoicl-tabletop8/release-v1}:/opt/tabletop8:ro
+      - embodied_bridge:/bridge
     depends_on:
+      embodied-relay: {condition: service_started}
       os: {condition: service_healthy}
+  embodied-relay:
+    image: ${VIC_OS_IMAGE:-videoicl-control-os:local}
+    user: "0:0"
+    network_mode: host
+    command: ["python", "-m", "vic.embodied_relay"]
+    volumes: ["embodied_bridge:/bridge"]
+    restart: unless-stopped
   os-data-init:
     image: ${VIC_OS_IMAGE:-videoicl-control-os:local}
     user: "0:0"
@@ -30,4 +43,5 @@ services:
       timeout: 3s
       retries: 10
 volumes:
+  embodied_bridge:
   os_data:

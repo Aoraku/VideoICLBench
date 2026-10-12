@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './style.css'
+import {ReviewPage} from './TaskReview'
 import {RecorderPortal} from './RecorderPortal'
 import {Application} from './Application'
 import {Launchpad} from './Launchpad'
@@ -13,6 +14,7 @@ async function request(path:string,token:string,method='GET',body?:unknown){
   return r.json()
 }
 function App(){
+  if(location.pathname==='/review')return <ReviewPage/>
   const productRoute=location.pathname.match(/^\/native\/product\/([a-z]+)\/([a-f0-9]+)$/)
   if(productRoute)return <ProductWorkspace module={productRoute[1]} id={productRoute[2]}/>
   const appRoute=location.pathname.match(/^\/apps\/([a-z]+)\/([a-f0-9]+)$/)
