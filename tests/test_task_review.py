@@ -92,3 +92,17 @@ def test_embodied_gateway_keeps_key_server_side_and_preserves_busy(tmp_path,monk
     assert 'Authorization' not in calls[-1].headers
     assert c.get('/embodied-sim/release.private.json',headers=auth).status_code==404
     assert c.post('/embodied-sim/control/status',headers=auth).status_code==405
+
+
+def test_review_lists_historical_colleague_video(review,tmp_path):
+    from test_recording_library import save_take
+    c,_=review
+    run=c.post('/v1/runs',headers=AUTH,json={'task_id':1,'variant':'C','seed':0,'mode':'demo','runtime':'web-dev'}).json()
+    save_take(tmp_path,run)
+    assert c.post('/v1/runs/'+run['id']+'/reset',headers=AUTH).status_code==200
+    row=c.get('/review-api/tasks',headers=AUTH).json()['tasks'][0]
+    video=row['videos']['C'][0]
+    assert video['historical'] and 'Recorder' in video['label'] and video['approved']
+    assert c.get(video['url']).status_code==401
+    c.post('/review-api/access',headers=AUTH)
+    assert c.get(video['url']).content==b'saved-video-fixture'
