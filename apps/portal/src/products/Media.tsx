@@ -14,7 +14,8 @@ export function Media({ api }: { api: ProductAPI }) {
     [page, setPage] = useState("home"),
     [selected, setSelected] = useState(""),
     [text, setText] = useState(s.outputs.target ?? s.source.text),
-    [query, setQuery] = useState("");
+    [query, setQuery] = useState(""),
+    [folder, setFolder] = useState(s.items[0].id);
   const view=useWorksets(api);
   const rows = s.items.map((x: any) => d.objects[x.id]).filter((x: any) => !x.hidden && !x.deleted).filter(view.visible),
     active = d.objects[selected];
@@ -174,7 +175,8 @@ export function Media({ api }: { api: ProductAPI }) {
                 <span>▣</span>
                 <div>
                   <h2>收藏夹名称</h2>
-                  <p>原名称：{s.source.text}</p>
+                  {s.atomic_inputs && <select aria-label="收藏夹" value={folder} onChange={e=>{setFolder(e.target.value);setText(s.outputs[e.target.value] ?? d.objects[e.target.value].name);}}>{s.items.map((item:any)=><option key={item.id} value={item.id}>{d.objects[item.id].name}</option>)}</select>}
+                  <p>原名称：{s.atomic_inputs ? s.items.find((x:any)=>x.id===folder).name : s.source.text}</p>
                   <input
                     value={text}
                     onChange={(e) => setText(e.target.value)}
@@ -182,12 +184,12 @@ export function Media({ api }: { api: ProductAPI }) {
                   <button
                     className="product-primary"
                     disabled={api.busy}
-                    onClick={() => api.mutate("save", "target", text)}
+                    onClick={() => api.mutate("save", s.atomic_inputs ? folder : "target", text)}
                   >
                     保存名称
                   </button>
-                  {s.outputs.target && (
-                    <p className="product-ok">已保存：{s.outputs.target}</p>
+                  {(s.atomic_inputs ? s.outputs[folder] : s.outputs.target) && (
+                    <p className="product-ok">已保存：{s.atomic_inputs ? s.outputs[folder] : s.outputs.target}</p>
                   )}
                 </div>
               </section>

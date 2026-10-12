@@ -20,7 +20,7 @@ from vic_apps import workset_delivery
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = json.loads((ROOT / "tasks/v2/catalog.json").read_text())
-TASKS = {task["id"]: task for task in CATALOG["tasks"]}
+TASKS = {task["id"]: task for task in v2.catalog()["tasks"]}
 MEDIUM = [key for key, task in TASKS.items() if task["difficulty"] == "medium"]
 HARD = [key for key, task in TASKS.items() if task["difficulty"] == "hard"]
 
@@ -69,13 +69,13 @@ def test_low_tasks_repeat_rule_on_independent_work(task_id, inference_states):
     if task_id in FOUR_OBJECTS:
         assert len(state["items"]) >= max(4, minimum)
         assert len({row["id"] for row in state["items"]}) == len(state["items"])
+    elif task_id < 66:
+        assert 'work_batch' not in state
+        assert len(state['items']) >= minimum
+        assert len(state['atomic_inputs'])==3
+        assert len({x['id'] for x in state['items']})==len(state['items'])
     else:
-        units = state["work_batch"]["units"]
-        assert len(units) >= max(3, minimum)
-        assert len({unit["id"] for unit in units}) == len(units)
-        assert len({unit["state"]["seed"] for unit in units}) == len(units)
-        inputs = [unit["state"]["board"] if task_id >= 66 else unit["state"]["source"] for unit in units]
-        assert len({json.dumps(value, sort_keys=True) for value in inputs}) == len(units)
+        assert minimum==1 and state['board'] and 'work_batch' not in state
 
 
 @pytest.mark.parametrize("task_id", MEDIUM)
@@ -110,7 +110,9 @@ def test_medium_documents_depend_on_real_independent_source_records(task_id, inf
 def test_hard_tasks_have_multiple_apps_and_real_source_data(task_id, inference_states):
     state = inference_states[task_id]
     assert len(runtime_platforms(state)) >= 2
-    assert state["workflow"] and state["world"]["brief"]
+    assert state["workflow"] and len(state["world"])>3
+    assert not state["world"]["brief"]
+    assert state["execution"]["instructions"]
     extension = state.get("cross_platform")
     if extension:
         assert extension["primary_app"] in runtime_platforms(state)

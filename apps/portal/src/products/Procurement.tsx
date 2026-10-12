@@ -21,7 +21,7 @@ export function Procurement({api}:{api:ProductAPI}) {
     tools={<a href={api.applicationLink?.('im')}>团队采购消息 →</a>}>
     <main className="product-main"><Notice api={api}/>
     {page==='home'&&<><PageHead eyebrow="采购工作台" title="把同事需要的用品准备好" description="申请、商品与订单在这里统一管理。"/>
-      <section className="product-card"><h2>本次采购要求</h2><p>{w.brief}</p><button className="product-primary" onClick={()=>setPage('requests')}>查看采购申请</button></section>
+      <section className="product-card"><h2>本次采购要求</h2><button className="product-primary" onClick={()=>setPage('requests')}>查看采购申请</button></section>
       <div className="product-grid"><section className="product-card"><h3>采购申请</h3><p>{w.requests.length} 份申请与更正</p><button onClick={()=>setPage('requests')}>查看申请</button></section><section className="product-card"><h3>订单草稿</h3><p>{Object.keys(w.orders).length} 张订单</p><button onClick={()=>setPage('orders')}>管理订单</button></section><section className="product-card"><h3>收货地址</h3><p>三个部门的联系人与地址</p><button onClick={()=>setPage('contacts')}>查看通讯录</button></section></div></>}
     {page==='requests'&&<><PageHead title="采购申请" description="同一申请编号采用最高版本，追加申请单独累计。"/>
       <p>原始申请与更正单由各部门联系人在团队消息中提交。<a href={api.applicationLink?.('im')}>查看来源消息 →</a></p>

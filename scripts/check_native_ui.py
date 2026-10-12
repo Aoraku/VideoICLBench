@@ -1,6 +1,6 @@
 """Private native-frontend QA. Rules stay in this harness, never in the browser.
 
-Inputs use rendered controls and keyboard/mouse events. No select_option, injected
+Inputs use rendered controls and keyboard/mouse events. No injected
 app state, or direct command requests are used to complete tasks. Eval reads the
 same persisted domain records as the production evaluator.
 """
@@ -26,7 +26,7 @@ async def main():
     while not server.started:await asyncio.sleep(.05)
     results=[]
     async with httpx.AsyncClient(base_url='http://127.0.0.1:8782',headers={'Authorization':'Bearer '+secret},trust_env=False,timeout=60) as client, async_playwright() as pw:
-      browser=await pw.chromium.launch()
+      browser=await pw.chromium.launch(channel=os.environ.get('VIC_BROWSER_CHANNEL'))
       try:
        for task in subset:
         for variant in variants:
@@ -73,24 +73,33 @@ async def main():
           else:await page.wait_for_timeout(500)
           await page.screenshot(path=str(directory/f'{task}-{variant}-home.png'))
           batch_initial=initial
-          work_items=initial.get('work_batch',{}).get('units',[dict(id='single',state=initial)])
+          work_items=[dict(id=e['id'],state={**initial,'source':e['source'],'items':[x for x in initial['items'] if x['id'] in e['item_ids']]}) for e in initial.get('atomic_inputs',[])] or [dict(id='single',state=initial)]
           for work_index,work_item in enumerate(work_items):
-           if work_index:
-            chooser=page.get_by_role('button',name=f'打开第{work_index+1}项：',exact=False)
-            async with page.expect_navigation(wait_until='domcontentloaded'):
-             await chooser.click()
-            await expect(page.get_by_role('button',name=f'打开第{work_index+1}项：',exact=False)).to_have_attribute('aria-pressed','true')
+           if work_index and module!='code':
+            await page.goto('http://127.0.0.1:8782'+native_path(module,rid)+'#'+token)
+            await page.reload()
             if module=='code':await page.get_by_role('heading',name='题目列表',exact=True).wait_for(timeout=60000)
-            else:await page.wait_for_timeout(500)
+            else:await page.wait_for_timeout(300)
+           object_target=work_item['id'] if batch_initial.get('atomic_inputs') else 'target'
            initial=work_item['state'];s=initial
            effect=expected_effect(t,variant,s) if t<66 else None
            if module in ('media','blog','studio','travel','shop','bank'):
             nav=page.locator('.product-nav')
             async def go(name):await click(nav.get_by_role('button',name=name,exact=False))
             if t in (21,36,37,44,45,46):
-             if t==21:await go('收藏夹');control=page.locator('.media-folder input');save='保存名称'
-             elif t==36:await button('继续编辑 →');control=page.locator('.blog-title-input');save='保存草稿'
-             elif t==37:await go('提示词库');control=page.locator('textarea');save='保存模板'
+             if t==21:
+              await go('收藏夹')
+              if s.get('atomic_inputs'):
+               await page.get_by_label('收藏夹',exact=True).select_option(object_target)
+              control=page.locator('.media-folder input');save='保存名称'
+             elif t==36:
+              if s.get('atomic_inputs'):await click(page.locator(f'[data-object-id="{object_target}"] .product-text-link'))
+              else:await button('继续编辑 →')
+              control=page.locator('.blog-title-input');save='保存草稿'
+             elif t==37:
+              await go('提示词库')
+              if s.get('atomic_inputs'):await click(page.locator('.studio-project-layout aside button').nth(work_index))
+              control=page.locator('textarea');save='保存模板'
              elif t==44:await go('常用旅客');control=page.get_by_label('旅客显示姓名');save='保存旅客'
              elif t==45:
               target=next(x['id'] for x in s['items'] if x['name']==s['source']['text'])
@@ -134,7 +143,7 @@ async def main():
             else:raise AssertionError(f'No workflow for {t}')
            elif module=='music':
             if t==17:
-             await click(page.locator('a[href*="/songs/target/"]').first);await button('编辑显示名称');await text(page.locator('#nameForm input'),effect['outputs']['target']);await click(page.locator('#nameForm button'))
+             await click(page.locator(f'a[href*="/songs/{object_target}/"]').first);await button('编辑显示名称');await text(page.locator('#nameForm input'),effect['outputs']['target']);await click(page.locator('#nameForm button'))
             elif t==18:
              await click(page.get_by_role('link',name='播放列表',exact=True));await button('新建播放列表');await text(page.locator('#playlistForm input'),effect['outputs']['target']);await click(page.locator('#playlistForm button'))
             else:
@@ -151,14 +160,16 @@ async def main():
                await text(page.locator('.topbar input[name="q"]'),s['source']['search_keyword']);await click(page.locator('.topbar button[type="submit"]'))
                await click(page.locator(f'a[href*="/songs/{effect["selection"][0]}/"]').first)
                await click(page.locator('[data-favorite]'));await expect(page.locator('[data-favorite]')).to_contain_text('移出')
-               await click(page.get_by_role('link',name='查看活动备选歌曲'));await expect(page.locator('[data-song]')).to_have_count(1)
+               await click(page.get_by_role('link',name='查看活动备选歌曲'));await expect(page.locator('[data-song]')).to_have_count(work_index+1)
               else:
                await click(page.locator(f'[data-song="{effect["selection"][0]}"] a').first);await click(page.locator('[data-play]'))
              elif t==32:
               for target,_ in effect['actions']:await click(page.locator(f'[data-add="{target}"]'))
            elif module=='news':
             if t in (19,20):
-             await click(page.locator('nav [data-page="editor"]'));await text(page.locator('#editorForm textarea'),effect['outputs']['target']);await click(page.locator('#editorForm button[type="submit"]'))
+             await click(page.locator('nav [data-page="editor"]'))
+             if s.get('atomic_inputs'):await click(page.locator(f'[data-edit="{object_target}"]'))
+             await text(page.locator('#editorForm textarea'),effect['outputs']['target']);await click(page.locator('#editorForm button[type="submit"]'))
             else:
              await click(page.locator('nav [data-page="articles"]'))
              if t in (23,24):
@@ -256,7 +267,14 @@ async def main():
                await expect(page.get_by_title('取消回复',exact=True)).to_have_count(0)
            elif module=='code':
             if t in (59,60,65):
-             await click(page.get_by_text('我的代码与笔记',exact=True))
+             await click(page.get_by_role('button',name='我的代码与笔记',exact=True))
+             if t==59 and s.get('atomic_inputs'):
+              await page.wait_for_timeout(500)
+              box=page.get_by_role('combobox',name='解题笔记')
+              await box.click();await page.keyboard.press('Home')
+              for _ in range(work_index):await page.keyboard.press('ArrowDown')
+              await page.keyboard.press('Enter')
+              await expect(page.get_by_text('题目 '+str(s['source']['answer_problem']['number'])+' · '+s['source']['answer_problem']['name'],exact=True)).to_be_visible()
              if t==60:await expect(page.get_by_text('只改指定变量的定义与引用；相似名称、字符串和注释保持不变。',exact=True)).to_be_visible()
              if t==65:await expect(page.get_by_text(f"长度阈值：{s['source']['code_threshold']} 个字符（包含空格和换行）",exact=True)).to_have_count(0 if mode=='demo' else 1)
              if t in (59,60):

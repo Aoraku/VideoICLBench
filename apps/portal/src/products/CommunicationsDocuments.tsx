@@ -16,8 +16,8 @@ export function CommunicationsDocuments({api}:{api:ProductAPI}) {
     <main className="product-main"><Notice api={api}/>
       {page==='home'?<><PageHead eyebrow="PROJECT DOCUMENTS" title="让资料跟上项目。" description="整理源文件、班次交接和团队启动资料。"/>
         <div className="studio-projects">{w.projects.map((p:any)=><button key={p.id} onClick={()=>{setProject(p.id);setFile('');setPage('documents')}}><span>▤</span><h3>{p.name}</h3><p>{p.id} · {title}</p></button>)}</div>
-        <section className="comm-doc-brief"><h2>团队委托</h2><p>{w.brief}</p></section>
-      </>:<><PageHead eyebrow="TEAM WORKSPACE" title={title} description={w.brief}/>
+
+      </>:<><PageHead eyebrow="TEAM WORKSPACE" title={title} description="团队资料与已保存文件"/>
         <div className="comm-doc-layout"><aside aria-label="项目"><h3>项目目录</h3>{w.projects.map((p:any)=><button key={p.id} aria-pressed={project===p.id} onClick={()=>{setProject(p.id);setFile('');setGroup('')}}>{p.name}<small>{p.id}</small></button>)}</aside>
           <section className="comm-doc-content">
             {s.task_id===11?<><h2>{active.name} · 原文件</h2><p>按请求核对项目、类型及版本，再按视频规则选文件。导入后可在 Chat 的附件窗口发送原文件。</p>

@@ -12,12 +12,9 @@ export function WorksetBar({api,view}:{api:ProductAPI;view:ReturnType<typeof use
   if(!api.s.v2_worksets)return null;
   const {s,d}=api,scope=view.scope,field=Object.keys(scope?.filters||{})[0];
   const values=field?Array.from(new Set<string>(s.items.filter((x:any)=>x.scope_id===scope.id).map((x:any)=>String(x[field])))):[];
-  const requested=s.scopes.filter((x:any)=>x.requested);
   const rows=s.items.map((x:any)=>d.objects[x.id]).filter(view.visible);
   const snapshot=[26,47,48].includes(s.task_id);
   return <section className="workset-bar" aria-label="资料筛选">
-    <div className="workset-brief"><b>本次整理</b><span>{requested.map((x:any)=>x.name).join('、')}{field&&` · ${scope.filter_label}：${scope.filters[field]}`}{s.task_id===57&&` · 提醒渠道：${s.source.notification_channel}`}</span></div>
-    <p className="workset-identity">{s.task_id===49 ? `金额单位为整数元；备注长度阈值 ${s.source.text_threshold} 个字符（包含标点和空格）。` : s.public_parameters}</p>
     <div className="workset-filters"><label>{s.scopes[0].kind}<select aria-label={s.scopes[0].kind} value={view.scopeId} onChange={e=>view.change(e.target.value)}><option value="">全部</option>{s.scopes.map((x:any)=><option key={x.id} value={x.id}>{x.name}</option>)}</select></label>
       {field&&<label>{scope.filter_label}<select aria-label={scope.filter_label} value={view.filter} onChange={e=>view.setFilter(e.target.value)}><option value="">全部</option>{values.map(v=><option key={v}>{v}</option>)}</select></label>}
       <span>{rows.length} 项 · 已标注 {rows.filter((x:any)=>x.label).length} 项</span>

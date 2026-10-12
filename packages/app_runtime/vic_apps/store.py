@@ -202,13 +202,16 @@ class ApplicationStore(WorkspaceStore):
             elif state.get('workflow') == 'music_projects':
                 from .music_projects import apply
                 state = apply(state, mutation.op, mutation.target, mutation.value, mutation.ids)
+            elif state.get('atomic_inputs'):
+                from .atomic_objects import apply
+                state = apply(state, mutation.op, mutation.target, mutation.value, mutation.ids)
             elif is_delivery:
                 state = atomic_delivery.apply(state,mutation.op,mutation.target,mutation.value)
             else:
                 state = apply_mutation(
                     state, mutation.op, mutation.target, mutation.value, mutation.ids
                 )
-            if state["task_id"] < 66 and not state.get('workflow') and not state.get('v2_worksets') and not is_delivery:
+            if state["task_id"] < 66 and not state.get('workflow') and not state.get('v2_worksets') and not is_delivery and not state.get('atomic_inputs'):
                 state = domain.apply(
                     state, mutation.op, mutation.target, mutation.value, mutation.ids
                 )

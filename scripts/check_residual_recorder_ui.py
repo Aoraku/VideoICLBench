@@ -42,20 +42,16 @@ async def main():
         await expect(page.get_by_label('任务参数',exact=True)).to_have_count(0)
         assert '阈值' not in await page.locator('body').inner_text()
        else:
-        # Workset inputs may live in the business brief instead of a banner.
-        source=state['source']
-        parameter={22:f"{source['threshold']} 次",38:f"{source['threshold']} 个字符",49:f"{source['text_threshold']} 个字符",57:f"{source['threshold']} 元"}[task]
-        await expect(page.locator('body')).to_contain_text(parameter)
+        assert '本次整理' not in await page.locator('body').inner_text()
+        assert state['execution']['assignment'] not in await page.locator('body').inner_text()
       elif task==39:
-       for index in range(3):
-        if index:
-         async with page.expect_navigation(wait_until='domcontentloaded'):
-          await page.locator('#vic-work-batch button').nth(index).click()
-        await page.locator('.product-nav').get_by_role('button',name='内容项目',exact=True).click()
-        for item in state['work_batch']['units'][index]['state']['items']:
-         await expect(page.get_by_text(item['text'],exact=True)).to_be_visible()
+       await expect(page.locator('#vic-work-batch')).to_have_count(0)
+       await page.locator('.product-nav').get_by_role('button',name='内容项目',exact=True).click()
+       for item in state['items']:
+        await expect(page.get_by_text(item['text'],exact=True)).to_be_visible()
       elif task==68:
-       await expect(page.get_by_text('多个方向同样满足视频规则时，任选一个都可；不按固定方向顺序破除并列。每组只移动一次，棋盘必须发生变化。',exact=True)).to_be_visible()
+       await expect(page.locator('#vic-work-batch')).to_have_count(0)
+       assert '视频' not in await page.locator('body').inner_text()
       else:
        await expect(page.get_by_text('候选格并列时先选行号最小者，同一行再选列号最小者。行从上到下、列从左到右编号。',exact=True)).to_be_visible()
       assert not errors,errors

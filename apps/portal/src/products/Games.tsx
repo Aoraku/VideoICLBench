@@ -69,7 +69,7 @@ export function Games({ api }: { api: ProductAPI }) {
       ]}
     >
       <main className={`product-main games-main game-${s.game}`}>
-        <Notice api={api} />{s.task_id===68&&<p className="product-notice">多个方向同样满足视频规则时，任选一个都可；不按固定方向顺序破除并列。每组只移动一次，棋盘必须发生变化。</p>}{s.task_id===72&&<p className="product-notice">候选格并列时先选行号最小者，同一行再选列号最小者。行从上到下、列从左到右编号。</p>}
+        <Notice api={api} />{s.task_id===68&&!s.v2_atomic&&<p className="product-notice">多个方向同样满足视频规则时，任选一个都可；不按固定方向顺序破除并列。每组只移动一次，棋盘必须发生变化。</p>}{s.task_id===72&&!s.v2_atomic&&<p className="product-notice">候选格并列时先选行号最小者，同一行再选列号最小者。行从上到下、列从左到右编号。</p>}
         {page === "home" ? (
           <>
             <PageHead
@@ -231,7 +231,7 @@ export function Games({ api }: { api: ProductAPI }) {
                     {s.task_id === 69 && (
                       <p>
                         目标数字 {s.target_number} · 目标分数 {s.target_score}
-                        {s.v2_2048 && <> · 最多移动 {s.move_budget} 步。按视频中的停止条件结束练习；移动方向自行选择。</>}
+                        {s.v2_2048 && <> · 最多移动 {s.move_budget} 步。</>}
                       </p>
                     )}
                     <div className="games-directions">

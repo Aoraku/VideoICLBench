@@ -23,6 +23,7 @@ def review(tmp_path,monkeypatch):
 
 def test_catalog_rules_auth_and_videos(review):
     c,_=review
+    assert c.get('/design-handbook').status_code==401
     assert c.get('/review-api/tasks').status_code==401
     assert c.get('/review-api/tasks',headers={'Authorization':'Bearer actor'}).status_code==403
     d=c.get('/review-api/tasks',headers=AUTH).json()
@@ -37,6 +38,9 @@ def test_catalog_rules_auth_and_videos(review):
     assert c.get('/review-api/media/os/OS-SEL-01/A').status_code==401
     r=c.post('/review-api/access',headers=AUTH)
     assert 'HttpOnly' in r.headers['set-cookie']
+    handbook=c.get('/design-handbook')
+    assert handbook.status_code==200 and 'text/html' in handbook.headers['content-type']
+    assert 'task-075' in handbook.text and 'F44' in handbook.text
     r=c.get('/review-api/media/os/OS-SEL-01/A',headers={'Range':'bytes=2-5'})
     assert r.status_code==206 and r.content==b'cdef'
     assert c.get('/review-api/media/embodied/F01/A',headers={'Range':'bytes=0-100'}).status_code==206

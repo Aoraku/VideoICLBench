@@ -56,7 +56,7 @@ def check_result(checked):
 def render(page,state):
     w=state['world'];locked=bool(w['delivery'] and w['delivery']['published'])
     if page=='problems':
-        st.info(state['execution']['assignment'])
+        st.caption("课程项目与历史版本")
         if st.button('查看本课程清单',type='primary'):go('course_overview')
         return False
     if page in ('problem_detail','languages'):return False
@@ -65,7 +65,7 @@ def render(page,state):
         go('course_editor',candidates[0]['id'] if candidates else None)
     if page in ('files','view_submissions'):page='course_editor' if page=='files' else 'course_submissions'
     if page=='course_overview':
-        st.title('课程清单');st.info(w['brief'])
+        st.title('课程清单');st.caption("课程条目")
         for e in w['entries']:
             with st.container(border=True):
                 st.subheader(e['id']+' · '+e['title']);st.caption('指定题号：'+e['problem']+' · 文件：'+', '.join(e['files']))
@@ -77,7 +77,6 @@ def render(page,state):
     elif page=='course_editor':
         st.title('项目工作区');e=choose_entry(w);id=e['id'];files=w['drafts'][id]
         st.caption('指定题号：'+e['problem']+' · 入口：'+e['entry_file']+' / solve')
-        with st.expander('课程要求'):st.write(w['brief'])
         if not files:
             st.info('请先从历史版本恢复本模块代码。')
             if st.button('选择历史版本'):go('course_history',id)
@@ -146,7 +145,7 @@ def render(page,state):
                 if b.button('撤回 '+sub['id'],disabled=locked):command('code.withdraw',sub['id'])
     elif page=='course_delivery':render_delivery(state)
     else:
-        st.title('课程运行说明');st.write(w['brief']);st.markdown('运行入口为题目给出的 Python 函数。每个测试点使用独立的模块状态。支持项目内 `from … import …`、函数、循环、条件判断、基本算术及 `sum`、`len`、`range` 等常用函数。单次运行限时 2 秒 CPU 时间，Linux 环境内存限制 256 MB。')
+        st.title('课程运行说明');st.markdown('运行入口为题目给出的 Python 函数。每个测试点使用独立的模块状态。支持项目内 `from … import …`、函数、循环、条件判断、基本算术及 `sum`、`len`、`range` 等常用函数。单次运行限时 2 秒 CPU 时间，Linux 环境内存限制 256 MB。')
         st.markdown('**结果含义**：AC 测试通过；WA 输出不符；RE 运行错误；CE 代码无法运行；TLE 超时。本地语法检查 PASS/FAIL 与判题结果分别记录。')
     return True
 

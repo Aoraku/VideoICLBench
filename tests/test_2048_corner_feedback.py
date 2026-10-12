@@ -39,8 +39,8 @@ def test_noop_does_not_count_as_retaining_corner():
 
 
 def test_inference_uses_same_corner_check():
-    for unit in v2.generate(68,10001,'eval')['work_batch']['units']:
-        state=unit['state']
+    for seed in [1000,10001,10002]:
+        state=v2.generate(68,seed,'eval')
         for direction in games.best_2048_directions(state,'C'):
             event=dict(op='move',target='',value=direction)
             assert v2_atomic._evaluate_item(state,games.apply(state,**event),'C',[event])['success']
@@ -50,8 +50,8 @@ def test_059_goal_and_068_corner_guidance_are_visible(client):
     before={i:v2.digest(i) for i in (59,68)}
     tasks={t['id']:t for t in client.get('/v2/tasks',headers=admin()).json()['tasks']}
     assert '分别正式提交' in tasks[59]['inference']['goal']
-    assert '只保存文件（草稿）不算完成' in tasks[59]['inference']['goal']
-    assert tasks[59]['inference']['completion_checks']
+    assert '仅保存草稿不算完成' in tasks[59]['inference']['goal']
+    assert '提交正文须与保存正文一致' in tasks[59]['inference']['instructions']
     explanation=tasks[68]['demo']['rule_explanations']['C']
     assert '合并结束后' in explanation and '任选一个' in explanation
     assert before=={i:v2.digest(i) for i in (59,68)}

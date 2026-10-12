@@ -11,7 +11,7 @@ export default function WorkspaceBar(){
     refresh();window.addEventListener('vic-chat-updated',refresh);
     return()=>{active=false;window.removeEventListener('vic-chat-updated',refresh)};
   },[]);
-  if(state?.workflow==='communications')return <section className="workspace-bar" aria-label="工作范围" style={{padding:'12px 20px',borderBottom:'1px solid #dde5e1',background:'#f7faf8',flexShrink:0,display:'flex',alignItems:'center',gap:24}}><p style={{fontSize:13,lineHeight:1.7,margin:0,flex:1}}>{state.world.brief}</p>{state.task_id===13&&<Link className="wxBtn wxBtn--primary" to="/handover">交接单</Link>}</section>;
+  if(state?.workflow==='communications')return <section className="workspace-bar" aria-label="工作范围" style={{padding:'12px 20px',borderBottom:'1px solid #dde5e1',background:'#f7faf8',flexShrink:0,display:'flex',alignItems:'center',gap:24}}>{state.task_id===13&&<Link className="wxBtn wxBtn--primary" to="/handover">交接单</Link>}</section>;
   if(!state?.v2_worksets)return null;
   const chosen=state.scopes.find(s=>s.id===scope);
   return <section className="workspace-bar" aria-label="工作范围" style={{padding:'12px 20px',borderBottom:'1px solid #dde5e1',background:'#f7faf8',flexShrink:0}}>
@@ -19,9 +19,7 @@ export default function WorkspaceBar(){
       <label>{state.scopes[0].kind} <select aria-label={state.scopes[0].kind} value={scope} onChange={e=>{setScope(e.target.value);setCurrentScope(e.target.value)}} style={{padding:'6px 12px',border:'1px solid #c7d5ce',borderRadius:6,background:'white'}}>
         <option value="">全部资料</option>{state.scopes.map(s=><option key={s.id} value={s.id}>{s.name}</option>)}
       </select></label>
-      <span style={{fontSize:13,color:'#456257'}}>本次范围：{state.scopes.filter(s=>s.requested).map(s=>s.name).join('、')}</span>
     </div>
-    <p style={{fontSize:12,margin:'7px 0 0',color:'#53635c'}}>{state.public_parameters}</p>
     {chosen?.notification&&<p aria-label="部门通知" style={{fontSize:13,margin:'8px 0 0',whiteSpace:'pre-wrap'}}>{chosen.notification}</p>}
   </section>;
 }

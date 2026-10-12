@@ -12,7 +12,7 @@ def test_parameter_guidance_preserves_recorded_contracts(client):
     tasks={t['id']:t for t in client.get('/v2/tasks',headers=admin()).json()['tasks']}
     for i,key,expected in [(22,'threshold',50),(38,'threshold',50),(49,'text_threshold',15),(57,'threshold',50)]:
         assert tasks[i]['recording_parameters'][key]==expected
-    assert '只保存文件（草稿）不算完成' in tasks[59]['inference']['goal']
+    assert '仅保存草稿不算完成' in tasks[59]['inference']['goal']
     assert '只需编辑规则示例并保存草稿' in tasks[59]['demo']['completion_checks'][-1]
     assert '并列' in tasks[68]['demo']['rule_explanations']['A']
     assert '行号' in tasks[72]['inference']['instructions']
@@ -22,13 +22,14 @@ def test_parameter_guidance_preserves_recorded_contracts(client):
 
 @pytest.mark.parametrize('seed',[1000,10001,10002])
 def test_39_has_twelve_different_names_and_bodies_with_rule_contrasts(seed):
-    batch=v2.generate(39,seed,'eval')['work_batch']['units']
-    items=[x for u in batch for x in u['state']['items']]
+    initial=v2.generate(39,seed,'eval')
+    batch=initial['atomic_inputs']
+    items=initial['items']
     assert len(items)==12
     assert len({x['name'] for x in items})==12
     assert len({x['text'] for x in items})==12
     for u in batch:
-        state=u['state'];effects=[business.expected_effect(39,v,state) for v in 'ABC']
+        state={**initial,'source':u['source'],'items':[x for x in items if x['id'] in u['item_ids']]};effects=[business.expected_effect(39,v,state) for v in 'ABC']
         assert len({json.dumps(e,sort_keys=True) for e in effects})==3
         for x in state['items']:
             assert state['domain']['objects'][x['id']]['text']==x['text']
@@ -50,8 +51,7 @@ def test_68_accepts_every_tied_maximum_and_rejects_lower_values(seed,variant):
 
 @pytest.mark.parametrize('seed',[1000,10001,12345,98765])
 def test_68_execution_avoids_vacuous_boards_and_separates_rules(seed):
-    batch=v2.generate(68,seed,'eval')['work_batch']['units']
-    assert len(batch)==3
+    batch=[dict(state=v2.generate(68,seed,'eval'))]
     distinct=False
     for u in batch:
         s=u['state'];legal=[d for d in games.DIRECTIONS if games.move_2048(s['board'],d)[1]['changed']]
@@ -82,10 +82,12 @@ def test_59_demo_save_is_enough_but_inference_also_requires_submission(variant):
     e=dict(op='save',target='target',value=text)
     saved=apply_domain(business.apply_mutation(demo,**e),**e)
     assert application_eval.evaluate(demo,saved,variant,[e])['success']
-    unit=v2.generate(59,10001,'eval')['work_batch']['units'][0]['state']
-    text=business.transform(59,'ABC'.index(variant),unit)
-    e=dict(op='save',target='target',value=text)
-    saved=apply_domain(business.apply_mutation(unit,**e),**e)
-    assert not v2_atomic._evaluate_item(unit,saved,variant,[e])['success']
-    submitted=atomic_delivery.apply(saved,'answer.submit','target','')
-    assert v2_atomic._evaluate_item(unit,submitted,variant,[e,dict(op='answer.submit',target='target',value='')])['success']
+    from test_v2_atomic_batch import batch_reference
+    from vic_apps.atomic_objects import apply
+    initial=v2.generate(59,10001,'eval');saved=deepcopy(initial);events=[]
+    for op,target,value,ids in batch_reference(initial,variant,delivery=False):
+        saved=apply(saved,op,target,value,ids);events.append(dict(op=op,target=target,value=value,ids=ids))
+    assert not v2.evaluate(initial,saved,variant,events)['success']
+    for entry in initial['atomic_inputs']:
+        saved=apply(saved,'answer.submit',entry['id'],'',[])
+    assert v2.evaluate(initial,saved,variant,events)['success']

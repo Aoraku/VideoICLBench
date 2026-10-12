@@ -54,14 +54,14 @@ def render_music(run_id, state, route, query_string=""):
                         description="独立音乐人，以细腻的旋律记录生活。", image=f"/native-assets/music/cover-{i % 6}.svg", url="#")
         artists.append(artist)
         songs.append(Record(**{
-            **item, "image": f"/native-assets/music/cover-{i % 6}.svg",
+            **item, "name": state["domain"]["objects"][item["id"]].get("display_name", item["name"]), "image": f"/native-assets/music/cover-{i % 6}.svg",
             "audio_url": f"/native/music/{run_id}/audio/{item['id']}",
             "artists": Record(all=lambda artist=artist: [artist]),
             "date": f"{item['year']}-01-15T12:00:00", "url": "#",
             "description": "收录于独立音乐精选集。原声与电子乐器交织，呈现轻松、安静的听觉氛围。",
             "label": state["domain"]["objects"][item["id"]]["label"],
         }))
-    if state["task_id"] == 17:
+    if state["task_id"] == 17 and not state.get("atomic_inputs"):
         songs[0].id = "target"
         songs[0].name = state["outputs"].get("target", state["source"]["text"])
     context = dict(benchmark=True, benchmark_run=run_id, benchmark_state=state,

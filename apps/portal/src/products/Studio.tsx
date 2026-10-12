@@ -3,7 +3,7 @@ import { Frame, PageHead, Notice, Classify, type ProductAPI } from "./kit";
 export function Studio({ api }: { api: ProductAPI }) {
   const { s, d } = api,
     [page, setPage] = useState("home"),
-    [text, setText] = useState(s.outputs.target ?? s.source.text),
+    [text, setText] = useState(s.atomic_inputs ? (s.outputs[s.items[0].id] ?? s.items[0].text) : (s.outputs.target ?? s.source.text)),
     [focused, setFocused] = useState(s.items[0].id),
     [tab, setTab] = useState("outputs"),
     [copyError, setCopyError] = useState(""),
@@ -12,8 +12,8 @@ export function Studio({ api }: { api: ProductAPI }) {
     paragraphs = useRef<Record<string, HTMLElement | null>>({});
   const rows = s.items.map((x: any) => d.objects[x.id]),
     active = d.objects[focused];
-  const templateName = s.v2_atomic && d.objects.target?.name ? d.objects.target.name : "研究报告摘要";
-  const recentItems = s.task_id === 37 ? [{ id: "target", name: templateName }] : rows.slice(0, 3);
+  const templateName = s.atomic_inputs ? active.name : s.v2_atomic && d.objects.target?.name ? d.objects.target.name : "研究报告摘要";
+  const recentItems = s.task_id === 37 && !s.atomic_inputs ? [{ id: "target", name: templateName }] : rows.slice(0, 3);
   function statusOf(id: string) {
     return {
       checked: d.checks.filter((x: any) => x.target === id).at(-1),
@@ -84,7 +84,7 @@ export function Studio({ api }: { api: ProductAPI }) {
                 <button
                   key={item.id}
                   onClick={() => {
-                    if (s.task_id === 37) { navigate("prompts"); return; }
+                    if (s.task_id === 37) { if(s.atomic_inputs){setFocused(item.id);setText(d.objects[item.id].prompt ?? item.text);} navigate("prompts"); return; }
                     setFocused(item.id);
                     navigate("documents");
                   }}
@@ -105,7 +105,7 @@ export function Studio({ api }: { api: ProductAPI }) {
             />
             <div className="studio-project-layout">
               <aside>
-                <button className="active">{templateName}</button>
+                {s.atomic_inputs ? rows.map((item:any)=><button key={item.id} className={focused===item.id?'active':''} onClick={()=>{setFocused(item.id);setText(item.prompt ?? item.text);}}>{item.name}</button>) : <button className="active">{templateName}</button>}
                 <p>个人模板</p>
                 <small>最近编辑 · 今天</small>
               </aside>
@@ -125,7 +125,7 @@ export function Studio({ api }: { api: ProductAPI }) {
                 <button
                   className="product-primary"
                   disabled={api.busy}
-                  onClick={() => api.mutate("save", "target", text)}
+                  onClick={() => api.mutate("save", s.atomic_inputs ? focused : "target", text)}
                 >
                   保存模板
                 </button>

@@ -24,7 +24,7 @@ export function Blog({ api }: { api: ProductAPI }) {
     setText(
       id === "target"
         ? (s.outputs.target ?? s.source.text)
-        : d.objects[id].text,
+        : s.task_id===36 ? (d.objects[id].title ?? d.objects[id].name) : d.objects[id].text,
     );
     setPage("editor");
   }
@@ -41,7 +41,7 @@ export function Blog({ api }: { api: ProductAPI }) {
               {s.task_id === 40 ? "更新于" : "创建于"} {dateOf(item)} · {bodyLength(item)} 字
             </small>
             <button className="product-text-link" onClick={() => edit(item.id)}>
-              <h2>{item.name}</h2>
+              <h2>{item.title ?? item.name}</h2>
             </button>
             <p>{item.text}</p>
             <WorksetIdentity item={item}/>
@@ -67,7 +67,7 @@ export function Blog({ api }: { api: ProductAPI }) {
       tools={
         <button
           className="product-primary"
-          onClick={() => edit(s.type === "T" ? "target" : s.items[0].id)}
+          onClick={() => edit(s.type === "T" && !s.atomic_inputs ? "target" : s.items[0].id)}
         >
           写文章
         </button>
@@ -86,11 +86,11 @@ export function Blog({ api }: { api: ProductAPI }) {
             <section className="blog-welcome">
               <div>
                 <span className="product-eyebrow">继续写作</span>
-                <h2>{s.type === "T" ? (s.outputs.target ?? s.source.text) : rows[0].name}</h2>
+                <h2>{s.type === "T" && !s.atomic_inputs ? (s.outputs.target ?? s.source.text) : rows[0].name}</h2>
                 <p>编辑标题与正文，为文章整理标签，或准备发布。</p>
                 <button
                   className="product-primary"
-                  onClick={() => edit(s.type === "T" ? "target" : rows[0].id)}
+                  onClick={() => edit(s.type === "T" && !s.atomic_inputs ? "target" : rows[0].id)}
                 >
                   继续编辑 →
                 </button>
@@ -122,7 +122,7 @@ export function Blog({ api }: { api: ProductAPI }) {
                   disabled={api.busy || s.task_id === 38 || current.published}
                   onClick={async () => {
                     if (s.task_id === 36)
-                      await api.mutate("save", "target", text);
+                      await api.mutate("save", s.atomic_inputs ? selected : "target", text);
                     else if (s.task_id === 40)
                       await api.mutate("select", "", "", [selected]);
                     else if (s.task_id === 42)

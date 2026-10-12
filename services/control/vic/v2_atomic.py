@@ -120,7 +120,7 @@ BATCH_LABELS = {
 }
 
 
-def generate(task_id, seed, spec):
+def _legacy_generate(task_id, seed, spec):
     if task_id not in BATCH_TASKS:
         return _generate_item(task_id, seed, spec)
     from .identity_context import contextualize
@@ -182,6 +182,117 @@ def generate(task_id, seed, spec):
     return json.loads(json.dumps(current,ensure_ascii=False))
 
 
+
+MULTI_OBJECT_TASKS = {1,3,4,10,17,19,20,21,27,36,37,39,59}
+TEXT_OBJECT_TASKS = {1,3,4,17,19,20,21,36,37,59}
+
+
+def generate(task_id, seed, spec):
+    if task_id not in MULTI_OBJECT_TASKS:
+        if task_id == 68:
+            for offset in range(2000):
+                candidate = _generate_item(task_id, seed+offset, spec)
+                choices = [games.best_2048_directions(candidate, v) for v in 'AB']
+                legal = [d for d in games.DIRECTIONS if games.move_2048(candidate['board'], d)[1]['changed']]
+                if all(len(c) < len(legal) for c in choices) and set(choices[0]) != set(choices[1]):
+                    return candidate
+            raise ValueError('Cannot construct informative board')
+        return _generate_item(task_id, seed, spec)
+    # Sources are immutable document metadata. There is one domain database,
+    # one object list and no active environment or state swapping operation.
+    units = _legacy_generate(task_id, seed, spec)['work_batch']['units']
+    state = deepcopy(units[0]['state'])
+    state.pop('work_batch', None)
+    state['atomic_inputs'] = []
+    state['items'] = []
+    state['outputs'] = {}; state['labels'] = {}; state['selection'] = []
+    d = state['domain']
+    d['objects'] = {}; d['messages'] = []; d['artifacts'] = []
+    d['collections'] = {k: [] for k in d['collections']}
+    d['settings'] = {}; d['files'] = {}; d['checks'] = []
+    for index, unit in enumerate(units):
+        original = unit['state']; target = f'document-{index+1}'
+        source = deepcopy(original['source'])
+        group = ['秋季发布会', '伙伴交流日', '社区开放周'][index]
+        if task_id in (10,27): source['search_keyword']=group
+        if task_id in TEXT_OBJECT_TASKS:
+            row = deepcopy(original['items'][0])
+            row.update(id=target, name=source['text'], text=source['text'], scope_name=group)
+            if task_id in (1,3,4):
+                row['name'] = ['江映雪', '贾明轩', '尹书言'][index]
+                source['recipient'] = row['name']
+            if task_id == 37:
+                row['name'] = original['domain']['objects']['target']['name']
+            if task_id == 59:
+                row['name'] = str(source['answer_problem']['number'])+' · '+source['answer_problem']['name']
+            obj = {**deepcopy(original['domain']['objects'][original['items'][0]['id']]), **row}
+            if task_id == 37: obj.update(kind='templates',prompt=source['text'])
+            if task_id in (19,36): obj['title'] = source['text']
+            if task_id == 17: obj['display_name'] = source['text']
+            if task_id == 20: obj['tags_text'] = ''
+            state['items'].append(row); d['objects'][target] = obj
+            item_ids = [target]
+        else:
+            item_ids = []
+            for item in original['items']:
+                row = deepcopy(item); row['scope_name'] = group
+                row['scope_id'] = f'collection-{index+1}'
+                if task_id in (10,27): row['name'] = group+' · '+row['name']
+                state['items'].append(row); item_ids.append(row['id'])
+                d['objects'][row['id']] = {**deepcopy(original['domain']['objects'][row['id']]), **row}
+        state['atomic_inputs'].append(dict(id=target,name=group,source=source,item_ids=item_ids))
+    state['order'] = [x['id'] for x in state['items']]
+    state['labels'] = {key:'' for key in state['order']}
+    d['orders']['main'] = list(state['order'])
+    if 'watchlist' in d['collections']: d['collections']['watchlist'] = list(state['order'])
+    state['execution'] = dict(assignment=spec['assignment'],instructions=spec['inference']['instructions'],delivery=spec['delivery'])
+    return state
+
+
+def _evaluate_objects(initial, state, variant, events):
+    from vic_apps.domain import SAVE_FIELD
+    from .application_eval import canonical
+    expected = deepcopy(initial['domain']); t = initial['task_id']
+    for entry in initial['atomic_inputs']:
+        sample = {**deepcopy(initial), 'source':entry['source'],
+                  'items':[x for x in initial['items'] if x['id'] in entry['item_ids']]}
+        target = entry['id']
+        if t in TEXT_OBJECT_TASKS:
+            value = business.transform(t, 'ABC'.index(variant), sample)
+            if t in (1,3,4):
+                expected['messages'].append(dict(id='ignored',sender='self',recipient=target,body=value,reference=None,attachment=None))
+            else:
+                expected['objects'][target][SAVE_FIELD[t]] = value
+                if t == 59:
+                    expected['artifacts'].append(dict(kind='answer_submission',problem=entry['source']['answer_problem']['number'],target=target,body=value,id='answer-'+target))
+        elif t == 39:
+            effect = business.expected_effect(t, variant, sample)
+            for key,value in effect['labels'].items(): expected['objects'][key]['label'] = value
+        else:
+            chosen = business.expected_effect(t, variant, sample)['selection']
+            expected['collections']['shortcuts' if t==10 else 'favorites'].extend(chosen)
+    actual = deepcopy(state['domain'])
+    # The last opened conversation / playing track is not a submitted answer.
+    actual['settings'] = deepcopy(expected['settings'])
+    actual,expected = canonical(actual),canonical(expected)
+    checks = []
+    if t not in (1,3,4,10,27):
+        for key,obj in expected['objects'].items():
+            checks.append(dict(id='object:'+key,passed=actual['objects'].get(key)==obj))
+    for entry in initial['atomic_inputs']:
+        key=entry['id']
+        if t in (1,3,4):
+            checks.append(dict(id='message:'+key,passed=[m for m in actual['messages'] if m['recipient']==key]==[m for m in expected['messages'] if m['recipient']==key]))
+        if t == 59:
+            checks.append(dict(id='submission:'+key,passed=[a for a in actual['artifacts'] if a.get('target')==key]==[a for a in expected['artifacts'] if a.get('target')==key]))
+        if t in (10,27):
+            collection='shortcuts' if t==10 else 'favorites'
+            checks.append(dict(id='collection:'+key,passed=[x for x in actual['collections'][collection] if x in entry['item_ids']]==[x for x in expected['collections'][collection] if x in entry['item_ids']]))
+    checks.append(dict(id='preserved_inputs',passed=all(initial[k]==state.get(k) for k in ('atomic_inputs','items','source'))))
+    checks.append(dict(id='saved_domain',passed=actual==expected))
+    outcomes=[c for c in checks if c['id'] not in ('preserved_inputs','saved_domain')]
+    return dict(success=all(c['passed'] for c in checks),completion=sum(c['passed'] for c in outcomes)/len(outcomes) if events else 0,checks=checks,violations=[c['id'] for c in checks if not c['passed']])
+
 def _batch_states(state):
     batch=state['work_batch']
     active={k:deepcopy(v) for k,v in state.items() if k!='work_batch'}
@@ -189,6 +300,8 @@ def _batch_states(state):
 
 
 def evaluate(initial,state,variant,events,clipboard=None):
+    if initial.get('atomic_inputs'):
+        return _evaluate_objects(initial,state,variant,events)
     if not initial.get('work_batch'):
         return _evaluate_item(initial,state,variant,events,clipboard)
     before=initial['work_batch'];after=state.get('work_batch',{})

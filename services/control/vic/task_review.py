@@ -56,6 +56,11 @@ def install_review(app, manager, secret, data, web_catalog, recordings, web_vide
             raise HTTPException(401, '请先登录任务审阅页')
     app.state.review_access = access
 
+    @app.get('/design-handbook')
+    def handbook(request: Request):
+        access(request)
+        return FileResponse(ROOT / 'docs/task-design.html', media_type='text/html', headers={'Cache-Control':'no-store'})
+
     @app.post('/review-api/access', dependencies=[Depends(manager)])
     def grant():
         stamp = str(int(time.time())+8*3600)

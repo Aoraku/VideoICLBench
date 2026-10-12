@@ -155,6 +155,10 @@ function message(
   };
 }
 function messages(state, conv) {
+  if(state.atomic_inputs && [1,3,4].includes(state.task_id)) {
+    const item=state.items[conv-10]; if(!item)return [];
+    return [message(state,100+conv,item.text,conv,conv),...state.domain.messages.filter(m=>m.recipient===item.id).map((m,i)=>message(state,1000+i,m.body,1,conv))];
+  }
   conv = Number(conv);
   if(state.workflow==='communications') {
     const fileMessage=(mid,fileId,sender,body,reference)=>{
@@ -237,6 +241,7 @@ function messages(state, conv) {
     : [];
 }
 function conversations(state, scoped=true) {
+  if(state.atomic_inputs && [1,3,4].includes(state.task_id)) return state.items.map((item,i)=>({conversation_id:10+i,type:'private',name:item.name,peer_user:user(state,10+i),unread_count:readConversations.has(10+i)?0:1,last_message:messages(state,10+i).at(-1),updated_at:state.source.reference_time}));
   if(state.workflow==='communications')return state.world.conversations.map(c=>({conversation_id:c.id,type:'private',name:c.name,peer_user:user(state,c.user_id),unread_count:0,last_message:messages(state,c.id).at(-1),updated_at:state.source.reference_time,benchmark_scope:c.project,benchmark_record:''}));
   if (state.task_id === 13) return [3, 2].map(id => ({
     conversation_id: id, type: "private", peer_user: user(state, id),
@@ -438,6 +443,12 @@ export async function nativeRequest(path, options = {}) {
     return {...messages(next,Number(sending[1])).at(-1),client_msg_id:body.client_msg_id};
   }
   if (method === "POST" && sending && [1, 3, 4].includes(state.task_id)) {
+    if(state.atomic_inputs) {
+      const item=state.items[Number(sending[1])-10];
+      if(!item || body.type!=='text' || typeof body.content?.text!=='string')throw new Error('请选择联系人并输入文本');
+      const next=await command('save',item.id,body.content.text);
+      return {...messages(next,Number(sending[1])).at(-1),client_msg_id:body.client_msg_id};
+    }
     if (Number(sending[1]) !== 2)
       throw new Error(
         `目标会话是 ${state.source.recipient}，此练习的其他会话只读。`,

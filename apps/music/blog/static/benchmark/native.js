@@ -56,7 +56,7 @@ document.querySelector("#editName")?.addEventListener("click", () => {
 });
 document.querySelector("#nameForm")?.addEventListener("submit", async (e) => {
   e.preventDefault();
-  if (await command("save", "target", new FormData(e.target).get("name")))
+  if (await command("save", e.target.dataset.target || "target", new FormData(e.target).get("name")))
     location.reload();
 });
 document.querySelector("#newPlaylist")?.addEventListener("click", () => {

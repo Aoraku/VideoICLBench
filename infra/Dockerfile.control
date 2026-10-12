@@ -34,6 +34,7 @@ COPY services/ services/
 COPY packages/ packages/
 RUN pip install --no-cache-dir --no-deps '.[postgres]'
 COPY tasks/ tasks/
+COPY docs/task-design.html docs/task-design.html
 COPY sources.lock.json ./
 COPY --from=portal /src/apps/portal/dist apps/portal/dist
 COPY --from=chat /src/apps/chat/frontend/frontend/dist apps/chat/frontend/frontend/dist

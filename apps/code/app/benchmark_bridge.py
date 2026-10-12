@@ -203,6 +203,32 @@ def render_files():
     st.title("我的代码与笔记")
     if t == 58:
         render_indent_editor(state)
+    elif t == 59 and state.get("atomic_inputs"):
+        entry = None
+        if state.get('atomic_inputs'):
+            choices=state['atomic_inputs']
+            key=st.selectbox('解题笔记', [e['id'] for e in choices], format_func=lambda key:state['domain']['objects'][key]['name'])
+            entry=next(e for e in choices if e['id']==key)
+        target=entry['id'] if entry else 'target'
+        source=entry['source'] if entry else state['source']
+        st.subheader('解题笔记' if t==59 else 'solution.py')
+        if t==59 and not state.get('v2_atomic'):
+            st.info('本次只需整理这一份多行笔记并保存文件，不需要提交答案。')
+        if t==59 and state.get('v2_atomic'):
+            st.caption(f"题目 {source['answer_problem']['number']} · {source['answer_problem']['name']}")
+        if t==60:
+            st.caption('待重命名变量：'+'、'.join(source['rename_targets']))
+        st.code(source['text'],language='text' if t==59 else 'python')
+        text=st.text_area('编辑答案' if t==59 else '编辑源代码',value=state['outputs'].get(target,source['text']),height=320,key='answer-editor-'+target)
+        if st.button('保存文件',type='primary'):
+            command('save',target,text);st.success('文件已保存')
+        if t==59 and state.get('v2_atomic'):
+            if st.button('提交答案',type='primary'):
+                command('answer.submit',target);st.rerun()
+            submitted=next((a for a in state['domain']['artifacts'] if a.get('kind')=='answer_submission' and a.get('target')==target),None)
+            if submitted:
+                st.success(f"答案已提交 · 题目 {submitted['problem']} · {submitted['id']}")
+                st.code(submitted['body'],language='text')
     elif t in (59,60):
         st.subheader("解题笔记" if t==59 else "solution.py")
         if t == 59:

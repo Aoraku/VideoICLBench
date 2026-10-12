@@ -17,7 +17,7 @@ async def main():
     results=[]
     try:
       async with httpx.AsyncClient(base_url=base,headers={'Authorization':'Bearer '+secret},trust_env=False,timeout=60) as admin,async_playwright() as p:
-        browser=await p.chromium.launch()
+        browser=await p.chromium.launch(channel=os.environ.get('VIC_BROWSER_CHANNEL') or None)
         try:
           for task,mode in [(19,'eval'),(20,'eval'),(17,'demo'),(39,'eval'),(34,'demo'),(74,'eval')]:
             state=v2.generate(task,0 if mode=='demo' else 10001,mode);rid=secrets.token_hex(16);token=secrets.token_hex(32)
@@ -32,14 +32,15 @@ async def main():
               await page.goto(base+native_path(state['app'],rid)+'#'+token)
               if task in (19,20):
                 for index in range(3):
-                  item=state['work_batch']['units'][index]['state']
+                  entry=state['atomic_inputs'][index];item={**state,'source':entry['source']}
                   await page.get_by_role('button',name='内容管理',exact=True).click()
+                  await page.locator(f'[data-edit="{entry["id"]}"]').click()
                   await page.locator('textarea[name=text]').fill(business.transform(task,0,item))
                   async with page.expect_response(lambda r:r.request.method=='POST' and r.url.endswith('/commands')):
                     await page.get_by_role('button',name='保存草稿',exact=True).click()
                   await expect(page.get_by_text('✓ 草稿已保存',exact=True)).to_be_visible()
                   if index<2:
-                    await page.locator('#vic-work-batch button').nth(index+1).click()
+                    await page.get_by_role('button',name='首页',exact=True).click()
                     await expect(page.locator('.news-hero')).to_be_visible()
                     assert 'Application mismatch' not in await page.locator('body').inner_text()
               elif task==17:
@@ -50,9 +51,10 @@ async def main():
                 await page.get_by_role('button',name='保存名称',exact=True).click()
                 await expect(page.get_by_text('✓ 名称已保存',exact=True)).to_be_visible()
               elif task==39:
-                await expect(page.locator('#vic-work-batch button')).to_have_count(3)
-                await page.locator('#vic-work-batch button').nth(2).click()
-                await expect(page.locator('#vic-work-batch button').nth(2)).to_have_attribute('aria-pressed','true')
+                await expect(page.locator('#vic-work-batch')).to_have_count(0)
+                await page.locator('.product-nav').get_by_role('button',name='内容项目',exact=True).click()
+                for item in state['items']:
+                  await expect(page.get_by_text(item['text'],exact=True)).to_be_visible()
               elif task==34:
                 await page.locator('.product-nav').get_by_role('button',name='稍后观看',exact=False).click()
                 target=next(x for x in state['items'] if x['completed'])

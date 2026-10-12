@@ -1,5 +1,6 @@
 """User-facing goals and constraints, separate from recording rule contracts."""
 from copy import deepcopy
+from functools import lru_cache
 
 
 # These requests specify outcomes and public business constraints, not UI paths
@@ -83,23 +84,112 @@ HARD = {
 }
 
 
+# Named relationships tell the model what to learn without revealing A/B/C.
+RELATION = {
+1:'整段文本及单词的大小写转换方式',2:'姓名到备注姓名的格式转换方式',3:'原文到句末新增标点的对应关系',4:'文本中数字的改写方式',
+5:'消息特征与颜色标签的对应关系',6:'姓名特征与联系人分组的对应关系',7:'会话属性与优先级标签的对应关系',8:'群属性与状态标签的对应关系',
+9:'联系人之间的选择优先级',10:'搜索结果中的会话选择顺序',11:'合格附件之间的选择优先级',12:'会话排列的比较方向与优先顺序',
+13:'消息内容类别与处理动作的对应关系',14:'会话状态与归档、置顶或免打扰动作的对应关系',15:'候选成员的选择优先级',16:'消息内容与回复动作及回复文本的对应关系',
+17:'歌曲原始标题到显示名称的字符转换方式',18:'活动资料到歌单名称的字段组合方式',19:'文章原始标题与媒体简称的组合方式',20:'文章标签的连接与排序方式',
+21:'收藏夹名称的字符转换方式',22:'歌曲属性与分类标签的对应关系',23:'文章属性与内容类别的对应关系',24:'文章属性与关注标签的对应关系',
+25:'视频属性与星标标签的对应关系',26:'视频的推荐筛选条件',27:'候选歌曲之间的选择优先级',28:'歌曲排列的比较方向与优先顺序',
+29:'候选文章之间的选择优先级',30:'文章的入选条件',31:'候选视频之间的选择优先级',32:'歌曲属性与加入列表动作的对应关系',
+33:'标题关键词与处理动作的对应关系',34:'观看完成状态与整理动作的对应关系',35:'短片和长片的交替编排顺序',36:'草稿标题的格式转换方式',
+37:'多行提示词的格式转换方式',38:'文章属性与长文标签的对应关系',39:'生成内容特征与事实标签的对应关系',40:'候选稿件之间的发布优先级',
+41:'合格模型之间的选择优先级',42:'文章属性与发布动作的对应关系',43:'文件检查结果与交付方式的对应关系',44:'姓和名到显示姓名的组合格式',
+45:'商品名称和数量到订单备注的组合格式',46:'完整账号到付款备注的掩码或截取方式',47:'行程属性与快标签的对应关系',48:'商品属性与优选标签的对应关系',
+49:'交易属性与常规标签的对应关系',50:'账户属性与重点标签的对应关系',51:'可行车次之间的选择优先级',52:'合格商品之间的选择优先级',
+53:'交易记录之间的选择优先级',54:'方案属性与确认预订动作的对应关系',55:'商品标签与购物车、收藏动作的对应关系',56:'收款资料与付款条件的对应关系',
+57:'账户状态与提醒开关的对应关系',58:'代码块层级与缩进格式的对应关系',59:'多行答案的逐行文本转换方式',60:'变量原名与目标名称的对应关系',
+61:'判题结果与颜色标签的对应关系',62:'题目属性与难度标签的对应关系',63:'候选题目之间的选择优先级',64:'历史代码版本的选择优先级',
+65:'代码特征与准许提交条件的对应关系',66:'局部棋形与候选点颜色的对应关系',67:'五子棋候选落点的选择优先级',68:'移动后棋盘属性与方向选择的对应关系',
+69:'棋盘和分数变化与停止时机的对应关系',70:'候选数字集合与格子标记的对应关系',71:'候选数字集合与填入值的对应关系',72:'安全候选格之间的选择优先级',
+73:'扫雷格子特征与插旗标记的对应关系',74:'每回合黑白棋合法落点的选择优先级',75:'黑白棋落子后的局面与可接受落点的对应关系',
+}
+LOW_GOALS = {
+1:'请把三位客户各自会话中的通知原文整理好，分别发回本人，每位只发送一次。',
+3:'请把三个联系人各自发来的活动提醒整理好，分别发回本人，每位只发送一次。原文已有的标点保留，在末尾追加相应标点。',
+4:'请把三位联系人各自发来的调货通知中的数字整理好，分别发回本人，每位只发送一次。',
+5:'请为本批四条客服消息添加适当的颜色标签；未命中者保持未标注。',
+10:'请为秋季发布会、伙伴交流日、社区开放周分别挑选一个会话加入快捷入口，共三个。各活动仅比较名称含该活动名的会话，列表顺序采用初始顺序。',
+17:'请整理资料库中三首歌曲的显示名称；每首以自己的原始标题为输入，其他资料保持不变。',
+19:'请整理内容管理中的三篇文章标题并保存草稿，分别使用各篇的原始标题和媒体简称，正文保持不变。',
+20:'请整理内容管理中的三篇文章的标签展示文字并保存草稿，各篇使用自己的标签集合。',
+21:'请规范三个视频收藏夹的名称，各自保存；收藏夹成员保持不变。',
+24:'请为本批四篇文章添加相应的关注标签，未命中者保持未标注。',
+25:'请为本批四个视频添加相应的星标标签，未命中者保持未标注。',
+27:'请为秋季发布会、伙伴交流日、社区开放周分别选一首备选歌曲并收藏，共三首。每场只比较名称含该活动名的候选歌曲，并列采用初始列表顺序。',
+36:'请整理草稿库中三篇文章的标题并保存，正文保持不变，三篇均保持未发布。',
+37:'请整理提示词库中的三份多行模板并保存，各份使用自己的原始文本，模板名称保持不变。',
+39:'请核对同一内容库中的十二条生成结果，为符合条件的结果标注“事实”，其他结果不加标签。',
+59:'请把同一笔记库中三道题的多行答案整理好，并分别正式提交到对应题目；提交正文须与保存正文一致，仅保存草稿不算完成。',
+62:'请为题库中这四道题添加相应的难度标签，未命中者保持未标注。',
+66:'请在当前五子棋局面中标注全部符合条件的候选点，其他候选点不标注。',
+67:'请在当前五子棋局面中选择一个候选落点。并列时按行号、列号升序选择。',
+68:'请在当前 2048 棋盘上执行一次有效移动。多个方向同样满足选择条件时任选一个；不改变棋盘的方向无效，本次不生成随机新方块。',
+70:'请在当前数独盘中标记全部符合条件的候选格，其余格子不标记。',
+71:'请为当前数独盘的指定候选格填入一个数字。',
+72:'请在当前扫雷盘的安全候选格中选择一格；周围指上下左右及四个对角的八邻域，不含自身和棋盘外位置。并列按行号、列号升序。',
+73:'请在当前扫雷盘中对全部符合条件的候选格插旗，其余候选格保持原状。',
+75:'请在当前黑白棋局面中执行一次符合条件的落子；多个落点同样满足条件时任选其一。',
+}
+
+
+@lru_cache(maxsize=75)
+def _parameters(task_id):
+    from .business import generate
+    from .v2_worksets import parameters
+    return parameters(task_id,generate(task_id,10001)['source'])
+
+
 def present(spec):
-    if spec['id'] not in HARD:
-        return spec
-    spec = deepcopy(spec)
-    goal, constraints = HARD[spec['id']]
-    spec['assignment'] = goal
-    spec['inference'].update(goal=goal, constraints=constraints, instructions=goal+'\n\n'+'\n'.join(constraints), steps=[])
-    # Outcome requirements live in the request, without a second procedural list.
-    spec['inference']['completion_checks'] = []
+    import re
+    from . import business
+    spec = deepcopy(spec); t=spec['id']; relation=RELATION[t]
+    spec['execution_revision']='single-environment-2026-10-13'
+    instruction=f'其中，{relation}请采用示范视频中展示的方法。'
+    if t in HARD:
+        goal, constraints = HARD[t]
+        # Preserve business outcomes and constraints, give the learned component
+        # its explicit name rather than retaining a vague second instruction.
+        goal=re.sub(r'按(?:照)?(?:示范)?视频(?:中|里)?(?:展示|给出)?的?(?:规则|原则|标准|方式|方法)', '采用示范视频展示的'+relation, goal)
+        constraints=list(constraints)
+    elif t in LOW_GOALS:
+        goal=LOW_GOALS[t];constraints=[]
+        spec['execution_profile']=dict(kind='single_environment',minimum_objects=1 if t>=66 else 12 if t==39 else 4 if t in (5,24,25,62) else 3,
+            source='同一应用数据库中的对象与资料；棋盘任务为一个持续局面',evaluation='逐对象核对保存结果及未命中对象；同时报告严格成功与检查项完成度')
+        spec['difficulty_basis']='单一应用中的重复处理或局部决策；棋盘选点题属于局部决策基线，不表示长程执行。'
+        if t in (68,71,72,75): spec['title']=spec['title'].replace('多局','单局')
+        spec['delivery']=goal
+    else:
+        from vic_apps.workset_delivery import CONFIG
+        title,source,row,detail,_=CONFIG[t]
+        goal=f'请为团队完成《{title}》，交付给有效业务请求指定的责任团队。'
+        constraints=[f'采用业务收件箱中同一请求编号的最高修订；处理范围、截止日期和接收团队以该请求为准。范围外对象保持原状。',
+            spec['inference']['scope_instruction'],
+            f'每条{row}须对应应用中的实际保存结果，并按对象编号关联《{source}》中的“{detail}”；文件行内容、来源和接收邮箱须准确，接收者能下载完整成果。']
+        if t not in (69,74):
+            from .v2_worksets import parameters
+            constraints.append(_parameters(t))
+        if t==69:constraints.append('首次达到视频展示的停止条件时结束，之后不再移动；训练参数以训练计划为准。')
+        if t==74:constraints.append('完成六个己方回合，每回合基于对手回应后的棋盘重新判断；不要求赢棋。')
+    goal=goal+' '+instruction
+    spec['assignment']=goal
+    spec['inference'].update(goal=goal,constraints=constraints,instructions=goal+('\n\n'+'\n'.join(constraints) if constraints else ''),steps=[],completion_checks=[],learned_relationship=relation)
     return spec
 
 
 def apply_request(state):
-    if state['task_id'] not in HARD:
-        return state
-    goal, constraints = HARD[state['task_id']]
-    text = goal+'\n\n'+'\n'.join(constraints)
-    state.setdefault('execution', {}).update(assignment=goal, instructions=text)
-    state['world']['brief'] = text
+    from .v2 import task
+    spec=task(state['task_id'])
+    state.setdefault('execution',{}).update(assignment=spec['assignment'],instructions=spec['inference']['instructions'],goal=spec['inference']['goal'],constraints=spec['inference']['constraints'])
+    # Business documents contain source data. Evaluation goals stay in the
+    # manager/agent prompt and are never copied into an application's home.
+    if state.get('world') and 'brief' in state['world']:
+        state['world']['brief']=''
+    if state.get('workset_delivery'):
+        work=state['workset_delivery']
+        for request in work['requests']:
+            if request.get('revision')==2:
+                request['body']=f"资料登记：{work['source_title']}。关联字段：{work['detail_label']}。对象按编号识别。"
     return state

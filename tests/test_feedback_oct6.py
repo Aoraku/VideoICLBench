@@ -13,8 +13,8 @@ from test_api import admin
 
 def test_existing_punctuation_is_preserved_in_all_query_items():
     state=v2.generate(3,10001,'eval')
-    for unit in state['work_batch']['units']:
-        item=unit['state'];source=item['source']['text']
+    for unit in state['atomic_inputs']:
+        item={**state,'source':unit['source']};source=item['source']['text']
         assert source.endswith(('.', '!', '?'))
         for variant in 'ABC':
             transformed=business.transform(3,'ABC'.index(variant),item)
@@ -44,8 +44,11 @@ def test_news_batch_switch_keeps_home_route_available(clients,task):
     control,worker=clients
     response=control.post('/v1/runs',headers=admin(),json=dict(suite='v2',task_id=task,variant='A',seed=10001,mode='eval',runtime='browser',interaction='human'))
     response.raise_for_status();run=response.json();path='/api/runs/'+run['id'];auth={'Authorization':'Bearer '+urlsplit(run['application_url']).fragment}
-    for i in range(1,4):
-        worker.post(path+'/commands',headers=auth,json=dict(epoch=0,action_id=str(i),op='batch.open',target=f'work-{i}',value='',ids=[])).raise_for_status()
+    state=worker.get(path,headers=auth).json()['state']
+    for i,entry in enumerate(state['atomic_inputs']):
+        sample={**state,'source':entry['source']}
+        value=business.transform(task,0,sample)
+        worker.post(path+'/commands',headers=auth,json=dict(epoch=0,action_id=str(i),op='save',target=entry['id'],value=value,ids=[])).raise_for_status()
         for suffix in ('','/'):
             page=worker.get('/native/news/'+run['id']+suffix)
             assert page.status_code==200 and 'news-app' in page.text
@@ -57,8 +60,8 @@ def test_answer_demo_is_one_multiline_rule_example():
     assert len(demo['source']['text'].splitlines())>=3
     assert not demo.get('v2_atomic')
     query=v2.generate(59,10001,'eval')
-    assert len(query['work_batch']['units'])==3
-    assert all(u['state']['source']['answer_problem'] for u in query['work_batch']['units'])
+    assert len(query['atomic_inputs'])==3
+    assert all(u['source']['answer_problem'] for u in query['atomic_inputs'])
 
 
 def test_rating_scale_retains_visible_boundary_and_distinct_rules():
