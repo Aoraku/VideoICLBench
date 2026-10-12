@@ -26,7 +26,8 @@ async def main():
                     page=await context.new_page();page.set_default_timeout(20000)
                     try:
                         before=(await client.get('/internal/runs/'+rid)).json()
-                        await page.goto(base+native_path(state['app'],rid)+'#'+token)
+                        await page.goto(base+'/apps/'+state['app']+'/'+rid+'#'+token)
+                        await page.wait_for_url('**/native/**' if state['app']!='im' else '**/native-assets/im/**')
                         switcher=page.get_by_role('navigation',name='应用切换')
                         expected=set([state['app'],*state.get('linked_apps',[])])
                         await expect(switcher.get_by_role('link')).to_have_count(len(expected))

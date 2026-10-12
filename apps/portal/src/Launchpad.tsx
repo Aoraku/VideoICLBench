@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { modules } from "./applicationModules";
 import "./launchpad.css";
 import { taskBrief } from "./taskBrief";
+import { nativeApplicationUrl } from "./nativeApplicationUrl";
 
 export function Launchpad({
   id,
@@ -22,6 +23,10 @@ export function Launchpad({
       .then(async (r) => {
         const d = await r.json();
         if (!r.ok) throw Error(d.detail);
+        if (d.state?.execution && !d.lesson) {
+          location.replace(nativeApplicationUrl(location.href));
+          return;
+        }
         setData(d);
       })
       .catch((e) => setError(String(e)));
