@@ -27,7 +27,7 @@ def install_embodied(app):
         html=await dashboard()
         html=re.sub(r'<script>(.*?)</script>', '<script src="/embodied-sim/dashboard.js"></script>', html, flags=re.S)
         # Authentication is handled by the portal; the upstream key never enters HTML.
-        html=html.replace('<style>', '<style>#key,#connect{display:none} .portal-back{display:block;padding:12px;background:#edf5f2;color:#205a49}</style><style>')
+        html=html.replace('<style>', '<style>#key,#connect,label:has(#key),img:not([src]){display:none} .portal-back{display:block;padding:12px;background:#edf5f2;color:#205a49}</style><style>')
         html=html.replace('<h1>', '<a class="portal-back" href="/review?kind=embodied">← 返回任务审阅 · 具身服务每次运行一个任务，请勿结束他人的任务</a><h1>')
         return HTMLResponse(html)
 
@@ -42,7 +42,7 @@ def install_embodied(app):
         js=js.replace(".src='/actor/'", ".src='/embodied-sim/actor/'").replace("location.origin+'/actor/'", "location.origin+'/embodied-sim/actor/'")
         # Use the portal cookie; no credential is kept in the native page.
         js=re.sub(r"\.\.\.\(control\?\{'Authorization':[^}]+\}:\{\}\)", '', js)
-        js+='\n(async()=>{await el("connect").onclick();const q=new URLSearchParams(location.search);if(q.has("task"))el("task").value=q.get("task");if(["A","B","C"].includes(q.get("variant")))el("variant").value=q.get("variant");el("key").closest("label")?.setAttribute("hidden","");})();'
+        js+='\n(async()=>{await el("connect").onclick();const q=new URLSearchParams(location.search);if(q.has("task"))el("task").value=q.get("task");if(["A","B","C"].includes(q.get("variant")))el("variant").value=q.get("variant");el("key").closest("label")?.setAttribute("hidden","");const preview=()=>{if(!sid){el("demo").src="/review-api/media/embodied/"+encodeURIComponent(el("task").value)+"/"+el("variant").value;el("demo").preload="metadata";}};el("task").onchange=preview;el("variant").onchange=preview;el("session").textContent="创建或接入任务后显示当前仿真画面。";preview();})();'
         return Response(js,media_type='text/javascript')
 
     @app.api_route('/embodied-sim/{path:path}', methods=['GET','POST'])
