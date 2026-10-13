@@ -34,7 +34,7 @@ async def check(args):
     results=[]
     try:
         async with httpx.AsyncClient(base_url=base,headers={'Authorization':'Bearer '+secret},trust_env=False,timeout=60) as client,async_playwright() as p:
-            browser=await p.chromium.launch()
+            browser=await p.chromium.launch(channel=os.environ.get('VIC_BROWSER_CHANNEL') or None)
             try:
                 for task_id in args.tasks:
                     for variant in args.variants:

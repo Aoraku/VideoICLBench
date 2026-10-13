@@ -18,7 +18,7 @@ async def main():
     while not server.started:await asyncio.sleep(.05)
     results=[]
     async with httpx.AsyncClient(base_url='http://127.0.0.1:8782',headers={'Authorization':'Bearer '+secret},trust_env=False,timeout=60) as client,async_playwright() as p:
-        browser=await p.chromium.launch()
+        browser=await p.chromium.launch(channel=os.environ.get('VIC_BROWSER_CHANNEL') or None)
         try:
             for task in tasks:
                 for variant in variants:
@@ -32,13 +32,14 @@ async def main():
                         async with page.expect_response(lambda r:r.request.method=='POST' and r.url.endswith('/commands')) as pending:await locator.click()
                         r=await pending.value;assert r.status==200,await r.text()
                     async def blog():
-                        await page.get_by_role('link',name='打开墨记 · 编写简报和资料页 →',exact=True).click()
-                        await expect(page.get_by_role('region',name='工作范围')).to_be_visible()
+                        await page.get_by_role('navigation',name='应用切换').get_by_role('link',name='墨记',exact=True).click()
+                        await expect(page.get_by_role('navigation',name='应用切换')).to_be_visible()
                     async def nav(name):await page.locator('.product-nav').get_by_role('button',name=name,exact=True).click()
                     try:
                         await page.goto(f'http://127.0.0.1:8782/native/news/{rid}#{token}')
-                        await expect(page.get_by_role('region',name='工作范围')).to_be_visible()
+                        await expect(page.get_by_role('navigation',name='应用切换')).to_be_visible()
                         await page.screenshot(path=str(out/f'{task}-{variant}-home.png'))
+                        assert state['execution']['assignment'] not in await page.locator('body').inner_text()
                         w=state['world'];expected=v2_editorial_projects.desired(state,variant)
                         for scope in w['scopes']:
                             await page.get_by_role('button',name='专题与项目',exact=True).click()
@@ -111,7 +112,7 @@ async def main():
                                 await expect(page.get_by_role('heading',name=title,exact=True)).to_be_visible()
                                 await expect(page.locator('[data-citation]')).to_have_count(len(expected[scope]))
                         snap=await snapshot();result=v2.evaluate(state,snap['state'],variant,snap['events']);assert result['success'],result
-                        await page.reload();await expect(page.get_by_role('region',name='工作范围')).to_be_visible()
+                        await page.reload();await expect(page.get_by_role('navigation',name='应用切换')).to_be_visible()
                         snap=await snapshot();assert v2.evaluate(state,snap['state'],variant,snap['events'])['success']
                         assert not errors,errors
                         results.append(dict(task=task,variant=variant,seed=10001,suite='v2',mode='eval',surface='native',status='passed',persisted=True,cross_app_links=True))

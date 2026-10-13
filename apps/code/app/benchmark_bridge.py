@@ -286,6 +286,7 @@ def render_indent_editor(state):
     # Stable while editing, distinct for every demonstration/reset/episode.
     identity = f"{os.environ.get('VIC_NATIVE_RUN', '')}:{business().get('epoch', 0)}:{state['seed']}:{state['source']['text']}"
     key = 'indent_draft_' + hashlib.sha256(identity.encode()).hexdigest()[:16]
+    st.caption('Tab 插入制表符；选中多行后 Tab / Shift+Tab 调整缩进。按 Esc 后再按 Tab 可离开编辑器。')
     code = st.text_area('编辑源代码', value=state['outputs'].get('target', state['source']['text']), height=400, key=key)
     with st.expander('查看空白字符'):
         whitespace_view(code)

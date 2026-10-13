@@ -227,6 +227,10 @@ def create_app():
     def lesson_controls():
         return FileResponse(Path(__file__).with_name('lesson_controls.js'), media_type='application/javascript')
 
+    @app.get("/code-editor.js")
+    def code_editor():
+        return FileResponse(Path(__file__).with_name("code_editor.js"), media_type="application/javascript")
+
     @app.get("/workset-workspace.js")
     def workset_workspace():
         return FileResponse(Path(__file__).with_name('workset_workspace.js'), media_type='application/javascript')
@@ -472,6 +476,8 @@ rfb.addEventListener('disconnect',()=>{const status=document.createElement('div'
                 request.url.path.startswith('/native/') or request.url.path.startswith('/native-assets/im/')):
             content = b''.join([chunk async for chunk in response.body_iterator])
             script = b'<script src="/lesson-controls.js"></script>'
+            if request.url.path.startswith('/native/code/'):
+                script += b'<script src="/code-editor.js"></script>'
             if b'<head>' in content:
                 content = content.replace(b'<head>', b'<head>' + script, 1)
             else:

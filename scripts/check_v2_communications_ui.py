@@ -25,7 +25,7 @@ async def main():
     while not server.started:await asyncio.sleep(.05)
     results=[]
     async with httpx.AsyncClient(base_url='http://127.0.0.1:8782',headers={'Authorization':'Bearer '+secret},trust_env=False,timeout=60) as client,async_playwright() as p:
-        browser=await p.chromium.launch()
+        browser=await p.chromium.launch(channel=os.environ.get('VIC_BROWSER_CHANNEL') or None)
         try:
             for task in tasks:
                 for variant in variants:

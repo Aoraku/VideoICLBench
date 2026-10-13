@@ -18,7 +18,7 @@ async def main():
     while not server.started:await asyncio.sleep(.05)
     results=[]
     async with httpx.AsyncClient(base_url='http://127.0.0.1:8782',headers={'Authorization':'Bearer '+secret},trust_env=False,timeout=60) as client,async_playwright() as p:
-        browser=await p.chromium.launch()
+        browser=await p.chromium.launch(channel=os.environ.get('VIC_BROWSER_CHANNEL') or None)
         try:
             for task in tasks:
                 for variant in variants:
@@ -38,8 +38,9 @@ async def main():
                     async def nav(name):await page.locator('.sidebar').get_by_role('link',name=name,exact=True).click()
                     try:
                         await page.goto(f'http://127.0.0.1:8782/native/music/{rid}/#{token}')
-                        await expect(page.get_by_role('region',name='工作范围')).to_be_visible()
+                        await expect(page.get_by_role('navigation',name='应用切换')).to_be_visible()
                         await page.screenshot(path=str(out/f'{task}-{variant}-home.png'))
+                        assert state['execution']['assignment'] not in await page.locator('body').inner_text()
                         w=state['world'];objects=state['domain']['objects']
                         for index,activity in enumerate(w['activities'],1):
                             expected=v2_music_projects.desired(state,activity,variant)
@@ -106,7 +107,7 @@ async def main():
                                 await save(page.get_by_role('button',name='发送到群聊',exact=True))
                             await page.screenshot(path=str(out/f'{task}-{variant}-playlist-{index}.png'),full_page=True)
                             await page.get_by_role('link',name='打开团队消息',exact=True).click()
-                            await expect(page.get_by_role('region',name='工作范围')).to_contain_text('活动音乐协作')
+                            await expect(page.get_by_role('navigation',name='应用切换')).to_contain_text('VIC Music')
                             await page.locator('.ant-list-item').filter(has_text=activity['group_name']).click()
                             share=page.get_by_role('article',name='分享的歌单')
                             await expect(share).to_contain_text(expected['name'])
@@ -119,7 +120,7 @@ async def main():
                             await expect(page.get_by_role('heading',name=expected['name'],exact=True)).to_be_visible()
                             await expect(page.locator('[data-song]')).to_have_count(len(expected['members']))
                         snap=await snapshot();result=v2.evaluate(state,snap['state'],variant,snap['events']);assert result['success'],result
-                        await page.reload();await expect(page.get_by_role('region',name='工作范围')).to_be_visible()
+                        await page.reload();await expect(page.get_by_role('navigation',name='应用切换')).to_be_visible()
                         snap=await snapshot();assert v2.evaluate(state,snap['state'],variant,snap['events'])['success']
                         assert not errors,errors
                         results.append(dict(task=task,variant=variant,seed=10001,suite='v2',mode='eval',surface='native',status='passed',persisted=True,cross_app_links=True))

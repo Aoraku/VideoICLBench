@@ -18,11 +18,11 @@ const { Content } = Layout;
 const { Text,Title} = Typography;
 
 const styles: Record<string, React.CSSProperties> = {
-  appShell: { height: '100vh', display: 'flex', flexDirection: 'row', background: '#eaf5ff' },
-  loadingShell: { height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' },
+  appShell: { height: 'calc(100vh - var(--vic-lesson-bottom-inset, 0px))', display: 'flex', flexDirection: 'row', background: '#eaf5ff' },
+  loadingShell: { height: 'calc(100vh - var(--vic-lesson-bottom-inset, 0px))', display: 'flex', justifyContent: 'center', alignItems: 'center' },
   sidebar: {
     width: 352,
-    height: '100vh',
+    height: 'calc(100vh - var(--vic-lesson-bottom-inset, 0px))',
     flexShrink: 0,
     display: 'flex',
     background: '#ffffff',
@@ -1848,7 +1848,7 @@ export default function Home() {
       </div>
 
       <Content style={styles.chatPane}>
-          {workspaceInstructions && <section aria-label="工作范围" style={{padding:'14px 24px',background:'#f3f8ff',borderBottom:'1px solid #d6e6f7',color:'#395474',lineHeight:1.7}}>
+          {(handoffWorkspace || bankWorkspace || shopWorkspace || travelWorkspace || studioWorkspace || blogWorkspace || musicWorkspace || projectDirectory) && <section aria-label="工作范围" style={{padding:'14px 24px',background:'#f3f8ff',borderBottom:'1px solid #d6e6f7',color:'#395474',lineHeight:1.7}}>
             <strong>{handoffWorkspace?'业务委托与成果交付':bankWorkspace?'账单通知与付款核对':shopWorkspace?'采购申请与交接':travelWorkspace?'出差安排与审批':studioWorkspace?'项目结果交付':blogWorkspace?'作者发布通知':musicWorkspace?'活动音乐协作':projectDirectory?'项目启动安排':'项目通知回执'}</strong>{handoffWorkspace&&<a href={handoffWorkspace} target="_blank" rel="noreferrer">打开业务应用 →</a>}{projectDirectory&&<Button size="small" onClick={()=>router.push('/projects')}>项目通知与资料</Button>}{musicWorkspace&&<a href={musicWorkspace}>打开音乐资料库 →</a>}{blogWorkspace&&<a href={blogWorkspace}>打开墨记 →</a>}{studioWorkspace&&<a href={studioWorkspace}>打开 Studio →</a>}{travelWorkspace&&<a href={travelWorkspace}>打开行远旅行 →</a>}{shopWorkspace&&<a href={shopWorkspace}>打开采购工作台 →</a>}{bankWorkspace&&<a href={bankWorkspace}>打开青禾账户 →</a>}
           </section>}
           {activeConv ? (

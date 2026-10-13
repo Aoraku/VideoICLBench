@@ -83,6 +83,7 @@ def render(page,state):
             return True
         if state['task_id']==60:st.info('重命名范围：pricing.py、invoice.py 中的 tax_rate、total、tax。保留 app.py、函数接口、字典键和字符串。')
         if state['task_id']==65:st.info('候选源代码保持不变。本地检查为语法检查，测试运行结果另行记录。')
+        st.caption('Tab 插入制表符；选中多行后 Tab / Shift+Tab 调整缩进。按 Esc 后再按 Tab 可离开编辑器。')
         edited={}
         for name,tab in zip(files,st.tabs(list(files))):
             with tab:
