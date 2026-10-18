@@ -70,6 +70,8 @@ def prepare(destination, checkout=None):
             if not target.resolve().is_relative_to(destination.resolve()):raise ValueError('Invalid source path')
             target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source/name,target)
         refine(destination)
+        # Docker mounts the persistent data volume beneath a read-only source mount.
+        (destination/'data').mkdir(exist_ok=True)
         result=catalogue(destination)
         (destination/'videoicl-catalog.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
         (destination/'videoicl-provenance.json').write_text(json.dumps({'repository':REPO,'commit':COMMIT,

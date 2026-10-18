@@ -4,6 +4,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 
 def task_section(t):
+    t={**t,'inference_description':t['inference_description'].replace('新夹具移除旧版 cover/request 中固定纸型与双面答案；三种组合共享同一不泄漏组合的业务请求。','批准封面与公共请求不固定纸型或单双面；三种条件共享同一业务请求。').replace('复用现有 evidence 流程时，导出内容通过 Notepad 写入对应原通道的工作副本，保持后续 redact 已支持的 source 身份；不假设任意新文件自动拥有通道来源。','导出内容通过 Notepad 写入对应原通道的工作副本，保留来源身份，供脱敏流程校验。')}
     parts=[f"### {t['id']} {t['title']}",f"**平台：** {t['app']}",f"**难度：** {t['difficulty']}。{t['difficulty_reason']}",
         '**Demo 要录什么：** '+t['demo_description'],f"**示范组织：** {t['demo_groups']} 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。"]
     for v in 'ABC':parts.append(f"- **{v}：** {t['rules'][v]}")
