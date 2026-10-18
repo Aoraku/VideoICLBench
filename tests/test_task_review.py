@@ -35,6 +35,8 @@ def test_catalog_rules_auth_and_videos(review):
     for t in d['tasks']:
         assert all(t['rules'].get(v) for v in 'ABC')
         assert t['instruction']
+    os_task=next(t for t in d['tasks'] if t['id']=='OS-E-01')
+    assert os_task['videos']['A'][0]['created_at'].startswith('1970-01-01T00:00:01')
     assert c.get('/review').status_code==200
     assert c.get('/review-api/media/os/OS-E-01/A').status_code==401
     r=c.post('/review-api/access',headers=AUTH)

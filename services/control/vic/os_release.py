@@ -1,6 +1,7 @@
 """Pinned task design and persistent, human-reviewed OS demonstration library."""
 import hashlib
 import json
+from datetime import datetime, timezone
 from pathlib import Path
 from .config import ROOT, DATA
 
@@ -49,7 +50,7 @@ def review_catalog(source,data=None):
         videos={}
         for index,variant in enumerate('ABC'):
             selected=[e for e in entries if e['case_id']==case['id'] and e['convention']==index]
-            videos[variant]=[dict(label=f"人工录像 · {'审核通过' if e.get('approved') else '待审核'} · {e.get('reviewer') or '未署名'}", historical=e['historical'],approved=e.get('approved',False),created_at=e['created_at'],
+            videos[variant]=[dict(label=f"人工录像 · {'审核通过' if e.get('approved') else '待审核'} · {e.get('reviewer') or '未署名'}", historical=e['historical'],approved=e.get('approved',False),created_at=datetime.fromtimestamp(e['created_at'],timezone.utc).isoformat(),
                 url=f"/review-api/media/os/{case['id']}/{variant}?take={i}") for i,e in enumerate(selected)]
         rows.append(dict(id=case['id'],kind='os',title=case['title'],platform=case['app'],difficulty=case['difficulty'],
             rules=case['rules'],instruction=case['task'],relation=case['relation'],demo_description=case['demo_description'],
