@@ -1,0 +1,122 @@
+"""Auditable task/lesson adaptation; never import an oracle video as human media."""
+import json
+
+RELATIONS = [
+'file-title word formatting while preserving extensions', 'destination grouping by file metadata',
+'approved-version selection criterion', 'existing-versus-incoming conflict naming convention',
+'memory threshold and inclusive comparison', 'contact-field transformation', 'device-category connection policy',
+'anchor-relative time window with inclusive endpoints', 'task trigger setting', 'body-paragraph formatting',
+'page-count threshold and strict comparison', 'section-heading page-break boundary',
+'handoff folder grouping', 'change-entry text format', 'person-name and phone display format',
+'reference ordering and tie-breaking', 'chapter heading numbering', 'timestamp representation',
+'preservation of replaced file contents', 'stage task-name format', 'stage output-folder organization',
+'approval-result encoding', 'quantity units, quotient and remainder representation', 'conflicting-field precedence',
+'configuration difference record format', 'release change-entry format', 'recovery folder layout',
+'preview size profile', 'paper, duplex and page-order profile', 'cached resource naming and corresponding links',
+'local file conflict preservation', 'test-result summary representation', 'sensitive-field treatment',
+'final delivery trigger setting', 'byte-unit conversion and rounding', 'revision marker placement in a title']
+
+LESSONS = [
+'对三份含不同词数、连续空格和大小写的文件改名。逐个展示改前、改后名称；扩展名、内容及无关文件保持。',
+'将三份不同扩展名、来源项目和 resource_key 的材料归档；查看属性，并展示实际目标路径。三种属性不能恰好给出同一分组。',
+'完成三个独立文档组。每组包含最高批准修订、最小批准体积、最大批准体积及未批准干扰项；展示所选文件属性和复制结果。',
+'处理三组同名来件与现有件，双方内容、修订号不同；展示保留后的两份文件名及内容，不覆盖丢失任何一侧。',
+'查看九个后台进程的内存，覆盖 127/128/129、255/256/257、383/384/385 MB；按同一阈值处理所有对象，保留范围外系统进程。',
+'修改三份日志副本，每份含不同联系人记录；展示原始值、处理后字段及保存结果，原始日志不变。',
+'处理六个不同类别和初始连接状态的设备，展示命中与不命中类别的结果；不动范围外打印机。',
+'对三个不同时间锚点导出窗口。展示锚点、两端边界、边界外记录和实际导出内容，所有时间按同一时区比较。',
+'为三项已有作业保存同一触发设置；展示保存后的值，输入、输出、依赖不变，不运行作业。',
+'整理三份正文不同的文档；每份含两段多行正文、标题和代码围栏。保存后展示正文的转换与其他部分保持。',
+'处理八份页数不同的 Packet 作业；展示阈值本身与阈值两侧的队列状态。保留无关作业，不取消任何作业。',
+'为三份内容不同但均含 Appendix、References、Signature 的文档插入分页符；展示分页边界和保存内容。',
+'将已选定的三份批准材料放入相应交接目录；展示类别、来源和资源键，以及实际保存位置。无需录版本筛选和依赖收集。',
+'将两条不同 ID、不同正文的变更写成指定格式。录三组不同变更，保留输入；不录发布文档成套编制。',
+'将两位不同姓名、电话的联系人转换为对应显示格式。录三组不同联系人，不录现场安排关联。',
+'对小型 references 列表排序，包含同类别多个路径以及编号和路径次序相反的条目。录三个不同项目，不录完整迁移。',
+'给三个不同章节标题编号并保存。展示每个标题的编号对应关系，不录选稿、组稿和打印提交。',
+'将两个不同日期/时间转换并保存。录三组，只改变表示形式，不改变时刻；不录事故搜集和时间线编排。',
+'替换一份同名旧文件前先按指定方法保留旧内容，展示新旧两侧均可恢复。录三组不同内容，不录整个目录同步。',
+'给 inventory、validate 两个阶段建立对应名称，展示阶段顺序与命名关系。录三组小项目，不录完整六阶段修复。',
+'用已准备的四份资料展示 inventory、backup、restore 的输出目录关系。录三个独立项目；不录比较、复验和完整恢复演练。',
+'将一项已知通过、一项已知拒绝的结论写为对应表示。录三组不同请求 ID；不录申请核查和修改人员主档。',
+'展示不同产品容量下的数量表示。三组覆盖非零余数、整箱和整包；容量来自输入，不能统一猜一个容量，不录整批对账。',
+'对基线、主分支、审阅分支进行局部字段合并；含主分支较新、审阅较新和同时间冲突，以及两边独有字段。录三组不同数值。',
+'将两个可见配置差异写为记录，before 与 after 均取输入。录三组不同值，不查历史作业，不回退设置和重跑验证。',
+'将两条变更写成指定条目格式。录三组不同 ID 和正文，不录修工具、构建、签名或发布。',
+'把已给的数据与报告放入对应恢复目录及其 Reports 子目录。录三个不同项目，只展示布局，不筛快照或恢复任务。',
+'使用已配对的片段和字幕设置同一预览规格，生成并查看实际输出尺寸。录三个项目，不录连接相机、下载或字幕校正。',
+'用已准备的短文档设置纸型、单双面及顺序，生成布局与校样并查看结果。录三组，不提交打印，不录组稿和故障修复。',
+'对已缓存的四份资源按同一方法命名，同步指南链接并验证离线可读。录三个项目；不录下载、设备恢复或缓存重建。',
+'对一份同名冲突保存本地旧内容并放入来件，展示两侧位置和可恢复内容。录三个不同项目，不录路径修订和工作区启动。',
+'将已经给出的测试结果转成摘要。三组使用不同 build_artifact、断言和值，保留全部字段；不录构建、测试修复和进程恢复。',
+'对已准备的事故副本应用同一种敏感字段处理，展示不同记录及重复个人值的一致结果。录三组，不录日志搜集和打包。',
+'给已验证的分发载荷设置最终触发方式，展示 Scheduled 且未派发。录三个不同项目，不录选盘、权限修复或前置流水线。',
+'将 4096、3660、3845 三个字节数分别转换并保存，覆盖精确值及向下/向上舍入。基数 1024，HALF_UP；不录清理、备份或服务恢复。',
+'给两个不同标题加入各自修订号。录三组不同标题和修订，不录撤回旧队列和重新提交。',
+]
+SINGLE={'OS-E-%02d'%i for i in range(1,13)} | {'OS-M-01','OS-M-05'}
+
+def design(row):
+    s=row['spec']; index=int(s['id'][-2:])-1+{'E':0,'M':12,'H':24}[s['id'].split('-')[1]]
+    seeds=[1001] if s['id'] in SINGLE else [1001,1012,1026]
+    if s['id']=='OS-M-11':seeds=[1001,7,9]
+    if s['id']=='OS-H-11':seeds=[509,73,258]
+    rule_notes={'OS-E-03':'若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。',
+      'OS-E-05':'示范处理所有 Background worker，范围外 Protected system service 保持。',
+      'OS-E-11':'示范处理所有 Packet，范围外 Unrelated draft 保持。',
+      'OS-E-08':'闭区间包含两端；同一时区，不转换时刻。','OS-H-11':'1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。',
+      'OS-H-08':'公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。',
+      'OS-M-12':'双方独有字段都保留；C 时间相同取 main。', 'OS-H-06':'C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。'}
+    return dict(id=s['id'],title=s['title'],app=s['apps'],family='task36',difficulty=s['level'],
+      task=s['prompt'], query_example=row['task'], relation=RELATIONS[index],
+      rules={v:s['rules'][v]+'。'+row['methods'][v]+' '+rule_notes.get(s['id'],'') for v in 'ABC'},
+      demo_description=LESSONS[index],demo_instruction=row['demo_instruction'],demo_seeds=seeds,
+      demo_groups=len(seeds),demo_scope='local-method-only',demo_actor='human',
+      inference_description=s['query'],evaluation=s['predicates'],dependencies=s.get('interface_edges',[]),
+      difficulty_reason={'easy':'一个持续环境内对多个新对象反复应用同一方法。','medium':'一个主要应用内完成有前后依赖的业务目标，视频方法仅是其中一个局部模块。','hard':'完成业务目标，并在多个桌面应用之间传递真实文件、配置或结果；视频只教其中一个局部模块。'}[s['level']])
+
+def refine(source):
+    path=source/'tasks36.py';text=path.read_text()
+    def replace(old,new):
+        nonlocal text
+        if old not in text:raise ValueError('Pinned OS refinement target missing: '+old[:70])
+        text=text.replace(old,new)
+    replace('range(2 if b.scope==\'demo\' else 4)', 'range(3 if b.scope==\'demo\' else 4)')
+    replace('page_counts=[4,5,6,7,8,9]', "page_counts=[3,4,5,6,7,8,9,10] if b.scope=='demo' else [3,4,5,6,8,9]")
+    replace('memories=[127,128,255,256,383,384]', "memories=[127,128,129,255,256,257,383,384,385] if b.scope=='demo' else [127,128,255,256,383,384]")
+    replace('all six Background workers', 'all Background workers in the supplied batch')
+    replace('the six Packet queue states', 'the Packet queue states in the supplied batch')
+    # Recorder directions belong to the workbench, not files in the desktop.
+    replace("        if scope=='demo':self.file('Example work order.txt','',parent='documents',identifier='demo-context')", '')
+    begin=text.index("        if self.scope=='demo':\n            # Public business scope")
+    end=text.index('        case=copy.deepcopy(self.case);',begin)
+    text=text[:begin]+text[end:]
+    replace('Approved example cover. Use the demonstrated printing profile.', 'Approved example cover.')
+    replace('Approved meeting cover. Use the demonstrated printing profile. Preserve originals.', 'Approved meeting cover.')
+    # Values in repeated local examples must differ; change only demo branches.
+    replace("old=b.file('source.txt','Local edits must survive.'", "old=b.file('source.txt',f'Local edit {seed} must survive.'")
+    replace("new=b.file('source.txt','Approved incoming content.'", "new=b.file('source.txt',f'Approved incoming content {seed}.'")
+    replace("{'request_id':'R1','approved':True},{'request_id':'R2','approved':False}", "{'request_id':f'R{seed}-1','approved':True},{'request_id':f'R{seed}-2','approved':False}")
+    replace("source={'baseline':{'x':1,'y':2,'z':3}", "source={'baseline':{'x':1,'y':2,'z':3}")
+    replace("source=[{'key':'archive.format','before':'zip','after':'tar'},{'key':'verification.mode','before':'checksum','after':'full'}]", "source=[[{'key':'archive.format','before':'zip','after':'tar'},{'key':'verification.mode','before':'checksum','after':'full'}],[{'key':'media.preview','before':'compact','after':'review'},{'key':'scheduler.trigger','before':'manual','after':'idle'}],[{'key':'archive.format','before':'tar','after':'zip'},{'key':'media.preview','before':'detail','after':'compact'}]][seed%3]")
+    replace("        order=sorted(source,key=", "        b.rng.shuffle(source)\n        for item in source:item['path']=item['path'].replace('/new/',f'/project-{seed}/')\n        order=sorted(source,key=")
+    # Three-way conflict values vary, while comparison/tie witnesses stay clear.
+    marker="value={'x':[10,11,10][c],'y':[20,21,21][c],'z':[30,31,30][c],'main_only':'retain','review_only':'retain'}"
+    replace(marker, "\n        for branch in ('baseline','main','review'):\n            for key in ('x','y','z'):source[branch][key]+=seed%97\n        "+marker+"\n        for key in ('x','y','z'):value[key]+=seed%97")
+    # Explicit relation in public inference prompt, never the chosen A/B/C value.
+    replace("case['task']=self.request+f' Learn {self.subject} from the supplied demonstration videos.'", "case['task']=self.request+' Use the '+VIDEOICL_RELATIONS[self.cid]+' demonstrated in the video.'+(VIDEOICL_OUTPUTS.get(self.cid,'') if self.scope=='query' else '')")
+    text += '\nVIDEOICL_RELATIONS = '+repr({f'OS-{level}-{n:02}':RELATIONS[i*12+n-1] for i,level in enumerate('EMH') for n in range(1,13)})+'\n'
+    text += '\nVIDEOICL_OUTPUTS = '+repr({
+      'OS-E-08':' Save each channel i export as window-i.jsonl in Output.',
+      'OS-M-02':' Deliver Output/config.json (release_version), release-notes.txt (Version: header followed by change entries), and delivery-index.json with version, notes, config and changes (change IDs).',
+      'OS-M-03':' Save an array in Output/field-guide.json. Each entry retains slot_id, person_id, site, time, resources (resource IDs), active, and adds contact in the demonstrated display format.',
+      'OS-M-05':' Save print-master.txt and contents.json in Output. Each contents entry has chapter_id, heading and one-based page.',
+      'OS-M-06':' Save Output/timeline.json with incident, events, recovered and verification_event. Each event retains event_id, time and message and adds channels: Application and/or System, based on the corresponding exports.',
+      'OS-M-10':' Save people-working.json and acknowledgements.json in Output. Keep all unchanged person fields; every active request acknowledgement contains request_id, person_id and the demonstrated decision field.',
+      'OS-M-11':' Save stock-working.json (lot_id, quantity) and differences.json (lot_id, before_pcs, after_pcs, difference_pcs) in Output.',
+      'OS-M-12':' Save Output/merged.json and merge-diff.json. The conflict record contains conflict_fields (names), values (resolved conflicting fields) and preserved_unique (names of both sides unique fields).',
+      'OS-H-08':' Save test-summary.txt with build_artifact, passed and assertions, in that field order when order matters. Assertions retain name, expected, actual and passed from the actual test result.',
+      'OS-H-11':' In maintenance-report.txt retain released_bytes as an integer and released_display as the demonstrated unit representation. Use base 1024 and decimal HALF_UP rounding.',
+      'OS-H-12':' The replacement cover title is Meeting packet, revision 8; its body is Approved revision 8. Retain the same paper, duplex and order settings as the supplied valid print configuration.',
+    })+'\n'
+    path.write_text(text)

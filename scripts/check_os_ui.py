@@ -1,64 +1,56 @@
-"""Check deployed OS catalogue, direct UI, isolation and a real click without recording."""
-import argparse
-import asyncio
-import json
+"""Check current OS catalogue and real desktop inputs. Never capture video."""
+import argparse,json,os
 from pathlib import Path
-
 import httpx
-from playwright.async_api import async_playwright
+from playwright.sync_api import sync_playwright,expect
 
 
-async def main(args):
-    token=args.token_file.read_text().strip()
-    output=args.output;output.mkdir(parents=True,exist_ok=True)
-    async with httpx.AsyncClient(base_url=args.base_url,headers={'Authorization':'Bearer '+token},timeout=60) as api:
-        response=await api.get('/os-api/cases');response.raise_for_status();cases=response.json()['cases']
-        assert len(cases)==36
-        if args.cases:
-            cases=[case for case in cases if case["id"] in args.cases]
-            assert len(cases)==len(set(args.cases))
-        checks=[]
-        async with async_playwright() as p:
-            browser=await p.chromium.launch(headless=True)
-            context=await browser.new_context(viewport={'width':1280,'height':720})
-            page=await context.new_page();errors=[];page.on('pageerror',lambda error:errors.append(str(error)))
-            await page.goto(args.base_url)
-            await page.evaluate('(token)=>sessionStorage.setItem("vic-manager",token)',token)
-            await page.reload();await page.get_by_role('button',name='OS · 36 题').click()
-            await page.get_by_text('OS-SEL-01',exact=True).wait_for()
-            await page.get_by_text('OS-SEL-01',exact=True).click()
-            await page.locator('video').wait_for()
-            await page.screenshot(path=str(output/'portal.png'),full_page=True)
-            for case in cases:
-                response=await api.post('/os-api/runs',json={'case_id':case['id'],'interaction':'human','seed':20261006})
-                response.raise_for_status();run=response.json()
-                await page.goto(args.base_url+run['application_url'])
-                await page.locator('#capture-area').wait_for()
-                await page.get_by_role('button',name='Finish and evaluate').wait_for()
-                assert await page.locator('.rule-card,.control-panel,.studio-header').count()==0
-                if case['family']=='recovery':
-                    await page.get_by_text('Index',exact=True).wait_for()
-                    assert 'ascending Index' in await page.locator('.task-banner').inner_text()
-                if case['id']=='OS-SEL-01':
-                    # A coordinate input verifies the browser-to-simulator route, not model accuracy.
-                    box=await page.locator('[data-item]').first.bounding_box()
-                    await page.mouse.click(box['x']+box['width']/2,box['y']+box['height']/2)
-                    await page.wait_for_timeout(300)
-                if case['id'] in ('OS-SEL-01','OS-REC-01','OS-XAPP-01'):
-                    await page.screenshot(path=str(output/(case['id']+'.png')))
-                response=await api.post('/os-api/runs/'+run['id']+'/eval');response.raise_for_status()
-                result=response.json()
-                if case['id']=='OS-SEL-01':assert result['agent_steps']==1
-                checks.append({'case_id':case['id'],'ui_loaded':True,'evaluation_returned_boolean':isinstance(result['success'],bool)})
-                print(case['id'],'UI + eval OK',flush=True)
-            assert not errors,errors
-            await browser.close()
-        (output/'ui-check.json').write_text(json.dumps({'cases':checks,'page_errors':errors,'records_video':False,'benchmark_inference':False},indent=2))
+def check(args):
+ token=args.token_file.read_text().strip();args.output.mkdir(parents=True,exist_ok=True)
+ with httpx.Client(base_url=args.base_url,headers={'Authorization':'Bearer '+token},trust_env=False,timeout=60) as api,sync_playwright() as p:
+  response=api.get('/os-api/cases');response.raise_for_status();cases=response.json()['cases'];assert len(cases)==36
+  browser=p.chromium.launch(channel=os.getenv('VIC_BROWSER_CHANNEL') or None)
+  ctx=browser.new_context(viewport={'width':1440,'height':1000});page=ctx.new_page();errors=[]
+  ctx.add_init_script("navigator.mediaDevices.getDisplayMedia=()=>Promise.reject(new DOMException('QA never captures video','NotAllowedError'))")
+  page.on('pageerror',lambda e:errors.append(str(e)))
+  page.goto(args.base_url);page.evaluate('(t)=>sessionStorage.setItem("vic-manager",t)',token);page.reload()
+  page.get_by_role('button',name='OS · 36 题',exact=True).click();expect(page.get_by_text('OS-E-01',exact=True)).to_be_visible();page.get_by_text('OS-H-11',exact=True).click()
+  expect(page.get_by_role('button',name='预览示范环境 ↗')).to_be_enabled();expect(page.get_by_text('4096、3660、3845',exact=False)).to_be_visible()
+  page.screenshot(path=str(args.output/'recorder.png'),full_page=True)
+  page.goto(args.base_url+'/review?kind=os');expect(page.locator('.review-list>button')).to_have_count(36)
+  expect(page.get_by_text('批量规范文件名称',exact=True).last).to_be_visible();page.screenshot(path=str(args.output/'review.png'),full_page=True)
+  checked=[]
+  for case in cases:
+   if args.cases and case['id'] not in args.cases:continue
+   r=api.post('/os-api/runs',json={'case_id':case['id'],'mode':'eval','interaction':'human','seed':4201});r.raise_for_status();run=r.json()
+   page.goto(args.base_url+run['application_url']);expect(page.locator('.desktop')).to_be_visible();assert page.locator('.brief').count()==0
+   page.get_by_role('button',name='Start',exact=True).click();expect(page.locator('[data-command="task-info"]')).to_have_count(0)
+   page.locator('.start-grid [data-open="files"]').click();expect(page.locator('.file-list')).to_be_visible()
+   # All nine apps must render on a shared desktop, without a new task/environment.
+   if case['id']=='OS-H-01':
+    for app in ['editor','settings','scheduler','transfers','monitor','devices','events','terminal']:
+     page.locator(f'.taskbar [data-open="{app}"]').click()
+    expect(page.locator('.window')).to_have_count(9)
+   result=api.post(f"/os-api/runs/{run['id']}/check",json={});result.raise_for_status();assert isinstance(result.json()['success'],bool)
+   api.post(f"/os-api/runs/{run['id']}/eval",json={}).raise_for_status();checked.append(case['id'])
+   print(case['id'],'desktop + persisted-state judge OK',flush=True)
+  # Complete three local examples through actual Notepad UI, including navigation.
+  r=api.post('/os-api/runs',json={'case_id':'OS-H-11','variant':'A','mode':'demo'});r.raise_for_status();run=r.json();page.goto(args.base_url+run['application_url'])
+  for n,value in enumerate([4096,3660,3845]):
+   expect(page.locator('.desktop')).to_be_visible();page.locator('.desktop-icons [data-open="editor"]').click()
+   page.locator('[data-command="choose-document"]').click()
+   expect(page.locator('select[name="target"]')).to_be_visible();options=page.locator('select[name="target"] option');labels=options.all_text_contents();label=next(s for s in labels if s.endswith('/Example result.txt'))
+   page.locator('select[name="target"]').select_option(label=label);page.locator('.dialog button[type="submit"]').click()
+   page.get_by_role('textbox',name='Document content',exact=True).fill(f'{value} B')
+   with page.expect_response(lambda r:'/action' in r.url and r.request.method=='POST') as saved:page.get_by_role('button',name='Save',exact=True).click()
+   assert saved.value.ok
+   page.get_by_role('button',name=f'示范 {n+1}/3 · '+('完成练习' if n==2 else '下一组'),exact=True).click()
+   if n<2:expect(page.get_by_role('button',name=f'示范 {n+2}/3 · '+('完成练习' if n==1 else '下一组'),exact=True)).to_be_visible()
+  expect(page.get_by_role('button',name='示范已完成，请返回工作台保存和审核',exact=True)).to_be_visible()
+  result=api.post(f"/os-api/runs/{run['id']}/check",json={});assert result.json()['success'] and result.json()['passed']==3
+  page.screenshot(path=str(args.output/'notepad.png'));assert not errors,errors
+  (args.output/'results.json').write_text(json.dumps({'catalogue':36,'ui_and_judge':checked,'local_examples_saved_through_ui':3,'video_recorded':False,'errors':errors},indent=2))
+  browser.close();print('PASS human lesson navigation and persisted Notepad results; no video recorded',flush=True)
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser()
-    parser.add_argument('--base-url',default='http://127.0.0.1:18765')
-    parser.add_argument('--token-file',type=Path,required=True)
-    parser.add_argument('--cases',nargs='*')
-    parser.add_argument('--output',type=Path,default=Path('.local/os-integration/ui'))
-    asyncio.run(main(parser.parse_args()))
+ parser=argparse.ArgumentParser();parser.add_argument('--base-url',default='http://127.0.0.1:18765');parser.add_argument('--token-file',type=Path,required=True);parser.add_argument('--cases',nargs='*');parser.add_argument('--output',type=Path,default=Path('.local/os36-ui'));check(parser.parse_args())

@@ -43,14 +43,10 @@ def collect(os_source):
         rows.append(dict(id=f"{t['id']:03d}",kind='web',title=t['title'],platform=' / '.join(t['platforms']),difficulty={'low':'低','medium':'中','hard':'高'}[t['difficulty']],type=t['type'],relation=RELATION[t['id']],
             demo=f"从应用默认首页进入操作页，展示{RELATION[t['id']]}，保留输入、操作及保存后的可见结果。示范包含 {count} 组规则案例。"+('本题只保存多行答案草稿，不提交判题答案。' if t['id']==59 else '')+('示范所需的移动过程用于呈现首次达到停止条件的时刻，复盘文档不属于示范。' if t['id']==69 else '')+('每组只示范一个落点，连续六回合和复盘交付属于 inference。' if t['id']==74 else ''),
             rules={v:demo.get('rule_explanations',{}).get(v) or t['variants'][v] for v in 'ABC'},inference=t['inference']['instructions'],delivery=t['delivery'],recording='同事录制的规则示范',review=f"/review?kind=web&task={t['id']}"))
-    tree=ast.parse((os_source/'cases.py').read_text())
-    node=next(n for n in tree.body if isinstance(n,ast.Assign) and any(getattr(x,'id','')=='CASES' for x in n.targets))
-    definitions={ast.literal_eval(n.args[0]):[ast.literal_eval(a) for a in n.args] for n in node.value.elts}
-    for t in os_catalog(os_source):
-        family=definitions[t['id']][3]; relation=FAMILIES[family]
-        rows.append(dict(id=t['id'],kind='os',title=t['title'],platform='OS-ICL / '+t['platform'],difficulty=t['difficulty'],type=family,relation=relation,
-            demo=f"在 {t['platform']} 模块的示范实例中展示{relation}，包含条件、动作及可见结果。具体 A/B/C 内容见规则条目。",
-            rules=t['rules'],inference=t['instruction'],delivery='新实例的目标状态或操作序列，由 OS-ICL 任务评测器判定。',recording='OS-ICL 配套示范',review=f"/review?kind=os&task={t['id']}"))
+    release=json.loads((os_source/'videoicl-catalog.json').read_text())
+    for t in release['cases']:
+        rows.append(dict(id=t['id'],kind='os',title=t['title'],platform='OS-ICL / '+t['app'],difficulty=t['difficulty'],type=t['difficulty_reason'],relation=t['relation'],
+            demo=t['demo_description'],rules=t['rules'],inference=t['task']+'\n公共交付约束与实例范围：'+t['query_example'],delivery=t['evaluation'],recording='同事人工录制并审核的局部方法示范',review=f"/review?kind=os&task={t['id']}"))
     manifest=json.loads((ROOT/'simulator/delivery8/release.private.json').read_text())
     for t in manifest['tasks']:
         rows.append(dict(id=t['id'],kind='embodied',title=t['title'],platform='Tabletop8 双臂桌面仿真',difficulty=t['difficulty']+' / '+t['length'],type='物理交互',relation=t['challenge'],demo=EMBODIED_DEMOS[t['id']],rules=t['rules'],inference=t['challenge']+'。在新的初始布局中完成对应操作；以真实接触、支撑、插入或物体位置关系为准，结束任务后保存执行结果。',delivery='满足本题目标物理状态的执行结果与自动保存的执行录像。',recording='仿真作者控制器示范，非真人录制',review=f"/review?kind=embodied&task={t['id']}"))
@@ -76,16 +72,16 @@ def render(rows):
 <section id="levels"><h2>难度分级</h2><p>Web 的低中高按执行结构划分，各 25 题。所有等级使用同样清晰的示范要求。</p>
 <table><thead><tr><th>等级</th><th>执行结构</th><th>必要判分依据</th></tr></thead><tbody><tr><td>Web 低</td><td>在同一应用数据库中处理多个对象。文本题通常有三份资料，生成内容分类有十二条；棋盘题在同一棋谱库保存三份不同棋盘，逐一分类或作局部决策。</td><td>逐对象结果和未命中对象的保持；三份棋谱分别核对合法操作及条件，并提供部分完成度。</td></tr><tr><td>Web 中</td><td>围绕一个交付目标完成同平台多模块业务，关联独立资料、制作成果并交付。视频方法是其中的一个环节。</td><td>有效请求、范围、实际处理结果、资料关联、可下载成果及接收地址。</td></tr><tr><td>Web 高</td><td>跨两个或多个平台的完整业务流程，后续操作消耗前序真实结果或文件。</td><td>源数据、实际保存状态、跨平台内容一致性、正确接收人和可追溯交付。</td></tr></tbody></table>
 <p>棋盘选点基线可能只需一次决策，不能据其标签宣称具备长程难度。长度、难度与规则复杂度是不同维度：重复次数增加执行负担，状态依赖与跨应用资料关联增加规划负担，物理接触增加控制负担；含糊规则、等待时间和无意义点击不构成设计难度。</p>
-<p>OS 使用配套目录的 L1—L4 标签，数量分别为 3、12、17、4。任务族包括单项选择、集合选择、映射、排序、状态机、异常恢复和跨应用来源匹配。OS-ICL 是可控的系统交互仿真，标签不等同于真实桌面环境的实测难度，也不与 Web 低中高强行换算。</p>
+<p>OS 分为 Easy、Medium、Hard，各 12 题。Easy 在一个持续桌面中对多个新对象重复应用同一方法；Medium 在一个主要应用中完成长程业务，视频方法只是其中一个模块；Hard 在此基础上要求 File Explorer、Notepad、Settings、Task Scheduler 等桌面应用之间有真实内容或状态依赖。应用切换不重置环境。Demo 由人录制，覆盖同一规则的多次实现，不演示完整长程 query。三档都是执行结构标签，不代表模型实测成功率。</p>
 <p>具身任务分别保留长度和难度：简单 2 题，中等 3 题，困难 3 题；短程 3 题，中程 3 题，长程 2 题。难点来自重排、遮挡下取件、结构恢复、真实套入和非抓取接触控制。配套视频来自仿真作者控制器；难度标签不表示独立 VLM 已验证的成功率。</p></section>
 <h2 id="index">任务索引</h2><div class="controls"><input id="search" aria-label="搜索任务" placeholder="搜索题号 任务名 平台或内容"><select id="kind" aria-label="任务类型"><option value="">全部类型</option><option value="web">Web</option><option value="os">OS</option><option value="embodied">具身</option></select><span id="count">119 题</span></div><table class="index"><thead><tr><th>编号</th><th>任务</th><th>平台</th><th>难度</th></tr></thead><tbody>''']
     for t in rows:output.append(f'<tr data-kind="{t["kind"]}" data-task="{t["id"]}"><td><a href="#task-{t["id"]}">{t["id"]}</a></td><td>{esc(t["title"])}</td><td>{esc(t["platform"])}</td><td>{esc(t["difficulty"])}</td></tr>')
-    output.append('</tbody></table><h2 id="tasks">逐题规范</h2><p class="note">Web 条目给出完整执行请求。实例化时人物、项目或资料名称以该 run 返回的 inference_task 为准。OS 条目保留原任务执行文本，学习关系另行明确列出。具身条目以八题交付定义为准。录像和实例启动入口由任务审阅页提供。</p>')
+    output.append('</tbody></table><h2 id="tasks">逐题规范</h2><p class="note">Web 条目给出完整执行请求。实例化时人物、项目或资料名称以该 run 返回的 inference_task 为准。OS 条目给出目标、公共交付约束与需要学习的具体关系。具身条目以八题交付定义为准。录像和实例启动入口由任务审阅页提供。</p>')
     for t in rows:
         output.append(f'<article class="task" id="task-{t["id"]}" data-kind="{t["kind"]}" data-task="{t["id"]}"><h3>{t["id"]} {esc(t["title"])}</h3><p class="meta">{esc(t["platform"])} · 难度 {esc(t["difficulty"])} · 类型 {esc(t["type"])}</p><h4>Demo 呈现什么</h4>{paragraphs(t["demo"])}<p class="meta">视频来源：{esc(t["recording"])}</p>')
         for v in 'ABC':output.append(f'<p class="rule"><b>{v}</b>{esc(t["rules"][v])}</p>')
         output.append(f'<h4>Inference 执行什么</h4>{paragraphs(t["inference"])}<p><b>学习关系：</b>{esc(t["relation"])}</p><p><b>最终成果：</b>{esc(t["delivery"])}</p><a class="review-link" href="{t["review"]}">审阅视频与打开执行环境</a></article>')
-    output.append('''<h2>规范来源</h2><p>Web 任务目录及运行生成器、录制指导、独立评测器；OS-ICL cases.py 配套任务定义；Tabletop8 八题交付规则与任务定义。视频资料、录像审核状态和审阅意见由平台后端独立保存。</p></main><script>
+    output.append('''<h2>规范来源</h2><p>Web 任务目录及运行生成器、录制指导、独立评测器；OS-ICL tasks36.py / judge36.py 与 tasks/os/catalog.json；Tabletop8 八题交付规则与任务定义。视频资料、录像审核状态和审阅意见由平台后端独立保存。</p></main><script>
 const tasks=[...document.querySelectorAll('article.task')],index=[...document.querySelectorAll('.index tbody tr')];function filter(){const q=document.querySelector('#search').value.toLowerCase(),kind=document.querySelector('#kind').value;let n=0;tasks.forEach((t,i)=>{const hide=(kind&&t.dataset.kind!==kind)||!t.textContent.toLowerCase().includes(q);t.hidden=!!hide;index[i].hidden=!!hide;if(!hide)n++});document.querySelector('#count').textContent=n+' 题'}document.querySelector('#search').oninput=filter;document.querySelector('#kind').onchange=filter;
 </script></html>''')
     return ''.join(output)

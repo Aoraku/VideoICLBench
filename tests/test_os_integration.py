@@ -1,89 +1,120 @@
 import hashlib
 import json
+from pathlib import Path
 from types import SimpleNamespace
-
 import pytest
 from fastapi import FastAPI, Header, HTTPException
 from fastapi.testclient import TestClient
-
 from vic.os_integration import install_os_routes
 
+AUTH={'Authorization':'Bearer manager'}
+ROOT=Path(__file__).resolve().parents[1]
 
 @pytest.fixture
-def os_client(tmp_path, monkeypatch):
+def os_client(tmp_path,monkeypatch):
     import vic.os_integration as mod
-    source = tmp_path/'source'; (source/'data/manifests').mkdir(parents=True)
-    (source/'demo.webm').write_bytes(b'demo')
-    (source/'data/manifests/os-icl-1.0.0.json').write_text(json.dumps({'entries':[{
-        'case_id':'OS-SEL-01','rule':0,'seed':1000000,'video':'demo.webm','sha256':hashlib.sha256(b'demo').hexdigest()}]}))
-    calls = []
+    source=tmp_path/'source';source.mkdir();release=json.loads((ROOT/'tasks/os/catalog.json').read_text())
+    (source/'videoicl-catalog.json').write_text(json.dumps(release));data=tmp_path/'data';calls=[];sessions={};state={'success':False}
     class Upstream:
-        def __init__(self, **kw): pass
-        async def __aenter__(self): return self
-        async def __aexit__(self,*args): pass
-        async def request(self, method, path, **kwargs):
-            calls.append((method,path,kwargs))
-            data={'id':'vos_123','case':{'task':'Select the correct item.','title':'File selection'},'benchmark_version':'1.0.0','status':'active'}
-            if path.endswith('/finish'): data.update(status='finished',result={'success':False,'agent_steps':0})
-            return SimpleNamespace(status_code=200,json=lambda:data,content=b'const response = await fetch(url, {});\n  if(state.replay){',headers={'Content-Type':'text/javascript'})
-    monkeypatch.setattr(mod.httpx, 'AsyncClient', Upstream)
+        def __init__(self,**kw):pass
+        async def __aenter__(self):return self
+        async def __aexit__(self,*args):pass
+        async def request(self,method,path,**kwargs):
+            calls.append((method,path,kwargs));payload=kwargs.get('json') or {}
+            if path=='/api/v2/cases':out={'benchmark_version':release['benchmark_version'],'cases':release['cases']}
+            elif path=='/api/v2/sessions':
+                sid=f'osl_{len(sessions)+1}';out={'id':sid,'case':{'task':'Use the demonstrated file naming format.','title':'Naming'},'compatible':True,'benchmark_version':release['benchmark_version'],'status':'active'};sessions[sid]=out
+            elif path.endswith('/judge'):out={'result':{'success':state['success'],'failed_checks':[] if state['success'] else ['goal.1']}}
+            elif path.endswith('/finish'):
+                out={**sessions[path.split('/')[-2]],'status':'finished','result':{'success':state['success'],'agent_steps':2}}
+            elif path.startswith('/api/v2/sessions/'):out=sessions.get(path.split('/')[-1],{})
+            else:out={}
+            content=b"const r = await fetch(url, {}); const label=`${btn('task-info','Task instructions')}`;"
+            if path=='/':content=b'<html><body><script src="/desktop.js"></script></body></html>'
+            return SimpleNamespace(status_code=200,json=lambda:out,content=content,headers={'Content-Type':'text/javascript'})
+    monkeypatch.setattr(mod.httpx,'AsyncClient',Upstream)
     class Browser:
-        def __init__(self): self.sessions={};self.limits={}
-        async def ensure(self,sid,url): self.sessions[sid]={}
-        async def screenshot(self,*args): return {'image':'data:image/png;base64,cGl4ZWxz','frame':1,'width':1280,'height':720}
-        async def close_run(self,sid): self.sessions.pop(sid,None)
+        def __init__(self):self.sessions={};self.limits={}
+        async def ensure(self,sid,url):self.sessions[sid]={}
+        async def screenshot(self,*a):return {'image':'data:image/png;base64,cGl4ZWxz','frame':1,'width':1280,'height':720}
+        async def close_run(self,sid):self.sessions.pop(sid,None)
     browser=Browser()
-    def manager(authorization: str = Header(default='')):
-        if authorization!='Bearer manager': raise HTTPException(403,'Manager credential required')
-    app=FastAPI(); install_os_routes(app,manager,'manager',tmp_path/'data',source=source,runtime=browser)
-    return TestClient(app), calls, browser
+    def manager(authorization:str=Header(default='')):
+        if authorization!='Bearer manager':raise HTTPException(403)
+    app=FastAPI();install_os_routes(app,manager,'manager',data,source=source,runtime=browser)
+    return TestClient(app),calls,browser,state,data
 
 
-def create(client, **kwargs):
-    response=client.post('/os-api/runs',headers={'Authorization':'Bearer manager'},json={'case_id':'OS-SEL-01',**kwargs})
-    assert response.status_code==200,response.text
-    return response.json()
+def create(client,**kwargs):
+    response=client.post('/os-api/runs',headers=AUTH,json={'case_id':'OS-E-01',**kwargs});assert response.status_code==200,response.text;return response.json()
 
 
-def test_os_actor_cannot_access_catalog_semantic_actions_or_grade(os_client):
-    client,calls,_=os_client
-    run=create(client,interaction='agent')
-    assert 'rule_text' not in json.dumps(run) and 'expected' not in json.dumps(run)
-    actor={'Authorization':'Bearer '+run['actor_token']}
-    assert client.get('/os-api/cases',headers=actor).status_code==403
-    assert client.post('/os-api/runs/vos_123/eval',headers=actor).status_code==403
-    assert client.post('/os-sim/vos_123/api/v1/sessions/vos_123/action',headers=actor,json={}).status_code==403
-    observation=client.get('/os-api/runs/vos_123/observation',headers=actor)
-    assert observation.status_code==200
-    assert observation.json()['height']==720
-    assert not any(path.endswith('/action') for _,path,_ in calls)
+def test_catalogue_three_levels_and_actor_isolation(os_client):
+    c,calls,_,_,_=os_client
+    rows=c.get('/os-api/cases',headers=AUTH).json()['cases']
+    assert len(rows)==36
+    for level in ('easy','medium','hard'):assert sum(t['difficulty']==level for t in rows)==12
+    run=create(c);sid=run['id'];actor={'Authorization':'Bearer '+run['actor_token']}
+    assert c.get('/os-api/cases',headers=actor).status_code==403
+    assert c.post(f'/os-api/runs/{sid}/check',headers=actor).status_code==403
+    assert c.post(f'/os-sim/{sid}/api/v2/sessions/{sid}/action',headers=actor,json={}).status_code==403
+    assert c.post('/os-api/runs',headers=AUTH,json={'case_id':'OS-E-01','interaction':'agent'}).status_code==409
 
 
-def test_browser_capability_is_session_scoped_and_no_authoring_routes(os_client):
-    client,_,_=os_client;run=create(client)
-    page=client.get(run['application_url'],follow_redirects=False)
-    assert page.status_code==303 and 'access=' not in page.headers['location']
-    assert 'HttpOnly' in page.headers['set-cookie']
-    assert client.get('/os-sim/vos_123/app.js').status_code==200
-    assert client.post('/os-sim/vos_123/api/v1/sessions',json={}).status_code==404
-    assert client.get('/os-sim/vos_123/api/v1/sessions/vos_other').status_code==404
-    assert client.get('/os-sim/vos_123/data/episodes/vos_123.json').status_code==404
-    assert client.post('/os-sim/vos_123/api/v1/sessions/vos_123/reset',json={}).status_code==404
+def test_browser_scoped_transport_and_goal_hidden(os_client):
+    c,*_=os_client;run=create(c);sid=run['id']
+    r=c.get(run['application_url'],follow_redirects=False);assert r.status_code==303 and 'HttpOnly' in r.headers['set-cookie']
+    script=c.get(f'/os-sim/{sid}/desktop.js');assert script.status_code==200 and 'Task instructions' not in script.text
+    for path in ('api/v2/sessions','api/v2/sessions/osl_other',f'api/v2/sessions/{sid}/reset','tasks36.py'):
+        assert c.get(f'/os-sim/{sid}/{path}').status_code==404
+    assert c.post(f'/os-sim/{sid}/lesson-next').status_code==404
 
 
-def test_eval_uses_upstream_result_and_is_idempotent(os_client):
-    client,calls,_=os_client;create(client)
-    for _ in range(2):
-        r=client.post('/os-api/runs/vos_123/eval',headers={'Authorization':'Bearer manager'})
-        assert r.status_code==200 and r.json()['success'] is False
-    assert sum(path.endswith('/finish') for _,path,_ in calls)==1
+def test_eval_finalizes_but_check_does_not(os_client):
+    c,calls,*_=os_client;run=create(c);sid=run['id']
+    assert c.post(f'/os-api/runs/{sid}/check',headers=AUTH).json()['success'] is False
+    assert not any(p.endswith('/finish') for _,p,_ in calls)
+    for _ in range(2):assert c.post(f'/os-api/runs/{sid}/eval',headers=AUTH).json()['success'] is False
+    assert sum(p.endswith('/finish') for _,p,_ in calls)==1
 
 
-def test_no_demo_seed_replay_or_silent_browser_recreation(os_client):
-    client,_,browser=os_client
-    assert client.post('/os-api/runs',headers={'Authorization':'Bearer manager'},json={'case_id':'OS-SEL-01','seed':1000000}).status_code==422
-    run=create(client,interaction='agent');auth={'Authorization':'Bearer '+run['actor_token']}
-    assert client.get('/os-api/runs/vos_123/observation',headers=auth).status_code==200
+def test_same_rule_three_demo_examples_and_single_query(os_client):
+    c,calls,_,state,_=os_client
+    run=create(c,case_id='OS-H-11',mode='demo');lesson=run['lesson'];assert lesson['seeds']==[509,73,258]
+    creates=[k['json'] for _,p,k in calls if p=='/api/v2/sessions']
+    assert len(creates)==3 and all(d['plan_variant']=='module-demo' and d['mode']=='practice' and d['convention']==0 for d in creates)
+    sid=run['id'];c.get(run['application_url'])
+    assert c.post(f'/os-sim/{sid}/lesson-next').status_code==409
+    state['success']=True
+    for child in lesson['sessions']:
+        current=c.get(f'/os-api/runs/{sid}',headers=AUTH).json();c.get(current['application_url'])
+        response=c.post(f'/os-sim/{child}/lesson-next');assert response.status_code==200,response.text
+    assert response.json()['finished']
+    assert c.get(f'/os-api/runs/{sid}',headers=AUTH).json()['lesson']['finished']
+    assert not create(c,case_id='OS-H-11')['lesson']
+
+
+def test_upload_review_persists_and_demo_is_pinned(os_client,monkeypatch):
+    from vic import human_recording
+    c,calls,browser,state,data=os_client
+    def convert(src,out,*a):out.write_bytes(b'mp4');return {'frames':30,'duration':1}
+    monkeypatch.setattr(human_recording,'convert',convert)
+    run=create(c,mode='demo');base=f"/os-api/runs/{run['id']}/recordings"
+    r=c.post(base+'/upload',headers={**AUTH,'Content-Type':'video/webm'},content=b'uploaded');assert r.status_code==200
+    assert c.post(base+'/review',headers=AUTH,json={'reviewer':'Human'}).status_code==409
+    state['success']=True
+    assert c.post(base+'/review',headers=AUTH,json={'reviewer':'Human','note':'all examples clear'}).json()['approved']
+    assert c.get('/os-api/cases',headers=AUTH).json()['cases'][0]['recording_status']['A']=='已完成录制'
+    assert c.get(base+'/video',headers=AUTH).content==b'mp4'
+    assert c.get('/os-api/cases/OS-E-01/demo',headers=AUTH).content==b'mp4'
+    assert c.post('/os-api/runs',headers=AUTH,json={'case_id':'OS-E-01','seed':1001}).status_code==422
+    actor_run=create(c,interaction='agent');actor={'Authorization':'Bearer '+actor_run['actor_token']}
+    assert c.get(actor_run['demonstrations'][0]['url'],headers=actor).content==b'mp4'
+    assert c.get(f"/os-api/runs/{actor_run['id']}/observation",headers=actor).status_code==200
     browser.sessions.clear()
-    r=client.get('/os-api/runs/vos_123/observation',headers=auth)
-    assert r.status_code==409 and 'interrupted' in r.text
+    assert c.get(f"/os-api/runs/{actor_run['id']}/observation",headers=actor).status_code==409
+    # Uploading another take cannot change a demo already selected for a run.
+    c.post(base+'/upload',headers={**AUTH,'Content-Type':'video/mp4'},content=b'new')
+    assert c.get(actor_run['demonstrations'][0]['url'],headers=actor).content==b'mp4'
+    assert len(list((data/'os-recordings').glob('*.json')))==2
+    assert c.get(f"/os-api/runs/{run['id']}",headers=AUTH).json()['recording']['approved'] is False

@@ -11,10 +11,11 @@ AUTH={'Authorization':'Bearer '+SECRET}
 @pytest.fixture
 def review(tmp_path,monkeypatch):
     osroot=tmp_path/'os';osroot.mkdir()
-    (osroot/'cases.py').write_text('CASES = [Case("OS-SEL-01", "Selection", "Files", "selection", "L1", "Choose the file", ("red", "green", "blue"))]')
-    (osroot/'data/manifests').mkdir(parents=True)
-    (osroot/'demo.webm').write_bytes(b'abcdefghij')
-    (osroot/'data/manifests/os-icl-1.0.0.json').write_text(json.dumps({'entries':[{'case_id':'OS-SEL-01','rule':0,'video':'demo.webm'}]}))
+    release=json.loads((Path(__file__).resolve().parents[1]/'tasks/os/catalog.json').read_text())
+    (osroot/'videoicl-catalog.json').write_text(json.dumps(release))
+    media=tmp_path/'os-recordings';media.mkdir();(media/'sample.mp4').write_bytes(b'abcdefghij')
+    import hashlib
+    (media/'sample.json').write_text(json.dumps(dict(id='sample',run_id='osl_sample',case_id='OS-E-01',convention=0,seed=1001,example_seeds=[1001],video='sample.mp4',sha256=hashlib.sha256(b'abcdefghij').hexdigest(),recording_actor='human_browser',approved=True,reviewer='同事',created_at=1,fingerprint=release['implementation']['fingerprint'],design_version=release['design_version'])))
     monkeypatch.setenv('VIC_OS_SOURCE',str(osroot))
     monkeypatch.setenv('VIC_EMBODIED_SOURCE',str(Path(__file__).resolve().parents[1]/'simulator'))
     def make():return create_app(database_url=f'sqlite:///{tmp_path}/db',data_dir=tmp_path,secret=SECRET)
@@ -30,23 +31,23 @@ def test_catalog_rules_auth_and_videos(review):
     assert d['warnings']==[]
     assert len([t for t in d['tasks'] if t['kind']=='web'])==75
     assert len([t for t in d['tasks'] if t['kind']=='embodied'])==8
-    assert len([t for t in d['tasks'] if t['kind']=='os'])==1
+    assert len([t for t in d['tasks'] if t['kind']=='os'])==36
     for t in d['tasks']:
         assert all(t['rules'].get(v) for v in 'ABC')
         assert t['instruction']
     assert c.get('/review').status_code==200
-    assert c.get('/review-api/media/os/OS-SEL-01/A').status_code==401
+    assert c.get('/review-api/media/os/OS-E-01/A').status_code==401
     r=c.post('/review-api/access',headers=AUTH)
     assert 'HttpOnly' in r.headers['set-cookie']
     handbook=c.get('/design-handbook')
     assert handbook.status_code==200 and 'text/html' in handbook.headers['content-type']
     assert 'task-075' in handbook.text and 'F44' in handbook.text
-    r=c.get('/review-api/media/os/OS-SEL-01/A',headers={'Range':'bytes=2-5'})
+    r=c.get('/review-api/media/os/OS-E-01/A',headers={'Range':'bytes=2-5'})
     assert r.status_code==206 and r.content==b'cdef'
     assert c.get('/review-api/media/embodied/F01/A',headers={'Range':'bytes=0-100'}).status_code==206
-    assert c.get('/review-api/media/os/OS-SEL-01/D').status_code==422
+    assert c.get('/review-api/media/os/OS-E-01/D').status_code==422
     c.cookies.set('vic-review','9999999999.invalid')
-    assert c.get('/review-api/media/os/OS-SEL-01/A').status_code==401
+    assert c.get('/review-api/media/os/OS-E-01/A').status_code==401
 
 
 def test_comments_persist_and_are_task_scoped(review):

@@ -23,19 +23,9 @@ class Comment(BaseModel):
     text: str = Field(min_length=1, max_length=8000)
 
 
-def os_catalog(source):
-    """Read literal case definitions without importing the simulator."""
-    tree = ast.parse((source / 'cases.py').read_text())
-    assignment = next(n for n in tree.body if isinstance(n, ast.Assign) and any(isinstance(t, ast.Name) and t.id == 'CASES' for t in n.targets))
-    rows = []
-    for node in assignment.value.elts:
-        if not isinstance(node, ast.Call) or not isinstance(node.func, ast.Name) or node.func.id != 'Case':
-            raise ValueError('Unsupported OS case definition')
-        id_, title, platform, family, difficulty, task, rules = [ast.literal_eval(a) for a in node.args]
-        rows.append(dict(id=id_, kind='os', title=title, platform=platform, difficulty=difficulty,
-                         rules=dict(zip('ABC', rules)), instruction=task, demo_source='OS-ICL 配套示范',
-                         videos={v: [dict(label=f'{v} · 配套示范', url=f'/review-api/media/os/{id_}/{v}')] for v in 'ABC'}))
-    return rows
+def os_catalog(source, data=None):
+    from .os_release import review_catalog
+    return review_catalog(source,data)
 
 
 def install_review(app, manager, secret, data, web_catalog, recordings, web_video):
@@ -94,7 +84,7 @@ def install_review(app, manager, secret, data, web_catalog, recordings, web_vide
             row['videos'][run['variant']].append(dict(label=f"{'v2' if run['manifest'].get('suite')=='v2' else 'v1'} · {'审核通过' if m.get('approved') else '待审核'} · {m.get('reviewer') or '未署名'} · 第 {run['epoch']+1} 轮",
                 url=f"/review-api/media/web/{run['id']}/{run['epoch']}", historical=bool(m.get('archived') or m.get('contract_current') is False),
                 created_at=run['created_at'], approved=bool(m.get('approved'))))
-        for kind, reader in [('os', lambda:os_catalog(os_source)), ('embodied', embodied)]:
+        for kind, reader in [('os', lambda:os_catalog(os_source,data)), ('embodied', embodied)]:
             try:rows.extend(reader())
             except (OSError, ValueError, KeyError, SyntaxError, StopIteration):warnings.append(f'{kind} 任务目录暂不可用，请检查服务资源挂载。')
         with sqlite3.connect(database) as db:
@@ -110,7 +100,7 @@ def install_review(app, manager, secret, data, web_catalog, recordings, web_vide
     def validate(kind, task):
         if kind == 'web' and task.isdigit() and 1 <= int(task) <= 75:return
         try:
-            items = os_catalog(os_source) if kind == 'os' else embodied() if kind == 'embodied' else []
+            items = os_catalog(os_source,data) if kind == 'os' else embodied() if kind == 'embodied' else []
             if any(r['id']==task for r in items):return
         except (OSError,ValueError,KeyError):pass
         raise HTTPException(404, 'Task not found')
@@ -137,13 +127,14 @@ def install_review(app, manager, secret, data, web_catalog, recordings, web_vide
         return web_video(run_id,epoch)
 
     @app.get('/review-api/media/{kind}/{task}/{variant}')
-    def media(kind:Literal['os','embodied'], task:str, variant:Literal['A','B','C'], request:Request):
+    def media(kind:Literal['os','embodied'], task:str, variant:Literal['A','B','C'], request:Request, take:int=0):
         access(request);validate(kind,task)
         if kind=='os':
-            manifest=json.loads((os_source/'data/manifests/os-icl-1.0.0.json').read_text())
-            entry=next((e for e in manifest['entries'] if e['case_id']==task and e['rule']=='ABC'.index(variant)),None)
-            if entry is None:raise HTTPException(404,'示范视频不存在')
-            root=os_source;path=(root/entry['video']).resolve();mime='video/webm'
+            from .os_release import demo_file, demo_root
+            try:_,path=demo_file(os_source,task,variant,take,data)
+            except FileNotFoundError as exc:raise HTTPException(404,str(exc))
+            except (ValueError,KeyError,OSError) as exc:raise HTTPException(503,str(exc))
+            root=demo_root(os_source,data);mime='video/mp4'
         else:
             manifest=json.loads((embodied_source/'delivery8/release.private.json').read_text())
             entry=next(t for t in manifest['tasks'] if t['id']==task)

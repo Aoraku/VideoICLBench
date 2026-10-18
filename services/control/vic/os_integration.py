@@ -8,6 +8,7 @@ import json
 import os
 import secrets
 import time
+import uuid
 from pathlib import Path
 
 import httpx
@@ -18,15 +19,17 @@ from typing import Literal
 
 from .runtime import BrowserRuntime
 from .schemas import Action
+from . import os_release, human_recording
 
 
 class OSRunRequest(BaseModel):
-    case_id: str = Field(pattern=r"^OS-[A-Z]+-\d{2}$")
+    case_id: str = Field(pattern=r"^OS-[EMH]-\d{2}$")
     variant: Literal["A", "B", "C"] = "A"
     seed: int = Field(default=20261005, ge=0, le=2**31-1)
     interaction: Literal["human", "agent"] = "human"
-    timeout_seconds: int = Field(default=1800, ge=30, le=7200)
-    max_actions: int = Field(default=120, ge=1, le=1000)
+    mode: Literal["demo", "eval"] = "eval"
+    timeout_seconds: int = Field(default=3600, ge=30, le=7200)
+    max_actions: int = Field(default=800, ge=1, le=5000)
 
 
 def install_os_routes(app, manager, secret: str, data: Path, *, upstream=None, source=None, runtime=None):
@@ -49,7 +52,7 @@ def install_os_routes(app, manager, secret: str, data: Path, *, upstream=None, s
         temp.replace(target)
 
     def read(sid):
-        if not sid.startswith("vos_") or not sid[4:].isalnum():
+        if not sid.startswith("osl_") or not sid[4:].isalnum():
             raise HTTPException(404, "OS run not found")
         path = runs / (sid + ".json")
         if not path.is_file():
@@ -81,63 +84,98 @@ def install_os_routes(app, manager, secret: str, data: Path, *, upstream=None, s
             raise HTTPException(response.status_code, "OS service rejected the request")
         return response.json()
 
-    def demo(case_id, variant):
-        manifest = source / "data/manifests/os-icl-1.0.0.json"
-        if not manifest.is_file():
-            raise HTTPException(503, "OS release manifest unavailable")
-        entries = json.loads(manifest.read_text())["entries"]
-        entry = next((e for e in entries if e["case_id"] == case_id and e["rule"] == "ABC".index(variant)), None)
-        if not entry:
-            raise HTTPException(404, "OS demonstration not found")
-        path = (source / entry["video"]).resolve()
-        if not path.is_relative_to(source.resolve()) or not path.is_file():
-            raise HTTPException(503, "OS demonstration unavailable")
-        return entry, path
+    def demo(case_id, variant, take=0):
+        try:return os_release.demo_file(source,case_id,variant,take,data)
+        except FileNotFoundError as exc:raise HTTPException(404,str(exc))
+        except (OSError,ValueError,KeyError) as exc:raise HTTPException(503,str(exc))
+
+    def catalogue():
+        try:return os_release.catalog(source)
+        except (OSError,ValueError,KeyError) as exc:raise HTTPException(503,str(exc))
+
+    def media():
+        try:return os_release.demonstrations(source,data)
+        except (OSError,ValueError,KeyError) as exc:raise HTTPException(503,str(exc))
 
     def launch(run):
         return f"/os-sim/{run['id']}/?access={browser_token(run['id'])}"
 
     def public(run):
         return {k: run[k] for k in ("id", "case_id", "variant", "seed", "interaction", "created_at", "status", "public_task", "demo_sha256", "benchmark_version")} | {
-            "application_url": launch(run), "result": run.get("result")}
+            "application_url": launch(run), "result": run.get("result"), "demonstrations":run.get("demonstrations",[]), "demo_notice":run.get("demo_notice", ""), "mode":run.get("mode","eval"), "lesson":run.get("lesson"), "recording":run.get("recording")}
 
     @app.get("/os-api/cases", dependencies=[Depends(manager)])
     async def cases():
-        result = await api("/api/v1/cases")
-        result.update(demonstrations=108, benchmark_version="1.0.0")
-        return result
+        release=catalogue();result=await api('/api/v2/cases')
+        if result.get('benchmark_version')!=release['benchmark_version'] or {c['id'] for c in result['cases']}!={c['id'] for c in release['cases']}:
+            raise HTTPException(503,'OS service and platform release do not match')
+        entries,notice=media()
+        return dict(cases=[{**c,'recording_status':{v:('已完成录制' if any(e.get('approved') for e in entries if e['case_id']==c['id'] and e['convention']=='ABC'.index(v) and not e['historical']) else '待审核' if any(e['case_id']==c['id'] and e['convention']=='ABC'.index(v) and not e['historical'] for e in entries) else '待录制') for v in 'ABC'}} for c in release['cases']],demonstrations=len(entries),benchmark_version=release['benchmark_version'],demo_notice=notice)
 
-    @app.get("/os-api/cases/{case_id}/demo", dependencies=[Depends(manager)])
-    async def case_demo(case_id: str, variant: Literal["A", "B", "C"] = "A"):
-        _, path = demo(case_id, variant)
-        return FileResponse(path, media_type="video/webm")
+    @app.get('/os-api/cases/{case_id}/demos',dependencies=[Depends(manager)])
+    async def case_demos(case_id:str,variant:Literal['A','B','C']='A'):
+        if case_id not in {c['id'] for c in catalogue()['cases']}:raise HTTPException(404,'OS task not found')
+        entries,notice=media()
+        choices=[e for e in entries if e['case_id']==case_id and e['convention']=='ABC'.index(variant)]
+        return dict(videos=[dict(run_id=e['run_id'],approved=e.get('approved',False),historical=e['historical'],created_at=e['created_at'],seed=e['seed'],sha256=e['sha256'],label=f"seed {e['seed']} · {e.get('recording_actor','来源未标注')} · 视觉审核 {e['visual_review']}",
+                         url=f'/os-api/cases/{case_id}/demo?variant={variant}&take={i}') for i,e in enumerate(choices)],notice=notice)
 
-    @app.post("/os-api/runs", dependencies=[Depends(manager)])
-    async def create(body: OSRunRequest):
-        entry, _ = demo(body.case_id, body.variant)
-        # A different seed ensures the query is not the recorded demonstration.
-        if body.seed == entry["seed"]:
-            raise HTTPException(422, "Evaluation seed must differ from demonstration seed")
-        session = await api("/api/v1/sessions", "POST", {"case_id": body.case_id, "rule": "ABC".index(body.variant),
-            "seed": body.seed, "mode": "evaluation", "external_task_id": "videoicl:" + body.case_id})
-        actor = secrets.token_urlsafe(32)
-        run = {**body.model_dump(), "id": session["id"], "token_hash": hashlib.sha256(actor.encode()).hexdigest(),
-            "created_at": time.time(), "status": "running", "benchmark_version": session["benchmark_version"],
-            "public_task": {"assignment": session["case"]["task"], "title": session["case"]["title"],
-                "inference": "Infer the policy from the assigned demonstration and apply it to the new items. Complete the task using the interface, then call finish."},
-            "demo_sha256": entry["sha256"], "result": None}
+    @app.get('/os-api/cases/{case_id}/demo',dependencies=[Depends(manager)])
+    async def case_demo(case_id:str,variant:Literal['A','B','C']='A',take:int=0):
+        _,path=demo(case_id,variant,take)
+        return FileResponse(path,media_type='video/mp4')
+
+    @app.post('/os-api/runs',dependencies=[Depends(manager)])
+    async def create(body:OSRunRequest):
+        release=catalogue();case=next((c for c in release['cases'] if c['id']==body.case_id),None)
+        if not case:raise HTTPException(404,'OS task not found')
+        entries,notice=media()
+        choices=[e for e in entries if e['case_id']==body.case_id and e['convention']=='ABC'.index(body.variant)
+                 and e.get('approved') and not e['historical'] and e.get('recording_actor')=='human_browser']
+        if body.mode=='eval' and body.seed in set(case['demo_seeds']) | {seed for e in choices for seed in e['example_seeds']}:
+            raise HTTPException(422,'Evaluation seed must differ from demonstration seeds')
+        if body.interaction=='agent' and (body.mode!='eval' or not choices):
+            raise HTTPException(409,'需要先录制并审核一段包含全部局部示例的人工 demo。')
+        chosen=choices[-1:]
+        for entry in chosen:os_release.recording_file(source,entry,data)
+        sessions=[]
+        for seed in (case['demo_seeds'] if body.mode=='demo' else [body.seed]):
+            session=await api('/api/v2/sessions','POST',dict(case_id=body.case_id,convention='ABC'.index(body.variant),seed=seed,
+                mode='practice' if body.mode=='demo' else 'evaluation',plan_variant='module-demo' if body.mode=='demo' else 'standard',
+                external_task_id='videoicl:'+body.case_id,recording_actor='human_browser' if body.mode=='demo' else 'not-attested'))
+            if not session.get('compatible') or session['benchmark_version']!=release['benchmark_version']:
+                raise HTTPException(503,'OS session implementation is incompatible')
+            sessions.append(session)
+        actor=secrets.token_urlsafe(32);session=sessions[0]
+        run={**body.model_dump(),'id':session['id'],'token_hash':hashlib.sha256(actor.encode()).hexdigest(),
+            'created_at':time.time(),'status':'running','benchmark_version':session['benchmark_version'],
+            'fingerprint':release['implementation']['fingerprint'],'design_version':release['design_version'],
+            'public_task':dict(assignment=session['case']['task'],title=case['title']),
+            'demo_sha256':chosen[0]['sha256'] if chosen else None,'result':None,'demo_notice':notice,
+            'demonstrations':[dict(id=e['id'],seed=e['seed'],sha256=e['sha256'],url=f"/os-api/runs/{session['id']}/demo") for e in chosen]}
+        if body.mode=='demo':
+            run['lesson']={'sessions':[s['id'] for s in sessions],'seeds':case['demo_seeds'],'index':0,'total':len(sessions),'finished':False,'results':[]}
         save(run)
-        return {**public(run), "actor_token": actor}
+        for child in sessions[1:]:save({**run,'id':child['id'],'lesson_root':run['id'],'lesson':None})
+        return {**public(run),'actor_token':actor}
 
     @app.get("/os-api/runs/{sid}", dependencies=[Depends(manager)])
     async def get_run(sid):
-        return public(read(sid))
+        run=read(sid)
+        if run.get("lesson_root"):run=read(run["lesson_root"])
+        result=public(run)
+        if run.get("lesson"):result["application_url"]=launch(read(run["lesson"]["sessions"][run["lesson"]["index"]]))
+        return result
 
     @app.get("/os-api/runs/{sid}/demo")
-    async def run_demo(sid: str, request: Request):
+    async def run_demo(sid: str, request: Request, take:int=0):
         run = read(sid); authorize(run, request)
-        _, path = demo(run["case_id"], run["variant"])
-        return FileResponse(path, media_type="video/webm")
+        entries=run.get('demonstrations',[])
+        if take<0 or take>=len(entries):raise HTTPException(404,'Demo unavailable')
+        entry_path=os_release.demo_root(source,data)/(entries[take]['id']+'.json')
+        entry=json.loads(entry_path.read_text())
+        if not entry.get('approved') or entry['sha256']!=entries[take]['sha256']:raise HTTPException(409,'Demo approval or checksum changed')
+        return FileResponse(os_release.recording_file(source,entry,data),media_type='video/mp4')
 
     async def agent_ready(sid, request):
         run = read(sid); authorize(run, request)
@@ -170,52 +208,126 @@ def install_os_routes(app, manager, secret: str, data: Path, *, upstream=None, s
             except ValueError as exc:
                 raise HTTPException(409, str(exc))
 
-    @app.post("/os-api/runs/{sid}/eval", dependencies=[Depends(manager)])
-    async def evaluate(sid: str):
+    @app.post('/os-api/runs/{sid}/check',dependencies=[Depends(manager)])
+    async def check(sid:str):
+        run=read(sid)
+        if run.get('lesson'):
+            lesson=run['lesson']
+            results=[(await api(f'/api/v2/sessions/{child}/judge','POST',{}))['result'] for child in lesson['sessions']]
+            return {'success':all(r['success'] for r in results),'groups':results,'passed':sum(r['success'] for r in results),'total':len(results)}
+        return (await api(f'/api/v2/sessions/{sid}/judge','POST',{}))['result']
+
+    @app.post('/os-api/runs/{sid}/eval', dependencies=[Depends(manager)])
+    async def evaluate(sid:str):
         async with lock(sid):
-            run = read(sid)
-            if run.get("result") is None:
-                session = await api(f"/api/v1/sessions/{sid}")
-                if session["status"] != "finished":
-                    session = await api(f"/api/v1/sessions/{sid}/finish", "POST", {})
-                run["result"] = session["result"]
-                run["status"] = "completed"
+            run=read(sid)
+            if run.get('mode')=='demo':return await check(sid)
+            if run.get('result') is None:
+                session=await api(f'/api/v2/sessions/{sid}/finish','POST',{})
+                run.update(result=session['result'],status='completed');save(run);await runtime.close_run(sid)
+            return {'run_id':sid,**run['result']}
+
+    async def advance(sid):
+        child=read(sid);root_id=child.get('lesson_root',sid)
+        async with lock(root_id):
+            run=read(root_id);lesson=run.get('lesson')
+            if not lesson:raise HTTPException(404,'Not a demonstration')
+            if lesson['sessions'][lesson['index']]!=sid:raise HTTPException(409,'This example is no longer active')
+            if not lesson['finished']:
+                result=(await api(f'/api/v2/sessions/{sid}/judge','POST',{}))['result']
+                if not result['success']:raise HTTPException(409,'本组尚未完成。请核对操作范围和保存结果，再继续。')
+                lesson['results'].append(result)
+                await api(f'/api/v2/sessions/{sid}/finish','POST',{})
+                if lesson['index']+1==lesson['total']:
+                    lesson['finished']=True;run['result']={'success':True,'passed':lesson['total'],'total':lesson['total']}
+                else:lesson['index']+=1
                 save(run)
-                await runtime.close_run(sid)
-            return {"run_id": sid, **run["result"]}
+            return dict(finished=lesson['finished'],application_url=launch(read(lesson['sessions'][lesson['index']])) )
+
+    @app.post('/os-api/runs/{sid}/recordings/upload',dependencies=[Depends(manager)])
+    async def upload(sid:str,request:Request):
+        async with lock(sid):
+            run=read(sid)
+            if not run.get('lesson'):raise HTTPException(409,'只能为示范环境上传录像')
+            mime=request.headers.get('Content-Type','').split(';')[0]
+            if mime not in {'video/mp4','video/webm'}:raise HTTPException(415,'请上传 WebM 或 MP4')
+            root=os_release.demo_root(source,data);root.mkdir(parents=True,exist_ok=True)
+            rid=uuid.uuid4().hex;incoming=root/(rid+'.upload');output=root/(rid+'.mp4')
+            try:
+                size=0
+                with incoming.open('wb') as stream:
+                    async for chunk in request.stream():
+                        size+=len(chunk)
+                        if size>human_recording.MAX_BYTES:raise HTTPException(413,'录像不得超过 150 MB')
+                        stream.write(chunk)
+                try:meta=await asyncio.to_thread(human_recording.convert,incoming,output,mime,0)
+                except ValueError as exc:raise HTTPException(422,str(exc))
+                with output.open('rb') as stream:digest=hashlib.file_digest(stream,'sha256').hexdigest()
+                entry={**meta,'id':rid,'run_id':sid,'case_id':run['case_id'],'convention':'ABC'.index(run['variant']),
+                    'seed':run['lesson']['seeds'][0],'example_seeds':run['lesson']['seeds'], 'video':output.name,'sha256':digest,
+                    'recording_actor':'human_browser','approved':False,'created_at':time.time(),
+                    'design_version':run['design_version'],'fingerprint':run['fingerprint']}
+                (root/(rid+'.json')).write_text(json.dumps(entry,ensure_ascii=False,indent=2))
+                run['recording']=entry;save(run);return entry
+            finally:
+                incoming.unlink(missing_ok=True)
+                if not (root/(rid+'.json')).exists():output.unlink(missing_ok=True)
+
+    @app.get('/os-api/runs/{sid}/recordings/video',dependencies=[Depends(manager)])
+    async def recorded_video(sid:str):
+        entry=read(sid).get('recording')
+        if not entry:raise HTTPException(404,'尚无录像')
+        return FileResponse(os_release.recording_file(source,entry,data),media_type='video/mp4')
+
+    @app.post('/os-api/runs/{sid}/recordings/review',dependencies=[Depends(manager)])
+    async def review_recording(sid:str,request:Request):
+        async with lock(sid):
+            body=await request.json();reviewer=str(body.get('reviewer','')).strip();note=str(body.get('note','')).strip()
+            if not reviewer or len(reviewer)>100 or len(note)>8000:raise HTTPException(422,'请填写有效审核人和备注')
+            run=read(sid);entry=run.get('recording')
+            if not entry:raise HTTPException(409,'请先上传录像')
+            if entry['fingerprint']!=catalogue()['implementation']['fingerprint']:raise HTTPException(409,'录像与当前任务版本不匹配')
+            result=await check(sid)
+            if not result['success']:raise HTTPException(409,'所有示范组通过自动检查后才能审核')
+            os_release.recording_file(source,entry,data)
+            entry.update(approved=True,reviewer=reviewer,note=note,reviewed_at=time.time(),checks=result,status='approved')
+            path=os_release.demo_root(source,data)/(entry['id']+'.json');temp=path.with_suffix('.tmp')
+            temp.write_text(json.dumps(entry,ensure_ascii=False,indent=2));temp.replace(path)
+            save(run);return entry
 
     @app.api_route("/os-sim/{sid}/{path:path}", methods=["GET", "POST"])
     async def proxy(sid: str, path: str, request: Request):
         run = read(sid); authorize(run, request, browser=True)
         base = f"/os-sim/{sid}"
         if request.query_params.get("access"):
-            response = RedirectResponse(base + f"/?session={sid}&visual=1", status_code=303)
+            response = RedirectResponse(base + f"/?session={sid}", status_code=303)
             response.set_cookie("vic-os", browser_token(sid), httponly=True, samesite="strict", path=base+"/")
             return response
-        allowed_static = {"", "app.js", "styles.css", "os-shell.js", "os-shell.css"}
-        allowed_api = {"api/v1/cases", f"api/v1/sessions/{sid}", f"api/v1/sessions/{sid}/action", f"api/v1/sessions/{sid}/finish"}
-        if path not in allowed_static | allowed_api or (request.method == "POST" and not path.endswith(("/action", "/finish"))):
-            raise HTTPException(404, "OS route unavailable")
-        if request.method == "POST" and run["status"] != "running":
-            raise HTTPException(409, "OS session is completed")
-        async with httpx.AsyncClient(base_url=upstream, timeout=30) as client:
-            response = await client.request(request.method, "/"+path, content=await request.body(),
-                headers={"Content-Type": request.headers.get("Content-Type", "application/json")})
-        content = response.content
-        mime = response.headers.get("Content-Type", "application/octet-stream")
-        if path == "":
-            content = content.decode().replace('href="/', f'href="{base}/').replace('src="/', f'src="{base}/').encode()
-        elif path == "app.js":
-            text = content.decode().replace('fetch(url,', f'fetch({json.dumps(base)} + url,')
-            # Keep the original simulator and event handlers, with studio chrome outside the agent viewport.
-            marker = '  if(state.replay){'
-            visual = '''  if(new URLSearchParams(location.search).get("visual")==="1"){
-    document.body.classList.add("recording-mode");
-    root.innerHTML=`<main class="recording-only">${simulator}<div class="recording-toolbar"><button class="btn success" id="finish">Finish and evaluate</button>${s.result?`<span>${s.result.success?"success":"fail"}</span>`:""}</div></main>`;
-    bindSession(); return;
-  }
-'''
-            if marker not in text:
-                raise HTTPException(503, "OS frontend version is not compatible")
-            content = text.replace(marker, visual+marker, 1).encode()
+        if path=='lesson-next' and request.method=='POST':return await advance(sid)
+        allowed_static={'','desktop.js','desktop.css','lesson-controls.js'}
+        allowed_api={f'api/v2/sessions/{sid}',f'api/v2/sessions/{sid}/action',f'api/v2/sessions/{sid}/ui-event',f'api/v2/sessions/{sid}/finish'}
+        if path=='lesson-controls.js':
+            owner=read(run.get('lesson_root',sid));lesson=owner.get('lesson')
+            if not lesson:raise HTTPException(404)
+            code='''const b=document.createElement('button'); b.textContent=LABEL; Object.assign(b.style,{position:'fixed',right:'16px',bottom:'56px',zIndex:'99999',padding:'12px',borderRadius:'8px'});document.body.append(b);b.onclick=async()=>{b.disabled=true;try{const r=await fetch('lesson-next',{method:'POST'});const d=await r.json();if(!r.ok)throw Error(d.detail);if(d.finished){b.textContent='示范已完成，请返回工作台保存和审核';}else location.replace(d.application_url);}catch(e){alert(e.message);b.disabled=false;}};'''.replace('LABEL',json.dumps(f"示范 {lesson['index']+1}/{lesson['total']} · "+('完成练习' if lesson['index']+1==lesson['total'] else '下一组')))
+            return Response(code,media_type='text/javascript')
+        if path not in allowed_static|allowed_api or (request.method=='POST' and not path.endswith(('/action','/ui-event','/finish'))):
+            raise HTTPException(404,'OS route unavailable')
+        if request.method=='POST' and run['status']!='running':raise HTTPException(409,'OS session is completed')
+        try:
+            async with httpx.AsyncClient(base_url=upstream,timeout=30) as client:
+                response=await client.request(request.method,'/'+path,content=await request.body(),
+                    headers={'Content-Type':request.headers.get('Content-Type','application/json')})
+        except httpx.RequestError:raise HTTPException(503,'OS service unavailable')
+        content=response.content;mime=response.headers.get('Content-Type','application/octet-stream')
+        if path=='':
+            content=content.decode().replace('href="/',f'href="{base}/').replace('src="/',f'src="{base}/').encode()
+            if run.get('mode')=='demo':content=content.replace(b'</body>',f'<script src="{base}/lesson-controls.js"></script></body>'.encode())
+        elif path=='desktop.js':
+            text=content.decode()
+            if 'fetch(url,' not in text:raise HTTPException(503,'OS frontend transport is incompatible')
+            text=text.replace('fetch(url,',f'fetch({json.dumps(base)} + url,')
+            # Task goals belong to the external prompt, never desktop chrome.
+            text=text.replace("${btn('task-info','Task instructions')}",'')
+            content=text.encode()
         return Response(content, status_code=response.status_code, headers={"Content-Type": mime})

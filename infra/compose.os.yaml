@@ -9,7 +9,7 @@ services:
       VIC_EMBODIED_SOCKET: /bridge/tabletop8.sock
       VIC_EMBODIED_KEY: ${VIC_EMBODIED_KEY:-}
     volumes:
-      - ${VIC_OS_SOURCE_HOST:-/home/qingle/services/os-icl-e6c8050}:/opt/os-icl:ro
+      - ${VIC_OS_SOURCE_HOST:-/home/qingle/services/os-icl-human36-97a47cf}:/opt/os-icl:ro
       - ${VIC_EMBODIED_SOURCE_HOST:-/home/qingle/services/videoicl-tabletop8/release-v1}:/opt/tabletop8:ro
       - embodied_bridge:/bridge
     depends_on:
@@ -32,7 +32,7 @@ services:
     image: ${VIC_OS_IMAGE:-videoicl-control-os:local}
     command: ["python", "/opt/os-icl/server.py", "--host", "0.0.0.0", "--port", "8790"]
     volumes:
-      - ${VIC_OS_SOURCE_HOST:-/home/qingle/services/os-icl-e6c8050}:/opt/os-icl:ro
+      - ${VIC_OS_SOURCE_HOST:-/home/qingle/services/os-icl-human36-97a47cf}:/opt/os-icl:ro
       - os_data:/opt/os-icl/data
     depends_on:
       os-data-init: {condition: service_completed_successfully}

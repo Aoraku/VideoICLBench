@@ -1,58 +1,86 @@
-"""Fetch and verify a pinned OS-ICL release, then apply the visual-contract patch."""
+"""Build the pinned 36-task OS desktop, refined fixtures and recorder catalogue."""
 import argparse
-from concurrent.futures import ThreadPoolExecutor
-import hashlib
 import json
 from pathlib import Path
+import shutil
 import subprocess
-import time
-from urllib.request import urlopen
+import sys
+import tempfile
+from os_refinement import refine, design
 
 REPO = 'peilin717/OS-ICL'
-COMMIT = 'e6c805094eade3ee391d89ad19dbbefc5bc76e11'
+COMMIT = '97a47cf491f8d8793b7b78aa4b814b77e246cac8'
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def prepare(destination: Path):
-    if destination.exists() and any(destination.iterdir()):
-        raise ValueError('Use an empty destination; deployed source and runtime data are never overwritten')
-    tree = json.load(urlopen(f'https://api.github.com/repos/{REPO}/git/trees/{COMMIT}?recursive=1',timeout=30))
-    if tree.get('sha') != COMMIT or tree.get('truncated'):
-        raise ValueError('Unexpected or incomplete source tree')
-    entries = [entry for entry in tree['tree'] if entry['type']=='blob']
-    destination.mkdir(parents=True, exist_ok=True)
-    def fetch(entry):
-        path = destination / entry['path']
-        if not path.resolve().is_relative_to(destination.resolve()):
-            raise ValueError('Source path escapes release directory')
-        for attempt in range(3):
-            try:
-                content=urlopen(f'https://raw.githubusercontent.com/{REPO}/{COMMIT}/{entry["path"]}',timeout=60).read()
-                actual=hashlib.sha1(b'blob '+str(len(content)).encode()+b'\0'+content).hexdigest()
-                if actual!=entry['sha']:raise ValueError('Source blob checksum mismatch')
-                path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(content)
-                if entry['mode']=='100755':path.chmod(0o755)
-                return
-            except Exception:
-                if attempt==2:raise
-                time.sleep(1)
-    with ThreadPoolExecutor(max_workers=8) as pool:
-        list(pool.map(fetch,entries))
-    manifest=json.loads((destination/'data/manifests/os-icl-1.0.0.json').read_text())
-    assert len(manifest['entries'])==108
-    for entry in manifest['entries']:
-        content=(destination/entry['video']).read_bytes()
-        if len(content)!=entry['bytes'] or hashlib.sha256(content).hexdigest()!=entry['sha256']:
-            raise ValueError('Demonstration checksum mismatch')
-    patch=ROOT/'patches/os-icl-visible-recovery-order.patch'
-    subprocess.run(['patch','-p1','-i',str(patch)],cwd=destination,check=True)
-    provenance={'repository':REPO,'commit':COMMIT,'files_verified':len(entries),'videos_verified':108,
-                'patch':patch.name,'patch_sha256':hashlib.sha256(patch.read_bytes()).hexdigest()}
-    (destination/'videoicl-provenance.json').write_text(json.dumps(provenance,indent=2)+'\n')
-    print(json.dumps(provenance))
+def catalogue(source):
+    code = '''import json, workflows, tasks36
+rows=[]
+for spec in tasks36.SPEC:
+ demos=[tasks36.generate(spec['id'],i,1001,'module-demo') for i in range(3)]
+ query=tasks36.generate(spec['id'],0,4201)
+ rows.append(dict(spec=spec, methods={v:d['_brief36']['method'] for v,d in zip('ABC',demos)},
+  demo_instruction=demos[0]['_brief36']['instruction'], task=query['case']['task']))
+print(json.dumps(dict(version=workflows.VERSION, implementation=workflows.IMPLEMENTATION, rows=rows)))'''
+    raw=json.loads(subprocess.check_output([sys.executable,'-c',code],cwd=source,text=True))
+    rows=[design(row) for row in raw['rows']]
+    guidance_code='''import json,copy,sys,workflows,tasks36
+requests=json.load(sys.stdin);out={}
+for spec in requests:
+ examples={}
+ for c,v in enumerate('ABC'):
+  groups=[]
+  for seed in spec['demo_seeds']:
+   ep=tasks36.generate(spec['id'],c,seed,'module-demo');steps=[]
+   for a in ep['reference']:
+    state=ep['state']
+    def label(identifier):
+     if identifier is None:return ''
+     f=next((f for f in state['files'] if f['id']==identifier),None)
+     if f:return workflows.path(state,identifier)
+     for key in ('jobs','devices','processes','print_queue'):
+      item=next((x for x in state.get(key,[]) if x['id']==identifier),None)
+      if item:return item.get('name',identifier)
+     return identifier
+    step={k:label(value) if k in ('target','parent','input','output') else value for k,value in a.items()}
+    steps.append(step);workflows.transition(ep,copy.deepcopy(a))
+   groups.append({'seed':seed,'instruction':ep['_brief36']['instruction'],'steps':steps})
+  examples[v]=groups
+ out[spec['id']]=examples
+print(json.dumps(out))'''
+    guidance=json.loads(subprocess.check_output([sys.executable,'-c',guidance_code],cwd=source,input=json.dumps(rows),text=True))
+    for row in rows:row['demo_examples']=guidance[row['id']]
+    return {'repository':REPO,'commit':COMMIT,'design_version':'videoicl-os36-human-1',
+            'benchmark_version':raw['version'],'implementation':raw['implementation'],
+            'cases':rows}
 
+
+def prepare(destination, checkout=None):
+    if destination.exists() and any(destination.iterdir()):raise ValueError('Use an empty destination; never overwrite runtime data')
+    with tempfile.TemporaryDirectory(prefix='videoicl-os-source-') as temporary:
+        source=Path(checkout).resolve() if checkout else Path(temporary)/'source'
+        if not checkout:subprocess.run(['git','clone','--depth','1','https://github.com/'+REPO+'.git',str(source)],check=True)
+        if subprocess.check_output(['git','rev-parse','HEAD'],cwd=source,text=True).strip()!=COMMIT:raise ValueError('OS source does not match pinned commit')
+        subprocess.run(['git','diff','--exit-code','HEAD','--'],cwd=source,check=True)
+        files=subprocess.check_output(['git','ls-files','-z'],cwd=source).decode().split('\0')
+        destination.mkdir(parents=True,exist_ok=True)
+        for name in filter(None,files):
+            if name.startswith(('benchmark_videos/','data/')):continue
+            target=destination/name
+            if not target.resolve().is_relative_to(destination.resolve()):raise ValueError('Invalid source path')
+            target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source/name,target)
+        refine(destination)
+        result=catalogue(destination)
+        (destination/'videoicl-catalog.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+        (destination/'videoicl-provenance.json').write_text(json.dumps({'repository':REPO,'commit':COMMIT,
+            'design_version':result['design_version'],'implementation_fingerprint':result['implementation']['fingerprint'],
+            'demonstrations':'human browser capture; independent persistent library'},indent=2)+'\n')
+        print(f"Prepared {len(result['cases'])} OS tasks; 12 easy / 12 medium / 12 hard; human demos.")
+        return result
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--destination',type=Path,required=True)
-    prepare(parser.parse_args().destination.resolve())
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--destination',type=Path,required=True);p.add_argument('--checkout',type=Path)
+    p.add_argument('--catalog-output',type=Path)
+    args=p.parse_args();result=prepare(args.destination.resolve(),args.checkout)
+    if args.catalog_output:
+        args.catalog_output.parent.mkdir(parents=True,exist_ok=True);args.catalog_output.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
