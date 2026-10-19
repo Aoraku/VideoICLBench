@@ -100,7 +100,7 @@ sudo docker compose --env-file .local/docker.env -f infra/compose.yaml up --buil
 
 ## OS-ICL 任务
 
-主页 **OS · 36 题** 提供 36 个 OS 模拟任务和 108 段配套示范视频，使用同一平台密钥和现有隧道。操作步骤、原生 Agent 命令、API 和带 OS 服务的维护命令见 [OS-ICL 团队任务](os-icl.md)。维护这台服务器时需同时指定 `-f infra/compose.yaml -f infra/compose.os.yaml`，以保留 OS 资源挂载和服务。
+主页 **OS · 36 题** 提供 36 个 OS 模拟任务，每题 A/B/C，使用同一平台密钥和现有隧道。示范由同事人工录制、上传和审核；任务卡「在哪里操作」给出具体应用入口、输入与保存路径。操作步骤、原生 Agent 命令、API 和带 OS 服务的维护命令见 [OS-ICL 团队任务](os-icl.md)。维护这台服务器时需同时指定 `-f infra/compose.yaml -f infra/compose.os.yaml`，以保留 OS 资源挂载和服务。
 
 ### Mac 上验证 inference
 
