@@ -8,6 +8,9 @@ def task_section(t):
     parts=[f"### {t['id']} {t['title']}",f"**平台：** {t['app']}",f"**难度：** {t['difficulty']}。{t['difficulty_reason']}",
         '**Demo 要录什么：** '+t['demo_description'],f"**示范组织：** {t['demo_groups']} 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。"]
     for v in 'ABC':parts.append(f"- **{v}：** {t['rules'][v]}")
+    parts.append('**Demo 操作应用：** '+' → '.join(t['demo_apps']))
+    parts.append('**从哪里进入：** '+t['demo_examples']['A'][0]['guide']['entry'])
+    parts.append('完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。')
     parts.extend(['**Inference 目标：** '+t['task'],'**实例资料：** '+t['inference_description'],'**学习关系：** '+t['relation'],'**验收依据：** '+t['evaluation']])
     if t['dependencies']:parts.append('**跨应用必要依赖：**\n\n'+'\n'.join('- '+s for s in t['dependencies']))
     return '\n\n'.join(parts)+'\n'
@@ -40,7 +43,10 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 ## 录制与审阅
 
+示范在浏览器内的 OS 桌面模拟器完成，不操作录制者电脑的真实系统。各题共用桌面外观和应用图标，但加载不同业务材料；同题 A/B/C 共享初始材料，方法不同。任务卡的「Demo 操作」只列示范所需应用，「Inference 执行应用」列完整业务所需应用。
+
 1. 在工作台选择 **OS · 36 题**，选择题目与 A/B/C，阅读规则卡、示范范围和逐组预期保存内容。
+   「在哪里操作」列出当前示范的图标、菜单、按钮和完整文件路径。文件夹双击进入；Notepad 用 Open… 的 Document 下拉框选择完整路径，再点 OK。每次保存用 Save，保存位置由打开的文件决定。
 2. 可预览和试做；“重置示范”创建独立环境。点击“开始录制”会准备干净桌面，请在浏览器分享窗口中选择 OS 应用标签页。
 3. 从桌面进入应用，执行各局部示例，展示保存结果。多组示范点击应用右下角“下一组”；最后点击“完成练习”。不录工作台规则卡，不演示完整 inference 流程。
 4. 结束后自动上传。也可上传本次环境的人工录像。任务卡显示自动检查结果；填写审核人，确认视频覆盖全部同规则示例后提交审核。服务器录像可回放、下载，切题后保留状态。

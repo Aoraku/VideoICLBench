@@ -24,7 +24,10 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 ## 录制与审阅
 
+示范在浏览器内的 OS 桌面模拟器完成，不操作录制者电脑的真实系统。各题共用桌面外观和应用图标，但加载不同业务材料；同题 A/B/C 共享初始材料，方法不同。任务卡的「Demo 操作」只列示范所需应用，「Inference 执行应用」列完整业务所需应用。
+
 1. 在工作台选择 **OS · 36 题**，选择题目与 A/B/C，阅读规则卡、示范范围和逐组预期保存内容。
+   「在哪里操作」列出当前示范的图标、菜单、按钮和完整文件路径。文件夹双击进入；Notepad 用 Open… 的 Document 下拉框选择完整路径，再点 OK。每次保存用 Save，保存位置由打开的文件决定。
 2. 可预览和试做；“重置示范”创建独立环境。点击“开始录制”会准备干净桌面，请在浏览器分享窗口中选择 OS 应用标签页。
 3. 从桌面进入应用，执行各局部示例，展示保存结果。多组示范点击应用右下角“下一组”；最后点击“完成练习”。不录工作台规则卡，不演示完整 inference 流程。
 4. 结束后自动上传。也可上传本次环境的人工录像。任务卡显示自动检查结果；填写审核人，确认视频覆盖全部同规则示例后提交审核。服务器录像可回放、下载，切题后保留状态。
@@ -89,6 +92,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** 每词首字母大写其余小写，词间一个空格。Title-case each word, single spaces. 
 
+**Demo 操作应用：** File Explorer
+
+**从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 整理指定六份文档的名称，按视频学习的格式处理标题；保留内容、扩展名与范围外文件。
 
 **实例资料：** 六个新标题，含混合大小写和多空格；目标名称不碰撞。
@@ -113,6 +122,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** 按原项目目录/扩展名归档。File by source project, then extension. 
 
 - **C：** 按 Properties 中的 resource_key 目录归档。File by resource_key. 
+
+**Demo 操作应用：** File Explorer
+
+**从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 将范围内六份材料按视频中的目录组织方法移动到已有目标目录，内容和范围外材料保持。
 
@@ -139,6 +154,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** 批准版本中选字节数最大者。Choose the largest approved byte size. 若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。
 
+**Demo 操作应用：** File Explorer
+
+**从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 为四个独立文档组分别选出视频方法确定的批准版本，复制到各组已有 Selected 目录；所有原件保持。
 
 **实例资料：** 四组批准和未批准版本，revision/approved/bytes 均通过现有属性可见；路径唯一。
@@ -163,6 +184,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** 来件留原名，现有件加 -previous。Incoming keeps its name; existing gets -previous. 
 
 - **C：** 两侧分别加 -r{revision}，原名留空。Both get their own -r{revision} suffix. 
+
+**Demo 操作应用：** File Explorer
+
+**从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 处理四组同名来件和现有件，按视频中的命名保留办法保存双方内容；无冲突来件原名保留。
 
@@ -189,6 +216,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** 内存达到 384 MB 时暂停。Pause workers using at least 384 MB. 示范处理所有 Background worker，范围外 Protected system service 保持。
 
+**Demo 操作应用：** Task Manager
+
+**从哪里进入：** 左下角 Start → Task Manager。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 对指定六个后台进程采用视频展示的内存条件暂停命中对象，未命中与范围外对象保持原状态。
 
 **实例资料：** 冻结内存值含 127/128、255/256、383/384 MB；至少各有命中且初始 Running 的对象。
@@ -213,6 +246,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** 删除 contact 字段。Remove contact fields. 
 
 - **C：** contact 值替换为 Contact-{operator_id}，operator_id 保留。Replace contact with Contact-{operator_id}. 
+
+**Demo 操作应用：** Notepad
+
+**从哪里进入：** 桌面单击 Notepad → Open… → Document 选择下列待编辑文件的完整路径 → OK。不要打开默认选中的 Unrelated note.txt。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 按视频中的个人字段处理方法保存六份已有日志副本；保留事件 ID、时间和原始日志。
 
@@ -239,6 +278,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** 范围内仅连接 Network storage 类，其余断开。Connect only Network storage devices; disconnect other target categories. 
 
+**Demo 操作应用：** Device Manager
+
+**从哪里进入：** 左下角 Start → Device Manager。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 对清单中的外设按视频中的使用类别设置连接状态，其余设备保持。
 
 **实例资料：** 每类至少两台，初始状态混合；不改变访问权限，不要求刷新、配对或驱动安装。
@@ -263,6 +308,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** 锚点至锚点后两分钟。Export from the anchor through two minutes after it. 闭区间包含两端；同一时区，不转换时刻。
 
 - **C：** 锚点前后各一分钟。Export one minute before through one minute after. 闭区间包含两端；同一时区，不转换时刻。
+
+**Demo 操作应用：** Event Viewer
+
+**从哪里进入：** 左下角 Start → Event Viewer。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 为四个给定锚点各导出一份日志时间片，窗口取法从视频学习；源日志不变。
 
@@ -289,6 +340,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** 所有目标任务设为 When plugged in。Set target triggers to plugged-in. 
 
+**Demo 操作应用：** Task Scheduler
+
+**从哪里进入：** 左下角 Start → Task Scheduler。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 为六个指定任务按视频方法设置触发方式，不改变输入、输出、依赖，也不要运行任务。
 
 **实例资料：** 六个已存在任务参数各异，初始触发混合；输出尚未生成。
@@ -313,6 +370,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** 每段首新增两个空格，保留段内换行。Add two spaces at each paragraph start; keep internal line breaks. 
 
 - **C：** 正文每段合并为一个 - 项目符号行。Join each paragraph into one bullet line beginning - . 
+
+**Demo 操作应用：** Notepad
+
+**从哪里进入：** 桌面单击 Notepad → Open… → Document 选择下列待编辑文件的完整路径 → OK。不要打开默认选中的 Unrelated note.txt。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 按视频方法整理六份文档正文，标题、代码围栏及其他文档不变。
 
@@ -339,6 +402,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** 页数大于 8 时暂停。Pause packets with more than 8 pages; leave other target packets queued. 示范处理所有 Packet，范围外 Unrelated draft 保持。
 
+**Demo 操作应用：** Device Manager
+
+**从哪里进入：** 左下角 Start → Device Manager。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 按视频中的页数条件暂停指定打印作业，其余范围内作业保持 Queued；不要取消作业。
 
 **实例资料：** 多个已提交作业含 4/5、6/7、8/9 页；打印机均已连接，作业初态为 Queued 或 Paused。
@@ -363,6 +432,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** 在 References 标题前插入分页符。Insert a page break immediately before References. 
 
 - **C：** 在 Signature 标题前插入分页符。Insert a page break immediately before Signature. 
+
+**Demo 操作应用：** Notepad
+
+**从哪里进入：** 桌面单击 Notepad → Open… → Document 选择下列待编辑文件的完整路径 → OK。不要打开默认选中的 Unrelated note.txt。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 给六份指定文档按视频方法插入一个分页符，保留全部文字和其他文档。
 
@@ -389,6 +464,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** 按业务资源键 resource_key 分组。Group by resource_key. 
 
+**Demo 操作应用：** File Explorer
+
+**从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 按请求中的项目范围和依赖清单制作本地交接目录，采用批准修订，保留原件和既有用户编辑；交接目录分组方法从视频学习。
 
 **实例资料：** 外部公共请求给出交付范围、资料依赖关系和目标根目录；文件 Properties 有 approved/revision/resource_key。目标中有要保护的用户文件。
@@ -413,6 +494,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** summary [change_id]。summary [change_id] 
 
 - **C：** [change_id] summary。[change_id] summary 
+
+**Demo 操作应用：** Notepad
+
+**从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 根据当前有效变更请求整理版本说明、配置中的 release_version 和交付索引，确保三者与源文件版本一致；变更条目格式从视频学习。
 
@@ -439,6 +526,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** phone — 姓名。phone — Name 
 
+**Demo 操作应用：** Notepad
+
+**从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 依据最新现场安排制作可执行的文字指南，匹配地点、时段、负责人及所需资源，保存到已给出的输出文档；联系人显示格式从视频学习。
 
 **实例资料：** 请求修订、地点表、班次表、联系人和资源清单作为普通文档；有同名不同人员 ID 与撤销班次，输出文件预置。
@@ -463,6 +556,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** references 按公开资源表中的逻辑编号排列。Order by logical number. 
 
 - **C：** references 按资源类别 Code、Config、Data 再按路径排列。Order Code, Config, Data. 
+
+**Demo 操作应用：** Notepad
+
+**从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 为已经复制好的新工作区修订 manifest 和 app-settings，保留偏好，使所有内部引用指向新副本；manifest 资源引用排列方法从视频学习。
 
@@ -489,6 +588,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** A.、B. 等字母编号。Letter numbering. 
 
+**Demo 操作应用：** Notepad
+
+**从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 依据有效会议议程和批准章节，完成可交付的打印母稿、目录及页码核对表；章节编号方式从视频学习。
 
 **实例资料：** 批准章节、议程顺序、明确每页最大行数、页码核对表和空母稿；全部是普通文档。打印设备与队列不参与本题。
@@ -513,6 +618,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** YYYY/MM/DD HH:MM:SS。YYYY/MM/DD HH:MM:SS 
 
 - **C：** YYYY-MM-DDTHH:MM:SS。YYYY-MM-DDTHH:MM:SS 
+
+**Demo 操作应用：** Notepad
+
+**从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 依据已提供的日志导出和本地处置记录，形成当前事故的完整时间线与处置结论；时间显示格式从视频学习。
 
@@ -539,6 +650,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** 旧文件复制到已有 Snapshot 目录后再替换。Copy the old file into Snapshot before removing the original conflict. 
 
+**Demo 操作应用：** File Explorer
+
+**从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 按有效同步清单把工作目录更新到目标版本，保留本地独有编辑与所有被替换内容；旧文件保留方式从视频学习。
 
 **实例资料：** 源/目标文件有资源键、修订和可比较内容摘要；外部请求公开新增/更新/退出范围及本地编辑保护对象；后缀无碰撞。
@@ -563,6 +680,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** {operation}-{序号两位}。Name stages operation-NN. 
 
 - **C：** step{序号两位}_{operation}。Name stages stepNN_operation. 
+
+**Demo 操作应用：** Task Scheduler
+
+**从哪里进入：** 左下角 Start → Task Scheduler。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 按公共业务阶段关系重建受影响的作业链，修正输入、输出和依赖，保留无关作业并重新完成交付；新建作业名称格式从视频学习。
 
@@ -589,6 +712,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** 备份进入 Snapshots，其余报告进入 Reports，恢复文件进入 Recovery。Use Snapshots for backup, Reports for other reports, and Recovery for restored files. 
 
+**Demo 操作应用：** Task Scheduler
+
+**从哪里进入：** 左下角 Start → Task Scheduler。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 为已经就绪的项目输入创建可恢复的回滚点，恢复到已有空目录并逐文件比较；各阶段成果的目录组织方法从视频学习。
 
 **实例资料：** backup 域完整输入已就绪，文本包含在备份范围、工具已启用、旧快照存在；所有候选目录预置。目标恢复目录无冲突，无需其他界面配置。
@@ -613,6 +742,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** 通过/不通过使用 accepted=true/false。accepted=true/false 
 
 - **C：** 通过/不通过使用 status=ok/error。status=ok/error 
+
+**Demo 操作应用：** Notepad
+
+**从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 处理当前有效人员资料变更批次，按人员 ID 核对申请与佐证，修改授权字段并编制逐项回执；回执中的处理结论表示方式从视频学习。
 
@@ -639,6 +774,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** 按公开包容量表示为 P pack + R pcs，不足一包保留余件。P pack + R pcs 
 
+**Demo 操作应用：** Notepad
+
+**从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 核对当前有效库存周期的收货、退回和领用记录，修正工作台账并形成逐批次差异单；数量的显示方法从视频学习。
 
 **实例资料：** 台账、收货/退回/领用记录、记录修订与撤销、产品单位容量表和差异单均为普通文本；同名产品以 product_id/lot_id 区分，输出文档预置。
@@ -664,6 +805,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** 同字段冲突选修改时间较新者，并列取主分支。Conflicts use newer field timestamp; ties main. 双方独有字段都保留；C 时间相同取 main。
 
+**Demo 操作应用：** Notepad
+
+**从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 依据共同基线和批准范围，合并两个工作副本到已有输出文档，保留双方独有修改和全部原件；同字段冲突取值方法从视频学习。
 
 **实例资料：** 基线、两分支含稳定对象 ID 和字段修改时间；冲突均为明确 JSON 标量，不要求自动合并器。
@@ -688,6 +835,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** 带列头 key,before,after 的 CSV。CSV key,before,after 
 
 - **C：** JSON 数组，每项含 key、before、after。JSON key/before/after array 
+
+**Demo 操作应用：** Notepad
+
+**从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 根据受保护的历史成功作业报告，将请求指定的处理配置回退到当时状态，并用新的验证作业确认实际生效；配置差异记录格式从视频学习。
 
@@ -720,6 +873,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** [change_id] summary。[change_id] summary 
 
+**Demo 操作应用：** Notepad
+
+**从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 修复当前发布请求中的工具和配置问题，生成版本一致的签名发布包，保留上次发布；版本说明变更条目格式从视频学习。
 
 **实例资料：** release 域中 compiler 或 signer 缺失，entry 路径或说明版本错误；源版本、配置和旧发布均可见。
@@ -750,6 +909,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** 项目下 Restored/Workspace，报告放其 Reports。Restored/Workspace with Reports inside. 
 
 - **C：** 项目下 Recovered，报告放其 Reports。Recovered with Reports inside. 
+
+**Demo 操作应用：** File Explorer
+
+**从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 从最新完整快照恢复项目，保留本地编辑，修复引用并恢复快照记录的任务，使 restore-check 通过；恢复工作区布局从视频学习。
 
@@ -782,6 +947,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** Detailed：1920×1080。Detailed 1920 x 1080. 
 
+**Demo 操作应用：** Settings → Task Scheduler
+
+**从哪里进入：** 左下角 Start → Settings。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 完成当前拍摄的批准素材补录，修正字幕关联并生成可追溯预览库；预览规格从视频学习。
 
 **实例资料：** media 域相机断连、sidecar 尚未下载且混有上一场次 clip_id；当前 take 与元数据已存在。
@@ -812,6 +983,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** Letter、双面、正序。Letter, duplex, forward. 
 
 - **C：** A4、单面、倒序。A4, simplex, reverse. 
+
+**Demo 操作应用：** Settings → Task Scheduler
+
+**从哪里进入：** 左下角 Start → Settings。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 完成当前批准文档包的排版校样与首次队列提交，选择兼容设备，保留全部原件；打印配置组合从视频学习。
 
@@ -844,6 +1021,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** 用公共资源 ID 作文件名并保留原扩展名。Use R0/R1/R2/R3 stems and preserve extensions. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。
 
+**Demo 操作应用：** File Explorer → Notepad → Terminal
+
+**从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 为当前现场任务修复下载和缓存缺项，使地图、联系人及指南断网可用，保留下载原件；工作包内文件命名方法从视频学习。
 
 **实例资料：** offline 域中 relay 断连、下载未完成，旧缓存缺联系人；源指南仍指网络路径。资源 ID 对照公开；全部方案使用现有绝对路径解析。
@@ -874,6 +1057,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** 将冲突现有文件加 -local 后缀后在原目标迁移。Rename the conflicting local file with -local before copying incoming. 
 
 - **C：** 先把冲突现有文件复制到已有 Local-preserved 目录，再清除冲突并在原目标迁移。Copy the local file to Local-preserved, then clear the original conflict. 
+
+**Demo 操作应用：** File Explorer
+
+**从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 把完整工作区迁移到请求的新位置，保留目标已有编辑和源工作区，保持用户偏好并验证启动；冲突保留方法从视频学习。
 
@@ -906,6 +1095,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** 带列头的一行 CSV，列序沿用源结果。CSV build_artifact,passed,assertions 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。
 
+**Demo 操作应用：** Notepad
+
+**从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 恢复指定失败构建，修复独立的构建和测试问题，保留旧包并恢复锁所有者状态；测试摘要表示方式从视频学习。
 
 **实例资料：** build 域真实所有者锁、build_ready=false、独立 test_expectations 错误；源常量和公开请求给正确 project/revision，不能把断言改为无条件通过。 所有摘要字段均取现有测试结果内容；project/revision 只来自 assertions，不能虚构顶层字段。
@@ -936,6 +1131,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** 删除敏感字段。Remove personal fields. 
 
 - **C：** 用现有处理器生成稳定合成代号。Use stable pseudonyms. 
+
+**Demo 操作应用：** Settings → Task Scheduler
+
+**从哪里进入：** 左下角 Start → Settings。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 按事故时间和敏感字段表制作完整可共享证据包，形成可追溯时间线，保留原日志；敏感值处理方法从视频学习。
 
@@ -968,6 +1169,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** 最终交付 When plugged in。Final delivery trigger: plugged-in. 
 
+**Demo 操作应用：** Task Scheduler
+
+**从哪里进入：** 左下角 Start → Task Scheduler。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 恢复当前分发请求的正确接收共享盘和载荷，干运行验证后保存待交付计划，不提前分发；最终触发方式从视频学习。
 
 **实例资料：** distribution 域正确 share 断开且只读，另一个可写盘属于错误接收方；载荷说明有旧版本/接收方信息需修订。
@@ -999,6 +1206,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 - **C：** 以 MiB 表示，保留六位小数。MiB, six decimals 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。
 
+**Demo 操作应用：** Notepad
+
+**从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-509/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+
 **Inference 目标：** 在可恢复和服务状态保持的前提下清理指定项目的可再生缓存，完成压缩与空间核算；维护报告的字节单位表示从视频学习。
 
 **实例资料：** storage 域缓存与伪装 .cache 用户笔记混合；所有者初始状态混合；备份未完成，存储统计含生成报告与压缩对象。
@@ -1029,6 +1242,12 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 - **B：** {title} [r{revision}]。Title [rN] 
 
 - **C：** r{revision} — {title}。rN — Title 
+
+**Demo 操作应用：** Notepad
+
+**从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
+
+完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 撤回指定已提交旧版打印件，按当前有效修订重新校样提交，保留无关队列和原稿；修订标记的标题格式从视频学习。
 

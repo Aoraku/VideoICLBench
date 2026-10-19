@@ -35,3 +35,25 @@ def test_handbook_and_review_use_the_same_36_task_design():
         assert os_rows[t['id']]['demo']==t['demo_description']
         assert os_rows[t['id']]['rules']==t['rules']
         assert os_rows[t['id']]['difficulty']==t['difficulty']
+
+
+def test_recording_guides_distinguish_demo_apps_and_name_real_controls():
+    rows=json.loads((ROOT/'tasks/os/catalog.json').read_text())['cases']
+    for task in rows:
+        for groups in task['demo_examples'].values():
+            for group in groups:
+                guide=group['guide']
+                assert guide['entry'] and guide['apps'] and guide['steps']
+                assert all(s['where'] and s['action'] for s in guide['steps'])
+                writes=[s for s in group['steps'] if s['op']=='write']
+                assert guide['outputs']==list(dict.fromkeys(s['target'] for s in writes))
+                if any('Example result.txt' in s['target'] for s in writes):
+                    assert guide['inputs'] and 'Example input.json' in guide['entry']
+                    assert guide['steps'][0]['expected'] is None  # Read input before editing output.
+                for s in writes:
+                    assert any(s['target'] in d['where'] and s['content']==d['expected'] for d in guide['steps'])
+                for s in group['steps']:
+                    if s['op']=='export-log':assert any('Export interval…' in d['where'] for d in guide['steps'])
+    hard_notes=next(t for t in rows if t['id']=='OS-H-02')
+    assert hard_notes['demo_apps']==['Notepad']
+    assert 'Settings' in hard_notes['app'] and len(hard_notes['dependencies'])>=2

@@ -1,9 +1,10 @@
 import {useEffect,useRef,useState} from 'react';
 import {flushSync} from 'react-dom';
+import {OSRecorderGuide,type OSExample} from './OSRecorderGuide';
 
-type Case={id:string;title:string;app:string;difficulty:string;task:string;rules:Record<string,string>;demo_description:string;demo_instruction:string;demo_groups:number;demo_examples:Record<string,{seed:number;instruction:string;steps:Record<string,unknown>[]}[]>;recording_status:Record<string,string>};
+type Case={id:string;title:string;app:string;difficulty:string;task:string;rules:Record<string,string>;demo_description:string;demo_instruction:string;demo_groups:number;demo_apps:string[];demo_examples:Record<string,OSExample[]>;recording_status:Record<string,string>};
 type Recording={approved:boolean;reviewer?:string;note?:string;id:string};
-type Run={id:string;application_url:string;mode:string;lesson?:{index:number;total:number;finished:boolean};recording?:Recording;public_task:{assignment:string}};
+type Run={id:string;case_id:string;variant:string;application_url:string;mode:string;lesson?:{index:number;total:number;finished:boolean};recording?:Recording;public_task:{assignment:string}};
 type Take={run_id:string;label:string;url:string;approved:boolean;historical:boolean};
 const LEVEL:Record<string,string>={easy:'Easy · 批量应用',medium:'Medium · 单应用长程',hard:'Hard · 跨应用长程'};
 export function OSTaskList({token,onBusy}:{token:string;onBusy:(value:boolean)=>void}){
@@ -23,7 +24,7 @@ export function OSTaskList({token,onBusy}:{token:string;onBusy:(value:boolean)=>
   setBusy(true);
   (async()=>{const d=await api(`/os-api/cases/${selected.id}/demos?variant=${variant}`);if(!live)return;setTakes(d.videos);
     const saved=localStorage.getItem(storageKey)||[...d.videos].reverse().find((t:Take)=>!t.historical)?.run_id;
-    let next:Run;try{next=saved?await api(`/os-api/runs/${saved}`):await prepare()}catch{next=await prepare()}
+    let next:Run;try{next=saved?await api(`/os-api/runs/${saved}`):await prepare();if(next.case_id!==selected.id||next.variant!==variant||next.mode!=='demo')next=await prepare()}catch{next=await prepare()}
     if(live)update(next);
   })().catch(e=>{if(live)setError(String(e))}).finally(()=>{if(live)setBusy(false)});
   return()=>{live=false};
@@ -48,13 +49,14 @@ export function OSTaskList({token,onBusy}:{token:string;onBusy:(value:boolean)=>
  const shown=cases.filter(c=>`${c.id} ${c.title} ${c.app}`.toLowerCase().includes(query.toLowerCase()));
  return <section aria-label="OS 任务"><div className="toolbar"><input aria-label="搜索 OS 任务" placeholder="搜索题号、任务或应用" value={query} onChange={e=>setQuery(e.target.value)}/><span>36 题 · Easy / Medium / Hard 各 12 题</span></div>{error&&<p className="error" role="alert">{error}</p>}
  <div className="recorder-layout"><section className="panel task-list"><table><thead><tr><th>任务</th><th>难度 / 录像</th></tr></thead><tbody>{shown.map(c=><tr key={c.id} tabIndex={locked?-1:0} aria-selected={selected?.id===c.id} className={selected?.id===c.id?'selected':''} onClick={()=>!locked&&setSelected(c)} onKeyDown={e=>e.key==='Enter'&&!locked&&setSelected(c)}><td><small>{c.id}</small><br/>{c.title}</td><td>{LEVEL[c.difficulty]}<small style={{display:'block'}}>{'ABC'.split('').map(v=>`${v} ${c.recording_status[v]}`).join(' · ')}</small></td></tr>)}</tbody></table></section>
- <section className="panel recorder-card">{selected?<><p className="eyebrow">{selected.id} · {selected.app}</p><h2>{selected.title}</h2><div className="segmented">{'ABC'.split('').map(v=><button key={v} disabled={locked} aria-pressed={variant===v} className={variant===v?'chosen':''} onClick={()=>setVariant(v)}>版本 {v}</button>)}</div>
- {!privateView?<><h3>版本 {variant} · 录制者规则卡</h3><p>{selected.rules[variant]}</p><h3>Demo 录什么</h3><p>{selected.demo_description}</p><p className="muted">{selected.demo_groups===1?'在一个示范桌面内完成多个对象的同规则操作。':`连续完成 ${selected.demo_groups} 组局部示例，应用右下角可切下一组；一段视频始终使用同一版本。`}从桌面首页进入应用，展示输入、操作与保存结果；不要录完整 inference 流程。</p><details><summary>逐组录制说明与预期保存内容（仅录制者可见）</summary>{selected.demo_examples[variant].map((g,i)=><section key={g.seed}><h4>第 {i+1} 组</h4><p>{g.instruction}</p><ol>{g.steps.map((s,j)=><li key={j}><strong>{({rename:'重命名',copy:'复制',move:'移动',write:'编辑并保存',setting:'设置',process:'设置进程状态',device:'设置连接状态','print-control':'设置打印队列状态','export-log':'导出日志','create-job':'创建作业','run-job':'运行作业','update-job':'更新作业',delete:'删除工作副本',probe:'验证'} as Record<string,string>)[String(s.op)]||String(s.op)}</strong><p style={{whiteSpace:'pre-wrap',overflowWrap:'anywhere'}}>{Object.entries(s).filter(([k])=>k!=='op').map(([k,v])=>`${({target:'对象',name:'名称',parent:'目标目录',content:'保存内容',key:'设置项',value:'值',input:'输入',output:'输出',dependency:'依赖',trigger:'触发',status:'状态',kind:'类型',start:'起始',end:'截止',connected:'连接'} as Record<string,string>)[k]||k}：${String(v)}`).join('\n')}</p></li>)}</ol></section>)}</details></>:<p>规则卡已隐藏。仅录制 OS 应用标签页；完成所有局部示例后回到这里保存和审核。</p>}
+ <section className="panel recorder-card">{selected?<><p className="eyebrow">{selected.id} · Demo 操作：{selected.demo_apps?.join(" → ")}</p><h2>{selected.title}</h2><div className="segmented">{'ABC'.split('').map(v=><button key={v} disabled={locked} aria-pressed={variant===v} className={variant===v?'chosen':''} onClick={()=>setVariant(v)}>版本 {v}</button>)}</div>
  <div className="actions"><button disabled={locked||!run} onClick={preview}>预览示范环境 ↗</button><button disabled={locked} onClick={reset}>重置示范</button><button disabled={locked||!run} onClick={check}>检查示范结果</button><button className="primary" disabled={locked||!run} onClick={start}>开始录制</button></div>
+ {!privateView?<><h3>版本 {variant} · 录制者规则卡</h3><p>{selected.rules[variant]}</p><h3>Demo 录什么</h3><p>{selected.demo_description}</p><p className="muted">{selected.demo_groups===1?'在一个示范桌面内完成多个对象的同规则操作。':`连续完成 ${selected.demo_groups} 组局部示例，应用右下角可切下一组；一段视频始终使用同一版本。`}从桌面首页进入应用，展示输入、操作与保存结果；不要录完整 inference 流程。</p><OSRecorderGuide examples={selected.demo_examples[variant]} activeGroup={run?.lesson?.index||0}/></>:<p>规则卡已隐藏。仅录制 OS 应用标签页；完成所有局部示例后回到这里保存和审核。</p>}
+
  {result&&<p role="status">{result.success?'✓ 示范检查通过':'尚未全部完成'}{result.total!==undefined&&` · 已通过 ${result.passed}/${result.total} 组`}</p>}
  {run&&<OSRecording key={run.id} run={run} token={token} capture={capture} onBusy={setRecordingBusy} onSaved={saved}/>}
  {takes.length>0&&<details><summary>服务器录像 · {takes.length} 份</summary>{takes.map(t=><p key={t.url}>{t.label}{t.historical?' · 历史设计':''} <button disabled={locked} onClick={async()=>{try{update(await api(`/os-api/runs/${t.run_id}`));setCapture(null)}catch(e){setError(String(e))}}}>回放 / 审核</button></p>)}</details>}
- {!privateView&&<><h3>Inference 执行什么</h3><p>{selected.task}</p><p className="muted">{LEVEL[selected.difficulty]}。一个独立且持续的桌面；应用之间共享文件、设置和作业结果。</p><button disabled={locked} onClick={openInference}>打开独立 inference 环境 ↗</button>{inference&&<p>{inference.public_task.assignment}</p>}</>}
+ {!privateView&&<><h3>Inference 执行什么</h3><p>执行应用：{selected.app}</p><p>{selected.task}</p><p className="muted">{LEVEL[selected.difficulty]}。一个独立且持续的桌面；应用之间共享文件、设置和作业结果。</p><button disabled={locked} onClick={openInference}>打开独立 inference 环境 ↗</button>{inference&&<p>{inference.public_task.assignment}</p>}</>}
  </>:<p className="empty">选择任务，查看 A/B/C 方法和人工录制要求。</p>}</section></div></section>
 }
 

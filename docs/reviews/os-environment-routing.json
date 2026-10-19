@@ -1,0 +1,706 @@
+{
+  "scope": "Each of 36 tasks: first A demo group and A inference seed 4201; authenticated deployed state compared with pinned generator. No video capture.",
+  "cases": [
+    {
+      "id": "OS-E-01",
+      "difficulty": "easy",
+      "demo_apps": [
+        "File Explorer"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 3,
+        "state_hash": "d433f0e2de7eb59cf1bc733b232f42404f8e73d0c368b71c628b3fd5129bcdb5"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 6,
+        "state_hash": "a07ef702c621f3b2105f484b8a520b2a0e3beb07fa3f3bb1657b0089e97ef648"
+      }
+    },
+    {
+      "id": "OS-E-02",
+      "difficulty": "easy",
+      "demo_apps": [
+        "File Explorer"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 3,
+        "state_hash": "d50f4eb84ca76546892a0f92c2058581c8c6eefad021f44ba88279254f3e3fbd"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 6,
+        "state_hash": "ad490b9be3ea68a42b7bc6bea37a180b7c9b0b3e021a56a041d4f52f6752c3fa"
+      }
+    },
+    {
+      "id": "OS-E-03",
+      "difficulty": "easy",
+      "demo_apps": [
+        "File Explorer"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 3,
+        "state_hash": "89ad81601b7d7d88de8fa18433f3ec04ddaba01189ce438619c888a94a03dc55"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 4,
+        "state_hash": "d4b8a008b89a560dae1e99975352121ad843ffebe05e842580de8c5b164cc8cc"
+      }
+    },
+    {
+      "id": "OS-E-04",
+      "difficulty": "easy",
+      "demo_apps": [
+        "File Explorer"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 9,
+        "state_hash": "a02014519780f9ec26bf2c607c4711c60642b1ebf10783d7c69d7e9db9fd5d56"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 12,
+        "state_hash": "b35af1eebf43104314cce0995a9ab83c764b7bcf9327de01f1ad48071d998762"
+      }
+    },
+    {
+      "id": "OS-E-05",
+      "difficulty": "easy",
+      "demo_apps": [
+        "Task Manager"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 8,
+        "state_hash": "2067fc52f54c14c739abe1322dd6c6c49e45b044dfbc34fe9c445d73a99716bd"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 5,
+        "state_hash": "5a3152acc1e601cef3cf423806df628f1f031b638ca7f72ca9277be60179e2f7"
+      }
+    },
+    {
+      "id": "OS-E-06",
+      "difficulty": "easy",
+      "demo_apps": [
+        "Notepad"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 3,
+        "state_hash": "2a7e6fc815e5b39a75e2f95cf170c49c63d5e25f768d5c4163dd49ff760a03d8"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 6,
+        "state_hash": "82ccdcb925c69c6ff5dcd87be981dadb3a28f00cdc4a420ca9bfba1b9eaa913d"
+      }
+    },
+    {
+      "id": "OS-E-07",
+      "difficulty": "easy",
+      "demo_apps": [
+        "Device Manager"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 6,
+        "state_hash": "371620d62aac0e95b6d6b251539978f37ee139c15eb116e0a5898b8d36a9cef7"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 6,
+        "state_hash": "b80d9a20f3ae8cc7e8c612e053da0623ea7d95fa0d153698f458fdb8e0c9d361"
+      }
+    },
+    {
+      "id": "OS-E-08",
+      "difficulty": "easy",
+      "demo_apps": [
+        "Event Viewer"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 3,
+        "state_hash": "12cd7bc916b5bb099511bddfecedfee6f9423328d6d30ace414f91f1f2c75d6f"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 4,
+        "state_hash": "a94aad06ee9205a8c083f5ff766e01247fcb3bf3570439de87acaeca83d70409"
+      }
+    },
+    {
+      "id": "OS-E-09",
+      "difficulty": "easy",
+      "demo_apps": [
+        "Task Scheduler"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 3,
+        "state_hash": "fef15235d7ea9f74a274915a339ad4e88a84cea0134b61952d26056109c4f003"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 6,
+        "state_hash": "d45daa3f742b7308ab88bc4584b74b5db29d8a9c8e3e33e685af73688855cee1"
+      }
+    },
+    {
+      "id": "OS-E-10",
+      "difficulty": "easy",
+      "demo_apps": [
+        "Notepad"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 3,
+        "state_hash": "089083b297b025f063af523fb59ad39686f2c8b9d62684a58550864f6faf999d"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 6,
+        "state_hash": "2fd4e962924a3b371a489a6f2ac36b89df9d37ae123feab980af08d90d78ade9"
+      }
+    },
+    {
+      "id": "OS-E-11",
+      "difficulty": "easy",
+      "demo_apps": [
+        "Device Manager"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 6,
+        "state_hash": "565257f2342a6463dfa402e86059339c3cf8cec96bf8d267beb3b6843c28399f"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 4,
+        "state_hash": "1472ca3481cba1399da292a33b273aacef9d8ddcbc0c7a636f67379a2d6fc1d3"
+      }
+    },
+    {
+      "id": "OS-E-12",
+      "difficulty": "easy",
+      "demo_apps": [
+        "Notepad"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 3,
+        "state_hash": "5657863c84ea02c156527308bf199ab094bc123f1735f3ff5001f9cd50b137ab"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 6,
+        "state_hash": "d107a397160fcf784865573da9f9a2138879b7f480bdbde485c6f136ed4a50f4"
+      }
+    },
+    {
+      "id": "OS-M-01",
+      "difficulty": "medium",
+      "demo_apps": [
+        "File Explorer"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 3,
+        "state_hash": "dcded40998fafd23a429f3e5681652e6728049617fc3e563842a1472c75e20cb"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 3,
+        "state_hash": "376e7916d350d8d0658691bced0ee284c5a35c0a65a001c64d3e822ab011cd5b"
+      }
+    },
+    {
+      "id": "OS-M-02",
+      "difficulty": "medium",
+      "demo_apps": [
+        "Notepad"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 1,
+        "state_hash": "2463623c09ac34fdc15251992d8fcba5d9e7bce43d8c7671d8740280998d7174"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 3,
+        "state_hash": "6554499bc46fddc93c4756c37475b05ea926a88c44a7da57ee1af0edf2a6924e"
+      }
+    },
+    {
+      "id": "OS-M-03",
+      "difficulty": "medium",
+      "demo_apps": [
+        "Notepad"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 1,
+        "state_hash": "e4e64b6ab0f5452e9160d57060094445565f7acd4a662cccfa83a25134777249"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 1,
+        "state_hash": "28ce3c0ede10c97b551dd7d52026e6c19aa0fb7ca7c5cd5fd170cd9028e509ef"
+      }
+    },
+    {
+      "id": "OS-M-04",
+      "difficulty": "medium",
+      "demo_apps": [
+        "Notepad"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 1,
+        "state_hash": "1354f1da49fb0dd473acea3d89b84c110b4ab52b16d301d3d7f484afbd05cf52"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 2,
+        "state_hash": "673624f36f9c67fb3646d8d1895a8306cccb2b1ea7581957daea9cccbb965057"
+      }
+    },
+    {
+      "id": "OS-M-05",
+      "difficulty": "medium",
+      "demo_apps": [
+        "Notepad"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 1,
+        "state_hash": "2ee11d81126c2da82f9fd9eb17436a5cd9b338611b15fde697dd41b2a6a87f24"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 2,
+        "state_hash": "27d526da747ac8342e5142f7cc8dc94d3932de82c100173563ac3c7567e43ad2"
+      }
+    },
+    {
+      "id": "OS-M-06",
+      "difficulty": "medium",
+      "demo_apps": [
+        "Notepad"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 1,
+        "state_hash": "59966dc567d793a092411581a20f632afb0e8fcee8c89d7790c8b5e78de5b165"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 1,
+        "state_hash": "8263b8c243bb3e2fdd62b0e8d15d04e2ab40a4e14968f4501613aa008b961383"
+      }
+    },
+    {
+      "id": "OS-M-07",
+      "difficulty": "medium",
+      "demo_apps": [
+        "File Explorer"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 2,
+        "state_hash": "c241014ede47e2f921d90d3aebd6a1edf09d048e34e1bf6cd2b84afa7e8001c0"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 4,
+        "state_hash": "1900af91b43ef1bb99189cad4fa8e4e4517f241525461e16449dfa886fc33ae2"
+      }
+    },
+    {
+      "id": "OS-M-08",
+      "difficulty": "medium",
+      "demo_apps": [
+        "Task Scheduler"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 4,
+        "state_hash": "6a1913fbd8d4e1317dbed0e2f6094e9c40efeeb0602219f1a5243bf1c33515c3"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 12,
+        "state_hash": "103e262d6d3c81fa0af988d775c2681b1f853cfa090c3fcc378d1b6141ea87df"
+      }
+    },
+    {
+      "id": "OS-M-09",
+      "difficulty": "medium",
+      "demo_apps": [
+        "Task Scheduler"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 6,
+        "state_hash": "d149ba569fb1c31102b7a1bbe1e5dbd8d6f33b6594a3f818d93eee952dd030cd"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 10,
+        "state_hash": "f5ee5fc3657f656005085c6c3995585a2eff8e58183de573429145c56c5a3613"
+      }
+    },
+    {
+      "id": "OS-M-10",
+      "difficulty": "medium",
+      "demo_apps": [
+        "Notepad"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 1,
+        "state_hash": "bd019c7e1b8e97514b4055cdae79965c5446d2c489cba3963e616079f67b5181"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 2,
+        "state_hash": "faf90beac6492993972e7a60d81d6dcf3b9f2de6ce2978b669a57833625fdad0"
+      }
+    },
+    {
+      "id": "OS-M-11",
+      "difficulty": "medium",
+      "demo_apps": [
+        "Notepad"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 1,
+        "state_hash": "6fae86f53427e50c05befd7eab477e3644a2bb318db14034b9776280694196d3"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 2,
+        "state_hash": "a66ee5d614ae0c5bb0b04e41c503fb36b0e8192f1337391c3bec53ac73f98301"
+      }
+    },
+    {
+      "id": "OS-M-12",
+      "difficulty": "medium",
+      "demo_apps": [
+        "Notepad"
+      ],
+      "query_dependencies": [],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 1,
+        "state_hash": "cd5158c4f53fd452e03e182048a9e68747cef3a9c33893138ed890f6ddef9227"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 2,
+        "state_hash": "cb652cbf4c6ee02f74cca05d2eb43be7d4b0bef13b44cc6ae1330cf5ce6740dd"
+      }
+    },
+    {
+      "id": "OS-H-01",
+      "difficulty": "hard",
+      "demo_apps": [
+        "Notepad"
+      ],
+      "query_dependencies": [
+        "Notepad 历史报告 settings→Settings 对应现有键",
+        "Settings 保存的值→Task Scheduler 新作业 configuration/产物参数",
+        "Scheduler 复验结果→Notepad 差异记录及结论"
+      ],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 1,
+        "state_hash": "1ac22bc3b04f43307df37d432416b883f462c803253b0129d456f73886be08c6"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 15,
+        "state_hash": "acf8e727adaf80484ce8ab12948d978d63e634331f17c0b8b004903ae08111f9"
+      }
+    },
+    {
+      "id": "OS-H-02",
+      "difficulty": "hard",
+      "demo_apps": [
+        "Notepad"
+      ],
+      "query_dependencies": [
+        "Scheduler/事件错误→Settings 的具体工具状态",
+        "Notepad 工作配置→Scheduler 的构建入口和版本",
+        "Scheduler 生成构建→签名/校验→文件交付结果"
+      ],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 1,
+        "state_hash": "20bf3e4320821e3a451df903864b634219e6c3c18ec2a43b04ebee01c180b01a"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 44,
+        "state_hash": "0916c766b9bee54e42a78eb35fd05076263bd53c10b9676d12bcc4f780619946"
+      }
+    },
+    {
+      "id": "OS-H-03",
+      "difficulty": "hard",
+      "demo_apps": [
+        "File Explorer"
+      ],
+      "query_dependencies": [
+        "快照文件内容→Notepad 中的新引用",
+        "快照 scheduled_tasks→Scheduler 的实际任务配置",
+        "Scheduler 恢复任务与文件→Terminal restore-check"
+      ],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 2,
+        "state_hash": "fbcb6e96286e1a4460a9c11c87477526c0883ae8cd939dc37adcabf099202883"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 46,
+        "state_hash": "bad3fedc8dc6db4600449aee9c65fb6e6bd5e7e3449734a2fba18a84c40faba0"
+      }
+    },
+    {
+      "id": "OS-H-04",
+      "difficulty": "hard",
+      "demo_apps": [
+        "Settings",
+        "Task Scheduler"
+      ],
+      "query_dependencies": [
+        "Device Manager 相机状态→Transfers 的 sidecar 下载",
+        "下载内容→Files 导入→Notepad 字幕校正",
+        "Settings 规格和 sidecar 内容→Scheduler 实际预览与目录"
+      ],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 3,
+        "state_hash": "6bfd5f7eab62ddc8e9c0f62c04896cfe9879849d8e4a5ea0d97a6dd3db4d3197"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 41,
+        "state_hash": "de505029cd3af43ab5f3d5f89deb61e063bbe98c7dd2f49373debeb48291b1a8"
+      }
+    },
+    {
+      "id": "OS-H-05",
+      "difficulty": "hard",
+      "demo_apps": [
+        "Settings",
+        "Task Scheduler"
+      ],
+      "query_dependencies": [
+        "Device Manager 能力→Settings 合法配置",
+        "Notepad 分页内容→Scheduler layout/proof",
+        "Scheduler deliver→Device Manager 的实际队列内容"
+      ],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 7,
+        "state_hash": "77ed04278f5d6f85f72878178436f8177079e72c5a7f9195295bda717d21c44c"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 44,
+        "state_hash": "0202601ac3fc866940b490a73ac8666c8755b2033e66e9a9cc6c62b82a54986c"
+      }
+    },
+    {
+      "id": "OS-H-06",
+      "difficulty": "hard",
+      "demo_apps": [
+        "File Explorer",
+        "Notepad",
+        "Terminal"
+      ],
+      "query_dependencies": [
+        "Device Manager relay→Transfer Manager 完成下载",
+        "Files 文件名→Notepad 指南→Scheduler 缓存文件",
+        "Settings 断网及缓存内容→Terminal 实际离线访问"
+      ],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 6,
+        "state_hash": "657bab89f3afe71119c65dc435f9ef27acfaea064648410ef3f93201bbb11689"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 43,
+        "state_hash": "3899271af3bc14366a3ea3a5169596c29158c37e3fbbeb0dc74b9619f02841b1"
+      }
+    },
+    {
+      "id": "OS-H-07",
+      "difficulty": "hard",
+      "demo_apps": [
+        "File Explorer"
+      ],
+      "query_dependencies": [
+        "Files 冲突处理→Scheduler 可写入目标",
+        "Notepad manifest/settings→Scheduler 迁移内容",
+        "迁移结果与偏好→Terminal workspace-open"
+      ],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 1,
+        "state_hash": "c9633430e45e5b206a52628ea2b3372cb75bbd18f94844caafdd1448b9f365c9"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 36,
+        "state_hash": "4320c2689d2b2195c12f60e41e17f369827280e9cede2f48491b0c7e2b257c3b"
+      }
+    },
+    {
+      "id": "OS-H-08",
+      "difficulty": "hard",
+      "demo_apps": [
+        "Notepad"
+      ],
+      "query_dependencies": [
+        "Task Manager 锁状态→Files 工作副本获取",
+        "Notepad 修复配置→Scheduler 的构建与测试分支",
+        "Scheduler 测试结果→Notepad 摘要→最终包"
+      ],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 1,
+        "state_hash": "28603fbf88d6bcfa292eddd5f015f5ff5556bcc419df18c056d739742f018796"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 50,
+        "state_hash": "82474d4c7cc637bb13eb312394bec54221bf830606e7c80c0bc3867e5931c740"
+      }
+    },
+    {
+      "id": "OS-H-09",
+      "difficulty": "hard",
+      "demo_apps": [
+        "Settings",
+        "Task Scheduler"
+      ],
+      "query_dependencies": [
+        "Event Viewer 导出记录→Files/Notepad 证据与时间线",
+        "Settings 敏感范围/方法→Scheduler 实际脱敏内容",
+        "脱敏副本→打包审计链→最终交付"
+      ],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 3,
+        "state_hash": "43966ae575abbb81eb9e1fd8b8e3f453470282b07bdcd2f2110b4c7d0561feb6"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 42,
+        "state_hash": "be01a9e4493f17a9993a63ac22c6249b738b551b77254667e25cff65219d409e"
+      }
+    },
+    {
+      "id": "OS-H-10",
+      "difficulty": "hard",
+      "demo_apps": [
+        "Task Scheduler"
+      ],
+      "query_dependencies": [
+        "Notepad 请求载荷身份→Device Manager share 的 recipient",
+        "Device Manager 连接/权限→Settings 目的地→Scheduler dry-run",
+        "dry-run 绑定的载荷→后继调度结果"
+      ],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 2,
+        "state_hash": "ec9a61d1ddcfd71ee918069812b025ee6cf63dc11335c464d958fe6234a450c8"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 35,
+        "state_hash": "02df3027c1ad6755c7d53bb9485b50d93e2997759b856f9e2a1e62c5552aec93"
+      }
+    },
+    {
+      "id": "OS-H-11",
+      "difficulty": "hard",
+      "demo_apps": [
+        "Notepad"
+      ],
+      "query_dependencies": [
+        "Files regenerable/owners→Task Manager 暂停范围",
+        "Scheduler 校验备份→Files 缓存删除被允许",
+        "Files 删除与进程恢复→Terminal audit→Notepad 数值报告"
+      ],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 1,
+        "state_hash": "86aeb560f683ca07c3a81bf4e7d3506cf6f24460464203ccf2e60cb273104f7a"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 43,
+        "state_hash": "d1feb9f5ad0321136ec097ca7dcb4335dfb627da46e0016c922e99ee7d8d1e54"
+      }
+    },
+    {
+      "id": "OS-H-12",
+      "difficulty": "hard",
+      "demo_apps": [
+        "Notepad"
+      ],
+      "query_dependencies": [
+        "Device Manager 取消旧队列→Scheduler 原生产任务允许重置",
+        "Notepad 当前修订→Scheduler 新校样/提交",
+        "Scheduler 新提交→Device Manager 一旧取消/一新有效"
+      ],
+      "demo": {
+        "matches_fixture": true,
+        "reference_mutations": 1,
+        "state_hash": "342b369256d50e3b69ae9a0b3add51c8a32b12a751b3898b465a71e8ee3cba61"
+      },
+      "eval": {
+        "matches_fixture": true,
+        "reference_mutations": 14,
+        "state_hash": "6faadbe4d50ee9ac4f0fcaaea3fdbba95bb926623b41c41a6f929e034ba73198"
+      }
+    }
+  ]
+}
