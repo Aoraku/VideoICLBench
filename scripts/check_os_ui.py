@@ -39,8 +39,9 @@ def check(args):
   for n,value in enumerate([4096,3660,3845]):
    expect(page.locator('.desktop')).to_be_visible();page.locator('.desktop-icons [data-open="editor"]').click()
    page.locator('[data-command="choose-document"]').click()
-   expect(page.locator('select[name="target"]')).to_be_visible();options=page.locator('select[name="target"] option');labels=options.all_text_contents();label=next(s for s in labels if s.endswith('/Example result.txt'))
-   page.locator('select[name="target"]').select_option(label=label);page.locator('.dialog button[type="submit"]').click()
+   page.get_by_role('combobox',name='Document',exact=True).click()
+   options=page.get_by_role('option');labels=options.all_text_contents();label=next(s for s in labels if s.endswith('/Example result.txt'))
+   page.get_by_role('option',name=label,exact=True).click();page.locator('.dialog button[type="submit"]').click()
    page.get_by_role('textbox',name='Document content',exact=True).fill(f'{value} B')
    with page.expect_response(lambda r:'/action' in r.url and r.request.method=='POST') as saved:page.get_by_role('button',name='Save',exact=True).click()
    assert saved.value.ok

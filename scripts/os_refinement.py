@@ -1,5 +1,6 @@
 """Auditable task/lesson adaptation; never import an oracle video as human media."""
 import json
+from pathlib import Path
 
 RELATIONS = [
 'file-title word formatting while preserving extensions', 'destination grouping by file metadata',
@@ -32,7 +33,7 @@ LESSONS = [
 '将已选定的三份批准材料放入相应交接目录；展示类别、来源和资源键，以及实际保存位置。无需录版本筛选和依赖收集。',
 '将两条不同 ID、不同正文的变更写成指定格式。录三组不同变更，保留输入；不录发布文档成套编制。',
 '将两位不同姓名、电话的联系人转换为对应显示格式。录三组不同联系人，不录现场安排关联。',
-'对小型 references 列表排序，包含同类别多个路径以及编号和路径次序相反的条目。录三个不同项目，不录完整迁移。',
+'对三份不同的六条 references 列表排序；三组使用不同文件名、逻辑编号和输入顺序，每组 Code、Config、Data 各两条，类别、编号、路径排序互不等同。逐组展示输入和保存结果，不录完整迁移。',
 '给三个不同章节标题编号并保存。展示每个标题的编号对应关系，不录选稿、组稿和打印提交。',
 '将两个不同日期/时间转换并保存。录三组，只改变表示形式，不改变时刻；不录事故搜集和时间线编排。',
 '替换一份同名旧文件前先按指定方法保留旧内容，展示新旧两侧均可恢复。录三组不同内容，不录整个目录同步。',
@@ -63,6 +64,7 @@ def design(row):
     if s['id']=='OS-H-11':seeds=[509,73,258]
     rule_notes={'OS-E-03':'先排除 Approved = No；A 比较 Revision（修订号），B/C 比较 Size（字节数）。Properties 可查看这些属性，文件名中的 r 后数字与 Revision 一致。若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。',
       'OS-E-06':'operator_id 是纯数字标识，例如 1004；C 写为 Contact-1004。保留 operator_id 本身及其他字段。',
+      'OS-M-04':'A 按完整目标路径升序；B 按 number 数值升序；C 先按 Code → Config → Data 分组，同类别再按完整目标路径升序。路径逐字符比较（本题均为小写 ASCII，因此同目录内就是文件名字母序），不是按原始列表顺序。',
       'OS-E-05':'示范处理所有 Background worker，范围外 Protected system service 保持。',
       'OS-E-11':'示范处理所有 Packet，范围外 Unrelated draft 保持。',
       'OS-E-08':'闭区间包含两端；同一时区，不转换时刻。','OS-H-11':'1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。',
@@ -108,7 +110,17 @@ def refine(source):
     replace("{'request_id':'R1','approved':True},{'request_id':'R2','approved':False}", "{'request_id':f'R{seed}-1','approved':True},{'request_id':f'R{seed}-2','approved':False}")
     replace("source={'baseline':{'x':1,'y':2,'z':3}", "source={'baseline':{'x':1,'y':2,'z':3}")
     replace("source=[{'key':'archive.format','before':'zip','after':'tar'},{'key':'verification.mode','before':'checksum','after':'full'}]", "source=[[{'key':'archive.format','before':'zip','after':'tar'},{'key':'verification.mode','before':'checksum','after':'full'}],[{'key':'media.preview','before':'compact','after':'review'},{'key':'scheduler.trigger','before':'manual','after':'idle'}],[{'key':'archive.format','before':'tar','after':'zip'},{'key':'media.preview','before':'detail','after':'compact'}]][seed%3]")
-    replace("        order=sorted(source,key=", "        b.rng.shuffle(source)\n        for item in source:item['path']=item['path'].replace('/new/',f'/project-{seed}/')\n        order=sorted(source,key=")
+    replace("source=[{'path':'/new/z.js','number':3,'category':'Code'},{'path':'/new/b.json','number':1,'category':'Config'},{'path':'/new/a.csv','number':2,'category':'Data'},{'path':'/new/m.js','number':4,'category':'Code'},{'path':'/new/c.json','number':5,'category':'Config'}]",
+        "fixtures=[([('zipper.js',3,'Code'),('beta.json',6,'Config'),('atlas.csv',2,'Data'),('engine.js',5,'Code'),('orbit.json',1,'Config'),('delta.csv',4,'Data')]),\n"
+        "                  [('solar.js',8,'Code'),('alpha.json',3,'Config'),('lagoon.csv',7,'Data'),('beacon.js',2,'Code'),('zephyr.json',6,'Config'),('meridian.csv',5,'Data')],\n"
+        "                  [('maple.js',2,'Code'),('quartz.json',9,'Config'),('apricot.csv',4,'Data'),('willow.js',7,'Code'),('cedar.json',3,'Config'),('harbor.csv',6,'Data')]]\n"
+        "        entries=fixtures[{1001:0,1012:1,1026:2}.get(seed,seed%3)]\n"
+        "        source=[{'path':f'/project-{seed}/'+name,'number':number,'category':category} for name,number,category in entries]\n"
+        "        b.rng.shuffle(source)")
+    replace("'Order Code, Config, Data.'][c]", "'Order Code, Config, Data; within each category, order full paths alphabetically.'][c]")
+    replace("resources=[{'number':3,'category':'Code','name':'z-source.js'},{'number':1,'category':'Config','name':'b-settings.json'},{'number':2,'category':'Data','name':'a-data.csv'}]",
+        "resources=[{'number':3,'category':'Code','name':'z-source.js'},{'number':1,'category':'Config','name':'b-settings.json'},{'number':2,'category':'Data','name':'a-data.csv'},"
+        "{'number':6,'category':'Code','name':'c-tool.js'},{'number':5,'category':'Config','name':'e-flags.json'},{'number':4,'category':'Data','name':'d-report.csv'}]")
     # Three-way conflict values vary, while comparison/tie witnesses stay clear.
     marker="value={'x':[10,11,10][c],'y':[20,21,21][c],'z':[30,31,30][c],'main_only':'retain','review_only':'retain'}"
     replace(marker, "\n        for branch in ('baseline','main','review'):\n            for key in ('x','y','z'):source[branch][key]+=seed%97\n        "+marker+"\n        for key in ('x','y','z'):value[key]+=seed%97")
@@ -151,7 +163,18 @@ function formatFileProperties(info) {
     old="${esc(selected.name)}</h2>${btn('export-log'"
     assert old in ui
     ui=ui.replace(old,"${esc(selected.name)}</h2>${records?.find(r=>r.message==='Incident anchor')?`<p><strong>Incident anchor:</strong> ${esc(records.find(r=>r.message==='Incident anchor').time)}</p>`:''}${btn('export-log'")
+    # Keep action columns aligned regardless of print job name or page count.
+    start=ui.index('function printQueue()')
+    end=ui.index('function monitor(',start)
+    queue=ui[start:end].replace('class="setting-card"','class="setting-card print-job"')
+    queue=queue.replace("${p.status==='Cancelled'?'':btn(", '<div class="print-actions">${p.status===\'Cancelled\'?\'\':btn(')
+    queue=queue.replace('data-status="Cancelled"`)}</div>`','data-status="Cancelled"`)}</div></div>`')
+    ui=ui[:start]+queue+ui[end:]
+    ui=ui.replace('  assignTraceIds();','  installVisibleSelects();\n  assignTraceIds();')
+    ui+='\n'+Path(__file__).with_name('os_desktop_controls.js').read_text()
     desktop.write_text(ui)
+    css=source/'static/desktop.css'
+    css.write_text(css.read_text()+'\n'+Path(__file__).with_name('os_desktop_controls.css').read_text())
     engine=source/'workflows.py'
     runtime=engine.read_text()
     old='source=f.get("source", f["id"]), source_hash=digest(f["content"]))["id"]'

@@ -41,12 +41,28 @@ def check_teaching_evidence(ep):
             assert any(r['time']==a['start'] for r in inside)
             assert any(r['time']==a['end'] for r in inside)
             assert len(inside)<len(records)
+    elif cid=='OS-M-04':
+        example=next((f for f in files if f['name']=='Example input.json'),None)
+        rows=json.loads(example['content']) if example else json.loads(next(f for f in files if f['name']=='migration-request.json')['content'])['resources']
+        assert len(rows)==6
+        assert all(sum(r['category']==category for r in rows)==2 for category in ('Code','Config','Data'))
+        path=lambda r:r.get('path',r.get('name'))
+        a=sorted(rows,key=path)
+        b=sorted(rows,key=lambda r:r['number'])
+        c=sorted(rows,key=lambda r:({'Code':0,'Config':1,'Data':2}[r['category']],path(r)))
+        assert len({tuple(map(path,ordered)) for ordered in (a,b,c)})==3
 
 
 def main(source):
     sys.path.insert(0,str(source.resolve()))
     import tasks36,workflows
     release=json.loads((source/'videoicl-catalog.json').read_text());count=0;counterfactuals=0
+    names=[]
+    for seed in next(c for c in release['cases'] if c['id']=='OS-M-04')['demo_seeds']:
+        ep=tasks36.generate('OS-M-04',0,seed,'module-demo')
+        rows=json.loads(next(f for f in ep['initial']['files'] if f['name']=='Example input.json')['content'])
+        names.append({r['path'].split('/')[-1] for r in rows})
+    assert all(a.isdisjoint(b) for i,a in enumerate(names) for b in names[i+1:]),'M04 examples only rename their root'
     for case in release['cases']:
         for scope,seeds in [('module-demo',case['demo_seeds']),('standard',[4201,5317])]:
             for seed in seeds:

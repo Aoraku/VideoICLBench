@@ -12,7 +12,7 @@ def test_recording_compatibility_is_explicit_and_does_not_hide_revised_lessons()
     entry={'fingerprint':old,'design_version':release['design_version'],'case_id':'OS-E-01'}
     assert recording_current(release,entry)
     assert recording_current(release,{**entry,'case_id':'OS-E-06'})  # Same contact mapping; IDs remain input data.
-    for cid in ('OS-E-02','OS-E-03','OS-E-08'):
+    for cid in ('OS-E-02','OS-E-03','OS-E-08','OS-M-04'):
         assert not recording_current(release,{**entry,'case_id':cid})
         assert recording_current(release,{**entry,'case_id':cid,'fingerprint':release['implementation']['fingerprint']})
     assert not recording_current(release,{**entry,'fingerprint':'unknown'})

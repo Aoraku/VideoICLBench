@@ -547,15 +547,15 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **难度：** medium。一个主要应用内完成有前后依赖的业务目标，视频方法仅是其中一个局部模块。
 
-**Demo 要录什么：** 对小型 references 列表排序，包含同类别多个路径以及编号和路径次序相反的条目。录三个不同项目，不录完整迁移。
+**Demo 要录什么：** 对三份不同的六条 references 列表排序；三组使用不同文件名、逻辑编号和输入顺序，每组 Code、Config、Data 各两条，类别、编号、路径排序互不等同。逐组展示输入和保存结果，不录完整迁移。
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** references 按目标路径字典序排列。Order paths alphabetically. 
+- **A：** references 按目标路径字典序排列。Order paths alphabetically. A 按完整目标路径升序；B 按 number 数值升序；C 先按 Code → Config → Data 分组，同类别再按完整目标路径升序。路径逐字符比较（本题均为小写 ASCII，因此同目录内就是文件名字母序），不是按原始列表顺序。
 
-- **B：** references 按公开资源表中的逻辑编号排列。Order by logical number. 
+- **B：** references 按公开资源表中的逻辑编号排列。Order by logical number. A 按完整目标路径升序；B 按 number 数值升序；C 先按 Code → Config → Data 分组，同类别再按完整目标路径升序。路径逐字符比较（本题均为小写 ASCII，因此同目录内就是文件名字母序），不是按原始列表顺序。
 
-- **C：** references 按资源类别 Code、Config、Data 再按路径排列。Order Code, Config, Data. 
+- **C：** references 按资源类别 Code、Config、Data 再按路径排列。Order Code, Config, Data; within each category, order full paths alphabetically. A 按完整目标路径升序；B 按 number 数值升序；C 先按 Code → Config → Data 分组，同类别再按完整目标路径升序。路径逐字符比较（本题均为小写 ASCII，因此同目录内就是文件名字母序），不是按原始列表顺序。
 
 **Demo 操作应用：** Notepad
 

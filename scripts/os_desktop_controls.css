@@ -1,0 +1,14 @@
+.print-job{display:grid;grid-template-columns:minmax(0,1fr) 158px;align-items:center;gap:16px}
+.print-job>span{min-width:0;overflow-wrap:anywhere}
+.print-actions{display:grid;grid-template-columns:75px 75px;gap:8px;align-items:center}
+.print-actions button{width:75px;padding:7px 4px}
+.visible-select{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:35px;text-align:left;min-width:0;max-width:100%;overflow-wrap:anywhere}
+.visible-select:after{content:"▾";flex:none}
+.dialog label>.visible-select{width:100%}
+.setting-card .visible-select{min-width:170px}
+.file-tools .visible-select{margin-left:auto;min-height:28px;font-size:11px;padding:5px}
+.visible-options{position:fixed;z-index:40000;padding:4px;overflow:auto;background:#fff;color:#27323b;border:1px solid #a8b8c4;border-radius:5px;box-shadow:0 8px 28px #24394733}
+.visible-options button{display:block;width:100%;text-align:left;padding:9px 12px;border:0;border-radius:3px;background:#fff;overflow-wrap:anywhere}
+.visible-options button[aria-selected="true"]{background:#e0eaf2;font-weight:600}
+.visible-options button:hover,.visible-options button:focus{background:#dcebf5;outline:2px solid #527b91;outline-offset:-2px}
+select[hidden]{display:none!important}
