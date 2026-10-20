@@ -35,7 +35,7 @@ export function OSTaskList({token,onBusy}:{token:string;onBusy:(value:boolean)=>
  async function start(){
   if(!run||!selected)return;
   if(!navigator.mediaDevices?.getDisplayMedia||typeof MediaRecorder==='undefined'){setError('请使用 Chrome / Edge 打开 localhost 或 HTTPS 工作台，然后点击“开始录制”。');return}
-  flushSync(()=>{setPrivateView(true);setBusy(true);setError('')});
+  flushSync(()=>{setCapture(null);setPrivateView(true);setBusy(true);setError('')});
   const win=window.open(run.application_url,'_blank');if(!win){setError('请允许打开应用标签页');setBusy(false);setPrivateView(false);return}win.opener=null;windowRef.current=win;
   const access=navigator.mediaDevices.getDisplayMedia({video:{frameRate:30},audio:false}).then(stream=>({stream,error:''})).catch(e=>({stream:null,error:String(e)}));
   let stream:MediaStream|null=null;
