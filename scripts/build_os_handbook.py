@@ -49,7 +49,7 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
    「在哪里操作」列出当前示范的图标、菜单、按钮和完整文件路径。文件夹双击进入；Notepad 用 Open… 的 Document 下拉框选择完整路径，再点 OK。每次保存用 Save，保存位置由打开的文件决定。
 2. 可预览和试做；“重置示范”创建独立环境。点击“开始录制”会准备干净桌面，请在浏览器分享窗口中选择 OS 应用标签页。
 3. 从桌面进入应用，执行各局部示例，展示保存结果。多组示范点击应用右下角“下一组”；最后点击“完成练习”。不录工作台规则卡，不演示完整 inference 流程。
-4. 结束后自动上传。也可上传本次环境的人工录像。任务卡显示自动检查结果；填写审核人，确认视频覆盖全部同规则示例后提交审核。服务器录像可回放、下载，切题后保留状态。
+4. 结束后自动上传并保存，无需选择本地录像文件。任务卡显示自动检查结果；填写审核人，确认视频覆盖全部同规则示例后提交审核。服务器录像可回放、下载，切题后保留状态。
 5. 审阅台按 OS 分类显示平台、难度、A/B/C、demo 内容、同事录像、inference 目标和独立环境入口，可保存评价与修改建议。
 
 ## 任务索引
@@ -74,4 +74,14 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
         text=text[:start]+'\n\n'.join(f'<a id="task-{t["id"]}"></a>\n\n'+task_section(t) for t in rows)+'\n\n'+text[end:]
         text=text.replace('OS-ICL cases.py 配套任务定义','OS-ICL tasks36.py / judge36.py 与 tasks/os/catalog.json')
         local.write_text(text)
+    catalog_path=ROOT/'docs/task-design-catalog.json'
+    book=json.loads(catalog_path.read_text())
+    by_id={t['id']:t for t in rows}
+    for item in book:
+        if item['kind']!='os':continue
+        t=by_id[item['id']]
+        item.update(title=t['title'],platform='OS-ICL / '+t['app'],difficulty=t['difficulty'],
+                    type=t['difficulty_reason'],relation=t['relation'],demo=t['demo_description'],rules=t['rules'],
+                    inference=t['inference_description']+'\n公共交付约束与实例范围：'+t['query_example'],delivery=t['evaluation'])
+    catalog_path.write_text(json.dumps(book,ensure_ascii=False,indent=2)+'\n')
     print('Wrote docs/os-task-design.md (36 tasks)')

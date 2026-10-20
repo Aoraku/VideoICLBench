@@ -164,6 +164,7 @@ def install_os_routes(app, manager, secret: str, data: Path, *, upstream=None, s
         run=read(sid)
         if run.get("lesson_root"):run=read(run["lesson_root"])
         result=public(run)
+        result['current_design']=run.get('fingerprint')==catalogue()['implementation']['fingerprint']
         if run.get("lesson"):result["application_url"]=launch(read(run["lesson"]["sessions"][run["lesson"]["index"]]))
         return result
 

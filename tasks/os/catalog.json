@@ -5,14 +5,14 @@
   "benchmark_version": "2.0.0-dev.5",
   "implementation": {
     "source_hashes": {
-      "workflows.py": "864db422c599ad50f7eaddc05d35c721ce99e34164854d33a7835d876fc57d8a",
+      "workflows.py": "836da08477d3e65ce96761b21d4885aa3037b26eac4e209cf19dcbf8c5d18a30",
       "domain_checks.py": "ca6bf4eb33c3d24daa85a8c271e601c706a5309c17d740c0061a20ae4d594416",
       "protocols.py": "805ac88cf4d835eafd4c71e9a36584bd6f95e32625b63c5b453ba43a6c92aada",
       "server.py": "b915f224c122f60001483b4c31de274398d6a07de8e00cdff446ed61c7b7eb99",
-      "tasks36.py": "beaac71b1391e37b6d1a193494fe00754cfa7e3ee89b6b713b46ed6f4c559d7e",
+      "tasks36.py": "e1a2d4194296c94e7b68aa363a1716ab7412d63608b08d7050fc76d45e6c247a",
       "judge36.py": "a9a375e8988cbf486b98deb87cbe769f36f66e47b64589c608d1e77244595f39",
       "docs/TASK_CATALOGUE_36.json": "83fcefc29364382e26165a4be543b261861d5586a7c5cf7ab251b932586465f1",
-      "static/desktop.js": "afd70f0457abbe5fbb27b24c309c6ea95d55802c62d9baf8aa22e279a47e6cfe",
+      "static/desktop.js": "b715712a2fbd46ddfbcdc899fecca0d412af07755d92d0aef35d0ff11887f9ac",
       "static/desktop.css": "ac49c050a7f32ea8db0e4d13df8b1e1a5778199b1f7de5b45249310e2c65a22e",
       "static/index.html": "3fcaa596157cd37876cf0389855ee00019ecd49af4d756df6591a669ef1b82cc",
       "static/recording.html": "e219189072a71bba7070ba2a01a6e2a94369d8f72cfaef7d34e531e3a78eb806",
@@ -21,7 +21,44 @@
       "scripts/audit_v2_browser.py": "f811ab49977334749dba71e9c78391d7377c5e67a66c6293ec05ad414ec7ff1c",
       "artifact_provenance.py": "32c2d39e664ce49c6ec3e63ba61b715e7b4f05568f2eb7e62df91ecbf468eb78"
     },
-    "fingerprint": "840147ed39d053a888c3c92b41aeff2f183cf0c19e12c4c0475156b727137d69"
+    "fingerprint": "82fb1b2f86fc95acc98282522d4b14506fc7b87516490b0120259fb4379cde93"
+  },
+  "recording_compatibility": {
+    "840147ed39d053a888c3c92b41aeff2f183cf0c19e12c4c0475156b727137d69": [
+      "OS-E-01",
+      "OS-E-04",
+      "OS-E-05",
+      "OS-E-06",
+      "OS-E-07",
+      "OS-E-09",
+      "OS-E-10",
+      "OS-E-11",
+      "OS-E-12",
+      "OS-M-01",
+      "OS-M-02",
+      "OS-M-03",
+      "OS-M-04",
+      "OS-M-05",
+      "OS-M-06",
+      "OS-M-07",
+      "OS-M-08",
+      "OS-M-09",
+      "OS-M-10",
+      "OS-M-11",
+      "OS-M-12",
+      "OS-H-01",
+      "OS-H-02",
+      "OS-H-03",
+      "OS-H-04",
+      "OS-H-05",
+      "OS-H-06",
+      "OS-H-07",
+      "OS-H-08",
+      "OS-H-09",
+      "OS-H-10",
+      "OS-H-11",
+      "OS-H-12"
+    ]
   },
   "cases": [
     {
@@ -229,7 +266,7 @@
         "B": "按原项目目录/扩展名归档。File by source project, then extension. ",
         "C": "按 Properties 中的 resource_key 目录归档。File by resource_key. "
       },
-      "demo_description": "将三份不同扩展名、来源项目和 resource_key 的材料归档；查看属性，并展示实际目标路径。三种属性不能恰好给出同一分组。",
+      "demo_description": "将六份材料归档；两个项目都包含 resource-0 和 resource-1，同一种扩展名也来自不同项目。逐个展示来源、resource_key 与实际目标路径。",
       "demo_instruction": "Move all asset files from the two source projects into the supplied filing tree; preserve their contents and unrelated files.",
       "demo_seeds": [
         1001
@@ -249,18 +286,33 @@
             "steps": [
               {
                 "op": "move",
-                "target": "/Projects/Project-1001/Workspace/Project-0/asset-0.csv",
-                "parent": "/Projects/Project-1001/Output/By type/csv"
-              },
-              {
-                "op": "move",
-                "target": "/Projects/Project-1001/Workspace/Project-1/asset-1.txt",
+                "target": "/Projects/Project-1001/Workspace/Project-1/asset-0.txt",
                 "parent": "/Projects/Project-1001/Output/By type/txt"
               },
               {
                 "op": "move",
-                "target": "/Projects/Project-1001/Workspace/Project-0/asset-2.json",
+                "target": "/Projects/Project-1001/Workspace/Project-0/asset-1.json",
                 "parent": "/Projects/Project-1001/Output/By type/json"
+              },
+              {
+                "op": "move",
+                "target": "/Projects/Project-1001/Workspace/Project-0/asset-2.txt",
+                "parent": "/Projects/Project-1001/Output/By type/txt"
+              },
+              {
+                "op": "move",
+                "target": "/Projects/Project-1001/Workspace/Project-1/asset-3.json",
+                "parent": "/Projects/Project-1001/Output/By type/json"
+              },
+              {
+                "op": "move",
+                "target": "/Projects/Project-1001/Workspace/Project-1/asset-4.csv",
+                "parent": "/Projects/Project-1001/Output/By type/csv"
+              },
+              {
+                "op": "move",
+                "target": "/Projects/Project-1001/Workspace/Project-0/asset-5.csv",
+                "parent": "/Projects/Project-1001/Output/By type/csv"
               }
             ],
             "guide": {
@@ -272,21 +324,39 @@
               "outputs": [],
               "steps": [
                 {
-                  "title": "移动 asset-0.csv",
-                  "where": "File Explorer → 当前项目 → Workspace → Project-0",
-                  "action": "单击 asset-0.csv，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By type → csv，点击 Paste。检查目标目录中的文件及内容。",
-                  "expected": null
-                },
-                {
-                  "title": "移动 asset-1.txt",
+                  "title": "移动 asset-0.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Project-1",
-                  "action": "单击 asset-1.txt，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By type → txt，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 asset-0.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By type → txt，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
-                  "title": "移动 asset-2.json",
+                  "title": "移动 asset-1.json",
                   "where": "File Explorer → 当前项目 → Workspace → Project-0",
-                  "action": "单击 asset-2.json，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By type → json，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 asset-1.json，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By type → json，点击 Paste。检查目标目录中的文件及内容。",
+                  "expected": null
+                },
+                {
+                  "title": "移动 asset-2.txt",
+                  "where": "File Explorer → 当前项目 → Workspace → Project-0",
+                  "action": "单击 asset-2.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By type → txt，点击 Paste。检查目标目录中的文件及内容。",
+                  "expected": null
+                },
+                {
+                  "title": "移动 asset-3.json",
+                  "where": "File Explorer → 当前项目 → Workspace → Project-1",
+                  "action": "单击 asset-3.json，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By type → json，点击 Paste。检查目标目录中的文件及内容。",
+                  "expected": null
+                },
+                {
+                  "title": "移动 asset-4.csv",
+                  "where": "File Explorer → 当前项目 → Workspace → Project-1",
+                  "action": "单击 asset-4.csv，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By type → csv，点击 Paste。检查目标目录中的文件及内容。",
+                  "expected": null
+                },
+                {
+                  "title": "移动 asset-5.csv",
+                  "where": "File Explorer → 当前项目 → Workspace → Project-0",
+                  "action": "单击 asset-5.csv，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By type → csv，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -302,18 +372,33 @@
             "steps": [
               {
                 "op": "move",
-                "target": "/Projects/Project-1001/Workspace/Project-0/asset-0.csv",
-                "parent": "/Projects/Project-1001/Output/By project/Project-0/csv"
-              },
-              {
-                "op": "move",
-                "target": "/Projects/Project-1001/Workspace/Project-1/asset-1.txt",
+                "target": "/Projects/Project-1001/Workspace/Project-1/asset-0.txt",
                 "parent": "/Projects/Project-1001/Output/By project/Project-1/txt"
               },
               {
                 "op": "move",
-                "target": "/Projects/Project-1001/Workspace/Project-0/asset-2.json",
+                "target": "/Projects/Project-1001/Workspace/Project-0/asset-1.json",
                 "parent": "/Projects/Project-1001/Output/By project/Project-0/json"
+              },
+              {
+                "op": "move",
+                "target": "/Projects/Project-1001/Workspace/Project-0/asset-2.txt",
+                "parent": "/Projects/Project-1001/Output/By project/Project-0/txt"
+              },
+              {
+                "op": "move",
+                "target": "/Projects/Project-1001/Workspace/Project-1/asset-3.json",
+                "parent": "/Projects/Project-1001/Output/By project/Project-1/json"
+              },
+              {
+                "op": "move",
+                "target": "/Projects/Project-1001/Workspace/Project-1/asset-4.csv",
+                "parent": "/Projects/Project-1001/Output/By project/Project-1/csv"
+              },
+              {
+                "op": "move",
+                "target": "/Projects/Project-1001/Workspace/Project-0/asset-5.csv",
+                "parent": "/Projects/Project-1001/Output/By project/Project-0/csv"
               }
             ],
             "guide": {
@@ -325,21 +410,39 @@
               "outputs": [],
               "steps": [
                 {
-                  "title": "移动 asset-0.csv",
-                  "where": "File Explorer → 当前项目 → Workspace → Project-0",
-                  "action": "单击 asset-0.csv，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By project → Project-0 → csv，点击 Paste。检查目标目录中的文件及内容。",
-                  "expected": null
-                },
-                {
-                  "title": "移动 asset-1.txt",
+                  "title": "移动 asset-0.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Project-1",
-                  "action": "单击 asset-1.txt，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By project → Project-1 → txt，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 asset-0.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By project → Project-1 → txt，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
-                  "title": "移动 asset-2.json",
+                  "title": "移动 asset-1.json",
                   "where": "File Explorer → 当前项目 → Workspace → Project-0",
-                  "action": "单击 asset-2.json，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By project → Project-0 → json，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 asset-1.json，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By project → Project-0 → json，点击 Paste。检查目标目录中的文件及内容。",
+                  "expected": null
+                },
+                {
+                  "title": "移动 asset-2.txt",
+                  "where": "File Explorer → 当前项目 → Workspace → Project-0",
+                  "action": "单击 asset-2.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By project → Project-0 → txt，点击 Paste。检查目标目录中的文件及内容。",
+                  "expected": null
+                },
+                {
+                  "title": "移动 asset-3.json",
+                  "where": "File Explorer → 当前项目 → Workspace → Project-1",
+                  "action": "单击 asset-3.json，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By project → Project-1 → json，点击 Paste。检查目标目录中的文件及内容。",
+                  "expected": null
+                },
+                {
+                  "title": "移动 asset-4.csv",
+                  "where": "File Explorer → 当前项目 → Workspace → Project-1",
+                  "action": "单击 asset-4.csv，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By project → Project-1 → csv，点击 Paste。检查目标目录中的文件及内容。",
+                  "expected": null
+                },
+                {
+                  "title": "移动 asset-5.csv",
+                  "where": "File Explorer → 当前项目 → Workspace → Project-0",
+                  "action": "单击 asset-5.csv，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By project → Project-0 → csv，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -355,17 +458,32 @@
             "steps": [
               {
                 "op": "move",
-                "target": "/Projects/Project-1001/Workspace/Project-0/asset-0.csv",
+                "target": "/Projects/Project-1001/Workspace/Project-1/asset-0.txt",
                 "parent": "/Projects/Project-1001/Output/By key/resource-0"
               },
               {
                 "op": "move",
-                "target": "/Projects/Project-1001/Workspace/Project-1/asset-1.txt",
+                "target": "/Projects/Project-1001/Workspace/Project-0/asset-1.json",
+                "parent": "/Projects/Project-1001/Output/By key/resource-0"
+              },
+              {
+                "op": "move",
+                "target": "/Projects/Project-1001/Workspace/Project-0/asset-2.txt",
                 "parent": "/Projects/Project-1001/Output/By key/resource-1"
               },
               {
                 "op": "move",
-                "target": "/Projects/Project-1001/Workspace/Project-0/asset-2.json",
+                "target": "/Projects/Project-1001/Workspace/Project-1/asset-3.json",
+                "parent": "/Projects/Project-1001/Output/By key/resource-1"
+              },
+              {
+                "op": "move",
+                "target": "/Projects/Project-1001/Workspace/Project-1/asset-4.csv",
+                "parent": "/Projects/Project-1001/Output/By key/resource-1"
+              },
+              {
+                "op": "move",
+                "target": "/Projects/Project-1001/Workspace/Project-0/asset-5.csv",
                 "parent": "/Projects/Project-1001/Output/By key/resource-0"
               }
             ],
@@ -378,21 +496,39 @@
               "outputs": [],
               "steps": [
                 {
-                  "title": "移动 asset-0.csv",
-                  "where": "File Explorer → 当前项目 → Workspace → Project-0",
-                  "action": "单击 asset-0.csv，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By key → resource-0，点击 Paste。检查目标目录中的文件及内容。",
-                  "expected": null
-                },
-                {
-                  "title": "移动 asset-1.txt",
+                  "title": "移动 asset-0.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Project-1",
-                  "action": "单击 asset-1.txt，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By key → resource-1，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 asset-0.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By key → resource-0，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
-                  "title": "移动 asset-2.json",
+                  "title": "移动 asset-1.json",
                   "where": "File Explorer → 当前项目 → Workspace → Project-0",
-                  "action": "单击 asset-2.json，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By key → resource-0，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 asset-1.json，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By key → resource-0，点击 Paste。检查目标目录中的文件及内容。",
+                  "expected": null
+                },
+                {
+                  "title": "移动 asset-2.txt",
+                  "where": "File Explorer → 当前项目 → Workspace → Project-0",
+                  "action": "单击 asset-2.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By key → resource-1，点击 Paste。检查目标目录中的文件及内容。",
+                  "expected": null
+                },
+                {
+                  "title": "移动 asset-3.json",
+                  "where": "File Explorer → 当前项目 → Workspace → Project-1",
+                  "action": "单击 asset-3.json，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By key → resource-1，点击 Paste。检查目标目录中的文件及内容。",
+                  "expected": null
+                },
+                {
+                  "title": "移动 asset-4.csv",
+                  "where": "File Explorer → 当前项目 → Workspace → Project-1",
+                  "action": "单击 asset-4.csv，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By key → resource-1，点击 Paste。检查目标目录中的文件及内容。",
+                  "expected": null
+                },
+                {
+                  "title": "移动 asset-5.csv",
+                  "where": "File Explorer → 当前项目 → Workspace → Project-0",
+                  "action": "单击 asset-5.csv，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → By key → resource-0，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -416,11 +552,11 @@
       "query_example": "For each document group, copy exactly one approved version into its Selected folder. Preserve all originals. Use the approved-version selection criterion demonstrated in the video.",
       "relation": "approved-version selection criterion",
       "rules": {
-        "A": "批准版本中选修订号最高者。Choose the highest approved revision. 若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。",
-        "B": "批准版本中选字节数最小者。Choose the smallest approved byte size. 若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。",
-        "C": "批准版本中选字节数最大者。Choose the largest approved byte size. 若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。"
+        "A": "批准版本中选修订号最高者。Choose the highest approved revision. 先排除 Approved = No；A 比较 Revision（修订号），B/C 比较 Size（字节数）。Properties 可查看这些属性，文件名中的 r 后数字与 Revision 一致。若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。",
+        "B": "批准版本中选字节数最小者。Choose the smallest approved byte size. 先排除 Approved = No；A 比较 Revision（修订号），B/C 比较 Size（字节数）。Properties 可查看这些属性，文件名中的 r 后数字与 Revision 一致。若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。",
+        "C": "批准版本中选字节数最大者。Choose the largest approved byte size. 先排除 Approved = No；A 比较 Revision（修订号），B/C 比较 Size（字节数）。Properties 可查看这些属性，文件名中的 r 后数字与 Revision 一致。若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。"
       },
-      "demo_description": "完成三个独立文档组。每组包含最高批准修订、最小批准体积、最大批准体积及未批准干扰项；展示所选文件属性和复制结果。",
+      "demo_description": "完成三个独立文档组。先展示每组四份候选的 Approved、Revision 和 Size；仅在 Approved = Yes 的三份中比较。A 取 Revision 最大，B 取 Size 最小，C 取 Size 最大；展示所选文件和复制结果。",
       "demo_instruction": "For each document group, copy exactly one approved version into its Selected folder. Preserve all originals.",
       "demo_seeds": [
         1001
@@ -440,17 +576,17 @@
             "steps": [
               {
                 "op": "copy",
-                "target": "/Projects/Project-1001/Workspace/Document-0/edition-915.txt",
+                "target": "/Projects/Project-1001/Workspace/Document-0/edition-r7.txt",
                 "parent": "/Projects/Project-1001/Workspace/Document-0/Selected"
               },
               {
                 "op": "copy",
-                "target": "/Projects/Project-1001/Workspace/Document-1/edition-516.txt",
+                "target": "/Projects/Project-1001/Workspace/Document-1/edition-r14.txt",
                 "parent": "/Projects/Project-1001/Workspace/Document-1/Selected"
               },
               {
                 "op": "copy",
-                "target": "/Projects/Project-1001/Workspace/Document-2/edition-303.txt",
+                "target": "/Projects/Project-1001/Workspace/Document-2/edition-r12.txt",
                 "parent": "/Projects/Project-1001/Workspace/Document-2/Selected"
               }
             ],
@@ -463,21 +599,39 @@
               "outputs": [],
               "steps": [
                 {
-                  "title": "复制 edition-915.txt",
+                  "title": "展示候选文件的版本、大小与批准状态",
                   "where": "File Explorer → 当前项目 → Workspace → Document-0",
-                  "action": "单击 edition-915.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-0 → Selected，点击 Paste。检查目标目录中的文件及内容。",
-                  "expected": null
+                  "action": "逐个选中文件 → Properties，展示 Revision、Size (bytes)、Approved，点 Close 返回。先排除 Approved = No，再按版本规则比较；不要按列表位置选择。",
+                  "expected": "edition-r7.txt：Revision 7；Size 155 B；Approved = Yes\nedition-r6.txt：Revision 6；Size 80 B；Approved = Yes\nedition-r5.txt：Revision 5；Size 219 B；Approved = Yes\nedition-r27.txt：Revision 27；Size 269 B；Approved = No"
                 },
                 {
-                  "title": "复制 edition-516.txt",
+                  "title": "展示候选文件的版本、大小与批准状态",
                   "where": "File Explorer → 当前项目 → Workspace → Document-1",
-                  "action": "单击 edition-516.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-1 → Selected，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "逐个选中文件 → Properties，展示 Revision、Size (bytes)、Approved，点 Close 返回。先排除 Approved = No，再按版本规则比较；不要按列表位置选择。",
+                  "expected": "edition-r14.txt：Revision 14；Size 205 B；Approved = Yes\nedition-r13.txt：Revision 13；Size 116 B；Approved = Yes\nedition-r12.txt：Revision 12；Size 270 B；Approved = Yes\nedition-r34.txt：Revision 34；Size 320 B；Approved = No"
+                },
+                {
+                  "title": "展示候选文件的版本、大小与批准状态",
+                  "where": "File Explorer → 当前项目 → Workspace → Document-2",
+                  "action": "逐个选中文件 → Properties，展示 Revision、Size (bytes)、Approved，点 Close 返回。先排除 Approved = No，再按版本规则比较；不要按列表位置选择。",
+                  "expected": "edition-r12.txt：Revision 12；Size 207 B；Approved = Yes\nedition-r11.txt：Revision 11；Size 122 B；Approved = Yes\nedition-r10.txt：Revision 10；Size 294 B；Approved = Yes\nedition-r32.txt：Revision 32；Size 344 B；Approved = No"
+                },
+                {
+                  "title": "复制 edition-r7.txt",
+                  "where": "File Explorer → 当前项目 → Workspace → Document-0",
+                  "action": "单击 edition-r7.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-0 → Selected，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
-                  "title": "复制 edition-303.txt",
+                  "title": "复制 edition-r14.txt",
+                  "where": "File Explorer → 当前项目 → Workspace → Document-1",
+                  "action": "单击 edition-r14.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-1 → Selected，点击 Paste。检查目标目录中的文件及内容。",
+                  "expected": null
+                },
+                {
+                  "title": "复制 edition-r12.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Document-2",
-                  "action": "单击 edition-303.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-2 → Selected，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 edition-r12.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-2 → Selected，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -493,17 +647,17 @@
             "steps": [
               {
                 "op": "copy",
-                "target": "/Projects/Project-1001/Workspace/Document-0/edition-160.txt",
+                "target": "/Projects/Project-1001/Workspace/Document-0/edition-r6.txt",
                 "parent": "/Projects/Project-1001/Workspace/Document-0/Selected"
               },
               {
                 "op": "copy",
-                "target": "/Projects/Project-1001/Workspace/Document-1/edition-839.txt",
+                "target": "/Projects/Project-1001/Workspace/Document-1/edition-r13.txt",
                 "parent": "/Projects/Project-1001/Workspace/Document-1/Selected"
               },
               {
                 "op": "copy",
-                "target": "/Projects/Project-1001/Workspace/Document-2/edition-722.txt",
+                "target": "/Projects/Project-1001/Workspace/Document-2/edition-r11.txt",
                 "parent": "/Projects/Project-1001/Workspace/Document-2/Selected"
               }
             ],
@@ -516,21 +670,39 @@
               "outputs": [],
               "steps": [
                 {
-                  "title": "复制 edition-160.txt",
+                  "title": "展示候选文件的版本、大小与批准状态",
                   "where": "File Explorer → 当前项目 → Workspace → Document-0",
-                  "action": "单击 edition-160.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-0 → Selected，点击 Paste。检查目标目录中的文件及内容。",
-                  "expected": null
+                  "action": "逐个选中文件 → Properties，展示 Revision、Size (bytes)、Approved，点 Close 返回。先排除 Approved = No，再按版本规则比较；不要按列表位置选择。",
+                  "expected": "edition-r7.txt：Revision 7；Size 155 B；Approved = Yes\nedition-r6.txt：Revision 6；Size 80 B；Approved = Yes\nedition-r5.txt：Revision 5；Size 219 B；Approved = Yes\nedition-r27.txt：Revision 27；Size 269 B；Approved = No"
                 },
                 {
-                  "title": "复制 edition-839.txt",
+                  "title": "展示候选文件的版本、大小与批准状态",
                   "where": "File Explorer → 当前项目 → Workspace → Document-1",
-                  "action": "单击 edition-839.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-1 → Selected，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "逐个选中文件 → Properties，展示 Revision、Size (bytes)、Approved，点 Close 返回。先排除 Approved = No，再按版本规则比较；不要按列表位置选择。",
+                  "expected": "edition-r14.txt：Revision 14；Size 205 B；Approved = Yes\nedition-r13.txt：Revision 13；Size 116 B；Approved = Yes\nedition-r12.txt：Revision 12；Size 270 B；Approved = Yes\nedition-r34.txt：Revision 34；Size 320 B；Approved = No"
+                },
+                {
+                  "title": "展示候选文件的版本、大小与批准状态",
+                  "where": "File Explorer → 当前项目 → Workspace → Document-2",
+                  "action": "逐个选中文件 → Properties，展示 Revision、Size (bytes)、Approved，点 Close 返回。先排除 Approved = No，再按版本规则比较；不要按列表位置选择。",
+                  "expected": "edition-r12.txt：Revision 12；Size 207 B；Approved = Yes\nedition-r11.txt：Revision 11；Size 122 B；Approved = Yes\nedition-r10.txt：Revision 10；Size 294 B；Approved = Yes\nedition-r32.txt：Revision 32；Size 344 B；Approved = No"
+                },
+                {
+                  "title": "复制 edition-r6.txt",
+                  "where": "File Explorer → 当前项目 → Workspace → Document-0",
+                  "action": "单击 edition-r6.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-0 → Selected，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
-                  "title": "复制 edition-722.txt",
+                  "title": "复制 edition-r13.txt",
+                  "where": "File Explorer → 当前项目 → Workspace → Document-1",
+                  "action": "单击 edition-r13.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-1 → Selected，点击 Paste。检查目标目录中的文件及内容。",
+                  "expected": null
+                },
+                {
+                  "title": "复制 edition-r11.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Document-2",
-                  "action": "单击 edition-722.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-2 → Selected，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 edition-r11.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-2 → Selected，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -546,17 +718,17 @@
             "steps": [
               {
                 "op": "copy",
-                "target": "/Projects/Project-1001/Workspace/Document-0/edition-878.txt",
+                "target": "/Projects/Project-1001/Workspace/Document-0/edition-r5.txt",
                 "parent": "/Projects/Project-1001/Workspace/Document-0/Selected"
               },
               {
                 "op": "copy",
-                "target": "/Projects/Project-1001/Workspace/Document-1/edition-483.txt",
+                "target": "/Projects/Project-1001/Workspace/Document-1/edition-r12.txt",
                 "parent": "/Projects/Project-1001/Workspace/Document-1/Selected"
               },
               {
                 "op": "copy",
-                "target": "/Projects/Project-1001/Workspace/Document-2/edition-151.txt",
+                "target": "/Projects/Project-1001/Workspace/Document-2/edition-r10.txt",
                 "parent": "/Projects/Project-1001/Workspace/Document-2/Selected"
               }
             ],
@@ -569,21 +741,39 @@
               "outputs": [],
               "steps": [
                 {
-                  "title": "复制 edition-878.txt",
+                  "title": "展示候选文件的版本、大小与批准状态",
                   "where": "File Explorer → 当前项目 → Workspace → Document-0",
-                  "action": "单击 edition-878.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-0 → Selected，点击 Paste。检查目标目录中的文件及内容。",
-                  "expected": null
+                  "action": "逐个选中文件 → Properties，展示 Revision、Size (bytes)、Approved，点 Close 返回。先排除 Approved = No，再按版本规则比较；不要按列表位置选择。",
+                  "expected": "edition-r7.txt：Revision 7；Size 155 B；Approved = Yes\nedition-r6.txt：Revision 6；Size 80 B；Approved = Yes\nedition-r5.txt：Revision 5；Size 219 B；Approved = Yes\nedition-r27.txt：Revision 27；Size 269 B；Approved = No"
                 },
                 {
-                  "title": "复制 edition-483.txt",
+                  "title": "展示候选文件的版本、大小与批准状态",
                   "where": "File Explorer → 当前项目 → Workspace → Document-1",
-                  "action": "单击 edition-483.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-1 → Selected，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "逐个选中文件 → Properties，展示 Revision、Size (bytes)、Approved，点 Close 返回。先排除 Approved = No，再按版本规则比较；不要按列表位置选择。",
+                  "expected": "edition-r14.txt：Revision 14；Size 205 B；Approved = Yes\nedition-r13.txt：Revision 13；Size 116 B；Approved = Yes\nedition-r12.txt：Revision 12；Size 270 B；Approved = Yes\nedition-r34.txt：Revision 34；Size 320 B；Approved = No"
+                },
+                {
+                  "title": "展示候选文件的版本、大小与批准状态",
+                  "where": "File Explorer → 当前项目 → Workspace → Document-2",
+                  "action": "逐个选中文件 → Properties，展示 Revision、Size (bytes)、Approved，点 Close 返回。先排除 Approved = No，再按版本规则比较；不要按列表位置选择。",
+                  "expected": "edition-r12.txt：Revision 12；Size 207 B；Approved = Yes\nedition-r11.txt：Revision 11；Size 122 B；Approved = Yes\nedition-r10.txt：Revision 10；Size 294 B；Approved = Yes\nedition-r32.txt：Revision 32；Size 344 B；Approved = No"
+                },
+                {
+                  "title": "复制 edition-r5.txt",
+                  "where": "File Explorer → 当前项目 → Workspace → Document-0",
+                  "action": "单击 edition-r5.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-0 → Selected，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
-                  "title": "复制 edition-151.txt",
+                  "title": "复制 edition-r12.txt",
+                  "where": "File Explorer → 当前项目 → Workspace → Document-1",
+                  "action": "单击 edition-r12.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-1 → Selected，点击 Paste。检查目标目录中的文件及内容。",
+                  "expected": null
+                },
+                {
+                  "title": "复制 edition-r10.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Document-2",
-                  "action": "单击 edition-151.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-2 → Selected，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 edition-r10.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Workspace → Document-2 → Selected，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -698,7 +888,7 @@
                 {
                   "title": "移动 record-915-incoming.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Incoming-0",
-                  "action": "单击 record-915-incoming.txt，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-0，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 record-915-incoming.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-0，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
@@ -716,7 +906,7 @@
                 {
                   "title": "移动 record-983-incoming.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Incoming-1",
-                  "action": "单击 record-983-incoming.txt，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-1，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 record-983-incoming.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-1，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
@@ -734,7 +924,7 @@
                 {
                   "title": "移动 record-486-incoming.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Incoming-2",
-                  "action": "单击 record-486-incoming.txt，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-2，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 record-486-incoming.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-2，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -817,7 +1007,7 @@
                 {
                   "title": "移动 record-915.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Incoming-0",
-                  "action": "单击 record-915.txt，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-0，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 record-915.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-0，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
@@ -835,7 +1025,7 @@
                 {
                   "title": "移动 record-983.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Incoming-1",
-                  "action": "单击 record-983.txt，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-1，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 record-983.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-1，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
@@ -853,7 +1043,7 @@
                 {
                   "title": "移动 record-486.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Incoming-2",
-                  "action": "单击 record-486.txt，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-2，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 record-486.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-2，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -936,7 +1126,7 @@
                 {
                   "title": "移动 record-915-r7.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Incoming-0",
-                  "action": "单击 record-915-r7.txt，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-0，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 record-915-r7.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-0，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
@@ -954,7 +1144,7 @@
                 {
                   "title": "移动 record-983-r10.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Incoming-1",
-                  "action": "单击 record-983-r10.txt，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-1，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 record-983-r10.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-1，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
@@ -972,7 +1162,7 @@
                 {
                   "title": "移动 record-486-r9.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Incoming-2",
-                  "action": "单击 record-486-r9.txt，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-2，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 record-486-r9.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Target-2，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -1253,9 +1443,9 @@
       "query_example": "Filter contact fields in every copy-*.jsonl document in Output. Preserve originals, event identifiers, timestamps and all other fields. Use the contact-field transformation demonstrated in the video.",
       "relation": "contact-field transformation",
       "rules": {
-        "A": "contact 值替换为 [REDACTED]，保留字段。Mask contact values as [REDACTED]. ",
-        "B": "删除 contact 字段。Remove contact fields. ",
-        "C": "contact 值替换为 Contact-{operator_id}，operator_id 保留。Replace contact with Contact-{operator_id}. "
+        "A": "contact 值替换为 [REDACTED]，保留字段。Mask contact values as [REDACTED]. operator_id 是纯数字标识，例如 1004；C 写为 Contact-1004。保留 operator_id 本身及其他字段。",
+        "B": "删除 contact 字段。Remove contact fields. operator_id 是纯数字标识，例如 1004；C 写为 Contact-1004。保留 operator_id 本身及其他字段。",
+        "C": "contact 值替换为 Contact-{operator_id}，operator_id 保留。Replace contact with Contact-{operator_id}. operator_id 是纯数字标识，例如 1004；C 写为 Contact-1004。保留 operator_id 本身及其他字段。"
       },
       "demo_description": "修改三份日志副本，每份含不同联系人记录；展示原始值、处理后字段及保存结果，原始日志不变。",
       "demo_instruction": "Filter contact fields in every copy-*.jsonl document in Output. Preserve originals, event identifiers, timestamps and all other fields.",
@@ -1278,17 +1468,17 @@
               {
                 "op": "write",
                 "target": "/Projects/Project-1001/Output/copy-0.jsonl",
-                "content": "{\"event_id\": \"EV-1001-0-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-0-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}"
+                "content": "{\"event_id\": \"EV-1001-0-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1004\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-0-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1005\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}"
               },
               {
                 "op": "write",
                 "target": "/Projects/Project-1001/Output/copy-1.jsonl",
-                "content": "{\"event_id\": \"EV-1001-1-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-1-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}"
+                "content": "{\"event_id\": \"EV-1001-1-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1006\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-1-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1007\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}"
               },
               {
                 "op": "write",
                 "target": "/Projects/Project-1001/Output/copy-2.jsonl",
-                "content": "{\"event_id\": \"EV-1001-2-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-2-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}"
+                "content": "{\"event_id\": \"EV-1001-2-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1008\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-2-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1009\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}"
               }
             ],
             "guide": {
@@ -1307,19 +1497,19 @@
                   "title": "编辑并保存 copy-0.jsonl",
                   "where": "Notepad → Open… → Document → /Projects/Project-1001/Output/copy-0.jsonl → OK",
                   "action": "在正文编辑区逐项处理材料，展示输入与对应结果；点击顶部 Save。保存后重新 Open… 打开同一文件，确认内容仍在。",
-                  "expected": "{\"event_id\": \"EV-1001-0-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-0-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}"
+                  "expected": "{\"event_id\": \"EV-1001-0-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1004\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-0-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1005\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}"
                 },
                 {
                   "title": "编辑并保存 copy-1.jsonl",
                   "where": "Notepad → Open… → Document → /Projects/Project-1001/Output/copy-1.jsonl → OK",
                   "action": "在正文编辑区逐项处理材料，展示输入与对应结果；点击顶部 Save。保存后重新 Open… 打开同一文件，确认内容仍在。",
-                  "expected": "{\"event_id\": \"EV-1001-1-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-1-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}"
+                  "expected": "{\"event_id\": \"EV-1001-1-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1006\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-1-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1007\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}"
                 },
                 {
                   "title": "编辑并保存 copy-2.jsonl",
                   "where": "Notepad → Open… → Document → /Projects/Project-1001/Output/copy-2.jsonl → OK",
                   "action": "在正文编辑区逐项处理材料，展示输入与对应结果；点击顶部 Save。保存后重新 Open… 打开同一文件，确认内容仍在。",
-                  "expected": "{\"event_id\": \"EV-1001-2-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-2-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}"
+                  "expected": "{\"event_id\": \"EV-1001-2-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1008\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-2-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1009\", \"contact\": \"[REDACTED]\", \"message\": \"Connection checked\"}"
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
@@ -1335,17 +1525,17 @@
               {
                 "op": "write",
                 "target": "/Projects/Project-1001/Output/copy-0.jsonl",
-                "content": "{\"event_id\": \"EV-1001-0-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-0-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"message\": \"Connection checked\"}"
+                "content": "{\"event_id\": \"EV-1001-0-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1004\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-0-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1005\", \"message\": \"Connection checked\"}"
               },
               {
                 "op": "write",
                 "target": "/Projects/Project-1001/Output/copy-1.jsonl",
-                "content": "{\"event_id\": \"EV-1001-1-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-1-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"message\": \"Connection checked\"}"
+                "content": "{\"event_id\": \"EV-1001-1-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1006\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-1-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1007\", \"message\": \"Connection checked\"}"
               },
               {
                 "op": "write",
                 "target": "/Projects/Project-1001/Output/copy-2.jsonl",
-                "content": "{\"event_id\": \"EV-1001-2-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-2-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"message\": \"Connection checked\"}"
+                "content": "{\"event_id\": \"EV-1001-2-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1008\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-2-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1009\", \"message\": \"Connection checked\"}"
               }
             ],
             "guide": {
@@ -1364,19 +1554,19 @@
                   "title": "编辑并保存 copy-0.jsonl",
                   "where": "Notepad → Open… → Document → /Projects/Project-1001/Output/copy-0.jsonl → OK",
                   "action": "在正文编辑区逐项处理材料，展示输入与对应结果；点击顶部 Save。保存后重新 Open… 打开同一文件，确认内容仍在。",
-                  "expected": "{\"event_id\": \"EV-1001-0-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-0-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"message\": \"Connection checked\"}"
+                  "expected": "{\"event_id\": \"EV-1001-0-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1004\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-0-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1005\", \"message\": \"Connection checked\"}"
                 },
                 {
                   "title": "编辑并保存 copy-1.jsonl",
                   "where": "Notepad → Open… → Document → /Projects/Project-1001/Output/copy-1.jsonl → OK",
                   "action": "在正文编辑区逐项处理材料，展示输入与对应结果；点击顶部 Save。保存后重新 Open… 打开同一文件，确认内容仍在。",
-                  "expected": "{\"event_id\": \"EV-1001-1-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-1-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"message\": \"Connection checked\"}"
+                  "expected": "{\"event_id\": \"EV-1001-1-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1006\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-1-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1007\", \"message\": \"Connection checked\"}"
                 },
                 {
                   "title": "编辑并保存 copy-2.jsonl",
                   "where": "Notepad → Open… → Document → /Projects/Project-1001/Output/copy-2.jsonl → OK",
                   "action": "在正文编辑区逐项处理材料，展示输入与对应结果；点击顶部 Save。保存后重新 Open… 打开同一文件，确认内容仍在。",
-                  "expected": "{\"event_id\": \"EV-1001-2-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-2-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"message\": \"Connection checked\"}"
+                  "expected": "{\"event_id\": \"EV-1001-2-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1008\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-2-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1009\", \"message\": \"Connection checked\"}"
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
@@ -1392,17 +1582,17 @@
               {
                 "op": "write",
                 "target": "/Projects/Project-1001/Output/copy-0.jsonl",
-                "content": "{\"event_id\": \"EV-1001-0-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"contact\": \"Contact-O4\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-0-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"contact\": \"Contact-O5\", \"message\": \"Connection checked\"}"
+                "content": "{\"event_id\": \"EV-1001-0-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1004\", \"contact\": \"Contact-1004\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-0-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1005\", \"contact\": \"Contact-1005\", \"message\": \"Connection checked\"}"
               },
               {
                 "op": "write",
                 "target": "/Projects/Project-1001/Output/copy-1.jsonl",
-                "content": "{\"event_id\": \"EV-1001-1-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"contact\": \"Contact-O4\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-1-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"contact\": \"Contact-O5\", \"message\": \"Connection checked\"}"
+                "content": "{\"event_id\": \"EV-1001-1-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1006\", \"contact\": \"Contact-1006\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-1-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1007\", \"contact\": \"Contact-1007\", \"message\": \"Connection checked\"}"
               },
               {
                 "op": "write",
                 "target": "/Projects/Project-1001/Output/copy-2.jsonl",
-                "content": "{\"event_id\": \"EV-1001-2-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"contact\": \"Contact-O4\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-2-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"contact\": \"Contact-O5\", \"message\": \"Connection checked\"}"
+                "content": "{\"event_id\": \"EV-1001-2-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1008\", \"contact\": \"Contact-1008\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-2-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1009\", \"contact\": \"Contact-1009\", \"message\": \"Connection checked\"}"
               }
             ],
             "guide": {
@@ -1421,19 +1611,19 @@
                   "title": "编辑并保存 copy-0.jsonl",
                   "where": "Notepad → Open… → Document → /Projects/Project-1001/Output/copy-0.jsonl → OK",
                   "action": "在正文编辑区逐项处理材料，展示输入与对应结果；点击顶部 Save。保存后重新 Open… 打开同一文件，确认内容仍在。",
-                  "expected": "{\"event_id\": \"EV-1001-0-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"contact\": \"Contact-O4\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-0-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"contact\": \"Contact-O5\", \"message\": \"Connection checked\"}"
+                  "expected": "{\"event_id\": \"EV-1001-0-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1004\", \"contact\": \"Contact-1004\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-0-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1005\", \"contact\": \"Contact-1005\", \"message\": \"Connection checked\"}"
                 },
                 {
                   "title": "编辑并保存 copy-1.jsonl",
                   "where": "Notepad → Open… → Document → /Projects/Project-1001/Output/copy-1.jsonl → OK",
                   "action": "在正文编辑区逐项处理材料，展示输入与对应结果；点击顶部 Save。保存后重新 Open… 打开同一文件，确认内容仍在。",
-                  "expected": "{\"event_id\": \"EV-1001-1-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"contact\": \"Contact-O4\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-1-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"contact\": \"Contact-O5\", \"message\": \"Connection checked\"}"
+                  "expected": "{\"event_id\": \"EV-1001-1-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1006\", \"contact\": \"Contact-1006\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-1-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1007\", \"contact\": \"Contact-1007\", \"message\": \"Connection checked\"}"
                 },
                 {
                   "title": "编辑并保存 copy-2.jsonl",
                   "where": "Notepad → Open… → Document → /Projects/Project-1001/Output/copy-2.jsonl → OK",
                   "action": "在正文编辑区逐项处理材料，展示输入与对应结果；点击顶部 Save。保存后重新 Open… 打开同一文件，确认内容仍在。",
-                  "expected": "{\"event_id\": \"EV-1001-2-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"O4\", \"contact\": \"Contact-O4\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-2-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"O5\", \"contact\": \"Contact-O5\", \"message\": \"Connection checked\"}"
+                  "expected": "{\"event_id\": \"EV-1001-2-0\", \"time\": \"2026-10-15T09:00:00\", \"operator_id\": \"1008\", \"contact\": \"Contact-1008\", \"message\": \"Connection checked\"}\n{\"event_id\": \"EV-1001-2-1\", \"time\": \"2026-10-15T09:01:00\", \"operator_id\": \"1009\", \"contact\": \"Contact-1009\", \"message\": \"Connection checked\"}"
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
@@ -1804,19 +1994,19 @@
                 {
                   "title": "导出 window-0.jsonl",
                   "where": "Start → Event Viewer → Channel 0 log → Export interval…",
-                  "action": "先查看事件时间。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-0.jsonl；Start time 填 2026-10-15T08:07:00；End time 填 2026-10-15T08:09:00 → OK。用 Notepad → Open… 打开导出文件，展示边界内记录。",
+                  "action": "先展示频道标题下的 Incident anchor 时间和同名事件，再展示窗口边界内外的候选记录。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-0.jsonl；Start time 填 2026-10-15T08:07:00；End time 填 2026-10-15T08:09:00 → OK。用 Notepad → Open… 打开导出文件，展示两端边界记录被包含、窗口外记录不在结果中。",
                   "expected": null
                 },
                 {
                   "title": "导出 window-1.jsonl",
                   "where": "Start → Event Viewer → Channel 1 log → Export interval…",
-                  "action": "先查看事件时间。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-1.jsonl；Start time 填 2026-10-15T09:07:00；End time 填 2026-10-15T09:09:00 → OK。用 Notepad → Open… 打开导出文件，展示边界内记录。",
+                  "action": "先展示频道标题下的 Incident anchor 时间和同名事件，再展示窗口边界内外的候选记录。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-1.jsonl；Start time 填 2026-10-15T09:07:00；End time 填 2026-10-15T09:09:00 → OK。用 Notepad → Open… 打开导出文件，展示两端边界记录被包含、窗口外记录不在结果中。",
                   "expected": null
                 },
                 {
                   "title": "导出 window-2.jsonl",
                   "where": "Start → Event Viewer → Channel 2 log → Export interval…",
-                  "action": "先查看事件时间。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-2.jsonl；Start time 填 2026-10-15T10:07:00；End time 填 2026-10-15T10:09:00 → OK。用 Notepad → Open… 打开导出文件，展示边界内记录。",
+                  "action": "先展示频道标题下的 Incident anchor 时间和同名事件，再展示窗口边界内外的候选记录。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-2.jsonl；Start time 填 2026-10-15T10:07:00；End time 填 2026-10-15T10:09:00 → OK。用 Notepad → Open… 打开导出文件，展示两端边界记录被包含、窗口外记录不在结果中。",
                   "expected": null
                 }
               ],
@@ -1866,19 +2056,19 @@
                 {
                   "title": "导出 window-0.jsonl",
                   "where": "Start → Event Viewer → Channel 0 log → Export interval…",
-                  "action": "先查看事件时间。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-0.jsonl；Start time 填 2026-10-15T08:09:00；End time 填 2026-10-15T08:11:00 → OK。用 Notepad → Open… 打开导出文件，展示边界内记录。",
+                  "action": "先展示频道标题下的 Incident anchor 时间和同名事件，再展示窗口边界内外的候选记录。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-0.jsonl；Start time 填 2026-10-15T08:09:00；End time 填 2026-10-15T08:11:00 → OK。用 Notepad → Open… 打开导出文件，展示两端边界记录被包含、窗口外记录不在结果中。",
                   "expected": null
                 },
                 {
                   "title": "导出 window-1.jsonl",
                   "where": "Start → Event Viewer → Channel 1 log → Export interval…",
-                  "action": "先查看事件时间。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-1.jsonl；Start time 填 2026-10-15T09:09:00；End time 填 2026-10-15T09:11:00 → OK。用 Notepad → Open… 打开导出文件，展示边界内记录。",
+                  "action": "先展示频道标题下的 Incident anchor 时间和同名事件，再展示窗口边界内外的候选记录。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-1.jsonl；Start time 填 2026-10-15T09:09:00；End time 填 2026-10-15T09:11:00 → OK。用 Notepad → Open… 打开导出文件，展示两端边界记录被包含、窗口外记录不在结果中。",
                   "expected": null
                 },
                 {
                   "title": "导出 window-2.jsonl",
                   "where": "Start → Event Viewer → Channel 2 log → Export interval…",
-                  "action": "先查看事件时间。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-2.jsonl；Start time 填 2026-10-15T10:09:00；End time 填 2026-10-15T10:11:00 → OK。用 Notepad → Open… 打开导出文件，展示边界内记录。",
+                  "action": "先展示频道标题下的 Incident anchor 时间和同名事件，再展示窗口边界内外的候选记录。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-2.jsonl；Start time 填 2026-10-15T10:09:00；End time 填 2026-10-15T10:11:00 → OK。用 Notepad → Open… 打开导出文件，展示两端边界记录被包含、窗口外记录不在结果中。",
                   "expected": null
                 }
               ],
@@ -1928,19 +2118,19 @@
                 {
                   "title": "导出 window-0.jsonl",
                   "where": "Start → Event Viewer → Channel 0 log → Export interval…",
-                  "action": "先查看事件时间。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-0.jsonl；Start time 填 2026-10-15T08:08:00；End time 填 2026-10-15T08:10:00 → OK。用 Notepad → Open… 打开导出文件，展示边界内记录。",
+                  "action": "先展示频道标题下的 Incident anchor 时间和同名事件，再展示窗口边界内外的候选记录。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-0.jsonl；Start time 填 2026-10-15T08:08:00；End time 填 2026-10-15T08:10:00 → OK。用 Notepad → Open… 打开导出文件，展示两端边界记录被包含、窗口外记录不在结果中。",
                   "expected": null
                 },
                 {
                   "title": "导出 window-1.jsonl",
                   "where": "Start → Event Viewer → Channel 1 log → Export interval…",
-                  "action": "先查看事件时间。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-1.jsonl；Start time 填 2026-10-15T09:08:00；End time 填 2026-10-15T09:10:00 → OK。用 Notepad → Open… 打开导出文件，展示边界内记录。",
+                  "action": "先展示频道标题下的 Incident anchor 时间和同名事件，再展示窗口边界内外的候选记录。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-1.jsonl；Start time 填 2026-10-15T09:08:00；End time 填 2026-10-15T09:10:00 → OK。用 Notepad → Open… 打开导出文件，展示两端边界记录被包含、窗口外记录不在结果中。",
                   "expected": null
                 },
                 {
                   "title": "导出 window-2.jsonl",
                   "where": "Start → Event Viewer → Channel 2 log → Export interval…",
-                  "action": "先查看事件时间。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-2.jsonl；Start time 填 2026-10-15T10:08:00；End time 填 2026-10-15T10:10:00 → OK。用 Notepad → Open… 打开导出文件，展示边界内记录。",
+                  "action": "先展示频道标题下的 Incident anchor 时间和同名事件，再展示窗口边界内外的候选记录。Destination folder 选择 /Projects/Project-1001/Output；File name 填 window-2.jsonl；Start time 填 2026-10-15T10:08:00；End time 填 2026-10-15T10:10:00 → OK。用 Notepad → Open… 打开导出文件，展示两端边界记录被包含、窗口外记录不在结果中。",
                   "expected": null
                 }
               ],
@@ -2834,19 +3024,19 @@
                 {
                   "title": "复制 data-r3.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Source-0",
-                  "action": "单击 data-r3.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By category → Data，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 data-r3.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By category → Data，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 notes-r3.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Source-1",
-                  "action": "单击 notes-r3.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By category → Notes，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 notes-r3.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By category → Notes，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 protocol-r3.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Source-0",
-                  "action": "单击 protocol-r3.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By category → Protocol，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 protocol-r3.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By category → Protocol，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -2887,19 +3077,19 @@
                 {
                   "title": "复制 data-r3.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Source-0",
-                  "action": "单击 data-r3.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By source → Source-0，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 data-r3.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By source → Source-0，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 notes-r3.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Source-1",
-                  "action": "单击 notes-r3.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By source → Source-1，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 notes-r3.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By source → Source-1，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 protocol-r3.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Source-0",
-                  "action": "单击 protocol-r3.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By source → Source-0，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 protocol-r3.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By source → Source-0，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -2940,19 +3130,19 @@
                 {
                   "title": "复制 data-r3.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Source-0",
-                  "action": "单击 data-r3.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By key → K0，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 data-r3.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By key → K0，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 notes-r3.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Source-1",
-                  "action": "单击 notes-r3.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By key → K1，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 notes-r3.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By key → K1，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 protocol-r3.txt",
                   "where": "File Explorer → 当前项目 → Workspace → Source-0",
-                  "action": "单击 protocol-r3.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By key → K2，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 protocol-r3.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → By key → K2，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -4741,13 +4931,13 @@
                 {
                   "title": "移动 source.txt",
                   "where": "File Explorer → 当前项目 → Output → Original target",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Previous，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Previous，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -4781,13 +4971,13 @@
                 {
                   "title": "移动 source.txt",
                   "where": "File Explorer → 当前项目 → Output → Original target",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Previous，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Previous，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -4821,13 +5011,13 @@
                 {
                   "title": "移动 source.txt",
                   "where": "File Explorer → 当前项目 → Output → Original target",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Previous，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Cut。再进入 File Explorer → 当前项目 → Output → Previous，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -4869,7 +5059,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -4909,7 +5099,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -4949,7 +5139,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -4989,7 +5179,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Output → Original target",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Snapshot，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Snapshot，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
@@ -5001,7 +5191,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -5039,7 +5229,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Output → Original target",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Snapshot，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Snapshot，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
@@ -5051,7 +5241,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -5089,7 +5279,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Output → Original target",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Snapshot，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Snapshot，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
@@ -5101,7 +5291,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -8667,13 +8857,13 @@
                 {
                   "title": "复制 example-data.csv",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-data.csv，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovery → Restored，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-data.csv，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovery → Restored，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 example-report.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-report.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovery → Restored → Reports，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-report.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovery → Restored → Reports，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -8707,13 +8897,13 @@
                 {
                   "title": "复制 example-data.csv",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-data.csv，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovery → Restored，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-data.csv，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovery → Restored，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 example-report.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-report.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovery → Restored → Reports，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-report.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovery → Restored → Reports，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -8747,13 +8937,13 @@
                 {
                   "title": "复制 example-data.csv",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-data.csv，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovery → Restored，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-data.csv，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovery → Restored，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 example-report.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-report.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovery → Restored → Reports，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-report.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovery → Restored → Reports，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -8789,13 +8979,13 @@
                 {
                   "title": "复制 example-data.csv",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-data.csv，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Restored → Workspace，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-data.csv，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Restored → Workspace，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 example-report.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-report.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Restored → Workspace → Reports，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-report.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Restored → Workspace → Reports，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -8829,13 +9019,13 @@
                 {
                   "title": "复制 example-data.csv",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-data.csv，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Restored → Workspace，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-data.csv，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Restored → Workspace，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 example-report.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-report.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Restored → Workspace → Reports，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-report.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Restored → Workspace → Reports，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -8869,13 +9059,13 @@
                 {
                   "title": "复制 example-data.csv",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-data.csv，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Restored → Workspace，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-data.csv，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Restored → Workspace，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 example-report.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-report.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Restored → Workspace → Reports，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-report.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Restored → Workspace → Reports，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -8911,13 +9101,13 @@
                 {
                   "title": "复制 example-data.csv",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-data.csv，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovered，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-data.csv，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovered，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 example-report.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-report.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovered → Reports，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-report.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovered → Reports，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -8951,13 +9141,13 @@
                 {
                   "title": "复制 example-data.csv",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-data.csv，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovered，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-data.csv，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovered，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 example-report.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-report.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovered → Reports，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-report.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovered → Reports，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -8991,13 +9181,13 @@
                 {
                   "title": "复制 example-data.csv",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-data.csv，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovered，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-data.csv，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovered，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
                   "title": "复制 example-report.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 example-report.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovered → Reports，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 example-report.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Recovered → Reports，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -11407,7 +11597,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → New workspace，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → New workspace，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -11436,7 +11626,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → New workspace，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → New workspace，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -11465,7 +11655,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → New workspace，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → New workspace，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -11507,7 +11697,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -11547,7 +11737,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -11587,7 +11777,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -11627,7 +11817,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Output → Original target",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Local-preserved，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Local-preserved，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
@@ -11639,7 +11829,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -11677,7 +11867,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Output → Original target",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Local-preserved，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Local-preserved，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
@@ -11689,7 +11879,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],
@@ -11727,7 +11917,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Output → Original target",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Local-preserved，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Local-preserved，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 },
                 {
@@ -11739,7 +11929,7 @@
                 {
                   "title": "复制 source.txt",
                   "where": "File Explorer → 当前项目 → Workspace",
-                  "action": "单击 source.txt，可用 Properties 查看属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
+                  "action": "单击 source.txt，用 Properties 展示属性（Close 返回）；点击 Copy。再进入 File Explorer → 当前项目 → Output → Original target，点击 Paste。检查目标目录中的文件及内容。",
                   "expected": null
                 }
               ],

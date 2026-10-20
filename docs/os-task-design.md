@@ -30,7 +30,7 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
    「在哪里操作」列出当前示范的图标、菜单、按钮和完整文件路径。文件夹双击进入；Notepad 用 Open… 的 Document 下拉框选择完整路径，再点 OK。每次保存用 Save，保存位置由打开的文件决定。
 2. 可预览和试做；“重置示范”创建独立环境。点击“开始录制”会准备干净桌面，请在浏览器分享窗口中选择 OS 应用标签页。
 3. 从桌面进入应用，执行各局部示例，展示保存结果。多组示范点击应用右下角“下一组”；最后点击“完成练习”。不录工作台规则卡，不演示完整 inference 流程。
-4. 结束后自动上传。也可上传本次环境的人工录像。任务卡显示自动检查结果；填写审核人，确认视频覆盖全部同规则示例后提交审核。服务器录像可回放、下载，切题后保留状态。
+4. 结束后自动上传并保存，无需选择本地录像文件。任务卡显示自动检查结果；填写审核人，确认视频覆盖全部同规则示例后提交审核。服务器录像可回放、下载，切题后保留状态。
 5. 审阅台按 OS 分类显示平台、难度、A/B/C、demo 内容、同事录像、inference 目标和独立环境入口，可保存评价与修改建议。
 
 ## 任务索引
@@ -113,7 +113,7 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **难度：** easy。一个持续环境内对多个新对象反复应用同一方法。
 
-**Demo 要录什么：** 将三份不同扩展名、来源项目和 resource_key 的材料归档；查看属性，并展示实际目标路径。三种属性不能恰好给出同一分组。
+**Demo 要录什么：** 将六份材料归档；两个项目都包含 resource-0 和 resource-1，同一种扩展名也来自不同项目。逐个展示来源、resource_key 与实际目标路径。
 
 **示范组织：** 1 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
@@ -144,15 +144,15 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **难度：** easy。一个持续环境内对多个新对象反复应用同一方法。
 
-**Demo 要录什么：** 完成三个独立文档组。每组包含最高批准修订、最小批准体积、最大批准体积及未批准干扰项；展示所选文件属性和复制结果。
+**Demo 要录什么：** 完成三个独立文档组。先展示每组四份候选的 Approved、Revision 和 Size；仅在 Approved = Yes 的三份中比较。A 取 Revision 最大，B 取 Size 最小，C 取 Size 最大；展示所选文件和复制结果。
 
 **示范组织：** 1 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 批准版本中选修订号最高者。Choose the highest approved revision. 若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。
+- **A：** 批准版本中选修订号最高者。Choose the highest approved revision. 先排除 Approved = No；A 比较 Revision（修订号），B/C 比较 Size（字节数）。Properties 可查看这些属性，文件名中的 r 后数字与 Revision 一致。若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。
 
-- **B：** 批准版本中选字节数最小者。Choose the smallest approved byte size. 若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。
+- **B：** 批准版本中选字节数最小者。Choose the smallest approved byte size. 先排除 Approved = No；A 比较 Revision（修订号），B/C 比较 Size（字节数）。Properties 可查看这些属性，文件名中的 r 后数字与 Revision 一致。若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。
 
-- **C：** 批准版本中选字节数最大者。Choose the largest approved byte size. 若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。
+- **C：** 批准版本中选字节数最大者。Choose the largest approved byte size. 先排除 Approved = No；A 比较 Revision（修订号），B/C 比较 Size（字节数）。Properties 可查看这些属性，文件名中的 r 后数字与 Revision 一致。若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。
 
 **Demo 操作应用：** File Explorer
 
@@ -241,11 +241,11 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 1 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** contact 值替换为 [REDACTED]，保留字段。Mask contact values as [REDACTED]. 
+- **A：** contact 值替换为 [REDACTED]，保留字段。Mask contact values as [REDACTED]. operator_id 是纯数字标识，例如 1004；C 写为 Contact-1004。保留 operator_id 本身及其他字段。
 
-- **B：** 删除 contact 字段。Remove contact fields. 
+- **B：** 删除 contact 字段。Remove contact fields. operator_id 是纯数字标识，例如 1004；C 写为 Contact-1004。保留 operator_id 本身及其他字段。
 
-- **C：** contact 值替换为 Contact-{operator_id}，operator_id 保留。Replace contact with Contact-{operator_id}. 
+- **C：** contact 值替换为 Contact-{operator_id}，operator_id 保留。Replace contact with Contact-{operator_id}. operator_id 是纯数字标识，例如 1004；C 写为 Contact-1004。保留 operator_id 本身及其他字段。
 
 **Demo 操作应用：** Notepad
 

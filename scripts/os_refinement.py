@@ -18,8 +18,8 @@ RELATIONS = [
 
 LESSONS = [
 '对三份含不同词数、连续空格和大小写的文件改名。逐个展示改前、改后名称；扩展名、内容及无关文件保持。',
-'将三份不同扩展名、来源项目和 resource_key 的材料归档；查看属性，并展示实际目标路径。三种属性不能恰好给出同一分组。',
-'完成三个独立文档组。每组包含最高批准修订、最小批准体积、最大批准体积及未批准干扰项；展示所选文件属性和复制结果。',
+'将六份材料归档；两个项目都包含 resource-0 和 resource-1，同一种扩展名也来自不同项目。逐个展示来源、resource_key 与实际目标路径。',
+'完成三个独立文档组。先展示每组四份候选的 Approved、Revision 和 Size；仅在 Approved = Yes 的三份中比较。A 取 Revision 最大，B 取 Size 最小，C 取 Size 最大；展示所选文件和复制结果。',
 '处理三组同名来件与现有件，双方内容、修订号不同；展示保留后的两份文件名及内容，不覆盖丢失任何一侧。',
 '查看九个后台进程的内存，覆盖 127/128/129、255/256/257、383/384/385 MB；按同一阈值处理所有对象，保留范围外系统进程。',
 '修改三份日志副本，每份含不同联系人记录；展示原始值、处理后字段及保存结果，原始日志不变。',
@@ -61,7 +61,8 @@ def design(row):
     seeds=[1001] if s['id'] in SINGLE else [1001,1012,1026]
     if s['id']=='OS-M-11':seeds=[1001,7,9]
     if s['id']=='OS-H-11':seeds=[509,73,258]
-    rule_notes={'OS-E-03':'若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。',
+    rule_notes={'OS-E-03':'先排除 Approved = No；A 比较 Revision（修订号），B/C 比较 Size（字节数）。Properties 可查看这些属性，文件名中的 r 后数字与 Revision 一致。若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。',
+      'OS-E-06':'operator_id 是纯数字标识，例如 1004；C 写为 Contact-1004。保留 operator_id 本身及其他字段。',
       'OS-E-05':'示范处理所有 Background worker，范围外 Protected system service 保持。',
       'OS-E-11':'示范处理所有 Packet，范围外 Unrelated draft 保持。',
       'OS-E-08':'闭区间包含两端；同一时区，不转换时刻。','OS-H-11':'1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。',
@@ -82,6 +83,14 @@ def refine(source):
         if old not in text:raise ValueError('Pinned OS refinement target missing: '+old[:70])
         text=text.replace(old,new)
     replace('range(2 if b.scope==\'demo\' else 4)', 'range(3 if b.scope==\'demo\' else 4)')
+    replace("        for i in range(n):\n            ext=['csv','txt','json'][i%3];key=f'resource-{i%2}';p=i%2",
+        "        attributes=[('csv',0,0),('csv',1,1),('txt',0,1),('txt',1,0),('json',0,0),('json',1,1)]\n"
+        "        b.rng.shuffle(attributes)\n"
+        "        for i,(ext,p,resource) in enumerate(attributes):\n            key=f'resource-{resource}'")
+    replace("f'edition-{tokens[j]}.txt'", "f'edition-r{revision}.txt'")
+    replace("'operator_id':f'O{b.seed%997+j}','contact':f'op{b.seed%997+j}@example.test'",
+            "'operator_id':f'{1000+b.seed%997+i*2+j}','contact':f'op{1000+b.seed%997+i*2+j}@example.test'")
+    replace("'message':f'Record {s}'", "'message':'Incident anchor' if s==0 else f'Event record {j}'")
     replace('page_counts=[4,5,6,7,8,9]', "page_counts=[3,4,5,6,7,8,9,10] if b.scope=='demo' else [3,4,5,6,8,9]")
     replace('memories=[127,128,255,256,383,384]', "memories=[127,128,129,255,256,257,383,384,385] if b.scope=='demo' else [127,128,255,256,383,384]")
     replace('all six Background workers', 'all Background workers in the supplied batch')
@@ -120,3 +129,33 @@ def refine(source):
       'OS-H-12':' The replacement cover title is Meeting packet, revision 8; its body is Approved revision 8. Retain the same paper, duplex and order settings as the supplied valid print configuration.',
     })+'\n'
     path.write_text(text)
+    # Present task data as normal file attributes and incident metadata, not goals.
+    desktop=source/'static/desktop.js'
+    ui=desktop.read_text()
+    old="<span>${esc(f.kind)}</span><span>${f.kind==='folder'"
+    assert old in ui
+    ui=ui.replace(old,"<span>${esc(f.kind)}${typeof f.approved==='boolean'?(f.approved?' · Approved':' · Not approved'):''}</span><span>${f.kind==='folder'")
+    old="content:JSON.stringify(info,null,2)"
+    assert old in ui
+    ui=ui.replace(old,"content:formatFileProperties(info)")
+    ui += """
+
+function formatFileProperties(info) {
+  const labels={path:'Location',revision:'Revision',bytes:'Size (bytes)',approved:'Approved',
+    resource_key:'Resource key',snapshot_version:'Snapshot version',snapshot_status:'Snapshot status',
+    regenerable:'Regenerable',owners:'Owners',sha256:'SHA-256'};
+  return Object.entries(labels).filter(([key])=>info[key]!==null&&info[key]!==undefined)
+    .map(([key,label])=>label+': '+(typeof info[key]==='boolean'?(info[key]?'Yes':'No'):Array.isArray(info[key])?(info[key].join(', ')||'None'):info[key])).join('\\n');
+}
+"""
+    old="${esc(selected.name)}</h2>${btn('export-log'"
+    assert old in ui
+    ui=ui.replace(old,"${esc(selected.name)}</h2>${records?.find(r=>r.message==='Incident anchor')?`<p><strong>Incident anchor:</strong> ${esc(records.find(r=>r.message==='Incident anchor').time)}</p>`:''}${btn('export-log'")
+    desktop.write_text(ui)
+    engine=source/'workflows.py'
+    runtime=engine.read_text()
+    old='source=f.get("source", f["id"]), source_hash=digest(f["content"]))["id"]'
+    assert runtime.count(old)==1
+    runtime=runtime.replace(old,'source=f.get("source", f["id"]), source_hash=digest(f["content"]),\n'
+        '                            **({k:f[k] for k in ("revision","approved","resource_key") if k in f} if case.get("id")=="OS-E-03" else {}))["id"]')
+    engine.write_text(runtime)

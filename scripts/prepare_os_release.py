@@ -33,7 +33,7 @@ for spec in requests:
   groups=[]
   for seed in spec['demo_seeds']:
    ep=tasks36.generate(spec['id'],c,seed,'module-demo');steps=[]
-   context={'files':[dict(path=workflows.path(ep['state'],f['id']),name=f['name'],log_channel=f.get('log_channel')) for f in ep['state']['files'] if f['kind']!='folder' and not f.get('deleted')]}
+   context={'files':[dict(path=workflows.path(ep['state'],f['id']),name=f['name'],log_channel=f.get('log_channel'),approved=f.get('approved'),revision=f['revision'],bytes=len(f['content'].encode()),resource_key=f.get('resource_key')) for f in ep['state']['files'] if f['kind']!='folder' and not f.get('deleted')]}
    for a in ep['reference']:
     state=ep['state']
     def label(identifier):
@@ -60,6 +60,7 @@ print(json.dumps(out))'''
         row['demo_apps']=list(dict.fromkeys(app for groups in row['demo_examples'].values() for group in groups for app in group['guide']['apps']))
     return {'repository':REPO,'commit':COMMIT,'design_version':'videoicl-os36-human-1',
             'benchmark_version':raw['version'],'implementation':raw['implementation'],
+            'recording_compatibility':json.loads((ROOT/'tasks/os/recording-compatibility.json').read_text()),
             'cases':rows}
 
 

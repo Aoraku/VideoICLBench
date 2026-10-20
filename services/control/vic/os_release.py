@@ -17,12 +17,19 @@ def catalog(source):
 def demo_root(source=None, data=None):
     return (Path(data or DATA)/'os-recordings').resolve()
 
+def recording_current(release, entry):
+    if entry.get('design_version') != release['design_version']:
+        return False
+    fingerprint=entry.get('fingerprint')
+    return (fingerprint == release['implementation']['fingerprint']
+            or entry.get('case_id') in release.get('recording_compatibility',{}).get(fingerprint,[]))
+
 
 def demonstrations(source, data=None, *, approved_only=False):
     release=catalog(source);root=demo_root(source,data);rows=[]
     for path in root.glob('*.json'):
         entry=json.loads(path.read_text())
-        current=entry.get('fingerprint')==release['implementation']['fingerprint'] and entry.get('design_version')==release['design_version']
+        current=recording_current(release,entry)
         if approved_only and (not current or not entry.get('approved') or entry.get('recording_actor')!='human_browser'):continue
         rows.append({**entry,'historical':not current,'visual_review':'passed' if entry.get('approved') else 'pending'})
     rows.sort(key=lambda e:(e['created_at'],e['id']))

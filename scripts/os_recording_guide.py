@@ -38,6 +38,14 @@ def make_guide(group):
     else:
         entry=f'左下角 Start → {first}。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。'
     items=[]
+    candidates=[f for f in context['files'] if f['name'].startswith('edition-r') and isinstance(f.get('approved'),bool)]
+    if candidates:
+        for parent in dict.fromkeys(str(PurePosixPath(f['path']).parent) for f in candidates):
+            files=[f for f in candidates if str(PurePosixPath(f['path']).parent)==parent]
+            items.append({'title':'展示候选文件的版本、大小与批准状态',
+                'where':explorer_path(parent),
+                'action':'逐个选中文件 → Properties，展示 Revision、Size (bytes)、Approved，点 Close 返回。先排除 Approved = No，再按版本规则比较；不要按列表位置选择。',
+                'expected':'\n'.join(f"{f['name']}：Revision {f['revision']}；Size {f['bytes']} B；Approved = {'Yes' if f['approved'] else 'No'}" for f in files)})
     if inputs:
         items.append({'title':'先展示输入材料','where':'Notepad → Open… → Document → '+inputs[0]['path']+' → OK',
                       'action':'展示文件里的各条输入，理解字段与对象；不要修改或保存输入文件。然后再次点击 Open… 切换到下面的结果文件。',
@@ -59,7 +67,7 @@ def make_guide(group):
             action='Copy' if op=='copy' else 'Cut'
             item.update(title=('复制 ' if op=='copy' else '移动 ')+PurePosixPath(target).name,
                 where=explorer_path(str(PurePosixPath(target).parent)),
-                action=f'单击 {PurePosixPath(target).name}，可用 Properties 查看属性（Close 返回）；点击 {action}。再进入 {explorer_path(s["parent"])}，点击 Paste。检查目标目录中的文件及内容。')
+                action=f'单击 {PurePosixPath(target).name}，用 Properties 展示属性（Close 返回）；点击 {action}。再进入 {explorer_path(s["parent"])}，点击 Paste。检查目标目录中的文件及内容。')
         elif op=='delete':
             item.update(title='移除已备份的目标旧件',where=explorer_path(str(PurePosixPath(target).parent)),
                 action=f'先确认上一步已保留旧内容，再单击 {PurePosixPath(target).name} → Delete，为来件腾出原文件名。只处理此示范工作副本。')
@@ -89,7 +97,7 @@ def make_guide(group):
         elif op=='export-log':
             f=next(f for f in context['files'] if f['path']==target)
             item.update(title='导出 '+s['name'],where='Start → Event Viewer → '+f['log_channel']+' log → Export interval…',
-                action=f'先查看事件时间。Destination folder 选择 {s["parent"]}；File name 填 {s["name"]}；Start time 填 {s["start"]}；End time 填 {s["end"]} → OK。用 Notepad → Open… 打开导出文件，展示边界内记录。')
+                action=f'先展示频道标题下的 Incident anchor 时间和同名事件，再展示窗口边界内外的候选记录。Destination folder 选择 {s["parent"]}；File name 填 {s["name"]}；Start time 填 {s["start"]}；End time 填 {s["end"]} → OK。用 Notepad → Open… 打开导出文件，展示两端边界记录被包含、窗口外记录不在结果中。')
         elif op=='probe':
             item.update(title='检查离线资源',where='Start → Terminal',
                 action=f'输入 offline-test "{target}" 后回车，展示检查输出。')
