@@ -60,7 +60,8 @@ def review_catalog(source,data=None):
             videos[variant]=[dict(label=f"人工录像 · {'审核通过' if e.get('approved') else '待审核'} · {e.get('reviewer') or '未署名'}", historical=e['historical'],approved=e.get('approved',False),created_at=datetime.fromtimestamp(e['created_at'],timezone.utc).isoformat(),
                 url=f"/review-api/media/os/{case['id']}/{variant}?take={i}") for i,e in enumerate(selected)]
         rows.append(dict(id=case['id'],kind='os',title=case['title'],platform=case['app'],difficulty=case['difficulty'],
-            rules=case['rules'],instruction=case['task'],relation=case['relation'],demo_description=case['demo_description'],
+            rules=case['rules'],instruction=case.get('query_example',case['task']),relation=case['relation'],demo_description=case['demo_description'],
+            demo_examples=case.get('demo_examples',{}),demo_apps=case.get('demo_apps',[]),
             demo_source='同事人工录制 · 审核通过后用于 inference',demo_notice=notice,
             benchmark_version=release['benchmark_version'],videos=videos))
     return rows

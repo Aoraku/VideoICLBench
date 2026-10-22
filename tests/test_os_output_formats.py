@@ -53,3 +53,16 @@ def test_recorder_formats_and_complete_examples_are_available():
     guide=group['guide'];assert guide['output_format']
     assert guide['output_format'] in case['rules'][variant]
     assert any(s['expected'] for s in guide['steps'])
+
+
+def test_review_returns_the_same_explicit_guides_and_public_output_constraints(monkeypatch):
+ import json
+ from vic import os_release
+ release=json.loads((ROOT/'tasks/os/catalog.json').read_text())
+ monkeypatch.setattr(os_release,'catalog',lambda source:release)
+ monkeypatch.setattr(os_release,'demonstrations',lambda source,data:([],''))
+ review=os_release.review_catalog(ROOT)
+ row=next(r for r in review if r['id']=='OS-H-11')
+ assert 'two text lines' in row['instruction']
+ assert row['demo_examples']['B'][0]['guide']['output_format']
+ assert row['demo_apps']==['Notepad']
