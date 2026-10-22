@@ -1,6 +1,7 @@
 """Auditable task/lesson adaptation; never import an oracle video as human media."""
 import json
 from pathlib import Path
+from os_output_contracts import demo_format
 
 RELATIONS = [
 'file-title word formatting while preserving extensions', 'destination grouping by file metadata',
@@ -72,7 +73,7 @@ def design(row):
       'OS-M-12':'双方独有字段都保留；C 时间相同取 main。', 'OS-H-06':'C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。'}
     return dict(id=s['id'],title=s['title'],app=s['apps'],family='task36',difficulty=s['level'],
       task=s['prompt'], query_example=row['task'], relation=RELATIONS[index],
-      rules={v:s['rules'][v]+'。'+row['methods'][v]+' '+rule_notes.get(s['id'],'') for v in 'ABC'},
+      rules={v:(s['rules'][v]+'。'+row['methods'][v]+' '+rule_notes.get(s['id'],'')+' '+demo_format(s['id'],v)).strip() for v in 'ABC'},
       demo_description=LESSONS[index],demo_instruction=row['demo_instruction'],demo_seeds=seeds,
       demo_groups=len(seeds),demo_scope='local-method-only',demo_actor='human',
       inference_description=s['query'],evaluation=s['predicates'],dependencies=s.get('interface_edges',[]),
@@ -125,7 +126,7 @@ def refine(source):
     marker="value={'x':[10,11,10][c],'y':[20,21,21][c],'z':[30,31,30][c],'main_only':'retain','review_only':'retain'}"
     replace(marker, "\n        for branch in ('baseline','main','review'):\n            for key in ('x','y','z'):source[branch][key]+=seed%97\n        "+marker+"\n        for key in ('x','y','z'):value[key]+=seed%97")
     # Explicit relation in public inference prompt, never the chosen A/B/C value.
-    replace("case['task']=self.request+f' Learn {self.subject} from the supplied demonstration videos.'", "case['task']=self.request+' Use the '+VIDEOICL_RELATIONS[self.cid]+' demonstrated in the video.'+(VIDEOICL_OUTPUTS.get(self.cid,'') if self.scope=='query' else '')")
+    replace("case['task']=self.request+f' Learn {self.subject} from the supplied demonstration videos.'", "case['task']=self.request+' Use the '+VIDEOICL_RELATIONS[self.cid]+' demonstrated in the video.'+(VIDEOICL_OUTPUTS.get(self.cid,'')+' For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.' if self.scope=='query' else '')")
     text += '\nVIDEOICL_RELATIONS = '+repr({f'OS-{level}-{n:02}':RELATIONS[i*12+n-1] for i,level in enumerate('EMH') for n in range(1,13)})+'\n'
     text += '\nVIDEOICL_OUTPUTS = '+repr({
       'OS-E-08':' Save each channel i export as window-i.jsonl in Output.',
@@ -133,14 +134,33 @@ def refine(source):
       'OS-M-03':' Save an array in Output/field-guide.json. Each entry retains slot_id, person_id, site, time, resources (resource IDs), active, and adds contact in the demonstrated display format.',
       'OS-M-05':' Save print-master.txt and contents.json in Output. Each contents entry has chapter_id, heading and one-based page.',
       'OS-M-06':' Save Output/timeline.json with incident, events, recovered and verification_event. Each event retains event_id, time and message and adds channels: Application and/or System, based on the corresponding exports.',
-      'OS-M-10':' Save people-working.json and acknowledgements.json in Output. Keep all unchanged person fields; every active request acknowledgement contains request_id, person_id and the demonstrated decision field.',
-      'OS-M-11':' Save stock-working.json (lot_id, quantity) and differences.json (lot_id, before_pcs, after_pcs, difference_pcs) in Output.',
-      'OS-M-12':' Save Output/merged.json and merge-diff.json. The conflict record contains conflict_fields (names), values (resolved conflicting fields) and preserved_unique (names of both sides unique fields).',
+      'OS-M-10':' Save people-working.json and acknowledgements.json as JSON arrays in Output. Keep all unchanged person fields; every active request acknowledgement contains request_id, person_id and the demonstrated decision field.',
+      'OS-M-11':' Save two JSON arrays in Output: stock-working.json entries contain lot_id (string) and quantity (string in the demonstrated units); differences.json entries contain lot_id (string), before_pcs, after_pcs and difference_pcs (integer counts). Preserve lot order from lot-baselines.json.',
+      'OS-M-12':' Save Output/merged.json as a JSON object of merged fields and merge-diff.json as a JSON object. The conflict record contains conflict_fields (names), values (resolved conflicting fields) and preserved_unique (names of both sides unique fields).',
+      'OS-H-01':' Save Output/configuration-diff.txt with one record per restored setting, using key, before and after from the actual old and restored values. Use the record representation demonstrated in the video.',
+      'OS-H-02':' The staged release notes start with Version: followed by the preserved release_version, then one line per approved change in the demonstrated format; the changes request is input, not an output to overwrite.',
+      'OS-H-06':' In the cached guide retain the title and the two lines Map: <absolute cached map path> and Contacts: <absolute cached contacts path>. Keep other guide text and original downloaded resources.',
       'OS-H-08':' Save test-summary.txt with build_artifact, passed and assertions, in that field order when order matters. Assertions retain name, expected, actual and passed from the actual test result.',
-      'OS-H-11':' In maintenance-report.txt retain released_bytes as an integer and released_display as the demonstrated unit representation. Use base 1024 and decimal HALF_UP rounding.',
-      'OS-H-12':' The replacement cover title is Meeting packet, revision 8; its body is Approved revision 8. Retain the same paper, duplex and order settings as the supplied valid print configuration.',
+      'OS-H-11':' Save maintenance-report.txt as two text lines: released_bytes: <integer> and released_display: <unit representation learned from the video>. The demo itself shows only the unit representation. Use base 1024 and decimal HALF_UP rounding.',
+      'OS-H-12':' Edit the working cover, not revision-request.txt: line 1 is the marked title, line 2 is the approved body. The replacement cover title is Meeting packet, revision 8; its body is Approved revision 8. Retain the same paper, duplex and order settings as the supplied valid print configuration.',
     })+'\n'
+    # Declare comparators rather than requiring the oracle's serialization bytes.
+    replace('    def write(self,identifier,value,mode=None):',
+            '    def write(self,identifier,value,mode=None):\n        mode=output_mode(self.cid,self.c,self.scope,mode)')
+    replace("b.goal('domain',name='resource_content',source='source-1',value=notes['content'])",
+            "b.goal('domain',name='resource_content',source='source-1',value=notes['content'],mode='trim-lines')")
+    text+='\nfrom os_content_formats import output_mode\n'
     path.write_text(text)
+    (source/'os_content_formats.py').write_text(Path(__file__).with_name('os_content_formats.py').read_text())
+    judge=source/'judge36.py';js=judge.read_text();start=js.index('def _normal(');end=js.index('\n\ndef check_goal',start)
+    judge.write_text(js[:start]+'from os_content_formats import normal as _normal'+js[end:])
+    domain=source/'domain_checks.py';ds=domain.read_text()
+    old="entries=[line.split(': ',1) for line in guide['content'].splitlines() if line.startswith(('Map: ','Contacts: '))]"
+    assert old in ds
+    ds=ds.replace("delivered['source-1'].startswith('Version: '+expected+'\\n')", "(delivered['source-1'].strip().splitlines() or [''])[0].strip() == 'Version: '+expected")
+    domain.write_text(ds.replace(old,"entries=[(line.partition(':')[0].strip(),line.partition(':')[2].strip()) for line in guide['content'].splitlines() if line.partition(':')[0].strip() in {'Map','Contacts'}]"))
+    provenance=source/'artifact_provenance.py'
+    provenance.write_text(provenance.read_text().replace("SOURCES=('workflows.py'", "SOURCES=('os_content_formats.py','workflows.py'"))
     # Present task data as normal file attributes and incident metadata, not goals.
     desktop=source/'static/desktop.js'
     ui=desktop.read_text()
@@ -177,6 +197,7 @@ function formatFileProperties(info) {
     css.write_text(css.read_text()+'\n'+Path(__file__).with_name('os_desktop_controls.css').read_text())
     engine=source/'workflows.py'
     runtime=engine.read_text()
+    runtime=runtime.replace("not notes.startswith('Version: '+version+'\\n')", "(notes.strip().splitlines() or [''])[0].strip() != 'Version: '+version")
     old='source=f.get("source", f["id"]), source_hash=digest(f["content"]))["id"]'
     assert runtime.count(old)==1
     runtime=runtime.replace(old,'source=f.get("source", f["id"]), source_hash=digest(f["content"]),\n'

@@ -5,12 +5,13 @@
   "benchmark_version": "2.0.0-dev.5",
   "implementation": {
     "source_hashes": {
-      "workflows.py": "836da08477d3e65ce96761b21d4885aa3037b26eac4e209cf19dcbf8c5d18a30",
-      "domain_checks.py": "ca6bf4eb33c3d24daa85a8c271e601c706a5309c17d740c0061a20ae4d594416",
+      "os_content_formats.py": "aa7ac8e1f007684af7a210521e3ce3b039161a94142a0b95e9595eea47a2d792",
+      "workflows.py": "acfc7a8b6fcda2b0bd74a79d0a8738f92f0ddbc375d59285eefcd0e2519075e6",
+      "domain_checks.py": "32143eb23b5f4cec18890186cd1f84594e3486bee8d307187f6bf7e668ab38b8",
       "protocols.py": "805ac88cf4d835eafd4c71e9a36584bd6f95e32625b63c5b453ba43a6c92aada",
       "server.py": "b915f224c122f60001483b4c31de274398d6a07de8e00cdff446ed61c7b7eb99",
-      "tasks36.py": "2422ef3b998a987964b44a96229c9fb804f0333a6e017f8a3b3d1ca8aa0c6a7d",
-      "judge36.py": "a9a375e8988cbf486b98deb87cbe769f36f66e47b64589c608d1e77244595f39",
+      "tasks36.py": "8cfe63aabd60dccca763a6d1bd0ecb7b3f1ddd7d9ea4237e3720d0d31203d3c2",
+      "judge36.py": "856feda1bc8dba9b4680305d81f5c0e73f3d5f8b8122d055a16bbb5b773e61ac",
       "docs/TASK_CATALOGUE_36.json": "83fcefc29364382e26165a4be543b261861d5586a7c5cf7ab251b932586465f1",
       "static/desktop.js": "7905242fe99346faf8f24fef692735af459b9216b266f6437929dd8b8ad42a31",
       "static/desktop.css": "1a2cacdee1d68f6d157ed1d888449b14c09292fb787de9157365a16c4747416c",
@@ -19,9 +20,9 @@
       "static/recording-studio.html": "c3e71c45df7c94a5f0d5eca0d240d21c3f846fb1dacb0bb50004a15340e408b0",
       "render_video.py": "e6e9a229ae0e3d9af3160dac77681af04926381049c05ff71fc16d36af5faf1a",
       "scripts/audit_v2_browser.py": "f811ab49977334749dba71e9c78391d7377c5e67a66c6293ec05ad414ec7ff1c",
-      "artifact_provenance.py": "32c2d39e664ce49c6ec3e63ba61b715e7b4f05568f2eb7e62df91ecbf468eb78"
+      "artifact_provenance.py": "2b9f0b0e653c1e810107e3aeff0cf99e24029f6ec6a2ad453890a993a5c4c7b9"
     },
-    "fingerprint": "b2cf8fbbffd94d3179a7cb439383f52703a032001d52f087a27bdd5a124e9b02"
+    "fingerprint": "459edcb6c7edcbaede55c0c8671b5f7da13d40d44c9d9507ce70c5616534116f"
   },
   "recording_compatibility": {
     "840147ed39d053a888c3c92b41aeff2f183cf0c19e12c4c0475156b727137d69": [
@@ -94,6 +95,44 @@
       "OS-H-10",
       "OS-H-11",
       "OS-H-12"
+    ],
+    "b2cf8fbbffd94d3179a7cb439383f52703a032001d52f087a27bdd5a124e9b02": [
+      "OS-E-01",
+      "OS-E-02",
+      "OS-E-03",
+      "OS-E-04",
+      "OS-E-05",
+      "OS-E-06",
+      "OS-E-07",
+      "OS-E-08",
+      "OS-E-09",
+      "OS-E-10",
+      "OS-E-11",
+      "OS-E-12",
+      "OS-M-01",
+      "OS-M-02",
+      "OS-M-03",
+      "OS-M-04",
+      "OS-M-05",
+      "OS-M-06",
+      "OS-M-07",
+      "OS-M-08",
+      "OS-M-09",
+      "OS-M-10",
+      "OS-M-11",
+      "OS-M-12",
+      "OS-H-01",
+      "OS-H-02",
+      "OS-H-03",
+      "OS-H-04",
+      "OS-H-05",
+      "OS-H-06",
+      "OS-H-07",
+      "OS-H-08",
+      "OS-H-09",
+      "OS-H-10",
+      "OS-H-11",
+      "OS-H-12"
     ]
   },
   "cases": [
@@ -104,12 +143,12 @@
       "family": "task36",
       "difficulty": "easy",
       "task": "整理指定六份文档的名称，按视频学习的格式处理标题；保留内容、扩展名与范围外文件。",
-      "query_example": "Rename all 6 text documents in Workspace; preserve extensions, content and all other files. Use the file-title word formatting while preserving extensions demonstrated in the video.",
+      "query_example": "Rename all 6 text documents in Workspace; preserve extensions, content and all other files. Use the file-title word formatting while preserving extensions demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "file-title word formatting while preserving extensions",
       "rules": {
-        "A": "词间空格改为连字符，连续空格折叠。Replace word spaces with hyphens. ",
-        "B": "词间空格改为下划线，连续空格折叠。Replace word spaces with underscores. ",
-        "C": "每词首字母大写其余小写，词间一个空格。Title-case each word, single spaces. "
+        "A": "词间空格改为连字符，连续空格折叠。Replace word spaces with hyphens.",
+        "B": "词间空格改为下划线，连续空格折叠。Replace word spaces with underscores.",
+        "C": "每词首字母大写其余小写，词间一个空格。Title-case each word, single spaces."
       },
       "demo_description": "对三份含不同词数、连续空格和大小写的文件改名。逐个展示改前、改后名称；扩展名、内容及无关文件保持。",
       "demo_instruction": "Rename all 3 text documents in Workspace; preserve extensions, content and all other files.",
@@ -173,7 +212,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -226,7 +266,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -279,7 +320,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -295,12 +337,12 @@
       "family": "task36",
       "difficulty": "easy",
       "task": "将范围内六份材料按视频中的目录组织方法移动到已有目标目录，内容和范围外材料保持。",
-      "query_example": "Move all asset files from the two source projects into the supplied filing tree; preserve their contents and unrelated files. Use the destination grouping by file metadata demonstrated in the video.",
+      "query_example": "Move all asset files from the two source projects into the supplied filing tree; preserve their contents and unrelated files. Use the destination grouping by file metadata demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "destination grouping by file metadata",
       "rules": {
-        "A": "按扩展名目录归档。File by extension. ",
-        "B": "按原项目目录/扩展名归档。File by source project, then extension. ",
-        "C": "按 Properties 中的 resource_key 目录归档。File by resource_key. "
+        "A": "按扩展名目录归档。File by extension.",
+        "B": "按原项目目录/扩展名归档。File by source project, then extension.",
+        "C": "按 Properties 中的 resource_key 目录归档。File by resource_key."
       },
       "demo_description": "将六份材料归档；两个项目都包含 resource-0 和 resource-1，同一种扩展名也来自不同项目。逐个展示来源、resource_key 与实际目标路径。",
       "demo_instruction": "Move all asset files from the two source projects into the supplied filing tree; preserve their contents and unrelated files.",
@@ -397,7 +439,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -483,7 +526,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -569,7 +613,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -585,7 +630,7 @@
       "family": "task36",
       "difficulty": "easy",
       "task": "为四个独立文档组分别选出视频方法确定的批准版本，复制到各组已有 Selected 目录；所有原件保持。",
-      "query_example": "For each document group, copy exactly one approved version into its Selected folder. Preserve all originals. Use the approved-version selection criterion demonstrated in the video.",
+      "query_example": "For each document group, copy exactly one approved version into its Selected folder. Preserve all originals. Use the approved-version selection criterion demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "approved-version selection criterion",
       "rules": {
         "A": "批准版本中选修订号最高者。Choose the highest approved revision. 先排除 Approved = No；A 比较 Revision（修订号），B/C 比较 Size（字节数）。Properties 可查看这些属性，文件名中的 r 后数字与 Revision 一致。若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。",
@@ -672,7 +717,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -743,7 +789,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -814,7 +861,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -830,12 +878,12 @@
       "family": "task36",
       "difficulty": "easy",
       "task": "处理四组同名来件和现有件，按视频中的命名保留办法保存双方内容；无冲突来件原名保留。",
-      "query_example": "Resolve the supplied name conflicts while preserving both contents. Leave non-conflicting files unchanged. Use the existing-versus-incoming conflict naming convention demonstrated in the video.",
+      "query_example": "Resolve the supplied name conflicts while preserving both contents. Leave non-conflicting files unchanged. Use the existing-versus-incoming conflict naming convention demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "existing-versus-incoming conflict naming convention",
       "rules": {
-        "A": "现有件留原名，来件加 -incoming。Existing keeps its name; incoming gets -incoming. ",
-        "B": "来件留原名，现有件加 -previous。Incoming keeps its name; existing gets -previous. ",
-        "C": "两侧分别加 -r{revision}，原名留空。Both get their own -r{revision} suffix. "
+        "A": "现有件留原名，来件加 -incoming。Existing keeps its name; incoming gets -incoming.",
+        "B": "来件留原名，现有件加 -previous。Incoming keeps its name; existing gets -previous.",
+        "C": "两侧分别加 -r{revision}，原名留空。Both get their own -r{revision} suffix."
       },
       "demo_description": "处理三组同名来件与现有件，双方内容、修订号不同；展示保留后的两份文件名及内容，不覆盖丢失任何一侧。",
       "demo_instruction": "Resolve the supplied name conflicts while preserving both contents. Leave non-conflicting files unchanged.",
@@ -965,7 +1013,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -1084,7 +1133,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -1203,7 +1253,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -1219,7 +1270,7 @@
       "family": "task36",
       "difficulty": "easy",
       "task": "对指定六个后台进程采用视频展示的内存条件暂停命中对象，未命中与范围外对象保持原状态。",
-      "query_example": "Apply the demonstrated memory condition to all Background workers in the supplied batch. Other processes and below-threshold states must be preserved. Use the memory threshold and inclusive comparison demonstrated in the video.",
+      "query_example": "Apply the demonstrated memory condition to all Background workers in the supplied batch. Other processes and below-threshold states must be preserved. Use the memory threshold and inclusive comparison demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "memory threshold and inclusive comparison",
       "rules": {
         "A": "内存达到 128 MB 时暂停。Pause workers using at least 128 MB. 示范处理所有 Background worker，范围外 Protected system service 保持。",
@@ -1343,7 +1394,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -1418,7 +1470,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -1460,7 +1513,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -1476,7 +1530,7 @@
       "family": "task36",
       "difficulty": "easy",
       "task": "按视频中的个人字段处理方法保存六份已有日志副本；保留事件 ID、时间和原始日志。",
-      "query_example": "Filter contact fields in every copy-*.jsonl document in Output. Preserve originals, event identifiers, timestamps and all other fields. Use the contact-field transformation demonstrated in the video.",
+      "query_example": "Filter contact fields in every copy-*.jsonl document in Output. Preserve originals, event identifiers, timestamps and all other fields. Use the contact-field transformation demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "contact-field transformation",
       "rules": {
         "A": "contact 值替换为 [REDACTED]，保留字段。Mask contact values as [REDACTED]. operator_id 是纯数字标识，例如 1004；C 写为 Contact-1004。保留 operator_id 本身及其他字段。",
@@ -1549,7 +1603,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -1606,7 +1661,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -1663,7 +1719,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -1679,12 +1736,12 @@
       "family": "task36",
       "difficulty": "easy",
       "task": "对清单中的外设按视频中的使用类别设置连接状态，其余设备保持。",
-      "query_example": "Set connection states for the six unit devices using the demonstrated device-category policy; preserve other device properties. Use the device-category connection policy demonstrated in the video.",
+      "query_example": "Set connection states for the six unit devices using the demonstrated device-category policy; preserve other device properties. Use the device-category connection policy demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "device-category connection policy",
       "rules": {
-        "A": "范围内仅连接 Camera 类，其余断开。Connect only Camera devices; disconnect other target categories. ",
-        "B": "范围内仅连接 Printer 类，其余断开。Connect only Printer devices; disconnect other target categories. ",
-        "C": "范围内仅连接 Network storage 类，其余断开。Connect only Network storage devices; disconnect other target categories. "
+        "A": "范围内仅连接 Camera 类，其余断开。Connect only Camera devices; disconnect other target categories.",
+        "B": "范围内仅连接 Printer 类，其余断开。Connect only Printer devices; disconnect other target categories.",
+        "C": "范围内仅连接 Network storage 类，其余断开。Connect only Network storage devices; disconnect other target categories."
       },
       "demo_description": "处理六个不同类别和初始连接状态的设备，展示命中与不命中类别的结果；不动范围外打印机。",
       "demo_instruction": "Set connection states for the six unit devices using the demonstrated device-category policy; preserve other device properties.",
@@ -1781,7 +1838,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -1867,7 +1925,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -1953,7 +2012,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -1969,7 +2029,7 @@
       "family": "task36",
       "difficulty": "easy",
       "task": "为四个给定锚点各导出一份日志时间片，窗口取法从视频学习；源日志不变。",
-      "query_example": "Export one independent file for each channel anchor: Channel 0: 2026-10-15T08:16:00, Channel 1: 2026-10-15T09:16:00, Channel 2: 2026-10-15T10:16:00, Channel 3: 2026-10-15T11:16:00. Intervals are closed; all times use the same local timezone. Use the anchor-relative time window with inclusive endpoints demonstrated in the video. Save each channel i export as window-i.jsonl in Output.",
+      "query_example": "Export one independent file for each channel anchor: Channel 0: 2026-10-15T08:16:00, Channel 1: 2026-10-15T09:16:00, Channel 2: 2026-10-15T10:16:00, Channel 3: 2026-10-15T11:16:00. Intervals are closed; all times use the same local timezone. Use the anchor-relative time window with inclusive endpoints demonstrated in the video. Save each channel i export as window-i.jsonl in Output. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "anchor-relative time window with inclusive endpoints",
       "rules": {
         "A": "锚点前两分钟至锚点。Export from two minutes before the anchor through the anchor. 闭区间包含两端；同一时区，不转换时刻。",
@@ -2047,7 +2107,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -2109,7 +2170,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -2171,7 +2233,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -2187,12 +2250,12 @@
       "family": "task36",
       "difficulty": "easy",
       "task": "为六个指定任务按视频方法设置触发方式，不改变输入、输出、依赖，也不要运行任务。",
-      "query_example": "Update only Trigger on all Existing task entries. Do not run them or change paths/dependencies. Use the task trigger setting demonstrated in the video.",
+      "query_example": "Update only Trigger on all Existing task entries. Do not run them or change paths/dependencies. Use the task trigger setting demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "task trigger setting",
       "rules": {
-        "A": "所有目标任务设为 Manual。Set target triggers to manual. ",
-        "B": "所有目标任务设为 When idle。Set target triggers to idle. ",
-        "C": "所有目标任务设为 When plugged in。Set target triggers to plugged-in. "
+        "A": "所有目标任务设为 Manual。Set target triggers to manual.",
+        "B": "所有目标任务设为 When idle。Set target triggers to idle.",
+        "C": "所有目标任务设为 When plugged in。Set target triggers to plugged-in."
       },
       "demo_description": "为三项已有作业保存同一触发设置；展示保存后的值，输入、输出、依赖不变，不运行作业。",
       "demo_instruction": "Update only Trigger on all Existing task entries. Do not run them or change paths/dependencies.",
@@ -2256,7 +2319,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -2309,7 +2373,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -2362,7 +2427,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -2378,12 +2444,12 @@
       "family": "task36",
       "difficulty": "easy",
       "task": "按视频方法整理六份文档正文，标题、代码围栏及其他文档不变。",
-      "query_example": "Format only the two body paragraphs in each working document. Preserve headings and fenced code. Use the body-paragraph formatting demonstrated in the video.",
+      "query_example": "Format only the two body paragraphs in each working document. Preserve headings and fenced code. Use the body-paragraph formatting demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "body-paragraph formatting",
       "rules": {
-        "A": "正文每段合并一行，段间一空行。Join each paragraph into one line; one blank line between paragraphs. ",
-        "B": "每段首新增两个空格，保留段内换行。Add two spaces at each paragraph start; keep internal line breaks. ",
-        "C": "正文每段合并为一个 - 项目符号行。Join each paragraph into one bullet line beginning - . "
+        "A": "正文每段合并一行，段间一空行。Join each paragraph into one line; one blank line between paragraphs.",
+        "B": "每段首新增两个空格，保留段内换行。Add two spaces at each paragraph start; keep internal line breaks.",
+        "C": "正文每段合并为一个 - 项目符号行。Join each paragraph into one bullet line beginning - ."
       },
       "demo_description": "整理三份正文不同的文档；每份含两段多行正文、标题和代码围栏。保存后展示正文的转换与其他部分保持。",
       "demo_instruction": "Format only the two body paragraphs in each working document. Preserve headings and fenced code.",
@@ -2451,7 +2517,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -2508,7 +2575,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -2565,7 +2633,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -2581,7 +2650,7 @@
       "family": "task36",
       "difficulty": "easy",
       "task": "按视频中的页数条件暂停指定打印作业，其余范围内作业保持 Queued；不要取消作业。",
-      "query_example": "Set the Packet queue states in the supplied batch using the demonstrated page-count condition. Never cancel a packet. Use the page-count threshold and strict comparison demonstrated in the video.",
+      "query_example": "Set the Packet queue states in the supplied batch using the demonstrated page-count condition. Never cancel a packet. Use the page-count threshold and strict comparison demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "page-count threshold and strict comparison",
       "rules": {
         "A": "页数大于 4 时暂停。Pause packets with more than 4 pages; leave other target packets queued. 示范处理所有 Packet，范围外 Unrelated draft 保持。",
@@ -2683,7 +2752,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -2747,7 +2817,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -2789,7 +2860,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -2805,12 +2877,12 @@
       "family": "task36",
       "difficulty": "easy",
       "task": "给六份指定文档按视频方法插入一个分页符，保留全部文字和其他文档。",
-      "query_example": "Insert exactly one page break in each pages-*.txt document using the demonstrated heading boundary. Preserve every text character. Use the section-heading page-break boundary demonstrated in the video.",
+      "query_example": "Insert exactly one page break in each pages-*.txt document using the demonstrated heading boundary. Preserve every text character. Use the section-heading page-break boundary demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "section-heading page-break boundary",
       "rules": {
-        "A": "在 Appendix 标题前插入分页符。Insert a page break immediately before Appendix. ",
-        "B": "在 References 标题前插入分页符。Insert a page break immediately before References. ",
-        "C": "在 Signature 标题前插入分页符。Insert a page break immediately before Signature. "
+        "A": "在 Appendix 标题前插入分页符。Insert a page break immediately before Appendix.",
+        "B": "在 References 标题前插入分页符。Insert a page break immediately before References.",
+        "C": "在 Signature 标题前插入分页符。Insert a page break immediately before Signature."
       },
       "demo_description": "为三份内容不同但均含 Appendix、References、Signature 的文档插入分页符；展示分页边界和保存内容。",
       "demo_instruction": "Insert exactly one page break in each pages-*.txt document using the demonstrated heading boundary. Preserve every text character.",
@@ -2878,7 +2950,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -2935,7 +3008,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -2992,7 +3066,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -3008,12 +3083,12 @@
       "family": "task36",
       "difficulty": "medium",
       "task": "按请求中的项目范围和依赖清单制作本地交接目录，采用批准修订，保留原件和既有用户编辑；交接目录分组方法从视频学习。",
-      "query_example": "Deliver K0 with its required K1 and K2 attachments, using each latest approved revision. Preserve all source versions and local edits. Create the collection in Output. Use the handoff folder grouping demonstrated in the video.",
+      "query_example": "Deliver K0 with its required K1 and K2 attachments, using each latest approved revision. Preserve all source versions and local edits. Create the collection in Output. Use the handoff folder grouping demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "handoff folder grouping",
       "rules": {
-        "A": "按资料类别分组。Group by resource category. ",
-        "B": "按来源项目分组。Group by source project. ",
-        "C": "按业务资源键 resource_key 分组。Group by resource_key. "
+        "A": "按资料类别分组。Group by resource category.",
+        "B": "按来源项目分组。Group by source project.",
+        "C": "按业务资源键 resource_key 分组。Group by resource_key."
       },
       "demo_description": "将已选定的三份批准材料放入相应交接目录；展示类别、来源和资源键，以及实际保存位置。无需录版本筛选和依赖收集。",
       "demo_instruction": "The three revision-3 resources are already selected and approved. Demonstrate only their grouping in Output; preserve all sources.",
@@ -3077,7 +3152,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -3130,7 +3206,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -3183,7 +3260,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -3199,12 +3277,12 @@
       "family": "task36",
       "difficulty": "medium",
       "task": "根据当前有效变更请求整理版本说明、配置中的 release_version 和交付索引，确保三者与源文件版本一致；变更条目格式从视频学习。",
-      "query_example": "Prepare current release documentation from the highest valid request. Align working config, release notes and delivery index with the source version; exclude withdrawn changes. Use the change-entry text format demonstrated in the video. Deliver Output/config.json (release_version), release-notes.txt (Version: header followed by change entries), and delivery-index.json with version, notes, config and changes (change IDs).",
+      "query_example": "Prepare current release documentation from the highest valid request. Align working config, release notes and delivery index with the source version; exclude withdrawn changes. Use the change-entry text format demonstrated in the video. Deliver Output/config.json (release_version), release-notes.txt (Version: header followed by change entries), and delivery-index.json with version, notes, config and changes (change IDs). For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "change-entry text format",
       "rules": {
-        "A": "change_id: summary。change_id: summary ",
-        "B": "summary [change_id]。summary [change_id] ",
-        "C": "[change_id] summary。[change_id] summary "
+        "A": "change_id: summary。change_id: summary",
+        "B": "summary [change_id]。summary [change_id]",
+        "C": "[change_id] summary。[change_id] summary"
       },
       "demo_description": "将两条不同 ID、不同正文的变更写成指定格式。录三组不同变更，保留输入；不录发布文档成套编制。",
       "demo_instruction": "Read Example input.json and demonstrate the local transformation in Example result.txt. Preserve the input. This is a local-method demonstration, not the full query workflow.",
@@ -3258,7 +3336,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -3297,7 +3376,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -3336,7 +3416,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -3377,7 +3458,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -3416,7 +3498,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -3455,7 +3538,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -3496,7 +3580,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -3535,7 +3620,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -3574,7 +3660,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -3590,12 +3677,12 @@
       "family": "task36",
       "difficulty": "medium",
       "task": "依据最新现场安排制作可执行的文字指南，匹配地点、时段、负责人及所需资源，保存到已给出的输出文档；联系人显示格式从视频学习。",
-      "query_example": "Prepare one guide entry per active slot, linking the exact person, site, time and resources by IDs. Exclude withdrawn slots; save field-guide.json. Use the person-name and phone display format demonstrated in the video. Save an array in Output/field-guide.json. Each entry retains slot_id, person_id, site, time, resources (resource IDs), active, and adds contact in the demonstrated display format.",
+      "query_example": "Prepare one guide entry per active slot, linking the exact person, site, time and resources by IDs. Exclude withdrawn slots; save field-guide.json. Use the person-name and phone display format demonstrated in the video. Save an array in Output/field-guide.json. Each entry retains slot_id, person_id, site, time, resources (resource IDs), active, and adds contact in the demonstrated display format. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "person-name and phone display format",
       "rules": {
-        "A": "姓名 <phone>。Name <phone> ",
-        "B": "姓名 (phone)。Name (phone) ",
-        "C": "phone — 姓名。phone — Name "
+        "A": "姓名 <phone>。Name <phone>",
+        "B": "姓名 (phone)。Name (phone)",
+        "C": "phone — 姓名。phone — Name"
       },
       "demo_description": "将两位不同姓名、电话的联系人转换为对应显示格式。录三组不同联系人，不录现场安排关联。",
       "demo_instruction": "Read Example input.json and demonstrate the local transformation in Example result.txt. Preserve the input. This is a local-method demonstration, not the full query workflow.",
@@ -3649,7 +3736,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -3688,7 +3776,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -3727,7 +3816,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -3768,7 +3858,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -3807,7 +3898,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -3846,7 +3938,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -3887,7 +3980,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -3926,7 +4020,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -3965,7 +4060,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -3981,7 +4077,7 @@
       "family": "task36",
       "difficulty": "medium",
       "task": "为已经复制好的新工作区修订 manifest 和 app-settings，保留偏好，使所有内部引用指向新副本；manifest 资源引用排列方法从视频学习。",
-      "query_example": "Repair the already-copied workspace configuration using migration-request.json. Preserve preferences and all references, with absolute paths to the new root. Use the reference ordering and tie-breaking demonstrated in the video.",
+      "query_example": "Repair the already-copied workspace configuration using migration-request.json. Preserve preferences and all references, with absolute paths to the new root. Use the reference ordering and tie-breaking demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "reference ordering and tie-breaking",
       "rules": {
         "A": "references 按目标路径字典序排列。Order paths alphabetically. A 按完整目标路径升序；B 按 number 数值升序；C 先按 Code → Config → Data 分组，同类别再按完整目标路径升序。路径逐字符比较（本题均为小写 ASCII，因此同目录内就是文件名字母序），不是按原始列表顺序。",
@@ -4040,7 +4136,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -4079,7 +4176,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -4118,7 +4216,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -4159,7 +4258,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -4198,7 +4298,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -4237,7 +4338,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -4278,7 +4380,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -4317,7 +4420,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -4356,7 +4460,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -4372,12 +4477,12 @@
       "family": "task36",
       "difficulty": "medium",
       "task": "依据有效会议议程和批准章节，完成可交付的打印母稿、目录及页码核对表；章节编号方式从视频学习。",
-      "query_example": "Assemble the approved chapters in agenda order. Number chapter headings using the demonstrated format, start each chapter on a new page, and save an accurate contents table. Five lines maximum per page. Use the chapter heading numbering demonstrated in the video. Save print-master.txt and contents.json in Output. Each contents entry has chapter_id, heading and one-based page.",
+      "query_example": "Assemble the approved chapters in agenda order. Number chapter headings using the demonstrated format, start each chapter on a new page, and save an accurate contents table. Five lines maximum per page. Use the chapter heading numbering demonstrated in the video. Save print-master.txt and contents.json in Output. Each contents entry has chapter_id, heading and one-based page. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "chapter heading numbering",
       "rules": {
-        "A": "1.、2. 等阿拉伯编号。Arabic numbering. ",
-        "B": "I.、II. 等罗马编号。Roman numbering. ",
-        "C": "A.、B. 等字母编号。Letter numbering. "
+        "A": "1.、2. 等阿拉伯编号。Arabic numbering.",
+        "B": "I.、II. 等罗马编号。Roman numbering.",
+        "C": "A.、B. 等字母编号。Letter numbering."
       },
       "demo_description": "给三个不同章节标题编号并保存。展示每个标题的编号对应关系，不录选稿、组稿和打印提交。",
       "demo_instruction": "Read Example input.json and demonstrate the local transformation in Example result.txt. Preserve the input. This is a local-method demonstration, not the full query workflow.",
@@ -4429,7 +4534,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -4470,7 +4576,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -4511,7 +4618,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -4527,12 +4635,12 @@
       "family": "task36",
       "difficulty": "medium",
       "task": "依据已提供的日志导出和本地处置记录，形成当前事故的完整时间线与处置结论；时间显示格式从视频学习。",
-      "query_example": "Produce an incident timeline from both exports, deduplicating event IDs and retaining channel provenance. Base the response conclusion on the actual verification record. Use the timestamp representation demonstrated in the video. Save Output/timeline.json with incident, events, recovered and verification_event. Each event retains event_id, time and message and adds channels: Application and/or System, based on the corresponding exports.",
+      "query_example": "Produce an incident timeline from both exports, deduplicating event IDs and retaining channel provenance. Base the response conclusion on the actual verification record. Use the timestamp representation demonstrated in the video. Save Output/timeline.json with incident, events, recovered and verification_event. Each event retains event_id, time and message and adds channels: Application and/or System, based on the corresponding exports. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "timestamp representation",
       "rules": {
-        "A": "YYYY-MM-DD HH:MM:SS。YYYY-MM-DD HH:MM:SS ",
-        "B": "YYYY/MM/DD HH:MM:SS。YYYY/MM/DD HH:MM:SS ",
-        "C": "YYYY-MM-DDTHH:MM:SS。YYYY-MM-DDTHH:MM:SS "
+        "A": "YYYY-MM-DD HH:MM:SS。YYYY-MM-DD HH:MM:SS",
+        "B": "YYYY/MM/DD HH:MM:SS。YYYY/MM/DD HH:MM:SS",
+        "C": "YYYY-MM-DDTHH:MM:SS。YYYY-MM-DDTHH:MM:SS"
       },
       "demo_description": "将两个不同日期/时间转换并保存。录三组，只改变表示形式，不改变时刻；不录事故搜集和时间线编排。",
       "demo_instruction": "Read Example input.json and demonstrate the local transformation in Example result.txt. Preserve the input. This is a local-method demonstration, not the full query workflow.",
@@ -4586,7 +4694,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -4625,7 +4734,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -4664,7 +4774,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -4705,7 +4816,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -4744,7 +4856,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -4783,7 +4896,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -4824,7 +4938,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -4863,7 +4978,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -4902,7 +5018,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -4918,12 +5035,12 @@
       "family": "task36",
       "difficulty": "medium",
       "task": "按有效同步清单把工作目录更新到目标版本，保留本地独有编辑与所有被替换内容；旧文件保留方式从视频学习。",
-      "query_example": "Synchronize Active: replace records.csv with Source revision 2, add added.txt, and remove retired.txt from the active set. Preserve local-edit.txt and every replaced/retired content. Use the preservation of replaced file contents demonstrated in the video.",
+      "query_example": "Synchronize Active: replace records.csv with Source revision 2, add added.txt, and remove retired.txt from the active set. Preserve local-edit.txt and every replaced/retired content. Use the preservation of replaced file contents demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "preservation of replaced file contents",
       "rules": {
-        "A": "旧文件移动到已有 Previous 目录。Move the old file into Previous before replacing it. ",
-        "B": "旧文件在原处加 -previous 后缀。Keep old content with a -previous suffix. ",
-        "C": "旧文件复制到已有 Snapshot 目录后再替换。Copy the old file into Snapshot before removing the original conflict. "
+        "A": "旧文件移动到已有 Previous 目录。Move the old file into Previous before replacing it.",
+        "B": "旧文件在原处加 -previous 后缀。Keep old content with a -previous suffix.",
+        "C": "旧文件复制到已有 Snapshot 目录后再替换。Copy the old file into Snapshot before removing the original conflict."
       },
       "demo_description": "替换一份同名旧文件前先按指定方法保留旧内容，展示新旧两侧均可恢复。录三组不同内容，不录整个目录同步。",
       "demo_instruction": "Demonstrate only preservation of the existing source.txt when the incoming file has the same name. Keep both contents recoverable.",
@@ -4978,7 +5095,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -5018,7 +5136,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -5058,7 +5177,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -5100,7 +5220,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -5140,7 +5261,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -5180,7 +5302,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -5232,7 +5355,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -5282,7 +5406,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -5332,7 +5457,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -5348,12 +5474,12 @@
       "family": "task36",
       "difficulty": "medium",
       "task": "按公共业务阶段关系重建受影响的作业链，修正输入、输出和依赖，保留无关作业并重新完成交付；新建作业名称格式从视频学习。",
-      "query_example": "Replace the affected failed pipeline using the supplied business stages: inventory, validate, index, package, verify, deliver. All stages consume Workspace and write Output. Preserve the unrelated existing task record. Use the stage task-name format demonstrated in the video.",
+      "query_example": "Replace the affected failed pipeline using the supplied business stages: inventory, validate, index, package, verify, deliver. All stages consume Workspace and write Output. Preserve the unrelated existing task record. Use the stage task-name format demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "stage task-name format",
       "rules": {
-        "A": "{序号两位}-{operation}。Name stages NN-operation. ",
-        "B": "{operation}-{序号两位}。Name stages operation-NN. ",
-        "C": "step{序号两位}_{operation}。Name stages stepNN_operation. "
+        "A": "{序号两位}-{operation}。Name stages NN-operation.",
+        "B": "{operation}-{序号两位}。Name stages operation-NN.",
+        "C": "step{序号两位}_{operation}。Name stages stepNN_operation."
       },
       "demo_description": "给 inventory、validate 两个阶段建立对应名称，展示阶段顺序与命名关系。录三组小项目，不录完整六阶段修复。",
       "demo_instruction": "Demonstrate names for two example stages, inventory then validate, using Workspace as input and Output as output. Do not repair the unrelated existing task.",
@@ -5436,7 +5562,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -5504,7 +5631,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -5572,7 +5700,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -5642,7 +5771,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -5710,7 +5840,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -5778,7 +5909,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -5848,7 +5980,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -5916,7 +6049,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -5984,7 +6118,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -6000,12 +6135,12 @@
       "family": "task36",
       "difficulty": "medium",
       "task": "为已经就绪的项目输入创建可恢复的回滚点，恢复到已有空目录并逐文件比较；各阶段成果的目录组织方法从视频学习。",
-      "query_example": "Create a rollback snapshot from all four Workspace resources, restore it to an empty supplied destination and compare actual content. Preserve all source resources. Use the stage output-folder organization demonstrated in the video.",
+      "query_example": "Create a rollback snapshot from all four Workspace resources, restore it to an empty supplied destination and compare actual content. Preserve all source resources. Use the stage output-folder organization demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "stage output-folder organization",
       "rules": {
-        "A": "各阶段输出到各自预置阶段目录。Use separate stage output folders. ",
-        "B": "各阶段报告集中到 Reports，恢复文件到 Recovery。Use central Reports; restore into Recovery. ",
-        "C": "备份进入 Snapshots，其余报告进入 Reports，恢复文件进入 Recovery。Use Snapshots for backup, Reports for other reports, and Recovery for restored files. "
+        "A": "各阶段输出到各自预置阶段目录。Use separate stage output folders.",
+        "B": "各阶段报告集中到 Reports，恢复文件到 Recovery。Use central Reports; restore into Recovery.",
+        "C": "备份进入 Snapshots，其余报告进入 Reports，恢复文件进入 Recovery。Use Snapshots for backup, Reports for other reports, and Recovery for restored files."
       },
       "demo_description": "用已准备的四份资料展示 inventory、backup、restore 的输出目录关系。录三个独立项目；不录比较、复验和完整恢复演练。",
       "demo_instruction": "Demonstrate output organization for inventory, backup and restore stages only, using the four prepared resources. Do not perform the full restore exercise.",
@@ -6113,7 +6248,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -6206,7 +6342,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -6299,7 +6436,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -6394,7 +6532,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -6487,7 +6626,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -6580,7 +6720,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -6675,7 +6816,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -6768,7 +6910,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -6861,7 +7004,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -6877,12 +7021,12 @@
       "family": "task36",
       "difficulty": "medium",
       "task": "处理当前有效人员资料变更批次，按人员 ID 核对申请与佐证，修改授权字段并编制逐项回执；回执中的处理结论表示方式从视频学习。",
-      "query_example": "Verify personnel phone changes against the supplied evidence and policy. Update only approved fields, and produce an acknowledgement for every active request. Preserve withdrawn and rejected people. Use the approval-result encoding demonstrated in the video. Save people-working.json and acknowledgements.json in Output. Keep all unchanged person fields; every active request acknowledgement contains request_id, person_id and the demonstrated decision field.",
+      "query_example": "Verify personnel phone changes against the supplied evidence and policy. Update only approved fields, and produce an acknowledgement for every active request. Preserve withdrawn and rejected people. Use the approval-result encoding demonstrated in the video. Save people-working.json and acknowledgements.json as JSON arrays in Output. Keep all unchanged person fields; every active request acknowledgement contains request_id, person_id and the demonstrated decision field. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "approval-result encoding",
       "rules": {
-        "A": "通过/不通过使用 Approved/Rejected。Approved/Rejected ",
-        "B": "通过/不通过使用 accepted=true/false。accepted=true/false ",
-        "C": "通过/不通过使用 status=ok/error。status=ok/error "
+        "A": "通过/不通过使用 Approved/Rejected。Approved/Rejected  输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 decision（字符串 Approved 或 Rejected）；approved=true 对应 Approved，false 对应 Rejected。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。",
+        "B": "通过/不通过使用 accepted=true/false。accepted=true/false  输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 accepted（布尔值 true 或 false）；复制输入 approved 的真假值。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。",
+        "C": "通过/不通过使用 status=ok/error。status=ok/error  输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 status（字符串 ok 或 error）；approved=true 对应 ok，false 对应 error。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
       },
       "demo_description": "将一项已知通过、一项已知拒绝的结论写为对应表示。录三组不同请求 ID；不录申请核查和修改人员主档。",
       "demo_instruction": "Read Example input.json and demonstrate the local transformation in Example result.txt. Preserve the input. This is a local-method demonstration, not the full query workflow.",
@@ -6936,7 +7080,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 decision（字符串 Approved 或 Rejected）；approved=true 对应 Approved，false 对应 Rejected。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           },
           {
@@ -6975,7 +7120,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 decision（字符串 Approved 或 Rejected）；approved=true 对应 Approved，false 对应 Rejected。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           },
           {
@@ -7014,7 +7160,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 decision（字符串 Approved 或 Rejected）；approved=true 对应 Approved，false 对应 Rejected。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           }
         ],
@@ -7055,7 +7202,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 accepted（布尔值 true 或 false）；复制输入 approved 的真假值。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           },
           {
@@ -7094,7 +7242,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 accepted（布尔值 true 或 false）；复制输入 approved 的真假值。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           },
           {
@@ -7133,7 +7282,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 accepted（布尔值 true 或 false）；复制输入 approved 的真假值。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           }
         ],
@@ -7174,7 +7324,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 status（字符串 ok 或 error）；approved=true 对应 ok，false 对应 error。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           },
           {
@@ -7213,7 +7364,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 status（字符串 ok 或 error）；approved=true 对应 ok，false 对应 error。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           },
           {
@@ -7252,7 +7404,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 status（字符串 ok 或 error）；approved=true 对应 ok，false 对应 error。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           }
         ]
@@ -7268,12 +7421,12 @@
       "family": "task36",
       "difficulty": "medium",
       "task": "核对当前有效库存周期的收货、退回和领用记录，修正工作台账并形成逐批次差异单；数量的显示方法从视频学习。",
-      "query_example": "Reconcile each inventory lot: opening + active receipts - active returns - active issues. Deduplicate record_id, exclude withdrawn transactions, and save corrected stock plus lot differences. Unit capacities are in lot-baselines.json. Use the quantity units, quotient and remainder representation demonstrated in the video. Save stock-working.json (lot_id, quantity) and differences.json (lot_id, before_pcs, after_pcs, difference_pcs) in Output.",
+      "query_example": "Reconcile each inventory lot: opening + active receipts - active returns - active issues. Deduplicate record_id, exclude withdrawn transactions, and save corrected stock plus lot differences. Unit capacities are in lot-baselines.json. Use the quantity units, quotient and remainder representation demonstrated in the video. Save two JSON arrays in Output: stock-working.json entries contain lot_id (string) and quantity (string in the demonstrated units); differences.json entries contain lot_id (string), before_pcs, after_pcs and difference_pcs (integer counts). Preserve lot order from lot-baselines.json. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "quantity units, quotient and remainder representation",
       "rules": {
-        "A": "统一以最小单位件表示：N pcs。N pcs ",
-        "B": "按公开箱容量表示为 C box + R pcs，不足一箱保留余件。C box + R pcs ",
-        "C": "按公开包容量表示为 P pack + R pcs，不足一包保留余件。P pack + R pcs "
+        "A": "统一以最小单位件表示：N pcs。N pcs  逐条读取输入 quantity；每行写 N pcs，其中 N 是 quantity 的整数值。例如数量 19 写 19 pcs。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+        "B": "按公开箱容量表示为 C box + R pcs，不足一箱保留余件。C box + R pcs  逐条用输入 quantity 除以该项 box，商为 C、余数为 R；每行写 C box + R pcs。余数为 0 也必须写 + 0 pcs。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+        "C": "按公开包容量表示为 P pack + R pcs，不足一包保留余件。P pack + R pcs  逐条用输入 quantity 除以该项 pack，商为 P、余数为 R；每行写 P pack + R pcs。余数为 0 也必须写 + 0 pcs。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
       },
       "demo_description": "展示不同产品容量下的数量表示。三组覆盖非零余数、整箱和整包；容量来自输入，不能统一猜一个容量，不录整批对账。",
       "demo_instruction": "Read Example input.json and demonstrate the local transformation in Example result.txt. Preserve the input. This is a local-method demonstration, not the full query workflow.",
@@ -7327,7 +7480,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "逐条读取输入 quantity；每行写 N pcs，其中 N 是 quantity 的整数值。例如数量 19 写 19 pcs。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -7366,7 +7520,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "逐条读取输入 quantity；每行写 N pcs，其中 N 是 quantity 的整数值。例如数量 19 写 19 pcs。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -7405,7 +7560,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "逐条读取输入 quantity；每行写 N pcs，其中 N 是 quantity 的整数值。例如数量 19 写 19 pcs。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           }
         ],
@@ -7446,7 +7602,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "逐条用输入 quantity 除以该项 box，商为 C、余数为 R；每行写 C box + R pcs。余数为 0 也必须写 + 0 pcs。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -7485,7 +7642,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "逐条用输入 quantity 除以该项 box，商为 C、余数为 R；每行写 C box + R pcs。余数为 0 也必须写 + 0 pcs。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -7524,7 +7682,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "逐条用输入 quantity 除以该项 box，商为 C、余数为 R；每行写 C box + R pcs。余数为 0 也必须写 + 0 pcs。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           }
         ],
@@ -7565,7 +7724,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "逐条用输入 quantity 除以该项 pack，商为 P、余数为 R；每行写 P pack + R pcs。余数为 0 也必须写 + 0 pcs。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -7604,7 +7764,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "逐条用输入 quantity 除以该项 pack，商为 P、余数为 R；每行写 P pack + R pcs。余数为 0 也必须写 + 0 pcs。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -7643,7 +7804,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "逐条用输入 quantity 除以该项 pack，商为 P、余数为 R；每行写 P pack + R pcs。余数为 0 也必须写 + 0 pcs。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           }
         ]
@@ -7659,12 +7821,12 @@
       "family": "task36",
       "difficulty": "medium",
       "task": "依据共同基线和批准范围，合并两个工作副本到已有输出文档，保留双方独有修改和全部原件；同字段冲突取值方法从视频学习。",
-      "query_example": "Merge main and review against baseline by field. Preserve unique changes from both sides. Resolve conflicting fields using the demonstrated method and save merged content plus an accurate conflict record. Use the conflicting-field precedence demonstrated in the video. Save Output/merged.json and merge-diff.json. The conflict record contains conflict_fields (names), values (resolved conflicting fields) and preserved_unique (names of both sides unique fields).",
+      "query_example": "Merge main and review against baseline by field. Preserve unique changes from both sides. Resolve conflicting fields using the demonstrated method and save merged content plus an accurate conflict record. Use the conflicting-field precedence demonstrated in the video. Save Output/merged.json as a JSON object of merged fields and merge-diff.json as a JSON object. The conflict record contains conflict_fields (names), values (resolved conflicting fields) and preserved_unique (names of both sides unique fields). For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "conflicting-field precedence",
       "rules": {
-        "A": "同字段冲突优先主分支。Conflicts use main. 双方独有字段都保留；C 时间相同取 main。",
-        "B": "同字段冲突优先审阅分支。Conflicts use review. 双方独有字段都保留；C 时间相同取 main。",
-        "C": "同字段冲突选修改时间较新者，并列取主分支。Conflicts use newer field timestamp; ties main. 双方独有字段都保留；C 时间相同取 main。"
+        "A": "同字段冲突优先主分支。Conflicts use main. 双方独有字段都保留；C 时间相同取 main。 输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；x/y/z 取 main，两个独有字段分别从所属分支保留。不要把 baseline、main、review、times 这些输入容器写进结果。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。",
+        "B": "同字段冲突优先审阅分支。Conflicts use review. 双方独有字段都保留；C 时间相同取 main。 输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；x/y/z 取 review，两个独有字段分别从所属分支保留。不要把 baseline、main、review、times 这些输入容器写进结果。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。",
+        "C": "同字段冲突选修改时间较新者，并列取主分支。Conflicts use newer field timestamp; ties main. 双方独有字段都保留；C 时间相同取 main。 输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；每个冲突字段比较 times.main 与 times.review，取时间较大分支的值，相同取 main。两个独有字段分别保留；不输出 times 容器。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
       },
       "demo_description": "对基线、主分支、审阅分支进行局部字段合并；含主分支较新、审阅较新和同时间冲突，以及两边独有字段。录三组不同数值。",
       "demo_instruction": "Read Example input.json and demonstrate the local transformation in Example result.txt. Preserve the input. This is a local-method demonstration, not the full query workflow.",
@@ -7718,7 +7880,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；x/y/z 取 main，两个独有字段分别从所属分支保留。不要把 baseline、main、review、times 这些输入容器写进结果。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           },
           {
@@ -7757,7 +7920,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；x/y/z 取 main，两个独有字段分别从所属分支保留。不要把 baseline、main、review、times 这些输入容器写进结果。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           },
           {
@@ -7796,7 +7960,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；x/y/z 取 main，两个独有字段分别从所属分支保留。不要把 baseline、main、review、times 这些输入容器写进结果。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           }
         ],
@@ -7837,7 +8002,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；x/y/z 取 review，两个独有字段分别从所属分支保留。不要把 baseline、main、review、times 这些输入容器写进结果。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           },
           {
@@ -7876,7 +8042,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；x/y/z 取 review，两个独有字段分别从所属分支保留。不要把 baseline、main、review、times 这些输入容器写进结果。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           },
           {
@@ -7915,7 +8082,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；x/y/z 取 review，两个独有字段分别从所属分支保留。不要把 baseline、main、review、times 这些输入容器写进结果。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           }
         ],
@@ -7956,7 +8124,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；每个冲突字段比较 times.main 与 times.review，取时间较大分支的值，相同取 main。两个独有字段分别保留；不输出 times 容器。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           },
           {
@@ -7995,7 +8164,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；每个冲突字段比较 times.main 与 times.review，取时间较大分支的值，相同取 main。两个独有字段分别保留；不输出 times 容器。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           },
           {
@@ -8034,7 +8204,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；每个冲突字段比较 times.main 与 times.review，取时间较大分支的值，相同取 main。两个独有字段分别保留；不输出 times 容器。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           }
         ]
@@ -8050,12 +8221,12 @@
       "family": "task36",
       "difficulty": "hard",
       "task": "根据受保护的历史成功作业报告，将请求指定的处理配置回退到当时状态，并用新的验证作业确认实际生效；配置差异记录格式从视频学习。",
-      "query_example": "Restore only archive.format, verification.mode, media.preview and scheduler.trigger from RUN-4201. Run fresh validation/package/verification jobs and record before/after settings. Preserve history and unrelated settings. Use the configuration difference record format demonstrated in the video.",
+      "query_example": "Restore only archive.format, verification.mode, media.preview and scheduler.trigger from RUN-4201. Run fresh validation/package/verification jobs and record before/after settings. Preserve history and unrelated settings. Use the configuration difference record format demonstrated in the video. Save Output/configuration-diff.txt with one record per restored setting, using key, before and after from the actual old and restored values. Use the record representation demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "configuration difference record format",
       "rules": {
-        "A": "每行 key: before -> after。key: before -> after ",
-        "B": "带列头 key,before,after 的 CSV。CSV key,before,after ",
-        "C": "JSON 数组，每项含 key、before、after。JSON key/before/after array "
+        "A": "每行 key: before -> after。key: before -> after  每项一行：key: before -> after。key、before、after 均复制本项输入，不加引号。例如 media.preview: compact -> review。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+        "B": "带列头 key,before,after 的 CSV。CSV key,before,after  CSV 第一行固定 key,before,after；后续每个输入对象占一行，三列依次复制 key、before、after。含逗号或双引号的单元格按标准 CSV 引号转义。\n使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。",
+        "C": "JSON 数组，每项含 key、before、after。JSON key/before/after array  输出 JSON 数组，每项包含 key、before、after 三个字符串字段，值均复制本项输入。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
       },
       "demo_description": "将两个可见配置差异写为记录，before 与 after 均取输入。录三组不同值，不查历史作业，不回退设置和重跑验证。",
       "demo_instruction": "Read Example input.json and demonstrate the local transformation in Example result.txt. Preserve the input. This is a local-method demonstration, not the full query workflow.",
@@ -8113,7 +8284,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每项一行：key: before -> after。key、before、after 均复制本项输入，不加引号。例如 media.preview: compact -> review。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -8152,7 +8324,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每项一行：key: before -> after。key、before、after 均复制本项输入，不加引号。例如 media.preview: compact -> review。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -8191,7 +8364,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每项一行：key: before -> after。key、before、after 均复制本项输入，不加引号。例如 media.preview: compact -> review。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           }
         ],
@@ -8232,7 +8406,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "CSV 第一行固定 key,before,after；后续每个输入对象占一行，三列依次复制 key、before、after。含逗号或双引号的单元格按标准 CSV 引号转义。\n使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。"
             }
           },
           {
@@ -8271,7 +8446,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "CSV 第一行固定 key,before,after；后续每个输入对象占一行，三列依次复制 key、before、after。含逗号或双引号的单元格按标准 CSV 引号转义。\n使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。"
             }
           },
           {
@@ -8310,7 +8486,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "CSV 第一行固定 key,before,after；后续每个输入对象占一行，三列依次复制 key、before、after。含逗号或双引号的单元格按标准 CSV 引号转义。\n使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。"
             }
           }
         ],
@@ -8351,7 +8528,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出 JSON 数组，每项包含 key、before、after 三个字符串字段，值均复制本项输入。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           },
           {
@@ -8390,7 +8568,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出 JSON 数组，每项包含 key、before、after 三个字符串字段，值均复制本项输入。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           },
           {
@@ -8429,7 +8608,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出 JSON 数组，每项包含 key、before、after 三个字符串字段，值均复制本项输入。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           }
         ]
@@ -8445,12 +8625,12 @@
       "family": "task36",
       "difficulty": "hard",
       "task": "修复当前发布请求中的工具和配置问题，生成版本一致的签名发布包，保留上次发布；版本说明变更条目格式从视频学习。",
-      "query_example": "Recover the current signed release: repair tool availability and staged entry/version alignment. Include CH1 Fix import and CH2 Update assets using the demonstrated notes format; preserve sources and previous release. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the release change-entry format demonstrated in the video.",
+      "query_example": "Recover the current signed release: repair tool availability and staged entry/version alignment. Include CH1 Fix import and CH2 Update assets using the demonstrated notes format; preserve sources and previous release. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the release change-entry format demonstrated in the video. The staged release notes start with Version: followed by the preserved release_version, then one line per approved change in the demonstrated format; the changes request is input, not an output to overwrite. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "release change-entry format",
       "rules": {
-        "A": "change_id: summary。change_id: summary ",
-        "B": "summary [change_id]。summary [change_id] ",
-        "C": "[change_id] summary。[change_id] summary "
+        "A": "change_id: summary。change_id: summary  每条变更一行：change_id: summary；替换为输入中的 ID 和正文，不写字段名字面量。Demo 不写 Version 头。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+        "B": "summary [change_id]。summary [change_id]  每条变更一行：summary [change_id]；使用英文方括号。Demo 不写 Version 头。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+        "C": "[change_id] summary。[change_id] summary  每条变更一行：[change_id] summary；使用英文方括号。Demo 不写 Version 头。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
       },
       "demo_description": "将两条变更写成指定条目格式。录三组不同 ID 和正文，不录修工具、构建、签名或发布。",
       "demo_instruction": "Read Example input.json and demonstrate the local transformation in Example result.txt. Preserve the input. This is a local-method demonstration, not the full query workflow.",
@@ -8508,7 +8688,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每条变更一行：change_id: summary；替换为输入中的 ID 和正文，不写字段名字面量。Demo 不写 Version 头。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -8547,7 +8728,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每条变更一行：change_id: summary；替换为输入中的 ID 和正文，不写字段名字面量。Demo 不写 Version 头。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -8586,7 +8768,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每条变更一行：change_id: summary；替换为输入中的 ID 和正文，不写字段名字面量。Demo 不写 Version 头。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           }
         ],
@@ -8627,7 +8810,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每条变更一行：summary [change_id]；使用英文方括号。Demo 不写 Version 头。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -8666,7 +8850,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每条变更一行：summary [change_id]；使用英文方括号。Demo 不写 Version 头。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -8705,7 +8890,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每条变更一行：summary [change_id]；使用英文方括号。Demo 不写 Version 头。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           }
         ],
@@ -8746,7 +8932,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每条变更一行：[change_id] summary；使用英文方括号。Demo 不写 Version 头。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -8785,7 +8972,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每条变更一行：[change_id] summary；使用英文方括号。Demo 不写 Version 头。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -8824,7 +9012,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每条变更一行：[change_id] summary；使用英文方括号。Demo 不写 Version 头。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           }
         ]
@@ -8840,12 +9029,12 @@
       "family": "task36",
       "difficulty": "hard",
       "task": "从最新完整快照恢复项目，保留本地编辑，修复引用并恢复快照记录的任务，使 restore-check 通过；恢复工作区布局从视频学习。",
-      "query_example": "Recover from the latest complete project snapshot, preserve all local edits, restore every scheduled task recorded in the snapshot, and pass restore-check. Use the demonstrated recovery layout. Use the recovery folder layout demonstrated in the video.",
+      "query_example": "Recover from the latest complete project snapshot, preserve all local edits, restore every scheduled task recorded in the snapshot, and pass restore-check. Use the demonstrated recovery layout. Use the recovery folder layout demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "recovery folder layout",
       "rules": {
-        "A": "项目下 Recovery/Restored，报告放其 Reports。Recovery/Restored with Reports inside. ",
-        "B": "项目下 Restored/Workspace，报告放其 Reports。Restored/Workspace with Reports inside. ",
-        "C": "项目下 Recovered，报告放其 Reports。Recovered with Reports inside. "
+        "A": "项目下 Recovery/Restored，报告放其 Reports。Recovery/Restored with Reports inside.",
+        "B": "项目下 Restored/Workspace，报告放其 Reports。Restored/Workspace with Reports inside.",
+        "C": "项目下 Recovered，报告放其 Reports。Recovered with Reports inside."
       },
       "demo_description": "把已给的数据与报告放入对应恢复目录及其 Reports 子目录。录三个不同项目，只展示布局，不筛快照或恢复任务。",
       "demo_instruction": "Demonstrate only the recovery workspace layout: copy example-data.csv to the selected workspace and example-report.txt to its Reports child. Preserve both inputs.",
@@ -8904,7 +9093,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -8944,7 +9134,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -8984,7 +9175,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -9026,7 +9218,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -9066,7 +9259,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -9106,7 +9300,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -9148,7 +9343,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -9188,7 +9384,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -9228,7 +9425,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -9244,12 +9442,12 @@
       "family": "task36",
       "difficulty": "hard",
       "task": "完成当前拍摄的批准素材补录，修正字幕关联并生成可追溯预览库；预览规格从视频学习。",
-      "query_example": "Import the approved current shoot, recover its caption download, correct clip_id associations, and deliver a verified catalogue and previews. Preserve all source media; use the demonstrated preview size. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the preview size profile demonstrated in the video.",
+      "query_example": "Import the approved current shoot, recover its caption download, correct clip_id associations, and deliver a verified catalogue and previews. Preserve all source media; use the demonstrated preview size. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the preview size profile demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "preview size profile",
       "rules": {
-        "A": "Compact：640×360。Compact 640 x 360. ",
-        "B": "Review：1280×720。Review 1280 x 720. ",
-        "C": "Detailed：1920×1080。Detailed 1920 x 1080. "
+        "A": "Compact：640×360。Compact 640 x 360.",
+        "B": "Review：1280×720。Review 1280 x 720.",
+        "C": "Detailed：1920×1080。Detailed 1920 x 1080."
       },
       "demo_description": "使用已配对的片段和字幕设置同一预览规格，生成并查看实际输出尺寸。录三个项目，不录连接相机、下载或字幕校正。",
       "demo_instruction": "Demonstrate the preview-size relation using the already-prepared matching clips and captions. Set the preview profile and run the example transcode only.",
@@ -9323,7 +9521,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -9378,7 +9577,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -9433,7 +9633,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -9490,7 +9691,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -9545,7 +9747,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -9600,7 +9803,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -9657,7 +9861,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -9712,7 +9917,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -9767,7 +9973,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -9784,12 +9991,12 @@
       "family": "task36",
       "difficulty": "hard",
       "task": "完成当前批准文档包的排版校样与首次队列提交，选择兼容设备，保留全部原件；打印配置组合从视频学习。",
-      "query_example": "Prepare approved working documents, repair pagination, select a capable connected printer and submit exactly one proof-matching packet with the demonstrated printing profile. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the paper, duplex and page-order profile demonstrated in the video.",
+      "query_example": "Prepare approved working documents, repair pagination, select a capable connected printer and submit exactly one proof-matching packet with the demonstrated printing profile. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the paper, duplex and page-order profile demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "paper, duplex and page-order profile",
       "rules": {
-        "A": "A4、双面、正序。A4, duplex, forward. ",
-        "B": "Letter、双面、正序。Letter, duplex, forward. ",
-        "C": "A4、单面、倒序。A4, simplex, reverse. "
+        "A": "A4、双面、正序。A4, duplex, forward.",
+        "B": "Letter、双面、正序。Letter, duplex, forward.",
+        "C": "A4、单面、倒序。A4, simplex, reverse."
       },
       "demo_description": "用已准备的短文档设置纸型、单双面及顺序，生成布局与校样并查看结果。录三组，不提交打印，不录组稿和故障修复。",
       "demo_instruction": "Demonstrate the printing profile on the prepared short documents: set paper, sides and order, then create layout and proof. Do not run the full query or submit a print packet.",
@@ -9910,7 +10117,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -10012,7 +10220,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -10114,7 +10323,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -10218,7 +10428,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -10320,7 +10531,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -10422,7 +10634,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -10526,7 +10739,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -10628,7 +10842,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -10730,7 +10945,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -10747,12 +10963,12 @@
       "family": "task36",
       "difficulty": "hard",
       "task": "为当前现场任务修复下载和缓存缺项，使地图、联系人及指南断网可用，保留下载原件；工作包内文件命名方法从视频学习。",
-      "query_example": "Repair the relay/downloads and missing contact cache, prepare local guide references, rebuild the cache, disconnect the network and pass offline-test. Preserve downloaded originals and use the demonstrated naming. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the cached resource naming and corresponding links demonstrated in the video.",
+      "query_example": "Repair the relay/downloads and missing contact cache, prepare local guide references, rebuild the cache, disconnect the network and pass offline-test. Preserve downloaded originals and use the demonstrated naming. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the cached resource naming and corresponding links demonstrated in the video. In the cached guide retain the title and the two lines Map: <absolute cached map path> and Contacts: <absolute cached contacts path>. Keep other guide text and original downloaded resources. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "cached resource naming and corresponding links",
       "rules": {
-        "A": "保留原文件名。Keep original resource names. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。",
-        "B": "文件名加 {project_id}- 前缀。Prefix names with project_id-. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。",
-        "C": "用公共资源 ID 作文件名并保留原扩展名。Use R0/R1/R2/R3 stems and preserve extensions. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。"
+        "A": "保留原文件名。Keep original resource names. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。 保留四份资源的原名；只编辑缓存目录里的指南副本。保留 Field resources 标题，Map: 后写缓存地图的完整绝对路径，Contacts: 后写缓存通讯录的完整绝对路径，各占一行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。",
+        "B": "文件名加 {project_id}- 前缀。Prefix names with project_id-. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。 四份资源命名为 project_id-原名；只编辑缓存指南副本。保留 Field resources 标题，Map: 后写更名后的缓存地图绝对路径，Contacts: 后写更名后的缓存通讯录绝对路径，各占一行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。",
+        "C": "用公共资源 ID 作文件名并保留原扩展名。Use R0/R1/R2/R3 stems and preserve extensions. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。 按四份公开资源的顺序，将其命名为 R0/R1/R2/R3 并保留扩展名；只编辑缓存指南副本。保留 Field resources 标题，Map: 后写缓存地图的绝对路径，Contacts: 后写缓存通讯录的绝对路径，各占一行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。"
       },
       "demo_description": "对已缓存的四份资源按同一方法命名，同步指南链接并验证离线可读。录三个项目；不录下载、设备恢复或缓存重建。",
       "demo_instruction": "Demonstrate only cached-resource names and matching guide references. Rename the example cached resources, update the guide absolute links, then run offline-test. Downloads and the cache are already prepared.",
@@ -10859,7 +11075,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "保留四份资源的原名；只编辑缓存目录里的指南副本。保留 Field resources 标题，Map: 后写缓存地图的完整绝对路径，Contacts: 后写缓存通讯录的完整绝对路径，各占一行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。"
             }
           },
           {
@@ -10947,7 +11164,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "保留四份资源的原名；只编辑缓存目录里的指南副本。保留 Field resources 标题，Map: 后写缓存地图的完整绝对路径，Contacts: 后写缓存通讯录的完整绝对路径，各占一行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。"
             }
           },
           {
@@ -11035,7 +11253,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "保留四份资源的原名；只编辑缓存目录里的指南副本。保留 Field resources 标题，Map: 后写缓存地图的完整绝对路径，Contacts: 后写缓存通讯录的完整绝对路径，各占一行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。"
             }
           }
         ],
@@ -11125,7 +11344,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "四份资源命名为 project_id-原名；只编辑缓存指南副本。保留 Field resources 标题，Map: 后写更名后的缓存地图绝对路径，Contacts: 后写更名后的缓存通讯录绝对路径，各占一行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。"
             }
           },
           {
@@ -11213,7 +11433,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "四份资源命名为 project_id-原名；只编辑缓存指南副本。保留 Field resources 标题，Map: 后写更名后的缓存地图绝对路径，Contacts: 后写更名后的缓存通讯录绝对路径，各占一行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。"
             }
           },
           {
@@ -11301,7 +11522,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "四份资源命名为 project_id-原名；只编辑缓存指南副本。保留 Field resources 标题，Map: 后写更名后的缓存地图绝对路径，Contacts: 后写更名后的缓存通讯录绝对路径，各占一行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。"
             }
           }
         ],
@@ -11391,7 +11613,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "按四份公开资源的顺序，将其命名为 R0/R1/R2/R3 并保留扩展名；只编辑缓存指南副本。保留 Field resources 标题，Map: 后写缓存地图的绝对路径，Contacts: 后写缓存通讯录的绝对路径，各占一行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。"
             }
           },
           {
@@ -11479,7 +11702,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "按四份公开资源的顺序，将其命名为 R0/R1/R2/R3 并保留扩展名；只编辑缓存指南副本。保留 Field resources 标题，Map: 后写缓存地图的绝对路径，Contacts: 后写缓存通讯录的绝对路径，各占一行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。"
             }
           },
           {
@@ -11567,7 +11791,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "按四份公开资源的顺序，将其命名为 R0/R1/R2/R3 并保留扩展名；只编辑缓存指南副本。保留 Field resources 标题，Map: 后写缓存地图的绝对路径，Contacts: 后写缓存通讯录的绝对路径，各占一行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。"
             }
           }
         ]
@@ -11585,12 +11810,12 @@
       "family": "task36",
       "difficulty": "hard",
       "task": "把完整工作区迁移到请求的新位置，保留目标已有编辑和源工作区，保持用户偏好并验证启动；冲突保留方法从视频学习。",
-      "query_example": "Migrate the nested workspace, preserve original sources and local destination edits, retain preferences, and pass workspace-open. Use the demonstrated collision-preservation method. Use the local file conflict preservation demonstrated in the video.",
+      "query_example": "Migrate the nested workspace, preserve original sources and local destination edits, retain preferences, and pass workspace-open. Use the demonstrated collision-preservation method. Use the local file conflict preservation demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "local file conflict preservation",
       "rules": {
-        "A": "把整个新工作区放到原目标的独立兄弟目录，原目标不动。Use a fresh sibling workspace; leave the original destination untouched. ",
-        "B": "将冲突现有文件加 -local 后缀后在原目标迁移。Rename the conflicting local file with -local before copying incoming. ",
-        "C": "先把冲突现有文件复制到已有 Local-preserved 目录，再清除冲突并在原目标迁移。Copy the local file to Local-preserved, then clear the original conflict. "
+        "A": "把整个新工作区放到原目标的独立兄弟目录，原目标不动。Use a fresh sibling workspace; leave the original destination untouched.",
+        "B": "将冲突现有文件加 -local 后缀后在原目标迁移。Rename the conflicting local file with -local before copying incoming.",
+        "C": "先把冲突现有文件复制到已有 Local-preserved 目录，再清除冲突并在原目标迁移。Copy the local file to Local-preserved, then clear the original conflict."
       },
       "demo_description": "对一份同名冲突保存本地旧内容并放入来件，展示两侧位置和可恢复内容。录三个不同项目，不录路径修订和工作区启动。",
       "demo_instruction": "Demonstrate only preservation of the existing source.txt when the incoming file has the same name. Keep both contents recoverable.",
@@ -11638,7 +11863,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -11667,7 +11893,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -11696,7 +11923,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -11738,7 +11966,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -11778,7 +12007,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -11818,7 +12048,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -11870,7 +12101,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -11920,7 +12152,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -11970,7 +12203,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -11986,12 +12220,12 @@
       "family": "task36",
       "difficulty": "hard",
       "task": "恢复指定失败构建，修复独立的构建和测试问题，保留旧包并恢复锁所有者状态；测试摘要表示方式从视频学习。",
-      "query_example": "Recover the locked build and its independent configuration/test errors. Preserve the old output, pass real tests against public source specifications, save a faithful test summary and restore owner process states. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the test-result summary representation demonstrated in the video. Save test-summary.txt with build_artifact, passed and assertions, in that field order when order matters. Assertions retain name, expected, actual and passed from the actual test result.",
+      "query_example": "Recover the locked build and its independent configuration/test errors. Preserve the old output, pass real tests against public source specifications, save a faithful test summary and restore owner process states. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the test-result summary representation demonstrated in the video. Save test-summary.txt with build_artifact, passed and assertions, in that field order when order matters. Assertions retain name, expected, actual and passed from the actual test result. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "test-result summary representation",
       "rules": {
-        "A": "逐行 key: value。key: value lines 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。",
-        "B": "JSON 对象，字段名与原结果一致。JSON object 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。",
-        "C": "带列头的一行 CSV，列序沿用源结果。CSV build_artifact,passed,assertions 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。"
+        "A": "逐行 key: value。key: value lines 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。 三行依次为 build_artifact: 值、passed: 值、assertions: 值。冒号后的每个值都使用 JSON：build_artifact 是带双引号的字符串，passed 是不带引号的 true/false，assertions 是 JSON 数组；每个断言保留 name、expected、actual、passed 及其类型。assertions 数组必须放在同一物理行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+        "B": "JSON 对象，字段名与原结果一致。JSON object 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。 输出 JSON 对象，含 build_artifact（字符串）、passed（布尔值）、assertions（数组）。每个断言保留 name、expected、actual、passed，全部值及类型与输入一致。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。",
+        "C": "带列头的一行 CSV，列序沿用源结果。CSV build_artifact,passed,assertions 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。 CSV 两行：表头 build_artifact,passed,assertions；数据行三列为构建 ID、true/false、完整断言 JSON 数组。第三列用双引号包裹，JSON 内每个双引号写成两个双引号（标准 CSV 转义）；每个断言保留 name、expected、actual、passed。\n使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。"
       },
       "demo_description": "将已经给出的测试结果转成摘要。三组使用不同 build_artifact、断言和值，保留全部字段；不录构建、测试修复和进程恢复。",
       "demo_instruction": "Read Example input.json and demonstrate the local transformation in Example result.txt. Preserve the input. This is a local-method demonstration, not the full query workflow.",
@@ -12049,7 +12283,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "三行依次为 build_artifact: 值、passed: 值、assertions: 值。冒号后的每个值都使用 JSON：build_artifact 是带双引号的字符串，passed 是不带引号的 true/false，assertions 是 JSON 数组；每个断言保留 name、expected、actual、passed 及其类型。assertions 数组必须放在同一物理行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -12088,7 +12323,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "三行依次为 build_artifact: 值、passed: 值、assertions: 值。冒号后的每个值都使用 JSON：build_artifact 是带双引号的字符串，passed 是不带引号的 true/false，assertions 是 JSON 数组；每个断言保留 name、expected、actual、passed 及其类型。assertions 数组必须放在同一物理行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -12127,7 +12363,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "三行依次为 build_artifact: 值、passed: 值、assertions: 值。冒号后的每个值都使用 JSON：build_artifact 是带双引号的字符串，passed 是不带引号的 true/false，assertions 是 JSON 数组；每个断言保留 name、expected、actual、passed 及其类型。assertions 数组必须放在同一物理行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           }
         ],
@@ -12168,7 +12405,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出 JSON 对象，含 build_artifact（字符串）、passed（布尔值）、assertions（数组）。每个断言保留 name、expected、actual、passed，全部值及类型与输入一致。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           },
           {
@@ -12207,7 +12445,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出 JSON 对象，含 build_artifact（字符串）、passed（布尔值）、assertions（数组）。每个断言保留 name、expected、actual、passed，全部值及类型与输入一致。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           },
           {
@@ -12246,7 +12485,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "输出 JSON 对象，含 build_artifact（字符串）、passed（布尔值）、assertions（数组）。每个断言保留 name、expected、actual、passed，全部值及类型与输入一致。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
             }
           }
         ],
@@ -12287,7 +12527,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "CSV 两行：表头 build_artifact,passed,assertions；数据行三列为构建 ID、true/false、完整断言 JSON 数组。第三列用双引号包裹，JSON 内每个双引号写成两个双引号（标准 CSV 转义）；每个断言保留 name、expected、actual、passed。\n使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。"
             }
           },
           {
@@ -12326,7 +12567,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "CSV 两行：表头 build_artifact,passed,assertions；数据行三列为构建 ID、true/false、完整断言 JSON 数组。第三列用双引号包裹，JSON 内每个双引号写成两个双引号（标准 CSV 转义）；每个断言保留 name、expected、actual、passed。\n使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。"
             }
           },
           {
@@ -12365,7 +12607,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "CSV 两行：表头 build_artifact,passed,assertions；数据行三列为构建 ID、true/false、完整断言 JSON 数组。第三列用双引号包裹，JSON 内每个双引号写成两个双引号（标准 CSV 转义）；每个断言保留 name、expected、actual、passed。\n使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。"
             }
           }
         ]
@@ -12381,12 +12624,12 @@
       "family": "task36",
       "difficulty": "hard",
       "task": "按事故时间和敏感字段表制作完整可共享证据包，形成可追溯时间线，保留原日志；敏感值处理方法从视频学习。",
-      "query_example": "Export both log channels for the incident window, preserve originals, collect a traceable timeline and redact every field listed in the incident brief. Deliver verified evidence with an audit trail using the demonstrated treatment. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the sensitive-field treatment demonstrated in the video.",
+      "query_example": "Export both log channels for the incident window, preserve originals, collect a traceable timeline and redact every field listed in the incident brief. Deliver verified evidence with an audit trail using the demonstrated treatment. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the sensitive-field treatment demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "sensitive-field treatment",
       "rules": {
-        "A": "保留字段并掩码敏感值。Mask personal values. ",
-        "B": "删除敏感字段。Remove personal fields. ",
-        "C": "用现有处理器生成稳定合成代号。Use stable pseudonyms. "
+        "A": "保留字段并掩码敏感值。Mask personal values.",
+        "B": "删除敏感字段。Remove personal fields.",
+        "C": "用现有处理器生成稳定合成代号。Use stable pseudonyms."
       },
       "demo_description": "对已准备的事故副本应用同一种敏感字段处理，展示不同记录及重复个人值的一致结果。录三组，不录日志搜集和打包。",
       "demo_instruction": "Demonstrate only the personal-field treatment on the prepared incident working copies. Keep the complete public sensitive-field scope, select the method and run the example redaction.",
@@ -12460,7 +12703,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -12515,7 +12759,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -12570,7 +12815,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -12627,7 +12873,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -12682,7 +12929,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -12737,7 +12985,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -12794,7 +13043,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -12849,7 +13099,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -12904,7 +13155,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -12921,12 +13173,12 @@
       "family": "task36",
       "difficulty": "hard",
       "task": "恢复当前分发请求的正确接收共享盘和载荷，干运行验证后保存待交付计划，不提前分发；最终触发方式从视频学习。",
-      "query_example": "Repair the correct recipient share connection/access, validate the exact payload with a fresh dry-run and save a verified distribution plan without dispatching it. Use the demonstrated final trigger. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the final delivery trigger setting demonstrated in the video.",
+      "query_example": "Repair the correct recipient share connection/access, validate the exact payload with a fresh dry-run and save a verified distribution plan without dispatching it. Use the demonstrated final trigger. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the final delivery trigger setting demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "final delivery trigger setting",
       "rules": {
-        "A": "最终交付 Manual。Final delivery trigger: manual. ",
-        "B": "最终交付 When idle。Final delivery trigger: idle. ",
-        "C": "最终交付 When plugged in。Final delivery trigger: plugged-in. "
+        "A": "最终交付 Manual。Final delivery trigger: manual.",
+        "B": "最终交付 When idle。Final delivery trigger: idle.",
+        "C": "最终交付 When plugged in。Final delivery trigger: plugged-in."
       },
       "demo_description": "给已验证的分发载荷设置最终触发方式，展示 Scheduled 且未派发。录三个不同项目，不录选盘、权限修复或前置流水线。",
       "demo_instruction": "Demonstrate the final delivery trigger using the already-verified distribution payload and prerequisites. Create and run only the final delivery task; it must remain Scheduled, not dispatched.",
@@ -12988,7 +13240,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -13031,7 +13284,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -13074,7 +13328,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -13119,7 +13374,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -13162,7 +13418,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -13205,7 +13462,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ],
@@ -13250,7 +13508,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -13293,7 +13552,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           },
           {
@@ -13336,7 +13596,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": ""
             }
           }
         ]
@@ -13352,12 +13613,12 @@
       "family": "task36",
       "difficulty": "hard",
       "task": "在可恢复和服务状态保持的前提下清理指定项目的可再生缓存，完成压缩与空间核算；维护报告的字节单位表示从视频学习。",
-      "query_example": "Verify a protective backup before deleting only regenerable cache, compact losslessly, restore each owner to its original state and pass storage-audit. Report actual released cache bytes using the demonstrated unit; preserve user annotations. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the byte-unit conversion and rounding demonstrated in the video. In maintenance-report.txt retain released_bytes as an integer and released_display as the demonstrated unit representation. Use base 1024 and decimal HALF_UP rounding.",
+      "query_example": "Verify a protective backup before deleting only regenerable cache, compact losslessly, restore each owner to its original state and pass storage-audit. Report actual released cache bytes using the demonstrated unit; preserve user annotations. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the byte-unit conversion and rounding demonstrated in the video. Save maintenance-report.txt as two text lines: released_bytes: <integer> and released_display: <unit representation learned from the video>. The demo itself shows only the unit representation. Use base 1024 and decimal HALF_UP rounding. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "byte-unit conversion and rounding",
       "rules": {
-        "A": "以整数 B 表示。integer B 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。",
-        "B": "以 KiB 表示，保留三位小数。KiB, three decimals 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。",
-        "C": "以 MiB 表示，保留六位小数。MiB, six decimals 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。"
+        "A": "以整数 B 表示。integer B 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。 Demo 只写一行 N B，N 为输入 released_bytes 的整数值；不写 released_bytes: 或 released_display: 字段名。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+        "B": "以 KiB 表示，保留三位小数。KiB, three decimals 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。 Demo 只写一行 X.XXX KiB：released_bytes ÷ 1024，HALF_UP 四舍五入保留三位小数，精确值也补足三位。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+        "C": "以 MiB 表示，保留六位小数。MiB, six decimals 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。 Demo 只写一行 X.XXXXXX MiB：released_bytes ÷ 1048576，HALF_UP 四舍五入保留六位小数，精确值也补足六位。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
       },
       "demo_description": "将 4096、3660、3845 三个字节数分别转换并保存，覆盖精确值及向下/向上舍入。基数 1024，HALF_UP；不录清理、备份或服务恢复。",
       "demo_instruction": "Read Example input.json and demonstrate the local transformation in Example result.txt. Preserve the input. This is a local-method demonstration, not the full query workflow.",
@@ -13415,7 +13676,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "Demo 只写一行 N B，N 为输入 released_bytes 的整数值；不写 released_bytes: 或 released_display: 字段名。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -13454,7 +13716,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "Demo 只写一行 N B，N 为输入 released_bytes 的整数值；不写 released_bytes: 或 released_display: 字段名。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -13493,7 +13756,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "Demo 只写一行 N B，N 为输入 released_bytes 的整数值；不写 released_bytes: 或 released_display: 字段名。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           }
         ],
@@ -13534,7 +13798,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "Demo 只写一行 X.XXX KiB：released_bytes ÷ 1024，HALF_UP 四舍五入保留三位小数，精确值也补足三位。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -13573,7 +13838,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "Demo 只写一行 X.XXX KiB：released_bytes ÷ 1024，HALF_UP 四舍五入保留三位小数，精确值也补足三位。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -13612,7 +13878,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "Demo 只写一行 X.XXX KiB：released_bytes ÷ 1024，HALF_UP 四舍五入保留三位小数，精确值也补足三位。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           }
         ],
@@ -13653,7 +13920,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "Demo 只写一行 X.XXXXXX MiB：released_bytes ÷ 1048576，HALF_UP 四舍五入保留六位小数，精确值也补足六位。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -13692,7 +13960,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "Demo 只写一行 X.XXXXXX MiB：released_bytes ÷ 1048576，HALF_UP 四舍五入保留六位小数，精确值也补足六位。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -13731,7 +14000,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "Demo 只写一行 X.XXXXXX MiB：released_bytes ÷ 1048576，HALF_UP 四舍五入保留六位小数，精确值也补足六位。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           }
         ]
@@ -13747,12 +14017,12 @@
       "family": "task36",
       "difficulty": "hard",
       "task": "撤回指定已提交旧版打印件，按当前有效修订重新校样提交，保留无关队列和原稿；修订标记的标题格式从视频学习。",
-      "query_example": "Withdraw only the previously submitted project packet, rebuild its producer chain for approved revision 8, reproof and submit exactly one active replacement. Preserve unrelated queue entries and old source documents; mark the title using the demonstrated format. Use the revision marker placement in a title demonstrated in the video. The replacement cover title is Meeting packet, revision 8; its body is Approved revision 8. Retain the same paper, duplex and order settings as the supplied valid print configuration.",
+      "query_example": "Withdraw only the previously submitted project packet, rebuild its producer chain for approved revision 8, reproof and submit exactly one active replacement. Preserve unrelated queue entries and old source documents; mark the title using the demonstrated format. Use the revision marker placement in a title demonstrated in the video. Edit the working cover, not revision-request.txt: line 1 is the marked title, line 2 is the approved body. The replacement cover title is Meeting packet, revision 8; its body is Approved revision 8. Retain the same paper, duplex and order settings as the supplied valid print configuration. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "revision marker placement in a title",
       "rules": {
-        "A": "[r{revision}] {title}。[rN] Title ",
-        "B": "{title} [r{revision}]。Title [rN] ",
-        "C": "r{revision} — {title}。rN — Title "
+        "A": "[r{revision}] {title}。[rN] Title  每个输入标题一行：[rN] Title。N 取本条 revision，Title 取本条 title。例如 [r5] Review packet。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+        "B": "{title} [r{revision}]。Title [rN]  每个输入标题一行：Title [rN]。N 取本条 revision，Title 取本条 title。例如 Review packet [r5]。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+        "C": "r{revision} — {title}。rN — Title  每个输入标题一行：rN — Title。N 取本条 revision，Title 取本条 title；中间为长横线 —（不是减号 -）。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
       },
       "demo_description": "给两个不同标题加入各自修订号。录三组不同标题和修订，不录撤回旧队列和重新提交。",
       "demo_instruction": "Read Example input.json and demonstrate the local transformation in Example result.txt. Preserve the input. This is a local-method demonstration, not the full query workflow.",
@@ -13810,7 +14080,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每个输入标题一行：[rN] Title。N 取本条 revision，Title 取本条 title。例如 [r5] Review packet。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -13849,7 +14120,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每个输入标题一行：[rN] Title。N 取本条 revision，Title 取本条 title。例如 [r5] Review packet。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -13888,7 +14160,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每个输入标题一行：[rN] Title。N 取本条 revision，Title 取本条 title。例如 [r5] Review packet。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           }
         ],
@@ -13929,7 +14202,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每个输入标题一行：Title [rN]。N 取本条 revision，Title 取本条 title。例如 Review packet [r5]。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -13968,7 +14242,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每个输入标题一行：Title [rN]。N 取本条 revision，Title 取本条 title。例如 Review packet [r5]。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -14007,7 +14282,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每个输入标题一行：Title [rN]。N 取本条 revision，Title 取本条 title。例如 Review packet [r5]。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           }
         ],
@@ -14048,7 +14324,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每个输入标题一行：rN — Title。N 取本条 revision，Title 取本条 title；中间为长横线 —（不是减号 -）。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -14087,7 +14364,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每个输入标题一行：rN — Title。N 取本条 revision，Title 取本条 title；中间为长横线 —（不是减号 -）。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -14126,7 +14404,8 @@
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
-              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。"
+              "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
+              "output_format": "每个输入标题一行：rN — Title。N 取本条 revision，Title 取本条 title；中间为长横线 —（不是减号 -）。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           }
         ]

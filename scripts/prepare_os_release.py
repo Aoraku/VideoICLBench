@@ -8,6 +8,7 @@ import sys
 import tempfile
 from os_refinement import refine, design
 from os_recording_guide import make_guide
+from os_output_contracts import demo_format
 
 REPO = 'peilin717/OS-ICL'
 COMMIT = '97a47cf491f8d8793b7b78aa4b814b77e246cac8'
@@ -53,9 +54,10 @@ print(json.dumps(out))'''
     guidance=json.loads(subprocess.check_output([sys.executable,'-c',guidance_code],cwd=source,input=json.dumps(rows),text=True))
     for row in rows:
         row['demo_examples']=guidance[row['id']]
-        for groups in row['demo_examples'].values():
+        for variant,groups in row['demo_examples'].items():
             for group in groups:
                 group['guide']=make_guide(group)
+                group['guide']['output_format']=demo_format(row['id'],variant)
                 del group['context']
         row['demo_apps']=list(dict.fromkeys(app for groups in row['demo_examples'].values() for group in groups for app in group['guide']['apps']))
     return {'repository':REPO,'commit':COMMIT,'design_version':'videoicl-os36-human-1',

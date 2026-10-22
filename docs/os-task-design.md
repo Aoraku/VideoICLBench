@@ -9,7 +9,7 @@
 - **A/B/C 是三个替代规则。** 同 seed 的三个 inference 环境及业务目标相同，分别使用匹配的一段人工视频、独立上下文和独立运行状态。不同版本不出现在同一段 demo 中。
 - **一个 inference，一个持续桌面。** 批量对象同时存在于此环境。桌面任务栏可切换九个应用，共享真实文件、设置和作业状态。示范的“下一组”仅用于连续展示局部例子，不出现在 inference。
 - **Prompt 是目标与约束。** 明确从视频学习哪一种选择条件、格式、目录组织或映射关系。交付文件名、字段约束和业务范围公开；所选规则的具体值不在 prompt 中泄漏。应用不展示评测目标或解题步骤。
-- **真人录制与审核。** 录像由浏览器捕获人工操作，或上传本次示范的人工 WebM / MP4。服务器保存 MP4、原始示例种子、设计指纹、自动检查结果和审核人。只有所有示范组通过检查且人工审核通过的匹配录像可进入 ICL inference。AI 参考录像不计入人工 demo。
+- **真人录制与审核。** 录像由浏览器捕获人工操作并自动上传。服务器保存 MP4、原始示例种子、设计指纹、自动检查结果和审核人。只有所有示范组通过检查且人工审核通过的匹配录像可进入 ICL inference。AI 参考录像不计入人工 demo。
 - **判实际结果。** 评测读取服务器持久状态，核对成果、来源和禁止副作用。严格成功是必要条件的合取；检查项得分含保护条件，不能当作业务完成百分比。人工审核另行确认视频可读、示例充分以及录制来源。
 
 ## 难度分级
@@ -86,17 +86,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 1 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 词间空格改为连字符，连续空格折叠。Replace word spaces with hyphens. 
+- **A：** 词间空格改为连字符，连续空格折叠。Replace word spaces with hyphens.
 
-- **B：** 词间空格改为下划线，连续空格折叠。Replace word spaces with underscores. 
+- **B：** 词间空格改为下划线，连续空格折叠。Replace word spaces with underscores.
 
-- **C：** 每词首字母大写其余小写，词间一个空格。Title-case each word, single spaces. 
+- **C：** 每词首字母大写其余小写，词间一个空格。Title-case each word, single spaces.
 
 **Demo 操作应用：** File Explorer
 
 **从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 整理指定六份文档的名称，按视频学习的格式处理标题；保留内容、扩展名与范围外文件。
 
@@ -117,17 +117,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 1 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 按扩展名目录归档。File by extension. 
+- **A：** 按扩展名目录归档。File by extension.
 
-- **B：** 按原项目目录/扩展名归档。File by source project, then extension. 
+- **B：** 按原项目目录/扩展名归档。File by source project, then extension.
 
-- **C：** 按 Properties 中的 resource_key 目录归档。File by resource_key. 
+- **C：** 按 Properties 中的 resource_key 目录归档。File by resource_key.
 
 **Demo 操作应用：** File Explorer
 
 **从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 将范围内六份材料按视频中的目录组织方法移动到已有目标目录，内容和范围外材料保持。
 
@@ -158,7 +158,7 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 为四个独立文档组分别选出视频方法确定的批准版本，复制到各组已有 Selected 目录；所有原件保持。
 
@@ -179,17 +179,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 1 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 现有件留原名，来件加 -incoming。Existing keeps its name; incoming gets -incoming. 
+- **A：** 现有件留原名，来件加 -incoming。Existing keeps its name; incoming gets -incoming.
 
-- **B：** 来件留原名，现有件加 -previous。Incoming keeps its name; existing gets -previous. 
+- **B：** 来件留原名，现有件加 -previous。Incoming keeps its name; existing gets -previous.
 
-- **C：** 两侧分别加 -r{revision}，原名留空。Both get their own -r{revision} suffix. 
+- **C：** 两侧分别加 -r{revision}，原名留空。Both get their own -r{revision} suffix.
 
 **Demo 操作应用：** File Explorer
 
 **从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 处理四组同名来件和现有件，按视频中的命名保留办法保存双方内容；无冲突来件原名保留。
 
@@ -220,7 +220,7 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **从哪里进入：** 左下角 Start → Task Manager。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 对指定六个后台进程采用视频展示的内存条件暂停命中对象，未命中与范围外对象保持原状态。
 
@@ -251,7 +251,7 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **从哪里进入：** 桌面单击 Notepad → Open… → Document 选择下列待编辑文件的完整路径 → OK。不要打开默认选中的 Unrelated note.txt。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 按视频中的个人字段处理方法保存六份已有日志副本；保留事件 ID、时间和原始日志。
 
@@ -272,17 +272,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 1 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 范围内仅连接 Camera 类，其余断开。Connect only Camera devices; disconnect other target categories. 
+- **A：** 范围内仅连接 Camera 类，其余断开。Connect only Camera devices; disconnect other target categories.
 
-- **B：** 范围内仅连接 Printer 类，其余断开。Connect only Printer devices; disconnect other target categories. 
+- **B：** 范围内仅连接 Printer 类，其余断开。Connect only Printer devices; disconnect other target categories.
 
-- **C：** 范围内仅连接 Network storage 类，其余断开。Connect only Network storage devices; disconnect other target categories. 
+- **C：** 范围内仅连接 Network storage 类，其余断开。Connect only Network storage devices; disconnect other target categories.
 
 **Demo 操作应用：** Device Manager
 
 **从哪里进入：** 左下角 Start → Device Manager。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 对清单中的外设按视频中的使用类别设置连接状态，其余设备保持。
 
@@ -313,7 +313,7 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **从哪里进入：** 左下角 Start → Event Viewer。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 为四个给定锚点各导出一份日志时间片，窗口取法从视频学习；源日志不变。
 
@@ -334,17 +334,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 1 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 所有目标任务设为 Manual。Set target triggers to manual. 
+- **A：** 所有目标任务设为 Manual。Set target triggers to manual.
 
-- **B：** 所有目标任务设为 When idle。Set target triggers to idle. 
+- **B：** 所有目标任务设为 When idle。Set target triggers to idle.
 
-- **C：** 所有目标任务设为 When plugged in。Set target triggers to plugged-in. 
+- **C：** 所有目标任务设为 When plugged in。Set target triggers to plugged-in.
 
 **Demo 操作应用：** Task Scheduler
 
 **从哪里进入：** 左下角 Start → Task Scheduler。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 为六个指定任务按视频方法设置触发方式，不改变输入、输出、依赖，也不要运行任务。
 
@@ -365,17 +365,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 1 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 正文每段合并一行，段间一空行。Join each paragraph into one line; one blank line between paragraphs. 
+- **A：** 正文每段合并一行，段间一空行。Join each paragraph into one line; one blank line between paragraphs.
 
-- **B：** 每段首新增两个空格，保留段内换行。Add two spaces at each paragraph start; keep internal line breaks. 
+- **B：** 每段首新增两个空格，保留段内换行。Add two spaces at each paragraph start; keep internal line breaks.
 
-- **C：** 正文每段合并为一个 - 项目符号行。Join each paragraph into one bullet line beginning - . 
+- **C：** 正文每段合并为一个 - 项目符号行。Join each paragraph into one bullet line beginning - .
 
 **Demo 操作应用：** Notepad
 
 **从哪里进入：** 桌面单击 Notepad → Open… → Document 选择下列待编辑文件的完整路径 → OK。不要打开默认选中的 Unrelated note.txt。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 按视频方法整理六份文档正文，标题、代码围栏及其他文档不变。
 
@@ -406,7 +406,7 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **从哪里进入：** 左下角 Start → Device Manager。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 按视频中的页数条件暂停指定打印作业，其余范围内作业保持 Queued；不要取消作业。
 
@@ -427,17 +427,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 1 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 在 Appendix 标题前插入分页符。Insert a page break immediately before Appendix. 
+- **A：** 在 Appendix 标题前插入分页符。Insert a page break immediately before Appendix.
 
-- **B：** 在 References 标题前插入分页符。Insert a page break immediately before References. 
+- **B：** 在 References 标题前插入分页符。Insert a page break immediately before References.
 
-- **C：** 在 Signature 标题前插入分页符。Insert a page break immediately before Signature. 
+- **C：** 在 Signature 标题前插入分页符。Insert a page break immediately before Signature.
 
 **Demo 操作应用：** Notepad
 
 **从哪里进入：** 桌面单击 Notepad → Open… → Document 选择下列待编辑文件的完整路径 → OK。不要打开默认选中的 Unrelated note.txt。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 给六份指定文档按视频方法插入一个分页符，保留全部文字和其他文档。
 
@@ -458,17 +458,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 1 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 按资料类别分组。Group by resource category. 
+- **A：** 按资料类别分组。Group by resource category.
 
-- **B：** 按来源项目分组。Group by source project. 
+- **B：** 按来源项目分组。Group by source project.
 
-- **C：** 按业务资源键 resource_key 分组。Group by resource_key. 
+- **C：** 按业务资源键 resource_key 分组。Group by resource_key.
 
 **Demo 操作应用：** File Explorer
 
 **从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 按请求中的项目范围和依赖清单制作本地交接目录，采用批准修订，保留原件和既有用户编辑；交接目录分组方法从视频学习。
 
@@ -489,17 +489,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** change_id: summary。change_id: summary 
+- **A：** change_id: summary。change_id: summary
 
-- **B：** summary [change_id]。summary [change_id] 
+- **B：** summary [change_id]。summary [change_id]
 
-- **C：** [change_id] summary。[change_id] summary 
+- **C：** [change_id] summary。[change_id] summary
 
 **Demo 操作应用：** Notepad
 
 **从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 根据当前有效变更请求整理版本说明、配置中的 release_version 和交付索引，确保三者与源文件版本一致；变更条目格式从视频学习。
 
@@ -520,17 +520,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 姓名 <phone>。Name <phone> 
+- **A：** 姓名 <phone>。Name <phone>
 
-- **B：** 姓名 (phone)。Name (phone) 
+- **B：** 姓名 (phone)。Name (phone)
 
-- **C：** phone — 姓名。phone — Name 
+- **C：** phone — 姓名。phone — Name
 
 **Demo 操作应用：** Notepad
 
 **从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 依据最新现场安排制作可执行的文字指南，匹配地点、时段、负责人及所需资源，保存到已给出的输出文档；联系人显示格式从视频学习。
 
@@ -561,7 +561,7 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 为已经复制好的新工作区修订 manifest 和 app-settings，保留偏好，使所有内部引用指向新副本；manifest 资源引用排列方法从视频学习。
 
@@ -582,17 +582,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 1 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 1.、2. 等阿拉伯编号。Arabic numbering. 
+- **A：** 1.、2. 等阿拉伯编号。Arabic numbering.
 
-- **B：** I.、II. 等罗马编号。Roman numbering. 
+- **B：** I.、II. 等罗马编号。Roman numbering.
 
-- **C：** A.、B. 等字母编号。Letter numbering. 
+- **C：** A.、B. 等字母编号。Letter numbering.
 
 **Demo 操作应用：** Notepad
 
 **从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 依据有效会议议程和批准章节，完成可交付的打印母稿、目录及页码核对表；章节编号方式从视频学习。
 
@@ -613,17 +613,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** YYYY-MM-DD HH:MM:SS。YYYY-MM-DD HH:MM:SS 
+- **A：** YYYY-MM-DD HH:MM:SS。YYYY-MM-DD HH:MM:SS
 
-- **B：** YYYY/MM/DD HH:MM:SS。YYYY/MM/DD HH:MM:SS 
+- **B：** YYYY/MM/DD HH:MM:SS。YYYY/MM/DD HH:MM:SS
 
-- **C：** YYYY-MM-DDTHH:MM:SS。YYYY-MM-DDTHH:MM:SS 
+- **C：** YYYY-MM-DDTHH:MM:SS。YYYY-MM-DDTHH:MM:SS
 
 **Demo 操作应用：** Notepad
 
 **从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 依据已提供的日志导出和本地处置记录，形成当前事故的完整时间线与处置结论；时间显示格式从视频学习。
 
@@ -644,17 +644,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 旧文件移动到已有 Previous 目录。Move the old file into Previous before replacing it. 
+- **A：** 旧文件移动到已有 Previous 目录。Move the old file into Previous before replacing it.
 
-- **B：** 旧文件在原处加 -previous 后缀。Keep old content with a -previous suffix. 
+- **B：** 旧文件在原处加 -previous 后缀。Keep old content with a -previous suffix.
 
-- **C：** 旧文件复制到已有 Snapshot 目录后再替换。Copy the old file into Snapshot before removing the original conflict. 
+- **C：** 旧文件复制到已有 Snapshot 目录后再替换。Copy the old file into Snapshot before removing the original conflict.
 
 **Demo 操作应用：** File Explorer
 
 **从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 按有效同步清单把工作目录更新到目标版本，保留本地独有编辑与所有被替换内容；旧文件保留方式从视频学习。
 
@@ -675,17 +675,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** {序号两位}-{operation}。Name stages NN-operation. 
+- **A：** {序号两位}-{operation}。Name stages NN-operation.
 
-- **B：** {operation}-{序号两位}。Name stages operation-NN. 
+- **B：** {operation}-{序号两位}。Name stages operation-NN.
 
-- **C：** step{序号两位}_{operation}。Name stages stepNN_operation. 
+- **C：** step{序号两位}_{operation}。Name stages stepNN_operation.
 
 **Demo 操作应用：** Task Scheduler
 
 **从哪里进入：** 左下角 Start → Task Scheduler。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 按公共业务阶段关系重建受影响的作业链，修正输入、输出和依赖，保留无关作业并重新完成交付；新建作业名称格式从视频学习。
 
@@ -706,17 +706,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 各阶段输出到各自预置阶段目录。Use separate stage output folders. 
+- **A：** 各阶段输出到各自预置阶段目录。Use separate stage output folders.
 
-- **B：** 各阶段报告集中到 Reports，恢复文件到 Recovery。Use central Reports; restore into Recovery. 
+- **B：** 各阶段报告集中到 Reports，恢复文件到 Recovery。Use central Reports; restore into Recovery.
 
-- **C：** 备份进入 Snapshots，其余报告进入 Reports，恢复文件进入 Recovery。Use Snapshots for backup, Reports for other reports, and Recovery for restored files. 
+- **C：** 备份进入 Snapshots，其余报告进入 Reports，恢复文件进入 Recovery。Use Snapshots for backup, Reports for other reports, and Recovery for restored files.
 
 **Demo 操作应用：** Task Scheduler
 
 **从哪里进入：** 左下角 Start → Task Scheduler。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 为已经就绪的项目输入创建可恢复的回滚点，恢复到已有空目录并逐文件比较；各阶段成果的目录组织方法从视频学习。
 
@@ -737,17 +737,20 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 通过/不通过使用 Approved/Rejected。Approved/Rejected 
+- **A：** 通过/不通过使用 Approved/Rejected。Approved/Rejected  输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 decision（字符串 Approved 或 Rejected）；approved=true 对应 Approved，false 对应 Rejected。
+JSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。
 
-- **B：** 通过/不通过使用 accepted=true/false。accepted=true/false 
+- **B：** 通过/不通过使用 accepted=true/false。accepted=true/false  输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 accepted（布尔值 true 或 false）；复制输入 approved 的真假值。
+JSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。
 
-- **C：** 通过/不通过使用 status=ok/error。status=ok/error 
+- **C：** 通过/不通过使用 status=ok/error。status=ok/error  输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 status（字符串 ok 或 error）；approved=true 对应 ok，false 对应 error。
+JSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。
 
 **Demo 操作应用：** Notepad
 
 **从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 处理当前有效人员资料变更批次，按人员 ID 核对申请与佐证，修改授权字段并编制逐项回执；回执中的处理结论表示方式从视频学习。
 
@@ -768,17 +771,20 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 统一以最小单位件表示：N pcs。N pcs 
+- **A：** 统一以最小单位件表示：N pcs。N pcs  逐条读取输入 quantity；每行写 N pcs，其中 N 是 quantity 的整数值。例如数量 19 写 19 pcs。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
-- **B：** 按公开箱容量表示为 C box + R pcs，不足一箱保留余件。C box + R pcs 
+- **B：** 按公开箱容量表示为 C box + R pcs，不足一箱保留余件。C box + R pcs  逐条用输入 quantity 除以该项 box，商为 C、余数为 R；每行写 C box + R pcs。余数为 0 也必须写 + 0 pcs。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
-- **C：** 按公开包容量表示为 P pack + R pcs，不足一包保留余件。P pack + R pcs 
+- **C：** 按公开包容量表示为 P pack + R pcs，不足一包保留余件。P pack + R pcs  逐条用输入 quantity 除以该项 pack，商为 P、余数为 R；每行写 P pack + R pcs。余数为 0 也必须写 + 0 pcs。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
 **Demo 操作应用：** Notepad
 
 **从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 核对当前有效库存周期的收货、退回和领用记录，修正工作台账并形成逐批次差异单；数量的显示方法从视频学习。
 
@@ -799,17 +805,20 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 同字段冲突优先主分支。Conflicts use main. 双方独有字段都保留；C 时间相同取 main。
+- **A：** 同字段冲突优先主分支。Conflicts use main. 双方独有字段都保留；C 时间相同取 main。 输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；x/y/z 取 main，两个独有字段分别从所属分支保留。不要把 baseline、main、review、times 这些输入容器写进结果。
+JSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。
 
-- **B：** 同字段冲突优先审阅分支。Conflicts use review. 双方独有字段都保留；C 时间相同取 main。
+- **B：** 同字段冲突优先审阅分支。Conflicts use review. 双方独有字段都保留；C 时间相同取 main。 输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；x/y/z 取 review，两个独有字段分别从所属分支保留。不要把 baseline、main、review、times 这些输入容器写进结果。
+JSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。
 
-- **C：** 同字段冲突选修改时间较新者，并列取主分支。Conflicts use newer field timestamp; ties main. 双方独有字段都保留；C 时间相同取 main。
+- **C：** 同字段冲突选修改时间较新者，并列取主分支。Conflicts use newer field timestamp; ties main. 双方独有字段都保留；C 时间相同取 main。 输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；每个冲突字段比较 times.main 与 times.review，取时间较大分支的值，相同取 main。两个独有字段分别保留；不输出 times 容器。
+JSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。
 
 **Demo 操作应用：** Notepad
 
 **从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 依据共同基线和批准范围，合并两个工作副本到已有输出文档，保留双方独有修改和全部原件；同字段冲突取值方法从视频学习。
 
@@ -830,17 +839,20 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 每行 key: before -> after。key: before -> after 
+- **A：** 每行 key: before -> after。key: before -> after  每项一行：key: before -> after。key、before、after 均复制本项输入，不加引号。例如 media.preview: compact -> review。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
-- **B：** 带列头 key,before,after 的 CSV。CSV key,before,after 
+- **B：** 带列头 key,before,after 的 CSV。CSV key,before,after  CSV 第一行固定 key,before,after；后续每个输入对象占一行，三列依次复制 key、before、after。含逗号或双引号的单元格按标准 CSV 引号转义。
+使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。
 
-- **C：** JSON 数组，每项含 key、before、after。JSON key/before/after array 
+- **C：** JSON 数组，每项含 key、before、after。JSON key/before/after array  输出 JSON 数组，每项包含 key、before、after 三个字符串字段，值均复制本项输入。
+JSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。
 
 **Demo 操作应用：** Notepad
 
 **从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 根据受保护的历史成功作业报告，将请求指定的处理配置回退到当时状态，并用新的验证作业确认实际生效；配置差异记录格式从视频学习。
 
@@ -867,17 +879,20 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** change_id: summary。change_id: summary 
+- **A：** change_id: summary。change_id: summary  每条变更一行：change_id: summary；替换为输入中的 ID 和正文，不写字段名字面量。Demo 不写 Version 头。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
-- **B：** summary [change_id]。summary [change_id] 
+- **B：** summary [change_id]。summary [change_id]  每条变更一行：summary [change_id]；使用英文方括号。Demo 不写 Version 头。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
-- **C：** [change_id] summary。[change_id] summary 
+- **C：** [change_id] summary。[change_id] summary  每条变更一行：[change_id] summary；使用英文方括号。Demo 不写 Version 头。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
 **Demo 操作应用：** Notepad
 
 **从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 修复当前发布请求中的工具和配置问题，生成版本一致的签名发布包，保留上次发布；版本说明变更条目格式从视频学习。
 
@@ -904,17 +919,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 项目下 Recovery/Restored，报告放其 Reports。Recovery/Restored with Reports inside. 
+- **A：** 项目下 Recovery/Restored，报告放其 Reports。Recovery/Restored with Reports inside.
 
-- **B：** 项目下 Restored/Workspace，报告放其 Reports。Restored/Workspace with Reports inside. 
+- **B：** 项目下 Restored/Workspace，报告放其 Reports。Restored/Workspace with Reports inside.
 
-- **C：** 项目下 Recovered，报告放其 Reports。Recovered with Reports inside. 
+- **C：** 项目下 Recovered，报告放其 Reports。Recovered with Reports inside.
 
 **Demo 操作应用：** File Explorer
 
 **从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 从最新完整快照恢复项目，保留本地编辑，修复引用并恢复快照记录的任务，使 restore-check 通过；恢复工作区布局从视频学习。
 
@@ -941,17 +956,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** Compact：640×360。Compact 640 x 360. 
+- **A：** Compact：640×360。Compact 640 x 360.
 
-- **B：** Review：1280×720。Review 1280 x 720. 
+- **B：** Review：1280×720。Review 1280 x 720.
 
-- **C：** Detailed：1920×1080。Detailed 1920 x 1080. 
+- **C：** Detailed：1920×1080。Detailed 1920 x 1080.
 
 **Demo 操作应用：** Settings → Task Scheduler
 
 **从哪里进入：** 左下角 Start → Settings。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 完成当前拍摄的批准素材补录，修正字幕关联并生成可追溯预览库；预览规格从视频学习。
 
@@ -978,17 +993,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** A4、双面、正序。A4, duplex, forward. 
+- **A：** A4、双面、正序。A4, duplex, forward.
 
-- **B：** Letter、双面、正序。Letter, duplex, forward. 
+- **B：** Letter、双面、正序。Letter, duplex, forward.
 
-- **C：** A4、单面、倒序。A4, simplex, reverse. 
+- **C：** A4、单面、倒序。A4, simplex, reverse.
 
 **Demo 操作应用：** Settings → Task Scheduler
 
 **从哪里进入：** 左下角 Start → Settings。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 完成当前批准文档包的排版校样与首次队列提交，选择兼容设备，保留全部原件；打印配置组合从视频学习。
 
@@ -1015,17 +1030,20 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 保留原文件名。Keep original resource names. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。
+- **A：** 保留原文件名。Keep original resource names. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。 保留四份资源的原名；只编辑缓存目录里的指南副本。保留 Field resources 标题，Map: 后写缓存地图的完整绝对路径，Contacts: 后写缓存通讯录的完整绝对路径，各占一行。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。
 
-- **B：** 文件名加 {project_id}- 前缀。Prefix names with project_id-. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。
+- **B：** 文件名加 {project_id}- 前缀。Prefix names with project_id-. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。 四份资源命名为 project_id-原名；只编辑缓存指南副本。保留 Field resources 标题，Map: 后写更名后的缓存地图绝对路径，Contacts: 后写更名后的缓存通讯录绝对路径，各占一行。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。
 
-- **C：** 用公共资源 ID 作文件名并保留原扩展名。Use R0/R1/R2/R3 stems and preserve extensions. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。
+- **C：** 用公共资源 ID 作文件名并保留原扩展名。Use R0/R1/R2/R3 stems and preserve extensions. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。 按四份公开资源的顺序，将其命名为 R0/R1/R2/R3 并保留扩展名；只编辑缓存指南副本。保留 Field resources 标题，Map: 后写缓存地图的绝对路径，Contacts: 后写缓存通讯录的绝对路径，各占一行。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。
 
 **Demo 操作应用：** File Explorer → Notepad → Terminal
 
 **从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 为当前现场任务修复下载和缓存缺项，使地图、联系人及指南断网可用，保留下载原件；工作包内文件命名方法从视频学习。
 
@@ -1052,17 +1070,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 把整个新工作区放到原目标的独立兄弟目录，原目标不动。Use a fresh sibling workspace; leave the original destination untouched. 
+- **A：** 把整个新工作区放到原目标的独立兄弟目录，原目标不动。Use a fresh sibling workspace; leave the original destination untouched.
 
-- **B：** 将冲突现有文件加 -local 后缀后在原目标迁移。Rename the conflicting local file with -local before copying incoming. 
+- **B：** 将冲突现有文件加 -local 后缀后在原目标迁移。Rename the conflicting local file with -local before copying incoming.
 
-- **C：** 先把冲突现有文件复制到已有 Local-preserved 目录，再清除冲突并在原目标迁移。Copy the local file to Local-preserved, then clear the original conflict. 
+- **C：** 先把冲突现有文件复制到已有 Local-preserved 目录，再清除冲突并在原目标迁移。Copy the local file to Local-preserved, then clear the original conflict.
 
 **Demo 操作应用：** File Explorer
 
 **从哪里进入：** 桌面单击 File Explorer；窗口已在当前项目。按下面路径双击文件夹进入，文件单击选中，双击用 Notepad 查看。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 把完整工作区迁移到请求的新位置，保留目标已有编辑和源工作区，保持用户偏好并验证启动；冲突保留方法从视频学习。
 
@@ -1089,17 +1107,20 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 逐行 key: value。key: value lines 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。
+- **A：** 逐行 key: value。key: value lines 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。 三行依次为 build_artifact: 值、passed: 值、assertions: 值。冒号后的每个值都使用 JSON：build_artifact 是带双引号的字符串，passed 是不带引号的 true/false，assertions 是 JSON 数组；每个断言保留 name、expected、actual、passed 及其类型。assertions 数组必须放在同一物理行。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
-- **B：** JSON 对象，字段名与原结果一致。JSON object 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。
+- **B：** JSON 对象，字段名与原结果一致。JSON object 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。 输出 JSON 对象，含 build_artifact（字符串）、passed（布尔值）、assertions（数组）。每个断言保留 name、expected、actual、passed，全部值及类型与输入一致。
+JSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。
 
-- **C：** 带列头的一行 CSV，列序沿用源结果。CSV build_artifact,passed,assertions 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。
+- **C：** 带列头的一行 CSV，列序沿用源结果。CSV build_artifact,passed,assertions 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。 CSV 两行：表头 build_artifact,passed,assertions；数据行三列为构建 ID、true/false、完整断言 JSON 数组。第三列用双引号包裹，JSON 内每个双引号写成两个双引号（标准 CSV 转义）；每个断言保留 name、expected、actual、passed。
+使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。
 
 **Demo 操作应用：** Notepad
 
 **从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 恢复指定失败构建，修复独立的构建和测试问题，保留旧包并恢复锁所有者状态；测试摘要表示方式从视频学习。
 
@@ -1126,17 +1147,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 保留字段并掩码敏感值。Mask personal values. 
+- **A：** 保留字段并掩码敏感值。Mask personal values.
 
-- **B：** 删除敏感字段。Remove personal fields. 
+- **B：** 删除敏感字段。Remove personal fields.
 
-- **C：** 用现有处理器生成稳定合成代号。Use stable pseudonyms. 
+- **C：** 用现有处理器生成稳定合成代号。Use stable pseudonyms.
 
 **Demo 操作应用：** Settings → Task Scheduler
 
 **从哪里进入：** 左下角 Start → Settings。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 按事故时间和敏感字段表制作完整可共享证据包，形成可追溯时间线，保留原日志；敏感值处理方法从视频学习。
 
@@ -1163,17 +1184,17 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 最终交付 Manual。Final delivery trigger: manual. 
+- **A：** 最终交付 Manual。Final delivery trigger: manual.
 
-- **B：** 最终交付 When idle。Final delivery trigger: idle. 
+- **B：** 最终交付 When idle。Final delivery trigger: idle.
 
-- **C：** 最终交付 When plugged in。Final delivery trigger: plugged-in. 
+- **C：** 最终交付 When plugged in。Final delivery trigger: plugged-in.
 
 **Demo 操作应用：** Task Scheduler
 
 **从哪里进入：** 左下角 Start → Task Scheduler。桌面没有这个图标时，也可在 Start 的 Search applications 输入应用名。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 恢复当前分发请求的正确接收共享盘和载荷，干运行验证后保存待交付计划，不提前分发；最终触发方式从视频学习。
 
@@ -1200,17 +1221,20 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 以整数 B 表示。integer B 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。
+- **A：** 以整数 B 表示。integer B 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。 Demo 只写一行 N B，N 为输入 released_bytes 的整数值；不写 released_bytes: 或 released_display: 字段名。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
-- **B：** 以 KiB 表示，保留三位小数。KiB, three decimals 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。
+- **B：** 以 KiB 表示，保留三位小数。KiB, three decimals 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。 Demo 只写一行 X.XXX KiB：released_bytes ÷ 1024，HALF_UP 四舍五入保留三位小数，精确值也补足三位。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
-- **C：** 以 MiB 表示，保留六位小数。MiB, six decimals 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。
+- **C：** 以 MiB 表示，保留六位小数。MiB, six decimals 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。 Demo 只写一行 X.XXXXXX MiB：released_bytes ÷ 1048576，HALF_UP 四舍五入保留六位小数，精确值也补足六位。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
 **Demo 操作应用：** Notepad
 
 **从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-509/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 在可恢复和服务状态保持的前提下清理指定项目的可再生缓存，完成压缩与空间核算；维护报告的字节单位表示从视频学习。
 
@@ -1237,17 +1261,20 @@ OS 的跨平台边界按现有功能应用划分，例如 File Explorer → Note
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** [r{revision}] {title}。[rN] Title 
+- **A：** [r{revision}] {title}。[rN] Title  每个输入标题一行：[rN] Title。N 取本条 revision，Title 取本条 title。例如 [r5] Review packet。Demo 不附加正文。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
-- **B：** {title} [r{revision}]。Title [rN] 
+- **B：** {title} [r{revision}]。Title [rN]  每个输入标题一行：Title [rN]。N 取本条 revision，Title 取本条 title。例如 Review packet [r5]。Demo 不附加正文。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
-- **C：** r{revision} — {title}。rN — Title 
+- **C：** r{revision} — {title}。rN — Title  每个输入标题一行：rN — Title。N 取本条 revision，Title 取本条 title；中间为长横线 —（不是减号 -）。Demo 不附加正文。
+这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
 **Demo 操作应用：** Notepad
 
 **从哪里进入：** 桌面单击 Notepad → Open… → Document 选择 /Projects/Project-1001/Workspace/Example input.json → OK。先阅读输入，再打开结果文件。
 
-完整的 A/B/C 逐组按钮路径、输入与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
+完整的 A/B/C 逐组按钮路径、输入、输出格式、完整保存示例与保存位置见工作台「在哪里操作」，审阅台也提供同一份录制说明。
 
 **Inference 目标：** 撤回指定已提交旧版打印件，按当前有效修订重新校样提交，保留无关队列和原稿；修订标记的标题格式从视频学习。
 

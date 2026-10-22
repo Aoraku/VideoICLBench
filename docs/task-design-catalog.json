@@ -1434,11 +1434,11 @@
     "relation": "file-title word formatting while preserving extensions",
     "demo": "对三份含不同词数、连续空格和大小写的文件改名。逐个展示改前、改后名称；扩展名、内容及无关文件保持。",
     "rules": {
-      "A": "词间空格改为连字符，连续空格折叠。Replace word spaces with hyphens. ",
-      "B": "词间空格改为下划线，连续空格折叠。Replace word spaces with underscores. ",
-      "C": "每词首字母大写其余小写，词间一个空格。Title-case each word, single spaces. "
+      "A": "词间空格改为连字符，连续空格折叠。Replace word spaces with hyphens.",
+      "B": "词间空格改为下划线，连续空格折叠。Replace word spaces with underscores.",
+      "C": "每词首字母大写其余小写，词间一个空格。Title-case each word, single spaces."
     },
-    "inference": "六个新标题，含混合大小写和多空格；目标名称不碰撞。\n公共交付约束与实例范围：Rename all 6 text documents in Workspace; preserve extensions, content and all other files. Use the file-title word formatting while preserving extensions demonstrated in the video.",
+    "inference": "六个新标题，含混合大小写和多空格；目标名称不碰撞。\n公共交付约束与实例范围：Rename all 6 text documents in Workspace; preserve extensions, content and all other files. Use the file-title word formatting while preserving extensions demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "六份目标名称准确；内容、扩展名、父目录与身份不变；非目标不动。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-E-01"
@@ -1453,11 +1453,11 @@
     "relation": "destination grouping by file metadata",
     "demo": "将六份材料归档；两个项目都包含 resource-0 和 resource-1，同一种扩展名也来自不同项目。逐个展示来源、resource_key 与实际目标路径。",
     "rules": {
-      "A": "按扩展名目录归档。File by extension. ",
-      "B": "按原项目目录/扩展名归档。File by source project, then extension. ",
-      "C": "按 Properties 中的 resource_key 目录归档。File by resource_key. "
+      "A": "按扩展名目录归档。File by extension.",
+      "B": "按原项目目录/扩展名归档。File by source project, then extension.",
+      "C": "按 Properties 中的 resource_key 目录归档。File by resource_key."
     },
-    "inference": "项目关系来自初始父目录，resource_key 是现有可见业务键；所有候选目录预先存在。\n公共交付约束与实例范围：Move all asset files from the two source projects into the supplied filing tree; preserve their contents and unrelated files. Use the destination grouping by file metadata demonstrated in the video.",
+    "inference": "项目关系来自初始父目录，resource_key 是现有可见业务键；所有候选目录预先存在。\n公共交付约束与实例范围：Move all asset files from the two source projects into the supplied filing tree; preserve their contents and unrelated files. Use the destination grouping by file metadata demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "父目录符合学到的方法；内容、身份保持且无额外副本；非目标不动。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-E-02"
@@ -1476,7 +1476,7 @@
       "B": "批准版本中选字节数最小者。Choose the smallest approved byte size. 先排除 Approved = No；A 比较 Revision（修订号），B/C 比较 Size（字节数）。Properties 可查看这些属性，文件名中的 r 后数字与 Revision 一致。若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。",
       "C": "批准版本中选字节数最大者。Choose the largest approved byte size. 先排除 Approved = No；A 比较 Revision（修订号），B/C 比较 Size（字节数）。Properties 可查看这些属性，文件名中的 r 后数字与 Revision 一致。若比较值相同，先按文件名，再按完整路径的 Unicode 码点顺序取首项。"
     },
-    "inference": "四组批准和未批准版本，revision/approved/bytes 均通过现有属性可见；路径唯一。\n公共交付约束与实例范围：For each document group, copy exactly one approved version into its Selected folder. Preserve all originals. Use the approved-version selection criterion demonstrated in the video.",
+    "inference": "四组批准和未批准版本，revision/approved/bytes 均通过现有属性可见；路径唯一。\n公共交付约束与实例范围：For each document group, copy exactly one approved version into its Selected folder. Preserve all originals. Use the approved-version selection criterion demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "每组恰一份正确来源与内容的副本；全部源和非目标不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-E-03"
@@ -1491,11 +1491,11 @@
     "relation": "existing-versus-incoming conflict naming convention",
     "demo": "处理三组同名来件与现有件，双方内容、修订号不同；展示保留后的两份文件名及内容，不覆盖丢失任何一侧。",
     "rules": {
-      "A": "现有件留原名，来件加 -incoming。Existing keeps its name; incoming gets -incoming. ",
-      "B": "来件留原名，现有件加 -previous。Incoming keeps its name; existing gets -previous. ",
-      "C": "两侧分别加 -r{revision}，原名留空。Both get their own -r{revision} suffix. "
+      "A": "现有件留原名，来件加 -incoming。Existing keeps its name; incoming gets -incoming.",
+      "B": "来件留原名，现有件加 -previous。Incoming keeps its name; existing gets -previous.",
+      "C": "两侧分别加 -r{revision}，原名留空。Both get their own -r{revision} suffix."
     },
-    "inference": "四组不同目录冲突；两侧修订不同；所有后缀名预留空闲。\n公共交付约束与实例范围：Resolve the supplied name conflicts while preserving both contents. Leave non-conflicting files unchanged. Use the existing-versus-incoming conflict naming convention demonstrated in the video.",
+    "inference": "四组不同目录冲突；两侧修订不同；所有后缀名预留空闲。\n公共交付约束与实例范围：Resolve the supplied name conflicts while preserving both contents. Leave non-conflicting files unchanged. Use the existing-versus-incoming conflict naming convention demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "两侧内容各保留一份且名称对应正确；无冲突件原名保留；其他对象不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-E-04"
@@ -1514,7 +1514,7 @@
       "B": "内存达到 256 MB 时暂停。Pause workers using at least 256 MB. 示范处理所有 Background worker，范围外 Protected system service 保持。",
       "C": "内存达到 384 MB 时暂停。Pause workers using at least 384 MB. 示范处理所有 Background worker，范围外 Protected system service 保持。"
     },
-    "inference": "冻结内存值含 127/128、255/256、383/384 MB；至少各有命中且初始 Running 的对象。\n公共交付约束与实例范围：Apply the demonstrated memory condition to all Background workers in the supplied batch. Other processes and below-threshold states must be preserved. Use the memory threshold and inclusive comparison demonstrated in the video.",
+    "inference": "冻结内存值含 127/128、255/256、383/384 MB；至少各有命中且初始 Running 的对象。\n公共交付约束与实例范围：Apply the demonstrated memory condition to all Background workers in the supplied batch. Other processes and below-threshold states must be preserved. Use the memory threshold and inclusive comparison demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "命中进程为 Paused；未命中初始状态保持；锁、名称及非目标进程不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-E-05"
@@ -1533,7 +1533,7 @@
       "B": "删除 contact 字段。Remove contact fields. operator_id 是纯数字标识，例如 1004；C 写为 Contact-1004。保留 operator_id 本身及其他字段。",
       "C": "contact 值替换为 Contact-{operator_id}，operator_id 保留。Replace contact with Contact-{operator_id}. operator_id 是纯数字标识，例如 1004；C 写为 Contact-1004。保留 operator_id 本身及其他字段。"
     },
-    "inference": "每份日志副本已可编辑，operator_id 为公开合成编号；无额外敏感字段；源文件与副本清晰分开。 operator_id/contact 只作为普通 JSON 行内容，不增加系统模型字段或专用处理按钮。\n公共交付约束与实例范围：Filter contact fields in every copy-*.jsonl document in Output. Preserve originals, event identifiers, timestamps and all other fields. Use the contact-field transformation demonstrated in the video.",
+    "inference": "每份日志副本已可编辑，operator_id 为公开合成编号；无额外敏感字段；源文件与副本清晰分开。 operator_id/contact 只作为普通 JSON 行内容，不增加系统模型字段或专用处理按钮。\n公共交付约束与实例范围：Filter contact fields in every copy-*.jsonl document in Output. Preserve originals, event identifiers, timestamps and all other fields. Use the contact-field transformation demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "所有行 contact 处理正确；事件 ID、时间、描述与 operator_id 不变；原始日志未改。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-E-06"
@@ -1548,11 +1548,11 @@
     "relation": "device-category connection policy",
     "demo": "处理六个不同类别和初始连接状态的设备，展示命中与不命中类别的结果；不动范围外打印机。",
     "rules": {
-      "A": "范围内仅连接 Camera 类，其余断开。Connect only Camera devices; disconnect other target categories. ",
-      "B": "范围内仅连接 Printer 类，其余断开。Connect only Printer devices; disconnect other target categories. ",
-      "C": "范围内仅连接 Network storage 类，其余断开。Connect only Network storage devices; disconnect other target categories. "
+      "A": "范围内仅连接 Camera 类，其余断开。Connect only Camera devices; disconnect other target categories.",
+      "B": "范围内仅连接 Printer 类，其余断开。Connect only Printer devices; disconnect other target categories.",
+      "C": "范围内仅连接 Network storage 类，其余断开。Connect only Network storage devices; disconnect other target categories."
     },
-    "inference": "每类至少两台，初始状态混合；不改变访问权限，不要求刷新、配对或驱动安装。\n公共交付约束与实例范围：Set connection states for the six unit devices using the demonstrated device-category policy; preserve other device properties. Use the device-category connection policy demonstrated in the video.",
+    "inference": "每类至少两台，初始状态混合；不改变访问权限，不要求刷新、配对或驱动安装。\n公共交付约束与实例范围：Set connection states for the six unit devices using the demonstrated device-category policy; preserve other device properties. Use the device-category connection policy demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "范围内各连接状态正确；非目标设备和共享盘 access 不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-E-07"
@@ -1571,7 +1571,7 @@
       "B": "锚点至锚点后两分钟。Export from the anchor through two minutes after it. 闭区间包含两端；同一时区，不转换时刻。",
       "C": "锚点前后各一分钟。Export one minute before through one minute after. 闭区间包含两端；同一时区，不转换时刻。"
     },
-    "inference": "四个锚点分属两通道；锚点和公共时区明确；所有候选窗口均有记录。\n公共交付约束与实例范围：Export one independent file for each channel anchor: Channel 0: 2026-10-15T08:16:00, Channel 1: 2026-10-15T09:16:00, Channel 2: 2026-10-15T10:16:00, Channel 3: 2026-10-15T11:16:00. Intervals are closed; all times use the same local timezone. Use the anchor-relative time window with inclusive endpoints demonstrated in the video. Save each channel i export as window-i.jsonl in Output.",
+    "inference": "四个锚点分属两通道；锚点和公共时区明确；所有候选窗口均有记录。\n公共交付约束与实例范围：Export one independent file for each channel anchor: Channel 0: 2026-10-15T08:16:00, Channel 1: 2026-10-15T09:16:00, Channel 2: 2026-10-15T10:16:00, Channel 3: 2026-10-15T11:16:00. Intervals are closed; all times use the same local timezone. Use the anchor-relative time window with inclusive endpoints demonstrated in the video. Save each channel i export as window-i.jsonl in Output. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "每个导出事件集合精确符合窗口，来源通道与锚点对应；源日志不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-E-08"
@@ -1586,11 +1586,11 @@
     "relation": "task trigger setting",
     "demo": "为三项已有作业保存同一触发设置；展示保存后的值，输入、输出、依赖不变，不运行作业。",
     "rules": {
-      "A": "所有目标任务设为 Manual。Set target triggers to manual. ",
-      "B": "所有目标任务设为 When idle。Set target triggers to idle. ",
-      "C": "所有目标任务设为 When plugged in。Set target triggers to plugged-in. "
+      "A": "所有目标任务设为 Manual。Set target triggers to manual.",
+      "B": "所有目标任务设为 When idle。Set target triggers to idle.",
+      "C": "所有目标任务设为 When plugged in。Set target triggers to plugged-in."
     },
-    "inference": "六个已存在任务参数各异，初始触发混合；输出尚未生成。\n公共交付约束与实例范围：Update only Trigger on all Existing task entries. Do not run them or change paths/dependencies. Use the task trigger setting demonstrated in the video.",
+    "inference": "六个已存在任务参数各异，初始触发混合；输出尚未生成。\n公共交付约束与实例范围：Update only Trigger on all Existing task entries. Do not run them or change paths/dependencies. Use the task trigger setting demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "目标 trigger 正确；输入输出依赖与执行次数保持；非目标不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-E-09"
@@ -1605,11 +1605,11 @@
     "relation": "body-paragraph formatting",
     "demo": "整理三份正文不同的文档；每份含两段多行正文、标题和代码围栏。保存后展示正文的转换与其他部分保持。",
     "rules": {
-      "A": "正文每段合并一行，段间一空行。Join each paragraph into one line; one blank line between paragraphs. ",
-      "B": "每段首新增两个空格，保留段内换行。Add two spaces at each paragraph start; keep internal line breaks. ",
-      "C": "正文每段合并为一个 - 项目符号行。Join each paragraph into one bullet line beginning - . "
+      "A": "正文每段合并一行，段间一空行。Join each paragraph into one line; one blank line between paragraphs.",
+      "B": "每段首新增两个空格，保留段内换行。Add two spaces at each paragraph start; keep internal line breaks.",
+      "C": "正文每段合并为一个 - 项目符号行。Join each paragraph into one bullet line beginning - ."
     },
-    "inference": "空行分段，连续空白行视为一个分隔；A/C 合并非空行插一个空格，行内字符保持；无初始列表标记。\n公共交付约束与实例范围：Format only the two body paragraphs in each working document. Preserve headings and fenced code. Use the body-paragraph formatting demonstrated in the video.",
+    "inference": "空行分段，连续空白行视为一个分隔；A/C 合并非空行插一个空格，行内字符保持；无初始列表标记。\n公共交付约束与实例范围：Format only the two body paragraphs in each working document. Preserve headings and fenced code. Use the body-paragraph formatting demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "正文完全符合规则；标题和围栏内容逐字保持；原始保护副本不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-E-10"
@@ -1628,7 +1628,7 @@
       "B": "页数大于 6 时暂停。Pause packets with more than 6 pages; leave other target packets queued. 示范处理所有 Packet，范围外 Unrelated draft 保持。",
       "C": "页数大于 8 时暂停。Pause packets with more than 8 pages; leave other target packets queued. 示范处理所有 Packet，范围外 Unrelated draft 保持。"
     },
-    "inference": "多个已提交作业含 4/5、6/7、8/9 页；打印机均已连接，作业初态为 Queued 或 Paused。\n公共交付约束与实例范围：Set the Packet queue states in the supplied batch using the demonstrated page-count condition. Never cancel a packet. Use the page-count threshold and strict comparison demonstrated in the video.",
+    "inference": "多个已提交作业含 4/5、6/7、8/9 页；打印机均已连接，作业初态为 Queued 或 Paused。\n公共交付约束与实例范围：Set the Packet queue states in the supplied batch using the demonstrated page-count condition. Never cancel a packet. Use the page-count threshold and strict comparison demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "命中为 Paused，其他范围内为 Queued；成员、文档、设备和非目标队列保持；无 Cancelled。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-E-11"
@@ -1643,11 +1643,11 @@
     "relation": "section-heading page-break boundary",
     "demo": "为三份内容不同但均含 Appendix、References、Signature 的文档插入分页符；展示分页边界和保存内容。",
     "rules": {
-      "A": "在 Appendix 标题前插入分页符。Insert a page break immediately before Appendix. ",
-      "B": "在 References 标题前插入分页符。Insert a page break immediately before References. ",
-      "C": "在 Signature 标题前插入分页符。Insert a page break immediately before Signature. "
+      "A": "在 Appendix 标题前插入分页符。Insert a page break immediately before Appendix.",
+      "B": "在 References 标题前插入分页符。Insert a page break immediately before References.",
+      "C": "在 Signature 标题前插入分页符。Insert a page break immediately before Signature."
     },
-    "inference": "每份文档三节顺序与正文长度不同，各标题恰一次；初始无分页符。\n公共交付约束与实例范围：Insert exactly one page break in each pages-*.txt document using the demonstrated heading boundary. Preserve every text character. Use the section-heading page-break boundary demonstrated in the video.",
+    "inference": "每份文档三节顺序与正文长度不同，各标题恰一次；初始无分页符。\n公共交付约束与实例范围：Insert exactly one page break in each pages-*.txt document using the demonstrated heading boundary. Preserve every text character. Use the section-heading page-break boundary demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "每份恰一个 form-feed 且位置正确；去掉 form-feed 后内容与初始相同。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-E-12"
@@ -1662,11 +1662,11 @@
     "relation": "handoff folder grouping",
     "demo": "将已选定的三份批准材料放入相应交接目录；展示类别、来源和资源键，以及实际保存位置。无需录版本筛选和依赖收集。",
     "rules": {
-      "A": "按资料类别分组。Group by resource category. ",
-      "B": "按来源项目分组。Group by source project. ",
-      "C": "按业务资源键 resource_key 分组。Group by resource_key. "
+      "A": "按资料类别分组。Group by resource category.",
+      "B": "按来源项目分组。Group by source project.",
+      "C": "按业务资源键 resource_key 分组。Group by resource_key."
     },
-    "inference": "外部公共请求给出交付范围、资料依赖关系和目标根目录；文件 Properties 有 approved/revision/resource_key。目标中有要保护的用户文件。\n公共交付约束与实例范围：Deliver K0 with its required K1 and K2 attachments, using each latest approved revision. Preserve all source versions and local edits. Create the collection in Output. Use the handoff folder grouping demonstrated in the video.",
+    "inference": "外部公共请求给出交付范围、资料依赖关系和目标根目录；文件 Properties 有 approved/revision/resource_key。目标中有要保护的用户文件。\n公共交付约束与实例范围：Deliver K0 with its required K1 and K2 attachments, using each latest approved revision. Preserve all source versions and local edits. Create the collection in Output. Use the handoff folder grouping demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "输出集合精确等于请求的批准依赖闭包；分组正确；每份来源和内容对应；无草稿、无缺附件；原件与用户编辑保持。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-M-01"
@@ -1681,11 +1681,11 @@
     "relation": "change-entry text format",
     "demo": "将两条不同 ID、不同正文的变更写成指定格式。录三组不同变更，保留输入；不录发布文档成套编制。",
     "rules": {
-      "A": "change_id: summary。change_id: summary ",
-      "B": "summary [change_id]。summary [change_id] ",
-      "C": "[change_id] summary。[change_id] summary "
+      "A": "change_id: summary。change_id: summary",
+      "B": "summary [change_id]。summary [change_id]",
+      "C": "[change_id] summary。[change_id] summary"
     },
-    "inference": "预置请求各修订、源应用文本、配置、批准变更和空白索引文件；全部通过 Notepad Open 可读写，源文件受保护。\n公共交付约束与实例范围：Prepare current release documentation from the highest valid request. Align working config, release notes and delivery index with the source version; exclude withdrawn changes. Use the change-entry text format demonstrated in the video. Deliver Output/config.json (release_version), release-notes.txt (Version: header followed by change entries), and delivery-index.json with version, notes, config and changes (change IDs).",
+    "inference": "预置请求各修订、源应用文本、配置、批准变更和空白索引文件；全部通过 Notepad Open 可读写，源文件受保护。\n公共交付约束与实例范围：Prepare current release documentation from the highest valid request. Align working config, release notes and delivery index with the source version; exclude withdrawn changes. Use the change-entry text format demonstrated in the video. Deliver Output/config.json (release_version), release-notes.txt (Version: header followed by change entries), and delivery-index.json with version, notes, config and changes (change IDs). For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "说明变更集合完整且无撤回项；说明/配置/源版本一致；索引引用正确文档和修订；原始变更记录不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-M-02"
@@ -1700,11 +1700,11 @@
     "relation": "person-name and phone display format",
     "demo": "将两位不同姓名、电话的联系人转换为对应显示格式。录三组不同联系人，不录现场安排关联。",
     "rules": {
-      "A": "姓名 <phone>。Name <phone> ",
-      "B": "姓名 (phone)。Name (phone) ",
-      "C": "phone — 姓名。phone — Name "
+      "A": "姓名 <phone>。Name <phone>",
+      "B": "姓名 (phone)。Name (phone)",
+      "C": "phone — 姓名。phone — Name"
     },
-    "inference": "请求修订、地点表、班次表、联系人和资源清单作为普通文档；有同名不同人员 ID 与撤销班次，输出文件预置。\n公共交付约束与实例范围：Prepare one guide entry per active slot, linking the exact person, site, time and resources by IDs. Exclude withdrawn slots; save field-guide.json. Use the person-name and phone display format demonstrated in the video. Save an array in Output/field-guide.json. Each entry retains slot_id, person_id, site, time, resources (resource IDs), active, and adds contact in the demonstrated display format.",
+    "inference": "请求修订、地点表、班次表、联系人和资源清单作为普通文档；有同名不同人员 ID 与撤销班次，输出文件预置。\n公共交付约束与实例范围：Prepare one guide entry per active slot, linking the exact person, site, time and resources by IDs. Exclude withdrawn slots; save field-guide.json. Use the person-name and phone display format demonstrated in the video. Save an array in Output/field-guide.json. Each entry retains slot_id, person_id, site, time, resources (resource IDs), active, and adds contact in the demonstrated display format. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "每个有效安排有正确地点、时段、人员 ID、资源 ID；无撤销项；联系人符合格式；所有输入原件不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-M-03"
@@ -1723,7 +1723,7 @@
       "B": "references 按公开资源表中的逻辑编号排列。Order by logical number. A 按完整目标路径升序；B 按 number 数值升序；C 先按 Code → Config → Data 分组，同类别再按完整目标路径升序。路径逐字符比较（本题均为小写 ASCII，因此同目录内就是文件名字母序），不是按原始列表顺序。",
       "C": "references 按资源类别 Code、Config、Data 再按路径排列。Order Code, Config, Data; within each category, order full paths alphabetically. A 按完整目标路径升序；B 按 number 数值升序；C 先按 Code → Config → Data 分组，同类别再按完整目标路径升序。路径逐字符比较（本题均为小写 ASCII，因此同目录内就是文件名字母序），不是按原始列表顺序。"
     },
-    "inference": "现有复制结果、新根路径、资源对照、工作清单、app-settings 和偏好；内部资源最终均为现有探测支持的绝对路径，外部引用不混入待探测数组。\n公共交付约束与实例范围：Repair the already-copied workspace configuration using migration-request.json. Preserve preferences and all references, with absolute paths to the new root. Use the reference ordering and tie-breaking demonstrated in the video.",
+    "inference": "现有复制结果、新根路径、资源对照、工作清单、app-settings 和偏好；内部资源最终均为现有探测支持的绝对路径，外部引用不混入待探测数组。\n公共交付约束与实例范围：Repair the already-copied workspace configuration using migration-request.json. Preserve preferences and all references, with absolute paths to the new root. Use the reference ordering and tie-breaking demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "entry/startup 一致；全部 references 精确指向请求中的新副本且顺序正确；偏好保持；源配置不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-M-04"
@@ -1738,11 +1738,11 @@
     "relation": "chapter heading numbering",
     "demo": "给三个不同章节标题编号并保存。展示每个标题的编号对应关系，不录选稿、组稿和打印提交。",
     "rules": {
-      "A": "1.、2. 等阿拉伯编号。Arabic numbering. ",
-      "B": "I.、II. 等罗马编号。Roman numbering. ",
-      "C": "A.、B. 等字母编号。Letter numbering. "
+      "A": "1.、2. 等阿拉伯编号。Arabic numbering.",
+      "B": "I.、II. 等罗马编号。Roman numbering.",
+      "C": "A.、B. 等字母编号。Letter numbering."
     },
-    "inference": "批准章节、议程顺序、明确每页最大行数、页码核对表和空母稿；全部是普通文档。打印设备与队列不参与本题。\n公共交付约束与实例范围：Assemble the approved chapters in agenda order. Number chapter headings using the demonstrated format, start each chapter on a new page, and save an accurate contents table. Five lines maximum per page. Use the chapter heading numbering demonstrated in the video. Save print-master.txt and contents.json in Output. Each contents entry has chapter_id, heading and one-based page.",
+    "inference": "批准章节、议程顺序、明确每页最大行数、页码核对表和空母稿；全部是普通文档。打印设备与队列不参与本题。\n公共交付约束与实例范围：Assemble the approved chapters in agenda order. Number chapter headings using the demonstrated format, start each chapter on a new page, and save an accurate contents table. Five lines maximum per page. Use the chapter heading numbering demonstrated in the video. Save print-master.txt and contents.json in Output. Each contents entry has chapter_id, heading and one-based page. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "章节集合/修订/次序正确；每页不超公共行限；编号和目录页码与实际 form-feed 一致；输入原件不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-M-05"
@@ -1757,11 +1757,11 @@
     "relation": "timestamp representation",
     "demo": "将两个不同日期/时间转换并保存。录三组，只改变表示形式，不改变时刻；不录事故搜集和时间线编排。",
     "rules": {
-      "A": "YYYY-MM-DD HH:MM:SS。YYYY-MM-DD HH:MM:SS ",
-      "B": "YYYY/MM/DD HH:MM:SS。YYYY/MM/DD HH:MM:SS ",
-      "C": "YYYY-MM-DDTHH:MM:SS。YYYY-MM-DDTHH:MM:SS "
+      "A": "YYYY-MM-DD HH:MM:SS。YYYY-MM-DD HH:MM:SS",
+      "B": "YYYY/MM/DD HH:MM:SS。YYYY/MM/DD HH:MM:SS",
+      "C": "YYYY-MM-DDTHH:MM:SS。YYYY-MM-DDTHH:MM:SS"
     },
-    "inference": "日志导出已准备好，含多通道同事件、重复记录与另一起事故；处置记录有动作和恢复验证；无需打开 Event Viewer。\n公共交付约束与实例范围：Produce an incident timeline from both exports, deduplicating event IDs and retaining channel provenance. Base the response conclusion on the actual verification record. Use the timestamp representation demonstrated in the video. Save Output/timeline.json with incident, events, recovered and verification_event. Each event retains event_id, time and message and adds channels: Application and/or System, based on the corresponding exports.",
+    "inference": "日志导出已准备好，含多通道同事件、重复记录与另一起事故；处置记录有动作和恢复验证；无需打开 Event Viewer。\n公共交付约束与实例范围：Produce an incident timeline from both exports, deduplicating event IDs and retaining channel provenance. Base the response conclusion on the actual verification record. Use the timestamp representation demonstrated in the video. Save Output/timeline.json with incident, events, recovered and verification_event. Each event retains event_id, time and message and adds channels: Application and/or System, based on the corresponding exports. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "事件覆盖与来源准确；同事件不重复计数；处置和恢复验证有依据；时间值不变仅格式变；原记录不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-M-06"
@@ -1776,11 +1776,11 @@
     "relation": "preservation of replaced file contents",
     "demo": "替换一份同名旧文件前先按指定方法保留旧内容，展示新旧两侧均可恢复。录三组不同内容，不录整个目录同步。",
     "rules": {
-      "A": "旧文件移动到已有 Previous 目录。Move the old file into Previous before replacing it. ",
-      "B": "旧文件在原处加 -previous 后缀。Keep old content with a -previous suffix. ",
-      "C": "旧文件复制到已有 Snapshot 目录后再替换。Copy the old file into Snapshot before removing the original conflict. "
+      "A": "旧文件移动到已有 Previous 目录。Move the old file into Previous before replacing it.",
+      "B": "旧文件在原处加 -previous 后缀。Keep old content with a -previous suffix.",
+      "C": "旧文件复制到已有 Snapshot 目录后再替换。Copy the old file into Snapshot before removing the original conflict."
     },
-    "inference": "源/目标文件有资源键、修订和可比较内容摘要；外部请求公开新增/更新/退出范围及本地编辑保护对象；后缀无碰撞。\n公共交付约束与实例范围：Synchronize Active: replace records.csv with Source revision 2, add added.txt, and remove retired.txt from the active set. Preserve local-edit.txt and every replaced/retired content. Use the preservation of replaced file contents demonstrated in the video.",
+    "inference": "源/目标文件有资源键、修订和可比较内容摘要；外部请求公开新增/更新/退出范围及本地编辑保护对象；后缀无碰撞。\n公共交付约束与实例范围：Synchronize Active: replace records.csv with Source revision 2, add added.txt, and remove retired.txt from the active set. Preserve local-edit.txt and every replaced/retired content. Use the preservation of replaced file contents demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "活动集合符合请求；保留对象不被覆盖；被替换/退出内容可恢复；相同摘要对象不制造重复；其他源不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-M-07"
@@ -1795,11 +1795,11 @@
     "relation": "stage task-name format",
     "demo": "给 inventory、validate 两个阶段建立对应名称，展示阶段顺序与命名关系。录三组小项目，不录完整六阶段修复。",
     "rules": {
-      "A": "{序号两位}-{operation}。Name stages NN-operation. ",
-      "B": "{operation}-{序号两位}。Name stages operation-NN. ",
-      "C": "step{序号两位}_{operation}。Name stages stepNN_operation. "
+      "A": "{序号两位}-{operation}。Name stages NN-operation.",
+      "B": "{operation}-{序号两位}。Name stages operation-NN.",
+      "C": "step{序号两位}_{operation}。Name stages stepNN_operation."
     },
-    "inference": "流水线为现有 inventory→validate→index→package→verify→deliver 合法链；输入输出目录预置；工具可用、文件合法、无锁。公共请求给业务阶段关系。\n公共交付约束与实例范围：Replace the affected failed pipeline using the supplied business stages: inventory, validate, index, package, verify, deliver. All stages consume Workspace and write Output. Preserve the unrelated existing task record. Use the stage task-name format demonstrated in the video.",
+    "inference": "流水线为现有 inventory→validate→index→package→verify→deliver 合法链；输入输出目录预置；工具可用、文件合法、无锁。公共请求给业务阶段关系。\n公共交付约束与实例范围：Replace the affected failed pipeline using the supplied business stages: inventory, validate, index, package, verify, deliver. All stages consume Workspace and write Output. Preserve the unrelated existing task record. Use the stage task-name format demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "目标依赖拓扑和输入输出正确；最终产物继承正确输入；受影响后继重新运行；无关作业配置与结果保持。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-M-08"
@@ -1814,11 +1814,11 @@
     "relation": "stage output-folder organization",
     "demo": "用已准备的四份资料展示 inventory、backup、restore 的输出目录关系。录三个独立项目；不录比较、复验和完整恢复演练。",
     "rules": {
-      "A": "各阶段输出到各自预置阶段目录。Use separate stage output folders. ",
-      "B": "各阶段报告集中到 Reports，恢复文件到 Recovery。Use central Reports; restore into Recovery. ",
-      "C": "备份进入 Snapshots，其余报告进入 Reports，恢复文件进入 Recovery。Use Snapshots for backup, Reports for other reports, and Recovery for restored files. "
+      "A": "各阶段输出到各自预置阶段目录。Use separate stage output folders.",
+      "B": "各阶段报告集中到 Reports，恢复文件到 Recovery。Use central Reports; restore into Recovery.",
+      "C": "备份进入 Snapshots，其余报告进入 Reports，恢复文件进入 Recovery。Use Snapshots for backup, Reports for other reports, and Recovery for restored files."
     },
-    "inference": "backup 域完整输入已就绪，文本包含在备份范围、工具已启用、旧快照存在；所有候选目录预置。目标恢复目录无冲突，无需其他界面配置。\n公共交付约束与实例范围：Create a rollback snapshot from all four Workspace resources, restore it to an empty supplied destination and compare actual content. Preserve all source resources. Use the stage output-folder organization demonstrated in the video.",
+    "inference": "backup 域完整输入已就绪，文本包含在备份范围、工具已启用、旧快照存在；所有候选目录预置。目标恢复目录无冲突，无需其他界面配置。\n公共交付约束与实例范围：Create a rollback snapshot from all four Workspace resources, restore it to an empty supplied destination and compare actual content. Preserve all source resources. Use the stage output-folder organization demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "本次快照包含全部请求内容；恢复实际消费该快照；恢复文件集合及内容一致；报告位置符合规则；旧快照和源保持。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-M-09"
@@ -1833,11 +1833,11 @@
     "relation": "approval-result encoding",
     "demo": "将一项已知通过、一项已知拒绝的结论写为对应表示。录三组不同请求 ID；不录申请核查和修改人员主档。",
     "rules": {
-      "A": "通过/不通过使用 Approved/Rejected。Approved/Rejected ",
-      "B": "通过/不通过使用 accepted=true/false。accepted=true/false ",
-      "C": "通过/不通过使用 status=ok/error。status=ok/error "
+      "A": "通过/不通过使用 Approved/Rejected。Approved/Rejected  输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 decision（字符串 Approved 或 Rejected）；approved=true 对应 Approved，false 对应 Rejected。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。",
+      "B": "通过/不通过使用 accepted=true/false。accepted=true/false  输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 accepted（布尔值 true 或 false）；复制输入 approved 的真假值。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。",
+      "C": "通过/不通过使用 status=ok/error。status=ok/error  输出一个 JSON 数组。每项只含 request_id（复制输入 ID）和 status（字符串 ok 或 error）；approved=true 对应 ok，false 对应 error。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
     },
-    "inference": "预置变更申请各修订、人员主表、佐证表和回执文档；含同名不同 ID、撤回申请和佐证不一致项。数据均为合成普通文本。\n公共交付约束与实例范围：Verify personnel phone changes against the supplied evidence and policy. Update only approved fields, and produce an acknowledgement for every active request. Preserve withdrawn and rejected people. Use the approval-result encoding demonstrated in the video. Save people-working.json and acknowledgements.json in Output. Keep all unchanged person fields; every active request acknowledgement contains request_id, person_id and the demonstrated decision field.",
+    "inference": "预置变更申请各修订、人员主表、佐证表和回执文档；含同名不同 ID、撤回申请和佐证不一致项。数据均为合成普通文本。\n公共交付约束与实例范围：Verify personnel phone changes against the supplied evidence and policy. Update only approved fields, and produce an acknowledgement for every active request. Preserve withdrawn and rejected people. Use the approval-result encoding demonstrated in the video. Save people-working.json and acknowledgements.json as JSON arrays in Output. Keep all unchanged person fields; every active request acknowledgement contains request_id, person_id and the demonstrated decision field. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "主表仅包含核准变更；被拒/撤回/范围外字段保持；每条有效申请有准确回执且格式正确；主表和回执逐 ID 一致；佐证原件保持。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-M-10"
@@ -1852,11 +1852,11 @@
     "relation": "quantity units, quotient and remainder representation",
     "demo": "展示不同产品容量下的数量表示。三组覆盖非零余数、整箱和整包；容量来自输入，不能统一猜一个容量，不录整批对账。",
     "rules": {
-      "A": "统一以最小单位件表示：N pcs。N pcs ",
-      "B": "按公开箱容量表示为 C box + R pcs，不足一箱保留余件。C box + R pcs ",
-      "C": "按公开包容量表示为 P pack + R pcs，不足一包保留余件。P pack + R pcs "
+      "A": "统一以最小单位件表示：N pcs。N pcs  逐条读取输入 quantity；每行写 N pcs，其中 N 是 quantity 的整数值。例如数量 19 写 19 pcs。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+      "B": "按公开箱容量表示为 C box + R pcs，不足一箱保留余件。C box + R pcs  逐条用输入 quantity 除以该项 box，商为 C、余数为 R；每行写 C box + R pcs。余数为 0 也必须写 + 0 pcs。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+      "C": "按公开包容量表示为 P pack + R pcs，不足一包保留余件。P pack + R pcs  逐条用输入 quantity 除以该项 pack，商为 P、余数为 R；每行写 P pack + R pcs。余数为 0 也必须写 + 0 pcs。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
     },
-    "inference": "台账、收货/退回/领用记录、记录修订与撤销、产品单位容量表和差异单均为普通文本；同名产品以 product_id/lot_id 区分，输出文档预置。\n公共交付约束与实例范围：Reconcile each inventory lot: opening + active receipts - active returns - active issues. Deduplicate record_id, exclude withdrawn transactions, and save corrected stock plus lot differences. Unit capacities are in lot-baselines.json. Use the quantity units, quotient and remainder representation demonstrated in the video. Save stock-working.json (lot_id, quantity) and differences.json (lot_id, before_pcs, after_pcs, difference_pcs) in Output.",
+    "inference": "台账、收货/退回/领用记录、记录修订与撤销、产品单位容量表和差异单均为普通文本；同名产品以 product_id/lot_id 区分，输出文档预置。\n公共交付约束与实例范围：Reconcile each inventory lot: opening + active receipts - active returns - active issues. Deduplicate record_id, exclude withdrawn transactions, and save corrected stock plus lot differences. Unit capacities are in lot-baselines.json. Use the quantity units, quotient and remainder representation demonstrated in the video. Save two JSON arrays in Output: stock-working.json entries contain lot_id (string) and quantity (string in the demonstrated units); differences.json entries contain lot_id (string), before_pcs, after_pcs and difference_pcs (integer counts). Preserve lot order from lot-baselines.json. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "每批次最小单位数正确；无重复/撤销记录参与；三种表示可反解同一数量；台账与差异单一致；来源记录和范围外库存不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-M-11"
@@ -1871,11 +1871,11 @@
     "relation": "conflicting-field precedence",
     "demo": "对基线、主分支、审阅分支进行局部字段合并；含主分支较新、审阅较新和同时间冲突，以及两边独有字段。录三组不同数值。",
     "rules": {
-      "A": "同字段冲突优先主分支。Conflicts use main. 双方独有字段都保留；C 时间相同取 main。",
-      "B": "同字段冲突优先审阅分支。Conflicts use review. 双方独有字段都保留；C 时间相同取 main。",
-      "C": "同字段冲突选修改时间较新者，并列取主分支。Conflicts use newer field timestamp; ties main. 双方独有字段都保留；C 时间相同取 main。"
+      "A": "同字段冲突优先主分支。Conflicts use main. 双方独有字段都保留；C 时间相同取 main。 输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；x/y/z 取 main，两个独有字段分别从所属分支保留。不要把 baseline、main、review、times 这些输入容器写进结果。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。",
+      "B": "同字段冲突优先审阅分支。Conflicts use review. 双方独有字段都保留；C 时间相同取 main。 输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；x/y/z 取 review，两个独有字段分别从所属分支保留。不要把 baseline、main、review、times 这些输入容器写进结果。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。",
+      "C": "同字段冲突选修改时间较新者，并列取主分支。Conflicts use newer field timestamp; ties main. 双方独有字段都保留；C 时间相同取 main。 输出一个 JSON 对象，字段为 x、y、z、main_only、review_only；每个冲突字段比较 times.main 与 times.review，取时间较大分支的值，相同取 main。两个独有字段分别保留；不输出 times 容器。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
     },
-    "inference": "基线、两分支含稳定对象 ID 和字段修改时间；冲突均为明确 JSON 标量，不要求自动合并器。\n公共交付约束与实例范围：Merge main and review against baseline by field. Preserve unique changes from both sides. Resolve conflicting fields using the demonstrated method and save merged content plus an accurate conflict record. Use the conflicting-field precedence demonstrated in the video. Save Output/merged.json and merge-diff.json. The conflict record contains conflict_fields (names), values (resolved conflicting fields) and preserved_unique (names of both sides unique fields).",
+    "inference": "基线、两分支含稳定对象 ID 和字段修改时间；冲突均为明确 JSON 标量，不要求自动合并器。\n公共交付约束与实例范围：Merge main and review against baseline by field. Preserve unique changes from both sides. Resolve conflicting fields using the demonstrated method and save merged content plus an accurate conflict record. Use the conflicting-field precedence demonstrated in the video. Save Output/merged.json as a JSON object of merged fields and merge-diff.json as a JSON object. The conflict record contains conflict_fields (names), values (resolved conflicting fields) and preserved_unique (names of both sides unique fields). For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "输出等于三方字段合并；独有字段保留；冲突值正确；引用闭包一致；基线与双方原件不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-M-12"
@@ -1890,11 +1890,11 @@
     "relation": "configuration difference record format",
     "demo": "将两个可见配置差异写为记录，before 与 after 均取输入。录三组不同值，不查历史作业，不回退设置和重跑验证。",
     "rules": {
-      "A": "每行 key: before -> after。key: before -> after ",
-      "B": "带列头 key,before,after 的 CSV。CSV key,before,after ",
-      "C": "JSON 数组，每项含 key、before、after。JSON key/before/after array "
+      "A": "每行 key: before -> after。key: before -> after  每项一行：key: before -> after。key、before、after 均复制本项输入，不加引号。例如 media.preview: compact -> review。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+      "B": "带列头 key,before,after 的 CSV。CSV key,before,after  CSV 第一行固定 key,before,after；后续每个输入对象占一行，三列依次复制 key、before、after。含逗号或双引号的单元格按标准 CSV 引号转义。\n使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。",
+      "C": "JSON 数组，每项含 key、before、after。JSON key/before/after array  输出 JSON 数组，每项包含 key、before、after 三个字符串字段，值均复制本项输入。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。"
     },
-    "inference": "有多个历史作业报告，公共请求指定 project/run 和需回退的现有设置键；报告含已支持 settings。当前设置与目标多项不同，另有必须保持的设置。只恢复现有 archive.format、verification.mode、media.preview、scheduler.trigger 等合法字段。\n公共交付约束与实例范围：Restore only archive.format, verification.mode, media.preview and scheduler.trigger from RUN-4201. Run fresh validation/package/verification jobs and record before/after settings. Preserve history and unrelated settings. Use the configuration difference record format demonstrated in the video.",
+    "inference": "有多个历史作业报告，公共请求指定 project/run 和需回退的现有设置键；报告含已支持 settings。当前设置与目标多项不同，另有必须保持的设置。只恢复现有 archive.format、verification.mode、media.preview、scheduler.trigger 等合法字段。\n公共交付约束与实例范围：Restore only archive.format, verification.mode, media.preview and scheduler.trigger from RUN-4201. Run fresh validation/package/verification jobs and record before/after settings. Preserve history and unrelated settings. Use the configuration difference record format demonstrated in the video. Save Output/configuration-diff.txt with one record per restored setting, using key, before and after from the actual old and restored values. Use the record representation demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "请求键等于指定历史配置；范围外设置保持初值；新作业实际 configuration 与相关产物参数采用恢复值；差异记录的 before/after 准确；历史报告与已完成作业不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-H-01"
@@ -1909,11 +1909,11 @@
     "relation": "release change-entry format",
     "demo": "将两条变更写成指定条目格式。录三组不同 ID 和正文，不录修工具、构建、签名或发布。",
     "rules": {
-      "A": "change_id: summary。change_id: summary ",
-      "B": "summary [change_id]。summary [change_id] ",
-      "C": "[change_id] summary。[change_id] summary "
+      "A": "change_id: summary。change_id: summary  每条变更一行：change_id: summary；替换为输入中的 ID 和正文，不写字段名字面量。Demo 不写 Version 头。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+      "B": "summary [change_id]。summary [change_id]  每条变更一行：summary [change_id]；使用英文方括号。Demo 不写 Version 头。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+      "C": "[change_id] summary。[change_id] summary  每条变更一行：[change_id] summary；使用英文方括号。Demo 不写 Version 头。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
     },
-    "inference": "release 域中 compiler 或 signer 缺失，entry 路径或说明版本错误；源版本、配置和旧发布均可见。\n公共交付约束与实例范围：Recover the current signed release: repair tool availability and staged entry/version alignment. Include CH1 Fix import and CH2 Update assets using the demonstrated notes format; preserve sources and previous release. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the release change-entry format demonstrated in the video.",
+    "inference": "release 域中 compiler 或 signer 缺失，entry 路径或说明版本错误；源版本、配置和旧发布均可见。\n公共交付约束与实例范围：Recover the current signed release: repair tool availability and staged entry/version alignment. Include CH1 Fix import and CH2 Update assets using the demonstrated notes format; preserve sources and previous release. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the release change-entry format demonstrated in the video. The staged release notes start with Version: followed by the preserved release_version, then one line per approved change in the demonstrated format; the changes request is input, not an output to overwrite. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "应用、配置、说明版本一致；实际签名验证通过且对应本轮构建；交付包含该签名内容；旧发布与源保持。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-H-02"
@@ -1928,11 +1928,11 @@
     "relation": "recovery folder layout",
     "demo": "把已给的数据与报告放入对应恢复目录及其 Reports 子目录。录三个不同项目，只展示布局，不筛快照或恢复任务。",
     "rules": {
-      "A": "项目下 Recovery/Restored，报告放其 Reports。Recovery/Restored with Reports inside. ",
-      "B": "项目下 Restored/Workspace，报告放其 Reports。Restored/Workspace with Reports inside. ",
-      "C": "项目下 Recovered，报告放其 Reports。Recovered with Reports inside. "
+      "A": "项目下 Recovery/Restored，报告放其 Reports。Recovery/Restored with Reports inside.",
+      "B": "项目下 Restored/Workspace，报告放其 Reports。Restored/Workspace with Reports inside.",
+      "C": "项目下 Recovered，报告放其 Reports。Recovered with Reports inside."
     },
-    "inference": "restoration 域含更新但不完整的快照、完整旧快照、未下载输入、同名本地编辑及缺失/错误任务。\n公共交付约束与实例范围：Recover from the latest complete project snapshot, preserve all local edits, restore every scheduled task recorded in the snapshot, and pass restore-check. Use the demonstrated recovery layout. Use the recovery folder layout demonstrated in the video.",
+    "inference": "restoration 域含更新但不完整的快照、完整旧快照、未下载输入、同名本地编辑及缺失/错误任务。\n公共交付约束与实例范围：Recover from the latest complete project snapshot, preserve all local edits, restore every scheduled task recorded in the snapshot, and pass restore-check. Use the demonstrated recovery layout. Use the recovery folder layout demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "采用最新完整快照；恢复内容和引用正确；原本地编辑保留；快照中的每个任务输入/输出/trigger 正确且 Ready；探测真实通过。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-H-03"
@@ -1947,11 +1947,11 @@
     "relation": "preview size profile",
     "demo": "使用已配对的片段和字幕设置同一预览规格，生成并查看实际输出尺寸。录三个项目，不录连接相机、下载或字幕校正。",
     "rules": {
-      "A": "Compact：640×360。Compact 640 x 360. ",
-      "B": "Review：1280×720。Review 1280 x 720. ",
-      "C": "Detailed：1920×1080。Detailed 1920 x 1080. "
+      "A": "Compact：640×360。Compact 640 x 360.",
+      "B": "Review：1280×720。Review 1280 x 720.",
+      "C": "Detailed：1920×1080。Detailed 1920 x 1080."
     },
-    "inference": "media 域相机断连、sidecar 尚未下载且混有上一场次 clip_id；当前 take 与元数据已存在。\n公共交付约束与实例范围：Import the approved current shoot, recover its caption download, correct clip_id associations, and deliver a verified catalogue and previews. Preserve all source media; use the demonstrated preview size. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the preview size profile demonstrated in the video.",
+    "inference": "media 域相机断连、sidecar 尚未下载且混有上一场次 clip_id；当前 take 与元数据已存在。\n公共交付约束与实例范围：Import the approved current shoot, recover its caption download, correct clip_id associations, and deliver a verified catalogue and previews. Preserve all source media; use the demonstrated preview size. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the preview size profile demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "每个预览的尺寸、clip_id、caption、source_hash 正确；目录引用真实预览；无旧场次混入；源素材保持。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-H-04"
@@ -1966,11 +1966,11 @@
     "relation": "paper, duplex and page-order profile",
     "demo": "用已准备的短文档设置纸型、单双面及顺序，生成布局与校样并查看结果。录三组，不提交打印，不录组稿和故障修复。",
     "rules": {
-      "A": "A4、双面、正序。A4, duplex, forward. ",
-      "B": "Letter、双面、正序。Letter, duplex, forward. ",
-      "C": "A4、单面、倒序。A4, simplex, reverse. "
+      "A": "A4、双面、正序。A4, duplex, forward.",
+      "B": "Letter、双面、正序。Letter, duplex, forward.",
+      "C": "A4、单面、倒序。A4, simplex, reverse."
     },
-    "inference": "print 域工作副本、页容量、能力不同的打印机；至少一台支持全部候选组合；公共请求不另行固定纸型/单双面以免泄漏或冲突。 新夹具移除旧版 cover/request 中固定纸型与双面答案；三种组合共享同一不泄漏组合的业务请求。\n公共交付约束与实例范围：Prepare approved working documents, repair pagination, select a capable connected printer and submit exactly one proof-matching packet with the demonstrated printing profile. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the paper, duplex and page-order profile demonstrated in the video.",
+    "inference": "print 域工作副本、页容量、能力不同的打印机；至少一台支持全部候选组合；公共请求不另行固定纸型/单双面以免泄漏或冲突。 新夹具移除旧版 cover/request 中固定纸型与双面答案；三种组合共享同一不泄漏组合的业务请求。\n公共交付约束与实例范围：Prepare approved working documents, repair pagination, select a capable connected printer and submit exactly one proof-matching packet with the demonstrated printing profile. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the paper, duplex and page-order profile demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "内容与修订正确；页容量合法；组合符合 demo 且设备支持；队列文档与最后通过的校样一致；未提前取消或额外提交。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-H-05"
@@ -1985,11 +1985,11 @@
     "relation": "cached resource naming and corresponding links",
     "demo": "对已缓存的四份资源按同一方法命名，同步指南链接并验证离线可读。录三个项目；不录下载、设备恢复或缓存重建。",
     "rules": {
-      "A": "保留原文件名。Keep original resource names. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。",
-      "B": "文件名加 {project_id}- 前缀。Prefix names with project_id-. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。",
-      "C": "用公共资源 ID 作文件名并保留原扩展名。Use R0/R1/R2/R3 stems and preserve extensions. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。"
+      "A": "保留原文件名。Keep original resource names. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。 保留四份资源的原名；只编辑缓存目录里的指南副本。保留 Field resources 标题，Map: 后写缓存地图的完整绝对路径，Contacts: 后写缓存通讯录的完整绝对路径，各占一行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。",
+      "B": "文件名加 {project_id}- 前缀。Prefix names with project_id-. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。 四份资源命名为 project_id-原名；只编辑缓存指南副本。保留 Field resources 标题，Map: 后写更名后的缓存地图绝对路径，Contacts: 后写更名后的缓存通讯录绝对路径，各占一行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。",
+      "C": "用公共资源 ID 作文件名并保留原扩展名。Use R0/R1/R2/R3 stems and preserve extensions. C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。 按四份公开资源的顺序，将其命名为 R0/R1/R2/R3 并保留扩展名；只编辑缓存指南副本。保留 Field resources 标题，Map: 后写缓存地图的绝对路径，Contacts: 后写缓存通讯录的绝对路径，各占一行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。 这里只修改路径文字；不编辑下载原件，不用写 JSON。"
     },
-    "inference": "offline 域中 relay 断连、下载未完成，旧缓存缺联系人；源指南仍指网络路径。资源 ID 对照公开；全部方案使用现有绝对路径解析。\n公共交付约束与实例范围：Repair the relay/downloads and missing contact cache, prepare local guide references, rebuild the cache, disconnect the network and pass offline-test. Preserve downloaded originals and use the demonstrated naming. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the cached resource naming and corresponding links demonstrated in the video.",
+    "inference": "offline 域中 relay 断连、下载未完成，旧缓存缺联系人；源指南仍指网络路径。资源 ID 对照公开；全部方案使用现有绝对路径解析。\n公共交付约束与实例范围：Repair the relay/downloads and missing contact cache, prepare local guide references, rebuild the cache, disconnect the network and pass offline-test. Preserve downloaded originals and use the demonstrated naming. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the cached resource naming and corresponding links demonstrated in the video. In the cached guide retain the title and the two lines Map: <absolute cached map path> and Contacts: <absolute cached contacts path>. Keep other guide text and original downloaded resources. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "断网 probe 实际读到地图/联系人；指南链接绑定正确 source 身份和版本；命名正确；旧下载源保持；无远程链接残留。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-H-06"
@@ -2004,11 +2004,11 @@
     "relation": "local file conflict preservation",
     "demo": "对一份同名冲突保存本地旧内容并放入来件，展示两侧位置和可恢复内容。录三个不同项目，不录路径修订和工作区启动。",
     "rules": {
-      "A": "把整个新工作区放到原目标的独立兄弟目录，原目标不动。Use a fresh sibling workspace; leave the original destination untouched. ",
-      "B": "将冲突现有文件加 -local 后缀后在原目标迁移。Rename the conflicting local file with -local before copying incoming. ",
-      "C": "先把冲突现有文件复制到已有 Local-preserved 目录，再清除冲突并在原目标迁移。Copy the local file to Local-preserved, then clear the original conflict. "
+      "A": "把整个新工作区放到原目标的独立兄弟目录，原目标不动。Use a fresh sibling workspace; leave the original destination untouched.",
+      "B": "将冲突现有文件加 -local 后缀后在原目标迁移。Rename the conflicting local file with -local before copying incoming.",
+      "C": "先把冲突现有文件复制到已有 Local-preserved 目录，再清除冲突并在原目标迁移。Copy the local file to Local-preserved, then clear the original conflict."
     },
-    "inference": "migration 域嵌套源资源、manifest、app-settings、偏好和目标本地编辑；tools 可禁用；三个方案所需目录初态均存在。\n公共交付约束与实例范围：Migrate the nested workspace, preserve original sources and local destination edits, retain preferences, and pass workspace-open. Use the demonstrated collision-preservation method. Use the local file conflict preservation demonstrated in the video.",
+    "inference": "migration 域嵌套源资源、manifest、app-settings、偏好和目标本地编辑；tools 可禁用；三个方案所需目录初态均存在。\n公共交付约束与实例范围：Migrate the nested workspace, preserve original sources and local destination edits, retain preferences, and pass workspace-open. Use the demonstrated collision-preservation method. Use the local file conflict preservation demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "新入口和内部引用实际可达；app-settings root/startup 正确且偏好保持；本地编辑按策略可恢复；源内容保持；启动 probe 通过。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-H-07"
@@ -2023,11 +2023,11 @@
     "relation": "test-result summary representation",
     "demo": "将已经给出的测试结果转成摘要。三组使用不同 build_artifact、断言和值，保留全部字段；不录构建、测试修复和进程恢复。",
     "rules": {
-      "A": "逐行 key: value。key: value lines 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。",
-      "B": "JSON 对象，字段名与原结果一致。JSON object 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。",
-      "C": "带列头的一行 CSV，列序沿用源结果。CSV build_artifact,passed,assertions 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。"
+      "A": "逐行 key: value。key: value lines 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。 三行依次为 build_artifact: 值、passed: 值、assertions: 值。冒号后的每个值都使用 JSON：build_artifact 是带双引号的字符串，passed 是不带引号的 true/false，assertions 是 JSON 数组；每个断言保留 name、expected、actual、passed 及其类型。assertions 数组必须放在同一物理行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+      "B": "JSON 对象，字段名与原结果一致。JSON object 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。 输出 JSON 对象，含 build_artifact（字符串）、passed（布尔值）、assertions（数组）。每个断言保留 name、expected、actual、passed，全部值及类型与输入一致。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。",
+      "C": "带列头的一行 CSV，列序沿用源结果。CSV build_artifact,passed,assertions 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。 CSV 两行：表头 build_artifact,passed,assertions；数据行三列为构建 ID、true/false、完整断言 JSON 数组。第三列用双引号包裹，JSON 内每个双引号写成两个双引号（标准 CSV 转义）；每个断言保留 name、expected、actual、passed。\n使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。"
     },
-    "inference": "build 域真实所有者锁、build_ready=false、独立 test_expectations 错误；源常量和公开请求给正确 project/revision，不能把断言改为无条件通过。 所有摘要字段均取现有测试结果内容；project/revision 只来自 assertions，不能虚构顶层字段。\n公共交付约束与实例范围：Recover the locked build and its independent configuration/test errors. Preserve the old output, pass real tests against public source specifications, save a faithful test summary and restore owner process states. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the test-result summary representation demonstrated in the video. Save test-summary.txt with build_artifact, passed and assertions, in that field order when order matters. Assertions retain name, expected, actual and passed from the actual test result.",
+    "inference": "build 域真实所有者锁、build_ready=false、独立 test_expectations 错误；源常量和公开请求给正确 project/revision，不能把断言改为无条件通过。 所有摘要字段均取现有测试结果内容；project/revision 只来自 assertions，不能虚构顶层字段。\n公共交付约束与实例范围：Recover the locked build and its independent configuration/test errors. Preserve the old output, pass real tests against public source specifications, save a faithful test summary and restore owner process states. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the test-result summary representation demonstrated in the video. Save test-summary.txt with build_artifact, passed and assertions, in that field order when order matters. Assertions retain name, expected, actual and passed from the actual test result. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "build/test 绑定同一输入；测试期望等于公共真实规格且断言全部通过；摘要准确引用实际测试；旧包保留；原进程状态恢复。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-H-08"
@@ -2042,11 +2042,11 @@
     "relation": "sensitive-field treatment",
     "demo": "对已准备的事故副本应用同一种敏感字段处理，展示不同记录及重复个人值的一致结果。录三组，不录日志搜集和打包。",
     "rules": {
-      "A": "保留字段并掩码敏感值。Mask personal values. ",
-      "B": "删除敏感字段。Remove personal fields. ",
-      "C": "用现有处理器生成稳定合成代号。Use stable pseudonyms. "
+      "A": "保留字段并掩码敏感值。Mask personal values.",
+      "B": "删除敏感字段。Remove personal fields.",
+      "C": "用现有处理器生成稳定合成代号。Use stable pseudonyms."
     },
-    "inference": "evidence 域两通道原始日志、事故窗口、字段清单、时间线模板；包含范围外事件和 contact 以外的敏感字段。 复用现有 evidence 流程时，导出内容通过 Notepad 写入对应原通道的工作副本，保持后续 redact 已支持的 source 身份；不假设任意新文件自动拥有通道来源。\n公共交付约束与实例范围：Export both log channels for the incident window, preserve originals, collect a traceable timeline and redact every field listed in the incident brief. Deliver verified evidence with an audit trail using the demonstrated treatment. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the sensitive-field treatment demonstrated in the video.",
+    "inference": "evidence 域两通道原始日志、事故窗口、字段清单、时间线模板；包含范围外事件和 contact 以外的敏感字段。 复用现有 evidence 流程时，导出内容通过 Notepad 写入对应原通道的工作副本，保持后续 redact 已支持的 source 身份；不假设任意新文件自动拥有通道来源。\n公共交付约束与实例范围：Export both log channels for the incident window, preserve originals, collect a traceable timeline and redact every field listed in the incident brief. Deliver verified evidence with an audit trail using the demonstrated treatment. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the sensitive-field treatment demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "窗口事件集合准确；所有要求敏感值已处理；事件 ID/时间/描述保留；时间线有实际来源；最终包包含真实脱敏副本和审计链；原日志不变。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-H-09"
@@ -2061,11 +2061,11 @@
     "relation": "final delivery trigger setting",
     "demo": "给已验证的分发载荷设置最终触发方式，展示 Scheduled 且未派发。录三个不同项目，不录选盘、权限修复或前置流水线。",
     "rules": {
-      "A": "最终交付 Manual。Final delivery trigger: manual. ",
-      "B": "最终交付 When idle。Final delivery trigger: idle. ",
-      "C": "最终交付 When plugged in。Final delivery trigger: plugged-in. "
+      "A": "最终交付 Manual。Final delivery trigger: manual.",
+      "B": "最终交付 When idle。Final delivery trigger: idle.",
+      "C": "最终交付 When plugged in。Final delivery trigger: plugged-in."
     },
-    "inference": "distribution 域正确 share 断开且只读，另一个可写盘属于错误接收方；载荷说明有旧版本/接收方信息需修订。\n公共交付约束与实例范围：Repair the correct recipient share connection/access, validate the exact payload with a fresh dry-run and save a verified distribution plan without dispatching it. Use the demonstrated final trigger. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the final delivery trigger setting demonstrated in the video.",
+    "inference": "distribution 域正确 share 断开且只读，另一个可写盘属于错误接收方；载荷说明有旧版本/接收方信息需修订。\n公共交付约束与实例范围：Repair the correct recipient share connection/access, validate the exact payload with a fresh dry-run and save a verified distribution plan without dispatching it. Use the demonstrated final trigger. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the final delivery trigger setting demonstrated in the video. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "正确 recipient/share；载荷内容及干运行哈希相同；可写验证真实完成；依赖和 trigger 正确；dispatched=false；错误接收盘不被当作成功目标。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-H-10"
@@ -2080,11 +2080,11 @@
     "relation": "byte-unit conversion and rounding",
     "demo": "将 4096、3660、3845 三个字节数分别转换并保存，覆盖精确值及向下/向上舍入。基数 1024，HALF_UP；不录清理、备份或服务恢复。",
     "rules": {
-      "A": "以整数 B 表示。integer B 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。",
-      "B": "以 KiB 表示，保留三位小数。KiB, three decimals 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。",
-      "C": "以 MiB 表示，保留六位小数。MiB, six decimals 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。"
+      "A": "以整数 B 表示。integer B 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。 Demo 只写一行 N B，N 为输入 released_bytes 的整数值；不写 released_bytes: 或 released_display: 字段名。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+      "B": "以 KiB 表示，保留三位小数。KiB, three decimals 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。 Demo 只写一行 X.XXX KiB：released_bytes ÷ 1024，HALF_UP 四舍五入保留三位小数，精确值也补足三位。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+      "C": "以 MiB 表示，保留六位小数。MiB, six decimals 1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。 Demo 只写一行 X.XXXXXX MiB：released_bytes ÷ 1048576，HALF_UP 四舍五入保留六位小数，精确值也补足六位。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
     },
-    "inference": "storage 域缓存与伪装 .cache 用户笔记混合；所有者初始状态混合；备份未完成，存储统计含生成报告与压缩对象。\n公共交付约束与实例范围：Verify a protective backup before deleting only regenerable cache, compact losslessly, restore each owner to its original state and pass storage-audit. Report actual released cache bytes using the demonstrated unit; preserve user annotations. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the byte-unit conversion and rounding demonstrated in the video. In maintenance-report.txt retain released_bytes as an integer and released_display as the demonstrated unit representation. Use base 1024 and decimal HALF_UP rounding.",
+    "inference": "storage 域缓存与伪装 .cache 用户笔记混合；所有者初始状态混合；备份未完成，存储统计含生成报告与压缩对象。\n公共交付约束与实例范围：Verify a protective backup before deleting only regenerable cache, compact losslessly, restore each owner to its original state and pass storage-audit. Report actual released cache bytes using the demonstrated unit; preserve user annotations. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the byte-unit conversion and rounding demonstrated in the video. Save maintenance-report.txt as two text lines: released_bytes: <integer> and released_display: <unit representation learned from the video>. The demo itself shows only the unit representation. Use base 1024 and decimal HALF_UP rounding. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "删除集合只含可再生缓存；先有真实校验的保护备份；用户笔记和项目不变；压缩可无损解码；每个所有者恢复初态；报告单位数值对应实际释放字节。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-H-11"
@@ -2099,11 +2099,11 @@
     "relation": "revision marker placement in a title",
     "demo": "给两个不同标题加入各自修订号。录三组不同标题和修订，不录撤回旧队列和重新提交。",
     "rules": {
-      "A": "[r{revision}] {title}。[rN] Title ",
-      "B": "{title} [r{revision}]。Title [rN] ",
-      "C": "r{revision} — {title}。rN — Title "
+      "A": "[r{revision}] {title}。[rN] Title  每个输入标题一行：[rN] Title。N 取本条 revision，Title 取本条 title。例如 [r5] Review packet。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+      "B": "{title} [r{revision}]。Title [rN]  每个输入标题一行：Title [rN]。N 取本条 revision，Title 取本条 title。例如 Review packet [r5]。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+      "C": "r{revision} — {title}。rN — Title  每个输入标题一行：rN — Title。N 取本条 revision，Title 取本条 title；中间为长横线 —（不是减号 -）。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
     },
-    "inference": "print 域已有 Queued/Paused 旧作业和完整生产者依赖链，公共修订请求改变正文；另有必须保持的无关作业；纸型/单双面/顺序公开固定。\n公共交付约束与实例范围：Withdraw only the previously submitted project packet, rebuild its producer chain for approved revision 8, reproof and submit exactly one active replacement. Preserve unrelated queue entries and old source documents; mark the title using the demonstrated format. Use the revision marker placement in a title demonstrated in the video. The replacement cover title is Meeting packet, revision 8; its body is Approved revision 8. Retain the same paper, duplex and order settings as the supplied valid print configuration.",
+    "inference": "print 域已有 Queued/Paused 旧作业和完整生产者依赖链，公共修订请求改变正文；另有必须保持的无关作业；纸型/单双面/顺序公开固定。\n公共交付约束与实例范围：Withdraw only the previously submitted project packet, rebuild its producer chain for approved revision 8, reproof and submit exactly one active replacement. Preserve unrelated queue entries and old source documents; mark the title using the demonstrated format. Use the revision marker placement in a title demonstrated in the video. Edit the working cover, not revision-request.txt: line 1 is the marked title, line 2 is the approved body. The replacement cover title is Meeting packet, revision 8; its body is Approved revision 8. Retain the same paper, duplex and order settings as the supplied valid print configuration. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
     "delivery": "目标旧队列 Cancelled；新队列含当前正文和正确标记且绑定新校样；目标恰一个有效新版；无关队列保持；旧稿内容可恢复。",
     "recording": "同事人工录制并审核的局部方法示范",
     "review": "/review?kind=os&task=OS-H-12"
