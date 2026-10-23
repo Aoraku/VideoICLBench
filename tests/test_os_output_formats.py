@@ -66,3 +66,52 @@ def test_review_returns_the_same_explicit_guides_and_public_output_constraints(m
  assert 'two text lines' in row['instruction']
  assert row['demo_examples']['B'][0]['guide']['output_format']
  assert row['demo_apps']==['Notepad']
+
+
+def test_saved_json_feedback_explains_real_failure_without_changing_score():
+ from vic.os_demo_feedback import output_feedback
+ expected='[{"request_id":"R1001-1","decision":"Approved"}]'
+ example={'steps':[{'op':'write','target':'/Output/result.txt','content':expected}]}
+ files=[{'id':'folder','name':'Output','parent':None}, {'id':'result','name':'result.txt','parent':'folder','content':''}]
+ def check(text):
+  files[1]['content']=text;return output_feedback(example,{'files':files})
+ assert '仍为空' in check('')[0]
+ assert '第 1 行' in check('[{"request_id":"R1001-1","decision":Approved}]')[0]
+ assert '缺少 decision；多出 approved' in check('[{"request_id":"R1001-1","approved":"Approved"}]')[0]
+ assert '类型不符' in check('[{"request_id":"R1001-1","decision":true}]')[0]
+ assert '组号' in check('[{"request_id":"R1012-1","decision":"Approved"}]')[0]
+ assert not check('[\n {"decision": "Approved", "request_id": "R1001-1"}\n]\r\n')
+
+
+def test_every_visible_complete_example_passes_the_real_judge(tmp_path):
+ """Use the recorder's displayed content, not oracle write contents, as input."""
+ import subprocess,sys
+ code=r'''
+import json,copy,tasks36,workflows
+catalog=json.load(open('CATALOG'))
+count=0
+for case in catalog['cases']:
+ if not case['demo_examples']['A'][0]['guide'].get('output_format'):continue
+ for variant,groups in case['demo_examples'].items():
+  for group in groups:
+   ep=tasks36.generate(case['id'],'ABC'.index(variant),group['seed'],'module-demo')
+   displayed={step['where'].split(' → Document → ',1)[1].rsplit(' → OK',1)[0]:step['expected'] for step in group['guide']['steps'] if step['expected'] is not None and ' → Document → ' in step['where']}
+   for action in ep['reference']:
+    action=copy.deepcopy(action)
+    if action['op']=='write':
+     path=workflows.path(ep['state'],action['target'])
+     assert path in displayed,(case['id'],path)
+     action['content']=displayed[path]
+    workflows.transition(ep,action)
+   result=workflows.evaluate(ep)
+   assert result['success'],(case['id'],variant,group['seed'],result['failed_checks'])
+   count+=1
+print(count)
+'''.replace('CATALOG',str(ROOT/'tasks/os/catalog.json'))
+ # Source fixture is optional locally; CI has a dedicated preparation step.
+ import os
+ source=Path(os.environ.get('VIC_OS_TEST_SOURCE',ROOT/'.local/os-release-formats-final'))
+ if not (source/'tasks36.py').is_file():pytest.skip('Prepared OS runtime is checked by the release contract suite')
+ result=subprocess.run([sys.executable,'-c',code],cwd=source,text=True,capture_output=True)
+ assert result.returncode==0,result.stdout+result.stderr
+ assert result.stdout.strip()=='81'

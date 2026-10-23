@@ -27,7 +27,7 @@ def os_client(tmp_path,monkeypatch):
             elif path.endswith('/judge'):out={'result':{'success':state['success'],'failed_checks':[] if state['success'] else ['goal.1']}}
             elif path.endswith('/finish'):
                 out={**sessions[path.split('/')[-2]],'status':'finished','result':{'success':state['success'],'agent_steps':2}}
-            elif path.startswith('/api/v2/sessions/'):out=sessions.get(path.split('/')[-1],{})
+            elif path.startswith('/api/v2/sessions/'):out={**sessions.get(path.split('/')[-1],{}),'state':state.get('desktop',{})}
             else:out={}
             content=b"const r = await fetch(url, {}); const label=`${btn('task-info','Task instructions')}`;"
             if path=='/':content=b'<html><body><script src="/desktop.js"></script></body></html>'
@@ -118,3 +118,21 @@ def test_upload_review_persists_and_demo_is_pinned(os_client,monkeypatch):
     assert c.get(actor_run['demonstrations'][0]['url'],headers=actor).content==b'mp4'
     assert len(list((data/'os-recordings').glob('*.json')))==2
     assert c.get(f"/os-api/runs/{run['id']}",headers=AUTH).json()['recording']['approved'] is False
+
+
+def test_demo_check_and_next_explain_saved_json_error(os_client):
+ c,_,_,state,_=os_client
+ run=create(c,case_id='OS-M-10',mode='demo');sid=run['id']
+ state['desktop']={'files':[
+  {'id':'p','parent':None,'name':'Projects'},
+  {'id':'proj','parent':'p','name':'Project-1001'},
+  {'id':'out','parent':'proj','name':'Output'},
+  {'id':'result','parent':'out','name':'Example result.txt','content':'[{"decision":Approved}]'}]}
+ checked=c.post(f'/os-api/runs/{sid}/check',headers=AUTH).json()
+ assert checked['passed']==0 and checked['total']==3
+ assert 'JSON 第 1 行' in checked['groups'][0]['feedback'][0]
+ c.get(run['application_url'])
+ response=c.post(f'/os-sim/{sid}/lesson-next')
+ assert response.status_code==409 and 'JSON 第 1 行' in response.json()['detail']
+ # Feedback must not finalize a session or turn a failed score into success.
+ assert not c.get(f'/os-api/runs/{sid}',headers=AUTH).json()['lesson']['finished']

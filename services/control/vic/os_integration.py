@@ -20,6 +20,7 @@ from typing import Literal
 from .runtime import BrowserRuntime
 from .schemas import Action
 from . import os_release, human_recording
+from .os_demo_feedback import output_feedback
 
 
 class OSRunRequest(BaseModel):
@@ -209,12 +210,23 @@ def install_os_routes(app, manager, secret: str, data: Path, *, upstream=None, s
             except ValueError as exc:
                 raise HTTPException(409, str(exc))
 
+    async def demo_result(run, child, index):
+        result=(await api(f'/api/v2/sessions/{child}/judge','POST',{}))['result']
+        if not result['success']:
+            case=next(c for c in catalogue()['cases'] if c['id']==run['case_id'])
+            seed=run['lesson']['seeds'][index]
+            example=next((g for g in case['demo_examples'][run['variant']] if g['seed']==seed),None)
+            session=await api(f'/api/v2/sessions/{child}')
+            messages=output_feedback(example,session.get('state',{})) if example else []
+            result['feedback']=messages or ['保存结果或其他操作尚未满足要求；请核对本组材料、保存路径，并保持输入与无关文件不变。']
+        return result
+
     @app.post('/os-api/runs/{sid}/check',dependencies=[Depends(manager)])
     async def check(sid:str):
         run=read(sid)
         if run.get('lesson'):
             lesson=run['lesson']
-            results=[(await api(f'/api/v2/sessions/{child}/judge','POST',{}))['result'] for child in lesson['sessions']]
+            results=[await demo_result(run,child,index) for index,child in enumerate(lesson['sessions'])]
             return {'success':all(r['success'] for r in results),'groups':results,'passed':sum(r['success'] for r in results),'total':len(results)}
         return (await api(f'/api/v2/sessions/{sid}/judge','POST',{}))['result']
 
@@ -235,8 +247,8 @@ def install_os_routes(app, manager, secret: str, data: Path, *, upstream=None, s
             if not lesson:raise HTTPException(404,'Not a demonstration')
             if lesson['sessions'][lesson['index']]!=sid:raise HTTPException(409,'This example is no longer active')
             if not lesson['finished']:
-                result=(await api(f'/api/v2/sessions/{sid}/judge','POST',{}))['result']
-                if not result['success']:raise HTTPException(409,'本组尚未完成。请核对操作范围和保存结果，再继续。')
+                result=await demo_result(run,sid,lesson['index'])
+                if not result['success']:raise HTTPException(409,'本组尚未完成。\n'+'\n'.join(result.get('feedback',[])))
                 lesson['results'].append(result)
                 await api(f'/api/v2/sessions/{sid}/finish','POST',{})
                 if lesson['index']+1==lesson['total']:
