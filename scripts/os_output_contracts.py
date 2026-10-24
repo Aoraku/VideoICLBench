@@ -29,7 +29,7 @@ FORMATS={
  'OS-H-08':[
   '三行依次为 build_artifact: 值、passed: 值、assertions: 值。冒号后的每个值都使用 JSON：build_artifact 是带双引号的字符串，passed 是不带引号的 true/false，assertions 是 JSON 数组；每个断言保留 name、expected、actual、passed 及其类型。assertions 数组必须放在同一物理行。',
   '输出 JSON 对象，含 build_artifact（字符串）、passed（布尔值）、assertions（数组）。每个断言保留 name、expected、actual、passed，全部值及类型与输入一致。',
-  'CSV 两行：表头 build_artifact,passed,assertions；数据行三列为构建 ID、true/false、完整断言 JSON 数组。第三列用双引号包裹，JSON 内每个双引号写成两个双引号（标准 CSV 转义）；每个断言保留 name、expected、actual、passed。'],
+  '两行：第一行固定 build_artifact,passed,assertions；第二行将三个源 JSON 值按此顺序用英文逗号连接。例如 "build_4",true,[{"name":"check","expected":1,"actual":1,"passed":true}]。构建 ID 保留双引号；assertions 保留数组本身，不在数组外包双引号，也不将内部双引号重复转义。每个断言保留全部字段及类型。'],
  'OS-H-11':[
   'Demo 只写一行 N B，N 为输入 released_bytes 的整数值；不写 released_bytes: 或 released_display: 字段名。',
   'Demo 只写一行 X.XXX KiB：released_bytes ÷ 1024，HALF_UP 四舍五入保留三位小数，精确值也补足三位。',
@@ -37,7 +37,7 @@ FORMATS={
  'OS-H-12':[
   '每个输入标题一行：[rN] Title。N 取本条 revision，Title 取本条 title。例如 [r5] Review packet。Demo 不附加正文。',
   '每个输入标题一行：Title [rN]。N 取本条 revision，Title 取本条 title。例如 Review packet [r5]。Demo 不附加正文。',
-  '每个输入标题一行：rN — Title。N 取本条 revision，Title 取本条 title；中间为长横线 —（不是减号 -）。Demo 不附加正文。'],
+  '每个输入标题一行：rN - Title。N 取本条 revision，Title 取本条 title；中间为英文短横线 -，左右各一个空格。Demo 不附加正文。'],
 }
 
 def demo_format(cid, variant):
@@ -45,7 +45,8 @@ def demo_format(cid, variant):
     i='ABC'.index(variant)
     json_format=cid in {'OS-M-10','OS-M-12'} or cid=='OS-H-01' and i==2 or cid=='OS-H-08' and i==1
     note=JSON_NOTE if json_format else TEXT_NOTE
-    if cid=='OS-H-01' and i==1 or cid=='OS-H-08' and i==2:
+    if cid=='OS-H-01' and i==1:
         note='使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。'
+    if cid=='OS-H-08' and i==2:note='这不是标准 CSV 转义格式；三个值分别为 JSON 字符串、布尔值和数组。允许 JSON 等价缩进与对象字段顺序，不改变数组顺序或数据类型。'
     if cid=='OS-H-06':note+=' 这里只修改路径文字；不编辑下载原件，不用写 JSON。'
     return FORMATS[cid][i]+'\n'+note

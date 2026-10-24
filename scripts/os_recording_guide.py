@@ -100,7 +100,7 @@ def make_guide(group):
                 action=f'先展示频道标题下的 Incident anchor 时间和同名事件，再展示窗口边界内外的候选记录。Destination folder 选择 {s["parent"]}；File name 填 {s["name"]}；Start time 填 {s["start"]}；End time 填 {s["end"]} → OK。用 Notepad → Open… 打开导出文件，展示两端边界记录被包含、窗口外记录不在结果中。')
         elif op=='probe':
             item.update(title='检查离线资源',where='Start → Terminal',
-                action=f'输入 offline-test "{target}" 后回车，展示检查输出。')
+                action=f'在 File Explorer 选中 {target} 文件夹，点击 Copy path；在 Terminal 输入 offline-test，空格后加英文双引号，点击 Paste path（或 Ctrl+V / Command+V）粘贴路径，再补英文双引号并回车。完整命令：offline-test "{target}"。展示检查输出。')
         else:raise ValueError('Missing recorder GUI mapping: '+op)
         items.append(item)
     # Inputs and unchanged examples matter: omission from the mutation trace is not a rule.

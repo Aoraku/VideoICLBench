@@ -69,3 +69,14 @@ def test_recording_guides_distinguish_demo_apps_and_name_real_controls():
     hard_notes=next(t for t in rows if t['id']=='OS-H-02')
     assert hard_notes['demo_apps']==['Notepad']
     assert 'Settings' in hard_notes['app'] and len(hard_notes['dependencies'])>=2
+
+
+def test_only_changed_c_videos_become_historical():
+ from vic.os_release import recording_current
+ release=json.loads((ROOT/'tasks/os/catalog.json').read_text())
+ for fp,cases in release['recording_variant_compatibility'].items():
+  for cid in cases:
+   for i,variant in enumerate('ABC'):
+    entry={'fingerprint':fp,'design_version':release['design_version'],'case_id':cid,'convention':i}
+    assert recording_current(release,entry)==(variant in 'AB')
+    assert recording_current(release,{**entry,'fingerprint':release['implementation']['fingerprint']})

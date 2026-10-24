@@ -69,7 +69,7 @@ def design(row):
       'OS-E-05':'示范处理所有 Background worker，范围外 Protected system service 保持。',
       'OS-E-11':'示范处理所有 Packet，范围外 Unrelated draft 保持。',
       'OS-E-08':'闭区间包含两端；同一时区，不转换时刻。','OS-H-11':'1 KiB = 1024 B；1 MiB = 1048576 B。定点四舍五入 HALF_UP；精确值也保留规定的小数位。',
-      'OS-H-08':'公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。',
+      'OS-H-08':'公共字段顺序为 build_artifact、passed、assertions；所有值保留源 JSON 类型与引号。C 的数据行由三个 JSON 值用逗号连接，不做 CSV 双重转义。',
       'OS-M-12':'双方独有字段都保留；C 时间相同取 main。', 'OS-H-06':'C 使用 R0/R1/R2/R3，对应四份公开资源的顺序，保留扩展名；指南内引用须同步。'}
     return dict(id=s['id'],title=s['title'],app=s['apps'],family='task36',difficulty=s['level'],
       task=s['prompt'], query_example=row['task'], relation=RELATIONS[index],
@@ -85,6 +85,21 @@ def refine(source):
         nonlocal text
         if old not in text:raise ValueError('Pinned OS refinement target missing: '+old[:70])
         text=text.replace(old,new)
+    # Preserve JSON values in the header-and-values representation for H08 C.
+    for name in ('summary','source'):
+        replace("csv_text([list("+name+"),[json.dumps(v) if not isinstance(v,str) else v for v in "+name+".values()]])", "summary_values("+name+")")
+    replace('Write one CSV row with headers build_artifact,passed,assertions.', 'Write headers build_artifact,passed,assertions, then one row of comma-separated JSON values; preserve string quotes and the assertions array without CSV escaping.')
+    replace('CSV build_artifact,passed,assertions', 'Header build_artifact,passed,assertions then comma-separated JSON values')
+    for old,new in [('r8 — Title','r8 - Title'),('r8 — Meeting packet','r8 - Meeting packet'),('rN — Title','rN - Title'),('} — {x["title"]}', '} - {x["title"]}')]:
+        replace(old,new)
+    spec_path=source/'docs/TASK_CATALOGUE_36.json'
+    spec=json.loads(spec_path.read_text())
+    for task in spec['tasks']:
+        if task['id']=='OS-H-08':
+            task['rules']['C']='两行：字段名表头；按原顺序用逗号连接三个 JSON 值，保留字符串双引号及数组结构，不做 CSV 转义'
+            task['demo']='展示多个实际测试结果到摘要的转换。公共字段为 build_artifact、passed、assertions，保留源 JSON 类型；C 用表头和一行逗号分隔的 JSON 值表示，不示范完整诊断流程。'
+        if task['id']=='OS-H-12':task['rules']['C']='r{revision} - {title}（英文短横线，左右各一空格）'
+    spec_path.write_text(json.dumps(spec,ensure_ascii=False,indent=2)+'\n')
     replace('range(2 if b.scope==\'demo\' else 4)', 'range(3 if b.scope==\'demo\' else 4)')
     replace("        for i in range(n):\n            ext=['csv','txt','json'][i%3];key=f'resource-{i%2}';p=i%2",
         "        attributes=[('csv',0,0),('csv',1,1),('txt',0,1),('txt',1,0),('json',0,0),('json',1,1)]\n"
@@ -149,7 +164,7 @@ def refine(source):
             '    def write(self,identifier,value,mode=None):\n        mode=output_mode(self.cid,self.c,self.scope,mode)')
     replace("b.goal('domain',name='resource_content',source='source-1',value=notes['content'])",
             "b.goal('domain',name='resource_content',source='source-1',value=notes['content'],mode='trim-lines')")
-    text+='\nfrom os_content_formats import output_mode\n'
+    text+='\nfrom os_content_formats import output_mode, summary_values\n'
     path.write_text(text)
     (source/'os_content_formats.py').write_text(Path(__file__).with_name('os_content_formats.py').read_text())
     judge=source/'judge36.py';js=judge.read_text();start=js.index('def _normal(');end=js.index('\n\ndef check_goal',start)
@@ -164,6 +179,26 @@ def refine(source):
     # Present task data as normal file attributes and incident metadata, not goals.
     desktop=source/'static/desktop.js'
     ui=desktop.read_text()
+    ui=ui.replace("let busy=Promise.resolve();", "let copiedPath=\"\";\nlet busy=Promise.resolve();")
+    ui=ui.replace('autocomplete="off"></label></form>', 'autocomplete="off"></label>${btn("paste-path","Paste path",copiedPath?"":"disabled")}</form>')
+    ui=ui.replace("${btn('copy','Copy')}", "${btn('copy','Copy')}${btn('copy-path','Copy path','title=\"Copy selected item path, or current folder when nothing is selected\"')}")
+    ui=ui.replace("${btn('choose-document','Open…')}", "${btn('choose-document','Open…')}${btn('copy-path','Copy path',f?'':'disabled')}")
+    ui=ui.replace("['copy','cut','rename','delete','properties']", "['copy','copy-path','cut','rename','delete','properties']")
+    ui=ui.replace("btn(c,c[0].toUpperCase()+c.slice(1))", "btn(c,c==='copy-path'?'Copy path':c[0].toUpperCase()+c.slice(1))")
+    ui=ui.replace("  else if(c==='properties')", """  else if(c==='copy-path'){
+    if(w.app==='files'&&w.selected.length>1){notice='Select one file or folder to copy its path.'}
+    else {
+      const id=w.app==='editor'?w.fileId:(w.selected[0]||w.route);
+      if(id){const value=fullpath(id);copiedPath=value;try{await navigator.clipboard.writeText(value);notice='Path copied: '+value}catch{dialog={type:'copy-path',title:'Copy path',value}}}
+    }
+  }
+  else if(c==='paste-path'&&copiedPath){
+    const input=root.querySelector(`[data-window="${w.id}"] input[name="command"]`);
+    input.setRangeText(copiedPath,input.selectionStart,input.selectionEnd,'end');input.focus();return;
+  }
+  else if(c==='properties')""")
+    ui=ui.replace("  if(dialog.type==='open')", "  if(dialog.type==='copy-path') fields=`<label>Absolute path<input aria-label=\"Absolute path\" value=\"${esc(dialog.value)}\" readonly></label><p>Select the path and copy it with Ctrl+C or Command+C.</p>`;\n  if(dialog.type==='open')")
+
     old="<span>${esc(f.kind)}</span><span>${f.kind==='folder'"
     assert old in ui
     ui=ui.replace(old,"<span>${esc(f.kind)}${typeof f.approved==='boolean'?(f.approved?' · Approved':' · Not approved'):''}</span><span>${f.kind==='folder'")

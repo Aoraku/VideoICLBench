@@ -5,15 +5,15 @@
   "benchmark_version": "2.0.0-dev.5",
   "implementation": {
     "source_hashes": {
-      "os_content_formats.py": "aa7ac8e1f007684af7a210521e3ce3b039161a94142a0b95e9595eea47a2d792",
+      "os_content_formats.py": "51e19a592901381d253cf1e0e47a4837822441445814d5b4daa4e6f3d8d42c2a",
       "workflows.py": "acfc7a8b6fcda2b0bd74a79d0a8738f92f0ddbc375d59285eefcd0e2519075e6",
       "domain_checks.py": "32143eb23b5f4cec18890186cd1f84594e3486bee8d307187f6bf7e668ab38b8",
       "protocols.py": "805ac88cf4d835eafd4c71e9a36584bd6f95e32625b63c5b453ba43a6c92aada",
       "server.py": "b915f224c122f60001483b4c31de274398d6a07de8e00cdff446ed61c7b7eb99",
-      "tasks36.py": "8cfe63aabd60dccca763a6d1bd0ecb7b3f1ddd7d9ea4237e3720d0d31203d3c2",
+      "tasks36.py": "17dd62d9d98ecf26cadbbf8d887d1c9db3833016dd4aab8c787ed0a4017374ed",
       "judge36.py": "856feda1bc8dba9b4680305d81f5c0e73f3d5f8b8122d055a16bbb5b773e61ac",
-      "docs/TASK_CATALOGUE_36.json": "83fcefc29364382e26165a4be543b261861d5586a7c5cf7ab251b932586465f1",
-      "static/desktop.js": "7905242fe99346faf8f24fef692735af459b9216b266f6437929dd8b8ad42a31",
+      "docs/TASK_CATALOGUE_36.json": "103888aeba5a761a22da8c2300923e566fc06a06ad4c3742c954e8aa9e50476f",
+      "static/desktop.js": "de425ea152a1ae2e1f862e7e597686465da0af0c2fbf0e5d9f407196fff48ca1",
       "static/desktop.css": "1a2cacdee1d68f6d157ed1d888449b14c09292fb787de9157365a16c4747416c",
       "static/index.html": "3fcaa596157cd37876cf0389855ee00019ecd49af4d756df6591a669ef1b82cc",
       "static/recording.html": "e219189072a71bba7070ba2a01a6e2a94369d8f72cfaef7d34e531e3a78eb806",
@@ -22,7 +22,7 @@
       "scripts/audit_v2_browser.py": "f811ab49977334749dba71e9c78391d7377c5e67a66c6293ec05ad414ec7ff1c",
       "artifact_provenance.py": "2b9f0b0e653c1e810107e3aeff0cf99e24029f6ec6a2ad453890a993a5c4c7b9"
     },
-    "fingerprint": "459edcb6c7edcbaede55c0c8671b5f7da13d40d44c9d9507ce70c5616534116f"
+    "fingerprint": "c30725b284b37e00cf743ce47b0fa4228b927788d00526ee9f9ac2083b0243f2"
   },
   "recording_compatibility": {
     "840147ed39d053a888c3c92b41aeff2f183cf0c19e12c4c0475156b727137d69": [
@@ -53,11 +53,9 @@
       "OS-H-05",
       "OS-H-06",
       "OS-H-07",
-      "OS-H-08",
       "OS-H-09",
       "OS-H-10",
-      "OS-H-11",
-      "OS-H-12"
+      "OS-H-11"
     ],
     "82fb1b2f86fc95acc98282522d4b14506fc7b87516490b0120259fb4379cde93": [
       "OS-E-01",
@@ -90,11 +88,9 @@
       "OS-H-05",
       "OS-H-06",
       "OS-H-07",
-      "OS-H-08",
       "OS-H-09",
       "OS-H-10",
-      "OS-H-11",
-      "OS-H-12"
+      "OS-H-11"
     ],
     "b2cf8fbbffd94d3179a7cb439383f52703a032001d52f087a27bdd5a124e9b02": [
       "OS-E-01",
@@ -128,12 +124,88 @@
       "OS-H-05",
       "OS-H-06",
       "OS-H-07",
-      "OS-H-08",
       "OS-H-09",
       "OS-H-10",
-      "OS-H-11",
-      "OS-H-12"
+      "OS-H-11"
+    ],
+    "459edcb6c7edcbaede55c0c8671b5f7da13d40d44c9d9507ce70c5616534116f": [
+      "OS-E-01",
+      "OS-E-02",
+      "OS-E-03",
+      "OS-E-04",
+      "OS-E-05",
+      "OS-E-06",
+      "OS-E-07",
+      "OS-E-08",
+      "OS-E-09",
+      "OS-E-10",
+      "OS-E-11",
+      "OS-E-12",
+      "OS-M-01",
+      "OS-M-02",
+      "OS-M-03",
+      "OS-M-04",
+      "OS-M-05",
+      "OS-M-06",
+      "OS-M-07",
+      "OS-M-08",
+      "OS-M-09",
+      "OS-M-10",
+      "OS-M-11",
+      "OS-M-12",
+      "OS-H-01",
+      "OS-H-02",
+      "OS-H-03",
+      "OS-H-04",
+      "OS-H-05",
+      "OS-H-06",
+      "OS-H-07",
+      "OS-H-09",
+      "OS-H-10",
+      "OS-H-11"
     ]
+  },
+  "recording_variant_compatibility": {
+    "840147ed39d053a888c3c92b41aeff2f183cf0c19e12c4c0475156b727137d69": {
+      "OS-H-08": [
+        "A",
+        "B"
+      ],
+      "OS-H-12": [
+        "A",
+        "B"
+      ]
+    },
+    "82fb1b2f86fc95acc98282522d4b14506fc7b87516490b0120259fb4379cde93": {
+      "OS-H-08": [
+        "A",
+        "B"
+      ],
+      "OS-H-12": [
+        "A",
+        "B"
+      ]
+    },
+    "b2cf8fbbffd94d3179a7cb439383f52703a032001d52f087a27bdd5a124e9b02": {
+      "OS-H-08": [
+        "A",
+        "B"
+      ],
+      "OS-H-12": [
+        "A",
+        "B"
+      ]
+    },
+    "459edcb6c7edcbaede55c0c8671b5f7da13d40d44c9d9507ce70c5616534116f": {
+      "OS-H-08": [
+        "A",
+        "B"
+      ],
+      "OS-H-12": [
+        "A",
+        "B"
+      ]
+    }
   },
   "cases": [
     {
@@ -11070,7 +11142,7 @@
                 {
                   "title": "检查离线资源",
                   "where": "Start → Terminal",
-                  "action": "输入 offline-test \"/Projects/Northbridge-878/Working/Reports/03-cache-files\" 后回车，展示检查输出。",
+                  "action": "在 File Explorer 选中 /Projects/Northbridge-878/Working/Reports/03-cache-files 文件夹，点击 Copy path；在 Terminal 输入 offline-test，空格后加英文双引号，点击 Paste path（或 Ctrl+V / Command+V）粘贴路径，再补英文双引号并回车。完整命令：offline-test \"/Projects/Northbridge-878/Working/Reports/03-cache-files\"。展示检查输出。",
                   "expected": null
                 }
               ],
@@ -11159,7 +11231,7 @@
                 {
                   "title": "检查离线资源",
                   "where": "Start → Terminal",
-                  "action": "输入 offline-test \"/Projects/Cedar-262/Working/Reports/03-cache-files\" 后回车，展示检查输出。",
+                  "action": "在 File Explorer 选中 /Projects/Cedar-262/Working/Reports/03-cache-files 文件夹，点击 Copy path；在 Terminal 输入 offline-test，空格后加英文双引号，点击 Paste path（或 Ctrl+V / Command+V）粘贴路径，再补英文双引号并回车。完整命令：offline-test \"/Projects/Cedar-262/Working/Reports/03-cache-files\"。展示检查输出。",
                   "expected": null
                 }
               ],
@@ -11248,7 +11320,7 @@
                 {
                   "title": "检查离线资源",
                   "where": "Start → Terminal",
-                  "action": "输入 offline-test \"/Projects/Northbridge-585/Working/Reports/03-cache-files\" 后回车，展示检查输出。",
+                  "action": "在 File Explorer 选中 /Projects/Northbridge-585/Working/Reports/03-cache-files 文件夹，点击 Copy path；在 Terminal 输入 offline-test，空格后加英文双引号，点击 Paste path（或 Ctrl+V / Command+V）粘贴路径，再补英文双引号并回车。完整命令：offline-test \"/Projects/Northbridge-585/Working/Reports/03-cache-files\"。展示检查输出。",
                   "expected": null
                 }
               ],
@@ -11339,7 +11411,7 @@
                 {
                   "title": "检查离线资源",
                   "where": "Start → Terminal",
-                  "action": "输入 offline-test \"/Projects/Northbridge-878/Working/Reports/03-cache-files\" 后回车，展示检查输出。",
+                  "action": "在 File Explorer 选中 /Projects/Northbridge-878/Working/Reports/03-cache-files 文件夹，点击 Copy path；在 Terminal 输入 offline-test，空格后加英文双引号，点击 Paste path（或 Ctrl+V / Command+V）粘贴路径，再补英文双引号并回车。完整命令：offline-test \"/Projects/Northbridge-878/Working/Reports/03-cache-files\"。展示检查输出。",
                   "expected": null
                 }
               ],
@@ -11428,7 +11500,7 @@
                 {
                   "title": "检查离线资源",
                   "where": "Start → Terminal",
-                  "action": "输入 offline-test \"/Projects/Cedar-262/Working/Reports/03-cache-files\" 后回车，展示检查输出。",
+                  "action": "在 File Explorer 选中 /Projects/Cedar-262/Working/Reports/03-cache-files 文件夹，点击 Copy path；在 Terminal 输入 offline-test，空格后加英文双引号，点击 Paste path（或 Ctrl+V / Command+V）粘贴路径，再补英文双引号并回车。完整命令：offline-test \"/Projects/Cedar-262/Working/Reports/03-cache-files\"。展示检查输出。",
                   "expected": null
                 }
               ],
@@ -11517,7 +11589,7 @@
                 {
                   "title": "检查离线资源",
                   "where": "Start → Terminal",
-                  "action": "输入 offline-test \"/Projects/Northbridge-585/Working/Reports/03-cache-files\" 后回车，展示检查输出。",
+                  "action": "在 File Explorer 选中 /Projects/Northbridge-585/Working/Reports/03-cache-files 文件夹，点击 Copy path；在 Terminal 输入 offline-test，空格后加英文双引号，点击 Paste path（或 Ctrl+V / Command+V）粘贴路径，再补英文双引号并回车。完整命令：offline-test \"/Projects/Northbridge-585/Working/Reports/03-cache-files\"。展示检查输出。",
                   "expected": null
                 }
               ],
@@ -11608,7 +11680,7 @@
                 {
                   "title": "检查离线资源",
                   "where": "Start → Terminal",
-                  "action": "输入 offline-test \"/Projects/Northbridge-878/Working/Reports/03-cache-files\" 后回车，展示检查输出。",
+                  "action": "在 File Explorer 选中 /Projects/Northbridge-878/Working/Reports/03-cache-files 文件夹，点击 Copy path；在 Terminal 输入 offline-test，空格后加英文双引号，点击 Paste path（或 Ctrl+V / Command+V）粘贴路径，再补英文双引号并回车。完整命令：offline-test \"/Projects/Northbridge-878/Working/Reports/03-cache-files\"。展示检查输出。",
                   "expected": null
                 }
               ],
@@ -11697,7 +11769,7 @@
                 {
                   "title": "检查离线资源",
                   "where": "Start → Terminal",
-                  "action": "输入 offline-test \"/Projects/Cedar-262/Working/Reports/03-cache-files\" 后回车，展示检查输出。",
+                  "action": "在 File Explorer 选中 /Projects/Cedar-262/Working/Reports/03-cache-files 文件夹，点击 Copy path；在 Terminal 输入 offline-test，空格后加英文双引号，点击 Paste path（或 Ctrl+V / Command+V）粘贴路径，再补英文双引号并回车。完整命令：offline-test \"/Projects/Cedar-262/Working/Reports/03-cache-files\"。展示检查输出。",
                   "expected": null
                 }
               ],
@@ -11786,7 +11858,7 @@
                 {
                   "title": "检查离线资源",
                   "where": "Start → Terminal",
-                  "action": "输入 offline-test \"/Projects/Northbridge-585/Working/Reports/03-cache-files\" 后回车，展示检查输出。",
+                  "action": "在 File Explorer 选中 /Projects/Northbridge-585/Working/Reports/03-cache-files 文件夹，点击 Copy path；在 Terminal 输入 offline-test，空格后加英文双引号，点击 Paste path（或 Ctrl+V / Command+V）粘贴路径，再补英文双引号并回车。完整命令：offline-test \"/Projects/Northbridge-585/Working/Reports/03-cache-files\"。展示检查输出。",
                   "expected": null
                 }
               ],
@@ -12223,9 +12295,9 @@
       "query_example": "Recover the locked build and its independent configuration/test errors. Preserve the old output, pass real tests against public source specifications, save a faithful test summary and restore owner process states. Stage fresh copies under Working (under its current-shoot child for camera material), stage reports in its Reports child, and final artifacts in Deliverables. Use the test-result summary representation demonstrated in the video. Save test-summary.txt with build_artifact, passed and assertions, in that field order when order matters. Assertions retain name, expected, actual and passed from the actual test result. For JSON outputs, use the declared field names and value types; indentation and object key order are unrestricted.",
       "relation": "test-result summary representation",
       "rules": {
-        "A": "逐行 key: value。key: value lines 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。 三行依次为 build_artifact: 值、passed: 值、assertions: 值。冒号后的每个值都使用 JSON：build_artifact 是带双引号的字符串，passed 是不带引号的 true/false，assertions 是 JSON 数组；每个断言保留 name、expected、actual、passed 及其类型。assertions 数组必须放在同一物理行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
-        "B": "JSON 对象，字段名与原结果一致。JSON object 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。 输出 JSON 对象，含 build_artifact（字符串）、passed（布尔值）、assertions（数组）。每个断言保留 name、expected、actual、passed，全部值及类型与输入一致。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。",
-        "C": "带列头的一行 CSV，列序沿用源结果。CSV build_artifact,passed,assertions 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。 CSV 两行：表头 build_artifact,passed,assertions；数据行三列为构建 ID、true/false、完整断言 JSON 数组。第三列用双引号包裹，JSON 内每个双引号写成两个双引号（标准 CSV 转义）；每个断言保留 name、expected、actual、passed。\n使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。"
+        "A": "逐行 key: value。key: value lines 公共字段顺序为 build_artifact、passed、assertions；所有值保留源 JSON 类型与引号。C 的数据行由三个 JSON 值用逗号连接，不做 CSV 双重转义。 三行依次为 build_artifact: 值、passed: 值、assertions: 值。冒号后的每个值都使用 JSON：build_artifact 是带双引号的字符串，passed 是不带引号的 true/false，assertions 是 JSON 数组；每个断言保留 name、expected、actual、passed 及其类型。assertions 数组必须放在同一物理行。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
+        "B": "JSON 对象，字段名与原结果一致。JSON object 公共字段顺序为 build_artifact、passed、assertions；所有值保留源 JSON 类型与引号。C 的数据行由三个 JSON 值用逗号连接，不做 CSV 双重转义。 输出 JSON 对象，含 build_artifact（字符串）、passed（布尔值）、assertions（数组）。每个断言保留 name、expected、actual、passed，全部值及类型与输入一致。\nJSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。",
+        "C": "两行：字段名表头；按原顺序用逗号连接三个 JSON 值，保留字符串双引号及数组结构，不做 CSV 转义。Header build_artifact,passed,assertions then comma-separated JSON values 公共字段顺序为 build_artifact、passed、assertions；所有值保留源 JSON 类型与引号。C 的数据行由三个 JSON 值用逗号连接，不做 CSV 双重转义。 两行：第一行固定 build_artifact,passed,assertions；第二行将三个源 JSON 值按此顺序用英文逗号连接。例如 \"build_4\",true,[{\"name\":\"check\",\"expected\":1,\"actual\":1,\"passed\":true}]。构建 ID 保留双引号；assertions 保留数组本身，不在数组外包双引号，也不将内部双引号重复转义。每个断言保留全部字段及类型。\n这不是标准 CSV 转义格式；三个值分别为 JSON 字符串、布尔值和数组。允许 JSON 等价缩进与对象字段顺序，不改变数组顺序或数据类型。"
       },
       "demo_description": "将已经给出的测试结果转成摘要。三组使用不同 build_artifact、断言和值，保留全部字段；不录构建、测试修复和进程恢复。",
       "demo_instruction": "Read Example input.json and demonstrate the local transformation in Example result.txt. Preserve the input. This is a local-method demonstration, not the full query workflow.",
@@ -12498,7 +12570,7 @@
               {
                 "op": "write",
                 "target": "/Projects/Project-1001/Output/Example result.txt",
-                "content": "build_artifact,passed,assertions\nbuild-4,true,\"[{\"\"name\"\": \"\"project\"\", \"\"expected\"\": \"\"P44\"\", \"\"actual\"\": \"\"P44\"\", \"\"passed\"\": true}, {\"\"name\"\": \"\"revision\"\", \"\"expected\"\": 17, \"\"actual\"\": 17, \"\"passed\"\": true}]\"\n"
+                "content": "build_artifact,passed,assertions\n\"build-4\",true,[{\"name\": \"project\", \"expected\": \"P44\", \"actual\": \"P44\", \"passed\": true}, {\"name\": \"revision\", \"expected\": 17, \"actual\": 17, \"passed\": true}]"
               }
             ],
             "guide": {
@@ -12523,12 +12595,12 @@
                   "title": "编辑并保存 Example result.txt",
                   "where": "Notepad → Open… → Document → /Projects/Project-1001/Output/Example result.txt → OK",
                   "action": "在正文编辑区逐项处理材料，展示输入与对应结果；点击顶部 Save。保存后重新 Open… 打开同一文件，确认内容仍在。",
-                  "expected": "build_artifact,passed,assertions\nbuild-4,true,\"[{\"\"name\"\": \"\"project\"\", \"\"expected\"\": \"\"P44\"\", \"\"actual\"\": \"\"P44\"\", \"\"passed\"\": true}, {\"\"name\"\": \"\"revision\"\", \"\"expected\"\": 17, \"\"actual\"\": 17, \"\"passed\"\": true}]\"\n"
+                  "expected": "build_artifact,passed,assertions\n\"build-4\",true,[{\"name\": \"project\", \"expected\": \"P44\", \"actual\": \"P44\", \"passed\": true}, {\"name\": \"revision\", \"expected\": 17, \"actual\": 17, \"passed\": true}]"
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
               "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
-              "output_format": "CSV 两行：表头 build_artifact,passed,assertions；数据行三列为构建 ID、true/false、完整断言 JSON 数组。第三列用双引号包裹，JSON 内每个双引号写成两个双引号（标准 CSV 转义）；每个断言保留 name、expected、actual、passed。\n使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。"
+              "output_format": "两行：第一行固定 build_artifact,passed,assertions；第二行将三个源 JSON 值按此顺序用英文逗号连接。例如 \"build_4\",true,[{\"name\":\"check\",\"expected\":1,\"actual\":1,\"passed\":true}]。构建 ID 保留双引号；assertions 保留数组本身，不在数组外包双引号，也不将内部双引号重复转义。每个断言保留全部字段及类型。\n这不是标准 CSV 转义格式；三个值分别为 JSON 字符串、布尔值和数组。允许 JSON 等价缩进与对象字段顺序，不改变数组顺序或数据类型。"
             }
           },
           {
@@ -12538,7 +12610,7 @@
               {
                 "op": "write",
                 "target": "/Projects/Project-1012/Output/Example result.txt",
-                "content": "build_artifact,passed,assertions\nbuild-15,true,\"[{\"\"name\"\": \"\"project\"\", \"\"expected\"\": \"\"P55\"\", \"\"actual\"\": \"\"P55\"\", \"\"passed\"\": true}, {\"\"name\"\": \"\"revision\"\", \"\"expected\"\": 11, \"\"actual\"\": 11, \"\"passed\"\": true}]\"\n"
+                "content": "build_artifact,passed,assertions\n\"build-15\",true,[{\"name\": \"project\", \"expected\": \"P55\", \"actual\": \"P55\", \"passed\": true}, {\"name\": \"revision\", \"expected\": 11, \"actual\": 11, \"passed\": true}]"
               }
             ],
             "guide": {
@@ -12563,12 +12635,12 @@
                   "title": "编辑并保存 Example result.txt",
                   "where": "Notepad → Open… → Document → /Projects/Project-1012/Output/Example result.txt → OK",
                   "action": "在正文编辑区逐项处理材料，展示输入与对应结果；点击顶部 Save。保存后重新 Open… 打开同一文件，确认内容仍在。",
-                  "expected": "build_artifact,passed,assertions\nbuild-15,true,\"[{\"\"name\"\": \"\"project\"\", \"\"expected\"\": \"\"P55\"\", \"\"actual\"\": \"\"P55\"\", \"\"passed\"\": true}, {\"\"name\"\": \"\"revision\"\", \"\"expected\"\": 11, \"\"actual\"\": 11, \"\"passed\"\": true}]\"\n"
+                  "expected": "build_artifact,passed,assertions\n\"build-15\",true,[{\"name\": \"project\", \"expected\": \"P55\", \"actual\": \"P55\", \"passed\": true}, {\"name\": \"revision\", \"expected\": 11, \"actual\": 11, \"passed\": true}]"
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
               "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
-              "output_format": "CSV 两行：表头 build_artifact,passed,assertions；数据行三列为构建 ID、true/false、完整断言 JSON 数组。第三列用双引号包裹，JSON 内每个双引号写成两个双引号（标准 CSV 转义）；每个断言保留 name、expected、actual、passed。\n使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。"
+              "output_format": "两行：第一行固定 build_artifact,passed,assertions；第二行将三个源 JSON 值按此顺序用英文逗号连接。例如 \"build_4\",true,[{\"name\":\"check\",\"expected\":1,\"actual\":1,\"passed\":true}]。构建 ID 保留双引号；assertions 保留数组本身，不在数组外包双引号，也不将内部双引号重复转义。每个断言保留全部字段及类型。\n这不是标准 CSV 转义格式；三个值分别为 JSON 字符串、布尔值和数组。允许 JSON 等价缩进与对象字段顺序，不改变数组顺序或数据类型。"
             }
           },
           {
@@ -12578,7 +12650,7 @@
               {
                 "op": "write",
                 "target": "/Projects/Project-1026/Output/Example result.txt",
-                "content": "build_artifact,passed,assertions\nbuild-29,true,\"[{\"\"name\"\": \"\"project\"\", \"\"expected\"\": \"\"P69\"\", \"\"actual\"\": \"\"P69\"\", \"\"passed\"\": true}, {\"\"name\"\": \"\"revision\"\", \"\"expected\"\": 8, \"\"actual\"\": 8, \"\"passed\"\": true}]\"\n"
+                "content": "build_artifact,passed,assertions\n\"build-29\",true,[{\"name\": \"project\", \"expected\": \"P69\", \"actual\": \"P69\", \"passed\": true}, {\"name\": \"revision\", \"expected\": 8, \"actual\": 8, \"passed\": true}]"
               }
             ],
             "guide": {
@@ -12603,12 +12675,12 @@
                   "title": "编辑并保存 Example result.txt",
                   "where": "Notepad → Open… → Document → /Projects/Project-1026/Output/Example result.txt → OK",
                   "action": "在正文编辑区逐项处理材料，展示输入与对应结果；点击顶部 Save。保存后重新 Open… 打开同一文件，确认内容仍在。",
-                  "expected": "build_artifact,passed,assertions\nbuild-29,true,\"[{\"\"name\"\": \"\"project\"\", \"\"expected\"\": \"\"P69\"\", \"\"actual\"\": \"\"P69\"\", \"\"passed\"\": true}, {\"\"name\"\": \"\"revision\"\", \"\"expected\"\": 8, \"\"actual\"\": 8, \"\"passed\"\": true}]\"\n"
+                  "expected": "build_artifact,passed,assertions\n\"build-29\",true,[{\"name\": \"project\", \"expected\": \"P69\", \"actual\": \"P69\", \"passed\": true}, {\"name\": \"revision\", \"expected\": 8, \"actual\": 8, \"passed\": true}]"
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
               "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
-              "output_format": "CSV 两行：表头 build_artifact,passed,assertions；数据行三列为构建 ID、true/false、完整断言 JSON 数组。第三列用双引号包裹，JSON 内每个双引号写成两个双引号（标准 CSV 转义）；每个断言保留 name、expected、actual、passed。\n使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。"
+              "output_format": "两行：第一行固定 build_artifact,passed,assertions；第二行将三个源 JSON 值按此顺序用英文逗号连接。例如 \"build_4\",true,[{\"name\":\"check\",\"expected\":1,\"actual\":1,\"passed\":true}]。构建 ID 保留双引号；assertions 保留数组本身，不在数组外包双引号，也不将内部双引号重复转义。每个断言保留全部字段及类型。\n这不是标准 CSV 转义格式；三个值分别为 JSON 字符串、布尔值和数组。允许 JSON 等价缩进与对象字段顺序，不改变数组顺序或数据类型。"
             }
           }
         ]
@@ -14022,7 +14094,7 @@
       "rules": {
         "A": "[r{revision}] {title}。[rN] Title  每个输入标题一行：[rN] Title。N 取本条 revision，Title 取本条 title。例如 [r5] Review packet。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
         "B": "{title} [r{revision}]。Title [rN]  每个输入标题一行：Title [rN]。N 取本条 revision，Title 取本条 title。例如 Review packet [r5]。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。",
-        "C": "r{revision} — {title}。rN — Title  每个输入标题一行：rN — Title。N 取本条 revision，Title 取本条 title；中间为长横线 —（不是减号 -）。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
+        "C": "r{revision} - {title}（英文短横线，左右各一空格）。rN - Title  每个输入标题一行：rN - Title。N 取本条 revision，Title 取本条 title；中间为英文短横线 -，左右各一个空格。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
       },
       "demo_description": "给两个不同标题加入各自修订号。录三组不同标题和修订，不录撤回旧队列和重新提交。",
       "demo_instruction": "Read Example input.json and demonstrate the local transformation in Example result.txt. Preserve the input. This is a local-method demonstration, not the full query workflow.",
@@ -14295,7 +14367,7 @@
               {
                 "op": "write",
                 "target": "/Projects/Project-1001/Output/Example result.txt",
-                "content": "r2 — Technical report\nr5 — Operations summary"
+                "content": "r2 - Technical report\nr5 - Operations summary"
               }
             ],
             "guide": {
@@ -14320,12 +14392,12 @@
                   "title": "编辑并保存 Example result.txt",
                   "where": "Notepad → Open… → Document → /Projects/Project-1001/Output/Example result.txt → OK",
                   "action": "在正文编辑区逐项处理材料，展示输入与对应结果；点击顶部 Save。保存后重新 Open… 打开同一文件，确认内容仍在。",
-                  "expected": "r2 — Technical report\nr5 — Operations summary"
+                  "expected": "r2 - Technical report\nr5 - Operations summary"
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
               "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
-              "output_format": "每个输入标题一行：rN — Title。N 取本条 revision，Title 取本条 title；中间为长横线 —（不是减号 -）。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
+              "output_format": "每个输入标题一行：rN - Title。N 取本条 revision，Title 取本条 title；中间为英文短横线 -，左右各一个空格。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -14335,7 +14407,7 @@
               {
                 "op": "write",
                 "target": "/Projects/Project-1012/Output/Example result.txt",
-                "content": "r13 — Field briefing\nr16 — Operations summary"
+                "content": "r13 - Field briefing\nr16 - Operations summary"
               }
             ],
             "guide": {
@@ -14360,12 +14432,12 @@
                   "title": "编辑并保存 Example result.txt",
                   "where": "Notepad → Open… → Document → /Projects/Project-1012/Output/Example result.txt → OK",
                   "action": "在正文编辑区逐项处理材料，展示输入与对应结果；点击顶部 Save。保存后重新 Open… 打开同一文件，确认内容仍在。",
-                  "expected": "r13 — Field briefing\nr16 — Operations summary"
+                  "expected": "r13 - Field briefing\nr16 - Operations summary"
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
               "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
-              "output_format": "每个输入标题一行：rN — Title。N 取本条 revision，Title 取本条 title；中间为长横线 —（不是减号 -）。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
+              "output_format": "每个输入标题一行：rN - Title。N 取本条 revision，Title 取本条 title；中间为英文短横线 -，左右各一个空格。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           },
           {
@@ -14375,7 +14447,7 @@
               {
                 "op": "write",
                 "target": "/Projects/Project-1026/Output/Example result.txt",
-                "content": "r14 — Review packet\nr17 — Operations summary"
+                "content": "r14 - Review packet\nr17 - Operations summary"
               }
             ],
             "guide": {
@@ -14400,12 +14472,12 @@
                   "title": "编辑并保存 Example result.txt",
                   "where": "Notepad → Open… → Document → /Projects/Project-1026/Output/Example result.txt → OK",
                   "action": "在正文编辑区逐项处理材料，展示输入与对应结果；点击顶部 Save。保存后重新 Open… 打开同一文件，确认内容仍在。",
-                  "expected": "r14 — Review packet\nr17 — Operations summary"
+                  "expected": "r14 - Review packet\nr17 - Operations summary"
                 }
               ],
               "preserve": "未列出需要修改的对象保持原状；展示它们与命中对象的区别。不要改动 Documents/Unrelated note.txt。",
               "finish": "展示保存后的结果。试做后可回工作台点击「检查示范结果」；正式录制时在应用右下角点击「下一组」继续，最后点击「完成练习」，回工作台等待上传并审核。",
-              "output_format": "每个输入标题一行：rN — Title。N 取本条 revision，Title 取本条 title；中间为长横线 —（不是减号 -）。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
+              "output_format": "每个输入标题一行：rN - Title。N 取本条 revision，Title 取本条 title；中间为英文短横线 -，左右各一个空格。Demo 不附加正文。\n这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。"
             }
           }
         ]

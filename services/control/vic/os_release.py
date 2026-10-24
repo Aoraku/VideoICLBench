@@ -22,7 +22,8 @@ def recording_current(release, entry):
         return False
     fingerprint=entry.get('fingerprint')
     return (fingerprint == release['implementation']['fingerprint']
-            or entry.get('case_id') in release.get('recording_compatibility',{}).get(fingerprint,[]))
+            or entry.get('case_id') in release.get('recording_compatibility',{}).get(fingerprint,[])
+            or {0:'A',1:'B',2:'C'}.get(entry.get('convention')) in release.get('recording_variant_compatibility',{}).get(fingerprint,{}).get(entry.get('case_id'),[]))
 
 
 def demonstrations(source, data=None, *, approved_only=False):

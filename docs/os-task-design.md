@@ -1107,14 +1107,14 @@ JSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可�
 
 **示范组织：** 3 组局部练习，连续录为一段人工视频；一段只呈现 A/B/C 中的一个版本。
 
-- **A：** 逐行 key: value。key: value lines 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。 三行依次为 build_artifact: 值、passed: 值、assertions: 值。冒号后的每个值都使用 JSON：build_artifact 是带双引号的字符串，passed 是不带引号的 true/false，assertions 是 JSON 数组；每个断言保留 name、expected、actual、passed 及其类型。assertions 数组必须放在同一物理行。
+- **A：** 逐行 key: value。key: value lines 公共字段顺序为 build_artifact、passed、assertions；所有值保留源 JSON 类型与引号。C 的数据行由三个 JSON 值用逗号连接，不做 CSV 双重转义。 三行依次为 build_artifact: 值、passed: 值、assertions: 值。冒号后的每个值都使用 JSON：build_artifact 是带双引号的字符串，passed 是不带引号的 true/false，assertions 是 JSON 数组；每个断言保留 name、expected、actual、passed 及其类型。assertions 数组必须放在同一物理行。
 这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
-- **B：** JSON 对象，字段名与原结果一致。JSON object 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。 输出 JSON 对象，含 build_artifact（字符串）、passed（布尔值）、assertions（数组）。每个断言保留 name、expected、actual、passed，全部值及类型与输入一致。
+- **B：** JSON 对象，字段名与原结果一致。JSON object 公共字段顺序为 build_artifact、passed、assertions；所有值保留源 JSON 类型与引号。C 的数据行由三个 JSON 值用逗号连接，不做 CSV 双重转义。 输出 JSON 对象，含 build_artifact（字符串）、passed（布尔值）、assertions（数组）。每个断言保留 name、expected、actual、passed，全部值及类型与输入一致。
 JSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可为 0、2、4 个空格或 Tab，对象字段顺序不影响判分；数组按输入对象顺序填写。不要加 Markdown 代码围栏。
 
-- **C：** 带列头的一行 CSV，列序沿用源结果。CSV build_artifact,passed,assertions 公共字段顺序为 build_artifact、passed、assertions；嵌套断言是 JSON，CSV 使用标准双引号转义。 CSV 两行：表头 build_artifact,passed,assertions；数据行三列为构建 ID、true/false、完整断言 JSON 数组。第三列用双引号包裹，JSON 内每个双引号写成两个双引号（标准 CSV 转义）；每个断言保留 name、expected、actual、passed。
-使用标准 CSV，不加 Markdown 围栏；允许 CRLF/LF、末尾换行、可选的单元格双引号，以及单元格内 JSON 的等价空白和对象字段顺序。列顺序和数据类型必须正确，不要在单元格值外添加空格。
+- **C：** 两行：字段名表头；按原顺序用逗号连接三个 JSON 值，保留字符串双引号及数组结构，不做 CSV 转义。Header build_artifact,passed,assertions then comma-separated JSON values 公共字段顺序为 build_artifact、passed、assertions；所有值保留源 JSON 类型与引号。C 的数据行由三个 JSON 值用逗号连接，不做 CSV 双重转义。 两行：第一行固定 build_artifact,passed,assertions；第二行将三个源 JSON 值按此顺序用英文逗号连接。例如 "build_4",true,[{"name":"check","expected":1,"actual":1,"passed":true}]。构建 ID 保留双引号；assertions 保留数组本身，不在数组外包双引号，也不将内部双引号重复转义。每个断言保留全部字段及类型。
+这不是标准 CSV 转义格式；三个值分别为 JSON 字符串、布尔值和数组。允许 JSON 等价缩进与对象字段顺序，不改变数组顺序或数据类型。
 
 **Demo 操作应用：** Notepad
 
@@ -1267,7 +1267,7 @@ JSON 使用英文双引号；true/false 为布尔值，不加引号。缩进可�
 - **B：** {title} [r{revision}]。Title [rN]  每个输入标题一行：Title [rN]。N 取本条 revision，Title 取本条 title。例如 Review packet [r5]。Demo 不附加正文。
 这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
-- **C：** r{revision} — {title}。rN — Title  每个输入标题一行：rN — Title。N 取本条 revision，Title 取本条 title；中间为长横线 —（不是减号 -）。Demo 不附加正文。
+- **C：** r{revision} - {title}（英文短横线，左右各一空格）。rN - Title  每个输入标题一行：rN - Title。N 取本条 revision，Title 取本条 title；中间为英文短横线 -，左右各一个空格。Demo 不附加正文。
 这是纯文本，不加 JSON 外壳或 Markdown 代码围栏；一条结果一行，顺序对应输入。允许 CRLF/LF、行首尾空白和末尾换行不同；字段名、值、单位、精度及有意义的标点必须正确。
 
 **Demo 操作应用：** Notepad

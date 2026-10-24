@@ -18,6 +18,14 @@ def _json(value):
 
 
 def normal(value, mode):
+    if mode=='summary-values':
+        header,sep,body=value.strip().partition('\n')
+        if not sep or header.strip()!='build_artifact,passed,assertions':raise ValueError('Expected build_artifact,passed,assertions header')
+        canonical=_json('['+body+']')
+        values=json.loads(canonical)
+        if len(values)!=3 or not isinstance(values[0],str) or type(values[1]) is not bool or not isinstance(values[2],list):
+            raise ValueError('Expected JSON string, boolean and array values')
+        return canonical
     if mode=='json':return _json(value)
     if mode=='jsonl':return [json.loads(line) for line in value.splitlines() if line.strip()]
     if mode=='trim-lines':return [line.strip() for line in value.replace('\r\n','\n').strip().split('\n') if line.strip()]
@@ -54,7 +62,13 @@ def normal(value, mode):
 def output_mode(cid,condition,scope,original):
     if original=='json':return original
     if cid=='OS-H-01':return ['diff-lines','diff-csv','json'][condition]
-    if cid=='OS-H-08':return ['summary-lines','json','summary-csv'][condition]
+    if cid=='OS-H-08':return ['summary-lines','json','summary-values'][condition]
     if cid in {'OS-H-02','OS-H-06','OS-H-12'}:return 'trim-lines'
     if cid in {'OS-M-11','OS-H-11'}:return 'units'
     return original
+
+
+def summary_values(record):
+    """Header plus comma-separated JSON values, without CSV string escaping."""
+    keys=('build_artifact','passed','assertions')
+    return ','.join(keys)+'\n'+','.join(json.dumps(record[k],ensure_ascii=False) for k in keys)

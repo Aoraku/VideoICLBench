@@ -63,6 +63,7 @@ print(json.dumps(out))'''
     return {'repository':REPO,'commit':COMMIT,'design_version':'videoicl-os36-human-1',
             'benchmark_version':raw['version'],'implementation':raw['implementation'],
             'recording_compatibility':json.loads((ROOT/'tasks/os/recording-compatibility.json').read_text()),
+            'recording_variant_compatibility':json.loads((ROOT/'tasks/os/recording-variant-compatibility.json').read_text()),
             'cases':rows}
 
 

@@ -115,3 +115,26 @@ print(count)
  result=subprocess.run([sys.executable,'-c',code],cwd=source,text=True,capture_output=True)
  assert result.returncode==0,result.stdout+result.stderr
  assert result.stdout.strip()=='81'
+
+
+def test_summary_values_preserve_json_quotes_without_csv_escaping():
+ import json
+ record={'build_artifact':'build_4','passed':True,'assertions':[{'name':'quote, "test"','expected':1,'actual':1,'passed':True}]}
+ document=formats.summary_values(record)
+ assert document.startswith('build_artifact,passed,assertions\n"build_4",true,[')
+ assert json.loads('['+document.split('\n',1)[1]+']')==list(record.values())
+ assert formats.normal(document,'summary-values')==formats.normal(document+'\r\n','summary-values')
+ for invalid in [document.replace('"build_4"','build_4'),document.replace(',true,',',"true",'),document.replace(',true,',',1,'),document.replace('"build_4"','"build_4","extra"')]:
+  with pytest.raises(ValueError):formats.normal(invalid,'summary-values')
+ import csv,io
+ stream=io.StringIO();writer=csv.writer(stream);writer.writerow(record);writer.writerow([record['build_artifact'],'true',json.dumps(record['assertions'])])
+ with pytest.raises(ValueError):formats.normal(stream.getvalue(),'summary-values')
+
+
+def test_h12_c_uses_ascii_hyphen_in_every_visible_example():
+ import json
+ case=next(c for c in json.loads((ROOT/'tasks/os/catalog.json').read_text())['cases'] if c['id']=='OS-H-12')
+ assert 'rN - Title' in case['rules']['C'] and '—' not in case['rules']['C']
+ for group in case['demo_examples']['C']:
+  for step in group['steps']:
+   if step['op']=='write':assert ' - ' in step['content'] and '—' not in step['content']

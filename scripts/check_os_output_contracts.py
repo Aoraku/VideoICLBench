@@ -5,6 +5,8 @@ IDS=['OS-M-10','OS-M-11','OS-M-12','OS-H-01','OS-H-02','OS-H-06','OS-H-08','OS-H
 
 def cosmetic(value,mode):
  if mode=='json':return json.dumps(json.loads(value),sort_keys=True,indent=4,ensure_ascii=False)+'\r\n'
+ if mode=='summary-values':
+  header,_,body=value.partition('\n');values=json.loads('['+body+']');return header+'\r\n'+', '.join(json.dumps(v,sort_keys=True) for v in values)+'\r\n'
  if mode=='diff-csv':
   stream=io.StringIO();writer=csv.writer(stream,quoting=csv.QUOTE_ALL,lineterminator='\r\n');writer.writerows(csv.reader(io.StringIO(value)));return stream.getvalue()
  if mode=='summary-csv':
