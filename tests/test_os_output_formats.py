@@ -110,8 +110,13 @@ print(count)
 '''.replace('CATALOG',str(ROOT/'tasks/os/catalog.json'))
  # Source fixture is optional locally; CI has a dedicated preparation step.
  import os
- source=Path(os.environ.get('VIC_OS_TEST_SOURCE',ROOT/'.local/os-release-formats-final'))
- if not (source/'tasks36.py').is_file():pytest.skip('Prepared OS runtime is checked by the release contract suite')
+ configured=os.environ.get('VIC_OS_TEST_SOURCE')
+ source=Path(configured) if configured else tmp_path/'runtime'
+ if not configured:
+  checkout=ROOT/'.local/os-icl-97a47cf'
+  if not (checkout/'tasks36.py').is_file():pytest.skip('Prepared OS runtime is checked by the release contract suite')
+  subprocess.run([sys.executable,str(ROOT/'scripts/prepare_os_release.py'),'--checkout',str(checkout),'--destination',str(source)],check=True,capture_output=True,text=True)
+ assert (source/'tasks36.py').is_file(), 'VIC_OS_TEST_SOURCE must point to a prepared release'
  result=subprocess.run([sys.executable,'-c',code],cwd=source,text=True,capture_output=True)
  assert result.returncode==0,result.stdout+result.stderr
  assert result.stdout.strip()=='81'
