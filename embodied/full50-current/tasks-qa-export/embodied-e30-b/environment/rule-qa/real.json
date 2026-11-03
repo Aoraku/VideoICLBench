@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E30",
+  "variant": "B",
+  "source": "real",
+  "source_sha256": "f7519bca55f061fbcbe461b18fa8a92144bc7646a2ecb0557b4c23171b935233",
+  "packet": {
+    "question_id": "rq_31a887592402",
+    "prompt": "视频结束时，上层红抽屉和下层蓝抽屉分别是什么开合状态？",
+    "options": {
+      "A": "只打开下层蓝抽屉。",
+      "B": "只打开上层红抽屉。",
+      "C": "上层红抽屉和下层蓝抽屉都关闭。",
+      "D": "上层和下层都打开。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "91976edcb5abf4f16d9b8de606c676d5dad545b5fc1310a0b76a12be8f0199eb",
+    "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+  }
+}

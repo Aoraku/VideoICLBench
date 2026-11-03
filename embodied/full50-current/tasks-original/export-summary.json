@@ -1,0 +1,29 @@
+{
+  "schema": "videoicl-realworld50-harbor-export-v1",
+  "task_families": 50,
+  "task_directories": 150,
+  "planned_episodes": 450,
+  "input_conditions": [
+    "real",
+    "sim",
+    "text_rule"
+  ],
+  "seed": 4201,
+  "budget": {
+    "timeout_sec": 6000,
+    "max_actions": 1000,
+    "action_interface": "bounded_dual_arm_tokens_v1",
+    "status": "provisional_integration_only",
+    "basis": "User-approved trial: 6000 effective seconds and 1000 GUI Commit actions; native service wait is excluded and inflight work drains gracefully. Not a frozen benchmark protocol.",
+    "clock": "effective_time_excluding_native_service",
+    "termination": "graceful_drain_inflight",
+    "protocol_version": "videoicl-effective-budget-v1"
+  },
+  "native_evaluation_ready_cases": 0,
+  "catalog_sha256": "622bed91d06f04ad0c16ff7a6a92b1bd4c00cdf2bbbca03747b64a2e6e478f29",
+  "real_demo_file_verified_cases": 72,
+  "sim_demo_file_verified_cases": 72,
+  "sim_demo_referenced_cases": 72,
+  "real_demo_metadata_only_cases": 78,
+  "sim_demo_missing_cases": 78
+}

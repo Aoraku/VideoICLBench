@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>VideoICL · 任务环境</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body aria-busy="false" data-episode-status="unconnected">
+  <header class="app-header">
+    <a class="brand" href="#" aria-label="VideoICL 任务环境"><span class="brand-mark" aria-hidden="true">V</span><span>VideoICL <span class="brand-domain">/ 具身任务</span></span></a>
+    <div class="session-meta"><span id="task-id">等待连接</span><span class="separator" aria-hidden="true"></span><span id="run-id">独立运行</span></div>
+    <div class="session-status"><span class="status-dot" id="status-dot" aria-hidden="true"></span><span id="status">未连接</span><span class="budget" id="budget">— / — 次动作</span></div>
+  </header>
+
+  <main>
+    <section class="task-heading" aria-labelledby="task-title">
+      <div><p class="eyebrow">当前任务</p><h1 id="task-title">正在载入任务环境</h1><p class="instruction" id="instruction">请使用本次运行分配的会话链接打开任务。</p></div>
+      <button class="button secondary" id="refresh" type="button">刷新观察</button>
+    </section>
+    <div id="notice" class="notice" role="status" aria-live="polite">正在连接…</div>
+
+    <div class="workspace">
+      <div class="environment-column">
+        <section class="panel" aria-labelledby="observation-title">
+          <div class="panel-heading"><h2 id="observation-title">任务环境</h2><span class="subtle" id="frame-label">等待实时观察</span></div>
+          <div class="camera-layout">
+            <figure class="camera head-camera"><figcaption><span>主视角</span><span class="camera-label">HEAD</span></figcaption><div class="image-area"><span class="image-placeholder">等待相机图像</span><img id="camera-head" alt="当前环境的主视角 RGB 图像" hidden></div></figure>
+            <div class="wrist-cameras">
+              <figure class="camera"><figcaption><span>左腕视角</span><span class="camera-label">LEFT WRIST</span></figcaption><div class="image-area"><span class="image-placeholder">等待相机图像</span><img id="camera-left_wrist" alt="当前环境的左腕 RGB 图像" hidden></div></figure>
+              <figure class="camera"><figcaption><span>右腕视角</span><span class="camera-label">RIGHT WRIST</span></figcaption><div class="image-area"><span class="image-placeholder">等待相机图像</span><img id="camera-right_wrist" alt="当前环境的右腕 RGB 图像" hidden></div></figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel controls-panel" aria-labelledby="control-title">
+          <div class="panel-heading"><h2 id="control-title">机器人操作</h2><span class="subtle">双臂选动作 → Commit</span></div>
+          <p class="control-help">选动作、填数值，再 Commit。</p>
+          <div class="arms">
+            <fieldset class="arm" id="left-arm"><legend><span class="arm-indicator left-indicator"></span>左臂<span class="selected-action" id="left-selected">保持</span></legend><div class="action-grid" id="left-actions"></div></fieldset>
+            <fieldset class="arm" id="right-arm"><legend><span class="arm-indicator right-indicator"></span>右臂<span class="selected-action" id="right-selected">保持</span></legend><div class="action-grid" id="right-actions"></div></fieldset>
+          </div>
+          <form id="action-form" class="action-footer">
+            <div class="parameters"><label for="step-mm">移动步长<div class="number-input"><input id="step-mm" name="step_mm" type="number" step="any" required disabled><span>mm</span></div></label><label for="rotation-deg">旋转角度<div class="number-input"><input id="rotation-deg" name="rotation_deg" type="number" step="any" required disabled><span>°</span></div></label></div>
+            <div class="commit-area"><span class="action-gate" id="action-gate">每次执行计为一次双臂物理动作。</span><button class="button primary" id="commit" type="submit" disabled>执行 Commit <span aria-hidden="true">→</span></button></div>
+          </form>
+          <details class="action-guide" id="action-guide"><summary>动作与坐标说明 · Action guide</summary><div id="action-guide-content"></div><p id="parameter-help" class="reference-note"></p><p class="reference-note">双臂分别选择后统一执行。页面点击、滚动和修改数值属于 GUI 输入；只有 Commit 会触发物理动作。执行后使用新的观察继续。</p></details>
+        </section>
+      </div>
+
+      <aside class="context-column">
+        <section class="panel reference-panel" aria-labelledby="reference-title">
+          <div class="panel-heading"><h2 id="reference-title">任务示范</h2><span class="condition-tag" id="condition">待分配</span></div>
+          <div id="video-reference" hidden><video id="demo" controls muted playsinline preload="metadata" controlslist="nodownload noremoteplayback" aria-label="本次任务分配的示范视频"></video><p class="reference-note" id="video-note">可拖动时间轴，查看示范中的对应关系与操作方法。</p></div>
+          <div id="text-reference" hidden><p class="text-rule" id="text-rule"></p></div>
+          <p class="empty-reference" id="reference-empty">等待分配的示范。</p>
+        </section>
+
+        <section class="panel feedback-panel" aria-labelledby="robot-feedback-title">
+          <div class="panel-heading"><h2 id="robot-feedback-title">动作反馈</h2></div>
+          <div id="robot-feedback" class="robot-feedback"><p class="subtle">等待公开机器人状态。</p></div>
+        </section>
+
+        <section class="panel" id="rule-panel" aria-labelledby="rule-title" hidden>
+          <div class="panel-heading"><h2 id="rule-title">方法记录（可选）</h2><span class="small-status" id="rule-status">可选记录</span></div>
+          <form id="rule-form" class="context-form">
+            <label for="inferred-rule">学到的对应关系、顺序或停止条件<textarea id="inferred-rule" rows="4" maxlength="12000" placeholder="说明你将采用什么方法完成任务。" required></textarea></label>
+            <label id="evidence-field" for="evidence-seconds">视频依据时间点（秒）<input id="evidence-seconds" type="text" inputmode="decimal" placeholder="例如：2.5, 6.8" autocomplete="off"><span class="field-note">填写一个或多个时间点，用逗号分隔。</span></label>
+            <button class="button secondary full-width" id="report-rule" type="submit" disabled>保存方法记录</button>
+            <p class="reference-note">此项不影响操作权限，也不提供正确性反馈。</p>
+          </form>
+        </section>
+
+        <section class="panel finish-panel" aria-labelledby="stop-title">
+          <div class="panel-heading"><h2 id="stop-title">结束本次操作</h2></div>
+          <div class="context-form"><label for="stop-reason">说明（可选）<textarea id="stop-reason" rows="2" maxlength="10000" placeholder="简要说明完成情况或停止原因。"></textarea></label><div class="stop-buttons"><button class="button primary" id="done" type="button" disabled>已完成 Done</button><button class="button secondary" id="giveup" type="button" disabled>放弃 Give up</button></div><p class="reference-note">Done：确认完成后结束。Give up：无法完成时结束。</p></div>
+        </section>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>

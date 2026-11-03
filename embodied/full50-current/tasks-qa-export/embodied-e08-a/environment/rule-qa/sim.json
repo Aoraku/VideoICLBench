@@ -1,0 +1,55 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E08",
+  "variant": "A",
+  "source": "sim",
+  "source_sha256": "2ddfc1e9dd33edbcabe43b8ac5bffc0984ad5a8bd867584cbe69a09794e13aac",
+  "packet": {
+    "question_id": "rq_09e9b3f3e402",
+    "prompt": "视频中两只鞋放入鞋盒后，鞋尖或鞋跟与标签端是什么关系？",
+    "options": {
+      "A": "两只鞋跟均朝标签端。",
+      "B": "左脚鞋尖朝标签端，右脚鞋跟朝标签端。",
+      "C": "左脚鞋跟朝鞋盒标签端，右脚鞋尖朝标签端。",
+      "D": "两只鞋尖均朝鞋盒标签端。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "0838eccd090fd244dc9e8faef52881fc9d4edc1e1f43e69501dd05c3992f8942",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "sha256_full_decode_duration_fps_endpoint_verified",
+    "media_lineage": {
+      "kind": "original_sim_demo_uniform_speedmatched",
+      "speedmatched": true,
+      "duration_seconds": 14.133333,
+      "fps": 30,
+      "media_lineage": {
+        "source_sim_sha256": "ce761eb6ede7f34a3f5f8a7afe0b000026372acdde9f24b936e216185f703931",
+        "source_sim_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/sim150-20261030/media/E08/E08_A__head.mp4",
+        "source_sim_duration_seconds": 60.2,
+        "reference_real_sha256": "3ff80d640831139773f366b4b946e3064e6312dd906eaf88a905eb326613547b",
+        "reference_real_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/real-text300-20261030/E08/A/human.mp4",
+        "reference_real_duration_seconds": 14.133333,
+        "speed_ratio": 4.259434062722502,
+        "transformation": "speedmatched_only",
+        "qa_answer_unchanged": true,
+        "source_manifest_sha256": "da5d21260243098b35fe6d9b9ad1f359223a621ee25f4306c421351a90eaffd5",
+        "trim_intervals_seconds": [],
+        "kept_source_frame_interval": [
+          0,
+          1505
+        ],
+        "retained_source_duration_seconds": 60.2,
+        "v1_output_sha256": "2ddfc1e9dd33edbcabe43b8ac5bffc0984ad5a8bd867584cbe69a09794e13aac",
+        "speed_ratio_retained": 4.259434062722502,
+        "frame_selection": "round(k*(source_frame_count-1)/(output_frame_count-1)), k=0..output_frame_count-1",
+        "review_status": "conservative_no_deletion_without_semantic_evidence"
+      }
+    }
+  }
+}

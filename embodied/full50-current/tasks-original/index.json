@@ -1,0 +1,1352 @@
+[
+  {
+    "name": "embodied-e01-a",
+    "kind": "embodied",
+    "task_id": "E01",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e01-b",
+    "kind": "embodied",
+    "task_id": "E01",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e01-c",
+    "kind": "embodied",
+    "task_id": "E01",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e02-a",
+    "kind": "embodied",
+    "task_id": "E02",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e02-b",
+    "kind": "embodied",
+    "task_id": "E02",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e02-c",
+    "kind": "embodied",
+    "task_id": "E02",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e03-a",
+    "kind": "embodied",
+    "task_id": "E03",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e03-b",
+    "kind": "embodied",
+    "task_id": "E03",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e03-c",
+    "kind": "embodied",
+    "task_id": "E03",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e04-a",
+    "kind": "embodied",
+    "task_id": "E04",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e04-b",
+    "kind": "embodied",
+    "task_id": "E04",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e04-c",
+    "kind": "embodied",
+    "task_id": "E04",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e05-a",
+    "kind": "embodied",
+    "task_id": "E05",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e05-b",
+    "kind": "embodied",
+    "task_id": "E05",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e05-c",
+    "kind": "embodied",
+    "task_id": "E05",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e06-a",
+    "kind": "embodied",
+    "task_id": "E06",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e06-b",
+    "kind": "embodied",
+    "task_id": "E06",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e06-c",
+    "kind": "embodied",
+    "task_id": "E06",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e07-a",
+    "kind": "embodied",
+    "task_id": "E07",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e07-b",
+    "kind": "embodied",
+    "task_id": "E07",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e07-c",
+    "kind": "embodied",
+    "task_id": "E07",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e08-a",
+    "kind": "embodied",
+    "task_id": "E08",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e08-b",
+    "kind": "embodied",
+    "task_id": "E08",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e08-c",
+    "kind": "embodied",
+    "task_id": "E08",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e09-a",
+    "kind": "embodied",
+    "task_id": "E09",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e09-b",
+    "kind": "embodied",
+    "task_id": "E09",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e09-c",
+    "kind": "embodied",
+    "task_id": "E09",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e10-a",
+    "kind": "embodied",
+    "task_id": "E10",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e10-b",
+    "kind": "embodied",
+    "task_id": "E10",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e10-c",
+    "kind": "embodied",
+    "task_id": "E10",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e11-a",
+    "kind": "embodied",
+    "task_id": "E11",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e11-b",
+    "kind": "embodied",
+    "task_id": "E11",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e11-c",
+    "kind": "embodied",
+    "task_id": "E11",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e12-a",
+    "kind": "embodied",
+    "task_id": "E12",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e12-b",
+    "kind": "embodied",
+    "task_id": "E12",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e12-c",
+    "kind": "embodied",
+    "task_id": "E12",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e13-a",
+    "kind": "embodied",
+    "task_id": "E13",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e13-b",
+    "kind": "embodied",
+    "task_id": "E13",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e13-c",
+    "kind": "embodied",
+    "task_id": "E13",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e14-a",
+    "kind": "embodied",
+    "task_id": "E14",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e14-b",
+    "kind": "embodied",
+    "task_id": "E14",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e14-c",
+    "kind": "embodied",
+    "task_id": "E14",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e15-a",
+    "kind": "embodied",
+    "task_id": "E15",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e15-b",
+    "kind": "embodied",
+    "task_id": "E15",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e15-c",
+    "kind": "embodied",
+    "task_id": "E15",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e16-a",
+    "kind": "embodied",
+    "task_id": "E16",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e16-b",
+    "kind": "embodied",
+    "task_id": "E16",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e16-c",
+    "kind": "embodied",
+    "task_id": "E16",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e17-a",
+    "kind": "embodied",
+    "task_id": "E17",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e17-b",
+    "kind": "embodied",
+    "task_id": "E17",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e17-c",
+    "kind": "embodied",
+    "task_id": "E17",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e18-a",
+    "kind": "embodied",
+    "task_id": "E18",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e18-b",
+    "kind": "embodied",
+    "task_id": "E18",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e18-c",
+    "kind": "embodied",
+    "task_id": "E18",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e19-a",
+    "kind": "embodied",
+    "task_id": "E19",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e19-b",
+    "kind": "embodied",
+    "task_id": "E19",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e19-c",
+    "kind": "embodied",
+    "task_id": "E19",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e20-a",
+    "kind": "embodied",
+    "task_id": "E20",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e20-b",
+    "kind": "embodied",
+    "task_id": "E20",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e20-c",
+    "kind": "embodied",
+    "task_id": "E20",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e21-a",
+    "kind": "embodied",
+    "task_id": "E21",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e21-b",
+    "kind": "embodied",
+    "task_id": "E21",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e21-c",
+    "kind": "embodied",
+    "task_id": "E21",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e22-a",
+    "kind": "embodied",
+    "task_id": "E22",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e22-b",
+    "kind": "embodied",
+    "task_id": "E22",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e22-c",
+    "kind": "embodied",
+    "task_id": "E22",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e23-a",
+    "kind": "embodied",
+    "task_id": "E23",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e23-b",
+    "kind": "embodied",
+    "task_id": "E23",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e23-c",
+    "kind": "embodied",
+    "task_id": "E23",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e24-a",
+    "kind": "embodied",
+    "task_id": "E24",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e24-b",
+    "kind": "embodied",
+    "task_id": "E24",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e24-c",
+    "kind": "embodied",
+    "task_id": "E24",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e25-a",
+    "kind": "embodied",
+    "task_id": "E25",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e25-b",
+    "kind": "embodied",
+    "task_id": "E25",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e25-c",
+    "kind": "embodied",
+    "task_id": "E25",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": true,
+    "demo_sim_file_verified": true
+  },
+  {
+    "name": "embodied-e26-a",
+    "kind": "embodied",
+    "task_id": "E26",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e26-b",
+    "kind": "embodied",
+    "task_id": "E26",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e26-c",
+    "kind": "embodied",
+    "task_id": "E26",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e27-a",
+    "kind": "embodied",
+    "task_id": "E27",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e27-b",
+    "kind": "embodied",
+    "task_id": "E27",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e27-c",
+    "kind": "embodied",
+    "task_id": "E27",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e28-a",
+    "kind": "embodied",
+    "task_id": "E28",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e28-b",
+    "kind": "embodied",
+    "task_id": "E28",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e28-c",
+    "kind": "embodied",
+    "task_id": "E28",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e29-a",
+    "kind": "embodied",
+    "task_id": "E29",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e29-b",
+    "kind": "embodied",
+    "task_id": "E29",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e29-c",
+    "kind": "embodied",
+    "task_id": "E29",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e30-a",
+    "kind": "embodied",
+    "task_id": "E30",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e30-b",
+    "kind": "embodied",
+    "task_id": "E30",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e30-c",
+    "kind": "embodied",
+    "task_id": "E30",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e31-a",
+    "kind": "embodied",
+    "task_id": "E31",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e31-b",
+    "kind": "embodied",
+    "task_id": "E31",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e31-c",
+    "kind": "embodied",
+    "task_id": "E31",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e32-a",
+    "kind": "embodied",
+    "task_id": "E32",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e32-b",
+    "kind": "embodied",
+    "task_id": "E32",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e32-c",
+    "kind": "embodied",
+    "task_id": "E32",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e33-a",
+    "kind": "embodied",
+    "task_id": "E33",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e33-b",
+    "kind": "embodied",
+    "task_id": "E33",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e33-c",
+    "kind": "embodied",
+    "task_id": "E33",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e34-a",
+    "kind": "embodied",
+    "task_id": "E34",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e34-b",
+    "kind": "embodied",
+    "task_id": "E34",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e34-c",
+    "kind": "embodied",
+    "task_id": "E34",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e35-a",
+    "kind": "embodied",
+    "task_id": "E35",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e35-b",
+    "kind": "embodied",
+    "task_id": "E35",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e35-c",
+    "kind": "embodied",
+    "task_id": "E35",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e36-a",
+    "kind": "embodied",
+    "task_id": "E36",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e36-b",
+    "kind": "embodied",
+    "task_id": "E36",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e36-c",
+    "kind": "embodied",
+    "task_id": "E36",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e37-a",
+    "kind": "embodied",
+    "task_id": "E37",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e37-b",
+    "kind": "embodied",
+    "task_id": "E37",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e37-c",
+    "kind": "embodied",
+    "task_id": "E37",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e38-a",
+    "kind": "embodied",
+    "task_id": "E38",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e38-b",
+    "kind": "embodied",
+    "task_id": "E38",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e38-c",
+    "kind": "embodied",
+    "task_id": "E38",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e39-a",
+    "kind": "embodied",
+    "task_id": "E39",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e39-b",
+    "kind": "embodied",
+    "task_id": "E39",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e39-c",
+    "kind": "embodied",
+    "task_id": "E39",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e40-a",
+    "kind": "embodied",
+    "task_id": "E40",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e40-b",
+    "kind": "embodied",
+    "task_id": "E40",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e40-c",
+    "kind": "embodied",
+    "task_id": "E40",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e41-a",
+    "kind": "embodied",
+    "task_id": "E41",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e41-b",
+    "kind": "embodied",
+    "task_id": "E41",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e41-c",
+    "kind": "embodied",
+    "task_id": "E41",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e42-a",
+    "kind": "embodied",
+    "task_id": "E42",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e42-b",
+    "kind": "embodied",
+    "task_id": "E42",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e42-c",
+    "kind": "embodied",
+    "task_id": "E42",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e43-a",
+    "kind": "embodied",
+    "task_id": "E43",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e43-b",
+    "kind": "embodied",
+    "task_id": "E43",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e43-c",
+    "kind": "embodied",
+    "task_id": "E43",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e44-a",
+    "kind": "embodied",
+    "task_id": "E44",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e44-b",
+    "kind": "embodied",
+    "task_id": "E44",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e44-c",
+    "kind": "embodied",
+    "task_id": "E44",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e45-a",
+    "kind": "embodied",
+    "task_id": "E45",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e45-b",
+    "kind": "embodied",
+    "task_id": "E45",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e45-c",
+    "kind": "embodied",
+    "task_id": "E45",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e46-a",
+    "kind": "embodied",
+    "task_id": "E46",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e46-b",
+    "kind": "embodied",
+    "task_id": "E46",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e46-c",
+    "kind": "embodied",
+    "task_id": "E46",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e47-a",
+    "kind": "embodied",
+    "task_id": "E47",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e47-b",
+    "kind": "embodied",
+    "task_id": "E47",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e47-c",
+    "kind": "embodied",
+    "task_id": "E47",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e48-a",
+    "kind": "embodied",
+    "task_id": "E48",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e48-b",
+    "kind": "embodied",
+    "task_id": "E48",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e48-c",
+    "kind": "embodied",
+    "task_id": "E48",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e49-a",
+    "kind": "embodied",
+    "task_id": "E49",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e49-b",
+    "kind": "embodied",
+    "task_id": "E49",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e49-c",
+    "kind": "embodied",
+    "task_id": "E49",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e50-a",
+    "kind": "embodied",
+    "task_id": "E50",
+    "variant": "A",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e50-b",
+    "kind": "embodied",
+    "task_id": "E50",
+    "variant": "B",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  },
+  {
+    "name": "embodied-e50-c",
+    "kind": "embodied",
+    "task_id": "E50",
+    "variant": "C",
+    "readiness": "requires_native_interaction_validation",
+    "demo_file_verified": false,
+    "demo_sim_file_verified": false
+  }
+]

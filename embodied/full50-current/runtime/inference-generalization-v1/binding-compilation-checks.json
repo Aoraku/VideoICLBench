@@ -1,0 +1,511 @@
+{
+  "checked_tasks": 50,
+  "variants": 150,
+  "checks": [
+    {
+      "task_id": "E01",
+      "group": "G1",
+      "changed_objects": [
+        "burger",
+        "fries",
+        "drink"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "cfbad014402c33b31cd10fcebb9a3e87b82c778c1dcbca159c7a18860dd8297f"
+    },
+    {
+      "task_id": "E02",
+      "group": "G1",
+      "changed_objects": [
+        "red",
+        "blue",
+        "green"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "4626aac5dbe93fe4277162d31cfab35002cbc92d1369aac36da2decb544aa314"
+    },
+    {
+      "task_id": "E03",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "c502f1837550cac5a8ae0d6192de3cb7e3d18e55ab0747d69a33c8ba4f58e5b5"
+    },
+    {
+      "task_id": "E04",
+      "group": "G2",
+      "changed_objects": [
+        "green_cup",
+        "blue_cup",
+        "red_cup"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "0c25f0b4c7021f4cb83bf30251ce99a9a45070976e84c0affa38b143029dcd3d"
+    },
+    {
+      "task_id": "E05",
+      "group": "G2",
+      "changed_objects": [
+        "cube",
+        "sphere",
+        "triangle"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "d289349bd2c92c855c375bff312a5822b78d142e50b029bde7ba3c44dfb33eac"
+    },
+    {
+      "task_id": "E06",
+      "group": "G2",
+      "changed_objects": [
+        "purple",
+        "pink",
+        "lightpink"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "476c8ee798a69e67167e5bfd661ef3f7719fafc6f47beb5e06d74d23e4665e85"
+    },
+    {
+      "task_id": "E07",
+      "group": "G2",
+      "changed_objects": [
+        "block1",
+        "block2",
+        "block3",
+        "block4",
+        "block5"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "6b30cda458a0983843e2bc2f8c91c38f1276880eb947d380d9516887c1da670f"
+    },
+    {
+      "task_id": "E08",
+      "group": "G1",
+      "changed_objects": [
+        "left_shoe",
+        "right_shoe"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "d347473f7b43f9c4a05ef729b35518b25eaa494ecdc986e56dd772ce01f16e88"
+    },
+    {
+      "task_id": "E09",
+      "group": "G2",
+      "changed_objects": [
+        "red_square",
+        "red_triangle",
+        "red_circle",
+        "green_square",
+        "green_triangle",
+        "green_circle",
+        "blue_square",
+        "blue_triangle",
+        "blue_circle"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "596c7b60763d7db046b3f786aaa6f580d26a4dce8635ac3c3b66f47fb51eb03a"
+    },
+    {
+      "task_id": "E10",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "81eb1db7296a4fcd024bdaa54c181384b72bff174a051d744c2d410d2894fbee"
+    },
+    {
+      "task_id": "E11",
+      "group": "G2",
+      "changed_objects": [
+        "red_block",
+        "blue_block",
+        "yellow_block",
+        "green_block"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "7f3ceb19c991f81d3d53025c2d5af783432cddbd4558a4f24879818fc5442e65"
+    },
+    {
+      "task_id": "E12",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "f23cc3c7c48b4d49fc93e208c30e3dab7d533f23c9cb3b052e90004cedcdf9e6"
+    },
+    {
+      "task_id": "E13",
+      "group": "G1",
+      "changed_objects": [
+        "phone"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "1bed9657ef4c356cf6786cddae7ec06a31a23324a08bf1756fae67e9206e63a1"
+    },
+    {
+      "task_id": "E14",
+      "group": "G1",
+      "changed_objects": [
+        "red",
+        "yellow",
+        "blue",
+        "green"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "369308316c1cfbda273702792e926af538894a49560bad7f12a291073ca6551d"
+    },
+    {
+      "task_id": "E15",
+      "group": "G1",
+      "changed_objects": [
+        "red_t",
+        "blue_t"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "8631129011e01504a0cafb8ab8f63c1e2156e2f9084c8183589c47e9bc47de76"
+    },
+    {
+      "task_id": "E16",
+      "group": "G1",
+      "changed_objects": [
+        "red_t",
+        "blue_t",
+        "black_t"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "5d9ef9f80c53b2cc041804529ec31197f885e070f9cd713406e546d650b547dd"
+    },
+    {
+      "task_id": "E17",
+      "group": "G1",
+      "changed_objects": [
+        "blue_square",
+        "blue_triangle",
+        "green_square",
+        "green_triangle"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "5c42632e35aefc25c5aa28af1d4462fd35b4f7a9bd79022092106c978054df41"
+    },
+    {
+      "task_id": "E18",
+      "group": "G1",
+      "changed_objects": [
+        "red",
+        "green",
+        "blue"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "a329cc20e3dd040d924bd6a31bb2a20bd11f6e39c1c5618c2d137fda4aedd16d"
+    },
+    {
+      "task_id": "E19",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "e514cc85124ae025ea03a176856dec3488da5690a192472c8ed795c66801954e"
+    },
+    {
+      "task_id": "E20",
+      "group": "G2",
+      "changed_objects": [
+        "yellow_supply_1",
+        "yellow_supply_2",
+        "yellow_supply_3",
+        "yellow_supply_4",
+        "red_supply_1",
+        "red_supply_2",
+        "red_supply_3",
+        "red_supply_4",
+        "blue_supply_1",
+        "blue_supply_2",
+        "blue_supply_3",
+        "blue_supply_4",
+        "yellow_initial",
+        "blue_initial"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "0c057715722b29a4cdd767fe59703ae491bbe18a11907fe33fbf75dd95db09b4"
+    },
+    {
+      "task_id": "E21",
+      "group": "G1",
+      "changed_objects": [
+        "green_block",
+        "yellow_block",
+        "blue_block",
+        "red_block"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "9adb590629914d4cb2ee5a7664f33306f756067882b6ec920ee5f5a888445b21"
+    },
+    {
+      "task_id": "E22",
+      "group": "G1",
+      "changed_objects": [
+        "red_block",
+        "blue_block",
+        "green_block"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "bc5d15dd20b0fae08826dcc0355d961b3774a1397b222ddce5030aaddd36d39f"
+    },
+    {
+      "task_id": "E23",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "3fa8a50e56101da9418a606f8167f41970f51cb917adbfbf5df4f4cc68475ab8"
+    },
+    {
+      "task_id": "E24",
+      "group": "G1",
+      "changed_objects": [
+        "blue",
+        "green",
+        "red"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "207ff414a3b2bd6e53a4e48beb9a13ec347e743f162157afc24c724d54a1f510"
+    },
+    {
+      "task_id": "E25",
+      "group": "G1",
+      "changed_objects": [
+        "fork",
+        "spoon",
+        "knife"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "22c1591e0b4722f0a84fc9984b59cdf9b624f40654b18ad5160817d9e6e46c06"
+    },
+    {
+      "task_id": "E26",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "3e184c145fd6070fcd62a65fb3fa8511b77ab84df5e96f4c7d05420101c6f036"
+    },
+    {
+      "task_id": "E27",
+      "group": "G1",
+      "changed_objects": [
+        "fork",
+        "spoon"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "72a81593e8e9a6c009137016f6bdb03875ba5617a0945a251721b9cee126af27"
+    },
+    {
+      "task_id": "E28",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "e0ec7712d5bd18b5d6c3a28e7b15123b1cd9d5041c8977b3e902b60fb1d346a9"
+    },
+    {
+      "task_id": "E29",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "167ea9505025b24cd0f4d7f3bae98cb7185cc652ac3097418da7ae48b3ac2d75"
+    },
+    {
+      "task_id": "E30",
+      "group": "G1",
+      "changed_objects": [],
+      "mechanism_changed": true,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "19fcc26d0f435a5a65d77d8704630792cd03a54b28c2d294424803795f3dfa10"
+    },
+    {
+      "task_id": "E31",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "9998b0938fa1728d70b62e76789cef040a35d8e119e018b682b0c6ed861b6d4e"
+    },
+    {
+      "task_id": "E32",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "fc9f5dd5cd0e3fd3a0a6dcac16c5da3e461285eb439944ab89ecec7fe334bf60"
+    },
+    {
+      "task_id": "E33",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "eb1ae35d89eb705b37450e0176b06d064ce1491037f98ac1434a1cb1a1685062"
+    },
+    {
+      "task_id": "E34",
+      "group": "G1",
+      "changed_objects": [
+        "fork",
+        "spoon",
+        "knife"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "5aa40096527d22a0a150dd85da9399853f626eaa8d97decac2e962f1bcdf99eb"
+    },
+    {
+      "task_id": "E35",
+      "group": "G1",
+      "changed_objects": [
+        "small",
+        "medium",
+        "large"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "fe5ad1ea53c77a55c950aa3bf9cc433770cf7bc2cc4cf294104a65815d439db3"
+    },
+    {
+      "task_id": "E36",
+      "group": "G2",
+      "changed_objects": [
+        "red",
+        "pink",
+        "lightpink",
+        "blue"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "ad8ccde993551cb3e333878325c0216d590b420ae1677c3595bf211ba248926c"
+    },
+    {
+      "task_id": "E37",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "ba4a1566feea404681b23cdd4b2651ceaa1492b916091b358353b172605d5981"
+    },
+    {
+      "task_id": "E38",
+      "group": "G1",
+      "changed_objects": [
+        "red",
+        "blue",
+        "green"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "84ad46c8a74324b1ab3b81f556c43dfac2f74277eb0624ccb48ba465015ca884"
+    },
+    {
+      "task_id": "E39",
+      "group": "G1",
+      "changed_objects": [
+        "red_ref",
+        "blue_ref",
+        "black_ref",
+        "blue_active",
+        "black_active",
+        "red_active"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "a0ac6b0aa71a225280a7cdf1cbba751587cb03218b8fac133e8ffd022016eff8"
+    },
+    {
+      "task_id": "E40",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "9dd06d1a2f0d26971576212a36a5b53275d383d792c6113dd4fb2337aac1415d"
+    },
+    {
+      "task_id": "E41",
+      "group": "G2",
+      "changed_objects": [
+        "short_ref",
+        "medium_ref",
+        "long_ref",
+        "long_piece",
+        "short_piece",
+        "medium_piece"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "40d85c99014c41df96e85d57b79d3345ec7e85489f46da7f94be3c2322befcb0"
+    },
+    {
+      "task_id": "E42",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "53f2b0e2167dc692d6052155e91009368ff136c201e5bb551adfb230530d8de8"
+    },
+    {
+      "task_id": "E43",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "a5423dbdfc8703b4a7488a2886c3c6b85af38c9955ca265fa2ebf7103bbb6a9b"
+    },
+    {
+      "task_id": "E44",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "25353b43fef0e719b3d3e14dc2f77bcb290de9d638227ebb2784b8fb24e89d8f"
+    },
+    {
+      "task_id": "E45",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "11ae1604dd730a00d314fcf3c10073f79613a24c7f20f94f751e68e0844f729a"
+    },
+    {
+      "task_id": "E46",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "1b84ce7b4ba2286959d1ecf2d6ae1ea51bd8706aa443a85cec913386cadb1811"
+    },
+    {
+      "task_id": "E47",
+      "group": "G1",
+      "changed_objects": [
+        "card1",
+        "card2",
+        "card3",
+        "card4",
+        "card5"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "f6dc24fd0f3dda73d7febd8dafd42397afbcd61adc0ed6bff96ddab87cbb515b"
+    },
+    {
+      "task_id": "E48",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "a03778e90ae42e612d388570ede06881f314ece611a31175bba0cd8cba81c890"
+    },
+    {
+      "task_id": "E49",
+      "group": "G2",
+      "changed_objects": [
+        "card1",
+        "card2",
+        "card3",
+        "card4",
+        "card5"
+      ],
+      "mechanism_changed": false,
+      "abc_semantics_preserved": true,
+      "binding_sha256": "4535eeae0dfe88c5d447e5e53d9fb3c143cf9e319990cd856fe90425f2cc8e9c"
+    },
+    {
+      "task_id": "E50",
+      "group": "G0",
+      "unchanged": true,
+      "binding_sha256": "75df7fd896c7381f7a6eb999665a486100b7864f3538feebc824d46eead28f30"
+    }
+  ]
+}

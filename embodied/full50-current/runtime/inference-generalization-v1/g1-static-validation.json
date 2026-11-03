@@ -1,0 +1,454 @@
+{
+  "native_physics_verified": false,
+  "usd_parse_assets": [
+    {
+      "task": "E01",
+      "object": "burger",
+      "collision_prims": 5,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E01",
+      "object": "fries",
+      "collision_prims": 8,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E01",
+      "object": "drink",
+      "collision_prims": 18,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E02",
+      "object": "red",
+      "collision_prims": 1,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E02",
+      "object": "blue",
+      "collision_prims": 1,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E02",
+      "object": "green",
+      "collision_prims": 1,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E08",
+      "object": "left_shoe",
+      "collision_prims": 3,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E08",
+      "object": "right_shoe",
+      "collision_prims": 3,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E13",
+      "object": "phone",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E14",
+      "object": "red",
+      "collision_prims": 4,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E14",
+      "object": "yellow",
+      "collision_prims": 4,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E14",
+      "object": "blue",
+      "collision_prims": 4,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E14",
+      "object": "green",
+      "collision_prims": 4,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E15",
+      "object": "red_t",
+      "collision_prims": 5,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E15",
+      "object": "blue_t",
+      "collision_prims": 5,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E16",
+      "object": "red_t",
+      "collision_prims": 3,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E16",
+      "object": "blue_t",
+      "collision_prims": 3,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E16",
+      "object": "black_t",
+      "collision_prims": 3,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E17",
+      "object": "blue_square",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E17",
+      "object": "blue_triangle",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E17",
+      "object": "green_square",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E17",
+      "object": "green_triangle",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E18",
+      "object": "red",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E18",
+      "object": "green",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E18",
+      "object": "blue",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E21",
+      "object": "green_block",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E21",
+      "object": "yellow_block",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E21",
+      "object": "blue_block",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E21",
+      "object": "red_block",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E22",
+      "object": "red_block",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E22",
+      "object": "blue_block",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E22",
+      "object": "green_block",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E24",
+      "object": "blue",
+      "collision_prims": 289,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E24",
+      "object": "green",
+      "collision_prims": 289,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E24",
+      "object": "red",
+      "collision_prims": 289,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E25",
+      "object": "fork",
+      "collision_prims": 7,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E25",
+      "object": "spoon",
+      "collision_prims": 4,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E25",
+      "object": "knife",
+      "collision_prims": 3,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E27",
+      "object": "fork",
+      "collision_prims": 7,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E27",
+      "object": "spoon",
+      "collision_prims": 4,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E30",
+      "object": "cabinet",
+      "collision_prims": 26,
+      "joints": 4,
+      "parse": true
+    },
+    {
+      "task": "E34",
+      "object": "fork",
+      "collision_prims": 7,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E34",
+      "object": "spoon",
+      "collision_prims": 4,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E34",
+      "object": "knife",
+      "collision_prims": 3,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E35",
+      "object": "small",
+      "collision_prims": 4,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E35",
+      "object": "medium",
+      "collision_prims": 4,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E35",
+      "object": "large",
+      "collision_prims": 4,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E38",
+      "object": "red",
+      "collision_prims": 144,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E38",
+      "object": "blue",
+      "collision_prims": 144,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E38",
+      "object": "green",
+      "collision_prims": 144,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E39",
+      "object": "red_ref",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E39",
+      "object": "blue_ref",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E39",
+      "object": "black_ref",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E39",
+      "object": "blue_active",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E39",
+      "object": "black_active",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E39",
+      "object": "red_active",
+      "collision_prims": 2,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E47",
+      "object": "card1",
+      "collision_prims": 1,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E47",
+      "object": "card2",
+      "collision_prims": 1,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E47",
+      "object": "card3",
+      "collision_prims": 1,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E47",
+      "object": "card4",
+      "collision_prims": 1,
+      "joints": 0,
+      "parse": true
+    },
+    {
+      "task": "E47",
+      "object": "card5",
+      "collision_prims": 1,
+      "joints": 0,
+      "parse": true
+    }
+  ],
+  "E38": {
+    "post_collision_source": "RoboDojo-Audit/deployment/real-text300-20261030/asset_roots/VIC_MECHANISM_ASSETS/five_group_post_board.usda",
+    "prim": "/Asset/Collisions/mesh_0_circle_post_0",
+    "bounds": [
+      [
+        -0.1226009726524353,
+        -0.0026009739376604557,
+        0.008999999612569809
+      ],
+      [
+        -0.11739902943372726,
+        0.0026009739376604557,
+        0.06399999558925629
+      ]
+    ],
+    "post_radius_upper_bound_m": 0.0026009739376604557,
+    "spool_min_inner_chord_radius_m": 0.004789722831545296,
+    "minimum_radial_clearance_m": 0.00218874889388484,
+    "stack_height_m": 0.018,
+    "post_exposed_height_m": 0.05499999597668648
+  },
+  "CPU_tests": "8 passed, 1 skipped (USD parser separately validated all61replacement assets here)"
+}

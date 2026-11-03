@@ -1,0 +1,55 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E12",
+  "variant": "A",
+  "source": "sim",
+  "source_sha256": "fe52ada24eae8661ee45977ae3bdf3ac69459542e50167ef10fdb587cca38a56",
+  "packet": {
+    "question_id": "rq_e65974279e7a",
+    "prompt": "视频中两个充电器插入插排的哪两个插位？",
+    "options": {
+      "A": "两充电器插入靠电线端的两个插位。",
+      "B": "插入中间两个插位，两端插位空着。",
+      "C": "插入远离电线端的两个插位。",
+      "D": "插入两端插位，中间两个空着。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "0a2577e7c2459f5a57e7289baf99c9a56a067974b28ef69c9e0a3a72646daa93",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "sha256_full_decode_duration_fps_endpoint_verified",
+    "media_lineage": {
+      "kind": "original_sim_demo_uniform_speedmatched",
+      "speedmatched": true,
+      "duration_seconds": 6.7,
+      "fps": 30,
+      "media_lineage": {
+        "source_sim_sha256": "28163a42677cc55d2f782e204179c22c53963dd6fd6dd8779e371585688d74b3",
+        "source_sim_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/sim150-20261030/media/E12/E12_A__head.mp4",
+        "source_sim_duration_seconds": 71.8,
+        "reference_real_sha256": "48b0eaa2a4f8036745da5bd3763f40a0b826416fb1998f0bf0cf4b10c45d257d",
+        "reference_real_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/real-text300-20261030/E12/A/human.mp4",
+        "reference_real_duration_seconds": 6.7,
+        "speed_ratio": 10.71641791044776,
+        "transformation": "speedmatched_only",
+        "qa_answer_unchanged": true,
+        "source_manifest_sha256": "da5d21260243098b35fe6d9b9ad1f359223a621ee25f4306c421351a90eaffd5",
+        "trim_intervals_seconds": [],
+        "kept_source_frame_interval": [
+          0,
+          1795
+        ],
+        "retained_source_duration_seconds": 71.8,
+        "v1_output_sha256": "fe52ada24eae8661ee45977ae3bdf3ac69459542e50167ef10fdb587cca38a56",
+        "speed_ratio_retained": 10.71641791044776,
+        "frame_selection": "round(k*(source_frame_count-1)/(output_frame_count-1)), k=0..output_frame_count-1",
+        "review_status": "conservative_no_deletion_without_semantic_evidence"
+      }
+    }
+  }
+}

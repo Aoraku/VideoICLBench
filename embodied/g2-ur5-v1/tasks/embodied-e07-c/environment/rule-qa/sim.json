@@ -1,0 +1,30 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E07",
+  "variant": "C",
+  "source": "sim",
+  "source_sha256": "f11d694e06b57c1956faf19a6bbe86788a9065e1566d490e06ee525a11336a6f",
+  "packet": {
+    "question_id": "rq_972f75e58d70",
+    "prompt": "视频中五块物体按尺寸从远到近如何排列？",
+    "options": {
+      "A": "从远到近：中等、次小、最小、次大、最大。",
+      "B": "从远到近：最小、中等、最大、次大、次小。",
+      "C": "从远到近：最大、次大、中等、次小、最小。",
+      "D": "从远到近：最小、次小、中等、次大、最大。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "a31fdf55b07817ffa07902afbb9cfdee558f6eee9ac29abe5baa1765edc00f9d",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+    "media_lineage": {
+      "kind": "original_simulation_head_rgb_demo"
+    }
+  }
+}

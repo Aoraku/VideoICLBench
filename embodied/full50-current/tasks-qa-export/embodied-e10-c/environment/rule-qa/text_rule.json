@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E10",
+  "variant": "C",
+  "source": "text_rule",
+  "source_sha256": "acc263bea14f7d6bf0c264f7a00b706736c56e1a7ff6eba28c81b7176187963a",
+  "packet": {
+    "question_id": "rq_df23b3a1fbbc",
+    "prompt": "视频中按什么属性选择零件套到柱上？",
+    "options": {
+      "A": "只套入同时为红色且为方形的零件，共1件。",
+      "B": "套入所有方形件，共3件。",
+      "C": "套入所有红色件，共3件。",
+      "D": "套入红色件或方形件，共5件；红方只处理一次。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "2c539d94f4f85eca1739c8bcde612d80fd1b70b4077f4bfc6969d30228471e93",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

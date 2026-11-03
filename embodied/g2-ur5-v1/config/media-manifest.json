@@ -1,0 +1,546 @@
+{
+  "original_demo_bytes_unchanged": true,
+  "new_decode_or_simulation_run": false,
+  "media": [
+    {
+      "task": "E04",
+      "variant": "A",
+      "condition": "real",
+      "path": "media/E04/A/real.mp4",
+      "sha256": "cff7a11408aa3e9f8736887b24f6f1b216314baa9fc1a20ac059b5eebe529808",
+      "bytes": 4664471,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E04",
+      "variant": "A",
+      "condition": "sim",
+      "path": "media/E04/A/sim.mp4",
+      "sha256": "3b5a272dff0b7f9334e3e44b9efbcc0224de5ec2ece41897294f103c7b940940",
+      "bytes": 2420520,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E04",
+      "variant": "B",
+      "condition": "real",
+      "path": "media/E04/B/real.mp4",
+      "sha256": "0b65c3cec5329d52dc2a5f7a0dea0e13058552dd77cfc8f7333c3e880867e7a3",
+      "bytes": 4365769,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E04",
+      "variant": "B",
+      "condition": "sim",
+      "path": "media/E04/B/sim.mp4",
+      "sha256": "10c5c8294331ef6c424c637bed1f8af9e50d629d4b8b2393df57fbe2e480ff1b",
+      "bytes": 1432235,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E04",
+      "variant": "C",
+      "condition": "real",
+      "path": "media/E04/C/real.mp4",
+      "sha256": "c059c6dd4059f63a97b022d5edb11b13bf363762b453dcca12672dea4814df39",
+      "bytes": 4197123,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E04",
+      "variant": "C",
+      "condition": "sim",
+      "path": "media/E04/C/sim.mp4",
+      "sha256": "2cc366fa06c4cedc34910b15ae59277517977dbeda0596cd6704c79850822ac2",
+      "bytes": 1503585,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E05",
+      "variant": "A",
+      "condition": "real",
+      "path": "media/E05/A/real.mp4",
+      "sha256": "55cb05374ea5af6e47ae460d83651ae77ecba08d27ef1c585bc947f1068dd1b6",
+      "bytes": 1950345,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E05",
+      "variant": "A",
+      "condition": "sim",
+      "path": "media/E05/A/sim.mp4",
+      "sha256": "205a4cb8af53ed721e73e76ac8dbaaeff622a1e98b345029e09e47af423adb90",
+      "bytes": 1541372,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E05",
+      "variant": "B",
+      "condition": "real",
+      "path": "media/E05/B/real.mp4",
+      "sha256": "94cbd121806fc08786dad7c6b54d13cc20dd752d9a12cc0d955fc80177b1fb0a",
+      "bytes": 4829530,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E05",
+      "variant": "B",
+      "condition": "sim",
+      "path": "media/E05/B/sim.mp4",
+      "sha256": "503743250c9413a97dbd4f2999a6a8b4393eea2c95ce5d5934ff30ad077df47b",
+      "bytes": 1692087,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E05",
+      "variant": "C",
+      "condition": "real",
+      "path": "media/E05/C/real.mp4",
+      "sha256": "2a733422e4cd5e2b6ae4b77f790c5279b262cfcc2bcb826d581cce20fc24a69d",
+      "bytes": 4521422,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E05",
+      "variant": "C",
+      "condition": "sim",
+      "path": "media/E05/C/sim.mp4",
+      "sha256": "0bc1d9d1e5c8cb168783263a8a186882081beb21af30b14d12f444e6aada3c2d",
+      "bytes": 1523363,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E06",
+      "variant": "A",
+      "condition": "real",
+      "path": "media/E06/A/real.mp4",
+      "sha256": "e316bdc2078835cacd790b07cb64de2c5b2921f13fafa1997f8dddadf98983c6",
+      "bytes": 3512360,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E06",
+      "variant": "A",
+      "condition": "sim",
+      "path": "media/E06/A/sim.mp4",
+      "sha256": "959b965f9177cd5bad442d2b94f5b4c8d539cebba64e515876f5edaacab4eae2",
+      "bytes": 611013,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E06",
+      "variant": "B",
+      "condition": "real",
+      "path": "media/E06/B/real.mp4",
+      "sha256": "1affddd2b0062720045df68825447e7f31b032b69ef21eb566e40938a329fd59",
+      "bytes": 3261136,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E06",
+      "variant": "B",
+      "condition": "sim",
+      "path": "media/E06/B/sim.mp4",
+      "sha256": "7e031ce8e359b1b88766cfb94e3013557d204685550ef97cd2878b2cc6a80c60",
+      "bytes": 631040,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E06",
+      "variant": "C",
+      "condition": "real",
+      "path": "media/E06/C/real.mp4",
+      "sha256": "ccedf92a0c0b49260c48007c06c705e6b6879553a1032441aecada1853164618",
+      "bytes": 3628906,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E06",
+      "variant": "C",
+      "condition": "sim",
+      "path": "media/E06/C/sim.mp4",
+      "sha256": "17f73cdcd51337a530bd30e4a471f64ff2e844ef276c39b693ccf5c9d995104e",
+      "bytes": 613472,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E07",
+      "variant": "A",
+      "condition": "real",
+      "path": "media/E07/A/real.mp4",
+      "sha256": "0cd589d86996752a4d9ddbe833e8bacfc0394fc92ddaa8fd92ec47dd26c730cb",
+      "bytes": 8544311,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E07",
+      "variant": "A",
+      "condition": "sim",
+      "path": "media/E07/A/sim.mp4",
+      "sha256": "759ec61e469ca90ac8ae6e41d76058bb453e16f03d8a2d717e4cf0cce2e102d1",
+      "bytes": 1354706,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E07",
+      "variant": "B",
+      "condition": "real",
+      "path": "media/E07/B/real.mp4",
+      "sha256": "a84666a90f576a5df50bfdb4d3f02190faf185b13a38482accfd2dc0616c27a8",
+      "bytes": 7369096,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E07",
+      "variant": "B",
+      "condition": "sim",
+      "path": "media/E07/B/sim.mp4",
+      "sha256": "a677098df1ac12da0104f91e9b6ec9f543886e7b97913d5dd551887619c6a1ab",
+      "bytes": 1330425,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E07",
+      "variant": "C",
+      "condition": "real",
+      "path": "media/E07/C/real.mp4",
+      "sha256": "16b6f9980e0572cf6806ae679e6cc3af00cffe8ce3ba459e9e680fd7547faf94",
+      "bytes": 6454756,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E07",
+      "variant": "C",
+      "condition": "sim",
+      "path": "media/E07/C/sim.mp4",
+      "sha256": "f11d694e06b57c1956faf19a6bbe86788a9065e1566d490e06ee525a11336a6f",
+      "bytes": 1368011,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E09",
+      "variant": "A",
+      "condition": "real",
+      "path": "media/E09/A/real.mp4",
+      "sha256": "f171b878a6e364babe2465e9fd6d6c0ed824f49aa8b37e96ba4b07ca28c7d54a",
+      "bytes": 12801981,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E09",
+      "variant": "A",
+      "condition": "sim",
+      "path": "media/E09/A/sim.mp4",
+      "sha256": "42d823ce4add74483a181e4b8a425629c6e3ba27f29034115ad5e9bee796a362",
+      "bytes": 3840241,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E09",
+      "variant": "B",
+      "condition": "real",
+      "path": "media/E09/B/real.mp4",
+      "sha256": "0b00307d563dfbe8abb1370f8e8607ac703727907415c06c6aa0f21f8a73f8a0",
+      "bytes": 10096530,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E09",
+      "variant": "B",
+      "condition": "sim",
+      "path": "media/E09/B/sim.mp4",
+      "sha256": "9e623d2931f0431555bf1567a8056d3525179e6188a5307e85da425b6b3131c3",
+      "bytes": 3844238,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E09",
+      "variant": "C",
+      "condition": "real",
+      "path": "media/E09/C/real.mp4",
+      "sha256": "ef1fe711a1262c81782c50f3640b01904f0d7a266b1676fa34437e3012b1b3ba",
+      "bytes": 8254244,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E09",
+      "variant": "C",
+      "condition": "sim",
+      "path": "media/E09/C/sim.mp4",
+      "sha256": "3270c725549120d982308bbebf9c5d998e7329be27e1d3a073619ea44326c20e",
+      "bytes": 3961759,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E11",
+      "variant": "A",
+      "condition": "real",
+      "path": "media/E11/A/real.mp4",
+      "sha256": "66505149d65953c4fea38c7152194970452cbc396110225e3dc4601dc5aa54e5",
+      "bytes": 5255817,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E11",
+      "variant": "A",
+      "condition": "sim",
+      "path": "media/E11/A/sim.mp4",
+      "sha256": "1724fbe3d649052f97a72995a8b7140a1e3d36fb178f348850d18ee4ac09a2b0",
+      "bytes": 2185112,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E11",
+      "variant": "B",
+      "condition": "real",
+      "path": "media/E11/B/real.mp4",
+      "sha256": "088feae9b4752daacf433875471f7efeed082baf221d802514ab0bb3345ba927",
+      "bytes": 5956556,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E11",
+      "variant": "B",
+      "condition": "sim",
+      "path": "media/E11/B/sim.mp4",
+      "sha256": "2af8524ab279dc98211390618e8122d7d96e77b0e7ce5dd8473512e10f8a6abf",
+      "bytes": 1837046,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E11",
+      "variant": "C",
+      "condition": "real",
+      "path": "media/E11/C/real.mp4",
+      "sha256": "84079bc0fd535211c5c8f3dde3bad57cc083bfcee92523706a7def59a5f5f573",
+      "bytes": 5514333,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E11",
+      "variant": "C",
+      "condition": "sim",
+      "path": "media/E11/C/sim.mp4",
+      "sha256": "72585b2228be1c632dba2f028a14f1aff854d691b21af60fd8d2af5f1ebf79c3",
+      "bytes": 2201245,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E20",
+      "variant": "A",
+      "condition": "real",
+      "path": "media/E20/A/real.mp4",
+      "sha256": "c656c1fb70dcefe14cf36dbc6575503631eff6cadacb06fcfd54148ec8136f21",
+      "bytes": 7247698,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E20",
+      "variant": "A",
+      "condition": "sim",
+      "path": "media/E20/A/sim.mp4",
+      "sha256": "03f54122e869e5743ec83a896bcad3899ae7a0339ef68a2afb8e1a77f307e75d",
+      "bytes": 1801667,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E20",
+      "variant": "B",
+      "condition": "real",
+      "path": "media/E20/B/real.mp4",
+      "sha256": "8d7f88c8f2ca2567adcad7b2d19e6bde55844673845c84c2911e510102d9091f",
+      "bytes": 11309103,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E20",
+      "variant": "B",
+      "condition": "sim",
+      "path": "media/E20/B/sim.mp4",
+      "sha256": "72c480869248055e05d77f0ba6ee14dab0d2df348b1050472663bf28a0991846",
+      "bytes": 2958248,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E20",
+      "variant": "C",
+      "condition": "real",
+      "path": "media/E20/C/real.mp4",
+      "sha256": "bfe42f3ca984bab018af33e364353f61d2b154f481f18a18f19782b3bc83407f",
+      "bytes": 15502700,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E20",
+      "variant": "C",
+      "condition": "sim",
+      "path": "media/E20/C/sim.mp4",
+      "sha256": "68648f974c414e46de0e3e427ddaed292d78f01522192a2874f9b0b1260bca34",
+      "bytes": 4082834,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E36",
+      "variant": "A",
+      "condition": "real",
+      "path": "media/E36/A/real.mp4",
+      "sha256": "bed9b049fe1b7278de5562840a07d34c5bd898c8d8f94cb66e0c891370d26108",
+      "bytes": 1827716,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E36",
+      "variant": "A",
+      "condition": "sim",
+      "path": "media/E36/A/sim.mp4",
+      "sha256": "e691d7ef7073fe68b2d9e1ba64dea6631bd485451a9ba28210316b6e8ed86fee",
+      "bytes": 384312,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E36",
+      "variant": "B",
+      "condition": "real",
+      "path": "media/E36/B/real.mp4",
+      "sha256": "fc41fed242d2450d056305d5d478ee29a90145963c89ed5621028a7a564661ae",
+      "bytes": 2514327,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E36",
+      "variant": "B",
+      "condition": "sim",
+      "path": "media/E36/B/sim.mp4",
+      "sha256": "d47bdf6b7e165558ab14245fe6f444f6bdc1a91e2aad07746fa37e877b4ada88",
+      "bytes": 642070,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E36",
+      "variant": "C",
+      "condition": "real",
+      "path": "media/E36/C/real.mp4",
+      "sha256": "53a46290961fac505efaa52e6d12fa69ed62f4490112bf706c09365afd1886eb",
+      "bytes": 2858788,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E36",
+      "variant": "C",
+      "condition": "sim",
+      "path": "media/E36/C/sim.mp4",
+      "sha256": "3a384d79ba20d66c3552c66d6739d346f9006fbc407a10c1bb13e1e67474bfdf",
+      "bytes": 1419945,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E41",
+      "variant": "A",
+      "condition": "real",
+      "path": "media/E41/A/real.mp4",
+      "sha256": "ba432f12c5e61f6047a1051cdab0040b431025260ee16b8cafd247f6b693f589",
+      "bytes": 3752885,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E41",
+      "variant": "A",
+      "condition": "sim",
+      "path": "media/E41/A/sim.mp4",
+      "sha256": "e42cc9f4e53279c1341bd7cdf3070c261a4a10ab261b66521f8b0a2103f4df71",
+      "bytes": 1680911,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E41",
+      "variant": "B",
+      "condition": "real",
+      "path": "media/E41/B/real.mp4",
+      "sha256": "fa3e33583f2a9dcb776bb5f2e5669b5ea100f21fbc6a2b04d4fd72c03f5e494b",
+      "bytes": 3275728,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E41",
+      "variant": "B",
+      "condition": "sim",
+      "path": "media/E41/B/sim.mp4",
+      "sha256": "1f9e4fc2bbf0839a4939930674a840492c9b3f10ab5fb464bd04a3c032c06f95",
+      "bytes": 1758367,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E41",
+      "variant": "C",
+      "condition": "real",
+      "path": "media/E41/C/real.mp4",
+      "sha256": "5e3a066926afb65e43de631fd3ce3207cfaa478f4a04f43fddfe24a1d6dc0314",
+      "bytes": 3482027,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E41",
+      "variant": "C",
+      "condition": "sim",
+      "path": "media/E41/C/sim.mp4",
+      "sha256": "f49c00d87a3aa2bc8334be299c1a4601421ec8514ce8e7b7e7bc854041b467a8",
+      "bytes": 1636191,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E49",
+      "variant": "A",
+      "condition": "real",
+      "path": "media/E49/A/real.mp4",
+      "sha256": "8d7fc3ca07159acac7356827a2abf2746ccf895891a92a3e6502262d986f009d",
+      "bytes": 6251577,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E49",
+      "variant": "A",
+      "condition": "sim",
+      "path": "media/E49/A/sim.mp4",
+      "sha256": "817d89b3c728c945918192741f4e5746e8a32ebe40c373db6b93fd00dd8825e6",
+      "bytes": 4697556,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E49",
+      "variant": "B",
+      "condition": "real",
+      "path": "media/E49/B/real.mp4",
+      "sha256": "5ebae2220410148d825893f40bf96254eb445337e5be6be21c0cb3a58fab90a2",
+      "bytes": 6838002,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E49",
+      "variant": "B",
+      "condition": "sim",
+      "path": "media/E49/B/sim.mp4",
+      "sha256": "a195ead2de615f321cb095b5eec8634b44f9be0ccdba843fda9ba4b34be3ac13",
+      "bytes": 3774246,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E49",
+      "variant": "C",
+      "condition": "real",
+      "path": "media/E49/C/real.mp4",
+      "sha256": "1b9e5a0524de103e0541e736d271c4d7aaee0302ef0e8baacbc91ce022e500f9",
+      "bytes": 5745416,
+      "original_bytes_preserved": true
+    },
+    {
+      "task": "E49",
+      "variant": "C",
+      "condition": "sim",
+      "path": "media/E49/C/sim.mp4",
+      "sha256": "e9355ba856faa0d04f0bdffaf875f73d838e650317a3c9bc73ae7ce1ec7141a9",
+      "bytes": 3959869,
+      "original_bytes_preserved": true
+    }
+  ]
+}

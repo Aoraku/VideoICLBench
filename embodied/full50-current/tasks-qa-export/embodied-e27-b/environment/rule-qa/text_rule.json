@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E27",
+  "variant": "B",
+  "source": "text_rule",
+  "source_sha256": "eca8a1bb36308d29f29e83849b8fc2cc8720ae906ec5205d67c8e0dbfaad7b33",
+  "packet": {
+    "question_id": "rq_d3644d539a5c",
+    "prompt": "以操作者为参照，视频中勺和叉如何摆在盘的两侧？",
+    "options": {
+      "A": "勺叉都放盘左侧，靠盘为勺，外侧为叉。",
+      "B": "勺在盘左、叉在盘右。",
+      "C": "叉在盘左、勺在盘右。",
+      "D": "勺叉都放盘右侧，靠盘为勺，外侧为叉。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "ce4976d7416ffbe2a44ef5765912ebdd395f54ff3f3a333dc9e1b17262de2c5b",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

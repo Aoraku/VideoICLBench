@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E17",
+  "variant": "A",
+  "source": "text_rule",
+  "source_sha256": "40dd4e0f3c0ab0ea5d6d5b35c4cb27e4e627d26ccd020e5836bd9d597fff37d8",
+  "packet": {
+    "question_id": "rq_414a9c021418",
+    "prompt": "视频中四件物体如何分配到点心架上下两层？",
+    "options": {
+      "A": "蓝色放上层，绿色放下层。",
+      "B": "四件全部放上层。",
+      "C": "四件全部放下层。",
+      "D": "三角放上层，方形放下层。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "ecb69bb05a9f4ca33ec2d5f04c60e0bc59d33dfb59e9f1fcfdb44a122a3c29f0",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

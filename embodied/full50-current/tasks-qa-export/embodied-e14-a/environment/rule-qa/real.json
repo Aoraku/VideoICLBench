@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E14",
+  "variant": "A",
+  "source": "real",
+  "source_sha256": "a94bdc6f8b0523b589f0447f85c140a90004c8822bee437a077071ea4ce60811",
+  "packet": {
+    "question_id": "rq_13be0aed84b5",
+    "prompt": "相对初始层序，视频中四层塔如何重排？",
+    "options": {
+      "A": "交换从顶端数第2、3层，其余不变。",
+      "B": "交换从顶端数第3、4层，其余不变。",
+      "C": "整塔层序上下反转。",
+      "D": "交换从顶端数第1、2层，其余不变。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "024b06e2bdb462ece51bef0ef5251f388fa07094c5b3f5d529d21ffc22e5ee4f",
+    "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+  }
+}

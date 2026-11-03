@@ -1,0 +1,6 @@
+{
+  "rule": "只打开上层红抽屉",
+  "evaluation_scope": "目标层可见开启、其余关闭；不要求统一拉出距离。",
+  "scope_note": "C下层只拉出较短距离，视频未支持统一开度阈值；判定可见打开状态，不能强制两层拉到相同长度。",
+  "source_video_sha256": "db3881d0262ec505ecdd8ab9cd263af9cb0dfc5a567547d21c546cdd792d0075"
+}

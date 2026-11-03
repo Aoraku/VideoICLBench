@@ -1,0 +1,136 @@
+{
+  "status": "four_captured_cases_match_expected_admission",
+  "cases": [
+    {
+      "room": "embodied-e13-c--text_rule--seed4201",
+      "failures": [
+        {
+          "actor_id": "stand",
+          "measured_position": [
+            0.005005463026463961,
+            -0.11168169230222705,
+            0.7896161651611329
+          ],
+          "expected_position": [
+            0.0,
+            -0.11,
+            0.8637962467655
+          ],
+          "center_error_m": 0.07436778372345945,
+          "orientation_error_deg": 71.92788779691557,
+          "max_center_error_m": 0.02,
+          "max_orientation_error_deg": 10.0,
+          "reasons": [
+            "initial_center_displaced",
+            "initial_orientation_displaced",
+            "no_measured_physical_support"
+          ],
+          "measured_status": {
+            "released": true,
+            "stable": true,
+            "supported": false,
+            "hold_seconds": 0.5040000000000003,
+            "actor_id": "stand"
+          }
+        }
+      ]
+    },
+    {
+      "room": "embodied-e25-c--text_rule--seed4201",
+      "failures": []
+    },
+    {
+      "room": "embodied-e13-c--real--seed4201",
+      "failures": []
+    },
+    {
+      "room": "embodied-e25-c--real--seed4201",
+      "failures": [
+        {
+          "actor_id": "fork",
+          "measured_position": [
+            -4.44088786333589e-17,
+            -0.19999980926513677,
+            -10.373768272399902
+          ],
+          "expected_position": [
+            0.0,
+            -0.2,
+            0.8100793234257259
+          ],
+          "center_error_m": 11.183847595825629,
+          "orientation_error_deg": 0.0,
+          "max_center_error_m": 0.02,
+          "max_orientation_error_deg": 10.0,
+          "reasons": [
+            "initial_center_displaced",
+            "no_measured_physical_support"
+          ],
+          "measured_status": {
+            "released": true,
+            "stable": false,
+            "supported": false,
+            "hold_seconds": 0.0,
+            "actor_id": "fork"
+          }
+        },
+        {
+          "actor_id": "spoon",
+          "measured_position": [
+            -1.9984048324570708e-17,
+            -0.09000015258789064,
+            -10.372243347167968
+          ],
+          "expected_position": [
+            0.0,
+            -0.09,
+            0.811604323691639
+          ],
+          "center_error_m": 11.18384767085961,
+          "orientation_error_deg": 0.0,
+          "max_center_error_m": 0.02,
+          "max_orientation_error_deg": 10.0,
+          "reasons": [
+            "initial_center_displaced",
+            "no_measured_physical_support"
+          ],
+          "measured_status": {
+            "released": true,
+            "stable": false,
+            "supported": false,
+            "hold_seconds": 0.0,
+            "actor_id": "spoon"
+          }
+        },
+        {
+          "actor_id": "knife",
+          "measured_position": [
+            -3.219656935808321e-17,
+            -0.1450004577636719,
+            -10.371320190429687
+          ],
+          "expected_position": [
+            0.0,
+            -0.145,
+            0.8125264627845273
+          ],
+          "center_error_m": 11.183846653214223,
+          "orientation_error_deg": 0.0,
+          "max_center_error_m": 0.02,
+          "max_orientation_error_deg": 10.0,
+          "reasons": [
+            "initial_center_displaced",
+            "no_measured_physical_support"
+          ],
+          "measured_status": {
+            "released": true,
+            "stable": false,
+            "supported": false,
+            "hold_seconds": 0.0,
+            "actor_id": "knife"
+          }
+        }
+      ]
+    }
+  ]
+}

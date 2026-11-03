@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E29",
+  "variant": "A",
+  "source": "real",
+  "source_sha256": "510f7452b1fce1ecda217a986ab0418a158a1e0fec9f9dea96b6b191dc43072d",
+  "packet": {
+    "question_id": "rq_c17e1c5e583f",
+    "prompt": "视频中用琴槌按哪一种顺序敲击八个琴键？按最长到最短将琴键编号为1到8。",
+    "options": {
+      "A": "从最短键到最长键依次各敲1次：8→7→6→5→4→3→2→1。",
+      "B": "从最长到最短再返回，折返点只敲一次：1→2→3→4→5→6→7→8→7→6→5→4→3→2→1。",
+      "C": "从最长键到最短键依次各敲1次：1→2→3→4→5→6→7→8。",
+      "D": "往返各敲一遍：1→2→3→4→5→6→7→8→8→7→6→5→4→3→2→1。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "bfd4b0b0026efb80095644261d41742ce52e2536e075fcd0bee06aea0617c08a",
+    "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+  }
+}

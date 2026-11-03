@@ -1,0 +1,30 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E04",
+  "variant": "C",
+  "source": "sim",
+  "source_sha256": "2cc366fa06c4cedc34910b15ae59277517977dbeda0596cd6704c79850822ac2",
+  "packet": {
+    "question_id": "rq_1dc2a175a2c7",
+    "prompt": "视频中的三个彩杯分别与哪些图形配对？",
+    "options": {
+      "A": "绿杯→圆；蓝杯→三角；红杯→方。",
+      "B": "绿杯→三角；蓝杯→方；红杯→圆。",
+      "C": "绿杯→方；蓝杯→圆；红杯→三角。",
+      "D": "绿杯→三角；蓝杯→圆；红杯→方。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "ea03f2a71da239e7dbe8d8b88efb805069b3fa4cdf38b239ce98cf6801416d19",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+    "media_lineage": {
+      "kind": "original_simulation_head_rgb_demo"
+    }
+  }
+}

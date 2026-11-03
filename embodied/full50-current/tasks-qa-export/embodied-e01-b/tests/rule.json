@@ -1,0 +1,6 @@
+{
+  "rule": "汉堡和饮料装盘，薯条留外",
+  "evaluation_scope": "所选两件在盘内并释放；未选件不入盘。",
+  "scope_note": "成员选择；不把左右落点或拿取先后加为规则。",
+  "source_video_sha256": "301695f3e0b6ee9e25d94d0f715ccf53becfe214d1e51d4741b4c911cef4c459"
+}

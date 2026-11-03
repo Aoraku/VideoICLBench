@@ -1,0 +1,6 @@
+{
+  "rule": "盘面朝下盖在碗口上",
+  "evaluation_scope": "A碗在盘内；B正盘盖碗；C反盘盖碗，稳定释放。",
+  "scope_note": "需要区分盘的正反面，不能仅检查盘在碗上方。",
+  "source_video_sha256": "570bddba94f06adb33a501f2a619f8ea3ea246a39fdc8de054b51b7b3a427270"
+}

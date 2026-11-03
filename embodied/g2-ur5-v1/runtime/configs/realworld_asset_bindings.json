@@ -1,0 +1,394 @@
+{
+  "schema": "realworld50-source-bindings-v1",
+  "tasks": {
+    "E32": {
+      "objects": {
+        "sprite_bottle": {
+          "source_asset": {
+            "root_env": "VIC_REALWORLD_ASSETS",
+            "relative_path": "sprite_bottle.usda",
+            "sha256": "6e69283316bbbbb8996ce3467e9a9b816f02f2f5eb6adc576d618f140e7b3e04",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0,
+              0.0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "sprite_bottle_textures/385354a1ea845078216dd42395e97f9dbc3b279934da6f161cd085b5491d7c1e.png",
+                "sha256": "385354a1ea845078216dd42395e97f9dbc3b279934da6f161cd085b5491d7c1e"
+              }
+            ]
+          },
+          "size": [
+            0.03350364625453949,
+            0.03338874507528218,
+            0.12554764695011406
+          ],
+          "xy": [
+            0.04,
+            0.06
+          ],
+          "yaw": 0,
+          "mass": 0.15,
+          "bottom": 0.802,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "adaptations": [
+            "instance-centering",
+            "uniform-scale",
+            "root rigid body and assigned mass",
+            "source collision selection"
+          ],
+          "identity_fidelity": "approximate_label_needs_adaptation"
+        },
+        "cola_bottle": {
+          "source_asset": {
+            "root_env": "VIC_REALWORLD_ASSETS",
+            "relative_path": "cola_bottle.usda",
+            "sha256": "93c5402054122d2808282637cac33199019d8c532baad3e0c484f07729d6e48a",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0,
+              0.0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "cola_bottle_textures/6a8d2d0fa9f06f683a1051e525ead7c13fd435a18eb42b0ec4b8984b8b7911ca.png",
+                "sha256": "6a8d2d0fa9f06f683a1051e525ead7c13fd435a18eb42b0ec4b8984b8b7911ca"
+              }
+            ]
+          },
+          "size": [
+            0.032280071496963506,
+            0.03176026105988866,
+            0.1219276739501138
+          ],
+          "xy": [
+            0.25,
+            -0.23
+          ],
+          "yaw": 0,
+          "mass": 0.15,
+          "bottom": 0.802,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "adaptations": [
+            "instance-centering",
+            "uniform-scale",
+            "root rigid body and assigned mass",
+            "source collision selection"
+          ],
+          "identity_fidelity": "approximate_label_needs_adaptation"
+        },
+        "phone": {
+          "source_asset": {
+            "root_env": "VIC_REALWORLD_ASSETS",
+            "relative_path": "phone.usda",
+            "sha256": "76e09a11306404b992162e7581228887e0fb9ea2c68f7d7fbef9c0e7ad8bfed7",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0,
+              0.0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "phone_textures/4b86801e1784d3f98f75c6b503443de37567229e3cb203638e1cfb4d4d673101.png",
+                "sha256": "4b86801e1784d3f98f75c6b503443de37567229e3cb203638e1cfb4d4d673101"
+              }
+            ]
+          },
+          "size": [
+            0.036135137379169464,
+            0.07410183339331577,
+            0.0066793377729470645
+          ],
+          "xy": [
+            -0.25,
+            0
+          ],
+          "yaw": 1.57,
+          "mass": 0.06,
+          "bottom": 0.802,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "adaptations": [
+            "instance-centering",
+            "uniform-scale",
+            "root rigid body and assigned mass",
+            "source collision selection"
+          ],
+          "identity_fidelity": "category_candidate_needs_visual_comparison"
+        },
+        "shoe": {
+          "source_asset": {
+            "root_env": "VIC_REALWORLD_ASSETS",
+            "relative_path": "shoe.usda",
+            "sha256": "396c67fa6869c96c71342e2b03e26b011c200b6093a6beddfb987f11c1bc368a",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0,
+              0.0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "shoe_textures/2055fc800e4494cfcb0790aa7e46103edf04301c535384007277e3aff8721841.png",
+                "sha256": "2055fc800e4494cfcb0790aa7e46103edf04301c535384007277e3aff8721841"
+              }
+            ]
+          },
+          "size": [
+            0.03665084362030029,
+            0.10447189248040736,
+            0.045402064919113506
+          ],
+          "xy": [
+            0.06,
+            -0.11
+          ],
+          "yaw": 0.7,
+          "mass": 0.06,
+          "bottom": 0.802,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "adaptations": [
+            "instance-centering",
+            "uniform-scale",
+            "root rigid body and assigned mass",
+            "source collision selection"
+          ],
+          "identity_fidelity": "category_candidate_needs_visual_comparison"
+        },
+        "plate": {
+          "source_asset": {
+            "root_env": "VIC_REALWORLD_ASSETS",
+            "relative_path": "plate.usda",
+            "sha256": "f4cced132b6fffa20c50b869daf4bc4d09b3611bfbbf15a40f791da9a92ad734",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0,
+              0.0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "plate_textures/4f51f407fedae6d5c917a287f324c52f68100a1251b9f42f23e1410b66b9fe71.png",
+                "sha256": "4f51f407fedae6d5c917a287f324c52f68100a1251b9f42f23e1410b66b9fe71"
+              }
+            ]
+          },
+          "size": [
+            0.0948423981666565,
+            0.09516505045761135,
+            0.012500003257360885
+          ],
+          "xy": [
+            0.22,
+            0.19
+          ],
+          "yaw": 0,
+          "mass": 0.06,
+          "bottom": 0.802,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "adaptations": [
+            "instance-centering",
+            "uniform-scale",
+            "root rigid body and assigned mass",
+            "source collision selection"
+          ],
+          "identity_fidelity": "category_candidate_needs_visual_comparison"
+        },
+        "bowl": {
+          "source_asset": {
+            "root_env": "VIC_REALWORLD_ASSETS",
+            "relative_path": "bowl.usda",
+            "sha256": "0547e8b413326e663a6d00096b536b0f61c42835d4bef6c2e1be6f95a885f110",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0,
+              0.0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "bowl_textures/68d9e490d96f9bd62c67ad825175b528fd8de9310f3a9ddd31a773729d677782.png",
+                "sha256": "68d9e490d96f9bd62c67ad825175b528fd8de9310f3a9ddd31a773729d677782"
+              }
+            ]
+          },
+          "size": [
+            0.05559428071975708,
+            0.05545287713379269,
+            0.023500001898071075
+          ],
+          "xy": [
+            0.06,
+            0.24
+          ],
+          "yaw": 0,
+          "mass": 0.06,
+          "bottom": 0.802,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "adaptations": [
+            "instance-centering",
+            "uniform-scale",
+            "root rigid body and assigned mass",
+            "source collision selection"
+          ],
+          "identity_fidelity": "category_candidate_needs_visual_comparison"
+        },
+        "cup": {
+          "source_asset": {
+            "root_env": "VIC_REALWORLD_ASSETS",
+            "relative_path": "cup.usda",
+            "sha256": "ce381937baf620703210719ed6947f539dd06cd57be4718ebc3f7d2528c00d14",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0,
+              0.0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "cup_textures/bc59d4ac737100f9c0774784e076a47752b7c591ebe09887caafd91b888db427.png",
+                "sha256": "bc59d4ac737100f9c0774784e076a47752b7c591ebe09887caafd91b888db427"
+              }
+            ]
+          },
+          "size": [
+            0.041277015447616576,
+            0.040989036635602924,
+            0.04400000140299488
+          ],
+          "xy": [
+            -0.07,
+            0.23
+          ],
+          "yaw": 0,
+          "mass": 0.06,
+          "bottom": 0.802,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "adaptations": [
+            "instance-centering",
+            "uniform-scale",
+            "root rigid body and assigned mass",
+            "source collision selection"
+          ],
+          "identity_fidelity": "category_candidate_needs_visual_comparison"
+        },
+        "plasticbox": {
+          "source_asset": {
+            "root_env": "VIC_REALWORLD_ASSETS",
+            "relative_path": "plasticbox.usda",
+            "sha256": "b1825745f4814f6ae5ae5ca51f687d281c0cb70ed1fbe3f33b9e16e94d4a3c90",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0.0,
+              0.0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "plasticbox_textures/43a2ff376757fc2c60bfdf1cab8701058d96be810a7ea36381dbaeb243cb39df.png",
+                "sha256": "43a2ff376757fc2c60bfdf1cab8701058d96be810a7ea36381dbaeb243cb39df"
+              }
+            ]
+          },
+          "size": [
+            0.09498175084590912,
+            0.07392630103734361,
+            0.03584535374956667
+          ],
+          "xy": [
+            -0.22,
+            -0.22
+          ],
+          "yaw": 0,
+          "mass": 0.06,
+          "bottom": 0.802,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "adaptations": [
+            "instance-centering",
+            "uniform-scale",
+            "root rigid body and assigned mass",
+            "source collision selection"
+          ],
+          "identity_fidelity": "category_candidate_needs_visual_comparison"
+        },
+        "pink_cube": {
+          "source_asset": {
+            "root_env": "VIC_ROBODOJO_ASSETS",
+            "relative_path": "Object/RoboDojo/Rigid/small_cube/00007/object.usdz",
+            "sha256": "5e884b3ea23bca1706aabbc53f7d6cfe66cafc57fd70ddfc5ba031d5107ec583",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.0225,
+            0.0225,
+            0.0225
+          ],
+          "xy": [
+            -0.16,
+            0.1
+          ],
+          "yaw": 0,
+          "mass": 0.06,
+          "bottom": 0.802,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "adaptations": [
+            "uniform scale to 45mm edge",
+            "pink material override",
+            "root rigid body and assigned mass"
+          ],
+          "identity_fidelity": "category_candidate_needs_visual_comparison",
+          "recolor": true,
+          "rgba": [
+            0.82,
+            0.22,
+            0.47,
+            1
+          ]
+        }
+      },
+      "target_xy": [
+        0.02,
+        -0.34
+      ],
+      "position_jitter": 0,
+      "fidelity_status": "author_preview: incomplete clutter; labels and layout need source-video alignment"
+    }
+  },
+  "gaps": {
+    "E05": "triangle mesh missing",
+    "E02": "four-hole thin blocks missing",
+    "E06": "six-cell egg tray missing",
+    "E18": "two-drawer toy with mechanisms missing",
+    "E26": "polka-dot dome bell mechanism missing",
+    "E32": "clutter incomplete; 111_callbell rejected: handheld stem bell, not dome desk bell; bottle labels approximate; ABC-specific source layout pending"
+  },
+  "formal_release_ready": false
+}

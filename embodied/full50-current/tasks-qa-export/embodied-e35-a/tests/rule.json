@@ -1,0 +1,6 @@
+{
+  "rule": "从下到上大、中、小",
+  "evaluation_scope": "尺寸秩次对应正确，真实支撑且释放；不限制绝对尺寸。",
+  "scope_note": "三块同色不同尺寸；与彩色等大小叠放分题。B/C需要稳定支撑，但不要求重心/精确坐标完全复刻。",
+  "source_video_sha256": "e54839af1dcd1d79be1ffc1bbf4acc444c821ff0e69f4ac6b36e4c82eaaf8d34"
+}

@@ -1,0 +1,71 @@
+{
+  "schema": "videoicl-initial-admission-candidate-v1",
+  "status": "local-prepared-not-GPU-validated-not-deployed",
+  "baseline_binding_sha256": "7b95b7de104910fd861d0d9ea31babc4a7476186aa29e1aaf6e64686f1807243",
+  "modified_task_fields": [
+    "tasks.E13.objects.stand.source_asset"
+  ],
+  "unchanged_E25_task_binding": true,
+  "E13_old_asset": {
+    "root_env": "VIC_FULL50_RIGID_ASSETS",
+    "relative_path": "phone_stand0.usda",
+    "sha256": "713393d637a1d7bc34ab3cdf7bb636680eaaff32b157df160425ba3a0fb23fdd",
+    "source_rotation": [
+      0.7071067811865476,
+      0.7071067811865476,
+      0,
+      0
+    ],
+    "dependencies": [
+      {
+        "relative_path": "phone_stand0_textures/040ccfca7f5c637ebae95ec7be4b8518a2e7ad08632011997b61b9d4da0094c1.png",
+        "sha256": "040ccfca7f5c637ebae95ec7be4b8518a2e7ad08632011997b61b9d4da0094c1"
+      }
+    ]
+  },
+  "E13_new_asset": {
+    "root_env": "VIC_FULL50_RIGID_ASSETS",
+    "relative_path": "e13_stand_hframe_v2/stand.usda",
+    "sha256": "d5b18e512d852ca252f1c45ef4c6a1197ef0fb9a84e4e06d399c8529e3604bb8",
+    "source_rotation": [
+      0.7071067811865476,
+      0.7071067811865476,
+      0,
+      0
+    ],
+    "dependencies": [
+      {
+        "relative_path": "e13_stand_hframe_v2/phone_stand0_textures/040ccfca7f5c637ebae95ec7be4b8518a2e7ad08632011997b61b9d4da0094c1.png",
+        "sha256": "040ccfca7f5c637ebae95ec7be4b8518a2e7ad08632011997b61b9d4da0094c1"
+      }
+    ]
+  },
+  "E13_validation_source": "/Users/lijieming/Documents/ChatGPT/VideoICL/realworld50_20261027/recording_20261028/e13-stand-source-adaptation/native-hframe-v2-ABC-validation.json",
+  "E13_binding_source": "/Users/lijieming/Documents/ChatGPT/VideoICL/realworld50_20261027/recording_20261028/half1-evidence/job-130398/pool-01-E13-C/E13-C-seed0-runtime/inputs/bindings.json",
+  "E25_validated_source": "/Users/lijieming/Documents/ChatGPT/VideoICL/realworld50_20261027/recording_20261028/e01-native-validation/e25-C-steel-exact-131626-validation.json",
+  "E25_profile_source": "/Users/lijieming/Documents/ChatGPT/VideoICL/realworld50_20261027/recording_20261028/e01-native-validation/e25-C-steel-exact-131626/E25-C-seed0-runtime/inputs/robot.json",
+  "E25_profile_purpose": "Isolated control using recorded robot profile; no claim that robot profile change fixes convex cooking failure. Current and validated E25 taskbinding are identical.",
+  "asset_records": [
+    {
+      "relative_path": "e13_stand_hframe_v2/stand.usda",
+      "sha256": "d5b18e512d852ca252f1c45ef4c6a1197ef0fb9a84e4e06d399c8529e3604bb8"
+    },
+    {
+      "relative_path": "e13_stand_hframe_v2/phone_stand0_textures/040ccfca7f5c637ebae95ec7be4b8518a2e7ad08632011997b61b9d4da0094c1.png",
+      "sha256": "040ccfca7f5c637ebae95ec7be4b8518a2e7ad08632011997b61b9d4da0094c1"
+    }
+  ],
+  "runtime_rules_changed": false,
+  "files": {
+    "e25-recording-validated-robot.control.json": "b64ad448a11f1734d81805037a2d4ffc8a7a58a015af0874adc83eb5e8fcee34",
+    "e13-hframe-v2-bindings.candidate.json": "fc9150d38f89d690b67591cc319b5ece76aa37371187e0b44a7a1c971fd53e4e",
+    "observed-initial-failures.private.json": "86db9341cc893f3171f80aa0076e3ecb4cce4bb4c103937a64dd469dd0634371",
+    "README.md": "8fc48bf9ba53f7cc1a2bb3cbe231d5f13fdac6356a3f188e0835f59bfe2b0704",
+    "initial-guard-captured-replay.json": "31b0acc984b08accd023594089f43877a7eb0b55bebf7efb7bb8175a6dc6d6bf",
+    "assets/VIC_FULL50_RIGID_ASSETS/e13_stand_hframe_v2/stand.usda": "d5b18e512d852ca252f1c45ef4c6a1197ef0fb9a84e4e06d399c8529e3604bb8",
+    "assets/VIC_FULL50_RIGID_ASSETS/e13_stand_hframe_v2/phone_stand0_textures/040ccfca7f5c637ebae95ec7be4b8518a2e7ad08632011997b61b9d4da0094c1.png": "040ccfca7f5c637ebae95ec7be4b8518a2e7ad08632011997b61b9d4da0094c1"
+  },
+  "E13_complete_stand_spec_matches_validated": true,
+  "candidate_recipe_binding_sha256": "60ef30da8394810b979284ad8f8a95896b4c49050a3a5d905bb476ee4b38a0a7",
+  "candidate_recipe_hash_encoding": "json sort_keys=True separators=(comma,colon) UTF-8"
+}

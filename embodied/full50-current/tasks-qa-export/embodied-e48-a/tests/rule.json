@@ -1,0 +1,6 @@
+{
+  "rule": "从左起翻开1张牌并插入卡座",
+  "evaluation_scope": "左起1/2/3张已翻且插入同座，其他盖住；不考花色。",
+  "scope_note": "其余牌保持背面朝上；同一卡座收纳全部选中牌，学习数量而非花色。",
+  "source_video_sha256": "e43bf185787eee049a298c1b4e2af98d434fa7b65bdcfdb37d1ed8932e3d7b8c"
+}

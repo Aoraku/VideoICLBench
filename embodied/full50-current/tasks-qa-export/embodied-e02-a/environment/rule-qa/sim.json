@@ -1,0 +1,55 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E02",
+  "variant": "A",
+  "source": "sim",
+  "source_sha256": "e084e0ac7abc03df80a5f29367815a36794a3f39bbc40ac1ab57e6528276596e",
+  "packet": {
+    "question_id": "rq_78b321f85694",
+    "prompt": "视频中三色块最终自下而上的叠放顺序是什么？",
+    "options": {
+      "A": "自下而上蓝、红、绿。",
+      "B": "自下而上绿、蓝、红。",
+      "C": "自下而上红、蓝、绿。",
+      "D": "自下而上红、绿、蓝。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "01402bcefe9b10f41fe22ce6434a48b6f7663cceb01054016bbaaed7761dfb91",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "sha256_full_decode_duration_fps_endpoint_verified",
+    "media_lineage": {
+      "kind": "original_sim_demo_uniform_speedmatched",
+      "speedmatched": true,
+      "duration_seconds": 12.033333,
+      "fps": 30,
+      "media_lineage": {
+        "source_sim_sha256": "bc6c95f7968ed2c53e2f11525c09cf6974729cad2b3237b51e042eb85090232e",
+        "source_sim_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/sim150-20261030/media/E02/E02_A__head.mp4",
+        "source_sim_duration_seconds": 34.08,
+        "reference_real_sha256": "2db571f588ea808edd714f61b111b50ec555fc8fa0d5e8296a99480c8052a830",
+        "reference_real_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/real-text300-20261030/E02/A/human.mp4",
+        "reference_real_duration_seconds": 12.033333,
+        "speed_ratio": 2.832133042441358,
+        "transformation": "speedmatched_only",
+        "qa_answer_unchanged": true,
+        "source_manifest_sha256": "da5d21260243098b35fe6d9b9ad1f359223a621ee25f4306c421351a90eaffd5",
+        "trim_intervals_seconds": [],
+        "kept_source_frame_interval": [
+          0,
+          852
+        ],
+        "retained_source_duration_seconds": 34.08,
+        "v1_output_sha256": "e084e0ac7abc03df80a5f29367815a36794a3f39bbc40ac1ab57e6528276596e",
+        "speed_ratio_retained": 2.832133042441358,
+        "frame_selection": "round(k*(source_frame_count-1)/(output_frame_count-1)), k=0..output_frame_count-1",
+        "review_status": "conservative_no_deletion_without_semantic_evidence"
+      }
+    }
+  }
+}

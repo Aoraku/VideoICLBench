@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E19",
+  "variant": "B",
+  "source": "real",
+  "source_sha256": "aa2a9bd72d34ca00c27961584134687cb75ecbf63933d36e7b166a90e9bd8d8f",
+  "packet": {
+    "question_id": "rq_26b307b59161",
+    "prompt": "视频中雪碧瓶、水瓶和可乐瓶分别配什么颜色的盖？",
+    "options": {
+      "A": "雪碧配白盖，水配红盖，可乐配黄盖。",
+      "B": "雪碧配黄盖，水配白盖，可乐配红盖。",
+      "C": "雪碧配红盖，水配黄盖，可乐配白盖。",
+      "D": "雪碧配黄盖，水配红盖，可乐配白盖。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "ee5bf5f16d09b2e663912f0504fc757be2a0c2c8461ac46967f864587691a264",
+    "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+  }
+}

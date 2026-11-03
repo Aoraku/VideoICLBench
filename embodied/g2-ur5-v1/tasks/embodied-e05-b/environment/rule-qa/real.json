@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E05",
+  "variant": "B",
+  "source": "real",
+  "source_sha256": "94cbd121806fc08786dad7c6b54d13cc20dd752d9a12cc0d955fc80177b1fb0a",
+  "packet": {
+    "question_id": "rq_d49ac3307802",
+    "prompt": "视频中方块、球和三角块分别放到哪些图形标记处？",
+    "options": {
+      "A": "方块→方形；球→圆形；三角块→三角形。",
+      "B": "方块→方形；球→三角形；三角块→圆形。",
+      "C": "方块→圆；球→三角；三角→方。",
+      "D": "方块→三角；球→方；三角→圆。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "f2505ef9f2d507ce65b98c9fdf6e88b1730e6efe60349a80cdfd446c396bf161",
+    "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+  }
+}

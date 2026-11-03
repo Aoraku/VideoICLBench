@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "backend": "videoicl-native-slurm",
+  "kind": "embodied",
+  "task_id": "E06",
+  "variant": "B",
+  "seed": 4201,
+  "demo": {
+    "path": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/real-text300-20261030/materials/E06/B/human.mp4",
+    "sha256": "1affddd2b0062720045df68825447e7f31b032b69ef21eb566e40938a329fd59",
+    "verification": "file_sha256_and_full_decode_verified",
+    "kind": "original_human_rgb_demo_transcoded"
+  },
+  "readiness": "requires_native_interaction_validation",
+  "source_root": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/inference450-remaining300-qa-20261102/runtime",
+  "instruction_sha256": "fb19d90a0edca9bb7f878956b5b919f0fafd60cdae5cea83079e41e134656ae1",
+  "instruction_hash_scheme": "sha256_utf8_exact_file_bytes",
+  "dataset_revision": "89f009bb76ee5ffb58ee66ec584e519c86f3d4b6",
+  "catalog_sha256": "622bed91d06f04ad0c16ff7a6a92b1bd4c00cdf2bbbca03747b64a2e6e478f29",
+  "source_video": {
+    "sha256": "1ee85fa3ed61f9496bad6de328a6cf9d86afceb8aeedabb8e17169f7b9b3e335",
+    "verification": "source_sha256_verified_before_transcode"
+  },
+  "action_interface": "bounded_dual_arm_tokens_v1",
+  "budget": {
+    "timeout_sec": 0,
+    "max_actions": 500,
+    "action_interface": "bounded_dual_arm_tokens_v1",
+    "status": "provisional_integration_only",
+    "basis": "User authorized remaining300; 500 physical actions; no episode deadline.",
+    "clock": "time_recorded_without_limit",
+    "termination": "graceful_drain_inflight",
+    "protocol_version": "videoicl-unlimited-time-budget-v1",
+    "time_limit_enabled": false,
+    "time_limit_seconds": null
+  },
+  "input_conditions": [
+    "real",
+    "sim",
+    "text_rule"
+  ],
+  "native_interaction_validated": false,
+  "media_acceptance_scope": "Selected new sim time-aligned to real demo; reviewed E23 return-home tail removed; full original lineage retained; existing150 unchanged.",
+  "media_provenance": {
+    "manifest_path": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/real-text300-20261030/materials/media-manifest.private.json",
+    "manifest_sha256": "bb86f6c68ba32ee42d6eab3efc9189a9ce9ff75d4da038f0a3333ea530c8dc40",
+    "source_video_sha256": "1ee85fa3ed61f9496bad6de328a6cf9d86afceb8aeedabb8e17169f7b9b3e335",
+    "conversion": "full RGB video; autorotation; H264 CRF18; no crop/resize/trim; no audio",
+    "full_decode_passed": true
+  },
+  "agent_interaction": "gui_only",
+  "agent_protocol": "roboprobe_gui_v1",
+  "gui_controls": {
+    "path": "gui-controls.md",
+    "sha256": "60334559c8f394acc45ee9bfe024b7a406aebee27a1d50d86f06dcf787d9dde6"
+  },
+  "native_bindings": {
+    "path": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/inference450-remaining300-qa-20261102/runtime/inference-generalization-v1/inference-bindings.json",
+    "sha256": "64b5de6a4c2ad2c0db2478a8f3150952ddfd0d7cf7f9e9c9b8af28c35e866fac"
+  },
+  "robot_profile": {
+    "path": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/inference450-remaining300-qa-20261102/runtime/configs/inference-generalization-ur5-wsg-ik-smooth-v1.json",
+    "sha256": "f2861b2efeea6c79facae412b6a2b8dd4aec39ba9dbdcb9f24c75666323cbb43",
+    "name": "ur5_wsg"
+  },
+  "native_runtime_settings": {
+    "kit_args": "--/renderer/multiGpu/enabled=false --/renderer/activeGpu=0 --/persistent/physics/useLocalMeshCache=false --/physics/cooking/ujitsoCollisionCooking=false --/physics/cooking/ujitsoRemoteCacheEnabled=false --/app/settings/persistent=false",
+    "scope": "process_only_mesh_cooking_cache_no_geometry_changes"
+  },
+  "demo_sim": {
+    "path": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/inference450-remaining300-qa-20261102/materials/speedmatched-sim/E06/E06_B__head_speedmatched.mp4",
+    "sha256": "e917e9f21405edcd2ff8bf66cda00fdf95741ecede1f6ec668c74a2a2168b9ab",
+    "verification": "sha256_full_decode_duration_fps_endpoint_verified",
+    "kind": "original_sim_demo_uniform_speedmatched",
+    "speedmatched": true,
+    "duration_seconds": 7.133008,
+    "fps": 30,
+    "media_lineage": {
+      "source_sim_sha256": "7e031ce8e359b1b88766cfb94e3013557d204685550ef97cd2878b2cc6a80c60",
+      "source_sim_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/sim150-20261030/media/E06/E06_B__head.mp4",
+      "source_sim_duration_seconds": 29.64,
+      "reference_real_sha256": "1affddd2b0062720045df68825447e7f31b032b69ef21eb566e40938a329fd59",
+      "reference_real_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/real-text300-20261030/E06/B/human.mp4",
+      "reference_real_duration_seconds": 7.133333,
+      "speed_ratio": 4.15532970101814,
+      "transformation": "speedmatched_only",
+      "qa_answer_unchanged": true,
+      "source_manifest_sha256": "da5d21260243098b35fe6d9b9ad1f359223a621ee25f4306c421351a90eaffd5",
+      "trim_intervals_seconds": [],
+      "kept_source_frame_interval": [
+        0,
+        741
+      ],
+      "retained_source_duration_seconds": 29.64,
+      "v1_output_sha256": "e917e9f21405edcd2ff8bf66cda00fdf95741ecede1f6ec668c74a2a2168b9ab",
+      "speed_ratio_retained": 4.15532970101814,
+      "frame_selection": "round(k*(source_frame_count-1)/(output_frame_count-1)), k=0..output_frame_count-1",
+      "review_status": "conservative_no_deletion_without_semantic_evidence"
+    }
+  },
+  "observation_protocol": {
+    "schema": "videoicl-structured-observation-v1",
+    "depth_source": "simulator_axial_depth",
+    "estimated_depth_fallback": false,
+    "episode_memory_only": true
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E04",
+  "variant": "B",
+  "source": "sim",
+  "source_sha256": "8890b75a5be172744da5bf57254bb8dcc8895aaad3e05b3d6ad6158186acbfee",
+  "packet": {
+    "question_id": "rq_1dc2a175a2c7",
+    "prompt": "视频中的三个彩杯分别与哪些图形配对？",
+    "options": {
+      "A": "绿杯→圆；蓝杯→三角；红杯→方。",
+      "B": "绿杯→三角；蓝杯→方；红杯→圆。",
+      "C": "绿杯→方；蓝杯→圆；红杯→三角。",
+      "D": "绿杯→三角；蓝杯→圆；红杯→方。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "2092160e6210dccb427cd8f61f8f3cbd45754bdd82b60a729a8dd5d248fbb908",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "sha256_full_decode_duration_fps_endpoint_verified",
+    "media_lineage": {
+      "kind": "original_sim_demo_uniform_speedmatched",
+      "speedmatched": true,
+      "duration_seconds": 9.466667,
+      "fps": 30,
+      "media_lineage": {
+        "source_sim_sha256": "10c5c8294331ef6c424c637bed1f8af9e50d629d4b8b2393df57fbe2e480ff1b",
+        "source_sim_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/sim150-20261030/media/E04/E04_B__head.mp4",
+        "source_sim_duration_seconds": 59.4,
+        "reference_real_sha256": "0b65c3cec5329d52dc2a5f7a0dea0e13058552dd77cfc8f7333c3e880867e7a3",
+        "reference_real_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/real-text300-20261030/E04/B/human.mp4",
+        "reference_real_duration_seconds": 9.466667,
+        "speed_ratio": 6.274647666385646,
+        "transformation": "speedmatched_only",
+        "qa_answer_unchanged": true,
+        "source_manifest_sha256": "da5d21260243098b35fe6d9b9ad1f359223a621ee25f4306c421351a90eaffd5",
+        "trim_intervals_seconds": [],
+        "kept_source_frame_interval": [
+          0,
+          1485
+        ],
+        "retained_source_duration_seconds": 59.4,
+        "v1_output_sha256": "8890b75a5be172744da5bf57254bb8dcc8895aaad3e05b3d6ad6158186acbfee",
+        "speed_ratio_retained": 6.274647666385646,
+        "frame_selection": "round(k*(source_frame_count-1)/(output_frame_count-1)), k=0..output_frame_count-1",
+        "review_status": "conservative_no_deletion_without_semantic_evidence"
+      }
+    }
+  }
+}

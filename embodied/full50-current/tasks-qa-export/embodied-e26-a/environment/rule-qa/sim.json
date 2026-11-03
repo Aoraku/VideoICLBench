@@ -1,0 +1,55 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E26",
+  "variant": "A",
+  "source": "sim",
+  "source_sha256": "193fec16f9b37038180f06bc0a29e0cc73a211f6c1bbc8f994a8377b8b900b28",
+  "packet": {
+    "question_id": "rq_3733005cf39e",
+    "prompt": "视频中左右数字牌与左右铃的按铃次数遵循哪一种对应规则？",
+    "options": {
+      "A": "左铃按左牌数字，右铃按右牌数字（本片9、1次）。",
+      "B": "仅左铃按两牌数字之和，右铃不按（本片10、0次）。",
+      "C": "仅右铃按两牌数字之和，左铃不按（本片0、10次）。",
+      "D": "左铃按右牌数字，右铃按左牌数字（本片1、9次）。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "cd9d3c2bbc79c9a5667edf1d5dab40d603c9283c5e32692ecb06b45bfc9a9a87",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "sha256_full_decode_duration_fps_endpoint_verified",
+    "media_lineage": {
+      "kind": "original_sim_demo_uniform_speedmatched",
+      "speedmatched": true,
+      "duration_seconds": 13.566667,
+      "fps": 30,
+      "media_lineage": {
+        "source_sim_sha256": "334e7afbb6d560aa5ddb8cbc4296fb6c2ee0a93514879fb57cc8a93e43de92c0",
+        "source_sim_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/sim150-20261030/media/E26/E26_A__head.mp4",
+        "source_sim_duration_seconds": 22.72,
+        "reference_real_sha256": "1dbabb942642ae6d3639c680721903134a7bb6264b203b47e92dda3f29f00cce",
+        "reference_real_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/real-text300-20261030/E26/A/human.mp4",
+        "reference_real_duration_seconds": 13.566667,
+        "speed_ratio": 1.6746928335456304,
+        "transformation": "speedmatched_only",
+        "qa_answer_unchanged": true,
+        "source_manifest_sha256": "da5d21260243098b35fe6d9b9ad1f359223a621ee25f4306c421351a90eaffd5",
+        "trim_intervals_seconds": [],
+        "kept_source_frame_interval": [
+          0,
+          568
+        ],
+        "retained_source_duration_seconds": 22.72,
+        "v1_output_sha256": "193fec16f9b37038180f06bc0a29e0cc73a211f6c1bbc8f994a8377b8b900b28",
+        "speed_ratio_retained": 1.6746928335456304,
+        "frame_selection": "round(k*(source_frame_count-1)/(output_frame_count-1)), k=0..output_frame_count-1",
+        "review_status": "conservative_no_deletion_without_semantic_evidence"
+      }
+    }
+  }
+}

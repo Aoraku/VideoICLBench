@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E12",
+  "variant": "A",
+  "source": "text_rule",
+  "source_sha256": "57dbb8bbfdb76c438a7e46939d24766f27b66cdcbf1c2fa6e65554c11b19ebeb",
+  "packet": {
+    "question_id": "rq_e65974279e7a",
+    "prompt": "视频中两个充电器插入插排的哪两个插位？",
+    "options": {
+      "A": "两充电器插入靠电线端的两个插位。",
+      "B": "插入中间两个插位，两端插位空着。",
+      "C": "插入远离电线端的两个插位。",
+      "D": "插入两端插位，中间两个空着。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "0a2577e7c2459f5a57e7289baf99c9a56a067974b28ef69c9e0a3a72646daa93",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

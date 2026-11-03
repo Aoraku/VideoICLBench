@@ -1,0 +1,202 @@
+{
+  "scope": "30 changed tasks; code and source document review, not native solvability proof",
+  "changed_task_count": 30,
+  "native_physics_verified": false,
+  "tasks": {
+    "E01": {
+      "group": "G1",
+      "semantic_mode": "meal_subset",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E02": {
+      "group": "G1",
+      "semantic_mode": "color_support_stack",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E04": {
+      "group": "G2",
+      "semantic_mode": "color_shape_mapping",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E05": {
+      "group": "G2",
+      "semantic_mode": "shape_marker_map",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E06": {
+      "group": "G2",
+      "semantic_mode": "egg_cells",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E07": {
+      "group": "G2",
+      "semantic_mode": "size_order",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E08": {
+      "group": "G1",
+      "semantic_mode": "shoe_box_orientation",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E09": {
+      "group": "G2",
+      "semantic_mode": "cross_attribute_groups",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E11": {
+      "group": "G2",
+      "semantic_mode": "grid_frame_placement",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E13": {
+      "group": "G1",
+      "semantic_mode": "phone_stand_orientation",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E14": {
+      "group": "G1",
+      "semantic_mode": "initial_tower_reorder",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E15": {
+      "group": "G1",
+      "semantic_mode": "pose_swap",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E16": {
+      "group": "G1",
+      "semantic_mode": "layout_transfer",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E17": {
+      "group": "G1",
+      "semantic_mode": "fixed_tier_support",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E18": {
+      "group": "G1",
+      "semantic_mode": "native_drawer_ball_retrieval",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E20": {
+      "group": "G2",
+      "semantic_mode": "color_count_regions",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E21": {
+      "group": "G1",
+      "semantic_mode": "ordered_compartment_placement",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E22": {
+      "group": "G1",
+      "semantic_mode": "car_frame_color_positions",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E24": {
+      "group": "G1",
+      "semantic_mode": "ordered_box_and_lid",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": {
+        "profile": "e24-yarn-insertion-v1",
+        "removed": [
+          "cup_upright_orientation",
+          "left_to_right_terminal_color_order"
+        ],
+        "retained": [
+          "first_real_insertion_sequence",
+          "exact_three_identified_objects_inside_box",
+          "actual_support_and_stable_release",
+          "lid_closed_after_last_insertion"
+        ],
+        "reason": "Document specifies yarn insertion order and closing lid; yarn has no cup axis and no terminal left/right requirement."
+      }
+    },
+    "E25": {
+      "group": "G1",
+      "semantic_mode": "cutlery_tray_layout",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E27": {
+      "group": "G1",
+      "semantic_mode": "cutlery_layout",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E30": {
+      "group": "G1",
+      "semantic_mode": "native_two_drawer_open",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E34": {
+      "group": "G1",
+      "semantic_mode": "select_cutlery_handle_in_compartment",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E35": {
+      "group": "G1",
+      "semantic_mode": "size_stack",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E36": {
+      "group": "G2",
+      "semantic_mode": "count_in_container",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E38": {
+      "group": "G1",
+      "semantic_mode": "ring_stack",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null,
+      "review": "Original real threading and support-chain checks retained. New spool has actual through hole; hole_radius preserved; no type-name shortcut."
+    },
+    "E39": {
+      "group": "G1",
+      "semantic_mode": "reference_pose_correction",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E41": {
+      "group": "G2",
+      "semantic_mode": "length_extension",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E47": {
+      "group": "G1",
+      "semantic_mode": "flip_cards_select_color",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null
+    },
+    "E49": {
+      "group": "G2",
+      "semantic_mode": "flip_cards_positional_plate_mapping",
+      "abc_rules_preserved": true,
+      "type_specific_rule_change": null,
+      "review": "Original actual flip history, initial ordinal destination mapping, supports, and untouched card4/5 retained. Photo content is not read by scorer; thin contact extent preserved."
+    }
+  }
+}

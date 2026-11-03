@@ -1,0 +1,10 @@
+{
+  "timeout_sec": 6000,
+  "max_actions": 1000,
+  "action_interface": "bounded_dual_arm_tokens_v1",
+  "status": "provisional_integration_only",
+  "basis": "User-approved trial: 6000 effective seconds and 1000 GUI Commit actions; native service wait is excluded and inflight work drains gracefully. Not a frozen benchmark protocol.",
+  "clock": "effective_time_excluding_native_service",
+  "termination": "graceful_drain_inflight",
+  "protocol_version": "videoicl-effective-budget-v1"
+}

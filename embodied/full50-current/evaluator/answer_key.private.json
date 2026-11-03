@@ -1,0 +1,2060 @@
+{
+  "schema": "videoicl.rule_qa.v1",
+  "bank_version": "embodied-rule-qa-v1",
+  "answer_count": 150,
+  "catalog_sha256": "622bed91d06f04ad0c16ff7a6a92b1bd4c00cdf2bbbca03747b64a2e6e478f29",
+  "catalog_path": "isaaclab_tasks/configs/realworld50_catalog.json",
+  "dataset_revision": "89f009bb76ee5ffb58ee66ec584e519c86f3d4b6",
+  "questions": [
+    {
+      "question_id": "rq_bf057dcade49",
+      "task_id": "E01",
+      "answers": {
+        "A": "B",
+        "B": "D",
+        "C": "C"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E01-A",
+          "sha256": "b518b8a98a055d429e25be2f833d14d373c2232e81c2c1838794d84aa3827f60",
+          "relative_path": "media/E01/E01_A__IMG_0469.MOV",
+          "evidence": "1.67–6.63s放汉堡，7.47–11.60s放薯条",
+          "observed_demo": "汉堡和薯条装盘，饮料留外",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E01-B",
+          "sha256": "301695f3e0b6ee9e25d94d0f715ccf53becfe214d1e51d4741b4c911cef4c459",
+          "relative_path": "media/E01/E01_B__IMG_0470.mov",
+          "evidence": "1.33–4.57s放汉堡，5.87–9.13s放饮料",
+          "observed_demo": "汉堡和饮料装盘，薯条留外",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E01-C",
+          "sha256": "4c4b0b4ea5bc133ea4f9519f271e9dc34b30be27266232afff4c5d192e97f651",
+          "relative_path": "media/E01/E01_C__IMG_0471.mov",
+          "evidence": "1.93–4.50s放薯条，5.13–8.97s放饮料",
+          "observed_demo": "薯条和饮料装盘，汉堡留外",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "A",
+      "scope_note": "成员选择；不把左右落点或拿取先后加为规则。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_78b321f85694",
+      "task_id": "E02",
+      "answers": {
+        "A": "D",
+        "B": "B",
+        "C": "A"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E02-A",
+          "sha256": "01402bcefe9b10f41fe22ce6434a48b6f7663cceb01054016bbaaed7761dfb91",
+          "relative_path": "media/E02/E02_A__IMG_0472.mov",
+          "evidence": "3.23s红作底；6.43s绿叠红；9.63–12.00s蓝顶",
+          "observed_demo": "自下而上红、绿、蓝",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E02-B",
+          "sha256": "4c18f7185b1b268cb6fe1f77a6eff44251a45de1fb37279813612306511de551",
+          "relative_path": "media/E02/E02_B__IMG_0473.mov",
+          "evidence": "2.70s绿作底；6.30s蓝叠绿；11.70s红顶",
+          "observed_demo": "自下而上绿、蓝、红",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E02-C",
+          "sha256": "278d40a1a7609556448ec1934ed67d54244e67a8dc643118649ee4c8f97d89c2",
+          "relative_path": "media/E02/E02_C__IMG_0474.mov",
+          "evidence": "4.23s蓝作底；7.60s红叠蓝；11.00s绿顶",
+          "observed_demo": "自下而上蓝、红、绿",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "C",
+      "scope_note": "实物是带四孔的薄方块，三层真实叠放。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_99a6749b07c1",
+      "task_id": "E03",
+      "answers": {
+        "A": "A",
+        "B": "B",
+        "C": "C"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E03-A",
+          "sha256": "332fbcde1872ad52d9837e5534d26eb942228da7e0ed52792e38958e161a4485",
+          "relative_path": "media/E03/E03_A__IMG_0475.mov",
+          "evidence": "3.57s红杯置底；7.13s绿套入；11.57s蓝套入",
+          "observed_demo": "外层到内层：红、绿、蓝",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E03-B",
+          "sha256": "d791123e7ba9bc64aa972539f6e537b4ef525876f595dc7ce8daf6b56345c977",
+          "relative_path": "media/E03/E03_B__IMG_0477.MOV",
+          "evidence": "2.30s绿置底；5.33s蓝套入；9.90s红套入",
+          "observed_demo": "外层到内层：绿、蓝、红",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E03-C",
+          "sha256": "a470e766923702617cdc225c05020bd12eacdcdfee4df4284425cf2e92a06edf",
+          "relative_path": "media/E03/E03_C__IMG_0478.MOV",
+          "evidence": "3.40s蓝置底；6.77s红套入；10.97s绿套入",
+          "observed_demo": "外层到内层：蓝、红、绿",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "D",
+      "scope_note": "杯口均朝上。实录独立三条；颜色关系与积木叠放同构，任务技能为容器套叠。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_1dc2a175a2c7",
+      "task_id": "E04",
+      "answers": {
+        "A": "D",
+        "B": "C",
+        "C": "A"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E04-A",
+          "sha256": "cbcd3e23710f8ba3ff46511aa05b3c70b9ca88bf04d9cd84cbaaa1307700b7c5",
+          "relative_path": "media/E04/E04_A__IMG_0479.MOV",
+          "evidence": "2.63s绿三角；5.90s蓝圆；7.87s红方",
+          "observed_demo": "绿杯→三角；蓝杯→圆；红杯→方",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E04-B",
+          "sha256": "2092160e6210dccb427cd8f61f8f3cbd45754bdd82b60a729a8dd5d248fbb908",
+          "relative_path": "media/E04/E04_B__IMG_0480.MOV",
+          "evidence": "2.53s绿方；5.07s蓝圆；7.60s红三角",
+          "observed_demo": "绿杯→方；蓝杯→圆；红杯→三角",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E04-C",
+          "sha256": "ea03f2a71da239e7dbe8d8b88efb805069b3fa4cdf38b239ce98cf6801416d19",
+          "relative_path": "media/E04/E04_C__IMG_0481.MOV",
+          "evidence": "3.13s绿圆；5.00s蓝三角；7.50s红方",
+          "observed_demo": "绿杯→圆；蓝杯→三角；红杯→方",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "B",
+      "scope_note": "实录为三个彩杯配三图形，不是单杯三选一。方形纸标为旋转的正方形。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_d49ac3307802",
+      "task_id": "E05",
+      "answers": {
+        "A": "A",
+        "B": "C",
+        "C": "D"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E05-A",
+          "sha256": "2ce2f197bb87b064faf4786e19093d7b164f42e2a8874b8ffe7d8daa6c86f541",
+          "relative_path": "media/E05/E05_A__微信视频2026-10-27_144828_635.mp4",
+          "evidence": "约3.0s方块放方形；5.5–6.0s球放圆形；8.0–9.5s三角块放三角形并展示完整终态",
+          "observed_demo": "方块→方形；球→圆形；三角块→三角形",
+          "status": "reviewed",
+          "source_commit": null
+        },
+        "B": {
+          "video_id": "E05-B",
+          "sha256": "f2505ef9f2d507ce65b98c9fdf6e88b1730e6efe60349a80cdfd446c396bf161",
+          "relative_path": "media/E05/E05_B__IMG_0485.MOV",
+          "evidence": "3.53s方块圆；6.37s球三角；9.17s三角方",
+          "observed_demo": "方块→圆；球→三角；三角→方",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E05-C",
+          "sha256": "d2dab6a5e166df621876889c93be4685b6b0b30b8d4939e6d159d5f40e035aca",
+          "relative_path": "media/E05/E05_C__IMG_0486.MOV",
+          "evidence": "4.13s方块三角；6.90s球方；8.97s三角圆",
+          "observed_demo": "方块→三角；球→方；三角→圆",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "B",
+      "scope_note": "三件物体按形状与平面标记配对；A同形配对，B/C为不同的指定映射。颜色与形状在片中共变，执行提示应明确学习形状对应关系，不附加拿取顺序。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_3f2b25ab859d",
+      "task_id": "E06",
+      "answers": {
+        "A": "C",
+        "B": "B",
+        "C": "A"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E06-A",
+          "sha256": "57f08640719a150e2a2c16236ed9bf711bc938af28fe5e132d042f237a465f14",
+          "relative_path": "media/E06/E06_A__IMG_0487.MOV",
+          "evidence": "2.13/4.23/5.83s依次填左列",
+          "observed_demo": "填满左列三个孔",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E06-B",
+          "sha256": "1ee85fa3ed61f9496bad6de328a6cf9d86afceb8aeedabb8e17169f7b9b3e335",
+          "relative_path": "media/E06/E06_B__IMG_0488.MOV",
+          "evidence": "1.93/3.33/5.23s依次填右列",
+          "observed_demo": "填满右列三个孔",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E06-C",
+          "sha256": "e218174d9908ddb8a29dd578cf2993f20d0c45b66b4b05c21308b7bce21b7b09",
+          "relative_path": "media/E06/E06_C__IMG_0489.MOV",
+          "evidence": "2.17s左远孔；3.80s左近孔；6.50s右中孔",
+          "observed_demo": "左列两端、右列中间各放一球",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "D",
+      "scope_note": "实录三枚彩球代替鸡蛋；蛋托为3行2列，无明确方向标记。左右按示范操作者视角。迁移不得随机旋转无方向标记的对称蛋托再暗设近远。颜色顺序不是原布局规则。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_972f75e58d70",
+      "task_id": "E07",
+      "answers": {
+        "A": "D",
+        "B": "C",
+        "C": "A"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E07-A",
+          "sha256": "094b325bf03b16f5aa120220bf0a7593458b9d8bfc44fb916c7552455707cd38",
+          "relative_path": "media/E07/E07_A__IMG_0490.MOV",
+          "evidence": "2.80–19.60s从最小依次摆到最大",
+          "observed_demo": "从远到近：最小、次小、中等、次大、最大",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E07-B",
+          "sha256": "701ee7cd8814969fd65d258cdc020dd1091574e69318f0bb5ad149cfb6a60eb8",
+          "relative_path": "media/E07/E07_B__IMG_0492.MOV",
+          "evidence": "2.47–16.00s从最大依次摆到最小",
+          "observed_demo": "从远到近：最大、次大、中等、次小、最小",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E07-C",
+          "sha256": "a31fdf55b07817ffa07902afbb9cfdee558f6eee9ac29abe5baa1765edc00f9d",
+          "relative_path": "media/E07/E07_C__IMG_0494.MOV",
+          "evidence": "2.07s中块首位，5.10s次小，7.13s最小，10.20s次大，13.23s最大",
+          "observed_demo": "从远到近：中等、次小、最小、次大、最大",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "B",
+      "scope_note": "1最小5最大；视频排列沿远近方向，非旧卡左右。C与现场括注(3,2,1,4,5)一致。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_09e9b3f3e402",
+      "task_id": "E08",
+      "answers": {
+        "A": "D",
+        "B": "A",
+        "C": "B"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E08-A",
+          "sha256": "0838eccd090fd244dc9e8faef52881fc9d4edc1e1f43e69501dd05c3992f8942",
+          "relative_path": "media/E08/E08_A__IMG_0495.MOV",
+          "evidence": "4.73–6.60s首鞋尖朝近端标签；10.37–14.10s另鞋同向放入",
+          "observed_demo": "两只鞋尖均朝鞋盒标签端",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E08-B",
+          "sha256": "e79d989a7863933abb1c1e20508b2094ef1bc83a8d56a2448bca36ac9d582614",
+          "relative_path": "media/E08/E08_B__IMG_0496.MOV",
+          "evidence": "4.90s首鞋尖朝远端；9.80s两鞋同向",
+          "observed_demo": "两只鞋跟均朝标签端",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E08-C",
+          "sha256": "48e711dd5c0a8fa0d29a6a187545ba9a65e8ff8d18a0e48a55cea742bc53c76e",
+          "relative_path": "media/E08/E08_C__IMG_0497.MOV",
+          "evidence": "3.70s右鞋尖朝远端；7.40–9.60s左鞋转成鞋尖朝近端",
+          "observed_demo": "左脚鞋尖朝标签端，右脚鞋跟朝标签端",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "C",
+      "scope_note": "盒窄使一只鞋侧倾；不要沿用两鞋都平底朝下且完全不重叠的额外条件。保留鞋盒标签作可迁移参照。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_2f0582b83429",
+      "task_id": "E09",
+      "answers": {
+        "A": "B",
+        "B": "A",
+        "C": "C"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E09-A",
+          "sha256": "69172f78492ffafa1ca9cc32d1a55edb970ae55b8e06cffe7ffd14034f93a360",
+          "relative_path": "media/E09/E09_A__IMG_0499.MOV",
+          "evidence": "9.97s红组齐；16.60s绿组齐；23.23s蓝组齐",
+          "observed_demo": "同色一组：红、绿、蓝各三件",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E09-B",
+          "sha256": "03147208179528d4524d525229bb81eca2182dc67c990c6c93596fa5ee94426d",
+          "relative_path": "media/E09/E09_B__IMG_0500.MOV",
+          "evidence": "7.17s方组齐；12.90s三角齐；20.07s圆齐",
+          "observed_demo": "同形一组：方、三角、圆各三件",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E09-C",
+          "sha256": "78f7cc593a67a2e6df59ecc1c241037ed702cdc1cca8cc0bbf071ca58ef31c49",
+          "relative_path": "media/E09/E09_C__IMG_0503.MOV",
+          "evidence": "5.60s第一组齐；10.07s第二组齐；14.53s第三组齐",
+          "observed_demo": "红圆+绿三角+蓝方；红三角+绿方+蓝圆；红方+绿圆+蓝三角",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "D",
+      "scope_note": "无可辨编号的白纸分区，按组内成员评分，勿暗设纸区编号；C为明确三组映射。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_df23b3a1fbbc",
+      "task_id": "E10",
+      "answers": {
+        "A": "C",
+        "B": "B",
+        "C": "D"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E10-A",
+          "sha256": "d59944ea73e5b344292780b64429f517b9da22308b5158f8b5ef179c95c211e4",
+          "relative_path": "media/E10/E10_A__IMG_0504.MOV",
+          "evidence": "4.07s红方、8.13s红圆、13.23s红三角分别套匹配柱",
+          "observed_demo": "套入所有红色件，共3件",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E10-B",
+          "sha256": "0f810c9383c1a5664ea7ac2308a861d890225a3a0102fe84820cdba657a02e2f",
+          "relative_path": "media/E10/E10_B__IMG_0507.MOV",
+          "evidence": "2.83s红方、5.10s蓝方、7.37s绿方叠在同组柱上",
+          "observed_demo": "套入所有方形件，共3件",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E10-C",
+          "sha256": "2c539d94f4f85eca1739c8bcde612d80fd1b70b4077f4bfc6969d30228471e93",
+          "relative_path": "media/E10/E10_C__IMG_0508.MOV",
+          "evidence": "4.13s红三角、7.23s红圆、9.30s红方、11.37s蓝方、13.43s绿方",
+          "observed_demo": "套入红色件或方形件，共5件；红方只处理一次",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "A",
+      "scope_note": "C是并集OR，不是同时红且方AND。实物孔在零件上，木板是立柱，不是零件插进孔板。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_ff1ac406dbae",
+      "task_id": "E11",
+      "answers": {
+        "A": "C",
+        "B": "B",
+        "C": "D"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E11-A",
+          "sha256": "0d16de69bec7f8f71df4dbfb98de465f4634a8b2325a9834fdd5b31155b862eb",
+          "relative_path": "media/E11/E11_A__IMG_0509.MOV",
+          "evidence": "初态红蓝/黄绿；2.80/4.90/6.97/9.07s搬入，终态相同",
+          "observed_demo": "保留初始2×2布局搬入四格框",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E11-B",
+          "sha256": "822653ddd13966a15cf6e87e1fe2de8190e5795cfbbc2d36ca73f866ab140bb6",
+          "relative_path": "media/E11/E11_B__IMG_0510.MOV",
+          "evidence": "3.33s红右上；5.83s蓝右下；8.33s绿左下；10.83s黄左上",
+          "observed_demo": "初始布局顺时针旋转90°后入框",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E11-C",
+          "sha256": "e36c905812d9eab3fe1542178939cb7d0625ff7db3a854b4815f8888f81873f7",
+          "relative_path": "media/E11/E11_C__IMG_0514.mov",
+          "evidence": "2.83s红右上；5.67s黄右下；7.80s蓝左上；9.90s绿左下",
+          "observed_demo": "初始布局左右镜像后入框",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "A",
+      "scope_note": "参考就是待移动物件的初始布局；没有独立且始终留存的参考拼板。评测须保存初态，允许记忆。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_e65974279e7a",
+      "task_id": "E12",
+      "answers": {
+        "A": "A",
+        "B": "C",
+        "C": "D"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E12-A",
+          "sha256": "0a2577e7c2459f5a57e7289baf99c9a56a067974b28ef69c9e0a3a72646daa93",
+          "relative_path": "media/E12/E12_A__IMG_0515.mov",
+          "evidence": "4.03s小充电器在第1位；6.27s大充电器第2位",
+          "observed_demo": "两充电器插入靠电线端的两个插位",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E12-B",
+          "sha256": "75e833e8d607bcbeeffe1d82f3f554499b8996b44da37ed99eef17d340121557",
+          "relative_path": "media/E12/E12_B__IMG_0516.mov",
+          "evidence": "2.70s小第3位；6.30s大第4位",
+          "observed_demo": "插入远离电线端的两个插位",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E12-C",
+          "sha256": "18b9a67a8e7c5046c24afde8b00554e6b4a402f3059477bb3dba697ead5c1d1a",
+          "relative_path": "media/E12/E12_C__IMG_0517.mov",
+          "evidence": "3.57s小第1位；5.90s大第4位",
+          "observed_demo": "插入两端插位，中间两个空着",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "B",
+      "scope_note": "插位沿电线端向另一端编号1–4。实录两个白充电器，改变插位而非三色充电器三选一。各片小充电器都在选中两位的靠电线一侧；若只考占用布局不额外限制身份。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_ea645ac88800",
+      "task_id": "E13",
+      "answers": {
+        "A": "C",
+        "B": "B",
+        "C": "A"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E13-A",
+          "sha256": "7bfe1c99993c5a0c79f86df6d779a129ad6319f1be42dc6a14581506e243a79d",
+          "relative_path": "media/E13/E13_A__IMG_0518.mov",
+          "evidence": "2.20–3.57s竖放并释放，背面朝操作者",
+          "observed_demo": "竖放，后摄像头端朝上",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E13-B",
+          "sha256": "a2a6eee08492003f862b2200fac8676ab32c96f5b66c818a72a28bbd8d30a017",
+          "relative_path": "media/E13/E13_B__IMG_0519.MOV",
+          "evidence": "2.73–4.40s横放并释放，摄像头在右端",
+          "observed_demo": "横放，后摄像头端朝右",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E13-C",
+          "sha256": "68b91c7fa6566918e258b2bffea92f62856838b52e9ecda05ecc93746a111333",
+          "relative_path": "media/E13/E13_C__IMG_0521.MOV",
+          "evidence": "2.60–4.23s横放并释放，摄像头在左端",
+          "observed_demo": "横放，后摄像头端朝左",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "D",
+      "scope_note": "三片均手机背面朝操作者，不能写屏幕朝向操作者。用后摄模组辨认机身顶端；左右为支架开口观看侧。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_13be0aed84b5",
+      "task_id": "E14",
+      "answers": {
+        "A": "D",
+        "B": "A",
+        "C": "C"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E14-A",
+          "sha256": "024b06e2bdb462ece51bef0ef5251f388fa07094c5b3f5d529d21ffc22e5ee4f",
+          "relative_path": "media/E14/E14_A__IMG_0524.mov",
+          "evidence": "初态底至顶红黄蓝绿；1.87s取绿、3.73s取蓝；6.23s先回绿、8.10s回蓝",
+          "observed_demo": "交换从顶端数第1、2层，其余不变",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E14-B",
+          "sha256": "2d8d59afb807cec400722c8263da013306a5312656d2ac003f247dc9e91ba101",
+          "relative_path": "media/E14/E14_B__IMG_0525.MOV",
+          "evidence": "1.73s取绿、3.43s取蓝、5.17s取黄；7.73s回蓝、9.47s回黄、11.17s回绿",
+          "observed_demo": "交换从顶端数第2、3层，其余不变",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E14-C",
+          "sha256": "1d7f3cc414fb8c4e4c2b833056bb2c7cf3874624332459274cb50d0d143e2dee",
+          "relative_path": "media/E14/E14_C__IMG_0527.mov",
+          "evidence": "2.23s绿作新底，4.47s蓝叠绿，6.70s黄叠蓝，8.93s红叠黄",
+          "observed_demo": "整塔层序上下反转",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "B",
+      "scope_note": "实物4层，全数重排，没有抽出指定层单独交付；从顶端计层。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_88cba630a4c6",
+      "task_id": "E15",
+      "answers": {
+        "A": "B",
+        "B": "D",
+        "C": "A"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E15-A",
+          "sha256": "9744172077c02eac1c5d7e58428725658e234fb297c83b680264a230ad6d02d9",
+          "relative_path": "media/E15/E15_A__IMG_0530.mov",
+          "evidence": "2.90–5.07s蓝暂放，6.50s红移蓝原位，10.10s蓝移红原位；两者朝向保留",
+          "observed_demo": "交换位置，各自朝向不变",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E15-B",
+          "sha256": "283a5ca656d782a3e7d14e29b0055a77ea3574b720541087a819ce402a4b9ccc",
+          "relative_path": "media/E15/E15_B__IMG_0531.mov",
+          "evidence": "2.53–4.07s红旋为蓝初朝向；5.57–7.07s蓝旋为红初朝向",
+          "observed_demo": "各自位置不变，只交换朝向",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E15-C",
+          "sha256": "6c11b015655b9d5b40fb9c6d7f25aa46660036391c2b8df283195ab951eab984",
+          "relative_path": "media/E15/E15_C__IMG_0532.mov",
+          "evidence": "2.10–6.30s先换两朝向；8.40–14.67s借暂存互换位置",
+          "observed_demo": "位置与朝向都交换",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "C",
+      "scope_note": "允许暂存和任意合法路径；终态相对初态逐物检查。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_3aaa966cec48",
+      "task_id": "E16",
+      "answers": {
+        "A": "D",
+        "B": "C",
+        "C": "A"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E16-A",
+          "sha256": "724a40a62e3b6589ae5a962419d16da86971fd6da612fd403b1919af43bdc7c7",
+          "relative_path": "media/E16/E16_A__IMG_0533.mov",
+          "evidence": "初态红右上蓝左中黑右下、杆均向右；4.10/8.20/11.47s对应搬入",
+          "observed_demo": "保留三件的相对位置与朝向搬入托盘",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E16-B",
+          "sha256": "77e2bfff00eff59d27c68b9c8c0206e2ba5bc4940ba298d928543e258213c9fb",
+          "relative_path": "media/E16/E16_B__IMG_0534.MOV",
+          "evidence": "2.63–9.23s分别转三件至杆向远端；11.87–19.70s同布局搬入",
+          "observed_demo": "相对位置不变，每件原地逆时针转90°后搬入",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E16-C",
+          "sha256": "18d8b19cd530eefa9918003ba79223c508e09346a49b20747356760028867ced",
+          "relative_path": "media/E16/E16_C__IMG_0538.mov",
+          "evidence": "初态红右上黑左中蓝右下；3.33s黑左中、6.00s蓝右上、9.33s红右下；杆均向右",
+          "observed_demo": "相对位置上下镜像、各件朝向不变后搬入",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "B",
+      "scope_note": "B不是整组旋转，C不是左右镜像。无独立参照板。对应原F20的意图需以实际操作重述。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_414a9c021418",
+      "task_id": "E17",
+      "answers": {
+        "A": "A",
+        "B": "D",
+        "C": "B"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E17-A",
+          "sha256": "ecb69bb05a9f4ca33ec2d5f04c60e0bc59d33dfb59e9f1fcfdb44a122a3c29f0",
+          "relative_path": "media/E17/E17_A__IMG_0541.MOV",
+          "evidence": "4.27/7.47s两蓝上层；11.73/13.87s两绿下层",
+          "observed_demo": "蓝色放上层，绿色放下层",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E17-B",
+          "sha256": "af45b560db011ea9dce9d7f824634226b3fe50552eb2ff34ff321838fddf4f78",
+          "relative_path": "media/E17/E17_B__IMG_0542.MOV",
+          "evidence": "5.47/8.77s两三角上层；13.13/15.33s两方下层",
+          "observed_demo": "三角放上层，方形放下层",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E17-C",
+          "sha256": "d4fd3f57c80c2ceb18771f58e9eeb4a1b1a68b7be2b6f405c878ebccdb274cba",
+          "relative_path": "media/E17/E17_C__IMG_0543.MOV",
+          "evidence": "2.97/5.90/9.80/12.77s四件均放上层",
+          "observed_demo": "四件全部放上层",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "C",
+      "scope_note": "实录为固定双层架，不涉及移开上托盘、取出下层目标和恢复结构。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_8a758328a66c",
+      "task_id": "E18",
+      "answers": {
+        "A": "A",
+        "B": "C",
+        "C": "D"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E18-A",
+          "sha256": "22c9844c27d7046f54328ad5f528f596f196b3f0ff4e00c3cd7f1ebc66609e52",
+          "relative_path": "media/E18/E18_A__IMG_0544.MOV",
+          "evidence": "5.67–8.10s取红球，9.73–10.53s关抽屉",
+          "observed_demo": "取出红球放到白色目标纸上，关回抽屉",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E18-B",
+          "sha256": "bf1233683a2c8835a3191b53fff0141f2d934f0abd82cc52d1f3e28071ad6d7b",
+          "relative_path": "media/E18/E18_B__IMG_0546.MOV",
+          "evidence": "3.43–7.70s取绿球，9.40–11.10s关抽屉",
+          "observed_demo": "取出绿球放到白色目标纸上，关回抽屉",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E18-C",
+          "sha256": "f4d20acfe64f4f997e3b60ff8ad87946789ba97c2b9964bab706a1fc3bb3f991",
+          "relative_path": "media/E18/E18_C__IMG_0548.mov",
+          "evidence": "4.40–7.33s取蓝球，8.80–10.27s关抽屉",
+          "observed_demo": "取出蓝球放到白色目标纸上，关回抽屉",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "B",
+      "scope_note": "均打开蓝色左抽屉，其他球留在其中；抽屉颜色不是取球规则。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_26b307b59161",
+      "task_id": "E19",
+      "answers": {
+        "A": "B",
+        "B": "C",
+        "C": "A"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E19-A",
+          "sha256": "723782015b4fb7600b0f7b9196dc2d16100fce2ae2aea6fad17c8ea7e290fe08",
+          "relative_path": "media/E19/E19_A__IMG_0549.MOV",
+          "evidence": "5.40/9.73/15.13s依次盖好",
+          "observed_demo": "雪碧配黄盖，水配白盖，可乐配红盖",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E19-B",
+          "sha256": "ee5bf5f16d09b2e663912f0504fc757be2a0c2c8461ac46967f864587691a264",
+          "relative_path": "media/E19/E19_B__IMG_0550.MOV",
+          "evidence": "6.13/9.17/14.27s依次盖好",
+          "observed_demo": "雪碧配红盖，水配黄盖，可乐配白盖",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E19-C",
+          "sha256": "fabc13b1ffdda9753e1562f35a2af01f9984c0df03ef8587888e3860ec58a371",
+          "relative_path": "media/E19/E19_C__IMG_0551.MOV",
+          "evidence": "4.67/8.37/13.03s依次盖好",
+          "observed_demo": "雪碧配白盖，水配红盖，可乐配黄盖",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "D",
+      "scope_note": "真实瓶盖颜色为黄白红，不是题单部分段落写的红绿白；动作是放盖/按盖，未见明确旋紧过程，不以旋紧作为判定。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_e7fccbd8d617",
+      "task_id": "E20",
+      "answers": {
+        "A": "D",
+        "B": "C",
+        "C": "B"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E20-A",
+          "sha256": "65b51a06067ba2369aef294ef90b108835d3e6becc0f452d72c5315c7d0f7ea9",
+          "relative_path": "media/E20/E20_A__IMG_0552.MOV",
+          "evidence": "14.53s三处均2片",
+          "observed_demo": "圆标记黄片、方标记红片、三角标记蓝片，各补到2片",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E20-B",
+          "sha256": "b38321c3bb0af566393935b8de1c32a6f01db475c47b92edee3c82ec1a52cc61",
+          "relative_path": "media/E20/E20_B__IMG_0553.MOV",
+          "evidence": "22.37s三处均3片",
+          "observed_demo": "同样配色，各补到3片",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E20-C",
+          "sha256": "fd01e41070bec3cd5ebb0fccfa6efbaf1e7bf10dbde9119ab6b64ae5d7430534",
+          "relative_path": "media/E20/E20_C__IMG_0554.MOV",
+          "evidence": "29.53s三处均4片",
+          "observed_demo": "同样配色，各补到4片",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "A",
+      "scope_note": "初始黄蓝各1、红0，演示的是补到总数，不是每处额外加同样数量。剩余筹码不动。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_ca2871c244e7",
+      "task_id": "E21",
+      "answers": {
+        "A": "A",
+        "B": "D",
+        "C": "C"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E21-A",
+          "sha256": "bcc8f45776346e4339b70089dd5ff9c82acadac1609d8606f1524e05381518c9",
+          "relative_path": "media/E21/E21_A__IMG_0555.mov",
+          "evidence": "2.70/4.33/5.40/7.57s",
+          "observed_demo": "按红、黄、蓝、绿顺序放入左上、右上、左下、右下",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E21-B",
+          "sha256": "b8bbe8394100fcbf5a493486028d51ea13e2f2efff9cf4917f14bc59d1dd665c",
+          "relative_path": "media/E21/E21_B__IMG_0556.mov",
+          "evidence": "2.77/4.43/5.53/7.20s",
+          "observed_demo": "按红、绿、蓝、黄顺序放入这四格",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E21-C",
+          "sha256": "554d803509ecc925e84857b03803a3d7484f8d93ba9499788632ff68bdc9cacb",
+          "relative_path": "media/E21/E21_C__IMG_0557.mov",
+          "evidence": "3.87/5.77/7.07/8.97s",
+          "observed_demo": "按绿、蓝、黄、红顺序放入这四格",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "B",
+      "scope_note": "实录同时可见时间顺序和最终格位；题单以顺序规则定义，应记录释放事件序列，不能只判四物均在盘里。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_8faae6184282",
+      "task_id": "E22",
+      "answers": {
+        "A": "D",
+        "B": "B",
+        "C": "A"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E22-A",
+          "sha256": "df3e9447792131468c8b8e1e8bcc0474e6bad70934fd08e7612380cd291607c0",
+          "relative_path": "media/E22/E22_A__IMG_0558.mov",
+          "evidence": "6.23s画面右红、远侧绿、近侧蓝",
+          "observed_demo": "车前红、车左绿、车右蓝",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E22-B",
+          "sha256": "7515f0b4d5e306773ab9a5b3ba5e0dcf86ded5c004add418cee1ed46f741c5ca",
+          "relative_path": "media/E22/E22_B__IMG_0559.MOV",
+          "evidence": "8.07s画面右绿、远侧蓝、近侧红",
+          "observed_demo": "车前绿、车左蓝、车右红",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E22-C",
+          "sha256": "46a5fcd0f23cb746ffa41f2a55e3bab0d42987c6393c020b18ce3d589a171232",
+          "relative_path": "media/E22/E22_C__IMG_0560.MOV",
+          "evidence": "6.33s画面右蓝、远侧红、近侧绿",
+          "observed_demo": "车前蓝、车左红、车右绿",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "C",
+      "scope_note": "原始分辨率放大可见车尾翼在画面左、车头在右；以车体为参照定义前左右，仿真车也须有清楚车头。三片车向相同，旋转迁移能力仍需另测。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_a0d05016fc8d",
+      "task_id": "E23",
+      "answers": {
+        "A": "A",
+        "B": "C",
+        "C": "B"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E23-A",
+          "sha256": "110c7533d8fc897bfd481da0590c543fd7f11a2350e6ea1dd4673f50c0270965",
+          "relative_path": "media/E23/E23_A__IMG_0562.MOV",
+          "evidence": "2.97/5.30/7.67s套挂并松手",
+          "observed_demo": "从高到低红、绿、蓝",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E23-B",
+          "sha256": "57143593a461f72fbf5f69a499dde46433840df4e703d79af909f696804821f7",
+          "relative_path": "media/E23/E23_B__IMG_0563.MOV",
+          "evidence": "3.33/5.00/7.20s套挂并松手",
+          "observed_demo": "从高到低红、蓝、绿",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E23-C",
+          "sha256": "bc0f8c255cf21dec66738e364ac83bf2042602e557ce25befaec00a660c17257",
+          "relative_path": "media/E23/E23_C__IMG_0564.MOV",
+          "evidence": "2.67/4.77/6.90s套挂并松手",
+          "observed_demo": "从高到低蓝、绿、红",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "D",
+      "scope_note": "实际为无把手塑料杯，杯口套入枝杈悬挂；不是杯柄穿钩，也无图形标记。各层有多枝，演示只明确高低层位，勿额外指定同层枝方向。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_9a6b62dcb1f2",
+      "task_id": "E24",
+      "answers": {
+        "A": "A",
+        "B": "D",
+        "C": "B"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E24-A",
+          "sha256": "5362e6d961a093d20849240b8f4fc154691aeab1bbbb3c7ee693c18579bf1032",
+          "relative_path": "media/E24/E24_A__IMG_0565.MOV",
+          "evidence": "2.70/5.40/9.00s入盒，13.43s盖好",
+          "observed_demo": "红→绿→蓝依次装盒，盖上盒盖",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E24-B",
+          "sha256": "1a51bb6831fb4bc360fe8edfe15cfd252d5f2bd76955a0ebbf4bb516e2a99b77",
+          "relative_path": "media/E24/E24_B__IMG_0566.MOV",
+          "evidence": "2.90/5.07/6.50s入盒，10.80s盖好",
+          "observed_demo": "绿→蓝→红依次装盒，盖上盒盖",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E24-C",
+          "sha256": "613141a93c07b484c2288391322faf3411c22e2c21b1f4449de1ad61ca632d16",
+          "relative_path": "media/E24/E24_C__IMG_0567.MOV",
+          "evidence": "3.40/4.77/6.13s入盒，10.17s盖好",
+          "observed_demo": "蓝→红→绿依次装盒，盖上盒盖",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "C",
+      "scope_note": "实录用杯而非木条；杯口朝上，从左到右排放。关盖前的入盒时序需保留，终态闭盒无法单独证明顺序。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_050d9a7f865f",
+      "task_id": "E25",
+      "answers": {
+        "A": "B",
+        "B": "D",
+        "C": "A"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E25-A",
+          "sha256": "ee1c23736b24df5daa23aae1a23a661ec5367b7310f224fd9dea2aa01d1b6d5e",
+          "relative_path": "media/E25/E25_A__IMG_0568.MOV",
+          "evidence": "10.90s三柄对齐盘远边",
+          "observed_demo": "勺、刀、叉排在盘远侧，柄端靠盘",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E25-B",
+          "sha256": "17835bde318bab2a2ea3fca5420bac9958efd2b8cc2e048013b597a8a116c7d6",
+          "relative_path": "media/E25/E25_B__IMG_0569.MOV",
+          "evidence": "11.23s勺头刀尖叉齿靠盘",
+          "observed_demo": "勺、刀、叉排在盘远侧，工作端靠盘",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E25-C",
+          "sha256": "5e7b35193c8b6c35978a6bd315cb6170c61b1b50a06d06797813e0d895355d74",
+          "relative_path": "media/E25/E25_C__IMG_0571.MOV",
+          "evidence": "9.40s左刀右勺叉",
+          "observed_demo": "刀放盘左侧，勺和叉放盘右侧，柄朝操作者",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "C",
+      "scope_note": "实录包含盘作参照，并非单独餐具长度排序。A/B左右顺序均勺刀叉；C右侧由内到外勺叉。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_3733005cf39e",
+      "task_id": "E26",
+      "answers": {
+        "A": "A",
+        "B": "D",
+        "C": "B"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E26-A",
+          "sha256": "cd9d3c2bbc79c9a5667edf1d5dab40d603c9283c5e32692ecb06b45bfc9a9a87",
+          "relative_path": "media/E26/E26_A__IMG_0572.MOV",
+          "evidence": "左铃约1.5、2.83、4.0、5.17、6.33、7.5、8.67、9.83、11.0s，右铃12.33s",
+          "observed_demo": "左铃按左牌数字，右铃按右牌数字（本片9、1次）",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E26-B",
+          "sha256": "b4a7b60afbc471e1dded19aa7c50159c281cf2f580db619e51cb719af1918756",
+          "relative_path": "media/E26/E26_B__IMG_0573.MOV",
+          "evidence": "左铃1.33s；右铃约2.8、3.9、5.0、6.0、7.0、8.2、9.3、10.3、11.5s",
+          "observed_demo": "左铃按右牌数字，右铃按左牌数字（本片1、9次）",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E26-C",
+          "sha256": "d89efd878e06e8c764dff0f63fa7e34075f3e81b720cee704db47bef873b4ea4",
+          "relative_path": "media/E26/E26_C__IMG_0574.MOV",
+          "evidence": "左铃约1.33、2.33、3.33、4.33、5.33、6.33、7.33、8.33、9.5、10.83s；没有右铃动作",
+          "observed_demo": "仅左铃按两牌数字之和，右铃不按（本片10、0次）",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "C",
+      "scope_note": "6 fps复查计数；C为用户确认的临时规则：左铃按两数之和、右铃不按。三片都是9与1，若考不同数对的算式泛化，宜另补一个不同数对的同规则实例。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_d3644d539a5c",
+      "task_id": "E27",
+      "answers": {
+        "A": "C",
+        "B": "B",
+        "C": "A"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E27-A",
+          "sha256": "e52344442a149d73105f3571d82e4d1673178e7db6d4671cfddf6dbfa195ada0",
+          "relative_path": "media/E27/E27_A__IMG_0575.MOV",
+          "evidence": "5.60s布局稳定",
+          "observed_demo": "叉在盘左、勺在盘右",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E27-B",
+          "sha256": "ce4976d7416ffbe2a44ef5765912ebdd395f54ff3f3a333dc9e1b17262de2c5b",
+          "relative_path": "media/E27/E27_B__IMG_0576.MOV",
+          "evidence": "6.87s布局稳定",
+          "observed_demo": "勺在盘左、叉在盘右",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E27-C",
+          "sha256": "380b602c6dd0d909f2177e67ef32ff0d27cc106f5932e9199ea59559c78ee1aa",
+          "relative_path": "media/E27/E27_C__IMG_0577.MOV",
+          "evidence": "5.57s两件均在左侧",
+          "observed_demo": "勺叉都放盘左侧，靠盘为勺，外侧为叉",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "D",
+      "scope_note": "三片柄均朝操作者。C不是题单所写都在远侧；实录A/C叉落点相同，只改变勺。圆盘没有清楚朝向，应定义以操作者为参照。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_2bf9d29acc3c",
+      "task_id": "E28",
+      "answers": {
+        "A": "D",
+        "B": "C",
+        "C": "B"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E28-A",
+          "sha256": "fe5cfd70de1b26b9ef69e7fce704bf95374279ec4a52de466579d487d7d8bdc3",
+          "relative_path": "media/E28/E28_A__IMG_0578.MOV",
+          "evidence": "2.87–4.63s承托搬运长方块",
+          "observed_demo": "铲起黄色长方食物放入盘中",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E28-B",
+          "sha256": "32637bc050b08606d42532875137278b03a4436026622fdb0e8765535b3e6a75",
+          "relative_path": "media/E28/E28_B__IMG_0579.MOV",
+          "evidence": "3.17–5.13s承托搬运圆形块",
+          "observed_demo": "铲起白黄色圆形食物放入盘中",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E28-C",
+          "sha256": "7e2f7974d2df6068e8e260a2fd6a22e6a64916957fba92a6668b32589284da03",
+          "relative_path": "media/E28/E28_C__IMG_0580.MOV",
+          "evidence": "2.83–4.50s长方块，6.20–7.90s圆形块",
+          "observed_demo": "两块食物都铲入盘中",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "A",
+      "scope_note": "非翻面任务，放盘后可见面保持。左手扶稳并辅助上铲，不能额外禁止辅助接触；无固定刮沿或交付槽。C可见先长方后圆，但题意选择两件，不据此新增顺序约束。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_c17e1c5e583f",
+      "task_id": "E29",
+      "answers": {
+        "A": "C",
+        "B": "A",
+        "C": "D"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E29-A",
+          "sha256": "bfd4b0b0026efb80095644261d41742ce52e2536e075fcd0bee06aea0617c08a",
+          "relative_path": "media/E29/E29_A__IMG_0581.mov",
+          "evidence": "约2.0–4.83s，8键顺敲",
+          "observed_demo": "从最长键到最短键依次各敲1次：1→2→3→4→5→6→7→8",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E29-B",
+          "sha256": "98167981d1b44eaba29c14f09978e4bbd22417c563866bb37798b632a7869d53",
+          "relative_path": "media/E29/E29_B__IMG_0582.MOV",
+          "evidence": "约2.0–4.67s，8键逆敲",
+          "observed_demo": "从最短键到最长键依次各敲1次：8→7→6→5→4→3→2→1",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E29-C",
+          "sha256": "7e927a6c44312bd6e50976e2e41ff94e7a1f1f468ade304133e0a7a7528c06f7",
+          "relative_path": "media/E29/E29_C__IMG_0583.MOV",
+          "evidence": "约1.83–7.50s；15 fps局部复查显示第8键在4.27s、5.07s各击一次",
+          "observed_demo": "往返各敲一遍：1→2→3→4→5→6→7→8→8→7→6→5→4→3→2→1",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "B",
+      "scope_note": "共8根金属琴键，按最长到最短编号1–8。C端点8重复，不可省略为15次。动作顺序由接触事件评估，不要求固定节奏或与原片音高一致。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_31a887592402",
+      "task_id": "E30",
+      "answers": {
+        "A": "B",
+        "B": "A",
+        "C": "D"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E30-A",
+          "sha256": "db3881d0262ec505ecdd8ab9cd263af9cb0dfc5a567547d21c546cdd792d0075",
+          "relative_path": "media/E30/E30_A__IMG_0586.MOV",
+          "evidence": "3.13s上开下闭",
+          "observed_demo": "只打开上层红抽屉",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E30-B",
+          "sha256": "91976edcb5abf4f16d9b8de606c676d5dad545b5fc1310a0b76a12be8f0199eb",
+          "relative_path": "media/E30/E30_B__IMG_0587.MOV",
+          "evidence": "3.30s下开上闭",
+          "observed_demo": "只打开下层蓝抽屉",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E30-C",
+          "sha256": "ca81fbd7f42532a66baad5bad37f3b140fa2910d55a9d0c097625cfdfcb834ac",
+          "relative_path": "media/E30/E30_C__IMG_0588.MOV",
+          "evidence": "2.67s上已开，4.93s下也开",
+          "observed_demo": "上层和下层都打开",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "C",
+      "scope_note": "C下层只拉出较短距离，视频未支持统一开度阈值；判定可见打开状态，不能强制两层拉到相同长度。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_1a433343fdab",
+      "task_id": "E31",
+      "answers": {
+        "A": "C",
+        "B": "D",
+        "C": "B"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E31-A",
+          "sha256": "02dc91eb0d01f72ae4a7218248657683ac91efcc64879a3c1b2c7f321475a375",
+          "relative_path": "media/E31/E31_A__IMG_0589.MOV",
+          "evidence": "2.93s碗盘叠放",
+          "observed_demo": "碗口朝上放在正放的盘内",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E31-B",
+          "sha256": "f0be1c4613dfbbdf475bf566001c81d83b4e19f29d0dfe06bced662cd8ea4304",
+          "relative_path": "media/E31/E31_B__IMG_0590.MOV",
+          "evidence": "2.77s盘面朝上覆盖碗",
+          "observed_demo": "盘面朝上盖在碗口上",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E31-C",
+          "sha256": "570bddba94f06adb33a501f2a619f8ea3ea246a39fdc8de054b51b7b3a427270",
+          "relative_path": "media/E31/E31_C__IMG_0592.MOV",
+          "evidence": "1.53s翻盘，2.53s盘底朝上覆盖碗",
+          "observed_demo": "盘面朝下盖在碗口上",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "A",
+      "scope_note": "需要区分盘的正反面，不能仅检查盘在碗上方。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_0bc4f60f4e7c",
+      "task_id": "E32",
+      "answers": {
+        "A": "B",
+        "B": "C",
+        "C": "D"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E32-A",
+          "sha256": "c35d036b7faf4718606c5a65e2e55ef4f6bb5ada07c9aebedcae0bfe0eefbed8",
+          "relative_path": "media/E32/E32_A__微信视频2026-10-27_144644_922.mp4",
+          "evidence": "约1.5s抓取杂物中的雪碧瓶；2.5–3.5s放到右侧白色交付板，粉色方块和可乐留在原处",
+          "observed_demo": "取雪碧瓶到白色交付板",
+          "status": "reviewed",
+          "source_commit": null
+        },
+        "B": {
+          "video_id": "E32-B",
+          "sha256": "6938795a0634a3fc9d631fe76b092b071f2ded95e7336315107565bf50180460",
+          "relative_path": "media/E32/E32_B__IMG_0595.MOV",
+          "evidence": "0.53–2.37s同一粉色方块被取走",
+          "observed_demo": "取粉色方块到白色交付板",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E32-C",
+          "sha256": "e872925df632042a3dd4b53c1c2b3cf5483eb3b16e2dce6f2c6d084a182593df",
+          "relative_path": "media/E32/E32_C__IMG_0596.MOV",
+          "evidence": "1.53–3.00s取可乐瓶",
+          "observed_demo": "取可乐瓶到白色交付板",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "A",
+      "scope_note": "A/B/C分别选择雪碧瓶、粉色方块和可乐瓶。按目标身份和交付区域判定；其他物品是干扰物，不要求复刻绝对摆位。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_e1fbda1c3034",
+      "task_id": "E33",
+      "answers": {
+        "A": "B",
+        "B": "A",
+        "C": "D"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E33-A",
+          "sha256": "ec63ec6837bd1d67f63abb4fb1bb8e3c17949211d17232113f5b737f78d9822e",
+          "relative_path": "media/E33/E33_A__IMG_0597.MOV",
+          "evidence": "1.43–3.53s雪碧入桶",
+          "observed_demo": "只把雪碧瓶投入桶中",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E33-B",
+          "sha256": "58ae259d9282133ef7eaa70e78134282d08f8a93a64638346da57894d1292505",
+          "relative_path": "media/E33/E33_B__IMG_0598.MOV",
+          "evidence": "1.53–3.83s可乐入桶",
+          "observed_demo": "只把可乐瓶投入桶中",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E33-C",
+          "sha256": "291cf1f3e821f99888c34548d451c34aba98debda3201dcaad7e7294542d556b",
+          "relative_path": "media/E33/E33_C__IMG_0599.MOV",
+          "evidence": "1.57–3.13s橙色瓶入桶",
+          "observed_demo": "只把橙色芬达瓶投入桶中",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "C",
+      "scope_note": "其余四瓶留在桌上；桶已开口，不要求开盖或关盖。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_abc7239ae111",
+      "task_id": "E34",
+      "answers": {
+        "A": "B",
+        "B": "A",
+        "C": "C"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E34-A",
+          "sha256": "e2e1086df5c8351f3f2790934d24d5460a26a3b5e74468314a6707e0d142299a",
+          "relative_path": "media/E34/E34_A__IMG_0600.MOV",
+          "evidence": "3.17s刀柄在左上格、刀尖伸出",
+          "observed_demo": "只把餐刀放到盘左上格",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E34-B",
+          "sha256": "fa9cb9faa6f9e6fa579008970583c2e8bae39f672eb227d2820425808b6b85ce",
+          "relative_path": "media/E34/E34_B__IMG_0601.MOV",
+          "evidence": "3.60s勺柄在左上格、勺头伸出",
+          "observed_demo": "只把勺子放到盘左上格",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E34-C",
+          "sha256": "b06759ae44ebac53dc4431bf255f31bda0df14aa09687886744bd6af802cc336",
+          "relative_path": "media/E34/E34_C__IMG_0602.MOV",
+          "evidence": "3.20s叉柄在左上格、叉头伸出",
+          "observed_demo": "只把叉子放到盘左上格",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "D",
+      "scope_note": "实际只有一件选中餐具入盘，不是三件分格收纳；长度超过格子，工作端搭在盘外，不能要求整件完全落在格内；未盖盖。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_e9b48320dbfa",
+      "task_id": "E35",
+      "answers": {
+        "A": "A",
+        "B": "B",
+        "C": "D"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E35-A",
+          "sha256": "e54839af1dcd1d79be1ffc1bbf4acc444c821ff0e69f4ac6b36e4c82eaaf8d34",
+          "relative_path": "media/E35/E35_A__IMG_0604.MOV",
+          "evidence": "1.93/3.83/6.23s逐层完成",
+          "observed_demo": "从下到上大、中、小",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E35-B",
+          "sha256": "60d467c071cb09e2363f0d824c306daad5fe1f5f4583b0213eb0db900878a074",
+          "relative_path": "media/E35/E35_B__IMG_0605.MOV",
+          "evidence": "2.33/4.63/7.50s逐层完成",
+          "observed_demo": "从下到上小、中、大",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E35-C",
+          "sha256": "132ef26397b89b124727b99e33ce40dc096dc53a67898721ea877bfb25fe0e92",
+          "relative_path": "media/E35/E35_C__IMG_0606.MOV",
+          "evidence": "2.20/3.97/5.70s逐层完成",
+          "observed_demo": "从下到上大、小、中",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "C",
+      "scope_note": "三块同色不同尺寸；与彩色等大小叠放分题。B/C需要稳定支撑，但不要求重心/精确坐标完全复刻。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_18894c08bfba",
+      "task_id": "E36",
+      "answers": {
+        "A": "A",
+        "B": "D",
+        "C": "B"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E36-A",
+          "sha256": "48a39259d9a0efaebf4afe9787eee56488d315398c0631644328536ef19c9c70",
+          "relative_path": "media/E36/E36_A__IMG_0607.MOV",
+          "evidence": "2.37s盒中1球",
+          "observed_demo": "向空盒放入1个球",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E36-B",
+          "sha256": "b427a8869fac65d1c0eee49bc7b15de90f72e5bfb8ceb7e36adce05cd9380a86",
+          "relative_path": "media/E36/E36_B__IMG_0608.MOV",
+          "evidence": "4.33s盒中2球",
+          "observed_demo": "向空盒放入2个球",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E36-C",
+          "sha256": "49c3700163bfb2c00d4813333f886d85cf5e8929f4c20d6388f558f9629fc2aa",
+          "relative_path": "media/E36/E36_C__IMG_0609.MOV",
+          "evidence": "5.03s盒中3球",
+          "observed_demo": "向空盒放入3个球",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "C",
+      "scope_note": "实录分别选红、红粉、红粉浅粉；题单新增备注只规定数量，应在prompt明确学习数量，勿把颜色/取放顺序当额外限制。盒盖始终在旁，不要求盖盒。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_633570eb304b",
+      "task_id": "E37",
+      "answers": {
+        "A": "D",
+        "B": "C",
+        "C": "B"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E37-A",
+          "sha256": "c8d70ab50e4e15fd842def8ce4d342c68f16c7cf2d33ebbb1594642d4c75c982",
+          "relative_path": "media/E37/E37_A__IMG_0612.MOV",
+          "evidence": "1.83–10.00s旋左螺丝，12.73s取出展示左孔",
+          "observed_demo": "卸下左侧螺丝，保留右侧",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E37-B",
+          "sha256": "6ae3dd90ed07f2d35dcdc7759dedbcef26c1067fa647fc5c1bcef1726e4e4f19",
+          "relative_path": "media/E37/E37_B__IMG_0614.MOV",
+          "evidence": "1.80–7.73s旋右螺丝，8.33s右孔空",
+          "observed_demo": "卸下右侧螺丝，保留左侧",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E37-C",
+          "sha256": "a52ac3f024b68df701d2bf606cd3ef354fb821bca6960772fe8a0e2f7efd0b7c",
+          "relative_path": "media/E37/E37_C__IMG_0616.mov",
+          "evidence": "1.80–14.40s左侧，18.00–25.20s右侧，26.93s两孔空",
+          "observed_demo": "左右两颗螺丝都卸下",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "A",
+      "scope_note": "以操作者面对横梁时的左右为准；C先左后右可见，但新增备注未把时序作为规则；不规定圈数，判定目标紧固件分离。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_69e38ad6acdf",
+      "task_id": "E38",
+      "answers": {
+        "A": "C",
+        "B": "B",
+        "C": "D"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E38-A",
+          "sha256": "40e8a741b80df18be43529f5c92e57d052da2665102555e259e46aef2357028f",
+          "relative_path": "media/E38/E38_A__IMG_0617.MOV",
+          "evidence": "2.30/3.83/5.00s依次套入",
+          "observed_demo": "从下到上红、绿、蓝",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E38-B",
+          "sha256": "389190d1473b891fe50f45f106e1688d428b746894156a24e5a7b7fad1591b28",
+          "relative_path": "media/E38/E38_B__IMG_0618.MOV",
+          "evidence": "1.90/3.03/4.13s依次套入",
+          "observed_demo": "从下到上红、蓝、绿",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E38-C",
+          "sha256": "6a1580ca69106f8238ec3daeb381bc4005141504e17d1122bca6bbe46cc5cd3b",
+          "relative_path": "media/E38/E38_C__IMG_0619.MOV",
+          "evidence": "2.20/3.13/4.07s依次套入",
+          "observed_demo": "从下到上蓝、绿、红",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "A",
+      "scope_note": "三环全部套在最右端单柱，非三环各配三柱。需要真实孔柱插入与上下层关系。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_e1021bd4b831",
+      "task_id": "E39",
+      "answers": {
+        "A": "C",
+        "B": "A",
+        "C": "D"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E39-A",
+          "sha256": "a17670c58365b779e7c5fe4ad5dfd921fb7d4095929d209d6177b138e0846eff",
+          "relative_path": "media/E39/E39_A__IMG_0620.MOV",
+          "evidence": "10.17s下排红蓝黑、均杆向近侧",
+          "observed_demo": "只把下排颜色次序改成上排次序，保持原朝向",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E39-B",
+          "sha256": "8704c79eead472c92599b6d319e80339826a51dca0c3ac8b5483d034f05f8b68",
+          "relative_path": "media/E39/E39_B__IMG_0622.MOV",
+          "evidence": "10.43s下排蓝黑红保持，朝向分别远、左、右",
+          "observed_demo": "只把每种颜色的T转到对应参照朝向，保持位置",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E39-C",
+          "sha256": "a4c20393f910bfd60f279502be9a656388506ddb74cb210a235dfce5dd888ddd",
+          "relative_path": "media/E39/E39_C__IMG_0623.MOV",
+          "evidence": "8.97s下排红蓝黑且朝向分别右、远、左",
+          "observed_demo": "下排颜色次序和各T朝向都与上排一致",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "B",
+      "scope_note": "上排是静态参照，下排为操作对象。A物件整体移近参照但保留朝向，位置判定应基于次序/对应槽位，避免要求原y坐标。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_5b7a2900ac95",
+      "task_id": "E40",
+      "answers": {
+        "A": "C",
+        "B": "A",
+        "C": "D"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E40-A",
+          "sha256": "05902a3cf82858d8f255da8e01ac7c2df49ffe4933e677e86549b7e3149af4ed",
+          "relative_path": "media/E40/E40_A__IMG_0625.MOV",
+          "evidence": "2.70s圆，7.53s叉号",
+          "observed_demo": "夹住圆形和叉号对应的盘边",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E40-B",
+          "sha256": "6f63bbb7ebf63f041252c9c5c9c89393f729e85fe115ae02200721e9f8110d37",
+          "relative_path": "media/E40/E40_B__IMG_0626.MOV",
+          "evidence": "3.20s方，7.43s三角",
+          "observed_demo": "夹住方形和三角形对应的盘边",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E40-C",
+          "sha256": "25ec46faa4784cfd923c0ad275a3e2b64230f427d970d56959e01a964e9734e6",
+          "relative_path": "media/E40/E40_C__IMG_0627.MOV",
+          "evidence": "2.67s圆，4.67s三角，8.00s叉号",
+          "observed_demo": "夹住圆形、三角形和叉号对应的盘边",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "B",
+      "scope_note": "虽然题单F09有删除标记，实录仍存在。真实道具为黑色长尾夹，夹在带图形标签的托盘外沿，夹臂需张开再释放；不是颜色衣夹。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_27663cae6337",
+      "task_id": "E41",
+      "answers": {
+        "A": "A",
+        "B": "D",
+        "C": "C"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E41-A",
+          "sha256": "fda45ed3c8037621588e7ab09e13af0e69e6d91c497392dfdd89b22047c8cc7c",
+          "relative_path": "media/E41/E41_A__IMG_0628.MOV",
+          "evidence": "2.70/5.40/8.10s备件从左到右长中短",
+          "observed_demo": "短前段接长备件，中前段接中备件，长前段接短备件",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E41-B",
+          "sha256": "3575e3f9c89ddbac4e924805c809f0fc0695c6cba05fc3fac41d0bfe7180eb42",
+          "relative_path": "media/E41/E41_B__IMG_0629.MOV",
+          "evidence": "3.53/5.27/7.60s备件从左到右短中长",
+          "observed_demo": "短接短、中接中、长接长",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E41-C",
+          "sha256": "13634fc5b8a277a49aead1b91afe0acdeabcb14e1cc0dba4673c264f1fea643a",
+          "relative_path": "media/E41/E41_C__IMG_0630.MOV",
+          "evidence": "2.53/4.43/7.60s备件从左到右长短中",
+          "observed_demo": "短接长、中接短、长接中",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "B",
+      "scope_note": "参照行初始从左到右短中长。直接记前段长度与备件长度对应，不用题单手写升降序等含混描述；不要求总长严格相等，视频尺寸并未精确量齐。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_8b2d1597574c",
+      "task_id": "E42",
+      "answers": {
+        "A": "B",
+        "B": "C",
+        "C": "A"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E42-A",
+          "sha256": "9a381f8375f4dad97c82e7a5068d3c5a703884c017975324bed80c788fc2c24c",
+          "relative_path": "media/E42/E42_A__IMG_0631.MOV",
+          "evidence": "9.43s两球停在圆纸上",
+          "observed_demo": "把两球推到圆标记纸区域",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E42-B",
+          "sha256": "e7715f89b2129f644acd7d692ca3b35d7fccccc66ba7afbfd7fb34bbf5726d62",
+          "relative_path": "media/E42/E42_B__IMG_0632.MOV",
+          "evidence": "6.60s两球停在三角纸上",
+          "observed_demo": "把两球推到三角标记纸区域",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E42-C",
+          "sha256": "8c765803c614edf8a98c5c4ac8a01b80358b8fc588a93749916aaa60e0f03c65",
+          "relative_path": "media/E42/E42_C__IMG_0634.MOV",
+          "evidence": "11.70–12.50s两球停在方纸边缘",
+          "observed_demo": "把两球推到方标记纸区域",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "D",
+      "scope_note": "真实工具是平铲不是刷子，使用侧沿推球而不是托起搬运。C末态在纸边，不完全位于画出的方框内；以标记纸区域含合理边界容差为目标，不能标成严格图形内部成功。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_4092c6d012b0",
+      "task_id": "E43",
+      "answers": {
+        "A": "A",
+        "B": "B",
+        "C": "C"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E43-A",
+          "sha256": "1f57d5b5eb9a5bd828c87cd62b8fe94894b04b9047a0dc94616dc81baa486831",
+          "relative_path": "media/E43/E43_A__IMG_0636.mov",
+          "evidence": "7.33s释放；8.50s经过圆纸，8.67s滚出",
+          "observed_demo": "导向圆标记区域",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E43-B",
+          "sha256": "d8fc146cc4d2ad56fedadeee8ca772d62e5eea19b374ad01d5272b964b6ab4af",
+          "relative_path": "media/E43/E43_B__IMG_0639.mov",
+          "evidence": "5.33s释放；5.67–5.83s穿过三角纸方向并滚出画面",
+          "observed_demo": "导向三角标记区域",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E43-C",
+          "sha256": "aa7261bfad8e6ef25f701dbc0d562ef78294c498eaec7f6fdc1710c189756880",
+          "relative_path": "media/E43/E43_C__IMG_0640.mov",
+          "evidence": "5.50s释放；6.33s经过方纸，6.50s滚出",
+          "observed_demo": "导向方标记区域",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "D",
+      "scope_note": "6 fps复查确认轨迹经过目标纸区域，不是停留；B跨区域的瞬间位于采样帧之间，保留5.67–5.83s区间。正式判定应检测穿越目标区域事件，不能要求最终停稳。另一人负责释放/倾斜起始板；仿真需独立固定的放球机构。导向条必须通过碰撞改变轨迹，不能按答案直接送球。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_2a219fb5c0f7",
+      "task_id": "E44",
+      "answers": {
+        "A": "B",
+        "B": "C",
+        "C": "D"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E44-A",
+          "sha256": "d00d85cc156cdf568df64c9d7e502275c60a26101adcf3e28c1f24a92f65f4ca",
+          "relative_path": "media/E44/E44_A__IMG_0642.MOV",
+          "evidence": "5.47s松手后约90度",
+          "observed_demo": "一面贴桌，另一面竖起，形成直角",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E44-B",
+          "sha256": "25234a063dca9d82489544a7066ef6a11f344a2e46cdd1f67e80c871c5f94805",
+          "relative_path": "media/E44/E44_B__IMG_0643.MOV",
+          "evidence": "5.10s松手后明显大于90度",
+          "observed_demo": "一面贴桌，另一面向外倾斜，形成钝角",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E44-C",
+          "sha256": "6b107478fc51c8116faba566cd29787366402cfb1da88ff2d9f804d0c63fd50d",
+          "relative_path": "media/E44/E44_C__IMG_0644.MOV",
+          "evidence": "6.23s松手后明显小于90度",
+          "observed_demo": "一面贴桌，另一面向内倾斜，形成锐角",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "A",
+      "scope_note": "影片没有量角器，不能从斜视画面认定精确60/120度；应定义直角/锐角/钝角关系与合理容差。实际为一块有折痕硬纸板，无独立支撑件。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_3069a660d66e",
+      "task_id": "E45",
+      "answers": {
+        "A": "A",
+        "B": "B",
+        "C": "C"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E45-A",
+          "sha256": "538fb644da6c6355cba3a5d81256e3e581bdda6d5e5e16029c42ea93726265a9",
+          "relative_path": "media/E45/E45_A__IMG_0645.MOV",
+          "evidence": "2.43–3.47s倾倒，4.50s空杯回桌",
+          "observed_demo": "全部倒入圆形格",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E45-B",
+          "sha256": "7f0555f363a946a2034fcfca42f504464f31f917f7f5fc8241c5b1537af30165",
+          "relative_path": "media/E45/E45_B__IMG_0646.MOV",
+          "evidence": "1.73–2.90s倾倒，3.77s空杯回桌",
+          "observed_demo": "全部倒入三角形格",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E45-C",
+          "sha256": "1533b8faabdcb4d03bf1687ad97398a9247b10589f7ede22ac9ccbb33f118dea",
+          "relative_path": "media/E45/E45_C__IMG_0647.MOV",
+          "evidence": "1.93–3.20s倾倒，4.13s空杯回桌",
+          "observed_demo": "全部倒入方形格",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "D",
+      "scope_note": "杯中三球均进入同一格；第四个叉号格为干扰项；需杯倾斜出料而非逐球手抓。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_4bc17101f11c",
+      "task_id": "E46",
+      "answers": {
+        "A": "B",
+        "B": "D",
+        "C": "C"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E46-A",
+          "sha256": "4407d56bb488ba70aa0ecd23a11b287d9b308d18115892836798af5ac65b115c",
+          "relative_path": "media/E46/E46_A__IMG_0649.MOV",
+          "evidence": "4.47s上铲，5.43s离桌，6.43s释放到圆纸边",
+          "observed_demo": "铲起黄色块，送到圆标记纸",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E46-B",
+          "sha256": "a746cf639ccf6b8f36a2a5e835e81aae4588e5d85f057ca3be0fb92460a97003",
+          "relative_path": "media/E46/E46_B__IMG_0650.MOV",
+          "evidence": "3.50s上铲，4.30s搬运，5.47s释放",
+          "observed_demo": "铲起黄色块，送到三角标记纸",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E46-C",
+          "sha256": "e042abd237a3f0e756bfc9eec4d2f9feea9be5ec994f11c6e714516c2d59174f",
+          "relative_path": "media/E46/E46_C__IMG_0651.mov",
+          "evidence": "3.47s上铲，3.90s搬运，4.77s释放",
+          "observed_demo": "铲起黄色块，送到方标记纸",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "A",
+      "scope_note": "与食物装盘题区别在目的地图形映射而非物体选择。A块跨圆纸边，不可要求整个物体处于画出的圆线内。允许一手扶块协助上铲。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_ceeb327f940d",
+      "task_id": "E47",
+      "answers": {
+        "A": "A",
+        "B": "D",
+        "C": "C"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E47-A",
+          "sha256": "93f9d2244a935972dc4ea7c7344f33b0b3962b5a07d5683411ff8e3962fa3aab",
+          "relative_path": "media/E47/E47_A__IMG_0653.MOV",
+          "evidence": "2.37/4.17s翻两牌，7.70s红牌入盒",
+          "observed_demo": "翻开左起前两张，只把红色牌放进盒里",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E47-B",
+          "sha256": "051e4904fb2fb55dc057c187b448adab701c007c2cef0670ad988125bb5adfc2",
+          "relative_path": "media/E47/E47_B__IMG_0654.MOV",
+          "evidence": "1.97/3.47s翻两牌，6.90s黑牌入盒",
+          "observed_demo": "翻开左起前两张，只把黑色牌放进盒里",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E47-C",
+          "sha256": "ae830ef2f758cf563fcd42705eff93aead63dc3bfa5209858992233535e9564c",
+          "relative_path": "media/E47/E47_C__IMG_0655.MOV",
+          "evidence": "2.37/4.70s翻两牌，7.80/10.93s两牌入盒",
+          "observed_demo": "翻开左起前两张，两张都放进盒里",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "B",
+      "scope_note": "其余三张保持背面朝上；未将未选中的已翻牌翻回。颜色与固定前两位置重合，单片不能支持搜索任意未翻牌；inference应明确操作前两牌并学习红黑选择关系。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_045808b13784",
+      "task_id": "E48",
+      "answers": {
+        "A": "C",
+        "B": "B",
+        "C": "D"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E48-A",
+          "sha256": "e43bf185787eee049a298c1b4e2af98d434fa7b65bdcfdb37d1ed8932e3d7b8c",
+          "relative_path": "media/E48/E48_A__IMG_0657.MOV",
+          "evidence": "2.03–3.03s翻牌，4.57–6.57s插入",
+          "observed_demo": "从左起翻开1张牌并插入卡座",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E48-B",
+          "sha256": "ab0c7860f4cbc7ec1d64a27c3e92e95a772468bc70e53320c13ce5a1e9243575",
+          "relative_path": "media/E48/E48_B__IMG_0658.MOV",
+          "evidence": "1.87/4.60s翻牌，7.37–8.30/11.07–11.97s插入",
+          "observed_demo": "从左起翻开2张牌并插入卡座",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E48-C",
+          "sha256": "0d09bf794886c15d497d1a5f8a2ac12e9673572fff794230c2f54b735c0bcc9e",
+          "relative_path": "media/E48/E48_C__IMG_0659.MOV",
+          "evidence": "2.60/3.90/6.47s翻牌，10.37/12.93/15.53s插入",
+          "observed_demo": "从左起翻开3张牌并插入卡座",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "A",
+      "scope_note": "其余牌保持背面朝上；同一卡座收纳全部选中牌，学习数量而非花色。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_bc34e1cfef10",
+      "task_id": "E49",
+      "answers": {
+        "A": "C",
+        "B": "D",
+        "C": "B"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E49-A",
+          "sha256": "04cbbde277db361a75534104f5a2c068513b21bf02a4f71c5a64cd0b97004732",
+          "relative_path": "media/E49/E49_A__IMG_0661.MOV",
+          "evidence": "1.73–5.13s翻牌，7.70/9.40/11.10s分盘",
+          "observed_demo": "翻开左起前三张，依次放入绿、蓝、红盘",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E49-B",
+          "sha256": "67c50d8577d8c23da5e2a32d2cb80e2f30bf72df4f8100801f4a38d0b272a9ec",
+          "relative_path": "media/E49/E49_B__IMG_0663.MOV",
+          "evidence": "2.53–5.07s翻牌，7.60/10.13/11.80s分盘",
+          "observed_demo": "翻开左起前三张，依次放入绿、红、蓝盘",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E49-C",
+          "sha256": "0ffec9035d9ee7c1a9654c72aa8d35e5d5a30f21481bed684972c67ac7b61bff",
+          "relative_path": "media/E49/E49_C__IMG_0664.MOV",
+          "evidence": "2.33–4.63s翻牌，7.73/9.27/10.80s分盘",
+          "observed_demo": "翻开左起前三张，依次放入红、蓝、绿盘",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "A",
+      "scope_note": "三张牌红黑红；不能仅凭本组推断任意花色分类，按原始左起序号学习三个盘的对应关系。其余两牌不动。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    },
+    {
+      "question_id": "rq_8c93974cc2cb",
+      "task_id": "E50",
+      "answers": {
+        "A": "B",
+        "B": "A",
+        "C": "C"
+      },
+      "sources": {
+        "A": {
+          "video_id": "E50-A",
+          "sha256": "7ce3e262827e0491fcc71770b7951c62d207f8dcbaeb6b093d3698c7e6644243",
+          "relative_path": "media/E50/E50_A__IMG_0666.MOV",
+          "evidence": "8.40s夹住，9.27–10.93s搬运释放",
+          "observed_demo": "翻牌后用长尾夹夹取，送入绿盘并释放",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "B": {
+          "video_id": "E50-B",
+          "sha256": "25a37f9edb4ccff0d2b8c3052fc8b115c347bc85b7716aa68408bd3ddac9ecd5",
+          "relative_path": "media/E50/E50_B__IMG_0667.MOV",
+          "evidence": "7.67s夹住，8.43–9.97s搬运释放",
+          "observed_demo": "翻牌后用长尾夹夹取，送入蓝盘并释放",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        },
+        "C": {
+          "video_id": "E50-C",
+          "sha256": "0f52dfa3950dcc0007b79678bf56a0ce7497108d1c5f523f2048700774d98ea4",
+          "relative_path": "media/E50/E50_C__IMG_0668.MOV",
+          "evidence": "5.83s夹住，6.47–8.43s搬运释放",
+          "observed_demo": "翻牌后用长尾夹夹取，送入红盘并释放",
+          "status": "reviewed",
+          "source_commit": "91a4f75441065c01d94da57fc95233f2000dd1cb"
+        }
+      },
+      "distractor_option": "D",
+      "scope_note": "一手扶牌另一手夹持，允许双手准备；运输阶段靠长尾夹承载，释放后夹子回桌。夹子为长尾夹，不是镊子；牌固定为同一张，学习目标盘颜色。",
+      "review_status": "derived_from_reviewed_catalog_not_new_video_review"
+    }
+  ]
+}

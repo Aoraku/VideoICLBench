@@ -1,0 +1,17 @@
+schema_version = "1.3"
+[task]
+name = "videoicl/embodied-e44-c"
+authors = [{ name = "VideoICLBench team" }]
+[metadata]
+category = "embodied"
+difficulty = "unassigned"
+variant = "C"
+readiness = "requires_native_interaction_validation"
+[agent]
+timeout_sec = 6000.0
+[verifier]
+timeout_sec = 120.0
+[environment]
+cpus = 8
+memory_mb = 32768
+storage_mb = 20480

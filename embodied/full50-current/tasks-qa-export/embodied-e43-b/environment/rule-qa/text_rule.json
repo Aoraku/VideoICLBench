@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E43",
+  "variant": "B",
+  "source": "text_rule",
+  "source_sha256": "73fbb6135bfb316062c07e55f426c66dc8e6c3c9415182eb3058cd2dbf58332b",
+  "packet": {
+    "question_id": "rq_4092c6d012b0",
+    "prompt": "视频中用导向条让球的运动轨迹经过哪一种图形标记区域？",
+    "options": {
+      "A": "用导向条让球经过圆标记区域。",
+      "B": "用导向条让球经过三角标记区域。",
+      "C": "用导向条让球经过方标记区域。",
+      "D": "用导向条挡住球，使球留在起始板上。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "d8fc146cc4d2ad56fedadeee8ca772d62e5eea19b374ad01d5272b964b6ab4af",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E09",
+  "variant": "B",
+  "source": "sim",
+  "source_sha256": "9e623d2931f0431555bf1567a8056d3525179e6188a5307e85da425b6b3131c3",
+  "packet": {
+    "question_id": "rq_2f0582b83429",
+    "prompt": "视频中九件物体按哪一种成员关系分成三组？",
+    "options": {
+      "A": "同形一组：方、三角、圆各三件。",
+      "B": "同色一组：红、绿、蓝各三件。",
+      "C": "红圆+绿三角+蓝方；红三角+绿方+蓝圆；红方+绿圆+蓝三角。",
+      "D": "红圆+红三角+绿方；绿圆+绿三角+蓝方；蓝圆+蓝三角+红方。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "03147208179528d4524d525229bb81eca2182dc67c990c6c93596fa5ee94426d",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+    "media_lineage": {
+      "kind": "original_simulation_head_rgb_demo"
+    }
+  }
+}

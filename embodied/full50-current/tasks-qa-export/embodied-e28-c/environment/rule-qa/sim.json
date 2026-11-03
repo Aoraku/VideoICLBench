@@ -1,0 +1,55 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E28",
+  "variant": "C",
+  "source": "sim",
+  "source_sha256": "6f28440b8a5d1d6ee9d9ba535e876ccae83682ffac020a2657fe5e4844e04d37",
+  "packet": {
+    "question_id": "rq_2bf9d29acc3c",
+    "prompt": "视频中用平铲选择哪些食物放入盘中？",
+    "options": {
+      "A": "两块食物都留在桌上，不放入盘中。",
+      "B": "两块食物都铲入盘中。",
+      "C": "铲起白黄色圆形食物放入盘中。",
+      "D": "铲起黄色长方食物放入盘中。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "7e2f7974d2df6068e8e260a2fd6a22e6a64916957fba92a6668b32589284da03",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "sha256_full_decode_duration_fps_endpoint_verified",
+    "media_lineage": {
+      "kind": "original_sim_demo_uniform_speedmatched",
+      "speedmatched": true,
+      "duration_seconds": 8.433008,
+      "fps": 30,
+      "media_lineage": {
+        "source_sim_sha256": "270d7f7a42559b6d84d4301b706bddcb7030a687fd18e932b148c6c2fdd56270",
+        "source_sim_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/sim150-20261030/media/E28/E28_C__head.mp4",
+        "source_sim_duration_seconds": 295.24,
+        "reference_real_sha256": "3d66bb7e8628c9d7288711a42b1de082008ef5919c0d3b9322ccc003422f7802",
+        "reference_real_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/real-text300-20261030/E28/C/human.mp4",
+        "reference_real_duration_seconds": 8.433333,
+        "speed_ratio": 35.01004623735683,
+        "transformation": "speedmatched_only",
+        "qa_answer_unchanged": true,
+        "source_manifest_sha256": "da5d21260243098b35fe6d9b9ad1f359223a621ee25f4306c421351a90eaffd5",
+        "trim_intervals_seconds": [],
+        "kept_source_frame_interval": [
+          0,
+          7381
+        ],
+        "retained_source_duration_seconds": 295.24,
+        "v1_output_sha256": "6f28440b8a5d1d6ee9d9ba535e876ccae83682ffac020a2657fe5e4844e04d37",
+        "speed_ratio_retained": 35.01004623735683,
+        "frame_selection": "round(k*(source_frame_count-1)/(output_frame_count-1)), k=0..output_frame_count-1",
+        "review_status": "conservative_no_deletion_without_semantic_evidence"
+      }
+    }
+  }
+}

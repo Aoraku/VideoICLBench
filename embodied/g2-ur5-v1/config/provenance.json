@@ -1,0 +1,28 @@
+{
+  "source": "inference450-remaining300-qa-20261102 frozen pre-task-redesign release",
+  "source_bindings_sha256": "64b5de6a4c2ad2c0db2478a8f3150952ddfd0d7cf7f9e9c9b8af28c35e866fac",
+  "delivery_bindings_sha256": "d5ae69bffd299135692b678d6233491075bef67bd7c16d8250d8c156dabaf7d5",
+  "source_robot_profile_sha256": "f2861b2efeea6c79facae412b6a2b8dd4aec39ba9dbdcb9f24c75666323cbb43",
+  "delivery_robot_profile_sha256": "f2861b2efeea6c79facae412b6a2b8dd4aec39ba9dbdcb9f24c75666323cbb43",
+  "tasks": [
+    "E04",
+    "E05",
+    "E06",
+    "E07",
+    "E09",
+    "E11",
+    "E20",
+    "E36",
+    "E41",
+    "E49"
+  ],
+  "variants": [
+    "A",
+    "B",
+    "C"
+  ],
+  "preserve_original_g2": true,
+  "execution_design_v3_included": false,
+  "new_simulation_or_model_calls": 0,
+  "existing_e09_e20_local_rules_and_goals_unchanged": true
+}

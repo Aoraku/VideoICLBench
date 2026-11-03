@@ -1,0 +1,10 @@
+{
+  "repo_id": "JJimmyL/VideoICL-Embodied-Handoff-20261103",
+  "repo_type": "dataset",
+  "private": true,
+  "revision": "main",
+  "workers": 16,
+  "upload_status": "in_progress",
+  "includes": ["g2-ur5-v1", "full50-current"],
+  "new_simulation_runs": 0
+}

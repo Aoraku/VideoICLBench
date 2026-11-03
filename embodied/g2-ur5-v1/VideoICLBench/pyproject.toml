@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "videoicl-bench"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1", "uvicorn>=0.34,<1", "sqlalchemy>=2.0,<3",
+  "pydantic>=2.10,<3", "httpx>=0.28,<1", "PyYAML>=6,<7",
+  "Django>=5.2,<6.0", "streamlit>=1.35,<2", "websockets>=15,<16", "playwright>=1.51,<2", "pillow>=11,<13", "imageio-ffmpeg>=0.6,<1",
+]
+
+[project.optional-dependencies]
+agents = ["mcp>=1.26,<2"]
+embodied = ["mcp>=1.26,<2", "numpy>=1.26,<3"]
+test = ["pytest>=8,<10", "pytest-asyncio>=0.25,<2"]
+postgres = ["psycopg[binary]>=3.2,<4"]
+
+[tool.setuptools.packages.find]
+where = ["services/control", "packages/sdk", "packages/app_runtime"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-q"
+
+[tool.setuptools.package-data]
+vic_apps = ["*.json", "*.js"]

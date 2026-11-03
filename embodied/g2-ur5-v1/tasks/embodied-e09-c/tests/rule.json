@@ -1,0 +1,6 @@
+{
+  "rule": "红圆+绿三角+蓝方；红三角+绿方+蓝圆；红方+绿圆+蓝三角",
+  "evaluation_scope": "比较组成员集合，允许三块无标签分区互换。",
+  "scope_note": "无可辨编号的白纸分区，按组内成员评分，勿暗设纸区编号；C为明确三组映射。",
+  "source_video_sha256": "78f7cc593a67a2e6df59ecc1c241037ed702cdc1cca8cc0bbf071ca58ef31c49"
+}

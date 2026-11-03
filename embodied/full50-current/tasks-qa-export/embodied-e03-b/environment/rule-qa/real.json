@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E03",
+  "variant": "B",
+  "source": "real",
+  "source_sha256": "d4d028d2efb0a16702ff21fabed4ada6885d36ca4d15179287a7a859bd17caa2",
+  "packet": {
+    "question_id": "rq_99a6749b07c1",
+    "prompt": "视频中三个彩杯由外层到内层如何套叠？",
+    "options": {
+      "A": "外层到内层：红、绿、蓝。",
+      "B": "外层到内层：绿、蓝、红。",
+      "C": "外层到内层：蓝、红、绿。",
+      "D": "外层到内层：红、蓝、绿。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "d791123e7ba9bc64aa972539f6e537b4ef525876f595dc7ce8daf6b56345c977",
+    "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+  }
+}

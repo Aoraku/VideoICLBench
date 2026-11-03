@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E13",
+  "variant": "C",
+  "source": "text_rule",
+  "source_sha256": "a55df06d42b089f3843e1265f22778971648ca09db577305aa23e738e49340cb",
+  "packet": {
+    "question_id": "rq_ea645ac88800",
+    "prompt": "从支架开口观看侧看，视频中手机如何放在支架上？",
+    "options": {
+      "A": "横放，后摄像头端朝左。",
+      "B": "横放，后摄像头端朝右。",
+      "C": "竖放，后摄像头端朝上。",
+      "D": "竖放，后摄像头端朝下。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "68b91c7fa6566918e258b2bffea92f62856838b52e9ecda05ecc93746a111333",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

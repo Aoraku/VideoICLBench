@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E47",
+  "variant": "C",
+  "source": "text_rule",
+  "source_sha256": "6f744e36be23a4b6d5052a2895d95773826007381a439ed12eaf9558a3804181",
+  "packet": {
+    "question_id": "rq_ceeb327f940d",
+    "prompt": "视频中翻开左起前两张牌后，按什么规则选择入盒的牌？",
+    "options": {
+      "A": "翻开左起前两张，只把红色牌放进盒里。",
+      "B": "翻开左起前两张，两张都留在盒外。",
+      "C": "翻开左起前两张，两张都放进盒里。",
+      "D": "翻开左起前两张，只把黑色牌放进盒里。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "ae830ef2f758cf563fcd42705eff93aead63dc3bfa5209858992233535e9564c",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

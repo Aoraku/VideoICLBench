@@ -210,3 +210,19 @@ Codex 的 `--code-mode` 是原生 CLI 功能开关，供需要该工具封装的
 | Claude Code / `claude-sonnet-4-6` | 通过 | 通过 | 通过：自动压缩事件报告 9185 → 884 tokens，随后完成点击并保留测试标记 |
 
 CC 验证版本为 2.1.117。Codex 基础操作验证版本为 0.154.0-alpha.6.2；长工具结果续接在该版本和 0.159.3 均失败，不能据此断言失败发生在压缩请求本身。Codex 网关返回的用量不足以确认压缩阈值是否触发。网关未提供可核实的价格表，因此这些模型是低成本候选，不保证为绝对最低价；CC 网关模型列表未提供 Haiku，测试使用 Sonnet，没有使用 Opus。
+
+
+## 具身50题全量交付（2026-11-03）
+
+- [原UR5十题×ABC：代码与运行方法](embodied/g2-ur5-v1/README.md)
+- [全部50题现有源码与资源说明](embodied/full50-current/README.md)
+- [完整资产/纹理/real和sim视频（Hugging Face，私有）](https://huggingface.co/datasets/JJimmyL/VideoICL-Embodied-Handoff-20261103)
+
+```bash
+pip install huggingface_hub
+# 通过HF_TOKEN环境变量或本机HF登录取得私有数据集权限；不要把token写入仓库。
+python fetch_assets.py --workers 16
+# 只下载最初UR5十题：python fetch_assets.py --g2-only --workers 16
+```
+
+资产下载回`embodied/`后，按十题目录内`run.py`说明运行。全量当前快照保留修改中状态，不宣称全部已验收。本轮仅上传，未启动仿真或模型验收。

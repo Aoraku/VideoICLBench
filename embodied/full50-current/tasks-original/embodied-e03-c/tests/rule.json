@@ -1,0 +1,6 @@
+{
+  "rule": "外层到内层：蓝、红、绿",
+  "evaluation_scope": "杯口向上，外中内颜色对应，三杯稳定套入。",
+  "scope_note": "杯口均朝上。实录独立三条；颜色关系与积木叠放同构，任务技能为容器套叠。",
+  "source_video_sha256": "a470e766923702617cdc225c05020bd12eacdcdfee4df4284425cf2e92a06edf"
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E10",
+  "variant": "C",
+  "source": "sim",
+  "source_sha256": "64e407abdafe96fef7216b5ca166d1ceba60a3f6cc202c54cc5cc9ae25cc53aa",
+  "packet": {
+    "question_id": "rq_df23b3a1fbbc",
+    "prompt": "视频中按什么属性选择零件套到柱上？",
+    "options": {
+      "A": "只套入同时为红色且为方形的零件，共1件。",
+      "B": "套入所有方形件，共3件。",
+      "C": "套入所有红色件，共3件。",
+      "D": "套入红色件或方形件，共5件；红方只处理一次。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "2c539d94f4f85eca1739c8bcde612d80fd1b70b4077f4bfc6969d30228471e93",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "sha256_full_decode_duration_fps_endpoint_verified",
+    "media_lineage": {
+      "kind": "original_sim_demo_uniform_speedmatched",
+      "speedmatched": true,
+      "duration_seconds": 15.5,
+      "fps": 30,
+      "media_lineage": {
+        "source_sim_sha256": "b79f014fe5fb6c1153b3849dac741d4e152d782da7be06e406e8d75361ff6e5c",
+        "source_sim_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/sim150-20261030/media/E10/E10_C__head.mp4",
+        "source_sim_duration_seconds": 126.36,
+        "reference_real_sha256": "a6128a64ae62c305fbf60f57cc7352fdfbdfcbc032d0ed1b72ef5fb8ef58fa17",
+        "reference_real_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/real-text300-20261030/E10/C/human.mp4",
+        "reference_real_duration_seconds": 15.5,
+        "speed_ratio": 8.152258064516129,
+        "transformation": "speedmatched_only",
+        "qa_answer_unchanged": true,
+        "source_manifest_sha256": "da5d21260243098b35fe6d9b9ad1f359223a621ee25f4306c421351a90eaffd5",
+        "trim_intervals_seconds": [],
+        "kept_source_frame_interval": [
+          0,
+          3159
+        ],
+        "retained_source_duration_seconds": 126.36,
+        "v1_output_sha256": "64e407abdafe96fef7216b5ca166d1ceba60a3f6cc202c54cc5cc9ae25cc53aa",
+        "speed_ratio_retained": 8.152258064516129,
+        "frame_selection": "round(k*(source_frame_count-1)/(output_frame_count-1)), k=0..output_frame_count-1",
+        "review_status": "conservative_no_deletion_without_semantic_evidence"
+      }
+    }
+  }
+}

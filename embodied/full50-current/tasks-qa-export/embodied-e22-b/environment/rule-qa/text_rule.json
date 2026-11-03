@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E22",
+  "variant": "B",
+  "source": "text_rule",
+  "source_sha256": "523bcfb8835a500bf374e3e405673555391708586e961aa3ef8b0a0fd034e12d",
+  "packet": {
+    "question_id": "rq_8faae6184282",
+    "prompt": "以玩具车自身的前、左、右为参照，视频中三个色块如何摆放？",
+    "options": {
+      "A": "车前蓝、车左红、车右绿。",
+      "B": "车前绿、车左蓝、车右红。",
+      "C": "车前放红块，车左放蓝块，车右放绿块。",
+      "D": "车前红、车左绿、车右蓝。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "7515f0b4d5e306773ab9a5b3ba5e0dcf86ded5c004add418cee1ed46f741c5ca",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "bin": {
+    "triangles": 12520
+  },
+  "sprite": {
+    "source_points": 10272,
+    "hull_vertices": 820,
+    "all_source_vertices_max_plane_error_m": 1.3877787807814457e-17
+  },
+  "water": {
+    "source_points": 96476,
+    "hull_vertices": 2291,
+    "all_source_vertices_max_plane_error_m": 6.938893903907228e-16
+  },
+  "coca_cola": {
+    "source_points": 10839,
+    "hull_vertices": 1013,
+    "all_source_vertices_max_plane_error_m": 1.3877787807814457e-17
+  },
+  "pepsi": {
+    "source_points": 17408,
+    "hull_vertices": 1285,
+    "all_source_vertices_max_plane_error_m": 1.3877787807814457e-17
+  },
+  "fanta": {
+    "source_points": 13441,
+    "hull_vertices": 1011,
+    "all_source_vertices_max_plane_error_m": 1.3877787807814457e-17
+  }
+}

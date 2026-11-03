@@ -1,0 +1,34 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E33",
+  "variant": "A",
+  "source": "sim",
+  "source_sha256": "fb8ab8662d76a2db2f2e278b93fdec9b06819d6269c69f7b3e4c5688a736ef12",
+  "packet": {
+    "question_id": "rq_e1fbda1c3034",
+    "prompt": "视频中选择哪些饮料瓶投入垃圾桶，其余留在桌上？",
+    "options": {
+      "A": "只把可乐瓶投入桶中。",
+      "B": "只把雪碧瓶投入桶中。",
+      "C": "把雪碧瓶、可乐瓶和橙色芬达瓶都投入桶中。",
+      "D": "只把橙色芬达瓶投入桶中。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "ec63ec6837bd1d67f63abb4fb1bb8e3c17949211d17232113f5b737f78d9822e",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": {
+      "native_verified": true,
+      "camera_clock_verified": true,
+      "source_visual_reviewed": false,
+      "published_source_commit": "788163e9cbb7a9f90d6ab4c6ed1f9e32289a2db4",
+      "full_video_decode_verified": true
+    },
+    "media_lineage": {}
+  }
+}

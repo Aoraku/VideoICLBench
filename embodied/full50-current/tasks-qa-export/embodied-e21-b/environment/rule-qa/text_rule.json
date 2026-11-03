@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E21",
+  "variant": "B",
+  "source": "text_rule",
+  "source_sha256": "1fcd734e4bae9788fbb6943265783f578f1868e0f0a2c110f9d0cd6099b5f44c",
+  "packet": {
+    "question_id": "rq_ca2871c244e7",
+    "prompt": "视频中按什么颜色顺序，将物体依次放入四格盘的左上、右上、左下、右下格？",
+    "options": {
+      "A": "按红、黄、蓝、绿顺序，依次放入左上、右上、左下、右下格。",
+      "B": "按黄、红、蓝、绿顺序，依次放入左上、右上、左下、右下格。",
+      "C": "按绿、蓝、黄、红顺序，依次放入左上、右上、左下、右下格。",
+      "D": "按红、绿、蓝、黄顺序，依次放入左上、右上、左下、右下格。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "b8bbe8394100fcbf5a493486028d51ea13e2f2efff9cf4917f14bc59d1dd665c",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E39",
+  "variant": "B",
+  "source": "real",
+  "source_sha256": "1abc54ee7c24b67b4d369499449800ac8f2c837866e92367462e99a7ec8884dc",
+  "packet": {
+    "question_id": "rq_e1021bd4b831",
+    "prompt": "以上排T形块为参照，视频中如何调整下排的颜色次序和朝向？",
+    "options": {
+      "A": "只把每种颜色的T转到对应参照朝向，保持位置。",
+      "B": "下排的颜色次序和各T朝向都保持原样。",
+      "C": "只把下排颜色次序改成上排次序，保持原朝向。",
+      "D": "下排颜色次序和各T朝向都与上排一致。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "8704c79eead472c92599b6d319e80339826a51dca0c3ac8b5483d034f05f8b68",
+    "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E03",
+  "variant": "B",
+  "source": "sim",
+  "source_sha256": "4082c2f6d3132281dab4338fa69f257f7fd5f70de22b1001b65377c79633b6c2",
+  "packet": {
+    "question_id": "rq_99a6749b07c1",
+    "prompt": "视频中三个彩杯由外层到内层如何套叠？",
+    "options": {
+      "A": "外层到内层：红、绿、蓝。",
+      "B": "外层到内层：绿、蓝、红。",
+      "C": "外层到内层：蓝、红、绿。",
+      "D": "外层到内层：红、蓝、绿。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "d791123e7ba9bc64aa972539f6e537b4ef525876f595dc7ce8daf6b56345c977",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "sha256_full_decode_duration_fps_endpoint_verified",
+    "media_lineage": {
+      "kind": "original_sim_demo_uniform_speedmatched",
+      "speedmatched": true,
+      "duration_seconds": 11.4,
+      "fps": 30,
+      "media_lineage": {
+        "source_sim_sha256": "e888e308d38189b49ee0b43926ce1d41abd68f7c91a1bbc9e0de93a3ed758a47",
+        "source_sim_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/sim150-20261030/media/E03/E03_B__head.mp4",
+        "source_sim_duration_seconds": 110.44,
+        "reference_real_sha256": "d4d028d2efb0a16702ff21fabed4ada6885d36ca4d15179287a7a859bd17caa2",
+        "reference_real_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/real-text300-20261030/E03/B/human.mp4",
+        "reference_real_duration_seconds": 11.4,
+        "speed_ratio": 9.687719298245614,
+        "transformation": "speedmatched_only",
+        "qa_answer_unchanged": true,
+        "source_manifest_sha256": "da5d21260243098b35fe6d9b9ad1f359223a621ee25f4306c421351a90eaffd5",
+        "trim_intervals_seconds": [],
+        "kept_source_frame_interval": [
+          0,
+          2761
+        ],
+        "retained_source_duration_seconds": 110.44,
+        "v1_output_sha256": "4082c2f6d3132281dab4338fa69f257f7fd5f70de22b1001b65377c79633b6c2",
+        "speed_ratio_retained": 9.687719298245614,
+        "frame_selection": "round(k*(source_frame_count-1)/(output_frame_count-1)), k=0..output_frame_count-1",
+        "review_status": "conservative_no_deletion_without_semantic_evidence"
+      }
+    }
+  }
+}

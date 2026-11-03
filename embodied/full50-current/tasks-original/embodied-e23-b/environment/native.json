@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "backend": "videoicl-native-slurm",
+  "kind": "embodied",
+  "task_id": "E23",
+  "variant": "B",
+  "seed": 4201,
+  "demo": {
+    "path": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/real-text300-20261030/materials/E23/B/human.mp4",
+    "sha256": "078378b92037a920a2ae6950e9d545461c9905eee536924b55fb2bedc4cbd7b9",
+    "verification": "file_sha256_and_full_decode_verified",
+    "kind": "original_human_rgb_demo_transcoded"
+  },
+  "readiness": "requires_native_interaction_validation",
+  "source_root": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/real-text300-20261030/runtime",
+  "instruction_sha256": "8f8147552a93aea56badc9d4db1aa4a9c9cb6a82828310397808ff344fb07219",
+  "instruction_hash_scheme": "sha256_utf8_exact_file_bytes",
+  "dataset_revision": "89f009bb76ee5ffb58ee66ec584e519c86f3d4b6",
+  "catalog_sha256": "622bed91d06f04ad0c16ff7a6a92b1bd4c00cdf2bbbca03747b64a2e6e478f29",
+  "source_video": {
+    "sha256": "57143593a461f72fbf5f69a499dde46433840df4e703d79af909f696804821f7",
+    "verification": "source_sha256_verified_before_transcode"
+  },
+  "action_interface": "bounded_dual_arm_tokens_v1",
+  "budget": {
+    "timeout_sec": 6000,
+    "max_actions": 1000,
+    "action_interface": "bounded_dual_arm_tokens_v1",
+    "status": "provisional_integration_only",
+    "basis": "User-approved trial: 6000 effective seconds and 1000 GUI Commit actions; native service wait is excluded and inflight work drains gracefully. Not a frozen benchmark protocol.",
+    "clock": "effective_time_excluding_native_service",
+    "termination": "graceful_drain_inflight",
+    "protocol_version": "videoicl-effective-budget-v1"
+  },
+  "input_conditions": [
+    "real",
+    "text_rule"
+  ],
+  "native_interaction_validated": false,
+  "media_acceptance_scope": "original_human_demo_bytes_and_decode_only_not_native_evaluation",
+  "agent_interaction": "gui_only",
+  "agent_protocol": "roboprobe_gui_v1",
+  "gui_controls": {
+    "path": "gui-controls.md",
+    "sha256": "60334559c8f394acc45ee9bfe024b7a406aebee27a1d50d86f06dcf787d9dde6"
+  },
+  "native_bindings": {
+    "path": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/real-text300-20261030/runtime/configs/initial-admission-e13-e25-20261030/e13-hframe-v2-bindings.candidate.json",
+    "sha256": "fc9150d38f89d690b67591cc319b5ece76aa37371187e0b44a7a1c971fd53e4e"
+  },
+  "robot_profile": {
+    "path": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/real-text300-20261030/runtime/configs/embodiments/franka.json",
+    "sha256": "8863c1ac7813fff9daa72d714ef4b4b658a1559ece977325c6c19e7d8e160de2"
+  },
+  "media_provenance": {
+    "manifest_path": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/real-text300-20261030/materials/media-manifest.private.json",
+    "manifest_sha256": "bb86f6c68ba32ee42d6eab3efc9189a9ce9ff75d4da038f0a3333ea530c8dc40",
+    "source_video_sha256": "57143593a461f72fbf5f69a499dde46433840df4e703d79af909f696804821f7",
+    "conversion": "full RGB video; autorotation; H264 CRF18; no crop/resize/trim; no audio",
+    "full_decode_passed": true
+  },
+  "native_runtime_settings": {
+    "kit_args": "--/renderer/multiGpu/enabled=false --/renderer/activeGpu=0 --/persistent/physics/useLocalMeshCache=false --/physics/cooking/ujitsoCollisionCooking=false --/physics/cooking/ujitsoRemoteCacheEnabled=false --/app/settings/persistent=false",
+    "scope": "process_only_mesh_cooking_cache_no_geometry_changes"
+  }
+}

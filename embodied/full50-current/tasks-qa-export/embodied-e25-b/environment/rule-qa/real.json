@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E25",
+  "variant": "B",
+  "source": "real",
+  "source_sha256": "50e5f74d5a5adf19b9d5b05b9d386c8c2cd2176fd57fdac01f78acdbfd7b07b8",
+  "packet": {
+    "question_id": "rq_050d9a7f865f",
+    "prompt": "以操作者为参照，视频中勺、刀、叉如何摆在盘边？",
+    "options": {
+      "A": "刀放盘左侧，勺和叉放盘右侧，右侧由靠盘到外侧为勺、叉，柄朝操作者。",
+      "B": "勺、刀、叉从左到右排在盘远侧，柄端靠盘。",
+      "C": "勺、刀、叉排在盘近侧，柄端靠盘。",
+      "D": "勺、刀、叉从左到右排在盘远侧，工作端靠盘。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "17835bde318bab2a2ea3fca5420bac9958efd2b8cc2e048013b597a8a116c7d6",
+    "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+  }
+}

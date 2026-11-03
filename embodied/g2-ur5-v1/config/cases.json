@@ -1,0 +1,389 @@
+{
+  "schema": "videoicl-g2-ur5-handoff-v1",
+  "tasks": [
+    "E04",
+    "E05",
+    "E06",
+    "E07",
+    "E09",
+    "E11",
+    "E20",
+    "E36",
+    "E41",
+    "E49"
+  ],
+  "variants": [
+    "A",
+    "B",
+    "C"
+  ],
+  "seed": 4201,
+  "task_variants": 30,
+  "conditions": [
+    "real",
+    "sim",
+    "text_rule"
+  ],
+  "cases": [
+    {
+      "task": "E04",
+      "variant": "A",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e04-a",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E04",
+      "variant": "B",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e04-b",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E04",
+      "variant": "C",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e04-c",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E05",
+      "variant": "A",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e05-a",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E05",
+      "variant": "B",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e05-b",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E05",
+      "variant": "C",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e05-c",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E06",
+      "variant": "A",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e06-a",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E06",
+      "variant": "B",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e06-b",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E06",
+      "variant": "C",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e06-c",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E07",
+      "variant": "A",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e07-a",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E07",
+      "variant": "B",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e07-b",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E07",
+      "variant": "C",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e07-c",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E09",
+      "variant": "A",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e09-a",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E09",
+      "variant": "B",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e09-b",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E09",
+      "variant": "C",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e09-c",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E11",
+      "variant": "A",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e11-a",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E11",
+      "variant": "B",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e11-b",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E11",
+      "variant": "C",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e11-c",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E20",
+      "variant": "A",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e20-a",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E20",
+      "variant": "B",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e20-b",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E20",
+      "variant": "C",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e20-c",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E36",
+      "variant": "A",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e36-a",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E36",
+      "variant": "B",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e36-b",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E36",
+      "variant": "C",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e36-c",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E41",
+      "variant": "A",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e41-a",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E41",
+      "variant": "B",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e41-b",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E41",
+      "variant": "C",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e41-c",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E49",
+      "variant": "A",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e49-a",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E49",
+      "variant": "B",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e49-b",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    },
+    {
+      "task": "E49",
+      "variant": "C",
+      "seed": 4201,
+      "group": "G2",
+      "package": "tasks/embodied-e49-c",
+      "input_conditions": [
+        "real",
+        "sim",
+        "text_rule"
+      ]
+    }
+  ]
+}

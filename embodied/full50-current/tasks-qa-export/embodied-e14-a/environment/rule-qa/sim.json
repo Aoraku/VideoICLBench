@@ -1,0 +1,55 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E14",
+  "variant": "A",
+  "source": "sim",
+  "source_sha256": "094fc7caf6277a77e80858e74b6506f97353caa4476145ccdd07ace60e2c84e1",
+  "packet": {
+    "question_id": "rq_13be0aed84b5",
+    "prompt": "相对初始层序，视频中四层塔如何重排？",
+    "options": {
+      "A": "交换从顶端数第2、3层，其余不变。",
+      "B": "交换从顶端数第3、4层，其余不变。",
+      "C": "整塔层序上下反转。",
+      "D": "交换从顶端数第1、2层，其余不变。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "024b06e2bdb462ece51bef0ef5251f388fa07094c5b3f5d529d21ffc22e5ee4f",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "sha256_full_decode_duration_fps_endpoint_verified",
+    "media_lineage": {
+      "kind": "original_sim_demo_uniform_speedmatched",
+      "speedmatched": true,
+      "duration_seconds": 9.333333,
+      "fps": 30,
+      "media_lineage": {
+        "source_sim_sha256": "3efced55affaa60e6b0d9c4db903645780343e2015d9dfb35065c2898956b787",
+        "source_sim_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/sim150-20261030/media/E14/E14_A__head.mp4",
+        "source_sim_duration_seconds": 73.16,
+        "reference_real_sha256": "a94bdc6f8b0523b589f0447f85c140a90004c8822bee437a077071ea4ce60811",
+        "reference_real_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/real-text300-20261030/E14/A/human.mp4",
+        "reference_real_duration_seconds": 9.333333,
+        "speed_ratio": 7.838571708520418,
+        "transformation": "speedmatched_only",
+        "qa_answer_unchanged": true,
+        "source_manifest_sha256": "da5d21260243098b35fe6d9b9ad1f359223a621ee25f4306c421351a90eaffd5",
+        "trim_intervals_seconds": [],
+        "kept_source_frame_interval": [
+          0,
+          1829
+        ],
+        "retained_source_duration_seconds": 73.16,
+        "v1_output_sha256": "094fc7caf6277a77e80858e74b6506f97353caa4476145ccdd07ace60e2c84e1",
+        "speed_ratio_retained": 7.838571708520418,
+        "frame_selection": "round(k*(source_frame_count-1)/(output_frame_count-1)), k=0..output_frame_count-1",
+        "review_status": "conservative_no_deletion_without_semantic_evidence"
+      }
+    }
+  }
+}

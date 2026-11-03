@@ -1,0 +1,6 @@
+{
+  "rule": "从远到近：中等、次小、最小、次大、最大",
+  "evaluation_scope": "尺寸秩次正确、互不重叠、稳定释放；不指定颜色或绝对间距。",
+  "scope_note": "1最小5最大；视频排列沿远近方向，非旧卡左右。C与现场括注(3,2,1,4,5)一致。",
+  "source_video_sha256": "a31fdf55b07817ffa07902afbb9cfdee558f6eee9ac29abe5baa1765edc00f9d"
+}

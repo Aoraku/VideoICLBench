@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E50",
+  "variant": "A",
+  "source": "text_rule",
+  "source_sha256": "5d92da91b54ef463cff41770114079568b083a1ec2fa0194cf4d7c2050e7024d",
+  "packet": {
+    "question_id": "rq_8c93974cc2cb",
+    "prompt": "视频中翻牌后，用长尾夹夹取并送到哪个彩盘，再释放？",
+    "options": {
+      "A": "翻牌后用长尾夹夹取，送入蓝盘并释放。",
+      "B": "翻牌后用长尾夹夹取，送入绿盘并释放。",
+      "C": "翻牌后用长尾夹夹取，送入红盘并释放。",
+      "D": "翻牌后用长尾夹夹取，放在绿盘和蓝盘之间的桌面上并释放。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "7ce3e262827e0491fcc71770b7951c62d207f8dcbaeb6b093d3698c7e6644243",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

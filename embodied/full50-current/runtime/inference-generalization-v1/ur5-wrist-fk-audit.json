@@ -1,0 +1,39 @@
+{
+  "profile_sha256": "df942b1440d821d2e317256e98cfff23d4e2aa22c954779b77ea9ab303603bea",
+  "original_wrist_rotation": [
+    0.5,
+    0.5,
+    -0.5,
+    -0.5
+  ],
+  "adjusted_wrist_rotation": [
+    0.5851132290301022,
+    0.3970422501186724,
+    -0.3970422102417552,
+    -0.5851131891531849
+  ],
+  "tcp_before_camera_m": [
+    -1.1025618418258887e-08,
+    -0.051999978721141794,
+    -0.13080000317096668
+  ],
+  "tcp_after_camera_m": [
+    0.0,
+    -9.540979117872439e-18,
+    -0.14075737499869842
+  ],
+  "method": "Rigid native camera-to-ee transform; minimum optical rotation centers configured TCP",
+  "rotation_degrees": 21.68046018083721,
+  "original_tcp_uv_depth": [
+    319.99993953743274,
+    525.1588086223958,
+    0.13080000317096668
+  ],
+  "adjusted_tcp_uv_depth": [
+    320.0,
+    240.00000000000006,
+    0.14075737499869842
+  ],
+  "near_clip_m": 0.03,
+  "native_occlusion_check": "pending"
+}

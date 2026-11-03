@@ -1,0 +1,6 @@
+{
+  "rule": "蓝色放上层，绿色放下层",
+  "evaluation_scope": "颜色/形状/全部上层对应正确；释放后受正确层支撑。",
+  "scope_note": "实录为固定双层架，不涉及移开上托盘、取出下层目标和恢复结构。",
+  "source_video_sha256": "ecb69bb05a9f4ca33ec2d5f04c60e0bc59d33dfb59e9f1fcfdb44a122a3c29f0"
+}

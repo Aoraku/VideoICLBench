@@ -1,0 +1,34 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E42",
+  "variant": "B",
+  "source": "sim",
+  "source_sha256": "ee69867d001d8f34fc8e7076f43f5e668bb9e6c0e5c44aba029697cf28d024cf",
+  "packet": {
+    "question_id": "rq_8b2d1597574c",
+    "prompt": "视频中用平铲侧沿把两个球如何分配到图形标记纸区域？",
+    "options": {
+      "A": "把两球推到方标记纸区域。",
+      "B": "把两球推到圆标记纸区域。",
+      "C": "把两球推到三角标记纸区域。",
+      "D": "一个球推到圆标记纸区域，另一个球推到三角标记纸区域。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "e7715f89b2129f644acd7d692ca3b35d7fccccc66ba7afbfd7fb34bbf5726d62",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": {
+      "native_verified": true,
+      "camera_clock_verified": true,
+      "source_visual_reviewed": false,
+      "published_source_commit": "788163e9cbb7a9f90d6ab4c6ed1f9e32289a2db4",
+      "full_video_decode_verified": true
+    },
+    "media_lineage": {}
+  }
+}

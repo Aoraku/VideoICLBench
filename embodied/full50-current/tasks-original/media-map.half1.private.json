@@ -1,0 +1,3172 @@
+{
+  "schema": "realworld50-workbench-media-v1",
+  "namespace": "half1",
+  "dataset_revision": "89f009bb76ee5ffb58ee66ec584e519c86f3d4b6",
+  "created_utc": "2026-10-29T04:51:11.808639+00:00",
+  "tasks": [
+    {
+      "id": "E01",
+      "title": "套餐选配装盘",
+      "instruction": "按示范中的食物选择组合，把相应食物装入餐盘，其余留在桌上。",
+      "rules": {
+        "A": "汉堡和薯条装盘，饮料留外",
+        "B": "汉堡和饮料装盘，薯条留外",
+        "C": "薯条和饮料装盘，汉堡留外"
+      },
+      "asset_credits": [
+        {
+          "source_author": "gelmi.com.br",
+          "source_url": "https://sketchfab.com/3d-models/hamburger-b4cc15417d58445ebb698229d6161e61",
+          "license": "CC-BY-4.0",
+          "asset_sha256": "6658c914fbfccd236047e68151201cec89b9e766135818b666a0df1794bc9314",
+          "changes": "转换为仿真资产，并按任务尺寸缩放。"
+        },
+        {
+          "source_author": "Pixor",
+          "source_url": "https://pixor.art/library/food/coffee-cup/",
+          "license": "CC0-1.0",
+          "asset_sha256": "63742b025fb0d7fdb6542e56efc48217933e41b89a5d2e894606fb7a781e72b7",
+          "changes": "转换为仿真资产，并按任务尺寸缩放。"
+        }
+      ],
+      "variants": {
+        "A": {
+          "task": "E01",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E01/A/human/ce38a3d4561614c4/human.mp4",
+            "sha256": "ce38a3d4561614c49cd111a115e84eeb80fdacca2d0c920e72313140fcda5769",
+            "bytes": 7716163
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E01/A/simulation/f6b13830a1d4ec5b/head.mp4",
+              "sha256": "f6b13830a1d4ec5b639e6f1b6260628dda4369e2f4df2d05fe516258cbe411bc",
+              "bytes": 1281115
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E01/A/simulation/99aa9e135fc4ca9c/left_wrist.mp4",
+              "sha256": "99aa9e135fc4ca9cd0e3def997e600c08584cee22f7b42fb77dd69f200ee4233",
+              "bytes": 1516799
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E01/A/simulation/d49cd6e2af41ffa7/right_wrist.mp4",
+              "sha256": "d49cd6e2af41ffa7af8a5301fad75dc2632d8cbfe6a705fb9fd52604789f1c68",
+              "bytes": 374119
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E01/A/simulation/07fc22f393b4b33d/multiview.mp4",
+              "sha256": "07fc22f393b4b33dfe21db15f8c76ba38fdfe51ef2924d43846b43f71fbdcb14",
+              "bytes": 3359287
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E01/A/evidence/6a4640e52c395a10.json",
+          "source_video_sha256": "b518b8a98a055d429e25be2f833d14d373c2232e81c2c1838794d84aa3827f60",
+          "source_binding_sha256": "aaf15e641edd22473076a80846cd1bbea5d4dc4a874ab6f16659bdeac72dd642",
+          "asset_credits": [
+            {
+              "source_author": "gelmi.com.br",
+              "source_url": "https://sketchfab.com/3d-models/hamburger-b4cc15417d58445ebb698229d6161e61",
+              "license": "CC-BY-4.0",
+              "asset_sha256": "6658c914fbfccd236047e68151201cec89b9e766135818b666a0df1794bc9314",
+              "changes": "转换为仿真资产，并按任务尺寸缩放。"
+            },
+            {
+              "source_author": "Pixor",
+              "source_url": "https://pixor.art/library/food/coffee-cup/",
+              "license": "CC0-1.0",
+              "asset_sha256": "63742b025fb0d7fdb6542e56efc48217933e41b89a5d2e894606fb7a781e72b7",
+              "changes": "转换为仿真资产，并按任务尺寸缩放。"
+            }
+          ]
+        },
+        "B": {
+          "task": "E01",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E01/B/human/0e5c720de190e463/human.mp4",
+            "sha256": "0e5c720de190e463dd4a5cd15ee350ed0bd599e53af978a4a664a77141471687",
+            "bytes": 6527360
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E01/B/simulation/b00cef61b877d8bb/head.mp4",
+              "sha256": "b00cef61b877d8bba3480b13b6aefd8e60c3202d0ce3e14294f75f1a51cd6918",
+              "bytes": 1235004
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E01/B/simulation/81d3d0a5e0230a42/left_wrist.mp4",
+              "sha256": "81d3d0a5e0230a42e8a089a3875c26e6bcc23fb7018f766dd98c6795680dae5d",
+              "bytes": 824152
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E01/B/simulation/5dfee8317ac930ae/right_wrist.mp4",
+              "sha256": "5dfee8317ac930ae49e6aa7043213bbfe30ff8c69b5d8145eb0e66709cd41236",
+              "bytes": 910592
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E01/B/simulation/50b53196e86db0cd/multiview.mp4",
+              "sha256": "50b53196e86db0cdec144f7ede7f96c2c8c1921c6e115f0a38e68e9a51ba886c",
+              "bytes": 3173781
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E01/B/evidence/3cd23b0d56b3ea59.json",
+          "source_video_sha256": "301695f3e0b6ee9e25d94d0f715ccf53becfe214d1e51d4741b4c911cef4c459",
+          "source_binding_sha256": "d4b67c613e7031853fa769565309d22c267e9d0b8ec4527ff111c6e2befa61ce",
+          "asset_credits": [
+            {
+              "source_author": "gelmi.com.br",
+              "source_url": "https://sketchfab.com/3d-models/hamburger-b4cc15417d58445ebb698229d6161e61",
+              "license": "CC-BY-4.0",
+              "asset_sha256": "6658c914fbfccd236047e68151201cec89b9e766135818b666a0df1794bc9314",
+              "changes": "转换为仿真资产，并按任务尺寸缩放。"
+            },
+            {
+              "source_author": "Pixor",
+              "source_url": "https://pixor.art/library/food/coffee-cup/",
+              "license": "CC0-1.0",
+              "asset_sha256": "63742b025fb0d7fdb6542e56efc48217933e41b89a5d2e894606fb7a781e72b7",
+              "changes": "转换为仿真资产，并按任务尺寸缩放。"
+            }
+          ]
+        },
+        "C": {
+          "task": "E01",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E01/C/human/ff49c0596f92bace/human.mp4",
+            "sha256": "ff49c0596f92baceddcfd9a4b2cb1ae2e22964d8bbc7b24727b7a1f45e3fbe44",
+            "bytes": 6738545
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E01/C/simulation/5e1e2c26e651d873/head.mp4",
+              "sha256": "5e1e2c26e651d873855ab4ca9c626e720b0fd0faa7d28615d0de4b745c1d6991",
+              "bytes": 1276226
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E01/C/simulation/11a3a2ac7b60be65/left_wrist.mp4",
+              "sha256": "11a3a2ac7b60be652e4270b7a27ccd1b1517ccd8d092675cba3c3343ed4ceb24",
+              "bytes": 1052808
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E01/C/simulation/5e0e9735dbb89fe4/right_wrist.mp4",
+              "sha256": "5e0e9735dbb89fe423b1bb16cd8d28c095ebfe91489f834af66f406f7a7e561e",
+              "bytes": 907910
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E01/C/simulation/19afb3d65aef4387/multiview.mp4",
+              "sha256": "19afb3d65aef4387eeb70ea0eebb1b10f8dc58f864e54486f3465556aae5b7c1",
+              "bytes": 3394581
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E01/C/evidence/4f2ecfb07183cf74.json",
+          "source_video_sha256": "4c4b0b4ea5bc133ea4f9519f271e9dc34b30be27266232afff4c5d192e97f651",
+          "source_binding_sha256": "19b08df82580f5d34673e167e5b95530f144a5fb9838ac8bb340468562bb4534",
+          "asset_credits": [
+            {
+              "source_author": "gelmi.com.br",
+              "source_url": "https://sketchfab.com/3d-models/hamburger-b4cc15417d58445ebb698229d6161e61",
+              "license": "CC-BY-4.0",
+              "asset_sha256": "6658c914fbfccd236047e68151201cec89b9e766135818b666a0df1794bc9314",
+              "changes": "转换为仿真资产，并按任务尺寸缩放。"
+            },
+            {
+              "source_author": "Pixor",
+              "source_url": "https://pixor.art/library/food/coffee-cup/",
+              "license": "CC0-1.0",
+              "asset_sha256": "63742b025fb0d7fdb6542e56efc48217933e41b89a5d2e894606fb7a781e72b7",
+              "changes": "转换为仿真资产，并按任务尺寸缩放。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "E02",
+      "title": "三色块叠放",
+      "instruction": "按示范中的颜色层序，把三个色块叠成稳定的一摞。",
+      "rules": {
+        "A": "自下而上红、绿、蓝",
+        "B": "自下而上绿、蓝、红",
+        "C": "自下而上蓝、红、绿"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E02",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E02/A/human/a0502cbc83c83c77/human.mp4",
+            "sha256": "a0502cbc83c83c772291cdb070fa0252e4da1da64f2c044d9bba846682b49342",
+            "bytes": 6036501
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E02/A/simulation/bc6c95f7968ed2c5/head.mp4",
+              "sha256": "bc6c95f7968ed2c53e2f11525c09cf6974729cad2b3237b51e042eb85090232e",
+              "bytes": 831076
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E02/A/simulation/7716e6ed88331229/left_wrist.mp4",
+              "sha256": "7716e6ed88331229699b7be745b3b64727fb04724f719c4cffc26c838b10f699",
+              "bytes": 290791
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E02/A/simulation/8c154fea0f6cbba7/right_wrist.mp4",
+              "sha256": "8c154fea0f6cbba7c2bf3fead2f6b8e2b7cc59cdc555e022a9650cadfc2c7666",
+              "bytes": 1003046
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E02/A/simulation/0edb3c22f3063340/multiview.mp4",
+              "sha256": "0edb3c22f306334005950f59f237f89d975c6a776d1e4f7b31645efce84aa650",
+              "bytes": 2159816
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E02/A/evidence/98e592a6a7a1f517.json",
+          "source_video_sha256": "01402bcefe9b10f41fe22ce6434a48b6f7663cceb01054016bbaaed7761dfb91",
+          "source_binding_sha256": "e5aa3493df703baa342546b649ee5b4be4cae032dea4f04a6fca2eb7fbef0519",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E02",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E02/B/human/b84d0f6f4ca37d3a/human.mp4",
+            "sha256": "b84d0f6f4ca37d3a94764bdd32c091782d962fb4e77e0898ac8dab13f13e649d",
+            "bytes": 7203738
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E02/B/simulation/ce521419804791eb/head.mp4",
+              "sha256": "ce521419804791eb9bc1d0bef89aae1e76e6b223cb2374d1c66e18d300f2aab1",
+              "bytes": 818822
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E02/B/simulation/fe39c065bee83c1f/left_wrist.mp4",
+              "sha256": "fe39c065bee83c1fc551e51dfdc6ecfb5e517a7d574dbb7a96eada7ce754eced",
+              "bytes": 287403
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E02/B/simulation/5ebce265a9273dab/right_wrist.mp4",
+              "sha256": "5ebce265a9273dab41a8d53ee8c5762986ef5cbc81ca3d3856b417383e0a3c1e",
+              "bytes": 1001641
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E02/B/simulation/c0e865108866cd59/multiview.mp4",
+              "sha256": "c0e865108866cd59c8d81f6092fb5539a3509060995e16c1fe5559e0788b43e8",
+              "bytes": 2151688
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E02/B/evidence/545463798ad3d4f7.json",
+          "source_video_sha256": "4c18f7185b1b268cb6fe1f77a6eff44251a45de1fb37279813612306511de551",
+          "source_binding_sha256": "f89241d7fbeb29df84fb75d2c136ed986486885f7db977869a3b4feed0cc8a0e",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E02",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E02/C/human/0be3b019e518b5e4/human.mp4",
+            "sha256": "0be3b019e518b5e4deb8357df35b1287b805fa2cb236d27d5508370af5ca4542",
+            "bytes": 7001121
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E02/C/simulation/a9f34afaac4e51ae/head.mp4",
+              "sha256": "a9f34afaac4e51ae0f504036bcbeba9505eb8ce45b07ac5b5abb9d7df968fb38",
+              "bytes": 810343
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E02/C/simulation/087a77934f71989b/left_wrist.mp4",
+              "sha256": "087a77934f71989b3b8b2dc1f7a4db866894ef1e5ca44846eaa9af5c0d99e4fc",
+              "bytes": 284269
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E02/C/simulation/b3888a49e40c5274/right_wrist.mp4",
+              "sha256": "b3888a49e40c527497a09047894bf942f10f53e1628f18cc27dd33b3deb8c53c",
+              "bytes": 977265
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E02/C/simulation/85a4031ef1bab6af/multiview.mp4",
+              "sha256": "85a4031ef1bab6af51e743faae0a37e82157a65f8c9c6fb9a20ef3395e029ebd",
+              "bytes": 2117500
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E02/C/evidence/e40857f7e3dc4185.json",
+          "source_video_sha256": "278d40a1a7609556448ec1934ed67d54244e67a8dc643118649ee4c8f97d89c2",
+          "source_binding_sha256": "f89241d7fbeb29df84fb75d2c136ed986486885f7db977869a3b4feed0cc8a0e",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E03",
+      "title": "三色杯套叠",
+      "instruction": "按示范中的颜色内外次序，把三个杯子套在一起。",
+      "rules": {
+        "A": "外层到内层：红、绿、蓝",
+        "B": "外层到内层：绿、蓝、红",
+        "C": "外层到内层：蓝、红、绿"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E03",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E03/A/human/d473caf7ca0b24a8/human.mp4",
+            "sha256": "d473caf7ca0b24a85621da0fd7a3d695f4638c4612aaa6e3d289ef0c77c3fa86",
+            "bytes": 6788122
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E03/A/simulation/b70457d73aba61ac/head.mp4",
+              "sha256": "b70457d73aba61acade771e39b75c0a46100ffe538636e61b041af85b74e5916",
+              "bytes": 2332874
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E03/A/simulation/ff7ba8fc6ccc8726/left_wrist.mp4",
+              "sha256": "ff7ba8fc6ccc87268d236e525e1da24de89663133f4f8566d9a580fbaaddfffd",
+              "bytes": 2928401
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E03/A/simulation/a1354a552c807fb9/right_wrist.mp4",
+              "sha256": "a1354a552c807fb91f17f155bb7c0fd4caaf6e08b748d4f05436b0f93f848951",
+              "bytes": 740657
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E03/A/simulation/9d3e696e6214bd23/multiview.mp4",
+              "sha256": "9d3e696e6214bd23816c46eda0af32fa096a5d2b36b6b63eb1d05204b1741fb9",
+              "bytes": 6261881
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E03/A/evidence/be6b32815d8da966.json",
+          "source_video_sha256": "332fbcde1872ad52d9837e5534d26eb942228da7e0ed52792e38958e161a4485",
+          "source_binding_sha256": "1becbf6f432f96aeca25c316ee7af237ce76aec26f6455cb4eba2dbce01ddf5c",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E03",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E03/B/human/0d89065ac581d3f3/human.mp4",
+            "sha256": "0d89065ac581d3f3e4047f1056d15e6326a7c643b9b2e238219d88d990585f1c",
+            "bytes": 6401898
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E03/B/simulation/e888e308d38189b4/head.mp4",
+              "sha256": "e888e308d38189b49ee0b43926ce1d41abd68f7c91a1bbc9e0de93a3ed758a47",
+              "bytes": 2287457
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E03/B/simulation/6ed185571e7dbc93/left_wrist.mp4",
+              "sha256": "6ed185571e7dbc937ddbe44ab4ef6df73f8f3bce8762d5a2e97bd5b51df321f8",
+              "bytes": 2801787
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E03/B/simulation/c88f1138b099b4c5/right_wrist.mp4",
+              "sha256": "c88f1138b099b4c5cfe20782029779c0cef7d04fb3ecf911ebf2e1f9d2453f5e",
+              "bytes": 724786
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E03/B/simulation/a09671031ee1fdc7/multiview.mp4",
+              "sha256": "a09671031ee1fdc7f63742e57f7c8d58121d7ca78db19bd15337f133480b9d3a",
+              "bytes": 6088495
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E03/B/evidence/9c98d16d1a4e3667.json",
+          "source_video_sha256": "d791123e7ba9bc64aa972539f6e537b4ef525876f595dc7ce8daf6b56345c977",
+          "source_binding_sha256": "1becbf6f432f96aeca25c316ee7af237ce76aec26f6455cb4eba2dbce01ddf5c",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E03",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E03/C/human/dfeac24a25bfb215/human.mp4",
+            "sha256": "dfeac24a25bfb21509ad52b61f9adf81b52d6da24dd59514724bd82528ee3ce8",
+            "bytes": 6826159
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E03/C/simulation/e5771b1d531b8db8/head.mp4",
+              "sha256": "e5771b1d531b8db84b13a8f14a0d7f4dc38fce864a4b7ab8bf8babce31579f0c",
+              "bytes": 2227193
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E03/C/simulation/561775ce1759a7df/left_wrist.mp4",
+              "sha256": "561775ce1759a7df83def3d922ee8ba39a7891c88fe673164891f2c75b4cd577",
+              "bytes": 2629840
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E03/C/simulation/35448256abe858c3/right_wrist.mp4",
+              "sha256": "35448256abe858c3e3ec0aa5d44aae2a3b8ab69e96b54b59bdb858bb3037319d",
+              "bytes": 706877
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E03/C/simulation/9209fe48e03120b1/multiview.mp4",
+              "sha256": "9209fe48e03120b1f1bdd29ac3db28d8205c9c23041d1f2960c4299ea564d7a1",
+              "bytes": 5851629
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E03/C/evidence/09b3b9e77e4fa52f.json",
+          "source_video_sha256": "a470e766923702617cdc225c05020bd12eacdcdfee4df4284425cf2e92a06edf",
+          "source_binding_sha256": "4e90518b5bcac6b2f1012d169e1858bf52985eeb82971fcefd75557dc400c630",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E04",
+      "title": "彩杯与图形配对",
+      "instruction": "按示范中杯子颜色与图形的对应关系，把三个杯子摆到相应标记上。",
+      "rules": {
+        "A": "绿杯→三角；蓝杯→圆；红杯→方",
+        "B": "绿杯→方；蓝杯→圆；红杯→三角",
+        "C": "绿杯→圆；蓝杯→三角；红杯→方"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E04",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E04/A/human/eb6083f5c2b9a6fa/human.mp4",
+            "sha256": "eb6083f5c2b9a6fae19b5ec00d0e6df50f08303afca467dccc35c5ea243f4724",
+            "bytes": 6037575
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E04/A/simulation/3b5a272dff0b7f93/head.mp4",
+              "sha256": "3b5a272dff0b7f9334e3e44b9efbcc0224de5ec2ece41897294f103c7b940940",
+              "bytes": 2420520
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E04/A/simulation/845b54f8572da2fc/left_wrist.mp4",
+              "sha256": "845b54f8572da2fcc5b0b4b7ce24130130c5b9b6c8a87e955093c89516216167",
+              "bytes": 855900
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E04/A/simulation/c18fb9d5914a7b04/right_wrist.mp4",
+              "sha256": "c18fb9d5914a7b048eb2ae76d57a7f2bb1da6657fa1d01eb3c0d334ddceda90f",
+              "bytes": 2346556
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E04/A/simulation/d5846a02afc557a9/multiview.mp4",
+              "sha256": "d5846a02afc557a951b2c93791666830fc33592f8590992a4c9cf9b5210f27f3",
+              "bytes": 6178579
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E04/A/evidence/e2d3930f7bc7d580.json",
+          "source_video_sha256": "cbcd3e23710f8ba3ff46511aa05b3c70b9ca88bf04d9cd84cbaaa1307700b7c5",
+          "source_binding_sha256": "b0752b86dd8ac4dcdcbbbd68cd9e32e3c5e1db26d586c5059104d473ecb6ffd1",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E04",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E04/B/human/ba689f04e624efb6/human.mp4",
+            "sha256": "ba689f04e624efb69cf0c07328b7bb51bb8f097fe5fb611e1a371706d8fee9d1",
+            "bytes": 5680733
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E04/B/simulation/10c5c8294331ef6c/head.mp4",
+              "sha256": "10c5c8294331ef6c424c637bed1f8af9e50d629d4b8b2393df57fbe2e480ff1b",
+              "bytes": 1432235
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E04/B/simulation/b37d9d4ecbcdb7f9/left_wrist.mp4",
+              "sha256": "b37d9d4ecbcdb7f9209c11968bcc89944facfc9bb2bee2429ef3e12217fde235",
+              "bytes": 479217
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E04/B/simulation/ac5ab8c9fa90491a/right_wrist.mp4",
+              "sha256": "ac5ab8c9fa90491a72271d92a0f97e422f695cd0803cdaaed402d022c1bc54f9",
+              "bytes": 1524646
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E04/B/simulation/c13873ef9231b075/multiview.mp4",
+              "sha256": "c13873ef9231b0751b0ed2ab778851824edea69e7c0b27303ee50fd7c3f3146d",
+              "bytes": 3705371
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E04/B/evidence/739348666d9f3baa.json",
+          "source_video_sha256": "2092160e6210dccb427cd8f61f8f3cbd45754bdd82b60a729a8dd5d248fbb908",
+          "source_binding_sha256": "1cf3b2021f8746fe10f326d32691361f541c1a891372dcd877ccf358c53cea9d",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E04",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E04/C/human/92a7db0fc00a9b77/human.mp4",
+            "sha256": "92a7db0fc00a9b77cce47d5b3603ed06b7615e6f53f8abdd1fff0400edc1f5cf",
+            "bytes": 5740577
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E04/C/simulation/2cc366fa06c4cedc/head.mp4",
+              "sha256": "2cc366fa06c4cedc34910b15ae59277517977dbeda0596cd6704c79850822ac2",
+              "bytes": 1503585
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E04/C/simulation/3110cdd463311aaf/left_wrist.mp4",
+              "sha256": "3110cdd463311aafe3cab6607f92cb9b735413f12977a0421376953e155f192e",
+              "bytes": 492873
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E04/C/simulation/21b07db62d78cd7f/right_wrist.mp4",
+              "sha256": "21b07db62d78cd7f7058d1c22759ac9f212b21ed74e4886f8cc01899df79e377",
+              "bytes": 1605414
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E04/C/simulation/09b5b89c794590bf/multiview.mp4",
+              "sha256": "09b5b89c794590bfe030fa877ffa936f4f4471b841305911ef7b87b3f1af494a",
+              "bytes": 3893465
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E04/C/evidence/7cfb250b2cd0195c.json",
+          "source_video_sha256": "ea03f2a71da239e7dbe8d8b88efb805069b3fa4cdf38b239ce98cf6801416d19",
+          "source_binding_sha256": "1cf3b2021f8746fe10f326d32691361f541c1a891372dcd877ccf358c53cea9d",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E05",
+      "title": "形状块与图形配对",
+      "instruction": "按示范中物体形状与图形的对应关系，摆放全部三个物体。",
+      "rules": {
+        "A": "方块→方形；球→圆形；三角块→三角形",
+        "B": "方块→圆；球→三角；三角→方",
+        "C": "方块→三角；球→方；三角→圆"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E05",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E05/A/human/1b8f1cac8a683473/human.mp4",
+            "sha256": "1b8f1cac8a6834739600115e9086a1d55ac4506cdaafb8dbc24650ef378e484b",
+            "bytes": 2453658
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E05/A/simulation/205a4cb8af53ed72/head.mp4",
+              "sha256": "205a4cb8af53ed721e73e76ac8dbaaeff622a1e98b345029e09e47af423adb90",
+              "bytes": 1541372
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E05/A/simulation/72765a1ff883ca3f/left_wrist.mp4",
+              "sha256": "72765a1ff883ca3f00b4513f3a849e9e012f8d219ffde52821f8c4d078114e47",
+              "bytes": 461897
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E05/A/simulation/e12ea702386eeccc/right_wrist.mp4",
+              "sha256": "e12ea702386eeccca368b9f989cc2dcd3b1071264c939b98043579e050c910ec",
+              "bytes": 1603310
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E05/A/simulation/c1cef1ca994d2721/multiview.mp4",
+              "sha256": "c1cef1ca994d27210c6d0845c4426fa63859c0de0393e380fef5f378c01d71a6",
+              "bytes": 3858319
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E05/A/evidence/9ff95df5eefdf183.json",
+          "source_video_sha256": "2ce2f197bb87b064faf4786e19093d7b164f42e2a8874b8ffe7d8daa6c86f541",
+          "source_binding_sha256": "7b95b7de104910fd861d0d9ea31babc4a7476186aa29e1aaf6e64686f1807243",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E05",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E05/B/human/c89e81feb5512035/human.mp4",
+            "sha256": "c89e81feb551203539e0ca9c01543f058bd27df7804cade51e8ff9c9315faa33",
+            "bytes": 6636771
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E05/B/simulation/503743250c9413a9/head.mp4",
+              "sha256": "503743250c9413a97dbd4f2999a6a8b4393eea2c95ce5d5934ff30ad077df47b",
+              "bytes": 1692087
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E05/B/simulation/36154eccdf97e1d2/left_wrist.mp4",
+              "sha256": "36154eccdf97e1d20ae2e328abcd9197a5b11ed8afa7f61333ad8d67e89c0706",
+              "bytes": 516966
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E05/B/simulation/39a1c5dd4032f834/right_wrist.mp4",
+              "sha256": "39a1c5dd4032f83403fbf56a893d9cf70ba677f1db45c68c92536c1c01adaa6c",
+              "bytes": 1952678
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E05/B/simulation/50ea6c69e48a9f39/multiview.mp4",
+              "sha256": "50ea6c69e48a9f39f7b89f644acd592af7d2db0a016cc43a56d20deabfd9c335",
+              "bytes": 4353926
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E05/B/evidence/7988d471e99ba3c3.json",
+          "source_video_sha256": "f2505ef9f2d507ce65b98c9fdf6e88b1730e6efe60349a80cdfd446c396bf161",
+          "source_binding_sha256": "e58bf2aeb3ff11a57092948cc8b93e777d227bf54d9ecf35978dbeeb4f181587",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E05",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E05/C/human/4684df31d73072de/human.mp4",
+            "sha256": "4684df31d73072de9c660abb1081b47aecfa2fd4db02af55f3c80931b4ae3230",
+            "bytes": 6325326
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E05/C/simulation/0bc1d9d1e5c8cb16/head.mp4",
+              "sha256": "0bc1d9d1e5c8cb168783263a8a186882081beb21af30b14d12f444e6aada3c2d",
+              "bytes": 1523363
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E05/C/simulation/7343d47666aa05fa/left_wrist.mp4",
+              "sha256": "7343d47666aa05fa8f916240009f8736616faed09ff73095025d2196959fbfc1",
+              "bytes": 461071
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E05/C/simulation/ee93f8654369ef9e/right_wrist.mp4",
+              "sha256": "ee93f8654369ef9e1a49efd26bb6ecfbfc002a6ca5b42bdded94df82f8d97843",
+              "bytes": 1604960
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E05/C/simulation/58ac428f125264f9/multiview.mp4",
+              "sha256": "58ac428f125264f94092f16bbda077b82b207b9525d5ef637fdc45b16e83074f",
+              "bytes": 3844654
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E05/C/evidence/6ec4dffa60afa2ab.json",
+          "source_video_sha256": "d2dab6a5e166df621876889c93be4685b6b0b30b8d4939e6d159d5f40e035aca",
+          "source_binding_sha256": "7b95b7de104910fd861d0d9ea31babc4a7476186aa29e1aaf6e64686f1807243",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E06",
+      "title": "蛋托孔位布局",
+      "instruction": "按示范的孔位布局，把三枚球放入六孔托盘。左右以你面对托盘的方向为准。",
+      "rules": {
+        "A": "填满左列三个孔",
+        "B": "填满右列三个孔",
+        "C": "左列两端、右列中间各放一球"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E06",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E06/A/human/2881a0380c274002/human.mp4",
+            "sha256": "2881a0380c274002c16bbea92b45279b4456e8c6a72dfceebe75e32cbc7ae785",
+            "bytes": 4684232
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E06/A/simulation/959b965f9177cd5b/head.mp4",
+              "sha256": "959b965f9177cd5bad442d2b94f5b4c8d539cebba64e515876f5edaacab4eae2",
+              "bytes": 611013
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E06/A/simulation/85c0d9688fd2cc4c/left_wrist.mp4",
+              "sha256": "85c0d9688fd2cc4cce18ffb430f3b8cab6577185b42312fd91571d528c297010",
+              "bytes": 926992
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E06/A/simulation/d0bcfd3e75eef256/right_wrist.mp4",
+              "sha256": "d0bcfd3e75eef256bd53c5a08ef7e7f3ca696fb8f7a226cc6d5da3a57966b36a",
+              "bytes": 225002
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E06/A/simulation/f1942361640c1144/multiview.mp4",
+              "sha256": "f1942361640c11447469d3978aac397ecc43a2dc4cf1debeb24dfdf92be4bd0a",
+              "bytes": 1710797
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E06/A/evidence/30a60313fec2a823.json",
+          "source_video_sha256": "57f08640719a150e2a2c16236ed9bf711bc938af28fe5e132d042f237a465f14",
+          "source_binding_sha256": "7b95b7de104910fd861d0d9ea31babc4a7476186aa29e1aaf6e64686f1807243",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E06",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E06/B/human/58addcdcc6e21350/human.mp4",
+            "sha256": "58addcdcc6e21350eccb2b9a0c9de509789be9c5f36347c0cedbbb2127492ef3",
+            "bytes": 4533149
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E06/B/simulation/7e031ce8e359b1b8/head.mp4",
+              "sha256": "7e031ce8e359b1b88766cfb94e3013557d204685550ef97cd2878b2cc6a80c60",
+              "bytes": 631040
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E06/B/simulation/21b81918fd8d5395/left_wrist.mp4",
+              "sha256": "21b81918fd8d5395e30daa0a56a3b60adb50464fa688fa6a93a2962c9f9460be",
+              "bytes": 961049
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E06/B/simulation/1dcfbff642720d17/right_wrist.mp4",
+              "sha256": "1dcfbff642720d178d121ab46b49c94862d0cd68a5978cce6896709461ff8dfc",
+              "bytes": 233278
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E06/B/simulation/933c0e38bf268b22/multiview.mp4",
+              "sha256": "933c0e38bf268b22b3ff157ffc90a6783eaabf426e4031808356a1f99647f9d5",
+              "bytes": 1777259
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E06/B/evidence/6ecd153e4a85db30.json",
+          "source_video_sha256": "1ee85fa3ed61f9496bad6de328a6cf9d86afceb8aeedabb8e17169f7b9b3e335",
+          "source_binding_sha256": "7b95b7de104910fd861d0d9ea31babc4a7476186aa29e1aaf6e64686f1807243",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E06",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E06/C/human/5d21be0241e390a1/human.mp4",
+            "sha256": "5d21be0241e390a15c6e1e48e044eed0acd80c2d6b3e4e297db0294d8bc51811",
+            "bytes": 5009957
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E06/C/simulation/17f73cdcd51337a5/head.mp4",
+              "sha256": "17f73cdcd51337a530bd30e4a471f64ff2e844ef276c39b693ccf5c9d995104e",
+              "bytes": 613472
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E06/C/simulation/e8e458e91684f8fe/left_wrist.mp4",
+              "sha256": "e8e458e91684f8fe806b4ebfe169a7363fcb3379b7b3a6be0ff125a789954ddf",
+              "bytes": 928896
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E06/C/simulation/21218a7c18604b17/right_wrist.mp4",
+              "sha256": "21218a7c18604b17004ad257e19cee68d56b102a669dfdceb584989b2ae8d43a",
+              "bytes": 228597
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E06/C/simulation/db6654db81d54f61/multiview.mp4",
+              "sha256": "db6654db81d54f61a799b9b41492f321d05bfc555c91619707eed478f774ae75",
+              "bytes": 1728518
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E06/C/evidence/f7b743754555dd4b.json",
+          "source_video_sha256": "e218174d9908ddb8a29dd578cf2993f20d0c45b66b4b05c21308b7bce21b7b09",
+          "source_binding_sha256": "7b95b7de104910fd861d0d9ea31babc4a7476186aa29e1aaf6e64686f1807243",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E07",
+      "title": "五块尺寸排序",
+      "instruction": "按照示范中的尺寸排序，把五块积木沿远到近方向排成一列。",
+      "rules": {
+        "A": "从远到近：最小、次小、中等、次大、最大",
+        "B": "从远到近：最大、次大、中等、次小、最小",
+        "C": "从远到近：中等、次小、最小、次大、最大"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E07",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E07/A/human/69d14a2ffe6b65c0/human.mp4",
+            "sha256": "69d14a2ffe6b65c00b47b6e81ff27b6bee1f5653817fcff8b5b4b0b4520d9b06",
+            "bytes": 12217857
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E07/A/simulation/759ec61e469ca90a/head.mp4",
+              "sha256": "759ec61e469ca90ac8ae6e41d76058bb453e16f03d8a2d717e4cf0cce2e102d1",
+              "bytes": 1354706
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E07/A/simulation/3f5b4746ef1f9e47/left_wrist.mp4",
+              "sha256": "3f5b4746ef1f9e47026be72a58c01c1617e8cc33dd2d402dfa00057b71d8d608",
+              "bytes": 1106929
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E07/A/simulation/fdf8ccc33e1794c1/right_wrist.mp4",
+              "sha256": "fdf8ccc33e1794c14017d7181e1f94e67be793f02a16a9da82213628974a3ebe",
+              "bytes": 367868
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E07/A/simulation/a1caa9eff47f6eee/multiview.mp4",
+              "sha256": "a1caa9eff47f6eee98b2bb651b49a8a9bd8b6436261bbbd27660e5977da7d968",
+              "bytes": 3178795
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E07/A/evidence/9d37b676da226480.json",
+          "source_video_sha256": "094b325bf03b16f5aa120220bf0a7593458b9d8bfc44fb916c7552455707cd38",
+          "source_binding_sha256": "9f5e97e2bea59c7670b5af12e6ce9f73be09c2ed70527994367d632c947db2e0",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E07",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E07/B/human/2059b2dba68ee1f5/human.mp4",
+            "sha256": "2059b2dba68ee1f598688aae62b20b60fdb2470f5673b0264f7720603b7e4597",
+            "bytes": 11032305
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E07/B/simulation/a677098df1ac12da/head.mp4",
+              "sha256": "a677098df1ac12da0104f91e9b6ec9f543886e7b97913d5dd551887619c6a1ab",
+              "bytes": 1330425
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E07/B/simulation/b1ac4d7401aeef35/left_wrist.mp4",
+              "sha256": "b1ac4d7401aeef35de77e2b611419a2807b4250e6cfbaf6183b9ea5b3635d296",
+              "bytes": 1148354
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E07/B/simulation/b2480656233d3b55/right_wrist.mp4",
+              "sha256": "b2480656233d3b55575a44589f573ee9954c12781e5fbc8ca46d7d6a91e66d0e",
+              "bytes": 366379
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E07/B/simulation/98e2b85da1549794/multiview.mp4",
+              "sha256": "98e2b85da1549794795cb4f150010e44d36ac1f62038c77ff4f0f7e8f367b862",
+              "bytes": 3168259
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E07/B/evidence/ccaeea46ecc50450.json",
+          "source_video_sha256": "701ee7cd8814969fd65d258cdc020dd1091574e69318f0bb5ad149cfb6a60eb8",
+          "source_binding_sha256": "9f5e97e2bea59c7670b5af12e6ce9f73be09c2ed70527994367d632c947db2e0",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E07",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E07/C/human/f78b570ae921e4e5/human.mp4",
+            "sha256": "f78b570ae921e4e54852f64b1a87408300292b88b456a2991d28a329330b7a47",
+            "bytes": 8902755
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E07/C/simulation/f11d694e06b57c19/head.mp4",
+              "sha256": "f11d694e06b57c1956faf19a6bbe86788a9065e1566d490e06ee525a11336a6f",
+              "bytes": 1368011
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E07/C/simulation/17c026428630197a/left_wrist.mp4",
+              "sha256": "17c026428630197a424247778489917dd39e314cf991c7afa3af00d5531dbfc1",
+              "bytes": 1191705
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E07/C/simulation/234a949177ad8c55/right_wrist.mp4",
+              "sha256": "234a949177ad8c55d2da28b83177f5f14789c962602b4113681db9d0d74472db",
+              "bytes": 371426
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E07/C/simulation/5e40dd36fdc7f06b/multiview.mp4",
+              "sha256": "5e40dd36fdc7f06bfd4620f923b70802c689e8744bcbb0577f5e2b08ac129b0a",
+              "bytes": 3259357
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E07/C/evidence/5fbf5b902c697924.json",
+          "source_video_sha256": "a31fdf55b07817ffa07902afbb9cfdee558f6eee9ac29abe5baa1765edc00f9d",
+          "source_binding_sha256": "9f5e97e2bea59c7670b5af12e6ce9f73be09c2ed70527994367d632c947db2e0",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E08",
+      "title": "鞋盒内朝向摆放",
+      "instruction": "按示范中鞋尖与鞋盒标签端的朝向关系，把两只鞋放入鞋盒。",
+      "rules": {
+        "A": "两只鞋尖均朝鞋盒标签端",
+        "B": "两只鞋跟均朝标签端",
+        "C": "左脚鞋尖朝标签端，右脚鞋跟朝标签端"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E08",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E08/A/human/859f36680ba61ff4/human.mp4",
+            "sha256": "859f36680ba61ff4b94bd03962f97235ec70c6542b593123b05f268c8407080f",
+            "bytes": 10934231
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E08/A/simulation/ce761eb6ede7f34a/head.mp4",
+              "sha256": "ce761eb6ede7f34a3f5f8a7afe0b000026372acdde9f24b936e216185f703931",
+              "bytes": 1558044
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E08/A/simulation/374ec6ea8a12c023/left_wrist.mp4",
+              "sha256": "374ec6ea8a12c02375a9785df697939928dcfc096a32b758e874d99f4d4212d4",
+              "bytes": 1917002
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E08/A/simulation/286967440169ee58/right_wrist.mp4",
+              "sha256": "286967440169ee58d544b3edf05bb86611919276555992bea4071a67da8b2bf9",
+              "bytes": 467809
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E08/A/simulation/90168054ad0eca61/multiview.mp4",
+              "sha256": "90168054ad0eca61f79fc2c16081effac6af12379c5ccd581056f20ef44f5e00",
+              "bytes": 4179892
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E08/A/evidence/533e5d4c9e9c75ab.json",
+          "source_video_sha256": "0838eccd090fd244dc9e8faef52881fc9d4edc1e1f43e69501dd05c3992f8942",
+          "source_binding_sha256": "42c5b17e334cf287814e7e05d06b363404895ca206477450d76b6d179dd1642c",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E08",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E08/B/human/079cee0456606f7e/human.mp4",
+            "sha256": "079cee0456606f7edbb13a08063b0fcca72e4a0af828dede5e0815cb30b7c4a9",
+            "bytes": 8442789
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E08/B/simulation/eb04bdc13ddcb53f/head.mp4",
+              "sha256": "eb04bdc13ddcb53f20d2d0f55befe3a40c5f62d5edadceec4c7e2af21210d72b",
+              "bytes": 1069231
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E08/B/simulation/4cef8ce42a7e1ace/left_wrist.mp4",
+              "sha256": "4cef8ce42a7e1ace27a311d00b4bcc365a5ef2cb75a3175eb99ffd1757558980",
+              "bytes": 987211
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E08/B/simulation/a3288ad27819933d/right_wrist.mp4",
+              "sha256": "a3288ad27819933d5f32fb37882c5b062bae28947cd6dcc8b61e805a7549c9a7",
+              "bytes": 345006
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E08/B/simulation/0add4fe472d51580/multiview.mp4",
+              "sha256": "0add4fe472d5158085a5fe347be469fab1dadf3b22c496932fb38456c224109c",
+              "bytes": 2675176
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E08/B/evidence/4167fe93cff0ded2.json",
+          "source_video_sha256": "e79d989a7863933abb1c1e20508b2094ef1bc83a8d56a2448bca36ac9d582614",
+          "source_binding_sha256": "42c5b17e334cf287814e7e05d06b363404895ca206477450d76b6d179dd1642c",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E08",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E08/C/human/9b4fc6bbd3df3835/human.mp4",
+            "sha256": "9b4fc6bbd3df38357d16c2ad74e1e1c2eeaef0ac5830a000d475f58306ca0f53",
+            "bytes": 9588769
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E08/C/simulation/e193584e6b4e0dcd/head.mp4",
+              "sha256": "e193584e6b4e0dcda754bdbad0cf5a46f22688e460b55ab51c42706005d20f4b",
+              "bytes": 1263765
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E08/C/simulation/84573bd9edd5bde3/left_wrist.mp4",
+              "sha256": "84573bd9edd5bde3deaa5e96d13728b11e1e741dd55b872eecec5a98706eff3d",
+              "bytes": 1358884
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E08/C/simulation/27d86e5fb52cf375/right_wrist.mp4",
+              "sha256": "27d86e5fb52cf37521865d3a521454d9328976b39abd99db5303ec00c081b572",
+              "bytes": 394299
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E08/C/simulation/2ab8d586d43ae45f/multiview.mp4",
+              "sha256": "2ab8d586d43ae45fa0afca137d04722e0bd5ddcb522da42cb503649787d28b88",
+              "bytes": 3284647
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E08/C/evidence/be12c3d888dba03e.json",
+          "source_video_sha256": "48e711dd5c0a8fa0d29a6a187545ba9a65e8ff8d18a0e48a55cea742bc53c76e",
+          "source_binding_sha256": "42c5b17e334cf287814e7e05d06b363404895ca206477450d76b6d179dd1642c",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E09",
+      "title": "九件交叉属性分组",
+      "instruction": "按示范的颜色与形状分组关系，将九件物体分成三组，每组三件。",
+      "rules": {
+        "A": "同色一组：红、绿、蓝各三件",
+        "B": "同形一组：方、三角、圆各三件",
+        "C": "红圆+绿三角+蓝方；红三角+绿方+蓝圆；红方+绿圆+蓝三角"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E09",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E09/A/human/bd1693c13b0b22b1/human.mp4",
+            "sha256": "bd1693c13b0b22b16d30a6ed9deed74abaec9434a9c22c2f09069fcea05e66ea",
+            "bytes": 17754103
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E09/A/simulation/42d823ce4add7448/head.mp4",
+              "sha256": "42d823ce4add74483a181e4b8a425629c6e3ba27f29034115ad5e9bee796a362",
+              "bytes": 3840241
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E09/A/simulation/cb117b7bc867600e/left_wrist.mp4",
+              "sha256": "cb117b7bc867600e32a298d118ebf401a596b70343c9a01de9ab41d946ad9cd9",
+              "bytes": 2950146
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E09/A/simulation/1106a868bc42b8c1/right_wrist.mp4",
+              "sha256": "1106a868bc42b8c172d79057f734cbd9590cf5c6023bc1a5a4fdc0bb01da0765",
+              "bytes": 2620734
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E09/A/simulation/f74249364046451c/multiview.mp4",
+              "sha256": "f74249364046451c05a7c2590d43a0cbfb685c740629054649a23ba518822add",
+              "bytes": 9976476
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E09/A/evidence/7468d8b83cc270a5.json",
+          "source_video_sha256": "69172f78492ffafa1ca9cc32d1a55edb970ae55b8e06cffe7ffd14034f93a360",
+          "source_binding_sha256": "02a6c73507e2e2a8e982fca25e8691cab4bfd3aea945912d5dce1c5fc77f0b7a",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E09",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E09/B/human/1eb96b65cc9704b4/human.mp4",
+            "sha256": "1eb96b65cc9704b4ee3187a5b111ee8909c1ac8fdd1b4ef7dc087bc2fa64246a",
+            "bytes": 14355756
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E09/B/simulation/9e623d2931f04315/head.mp4",
+              "sha256": "9e623d2931f0431555bf1567a8056d3525179e6188a5307e85da425b6b3131c3",
+              "bytes": 3844238
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E09/B/simulation/f2dc6257ce1c3448/left_wrist.mp4",
+              "sha256": "f2dc6257ce1c344804b0e04a36d404c4f5831445a00796d6e5629b8dbf2f2dc2",
+              "bytes": 3056639
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E09/B/simulation/e2af9f77fc82890b/right_wrist.mp4",
+              "sha256": "e2af9f77fc82890b7ecbfaae246c5a2a83c769aa1a80d853f65b8e6ac1f93383",
+              "bytes": 2742816
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E09/B/simulation/dd2cd94c21dced61/multiview.mp4",
+              "sha256": "dd2cd94c21dced613e66e5b4d9e77de45ef063777610dc6d170a44f3d99c364a",
+              "bytes": 10078728
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E09/B/evidence/f9c4320799c4f84a.json",
+          "source_video_sha256": "03147208179528d4524d525229bb81eca2182dc67c990c6c93596fa5ee94426d",
+          "source_binding_sha256": "c7a6cba05fbe3b6cd0cc1a2f9c0a88aa0ce52e3ea2d3efd8d1bccb8e7c350aa2",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E09",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E09/C/human/beb6601f7005804a/human.mp4",
+            "sha256": "beb6601f7005804a180c485bef9ae29a317e50868eac78a6fb6b474fe5ca683d",
+            "bytes": 11082515
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E09/C/simulation/3270c725549120d9/head.mp4",
+              "sha256": "3270c725549120d982308bbebf9c5d998e7329be27e1d3a073619ea44326c20e",
+              "bytes": 3961759
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E09/C/simulation/949e10e2be6ff912/left_wrist.mp4",
+              "sha256": "949e10e2be6ff912ed8776c20a854bdd6378eec84cac1efffa3d04b59b8bf4db",
+              "bytes": 2840026
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E09/C/simulation/500da0242f9ca4b8/right_wrist.mp4",
+              "sha256": "500da0242f9ca4b82fa458287fa33118d13fa7196e162209014871bcc3a5314e",
+              "bytes": 2720470
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E09/C/simulation/c7ada2692f1d755e/multiview.mp4",
+              "sha256": "c7ada2692f1d755e28acf6dedfb3f7985e825260d085e008f59b080fde814121",
+              "bytes": 10214437
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E09/C/evidence/82ad68003552698b.json",
+          "source_video_sha256": "78f7cc593a67a2e6df59ecc1c241037ed702cdc1cca8cc0bbf071ca58ef31c49",
+          "source_binding_sha256": "9eaa21849bbaedd45e38f86cd269dd635557affcf961baee7662ff12b6e50c0f",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E10",
+      "title": "按属性选择并套柱",
+      "instruction": "按示范的颜色、形状选择方式，把符合条件的零件套到匹配的立柱上，其余留在桌上。",
+      "rules": {
+        "A": "套入所有红色件，共3件",
+        "B": "套入所有方形件，共3件",
+        "C": "套入红色件或方形件，共5件；红方只处理一次"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E10",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E10/A/human/e05d1a8215344ed2/human.mp4",
+            "sha256": "e05d1a8215344ed24b7f5361aff9709eae1ff10d84a945159ac60d24c81c160c",
+            "bytes": 9949085
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E10/A/simulation/16d28b3919f48a46/head.mp4",
+              "sha256": "16d28b3919f48a4696f0a0fb2fa9fda1b783dd878228c8f0c37e9a500b9b77d9",
+              "bytes": 1971048
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E10/A/simulation/9715ee218f80d9d0/left_wrist.mp4",
+              "sha256": "9715ee218f80d9d0fef11c780616c159b4c379e82aeee2af27cab22673e524ac",
+              "bytes": 2140352
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E10/A/simulation/4a0290be768ad9cf/right_wrist.mp4",
+              "sha256": "4a0290be768ad9cfeb87e99e23cd4e379c770eb7c517cd5abd47a4e771abf666",
+              "bytes": 1668646
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E10/A/simulation/ddd98f7bad61f666/multiview.mp4",
+              "sha256": "ddd98f7bad61f666a918559a103a647cff106721b69e8ea5f39eab7165249724",
+              "bytes": 5700828
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E10/A/evidence/270fd20c6a38b477.json",
+          "source_video_sha256": "d59944ea73e5b344292780b64429f517b9da22308b5158f8b5ef179c95c211e4",
+          "source_binding_sha256": "12f0ed134c52764aa11e041d63ca9ddb3fbe2fc91a750d68c1306faf0ef4b639",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E10",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E10/B/human/9c11d7efa62843dd/human.mp4",
+            "sha256": "9c11d7efa62843ddd745e3ff0d5211578e90df71350171c9ce828d99ff820579",
+            "bytes": 5521145
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E10/B/simulation/c6c5890f78bbaff9/head.mp4",
+              "sha256": "c6c5890f78bbaff92df205bbf77c7e32da3559c194bb37a8cf82554bd1f296b8",
+              "bytes": 1378776
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E10/B/simulation/b2b9b528fe0c0661/left_wrist.mp4",
+              "sha256": "b2b9b528fe0c06613cca463f9fc71012a268e83ed82907b8799065d1c8b5d072",
+              "bytes": 2554635
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E10/B/simulation/8243fd7c271932bc/right_wrist.mp4",
+              "sha256": "8243fd7c271932bcf2e580ec30375683d99c8ae2806f093f3dda77f95ef64383",
+              "bytes": 502037
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E10/B/simulation/9c35703a411a77fb/multiview.mp4",
+              "sha256": "9c35703a411a77fb2e8b9e1aa92a69a733ade910be4716e5032aec121c5b628f",
+              "bytes": 4224738
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E10/B/evidence/0e659cc20a7efd14.json",
+          "source_video_sha256": "0f810c9383c1a5664ea7ac2308a861d890225a3a0102fe84820cdba657a02e2f",
+          "source_binding_sha256": "12f0ed134c52764aa11e041d63ca9ddb3fbe2fc91a750d68c1306faf0ef4b639",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E10",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E10/C/human/88cfc49bb913bfab/human.mp4",
+            "sha256": "88cfc49bb913bfab04b378ab1f94e2d4bbb9110cdc4ef547c10c3c9d06c990a5",
+            "bytes": 10758171
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E10/C/simulation/b79f014fe5fb6c11/head.mp4",
+              "sha256": "b79f014fe5fb6c1153b3849dac741d4e152d782da7be06e406e8d75361ff6e5c",
+              "bytes": 2664298
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E10/C/simulation/60a3aa5b35e4ed4f/left_wrist.mp4",
+              "sha256": "60a3aa5b35e4ed4f785df525f6b21bbf641aa30d604a663e3f0af091a21f56d9",
+              "bytes": 2947461
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E10/C/simulation/7dc6df56c9b4f70e/right_wrist.mp4",
+              "sha256": "7dc6df56c9b4f70ef65960673ec30c91979c20318ac6d30d473c7655b969c915",
+              "bytes": 2419856
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E10/C/simulation/fd17a5b04bc2b7b2/multiview.mp4",
+              "sha256": "fd17a5b04bc2b7b27b7d59651ae7d23072ff59ac0e72339894c02f420399c0e6",
+              "bytes": 7825734
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E10/C/evidence/84f979ccfea9d7d8.json",
+          "source_video_sha256": "2c539d94f4f85eca1739c8bcde612d80fd1b70b4077f4bfc6969d30228471e93",
+          "source_binding_sha256": "12f0ed134c52764aa11e041d63ca9ddb3fbe2fc91a750d68c1306faf0ef4b639",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E11",
+      "title": "四格布局变换入框",
+      "instruction": "按示范中的平面布局变换，将开局的四块积木搬入四格框。",
+      "rules": {
+        "A": "保留初始2×2布局搬入四格框",
+        "B": "初始布局顺时针旋转90°后入框",
+        "C": "初始布局左右镜像后入框"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E11",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E11/A/human/6b87d2c3d431ee97/human.mp4",
+            "sha256": "6b87d2c3d431ee979e92dcf0c3b1add6e053e57735283d2d543b2fceab82ef3b",
+            "bytes": 7369450
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E11/A/simulation/1724fbe3d649052f/head.mp4",
+              "sha256": "1724fbe3d649052f97a72995a8b7140a1e3d36fb178f348850d18ee4ac09a2b0",
+              "bytes": 2185112
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E11/A/simulation/58791dbdb63efcbc/left_wrist.mp4",
+              "sha256": "58791dbdb63efcbc938b396a63602fb623332ceeeefa9bacfa41d6512e06531c",
+              "bytes": 2060560
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E11/A/simulation/1c6d9a968203123d/right_wrist.mp4",
+              "sha256": "1c6d9a968203123db90a2eae53301b1c3af95b5f6a16ac684bbf9d3fcf4952c0",
+              "bytes": 2091326
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E11/A/simulation/8ff7eb803b526def/multiview.mp4",
+              "sha256": "8ff7eb803b526def8333605186edd656e3850ae786dc5b4de15061b5e5fa750f",
+              "bytes": 6278564
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E11/A/evidence/d3c1e5ae9aba77c3.json",
+          "source_video_sha256": "0d16de69bec7f8f71df4dbfb98de465f4634a8b2325a9834fdd5b31155b862eb",
+          "source_binding_sha256": "2bbf3fd6d6775d04bbbe517459e15a6227bd36c663ae002a6653af34341be673",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E11",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E11/B/human/bf368820d3bf0a6c/human.mp4",
+            "sha256": "bf368820d3bf0a6c2e45111de1fab7b8c004dcc8cfbc3acf9ca2c5c292171355",
+            "bytes": 8026891
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E11/B/simulation/2af8524ab279dc98/head.mp4",
+              "sha256": "2af8524ab279dc98211390618e8122d7d96e77b0e7ce5dd8473512e10f8a6abf",
+              "bytes": 1837046
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E11/B/simulation/0de3ec218a14cc18/left_wrist.mp4",
+              "sha256": "0de3ec218a14cc18b4c9094e2246ec150782818df037dac40f659481129bda04",
+              "bytes": 1929660
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E11/B/simulation/33580c5b408075f9/right_wrist.mp4",
+              "sha256": "33580c5b408075f9d2cc35dd0c60612c33e234a103c8e64b4aaf4980716caaec",
+              "bytes": 1764233
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E11/B/simulation/d17eb9fb47a49780/multiview.mp4",
+              "sha256": "d17eb9fb47a497801f8f20cd9e553bc057b821c428b9ba2193ac93c0eb1ff9b5",
+              "bytes": 5410529
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E11/B/evidence/6e7460d6ad12bebc.json",
+          "source_video_sha256": "822653ddd13966a15cf6e87e1fe2de8190e5795cfbbc2d36ca73f866ab140bb6",
+          "source_binding_sha256": "2bbf3fd6d6775d04bbbe517459e15a6227bd36c663ae002a6653af34341be673",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E11",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E11/C/human/878000caa1f1689f/human.mp4",
+            "sha256": "878000caa1f1689f6a04c8603c6d91436a879ecf9d169d5dbf08cfb7d8c53ac3",
+            "bytes": 7455368
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E11/C/simulation/72585b2228be1c63/head.mp4",
+              "sha256": "72585b2228be1c632dba2f028a14f1aff854d691b21af60fd8d2af5f1ebf79c3",
+              "bytes": 2201245
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E11/C/simulation/ac8d71a99344e7d7/left_wrist.mp4",
+              "sha256": "ac8d71a99344e7d722e60c4977683d0c57916c604c81d6cd9b56696acdea212c",
+              "bytes": 2172537
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E11/C/simulation/68ee34add8936755/right_wrist.mp4",
+              "sha256": "68ee34add8936755171960d31ad0e75492f0d64e21dd1b33b671a235f34ec02f",
+              "bytes": 2014578
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E11/C/simulation/6019f4b263cacb5f/multiview.mp4",
+              "sha256": "6019f4b263cacb5ffbe0b2a019dc31977e78bd1b1563e29c4346e19498509421",
+              "bytes": 6327589
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E11/C/evidence/4e2e98d0f3f20149.json",
+          "source_video_sha256": "e36c905812d9eab3fe1542178939cb7d0625ff7db3a854b4815f8888f81873f7",
+          "source_binding_sha256": "2bbf3fd6d6775d04bbbe517459e15a6227bd36c663ae002a6653af34341be673",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E12",
+      "title": "插排孔位选择",
+      "instruction": "按示范相对于电线端的插位选择，将两个充电器插入四位插排。",
+      "rules": {
+        "A": "两充电器插入靠电线端的两个插位",
+        "B": "插入远离电线端的两个插位",
+        "C": "插入两端插位，中间两个空着"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E12",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E12/A/human/ca5f2ca541b3bb33/human.mp4",
+            "sha256": "ca5f2ca541b3bb33d144ef5c50ea07c8cdffa6d9df2b74154436b16c03ed077d",
+            "bytes": 4298252
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E12/A/simulation/28163a42677cc55d/head.mp4",
+              "sha256": "28163a42677cc55d2f782e204179c22c53963dd6fd6dd8779e371585688d74b3",
+              "bytes": 1872061
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E12/A/simulation/5989cf5aefb25dca/left_wrist.mp4",
+              "sha256": "5989cf5aefb25dca14c3852040edff25d31ee3015627674882b1182bdea91075",
+              "bytes": 547882
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E12/A/simulation/ebb44aee90916b51/right_wrist.mp4",
+              "sha256": "ebb44aee90916b51df7baac6c558c019ddb2afc3eb85321b8b0e7ec0880bed57",
+              "bytes": 1627825
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E12/A/simulation/3f64f0c031dd7124/multiview.mp4",
+              "sha256": "3f64f0c031dd712453221e83c2e5b27d750563ea5c65691fe525e65ac0357ce9",
+              "bytes": 4494937
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E12/A/evidence/3932ce2d9f162c98.json",
+          "source_video_sha256": "0a2577e7c2459f5a57e7289baf99c9a56a067974b28ef69c9e0a3a72646daa93",
+          "source_binding_sha256": "a2ee6b6d7150d02b6d0dbb89411436d549035e4a9fe40f806a4ee790774e65d8",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E12",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E12/B/human/099cdf53e912da08/human.mp4",
+            "sha256": "099cdf53e912da0803572d6676dfe9497204ff452e1547395fb5368f8921f560",
+            "bytes": 5459678
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E12/B/simulation/fdbe0ce87f47ea0c/head.mp4",
+              "sha256": "fdbe0ce87f47ea0c8ce2a9eac4bb77488acd654a3401123f7a2c5ce774c06165",
+              "bytes": 1756387
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E12/B/simulation/591ef551ee2476a4/left_wrist.mp4",
+              "sha256": "591ef551ee2476a4826f2f2f5eeface9ce842e62d5b29cfc1cdfe5a38b9dc72a",
+              "bytes": 529507
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E12/B/simulation/78833d9db3b6c7cd/right_wrist.mp4",
+              "sha256": "78833d9db3b6c7cd90ca72dd7c6f8d5d653a461c28ac806d8976dafd828546ce",
+              "bytes": 1584847
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E12/B/simulation/aa646dfa7196a061/multiview.mp4",
+              "sha256": "aa646dfa7196a061bea7c463b35f4fdd104553b380984670c17a4bc011648f7e",
+              "bytes": 4237904
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E12/B/evidence/2b4d2d7e6e669cc1.json",
+          "source_video_sha256": "75e833e8d607bcbeeffe1d82f3f554499b8996b44da37ed99eef17d340121557",
+          "source_binding_sha256": "a2ee6b6d7150d02b6d0dbb89411436d549035e4a9fe40f806a4ee790774e65d8",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E12",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E12/C/human/0d0cbb6569233881/human.mp4",
+            "sha256": "0d0cbb6569233881c81c1b5731cda9b2be8f2d0d46cb32ae0d8107c10369addb",
+            "bytes": 4150258
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E12/C/simulation/273c1271729ff15a/head.mp4",
+              "sha256": "273c1271729ff15a24c98abd7d740d8ff3ff2bf4801e4cfe47c0b9807cea36b0",
+              "bytes": 1805018
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E12/C/simulation/59b7265ff0a871c6/left_wrist.mp4",
+              "sha256": "59b7265ff0a871c644ab420b44f4f5c094bd5b17afb633384f762707509ca2ac",
+              "bytes": 532618
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E12/C/simulation/db2c4e0af44be403/right_wrist.mp4",
+              "sha256": "db2c4e0af44be4039d31126427c07ee163b3593314c6209f415f21a2a6655a02",
+              "bytes": 1590856
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E12/C/simulation/7e3520da5eb9c847/multiview.mp4",
+              "sha256": "7e3520da5eb9c8474d649d66d7fec2d53fffd1dc0479c4412ccfea647be2bf47",
+              "bytes": 4336784
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E12/C/evidence/b539ab67da61f741.json",
+          "source_video_sha256": "18b9a67a8e7c5046c24afde8b00554e6b4a402f3059477bb3dba697ead5c1d1a",
+          "source_binding_sha256": "a2ee6b6d7150d02b6d0dbb89411436d549035e4a9fe40f806a4ee790774e65d8",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E13",
+      "title": "手机支架姿态",
+      "instruction": "按示范的手机朝向，把手机放稳在支架上；以支架开口侧判断左右。",
+      "rules": {
+        "A": "竖放，后摄像头端朝上",
+        "B": "横放，后摄像头端朝右",
+        "C": "横放，后摄像头端朝左"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E13",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E13/A/human/2b51ac061a763b87/human.mp4",
+            "sha256": "2b51ac061a763b87f76638fae90473449f406a05c93d88f48d60be8e9a5412a9",
+            "bytes": 3364996
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E13/A/simulation/9272d3271392a6b6/head.mp4",
+              "sha256": "9272d3271392a6b6061a7d29112066fa8dd69a5944b13299f29fca253c666e7a",
+              "bytes": 1208125
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E13/A/simulation/5fe34735668b3cda/left_wrist.mp4",
+              "sha256": "5fe34735668b3cda9e42796567094af248693bbbdd796a59b417e80b3bdf865b",
+              "bytes": 1091060
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E13/A/simulation/c6c3af3a64928246/right_wrist.mp4",
+              "sha256": "c6c3af3a64928246fcc80f248da1e732f488e791be2dde09648564c957072a82",
+              "bytes": 496405
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E13/A/simulation/bf1a7f8467620303/multiview.mp4",
+              "sha256": "bf1a7f84676203038ce8d502fd2ddb052e5165efb2b58348c1121fc7e10c7ec1",
+              "bytes": 3038869
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E13/A/evidence/eba6fc3a33fec928.json",
+          "source_video_sha256": "7bfe1c99993c5a0c79f86df6d779a129ad6319f1be42dc6a14581506e243a79d",
+          "source_binding_sha256": "687e73d45b3295ea8cf38cfa0037843fa845aa2f522df332dd2c64cd92e2ec76",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E13",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E13/B/human/3bb2b0fff8a83c39/human.mp4",
+            "sha256": "3bb2b0fff8a83c392d05d6054d59cb4fdd8ad7a7cc27a8b7635ef69c8c0d3b63",
+            "bytes": 3322279
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E13/B/simulation/8c2087c808988262/head.mp4",
+              "sha256": "8c2087c80898826298c578cae478d649fbe0f29d33f14a3a2bcc9b60c9d9d917",
+              "bytes": 1663771
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E13/B/simulation/0ced6f9ad64c1a98/left_wrist.mp4",
+              "sha256": "0ced6f9ad64c1a9878ab1eb6fd8409ec248de164cd3602bc7e61d9cff9e45389",
+              "bytes": 1506988
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E13/B/simulation/1c9029185fcbbe78/right_wrist.mp4",
+              "sha256": "1c9029185fcbbe78fd390c2d61f76c1f504e2c8846e941500977c9dd9286aeed",
+              "bytes": 616801
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E13/B/simulation/fa36ddb054e08c7f/multiview.mp4",
+              "sha256": "fa36ddb054e08c7fba09aa798f2e2eb520f3ffaf52701541ae8a99844eccb950",
+              "bytes": 4125932
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E13/B/evidence/443e7c8cb1451310.json",
+          "source_video_sha256": "a2a6eee08492003f862b2200fac8676ab32c96f5b66c818a72a28bbd8d30a017",
+          "source_binding_sha256": "687e73d45b3295ea8cf38cfa0037843fa845aa2f522df332dd2c64cd92e2ec76",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E13",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E13/C/human/f94b924fb20e6cda/human.mp4",
+            "sha256": "f94b924fb20e6cdafe6b7d7d0282141888e99fc37fe8fdb727c018578297df37",
+            "bytes": 3595440
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E13/C/simulation/f8b9c78513eb6806/head.mp4",
+              "sha256": "f8b9c78513eb680664967697567ef2bdd67aa6ca6fbe842aa4662c1bb43c1041",
+              "bytes": 1068087
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E13/C/simulation/78562159836ea0d3/left_wrist.mp4",
+              "sha256": "78562159836ea0d352381398624e6defa0ffdc8b0f40d443d20551056cee96b1",
+              "bytes": 1278209
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E13/C/simulation/a3d61dc6fe355c46/right_wrist.mp4",
+              "sha256": "a3d61dc6fe355c46b44470ec4d604777cc287e3164a057c5c1df576521fed656",
+              "bytes": 484234
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E13/C/simulation/d746a4e06d3f102e/multiview.mp4",
+              "sha256": "d746a4e06d3f102efff5204c22216177a2c89a8f7d87f7d75701bbdae8f0c2c7",
+              "bytes": 2892541
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E13/C/evidence/81e85a5dc893c2a4.json",
+          "source_video_sha256": "68b91c7fa6566918e258b2bffea92f62856838b52e9ecda05ecc93746a111333",
+          "source_binding_sha256": "687e73d45b3295ea8cf38cfa0037843fa845aa2f522df332dd2c64cd92e2ec76",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E14",
+      "title": "拆塔与层序重排",
+      "instruction": "按示范中对塔层序的调整方式，重新搭好这座四层积木塔。",
+      "rules": {
+        "A": "交换从顶端数第1、2层，其余不变",
+        "B": "交换从顶端数第2、3层，其余不变",
+        "C": "整塔层序上下反转"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E14",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E14/A/human/d117ae250c6966ee/human.mp4",
+            "sha256": "d117ae250c6966ee29f0323a618d3ed046bbfa478f2d5e98e3ed7001ce97e110",
+            "bytes": 7062726
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E14/A/simulation/3efced55affaa60e/head.mp4",
+              "sha256": "3efced55affaa60e6b0d9c4db903645780343e2015d9dfb35065c2898956b787",
+              "bytes": 2124464
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E14/A/simulation/8f0ade00113af18c/left_wrist.mp4",
+              "sha256": "8f0ade00113af18c34d7d5d237818f5da98b3f96de0c68141ede8ff1a662bb63",
+              "bytes": 535695
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E14/A/simulation/fba4b8c017704ce2/right_wrist.mp4",
+              "sha256": "fba4b8c017704ce21669dffbd7112722e0200b3e6cfefae20c5484e9fed7c94b",
+              "bytes": 2386916
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E14/A/simulation/f97ac84796a3c852/multiview.mp4",
+              "sha256": "f97ac84796a3c852f4cf4d88a35844475eb321c66476d3d9eaca27b74ee2fa17",
+              "bytes": 5398651
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E14/A/evidence/1f1fd1cb2e40ea7b.json",
+          "source_video_sha256": "024b06e2bdb462ece51bef0ef5251f388fa07094c5b3f5d529d21ffc22e5ee4f",
+          "source_binding_sha256": "cc8d8e1ea6546f9cf1d79ef9b0edb364346d8fc7647fc8f918d49ff2884446bb",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E14",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E14/B/human/336a60f442c34249/human.mp4",
+            "sha256": "336a60f442c342492c7885ddab8f67d625fbc242e4b5b9bf16ca9db55b7bd813",
+            "bytes": 7021084
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E14/B/simulation/892c2c35d7525c18/head.mp4",
+              "sha256": "892c2c35d7525c18e249b1321372cd793070eb678a757dfdd7c168a0375c564b",
+              "bytes": 2121703
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E14/B/simulation/ff9ddd267620c2c9/left_wrist.mp4",
+              "sha256": "ff9ddd267620c2c951efdd7a10a9e94fd35aa83a1a2550e51f3048def97e3539",
+              "bytes": 540690
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E14/B/simulation/b03e1b449e14cbfd/right_wrist.mp4",
+              "sha256": "b03e1b449e14cbfd51f72631579b8f497fb7f45cda899878a3c3b111cb710ce4",
+              "bytes": 2389967
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E14/B/simulation/711a4b21cc0d3cab/multiview.mp4",
+              "sha256": "711a4b21cc0d3cab2e5bdb50713db66b8832dd4a908c558a96a7b572e2ceadb5",
+              "bytes": 5397552
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E14/B/evidence/fcf3cde39eccd3e0.json",
+          "source_video_sha256": "2d8d59afb807cec400722c8263da013306a5312656d2ac003f247dc9e91ba101",
+          "source_binding_sha256": "cc8d8e1ea6546f9cf1d79ef9b0edb364346d8fc7647fc8f918d49ff2884446bb",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E14",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E14/C/human/bac63525e8a42b9c/human.mp4",
+            "sha256": "bac63525e8a42b9c9a2f1343bcef604c2f3a8f2442631403ccc9ef24a8a081fb",
+            "bytes": 6087756
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E14/C/simulation/b41ec6c2a95679b6/head.mp4",
+              "sha256": "b41ec6c2a95679b6ff12fea46c8c560e2782ac242d25bb9d1d0d6d6231f975a5",
+              "bytes": 2181995
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E14/C/simulation/e1e3ea1783c23c13/left_wrist.mp4",
+              "sha256": "e1e3ea1783c23c137ee337d9d1bc91347ea153f2ed126898d9ca912af7dc236c",
+              "bytes": 552281
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E14/C/simulation/ceb126058c287e36/right_wrist.mp4",
+              "sha256": "ceb126058c287e369eed48573719a373d963c506717a73f917908982f66979b9",
+              "bytes": 2454139
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E14/C/simulation/6b8691f4b8475f34/multiview.mp4",
+              "sha256": "6b8691f4b8475f34b690aab5a04f2b9ae07ca57eba65b2a022f96d330a18169f",
+              "bytes": 5542626
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E14/C/evidence/db166dbb068289ca.json",
+          "source_video_sha256": "1d7f3cc414fb8c4e4c2b833056bb2c7cf3874624332459274cb50d0d143e2dee",
+          "source_binding_sha256": "cc8d8e1ea6546f9cf1d79ef9b0edb364346d8fc7647fc8f918d49ff2884446bb",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E15",
+      "title": "T形块属性交换",
+      "instruction": "按照示范中位置与朝向的交换方式，调整这两个T形块。",
+      "rules": {
+        "A": "交换位置，各自朝向不变",
+        "B": "各自位置不变，只交换朝向",
+        "C": "位置与朝向都交换"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E15",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E15/A/human/666d85c419d2ecaf/human.mp4",
+            "sha256": "666d85c419d2ecaf8d2c1c29b4f47eab67a798ce3064c363984fdc6f83abf991",
+            "bytes": 7084705
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E15/A/simulation/b007669e35c43291/head.mp4",
+              "sha256": "b007669e35c43291e424b8dd66c60882093524fcf9f5335949d94e9988e90ccc",
+              "bytes": 1069140
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E15/A/simulation/09f7c7b97afdcdc1/left_wrist.mp4",
+              "sha256": "09f7c7b97afdcdc19d867471c7da70612c55d01de16aa25e2878fd22092bc1a2",
+              "bytes": 375556
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E15/A/simulation/62663fc4433de6bd/right_wrist.mp4",
+              "sha256": "62663fc4433de6bd0e9ab40c22d996a146e11c101ce3a58ee7e87e41708b0a3d",
+              "bytes": 1262912
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E15/A/simulation/f1de2123747c7baf/multiview.mp4",
+              "sha256": "f1de2123747c7baf653175433acba2ea9e278c25fcc29558b42ffac7d26d9956",
+              "bytes": 2805252
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E15/A/evidence/1c206cda77c01a0d.json",
+          "source_video_sha256": "9744172077c02eac1c5d7e58428725658e234fb297c83b680264a230ad6d02d9",
+          "source_binding_sha256": "b01d7150c20e6a6609181b730dc7feac6d77064f5054f9b7c931fd4ab3741003",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E15",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E15/B/human/d7d43f7bf70d8911/human.mp4",
+            "sha256": "d7d43f7bf70d8911dafb8fc441952ad8eeec1f7b10b19353326d8fee7cf060e3",
+            "bytes": 4611049
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E15/B/simulation/7186207861afa24a/head.mp4",
+              "sha256": "7186207861afa24ac28ceca5377d3dd2013095dc3b42ce4365f60b61e68c5e2c",
+              "bytes": 762840
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E15/B/simulation/4839d48a2cf13eb6/left_wrist.mp4",
+              "sha256": "4839d48a2cf13eb60499853647edf91b80440ad1f8acd42c6cd250d9529afb46",
+              "bytes": 297009
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E15/B/simulation/cc45419184b6b90e/right_wrist.mp4",
+              "sha256": "cc45419184b6b90e0251c380bb6c6663e072ee2f654fcacc8a225a277a452ee5",
+              "bytes": 888938
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E15/B/simulation/58a0f9a44f0cd08c/multiview.mp4",
+              "sha256": "58a0f9a44f0cd08c99d7435ac00da6f941dd8e61453687e850e16ae0b0226830",
+              "bytes": 2022010
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E15/B/evidence/e69939cc8a1dda25.json",
+          "source_video_sha256": "283a5ca656d782a3e7d14e29b0055a77ea3574b720541087a819ce402a4b9ccc",
+          "source_binding_sha256": "b01d7150c20e6a6609181b730dc7feac6d77064f5054f9b7c931fd4ab3741003",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E15",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E15/C/human/533161945999236d/human.mp4",
+            "sha256": "533161945999236d5b044f4e4ce2839320d85941c33c943b450d9763bb33f960",
+            "bytes": 10242072
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E15/C/simulation/52c8a086cc17cbf7/head.mp4",
+              "sha256": "52c8a086cc17cbf7f4dbac28d88bc31d26c03710ac396d3e1b369ce4c45fe8d5",
+              "bytes": 1362464
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E15/C/simulation/9aa9e1f6fdbc558d/left_wrist.mp4",
+              "sha256": "9aa9e1f6fdbc558da49c6e4cff682ca7bed29005c7d8d2e64280f98383abd051",
+              "bytes": 445325
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E15/C/simulation/d9e25baef999a0dd/right_wrist.mp4",
+              "sha256": "d9e25baef999a0dd646e99628340bad49d7b5562f11020f5b70404fe2cbe7266",
+              "bytes": 1587843
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E15/C/simulation/68146c00444c1074/multiview.mp4",
+              "sha256": "68146c00444c1074bf2206ae76e27995c8f7c4bb489e1d8d7622e2cd7f0d7afd",
+              "bytes": 3560994
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E15/C/evidence/8dc94260646c8ab9.json",
+          "source_video_sha256": "6c11b015655b9d5b40fb9c6d7f25aa46660036391c2b8df283195ab951eab984",
+          "source_binding_sha256": "b01d7150c20e6a6609181b730dc7feac6d77064f5054f9b7c931fd4ab3741003",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E16",
+      "title": "三件布局搬入托盘",
+      "instruction": "按示范的布局与单件朝向变换，把三件T形块搬进托盘。",
+      "rules": {
+        "A": "保留三件的相对位置与朝向搬入托盘",
+        "B": "相对位置不变，每件原地逆时针转90°后搬入",
+        "C": "相对位置上下镜像、各件朝向不变后搬入"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E16",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E16/A/human/0b7f5c1d97200a14/human.mp4",
+            "sha256": "0b7f5c1d97200a149e9a10205039a7b4809c7302d291f214e10a5c1ee793c1a6",
+            "bytes": 7915641
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E16/A/simulation/771b253546caabd4/head.mp4",
+              "sha256": "771b253546caabd43a53d8c3757b0ac466dc6d9cc8f40a6e3d5eabff82485000",
+              "bytes": 1361588
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E16/A/simulation/81df151576b2dc15/left_wrist.mp4",
+              "sha256": "81df151576b2dc1575e4929e2801a1289bd3c3a1020fe26510d54b87dc166b49",
+              "bytes": 458699
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E16/A/simulation/95f5952813ac8945/right_wrist.mp4",
+              "sha256": "95f5952813ac894559e330c8a792a7178462e736c3349374bfb52b0109ecc764",
+              "bytes": 1528194
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E16/A/simulation/e74115116780c985/multiview.mp4",
+              "sha256": "e74115116780c985d8d95f55c06cd0d8181b7624da1781f8b4f865cc236301e7",
+              "bytes": 3578415
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E16/A/evidence/05c77a75922ca0b9.json",
+          "source_video_sha256": "724a40a62e3b6589ae5a962419d16da86971fd6da612fd403b1919af43bdc7c7",
+          "source_binding_sha256": "03c94c5ff31d0d7ff22303216bc3e391d148825dc5285415c9b72f18ea61cac5",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E16",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E16/B/human/10d8c18d1731546d/human.mp4",
+            "sha256": "10d8c18d1731546ddf3c6fe90cc462caf84e59e095b745b4e024e2782f9059ac",
+            "bytes": 13172686
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E16/B/simulation/38b10ddf5683f474/head.mp4",
+              "sha256": "38b10ddf5683f474fbc8d6c80892f65755bad4e66314964dad89d7124e5b1c73",
+              "bytes": 2672389
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E16/B/simulation/10af32f268c93d6e/left_wrist.mp4",
+              "sha256": "10af32f268c93d6e949016789a43d801d20eb85f6ea15e53ad74812d27e9be88",
+              "bytes": 857893
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E16/B/simulation/ca83217c11012337/right_wrist.mp4",
+              "sha256": "ca83217c1101233723256e9e75c87effa6da6f9c4e02be21221068e1cd20a89c",
+              "bytes": 3502259
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E16/B/simulation/9640c15ac494a43e/multiview.mp4",
+              "sha256": "9640c15ac494a43ed58dbfe4954f57e703fe1eeb69e776794b149ee6d69d5dcd",
+              "bytes": 7312021
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E16/B/evidence/36cebbab6ec714bd.json",
+          "source_video_sha256": "77e2bfff00eff59d27c68b9c8c0206e2ba5bc4940ba298d928543e258213c9fb",
+          "source_binding_sha256": "ea2fb3a3e625f64181adf561c97afe96a2f2c2110cf4438cac5c97bfc393227a",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E16",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E16/C/human/1ad5280da385ea5c/human.mp4",
+            "sha256": "1ad5280da385ea5c0b50bd35b1826982f4c407a1f58c6bba867476de5e9c7a69",
+            "bytes": 6874828
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E16/C/simulation/69e91623c3112600/head.mp4",
+              "sha256": "69e91623c3112600fbfd9f989af5ebc77dd21c86e0678927645762dadb375c5b",
+              "bytes": 1398081
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E16/C/simulation/6ab72a08fe3f4f66/left_wrist.mp4",
+              "sha256": "6ab72a08fe3f4f66cfffb6ff6062f5980ba614e2f575a4c41575594dcf67705b",
+              "bytes": 463439
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E16/C/simulation/9678509f4c83286d/right_wrist.mp4",
+              "sha256": "9678509f4c83286ded4794dbff6d3063ccfd560ef97f44a9a922170242432ee5",
+              "bytes": 1567097
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E16/C/simulation/02506bbe87fa19ef/multiview.mp4",
+              "sha256": "02506bbe87fa19ef86b3c6414421bc58e133ba67cd34665e47f4910554651961",
+              "bytes": 3672165
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E16/C/evidence/0f6bbcd29a018dfd.json",
+          "source_video_sha256": "18d8b19cd530eefa9918003ba79223c508e09346a49b20747356760028867ced",
+          "source_binding_sha256": "03c94c5ff31d0d7ff22303216bc3e391d148825dc5285415c9b72f18ea61cac5",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E17",
+      "title": "双层点心架分层收纳",
+      "instruction": "按照示范的分层收纳方式，把四件物体放到点心架上。",
+      "rules": {
+        "A": "蓝色放上层，绿色放下层",
+        "B": "三角放上层，方形放下层",
+        "C": "四件全部放上层"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E17",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E17/A/human/48d7264fa7935a0b/human.mp4",
+            "sha256": "48d7264fa7935a0b52b34cde677a21d07b23a54bccab29a99d3eaf327a9c0e92",
+            "bytes": 9427586
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E17/A/simulation/c039e11f028043d2/head.mp4",
+              "sha256": "c039e11f028043d26036c7fdb442fb2539f434c8d5ad778a24ece223cd999273",
+              "bytes": 3576152
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E17/A/simulation/494549a796108377/left_wrist.mp4",
+              "sha256": "494549a796108377dd7a252d5189df838608cdc56c2942190152e868f80865cf",
+              "bytes": 2626051
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E17/A/simulation/d8fb8e4d81fe13c4/right_wrist.mp4",
+              "sha256": "d8fb8e4d81fe13c4479be693e6f726a9ea8bf98b60b7d100c29f3bd538d4a3ef",
+              "bytes": 3167513
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E17/A/simulation/0ec89c354f799088/multiview.mp4",
+              "sha256": "0ec89c354f799088b73e3c57155497f1fa85f5906f3fe317084a02410358d2ea",
+              "bytes": 9814786
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E17/A/evidence/4144dad8d8fe1105.json",
+          "source_video_sha256": "ecb69bb05a9f4ca33ec2d5f04c60e0bc59d33dfb59e9f1fcfdb44a122a3c29f0",
+          "source_binding_sha256": "86509053a05ffa28effbc57043494119e7c96eee0e76730812f7d7112816b012",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E17",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E17/B/human/37c9f00e29506a75/human.mp4",
+            "sha256": "37c9f00e29506a75f3df681e0fa07702791494d6696e1fd4acc970b24ffad0b8",
+            "bytes": 9708997
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E17/B/simulation/7bc3e4fb424e0d51/head.mp4",
+              "sha256": "7bc3e4fb424e0d51b9e5713e404138589812a926833968436921bfee89124e21",
+              "bytes": 4010981
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E17/B/simulation/1171c584d297c4a3/left_wrist.mp4",
+              "sha256": "1171c584d297c4a347a569e07a57b0b017b82e4349bbeaaae12ce1043f0d229a",
+              "bytes": 2628086
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E17/B/simulation/76ed19ad9162e432/right_wrist.mp4",
+              "sha256": "76ed19ad9162e432043050ad6e083252183acee33871f9f27f0fd69ec754a20d",
+              "bytes": 5023976
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E17/B/simulation/e2a185ab18ae5bc9/multiview.mp4",
+              "sha256": "e2a185ab18ae5bc93de95bda388d0a6b72cee6aa427f3783dfa33db32ae65d17",
+              "bytes": 11774190
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E17/B/evidence/61537b7b7bd5c0dd.json",
+          "source_video_sha256": "af45b560db011ea9dce9d7f824634226b3fe50552eb2ff34ff321838fddf4f78",
+          "source_binding_sha256": "4824b444df2a254c64bee22aa8f7a49eac65585c6a93bce65e51523a7712c7a2",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E17",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E17/C/human/3558150ce64ac9ce/human.mp4",
+            "sha256": "3558150ce64ac9ce0bc9af5de554a86fd6a8f40536e7df5b9643f751f6e41e8f",
+            "bytes": 8598342
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E17/C/simulation/98e3694a33e6e676/head.mp4",
+              "sha256": "98e3694a33e6e67691f11a477037f394dc63f75ab9b310f7b7380ab2a733ac03",
+              "bytes": 2929434
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E17/C/simulation/6679ace4737319a5/left_wrist.mp4",
+              "sha256": "6679ace4737319a59c4173e12ece60a7ec72d1898d7b2e697bd54cc71701e4a4",
+              "bytes": 2637487
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E17/C/simulation/d94ef7ecb86a18ec/right_wrist.mp4",
+              "sha256": "d94ef7ecb86a18ec32c59bf4a4e1e09300acf1b31954de0f21148db65cb33aab",
+              "bytes": 2615417
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E17/C/simulation/fb812b1fce595583/multiview.mp4",
+              "sha256": "fb812b1fce595583ec7bd4bf8e4eb260b59196d6792b7b41a9a9387925f5edc1",
+              "bytes": 8277947
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E17/C/evidence/e6c468fe5d1ab4a6.json",
+          "source_video_sha256": "d4fd3f57c80c2ceb18771f58e9eeb4a1b1a68b7be2b6f405c878ebccdb274cba",
+          "source_binding_sha256": "6e7e0e9aa136663967cfb21c29fdd30968f3e5d79bf694e81d8a4a70741fa16c",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E18",
+      "title": "抽屉取球并关回",
+      "instruction": "按示范选择同色的球，取出放到白色垫上，并关好抽屉。",
+      "rules": {
+        "A": "取出红球放到白色目标纸上，关回抽屉",
+        "B": "取出绿球放到白色目标纸上，关回抽屉",
+        "C": "取出蓝球放到白色目标纸上，关回抽屉"
+      },
+      "asset_credits": [
+        {
+          "source_author": "ROBOTIQ",
+          "source_url": "https://github.com/robotiq/isaacsim_assets/tree/f84a2e9d42b0447445800b6465f00335138b88f6",
+          "license": "BSD-3-Clause（仓库原作）；随附材料/来源文件保留CC-BY-4.0许可原文",
+          "changes": "已适配仿真格式并装配到机器人。"
+        },
+        {
+          "source_author": "MSSergeev / so101-lab",
+          "source_url": "https://github.com/MSSergeev/so101-lab/tree/26195d53c1fce64af46d4b2f534d616c56f937a9",
+          "license": "MIT",
+          "changes": "用于木顶开孔与把手的仿真适配。"
+        }
+      ],
+      "variants": {
+        "A": {
+          "task": "E18",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E18/A/human/f0081577e2f72655/human.mp4",
+            "sha256": "f0081577e2f726552d2a159a5b9af3cc758a94908ac4caf1a1e3687a029db003",
+            "bytes": 7233377
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E18/A/simulation/261ad6abe9ab630b/head.mp4",
+              "sha256": "261ad6abe9ab630bb78f60050e179fc033e6859cb7873f2ec8c1404e0c1a0ca8",
+              "bytes": 943599
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E18/A/simulation/ded70bfaffb5c6f9/left_wrist.mp4",
+              "sha256": "ded70bfaffb5c6f902c04b607897e5b1dad8f4bdee71bb927bd6d34688185d66",
+              "bytes": 1247233
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E18/A/simulation/fb22ae278c058116/right_wrist.mp4",
+              "sha256": "fb22ae278c058116d8703cd2c65cf04011473a9394002d9f443459b9ea79b15e",
+              "bytes": 184902
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E18/A/simulation/1b366e2bec53426f/multiview.mp4",
+              "sha256": "1b366e2bec53426f944805892788b7d6738a05dc142355392e6bd30eb48afe13",
+              "bytes": 2471868
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E18/A/evidence/8e73dad085141790.json",
+          "source_video_sha256": "22c9844c27d7046f54328ad5f528f596f196b3f0ff4e00c3cd7f1ebc66609e52",
+          "source_binding_sha256": "35d110221b0930733fa6c07d2214a803a00b037f798b9fc81ccb1c6a856ba217",
+          "asset_credits": [
+            {
+              "source_author": "ROBOTIQ",
+              "source_url": "https://github.com/robotiq/isaacsim_assets/tree/f84a2e9d42b0447445800b6465f00335138b88f6",
+              "license": "BSD-3-Clause（仓库原作）；随附材料/来源文件保留CC-BY-4.0许可原文",
+              "changes": "已适配仿真格式并装配到机器人。"
+            },
+            {
+              "source_author": "MSSergeev / so101-lab",
+              "source_url": "https://github.com/MSSergeev/so101-lab/tree/26195d53c1fce64af46d4b2f534d616c56f937a9",
+              "license": "MIT",
+              "changes": "用于木顶开孔与把手的仿真适配。"
+            }
+          ]
+        },
+        "B": {
+          "task": "E18",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E18/B/human/0ab042b972303eaa/human.mp4",
+            "sha256": "0ab042b972303eaa8e3619365dee7ef704ceab394fdf16e2e1dc09e8e1f8c3c5",
+            "bytes": 8008691
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E18/B/simulation/9965868b5bc6309c/head.mp4",
+              "sha256": "9965868b5bc6309cbd43468ad0433fdf68d4932ca784caaa195aa954c8407920",
+              "bytes": 1070443
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E18/B/simulation/9f84eea9aa7a0c65/left_wrist.mp4",
+              "sha256": "9f84eea9aa7a0c65c9c8a0b44bc977825f4127e2954a9fbfea4482cb1dd9fc5a",
+              "bytes": 1470255
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E18/B/simulation/d0f02614a9c1ee8d/right_wrist.mp4",
+              "sha256": "d0f02614a9c1ee8d4df0ee58fd25b558224689281c02e7ecd3bb42cdcbb649ed",
+              "bytes": 227465
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E18/B/simulation/b60d73d53213ed50/multiview.mp4",
+              "sha256": "b60d73d53213ed50548d605c3aa9b0c791b2e26b0a1d7bd26a258fd4feafa7b0",
+              "bytes": 2867612
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E18/B/evidence/7f8aaa2854d2270d.json",
+          "source_video_sha256": "bf1233683a2c8835a3191b53fff0141f2d934f0abd82cc52d1f3e28071ad6d7b",
+          "source_binding_sha256": "8a2ad1f100905ccc0b579273ca97707a41df8335160c36ba8811c637d9b2be3c",
+          "asset_credits": [
+            {
+              "source_author": "ROBOTIQ",
+              "source_url": "https://github.com/robotiq/isaacsim_assets/tree/f84a2e9d42b0447445800b6465f00335138b88f6",
+              "license": "BSD-3-Clause（仓库原作）；随附材料/来源文件保留CC-BY-4.0许可原文",
+              "changes": "已适配仿真格式并装配到机器人。"
+            },
+            {
+              "source_author": "MSSergeev / so101-lab",
+              "source_url": "https://github.com/MSSergeev/so101-lab/tree/26195d53c1fce64af46d4b2f534d616c56f937a9",
+              "license": "MIT",
+              "changes": "用于木顶开孔与把手的仿真适配。"
+            }
+          ]
+        },
+        "C": {
+          "task": "E18",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E18/C/human/f1419cd343fdd0d7/human.mp4",
+            "sha256": "f1419cd343fdd0d72b32b92d00804bac12cc67485ed08433df0e8f95efc4ffa4",
+            "bytes": 7304766
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E18/C/simulation/0f713cc923ec1430/head.mp4",
+              "sha256": "0f713cc923ec1430b99ff025600f8fb66b68bf88bb7d7527858962b9d44b2680",
+              "bytes": 1084642
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E18/C/simulation/bc9a1b9d4629aa79/left_wrist.mp4",
+              "sha256": "bc9a1b9d4629aa79da0a3fc7c2fa11ce10054806ec68ace3e1c7e9f9cc5a60ca",
+              "bytes": 1468759
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E18/C/simulation/e5f4181b64c200c9/right_wrist.mp4",
+              "sha256": "e5f4181b64c200c959be2e4519eb8701ebe00e6cf25e2369010f32d3b3d6a366",
+              "bytes": 228480
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E18/C/simulation/a9f8da3ce3354ae4/multiview.mp4",
+              "sha256": "a9f8da3ce3354ae4fb94d50fe22e528471706ba615f65b8ac6eaa1a9fd544dd0",
+              "bytes": 2893747
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E18/C/evidence/319ef9e8d64599a5.json",
+          "source_video_sha256": "f4d20acfe64f4f997e3b60ff8ad87946789ba97c2b9964bab706a1fc3bb3f991",
+          "source_binding_sha256": "8a2ad1f100905ccc0b579273ca97707a41df8335160c36ba8811c637d9b2be3c",
+          "asset_credits": [
+            {
+              "source_author": "ROBOTIQ",
+              "source_url": "https://github.com/robotiq/isaacsim_assets/tree/f84a2e9d42b0447445800b6465f00335138b88f6",
+              "license": "BSD-3-Clause（仓库原作）；随附材料/来源文件保留CC-BY-4.0许可原文",
+              "changes": "已适配仿真格式并装配到机器人。"
+            },
+            {
+              "source_author": "MSSergeev / so101-lab",
+              "source_url": "https://github.com/MSSergeev/so101-lab/tree/26195d53c1fce64af46d4b2f534d616c56f937a9",
+              "license": "MIT",
+              "changes": "用于木顶开孔与把手的仿真适配。"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "E19",
+      "title": "饮料瓶与瓶盖配对",
+      "instruction": "按示范中瓶型与瓶盖颜色的对应关系，为三瓶饮料配好盖。",
+      "rules": {
+        "A": "雪碧配黄盖，水配白盖，可乐配红盖",
+        "B": "雪碧配红盖，水配黄盖，可乐配白盖",
+        "C": "雪碧配白盖，水配红盖，可乐配黄盖"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E19",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E19/A/human/f3e4c6ba7e07c141/human.mp4",
+            "sha256": "f3e4c6ba7e07c14109c1c1b84ed1c3f1048ccc6f577691030a811edab174f0b9",
+            "bytes": 10295708
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E19/A/simulation/03690e86d9c745fc/head.mp4",
+              "sha256": "03690e86d9c745fc13188e158abdca5f77ba31ca58c93f38d5313bb709d020b0",
+              "bytes": 1255408
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E19/A/simulation/b82c6828c49bcb29/left_wrist.mp4",
+              "sha256": "b82c6828c49bcb29647c6ac4558fcc015da2a8925509827374da77c846453378",
+              "bytes": 1016977
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E19/A/simulation/9366b18f4cacbc4e/right_wrist.mp4",
+              "sha256": "9366b18f4cacbc4ed12d9d2ccdb73f3c8b5bc0da3a5086bd696b803119f09671",
+              "bytes": 846411
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E19/A/simulation/0b2d3dff32dc9986/multiview.mp4",
+              "sha256": "0b2d3dff32dc9986a65a4903b37823768f0c6d06c76358234720d7a24b5cb7ff",
+              "bytes": 3267225
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E19/A/evidence/f70c384ef6081706.json",
+          "source_video_sha256": "723782015b4fb7600b0f7b9196dc2d16100fce2ae2aea6fad17c8ea7e290fe08",
+          "source_binding_sha256": "2f31430e2c82e23d83f21c0f37eb69d4fa1277705b7b0fec0e0c67ac104e2bb3",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E19",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E19/B/human/b367d0889f18a255/human.mp4",
+            "sha256": "b367d0889f18a255b1004d60f979b27e0911d3baaf952bdce10ae5162fe80aa2",
+            "bytes": 9507500
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E19/B/simulation/fd88d2b9ee2dcf66/head.mp4",
+              "sha256": "fd88d2b9ee2dcf6671b2dd23a041f610c3cc2ea464336e44ccf69936265a7c45",
+              "bytes": 1530379
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E19/B/simulation/b67bdd5198df113e/left_wrist.mp4",
+              "sha256": "b67bdd5198df113ecf44d34a1e4282ffa6b49dfd025a28f545f0fddfdea1a1d7",
+              "bytes": 1172093
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E19/B/simulation/f3b407f476d75fcb/right_wrist.mp4",
+              "sha256": "f3b407f476d75fcb73ef9c023d6f025dc138f52a76f9c0a808a9ae3a7fbdeb98",
+              "bytes": 788942
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E19/B/simulation/27119b10a4a1fc97/multiview.mp4",
+              "sha256": "27119b10a4a1fc97ed5c9588d5c299964b4525e47fcb32fd174a55e0877a2887",
+              "bytes": 3804855
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E19/B/evidence/04678fadce9ae77a.json",
+          "source_video_sha256": "ee5bf5f16d09b2e663912f0504fc757be2a0c2c8461ac46967f864587691a264",
+          "source_binding_sha256": "2f31430e2c82e23d83f21c0f37eb69d4fa1277705b7b0fec0e0c67ac104e2bb3",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E19",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E19/C/human/f28f2a80c94aebf7/human.mp4",
+            "sha256": "f28f2a80c94aebf741c8a79399e286ee1560c2b68c6cfdf0f1f21dcd711f9f44",
+            "bytes": 8948122
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E19/C/simulation/f508202c7c25a1d7/head.mp4",
+              "sha256": "f508202c7c25a1d7ce80c54fb4b90d736c375a545f3a78a70a3a55cda73a5e31",
+              "bytes": 1605551
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E19/C/simulation/0328e03490df698c/left_wrist.mp4",
+              "sha256": "0328e03490df698c35566c3b52f9b9f44fd13721f80c1dcda6e3ca78620eea9d",
+              "bytes": 1295910
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E19/C/simulation/31a06584e42fe0b8/right_wrist.mp4",
+              "sha256": "31a06584e42fe0b8fdaede9e709c295275723bc0f570b8274c9f80bc2d97993e",
+              "bytes": 936518
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E19/C/simulation/369aaeda8eda2c6f/multiview.mp4",
+              "sha256": "369aaeda8eda2c6faff0542fa5345e1ca6a9de638377ffcc2d55e43e5b38b793",
+              "bytes": 4108359
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E19/C/evidence/a8f58dd72530e129.json",
+          "source_video_sha256": "fabc13b1ffdda9753e1562f35a2af01f9984c0df03ef8587888e3860ec58a371",
+          "source_binding_sha256": "2f31430e2c82e23d83f21c0f37eb69d4fa1277705b7b0fec0e0c67ac104e2bb3",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E20",
+      "title": "按颜色补齐指定数量",
+      "instruction": "按照示范中的配色与补齐后的数量，将各标记区域的筹码补齐。",
+      "rules": {
+        "A": "圆标记黄片、方标记红片、三角标记蓝片，各补到2片",
+        "B": "同样配色，各补到3片",
+        "C": "同样配色，各补到4片"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E20",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E20/A/human/415dd07444c43951/human.mp4",
+            "sha256": "415dd07444c439510676435a115ec0575f5827b28ae2d1328ad81361bced91d3",
+            "bytes": 9244549
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E20/A/simulation/03f54122e869e574/head.mp4",
+              "sha256": "03f54122e869e5743ec83a896bcad3899ae7a0339ef68a2afb8e1a77f307e75d",
+              "bytes": 1801667
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E20/A/simulation/a5fb17df0d78da44/left_wrist.mp4",
+              "sha256": "a5fb17df0d78da448c9df772d5f523adf5fd93ad97303dea5cd9fef85858739d",
+              "bytes": 2344187
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E20/A/simulation/778801de40217913/right_wrist.mp4",
+              "sha256": "778801de402179130ad7dbf8a623c4eb33e225371f0f1a3c1f996d8cfcae8d2d",
+              "bytes": 469186
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E20/A/simulation/1f23787e71a961c5/multiview.mp4",
+              "sha256": "1f23787e71a961c5bc23e2356737cc6e523719ac978b7788c027389c4d5da3b9",
+              "bytes": 4819295
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E20/A/evidence/e933676c950ce611.json",
+          "source_video_sha256": "65b51a06067ba2369aef294ef90b108835d3e6becc0f452d72c5315c7d0f7ea9",
+          "source_binding_sha256": "18fe72fdbcbb2e14f55c5811d3d87659f85addb3d096221726e758fef339b09d",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E20",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E20/B/human/ea7c79a066e3aa51/human.mp4",
+            "sha256": "ea7c79a066e3aa516983b71cf94ed589d0c04bf8e96ae1c677f79eda25910559",
+            "bytes": 14684834
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E20/B/simulation/72c480869248055e/head.mp4",
+              "sha256": "72c480869248055e05d77f0ba6ee14dab0d2df348b1050472663bf28a0991846",
+              "bytes": 2958248
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E20/B/simulation/5d9ea0e958e76985/left_wrist.mp4",
+              "sha256": "5d9ea0e958e7698524c46ae13dca2761d3ce48ffe02f595e2594d393a9019b69",
+              "bytes": 683665
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E20/B/simulation/4205b04a75d5742f/right_wrist.mp4",
+              "sha256": "4205b04a75d5742f63914ac83a2f1bfe4b8bac3929ebb3053d80960b1e62999f",
+              "bytes": 3784215
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E20/B/simulation/d6b178049af2380b/multiview.mp4",
+              "sha256": "d6b178049af2380bf8deb5928d3217e3aa1dae343f76e3805a6949b707c1f5b0",
+              "bytes": 7918642
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E20/B/evidence/4787b10f26793a94.json",
+          "source_video_sha256": "b38321c3bb0af566393935b8de1c32a6f01db475c47b92edee3c82ec1a52cc61",
+          "source_binding_sha256": "2f859e0286bf3928fd6bd2dfe320131ca2465c249e5120538a36ef6b29a95432",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E20",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E20/C/human/3ebcb9d8fcab2c1d/human.mp4",
+            "sha256": "3ebcb9d8fcab2c1daa354b4bf7bd84734ae50b784227ac4845ca149012c63152",
+            "bytes": 19937192
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E20/C/simulation/68648f974c414e46/head.mp4",
+              "sha256": "68648f974c414e46de0e3e427ddaed292d78f01522192a2874f9b0b1260bca34",
+              "bytes": 4082834
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E20/C/simulation/15766d59b0054cfc/left_wrist.mp4",
+              "sha256": "15766d59b0054cfcb356215f221c49a6e3d18b180f02b55934831a517a1f460a",
+              "bytes": 926390
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E20/C/simulation/e77d40cc94d55481/right_wrist.mp4",
+              "sha256": "e77d40cc94d55481cea0f8fff64cd9ad3984ee8a8458d08e11ceeedb4c6a485b",
+              "bytes": 5255469
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E20/C/simulation/ab7d8db8680f8924/multiview.mp4",
+              "sha256": "ab7d8db8680f8924234f881c942115301b98abe5b0cb3a020182da623f372fd3",
+              "bytes": 10933115
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E20/C/evidence/e1e6c05cdb7288b0.json",
+          "source_video_sha256": "fd01e41070bec3cd5ebb0fccfa6efbaf1e7bf10dbde9119ab6b64ae5d7430534",
+          "source_binding_sha256": "85eeab1e4673dd4fffad90545d6a79a0e279071235ae0738f70d3e8936a520e8",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E21",
+      "title": "按颜色顺序装四格盘",
+      "instruction": "按示范的颜色先后顺序，依次将四块积木装进四格盘。",
+      "rules": {
+        "A": "按红、黄、蓝、绿顺序放入左上、右上、左下、右下",
+        "B": "按红、绿、蓝、黄顺序放入这四格",
+        "C": "按绿、蓝、黄、红顺序放入这四格"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E21",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E21/A/human/6210ee1374ffbdd9/human.mp4",
+            "sha256": "6210ee1374ffbdd95bfd49d946e51d9eb1dd66d6bd979d7c2a95bd9b6e022eb2",
+            "bytes": 5653340
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E21/A/simulation/384424ca6034463d/head.mp4",
+              "sha256": "384424ca6034463d178fe8206061d9f1af7d80ea4cf0011a62a493db6a7b34cd",
+              "bytes": 2211084
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E21/A/simulation/6fe742d7f29e0799/left_wrist.mp4",
+              "sha256": "6fe742d7f29e07998c0d877e4c8b213361ac06c27469738b0d396dfe448b4304",
+              "bytes": 2144636
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E21/A/simulation/b1458bdede0d07b7/right_wrist.mp4",
+              "sha256": "b1458bdede0d07b7758328bcc198640c4fc88ca4c6b56ff8b2d376443a0f02ac",
+              "bytes": 2038314
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E21/A/simulation/3ee603c2fa8d9917/multiview.mp4",
+              "sha256": "3ee603c2fa8d9917de158c2e49c5ed0ee37d0fb988e87fb11c66f69ed2abf3d9",
+              "bytes": 6369988
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E21/A/evidence/0bf843fd3bc95a94.json",
+          "source_video_sha256": "bcc8f45776346e4339b70089dd5ff9c82acadac1609d8606f1524e05381518c9",
+          "source_binding_sha256": "2bbf3fd6d6775d04bbbe517459e15a6227bd36c663ae002a6653af34341be673",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E21",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E21/B/human/35ba209cfd3f7462/human.mp4",
+            "sha256": "35ba209cfd3f7462d8827dec71977719d0a669dac256c74f53fd9185947891e3",
+            "bytes": 5884982
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E21/B/simulation/a89f70a9913f35f0/head.mp4",
+              "sha256": "a89f70a9913f35f06f25757d01c0e7cc8190502abda346574a16fca3cc4a84d5",
+              "bytes": 2046703
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E21/B/simulation/9183a65e86b7a75d/left_wrist.mp4",
+              "sha256": "9183a65e86b7a75dca75c4692714604cce7decd140d45cfaa34a5679edc51228",
+              "bytes": 2040404
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E21/B/simulation/10e555eea634d29f/right_wrist.mp4",
+              "sha256": "10e555eea634d29f200a1da5d47c7ee85d4bb23f61c1b5ae81752df7715e2be6",
+              "bytes": 1855201
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E21/B/simulation/c378ce7e2a665fed/multiview.mp4",
+              "sha256": "c378ce7e2a665fed0dd6c251ba70171d0dd65d08eff0aa06e8344f228825fa4b",
+              "bytes": 5908252
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E21/B/evidence/28d922a7f728b711.json",
+          "source_video_sha256": "b8bbe8394100fcbf5a493486028d51ea13e2f2efff9cf4917f14bc59d1dd665c",
+          "source_binding_sha256": "2bbf3fd6d6775d04bbbe517459e15a6227bd36c663ae002a6653af34341be673",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E21",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E21/C/human/4899e9d760d4aac1/human.mp4",
+            "sha256": "4899e9d760d4aac187b5dcb4eada2a654b58bc441f5f1065af54634ef52235d1",
+            "bytes": 6611911
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E21/C/simulation/a6e0ab0db4204e0b/head.mp4",
+              "sha256": "a6e0ab0db4204e0ba8cae437f4c5f95dc1f9960650b4c8d19e62b7bdb8ac911d",
+              "bytes": 1922623
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E21/C/simulation/acc71ab285e8670c/left_wrist.mp4",
+              "sha256": "acc71ab285e8670c10b3059cb761d0a76a14a5c18ec1348647fe8697ee3b8a7d",
+              "bytes": 2537599
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E21/C/simulation/e288266064b6323f/right_wrist.mp4",
+              "sha256": "e288266064b6323f0e5e088f13777400f698903d98c1738d41ac2956d1202d3f",
+              "bytes": 1183360
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E21/C/simulation/84723374f2c0845e/multiview.mp4",
+              "sha256": "84723374f2c0845e405d429f03b62bf4cfc24554f150a0b574632abcf2951227",
+              "bytes": 5587043
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E21/C/evidence/aa485ce1e2c57543.json",
+          "source_video_sha256": "554d803509ecc925e84857b03803a3d7484f8d93ba9499788632ff68bdc9cacb",
+          "source_binding_sha256": "2bbf3fd6d6775d04bbbe517459e15a6227bd36c663ae002a6653af34341be673",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E22",
+      "title": "围绕玩具车摆放色块",
+      "instruction": "按示范中颜色与车前、车左、车右的对应关系，将三块积木摆到玩具车周围。",
+      "rules": {
+        "A": "车前红、车左绿、车右蓝",
+        "B": "车前绿、车左蓝、车右红",
+        "C": "车前蓝、车左红、车右绿"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E22",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E22/A/human/e8f8dcdb4d2b2b70/human.mp4",
+            "sha256": "e8f8dcdb4d2b2b70f6a9d3ce353e550e097d6ff7d820261126de840662287dc6",
+            "bytes": 5263183
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E22/A/simulation/694e147d4ff4462b/head.mp4",
+              "sha256": "694e147d4ff4462b421166d3eea381a653bd7af4dc2fa8af0251d1deb71737f1",
+              "bytes": 1593971
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E22/A/simulation/2631897cb8f88a25/left_wrist.mp4",
+              "sha256": "2631897cb8f88a2518335f5caace75c31bb78b5abd41ae855f6b317f5da91dd3",
+              "bytes": 1628370
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E22/A/simulation/e286f45d05bd3bb0/right_wrist.mp4",
+              "sha256": "e286f45d05bd3bb0225a62bb6c39d8e910418855bf51c17387ce378c775949a2",
+              "bytes": 463563
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E22/A/simulation/29d05fefabcf1a74/multiview.mp4",
+              "sha256": "29d05fefabcf1a74adca138404f62ad5072106e0d087480d8090de16ae46d0a7",
+              "bytes": 4024412
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E22/A/evidence/ed0a7953fbd1eb70.json",
+          "source_video_sha256": "df3e9447792131468c8b8e1e8bcc0474e6bad70934fd08e7612380cd291607c0",
+          "source_binding_sha256": "15fc143bf7be95738ee5ce782db6b880140316f676b10e1bc9413e8ac6c3407e",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E22",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E22/B/human/d27148edcd61d598/human.mp4",
+            "sha256": "d27148edcd61d5983aa0d13b9e83882282be3207c36145cd6ccfe4c4677765b5",
+            "bytes": 6534404
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E22/B/simulation/c09011a5ac7696b6/head.mp4",
+              "sha256": "c09011a5ac7696b66437b6d4ef1b67283c9d2a7ac9f176db10b3fb86d56b9ddc",
+              "bytes": 1500370
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E22/B/simulation/e6cabe79930c57b1/left_wrist.mp4",
+              "sha256": "e6cabe79930c57b1fce95c4e6b288c708bd62dfa1c4c78f3ceb21db5daa76824",
+              "bytes": 1602670
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E22/B/simulation/65dffe43338cc0eb/right_wrist.mp4",
+              "sha256": "65dffe43338cc0ebf445b2a2c282a3b253538459f816759ebaec9f812d2ff1a8",
+              "bytes": 444635
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E22/B/simulation/b7ba33287a59fc3e/multiview.mp4",
+              "sha256": "b7ba33287a59fc3e072f2024e727e342e44eeb59bc8fe0d5fc8ce7c1bf4b5488",
+              "bytes": 3841474
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E22/B/evidence/8ecefbb70bf1b9ad.json",
+          "source_video_sha256": "7515f0b4d5e306773ab9a5b3ba5e0dcf86ded5c004add418cee1ed46f741c5ca",
+          "source_binding_sha256": "15fc143bf7be95738ee5ce782db6b880140316f676b10e1bc9413e8ac6c3407e",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E22",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E22/C/human/d816ea47b755e015/human.mp4",
+            "sha256": "d816ea47b755e0155c3e890a6d0979f87936464ee512779a2592a65e02b550c3",
+            "bytes": 4771927
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E22/C/simulation/02d410ee976a1256/head.mp4",
+              "sha256": "02d410ee976a1256ee424607523f086ca8914ebefff09d340302c56084e09daa",
+              "bytes": 1507755
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E22/C/simulation/e5872285f5efd935/left_wrist.mp4",
+              "sha256": "e5872285f5efd935e4edca63ee4d5f3664c2d409294e4365065a46932eaf2733",
+              "bytes": 1593424
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E22/C/simulation/b4ab71ec7c1ec38e/right_wrist.mp4",
+              "sha256": "b4ab71ec7c1ec38e4d2c0e589b1be838c1fa67ae1c7b68b65cd602280045c6fd",
+              "bytes": 444567
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E22/C/simulation/286516ff0089ba49/multiview.mp4",
+              "sha256": "286516ff0089ba4966a0e9a775df41530ecd4710544010f2d21cd84758fc333b",
+              "bytes": 3839266
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E22/C/evidence/da285db94c3f543d.json",
+          "source_video_sha256": "46a5fcd0f23cb746ffa41f2a55e3bab0d42987c6393c020b18ce3d589a171232",
+          "source_binding_sha256": "15fc143bf7be95738ee5ce782db6b880140316f676b10e1bc9413e8ac6c3407e",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E24",
+      "title": "彩杯按序装盒并盖盖",
+      "instruction": "按示范的颜色顺序把三个杯子装入盒中，最后盖好盒盖。",
+      "rules": {
+        "A": "红→绿→蓝依次装盒，盖上盒盖",
+        "B": "绿→蓝→红依次装盒，盖上盒盖",
+        "C": "蓝→红→绿依次装盒，盖上盒盖"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E24",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E24/A/human/432dceec2402a06b/human.mp4",
+            "sha256": "432dceec2402a06be227b00b9c48265996eaaf8191d31410ad9298985c9e8614",
+            "bytes": 13698174
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E24/A/simulation/af1a93ef3aaf90a0/head.mp4",
+              "sha256": "af1a93ef3aaf90a02ddb0a13060c81993bb3d9781036616d7f323b5cc6cd5c12",
+              "bytes": 4393310
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E24/A/simulation/965973ff41e0bbcf/left_wrist.mp4",
+              "sha256": "965973ff41e0bbcfdbcab4a1d5b8d93bd1687534fd594aacca6765a2d121f7b8",
+              "bytes": 2323239
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E24/A/simulation/d195da91017c0ef9/right_wrist.mp4",
+              "sha256": "d195da91017c0ef959b30a08a84382d2840fb077c49cb1df53b6c326b692b3bb",
+              "bytes": 3494851
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E24/A/simulation/e92d8176c979c6ba/multiview.mp4",
+              "sha256": "e92d8176c979c6ba694b6c76db5dfa3fe6c369070fa50ab0bec5630974bbe2e5",
+              "bytes": 11282996
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E24/A/evidence/8e4bdfabd7d1b8f3.json",
+          "source_video_sha256": "5362e6d961a093d20849240b8f4fc154691aeab1bbbb3c7ee693c18579bf1032",
+          "source_binding_sha256": "5a84c5f384c9ced58e82b799893bfd85815c6886fcaedbde7178c4f78883c340",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E24",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E24/B/human/65e5ae141ccb8c8a/human.mp4",
+            "sha256": "65e5ae141ccb8c8a59e28abc0099a6b0a560ba1dcc548a4aad45284079051544",
+            "bytes": 11639967
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E24/B/simulation/86429c3a7b2930d7/head.mp4",
+              "sha256": "86429c3a7b2930d7b8884d3de1419cd86eed1dfd24a01aba4440da82b1530c30",
+              "bytes": 4410961
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E24/B/simulation/c3aa474a9a0b8953/left_wrist.mp4",
+              "sha256": "c3aa474a9a0b89539f1f07fe360ee5b1b3b1a2a947c514de5e20a11de8ab9fcd",
+              "bytes": 2323163
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E24/B/simulation/b84e2857d9f1dcf0/right_wrist.mp4",
+              "sha256": "b84e2857d9f1dcf05c7087a71be1d0f4762b1c5df8386ac97e43fc693bccb365",
+              "bytes": 3536623
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E24/B/simulation/908a9bc8bef20cb4/multiview.mp4",
+              "sha256": "908a9bc8bef20cb447a6f67462f54131b7e6c4b3e7a7499b7d22b332d3f62661",
+              "bytes": 11363152
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E24/B/evidence/eae3e905720190e3.json",
+          "source_video_sha256": "1a51bb6831fb4bc360fe8edfe15cfd252d5f2bd76955a0ebbf4bb516e2a99b77",
+          "source_binding_sha256": "5a84c5f384c9ced58e82b799893bfd85815c6886fcaedbde7178c4f78883c340",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E24",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E24/C/human/e261892f1030f7e9/human.mp4",
+            "sha256": "e261892f1030f7e9ab1be67dee218af6fefe515a2fc4cd168830e6c30ee8919d",
+            "bytes": 10524392
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E24/C/simulation/9ab6768a34d7112b/head.mp4",
+              "sha256": "9ab6768a34d7112b9f308727882ed70fbd2393f22615741a7160da1085587c6e",
+              "bytes": 4402366
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E24/C/simulation/c71b4b09c12d7873/left_wrist.mp4",
+              "sha256": "c71b4b09c12d7873aba1a144b80b9d3ce9c1e2386918efc121780ec4fe2a3f00",
+              "bytes": 2345797
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E24/C/simulation/5c088beea2f0356d/right_wrist.mp4",
+              "sha256": "5c088beea2f0356d6e691e48f9e2d22f96b8f81bc19594e781b5dfdb52f0de66",
+              "bytes": 3568795
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E24/C/simulation/78b5c397d0473a3b/multiview.mp4",
+              "sha256": "78b5c397d0473a3bef90b4362af974e20091d6ef0644db0a6f666666ac99b7d9",
+              "bytes": 11358425
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E24/C/evidence/e934021aa1512b67.json",
+          "source_video_sha256": "613141a93c07b484c2288391322faf3411c22e2c21b1f4449de1ad61ca632d16",
+          "source_binding_sha256": "5a84c5f384c9ced58e82b799893bfd85815c6886fcaedbde7178c4f78883c340",
+          "asset_credits": []
+        }
+      }
+    },
+    {
+      "id": "E25",
+      "title": "餐具朝向与盘边布局",
+      "instruction": "按示范中餐具相对餐盘的位置和端点朝向，布置勺、刀、叉。",
+      "rules": {
+        "A": "勺、刀、叉排在盘远侧，柄端靠盘",
+        "B": "勺、刀、叉排在盘远侧，工作端靠盘",
+        "C": "刀放盘左侧，勺和叉放盘右侧，柄朝操作者"
+      },
+      "asset_credits": [],
+      "variants": {
+        "A": {
+          "task": "E25",
+          "variant": "A",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E25/A/human/7aeacd8aea1701d1/human.mp4",
+            "sha256": "7aeacd8aea1701d1904d89c44c76cac75ef276e6a79a8ccbedd82d99820d5a32",
+            "bytes": 8361686
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E25/A/simulation/a3f95fc235ea325e/head.mp4",
+              "sha256": "a3f95fc235ea325e16cbd3b9d7a469903e880ef5cc2a366fb44e01af6cce1f0f",
+              "bytes": 1754068
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E25/A/simulation/b8b3a436187af67f/left_wrist.mp4",
+              "sha256": "b8b3a436187af67fb9210294ed276732f285b313f579d1077b249e62f8f8b266",
+              "bytes": 2565965
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E25/A/simulation/a7073292ac7cfa77/right_wrist.mp4",
+              "sha256": "a7073292ac7cfa77b6c727f51115d05b86e814063f20b66ff5497e5d2b735b97",
+              "bytes": 492256
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E25/A/simulation/11258ee821f90c65/multiview.mp4",
+              "sha256": "11258ee821f90c65fe83ea6913c14c149b09c672111e27593798a96cc299a856",
+              "bytes": 4982942
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E25/A/evidence/42f86522f6658795.json",
+          "source_video_sha256": "ee1c23736b24df5daa23aae1a23a661ec5367b7310f224fd9dea2aa01d1b6d5e",
+          "source_binding_sha256": "edc5c18f5a48f1e59dc916c4f11c17f175ac387d5de27d6bf35f1b4b74a6e921",
+          "asset_credits": []
+        },
+        "B": {
+          "task": "E25",
+          "variant": "B",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E25/B/human/5001212e2a101dad/human.mp4",
+            "sha256": "5001212e2a101dadb3332d4ab9b2c3efe9a12f224a8304ab846d538631b9b8fe",
+            "bytes": 9120829
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E25/B/simulation/9ff359c4ecb6767f/head.mp4",
+              "sha256": "9ff359c4ecb6767ff2107f2692f2e0c2fceb1553bf0c2d314e23d5eeb66f4266",
+              "bytes": 2386577
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E25/B/simulation/d793dc583cbf6f44/left_wrist.mp4",
+              "sha256": "d793dc583cbf6f44a5c88ea36ad8af15d871128c6e864abbf3bcd2270fa49e0d",
+              "bytes": 3531648
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E25/B/simulation/6dc038d52bbeb4b1/right_wrist.mp4",
+              "sha256": "6dc038d52bbeb4b1e3c01e2f9139c718ffe79f2efd8b7a6c2b578c87076faeb0",
+              "bytes": 1951397
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E25/B/simulation/45809117c140760d/multiview.mp4",
+              "sha256": "45809117c140760dcd37003e60e9a692eb96e44692cab238d864847325a3a1bd",
+              "bytes": 7547959
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E25/B/evidence/840bcdb1c3dc99af.json",
+          "source_video_sha256": "17835bde318bab2a2ea3fca5420bac9958efd2b8cc2e048013b597a8a116c7d6",
+          "source_binding_sha256": "edc5c18f5a48f1e59dc916c4f11c17f175ac387d5de27d6bf35f1b4b74a6e921",
+          "asset_credits": []
+        },
+        "C": {
+          "task": "E25",
+          "variant": "C",
+          "native_verified": true,
+          "camera_clock_verified": true,
+          "source_visual_reviewed": true,
+          "human": {
+            "file": "realworld50-media/half1/E25/C/human/aecf2f9b54cf906c/human.mp4",
+            "sha256": "aecf2f9b54cf906c53e54e351ecd2db6cfa75de22fddfa136840b90e9369db69",
+            "bytes": 6920612
+          },
+          "simulation": {
+            "head": {
+              "file": "realworld50-media/half1/E25/C/simulation/68ab0efac6a45c88/head.mp4",
+              "sha256": "68ab0efac6a45c88b6eeffea7b6d1eb7530373094bc2c3899cc7a5d18e7dbd1f",
+              "bytes": 1674164
+            },
+            "left_wrist": {
+              "file": "realworld50-media/half1/E25/C/simulation/e327b326b6d863f9/left_wrist.mp4",
+              "sha256": "e327b326b6d863f9d0f369c766be521823e002c47dd104ca65fdc427e885963e",
+              "bytes": 2297191
+            },
+            "right_wrist": {
+              "file": "realworld50-media/half1/E25/C/simulation/585ce21e789329fa/right_wrist.mp4",
+              "sha256": "585ce21e789329fa540e3dd028e5f8eccf98d1304a56e0a1f8bebe89cbe253f3",
+              "bytes": 485868
+            },
+            "multiview": {
+              "file": "realworld50-media/half1/E25/C/simulation/3987fb0890c1a4ce/multiview.mp4",
+              "sha256": "3987fb0890c1a4ce5f1a0742d8ad69261cf3d314831836b0b9b3e8b9ee167beb",
+              "bytes": 4605892
+            }
+          },
+          "evidence_file": "realworld50-media/half1/E25/C/evidence/921fcd3e9001d648.json",
+          "source_video_sha256": "5e7b35193c8b6c35978a6bd315cb6170c61b1b50a06d06797813e0d895355d74",
+          "source_binding_sha256": "5fd6059eff59bda5e1901e55494e1cce2c2346530a7b967cd50fbae364a4c55b",
+          "asset_credits": []
+        }
+      }
+    }
+  ],
+  "owned_case_count": 75,
+  "verified_case_count": 74,
+  "complete_panel": false,
+  "source_visual_final_acceptance": false
+}

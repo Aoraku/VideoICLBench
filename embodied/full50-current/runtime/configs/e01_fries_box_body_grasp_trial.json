@@ -1,0 +1,627 @@
+{
+  "schema": "realworld50-source-bindings-v1",
+  "tasks": {
+    "E01": {
+      "scene_adapter": "full50-source-v1",
+      "fidelity_status": "source_derived_geometry_ready_visual_and_physics_review_pending",
+      "objects": {
+        "tray": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "tray0.usda",
+            "sha256": "f3de40e9b8aeabc426e1f7056d596d9e01baaf8cb961274d7405b459349fa56c",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "tray0_textures/3f211a155912241ef7a7d2a72af9c4de52f7f81bf5725d9454be00ed6915af65.png",
+                "sha256": "3f211a155912241ef7a7d2a72af9c4de52f7f81bf5725d9454be00ed6915af65"
+              }
+            ],
+            "allow_nonuniform_scale": true,
+            "instance_adaptation": "Reviewed source mesh resizing to video-estimated dimensions; same geometry in all ABC"
+          },
+          "size": [
+            0.11,
+            0.16,
+            0.014
+          ],
+          "xy": [
+            -0.12,
+            0
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.2,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6
+        },
+        "burger": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "burger0.usda",
+            "sha256": "e2fae563a673cc56086d70610df8faf86cf7f87746f72f71a4477aad5220ab2e",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "burger0_textures/79bbd2647f41944a91ef8d93f8edc4da53fdfba4c381e5edb70d7280ce7df806.png",
+                "sha256": "79bbd2647f41944a91ef8d93f8edc4da53fdfba4c381e5edb70d7280ce7df806"
+              }
+            ],
+            "allow_nonuniform_scale": true,
+            "instance_adaptation": "Reviewed source mesh resizing to video-estimated dimensions; same geometry in all ABC"
+          },
+          "size": [
+            0.038,
+            0.038,
+            0.025
+          ],
+          "xy": [
+            0.14,
+            0.12
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.05,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6
+        },
+        "fries": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "fries0.usda",
+            "sha256": "80885424fb976c87ab6fd971fbbe22318078bb1794c65a692fe04b6ab514a6b0",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "fries0_textures/7279b832cafc48057759963d620b48a8eb08dbcb5711062ccb0884330a9836aa.png",
+                "sha256": "7279b832cafc48057759963d620b48a8eb08dbcb5711062ccb0884330a9836aa"
+              }
+            ],
+            "allow_nonuniform_scale": true,
+            "instance_adaptation": "Reviewed source mesh resizing to video-estimated dimensions; same geometry in all ABC"
+          },
+          "size": [
+            0.04,
+            0.028,
+            0.0475
+          ],
+          "xy": [
+            0.14,
+            0
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.03,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "quaternion": [
+            0.7071067811865476,
+            0.7071067811865476,
+            0,
+            0
+          ],
+          "center_z": 0.83
+        },
+        "drink": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "drink_cup.usda",
+            "sha256": "e7949db2a99658e7daf57ab10cd193d0e218b1c274c92c30def95aec7eda6d10",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "drink_cup_textures/da4b33f2cbe9969e7c09e9088793c2ddc2b23aa653c18904a7d4fe5409b770eb.png",
+                "sha256": "da4b33f2cbe9969e7c09e9088793c2ddc2b23aa653c18904a7d4fe5409b770eb"
+              }
+            ],
+            "allow_nonuniform_scale": true,
+            "instance_adaptation": "Reviewed source mesh resizing to video-estimated dimensions; same geometry in all ABC"
+          },
+          "size": [
+            0.031,
+            0.031,
+            0.065
+          ],
+          "xy": [
+            0.14,
+            -0.12
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.06,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6
+        }
+      },
+      "variants": {
+        "A": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "burger_tray",
+              "xy": [
+                -0.12,
+                0.06
+              ],
+              "half_size": [
+                0.05,
+                0.05
+              ],
+              "surface_z": 0.8095,
+              "hidden": true
+            },
+            {
+              "id": "fries_tray",
+              "xy": [
+                -0.12,
+                -0.06
+              ],
+              "half_size": [
+                0.05,
+                0.05
+              ],
+              "surface_z": 0.8095,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "burger",
+              "target": "burger_tray",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "fries",
+              "target": "fries_tray",
+              "required_support": "tray",
+              "roll": 1.5707963267948966
+            }
+          ],
+          "semantic": {
+            "mode": "meal_subset",
+            "groups": {
+              "active": [
+                "burger",
+                "fries"
+              ],
+              "foods": [
+                "burger",
+                "fries",
+                "drink"
+              ],
+              "container": [
+                "tray"
+              ],
+              "food": [
+                "burger",
+                "fries",
+                "drink"
+              ]
+            },
+            "container": "tray",
+            "selected": [
+              "burger",
+              "fries"
+            ],
+            "unselected": [
+              "drink"
+            ],
+            "unselected_must_remain_outside": true,
+            "requires_container_support": true,
+            "containers": {
+              "plate": {
+                "ref": {
+                  "actor": "tray"
+                },
+                "shape": "box",
+                "lower": [
+                  -0.085,
+                  -0.123,
+                  -0.0078
+                ],
+                "upper": [
+                  0.085,
+                  0.132,
+                  0.014
+                ],
+                "axis": 2,
+                "measurement_file": "rigid_loaded_measurements.json:E01/tray"
+              }
+            },
+            "structural_grasps": {
+              "burger": {
+                "local": [
+                  0,
+                  0,
+                  0
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "fries": {
+                "local": [
+                  -3.5e-05,
+                  0.006,
+                  -0.04
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "drink": {
+                "local": [
+                  0,
+                  0,
+                  0
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            },
+            "structural_expert": {
+              "plate_positions": {
+                "burger": [
+                  0,
+                  0.06,
+                  -0.0065
+                ],
+                "fries": [
+                  0,
+                  -0.06,
+                  -0.0065
+                ]
+              }
+            },
+            "expert_clearance_z": 1.05
+          }
+        },
+        "B": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "burger_tray",
+              "xy": [
+                -0.12,
+                0.06
+              ],
+              "half_size": [
+                0.05,
+                0.05
+              ],
+              "surface_z": 0.8095,
+              "hidden": true
+            },
+            {
+              "id": "drink_tray",
+              "xy": [
+                -0.12,
+                -0.06
+              ],
+              "half_size": [
+                0.05,
+                0.05
+              ],
+              "surface_z": 0.8095,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "burger",
+              "target": "burger_tray",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "drink",
+              "target": "drink_tray",
+              "required_support": "tray"
+            }
+          ],
+          "semantic": {
+            "mode": "meal_subset",
+            "groups": {
+              "active": [
+                "burger",
+                "drink"
+              ],
+              "foods": [
+                "burger",
+                "fries",
+                "drink"
+              ],
+              "container": [
+                "tray"
+              ],
+              "food": [
+                "burger",
+                "fries",
+                "drink"
+              ]
+            },
+            "container": "tray",
+            "selected": [
+              "burger",
+              "drink"
+            ],
+            "unselected": [
+              "fries"
+            ],
+            "unselected_must_remain_outside": true,
+            "requires_container_support": true,
+            "containers": {
+              "plate": {
+                "ref": {
+                  "actor": "tray"
+                },
+                "shape": "box",
+                "lower": [
+                  -0.085,
+                  -0.123,
+                  -0.0078
+                ],
+                "upper": [
+                  0.085,
+                  0.132,
+                  0.014
+                ],
+                "axis": 2,
+                "measurement_file": "rigid_loaded_measurements.json:E01/tray"
+              }
+            },
+            "structural_grasps": {
+              "burger": {
+                "local": [
+                  0,
+                  0,
+                  0
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "fries": {
+                "local": [
+                  -3.5e-05,
+                  0.006,
+                  -0.04
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "drink": {
+                "local": [
+                  0,
+                  0,
+                  0
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            },
+            "structural_expert": {
+              "plate_positions": {
+                "burger": [
+                  0,
+                  0.06,
+                  -0.0065
+                ],
+                "drink": [
+                  0,
+                  -0.06,
+                  -0.0065
+                ]
+              }
+            },
+            "expert_clearance_z": 1.05
+          }
+        },
+        "C": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "fries_tray",
+              "xy": [
+                -0.12,
+                0.06
+              ],
+              "half_size": [
+                0.05,
+                0.05
+              ],
+              "surface_z": 0.8095,
+              "hidden": true
+            },
+            {
+              "id": "drink_tray",
+              "xy": [
+                -0.12,
+                -0.06
+              ],
+              "half_size": [
+                0.05,
+                0.05
+              ],
+              "surface_z": 0.8095,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "fries",
+              "target": "fries_tray",
+              "required_support": "tray",
+              "roll": 1.5707963267948966
+            },
+            {
+              "type": "place",
+              "object": "drink",
+              "target": "drink_tray",
+              "required_support": "tray"
+            }
+          ],
+          "semantic": {
+            "mode": "meal_subset",
+            "groups": {
+              "active": [
+                "fries",
+                "drink"
+              ],
+              "foods": [
+                "burger",
+                "fries",
+                "drink"
+              ],
+              "container": [
+                "tray"
+              ],
+              "food": [
+                "burger",
+                "fries",
+                "drink"
+              ]
+            },
+            "container": "tray",
+            "selected": [
+              "fries",
+              "drink"
+            ],
+            "unselected": [
+              "burger"
+            ],
+            "unselected_must_remain_outside": true,
+            "requires_container_support": true,
+            "containers": {
+              "plate": {
+                "ref": {
+                  "actor": "tray"
+                },
+                "shape": "box",
+                "lower": [
+                  -0.085,
+                  -0.123,
+                  -0.0078
+                ],
+                "upper": [
+                  0.085,
+                  0.132,
+                  0.014
+                ],
+                "axis": 2,
+                "measurement_file": "rigid_loaded_measurements.json:E01/tray"
+              }
+            },
+            "structural_grasps": {
+              "burger": {
+                "local": [
+                  0,
+                  0,
+                  0
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "fries": {
+                "local": [
+                  -3.5e-05,
+                  0.006,
+                  -0.04
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "drink": {
+                "local": [
+                  0,
+                  0,
+                  0
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            },
+            "structural_expert": {
+              "plate_positions": {
+                "fries": [
+                  0,
+                  0.06,
+                  -0.0065
+                ],
+                "drink": [
+                  0,
+                  -0.06,
+                  -0.0065
+                ]
+              }
+            },
+            "expert_clearance_z": 1.05
+          }
+        }
+      },
+      "source_evidence": [
+        "../source_media/evidence/001.jpg",
+        "../source_media/evidence/002.jpg",
+        "../source_media/evidence/003.jpg"
+      ],
+      "review_notes": [
+        "Viewed ABC original sheets. Initial far-row left burger/middle fries/right drink, shallow tray nearer. A burger+fries, B burger+drink, C fries+drink.",
+        "Reuse real published burger, red packaged fries, lidded cup and open tray; package art/food details and original black tray rim differ. Fries are laid on their side, not standing.",
+        "Source metric dimensions estimated from source proportions; physical tray support and source lid-top appearance still need review.",
+        "Native schema uses measured actual tray collision wall rays and floor. Plate footprint envelope is within center wall section; local floor sample -6.5mm. Final contact and placement remain physics checks."
+      ]
+    }
+  }
+}

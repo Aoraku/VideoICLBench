@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E06",
+  "variant": "B",
+  "source": "text_rule",
+  "source_sha256": "4cd93d3dc32d2842c0c2f9563fd543c75da17395b2e7c761a4cd96fcb24a537b",
+  "packet": {
+    "question_id": "rq_3f2b25ab859d",
+    "prompt": "以示范操作者的视角看，视频中三个球放入蛋托的哪些孔？",
+    "options": {
+      "A": "左列两端、右列中间各放一球。",
+      "B": "填满右列三个孔。",
+      "C": "填满左列三个孔。",
+      "D": "右列两端、左列中间各放一球。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "1ee85fa3ed61f9496bad6de328a6cf9d86afceb8aeedabb8e17169f7b9b3e335",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

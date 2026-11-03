@@ -1,0 +1,6 @@
+{
+  "rule": "只把雪碧瓶投入桶中",
+  "evaluation_scope": "唯一选中瓶留在桶内；其他瓶不入桶。",
+  "scope_note": "其余四瓶留在桌上；桶已开口，不要求开盖或关盖。",
+  "source_video_sha256": "ec63ec6837bd1d67f63abb4fb1bb8e3c17949211d17232113f5b737f78d9822e"
+}

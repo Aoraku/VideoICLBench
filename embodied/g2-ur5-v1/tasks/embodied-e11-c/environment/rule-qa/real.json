@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E11",
+  "variant": "C",
+  "source": "real",
+  "source_sha256": "84079bc0fd535211c5c8f3dde3bad57cc083bfcee92523706a7def59a5f5f573",
+  "packet": {
+    "question_id": "rq_ff1ac406dbae",
+    "prompt": "视频中如何将初始2×2布局变换后搬入四格框？",
+    "options": {
+      "A": "初始布局逆时针旋转90°后入框。",
+      "B": "初始布局顺时针旋转90°后入框。",
+      "C": "保留初始2×2布局搬入四格框。",
+      "D": "初始布局左右镜像后入框。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "e36c905812d9eab3fe1542178939cb7d0625ff7db3a854b4815f8888f81873f7",
+    "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+  }
+}

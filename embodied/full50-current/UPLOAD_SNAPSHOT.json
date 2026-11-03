@@ -1,0 +1,10 @@
+{
+  "created_unix": 1793707096.147945,
+  "scope": "All50 current runtime, converted/source assets, existing real/sim media and task exports",
+  "new_simulation_runs": 0,
+  "new_model_calls": 0,
+  "revalidation_performed": false,
+  "credentials_or_running_logs_included": false,
+  "original_g2_package": "../g2-ur5-v1",
+  "snapshot_is_not_a_claim_of_completed_task_acceptance": true
+}

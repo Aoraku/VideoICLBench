@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E31",
+  "variant": "C",
+  "source": "text_rule",
+  "source_sha256": "84201b92d71d53dd5b28b369ac23e0383a6f9aed4d1b3e269f7bf60bb61a1310",
+  "packet": {
+    "question_id": "rq_1a433343fdab",
+    "prompt": "视频中碗和盘以哪一种方式组合？",
+    "options": {
+      "A": "碗口朝下倒扣在正放的盘内。",
+      "B": "盘面朝下盖在碗口上。",
+      "C": "碗口朝上放在正放的盘内。",
+      "D": "盘面朝上盖在碗口上。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "570bddba94f06adb33a501f2a619f8ea3ea246a39fdc8de054b51b7b3a427270",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

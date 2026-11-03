@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E20",
+  "variant": "C",
+  "source": "text_rule",
+  "source_sha256": "31ad30eaa8dc745e6a8b8ea1d3e6643dee88bd7104cd50ff47d24d0e916cb2d4",
+  "packet": {
+    "question_id": "rq_e7fccbd8d617",
+    "prompt": "视频中如何按颜色给三个图形标记处补齐筹码？",
+    "options": {
+      "A": "圆标记放黄片、方标记放红片、三角标记放蓝片，在各处现有数量上再加2片。",
+      "B": "圆标记放黄片、方标记放红片、三角标记放蓝片，各补到总共4片。",
+      "C": "圆标记放黄片、方标记放红片、三角标记放蓝片，各补到总共3片。",
+      "D": "圆标记放黄片、方标记放红片、三角标记放蓝片，各补到总共2片。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "fd01e41070bec3cd5ebb0fccfa6efbaf1e7bf10dbde9119ab6b64ae5d7430534",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

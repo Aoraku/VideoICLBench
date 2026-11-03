@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E48",
+  "variant": "A",
+  "source": "real",
+  "source_sha256": "6a4cd7413e0f3ea9dd54c51bbcf9314ab880febb3159c60cdec193e687ed0340",
+  "packet": {
+    "question_id": "rq_045808b13784",
+    "prompt": "视频中从左起翻开几张牌，并插入同一卡座？",
+    "options": {
+      "A": "从左起翻开4张牌并插入卡座。",
+      "B": "从左起翻开2张牌并插入卡座。",
+      "C": "从左起翻开1张牌并插入卡座。",
+      "D": "从左起翻开3张牌并插入卡座。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "e43bf185787eee049a298c1b4e2af98d434fa7b65bdcfdb37d1ed8932e3d7b8c",
+    "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+  }
+}

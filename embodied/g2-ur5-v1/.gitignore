@@ -1,0 +1,10 @@
+.venv/
+outputs/
+.*-launch/
+__pycache__/
+*.pyc
+.DS_Store
+provider*.json
+credentials*.json
+.env
+.env.*

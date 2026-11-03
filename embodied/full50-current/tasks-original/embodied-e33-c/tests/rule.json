@@ -1,0 +1,6 @@
+{
+  "rule": "只把橙色芬达瓶投入桶中",
+  "evaluation_scope": "唯一选中瓶留在桶内；其他瓶不入桶。",
+  "scope_note": "其余四瓶留在桌上；桶已开口，不要求开盖或关盖。",
+  "source_video_sha256": "291cf1f3e821f99888c34548d451c34aba98debda3201dcaad7e7294542d556b"
+}

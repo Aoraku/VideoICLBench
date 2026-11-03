@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E16",
+  "variant": "B",
+  "source": "text_rule",
+  "source_sha256": "f0087c457a7a8a75a8851df4bc1ab2a1fbd5012edf300b2d7eb175c363f631c8",
+  "packet": {
+    "question_id": "rq_3aaa966cec48",
+    "prompt": "视频中三件物体搬入托盘时，相对位置和各自朝向如何变化？",
+    "options": {
+      "A": "相对位置上下镜像、各件朝向不变后搬入。",
+      "B": "将三件的相对位置左右镜像，各件朝向保持不变后搬入。",
+      "C": "相对位置不变，每件原地逆时针转90°后搬入。",
+      "D": "保留三件的相对位置与朝向搬入托盘。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "77e2bfff00eff59d27c68b9c8c0206e2ba5bc4940ba298d928543e258213c9fb",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

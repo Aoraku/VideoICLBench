@@ -1,0 +1,6 @@
+{
+  "rule": "卸下右侧螺丝，保留左侧",
+  "evaluation_scope": "目标螺丝通过刀具驱动松脱并分离，非目标保持；圈数不固定。",
+  "scope_note": "以操作者面对横梁时的左右为准；C先左后右可见，但新增备注未把时序作为规则；不规定圈数，判定目标紧固件分离。",
+  "source_video_sha256": "6ae3dd90ed07f2d35dcdc7759dedbcef26c1067fa647fc5c1bcef1726e4e4f19"
+}

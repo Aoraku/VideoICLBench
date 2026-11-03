@@ -1,0 +1,417 @@
+{
+  "schema": "realworld50-source-bindings-v1",
+  "tasks": {
+    "E13": {
+      "scene_adapter": "full50-source-v1",
+      "fidelity_status": "source_derived_geometry_ready_visual_and_physics_review_pending",
+      "objects": {
+        "phone": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "phone_triple_camera_dark.usda",
+            "sha256": "877328ef32ace63e63f7ed3c60de990f5f3532a17208e1e74143bfb794c7f6bb",
+            "source_rotation": [
+              0,
+              0.7071067811865476,
+              0.7071067811865476,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "phone_triple_camera_dark_textures/4c092b402fd2942aa87b6ff994ef99eeedf6e5ef4d18586e998594bee3bbd0b5.png",
+                "sha256": "4c092b402fd2942aa87b6ff994ef99eeedf6e5ef4d18586e998594bee3bbd0b5"
+              },
+              {
+                "relative_path": "phone_triple_camera_dark_textures/f6a93b2de4c5b64357110c92d1625de332254996c66c7e08ece12322a630f8ac.png",
+                "sha256": "f6a93b2de4c5b64357110c92d1625de332254996c66c7e08ece12322a630f8ac"
+              },
+              {
+                "relative_path": "phone_triple_camera_dark_textures/08751456a9df30bd5c022b3b6b306daf07e761e994ecb07ad79262244a4942f4.png",
+                "sha256": "08751456a9df30bd5c022b3b6b306daf07e761e994ecb07ad79262244a4942f4"
+              },
+              {
+                "relative_path": "phone_triple_camera_dark_textures/eaee97be5a8d0d479021457be75edd4206db63b71ddb03850da2d4c722f5e377.png",
+                "sha256": "eaee97be5a8d0d479021457be75edd4206db63b71ddb03850da2d4c722f5e377"
+              },
+              {
+                "relative_path": "phone_triple_camera_dark_textures/4c050d01b152e542b719d7074ff41a80e29e124d47945585ac2d5b8695a17069.png",
+                "sha256": "4c050d01b152e542b719d7074ff41a80e29e124d47945585ac2d5b8695a17069"
+              },
+              {
+                "relative_path": "phone_triple_camera_dark_textures/2825abe8f282e3b1f27331e9d757b4aadb8f977702c58ca2be98d45d18d322fa.png",
+                "sha256": "2825abe8f282e3b1f27331e9d757b4aadb8f977702c58ca2be98d45d18d322fa"
+              },
+              {
+                "relative_path": "phone_triple_camera_dark_textures/6d77541fbbca5b865630a17d6d34b47afd784b33d556b48350b1fa82601d7325.png",
+                "sha256": "6d77541fbbca5b865630a17d6d34b47afd784b33d556b48350b1fa82601d7325"
+              },
+              {
+                "relative_path": "phone_triple_camera_dark_textures/3f1ff99850d3a82fc6b2db9a166e5e5409a63326a44ff08c094160e4ed2370aa.png",
+                "sha256": "3f1ff99850d3a82fc6b2db9a166e5e5409a63326a44ff08c094160e4ed2370aa"
+              }
+            ]
+          },
+          "size": [
+            0.075,
+            0.03698669184717279,
+            0.00473954388786973
+          ],
+          "xy": [
+            0,
+            0.13
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.12,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "grasp_point_local": [
+            0,
+            -0.000257,
+            0
+          ],
+          "grasp_axis_local": [
+            0,
+            1,
+            0
+          ],
+          "identity": "phone",
+          "identity_attributes": {
+            "rear_camera_end_axis_local": [
+              1,
+              0,
+              0
+            ],
+            "back_normal_local": [
+              0,
+              0,
+              1
+            ],
+            "source_adaptation": "CC0 single-camera source lens assembly copied to make triple rear-camera array"
+          }
+        },
+        "stand": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "phone_stand0.usda",
+            "sha256": "713393d637a1d7bc34ab3cdf7bb636680eaaff32b157df160425ba3a0fb23fdd",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "phone_stand0_textures/040ccfca7f5c637ebae95ec7be4b8518a2e7ad08632011997b61b9d4da0094c1.png",
+                "sha256": "040ccfca7f5c637ebae95ec7be4b8518a2e7ad08632011997b61b9d4da0094c1"
+              }
+            ]
+          },
+          "size": [
+            0.037422352880250004,
+            0.041475459636,
+            0.0617962467655
+          ],
+          "xy": [
+            0,
+            -0.11
+          ],
+          "yaw": -1.5707963267948966,
+          "bottom": 0.802,
+          "mass": 0.25,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6
+        }
+      },
+      "variants": {
+        "A": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "stand_support",
+              "xy": [
+                0.0023082874667121195,
+                -0.11
+              ],
+              "half_size": [
+                0.045,
+                0.045
+              ],
+              "surface_z": 0.8554534,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "phone",
+              "target": "stand_support",
+              "required_support": "stand",
+              "yaw": 0,
+              "pitch": -1.0272375716022242,
+              "roll": 0
+            }
+          ],
+          "semantic": {
+            "mode": "phone_stand_orientation",
+            "groups": {
+              "active": [
+                "phone"
+              ],
+              "support": [
+                "stand"
+              ]
+            },
+            "support": "stand",
+            "camera_axis_local": [
+              1,
+              0,
+              0
+            ],
+            "phone_back_axis_local": [
+              0,
+              0,
+              1
+            ],
+            "expected_camera_direction_task": [
+              0.5171851047382853,
+              0,
+              0.8558735697735086
+            ],
+            "expected_back_direction_task": [
+              -0.8558735697735086,
+              0,
+              0.5171851047382853
+            ],
+            "requires_actual_stand_contact": true,
+            "stand_opening_direction_task": [
+              -1,
+              0,
+              0
+            ],
+            "stand_plane_measurement": "phone_stand_landmarks.json",
+            "stand_ledge_point_task": [
+              -0.03242414504225,
+              -0.11,
+              0.8554534
+            ],
+            "source_camera_identity_status": "source component names and CPU rear projection verified; adaptation not exact phone product",
+            "phone": "phone",
+            "stand": "stand",
+            "camera_end_points": {
+              "phone": [
+                0.07,
+                0,
+                0
+              ]
+            },
+            "back_normals": {
+              "phone": [
+                0,
+                0,
+                1
+              ]
+            }
+          }
+        },
+        "B": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "stand_support",
+              "xy": [
+                -0.017351629291756532,
+                -0.11
+              ],
+              "half_size": [
+                0.045,
+                0.045
+              ],
+              "surface_z": 0.8554534,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "phone",
+              "target": "stand_support",
+              "required_support": "stand",
+              "yaw": -1.5707963267948966,
+              "pitch": 0,
+              "roll": 1.0272375716022242
+            }
+          ],
+          "semantic": {
+            "mode": "phone_stand_orientation",
+            "groups": {
+              "active": [
+                "phone"
+              ],
+              "support": [
+                "stand"
+              ]
+            },
+            "support": "stand",
+            "camera_axis_local": [
+              1,
+              0,
+              0
+            ],
+            "phone_back_axis_local": [
+              0,
+              0,
+              1
+            ],
+            "expected_camera_direction_task": [
+              0,
+              -1,
+              0
+            ],
+            "expected_back_direction_task": [
+              -0.8558735697735086,
+              0,
+              0.5171851047382853
+            ],
+            "requires_actual_stand_contact": true,
+            "stand_opening_direction_task": [
+              -1,
+              0,
+              0
+            ],
+            "stand_plane_measurement": "phone_stand_landmarks.json",
+            "stand_ledge_point_task": [
+              -0.03242414504225,
+              -0.11,
+              0.8554534
+            ],
+            "source_camera_identity_status": "source component names and CPU rear projection verified; adaptation not exact phone product",
+            "phone": "phone",
+            "stand": "stand",
+            "camera_end_points": {
+              "phone": [
+                0.07,
+                0,
+                0
+              ]
+            },
+            "back_normals": {
+              "phone": [
+                0,
+                0,
+                1
+              ]
+            }
+          }
+        },
+        "C": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "stand_support",
+              "xy": [
+                -0.017351629291756532,
+                -0.11
+              ],
+              "half_size": [
+                0.045,
+                0.045
+              ],
+              "surface_z": 0.8554534,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "phone",
+              "target": "stand_support",
+              "required_support": "stand",
+              "yaw": 1.5707963267948966,
+              "pitch": 0,
+              "roll": -1.0272375716022242
+            }
+          ],
+          "semantic": {
+            "mode": "phone_stand_orientation",
+            "groups": {
+              "active": [
+                "phone"
+              ],
+              "support": [
+                "stand"
+              ]
+            },
+            "support": "stand",
+            "camera_axis_local": [
+              1,
+              0,
+              0
+            ],
+            "phone_back_axis_local": [
+              0,
+              0,
+              1
+            ],
+            "expected_camera_direction_task": [
+              0,
+              1,
+              0
+            ],
+            "expected_back_direction_task": [
+              -0.8558735697735086,
+              0,
+              0.5171851047382853
+            ],
+            "requires_actual_stand_contact": true,
+            "stand_opening_direction_task": [
+              -1,
+              0,
+              0
+            ],
+            "stand_plane_measurement": "phone_stand_landmarks.json",
+            "stand_ledge_point_task": [
+              -0.03242414504225,
+              -0.11,
+              0.8554534
+            ],
+            "source_camera_identity_status": "source component names and CPU rear projection verified; adaptation not exact phone product",
+            "phone": "phone",
+            "stand": "stand",
+            "camera_end_points": {
+              "phone": [
+                0.07,
+                0,
+                0
+              ]
+            },
+            "back_normals": {
+              "phone": [
+                0,
+                0,
+                1
+              ]
+            }
+          }
+        }
+      },
+      "source_evidence": [
+        "../source_media/evidence/037.jpg",
+        "../source_media/evidence/038.jpg",
+        "../source_media/evidence/039.jpg"
+      ],
+      "review_notes": [
+        "Viewed ABC official sheets. All variants phone back faces operator; A camera end up, B operator-right, C operator-left.",
+        "Source actual modern phone with individual rear lens, adapted to three real lens copies and rounded source back-glass camera island. Exact iPhone/product shape and original camera region proportions not claimed.",
+        "Stand front lip faces source+Z, source normal measured collision[.000089,.517185,.855874]; instance opening toward task-X. Contact-plane angle and support-ledges from actual triangle rays.",
+        "Original silver folding stand differs from round-base source; camera geometry verified on CPU, final support/tilt/collision require GPU physical check.",
+        "Private E13 grasp probe v1: use the left real arm, which starts closer to the +Y phone; source mesh, dimensions, placements, original local short-axis grasp, goals and native score thresholds unchanged. Prior right arm pressed down with one finger and deflected at a longer reach.",
+        "Private E13 v6: with measured5N real effort cap, return to central metal-frame grasp to reduce gravity moment; body midline y=-0.257mm. Original source geometry, dimensions, initial pose and native evaluation unchanged."
+      ],
+      "expert_arm": "left"
+    }
+  }
+}

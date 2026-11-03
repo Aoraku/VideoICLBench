@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E44",
+  "variant": "A",
+  "source": "text_rule",
+  "source_sha256": "4b7349a7447d7a4cb7d80fff478f8971f07beafc8a19dbe371a65b03836c0dc4",
+  "packet": {
+    "question_id": "rq_2a219fb5c0f7",
+    "prompt": "视频中纸板一面贴桌，另一面与它形成哪一种夹角？",
+    "options": {
+      "A": "两面展开并都贴在桌上，形成平角。",
+      "B": "一面贴桌，另一面竖起，形成直角。",
+      "C": "一面贴桌，另一面向外倾斜，形成钝角。",
+      "D": "一面贴桌，另一面向内倾斜，形成锐角。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "d00d85cc156cdf568df64c9d7e502275c60a26101adcf3e28c1f24a92f65f4ca",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

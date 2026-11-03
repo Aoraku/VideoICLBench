@@ -1,0 +1,14 @@
+{
+  "schema": "videoicl-embodied-harbor-static-validation-v1",
+  "task_directories": 150,
+  "planned_episodes": 450,
+  "canonical_goal_and_rule_texts_preserved": true,
+  "exact_instruction_file_hashes_verified": 150,
+  "all_native_readiness_pending": true,
+  "real_and_sim_file_sha256_verified_pairs": 72,
+  "harbor_default_docker_backend_supported": false,
+  "native_physics_or_model_trial_run": false,
+  "verifier_copies_sha256": "4bb81edb874bc2769693750a9b38fa25a04291fe29dd2f5bfba0c71609f42a98",
+  "verifier_copies_verified": 150,
+  "validation_only_scores_rejected": true
+}

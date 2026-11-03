@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E38",
+  "variant": "C",
+  "source": "text_rule",
+  "source_sha256": "f1ee41c504a0fd6a0efdce4c2eb7ba5eb0474f531e3896c080e69695a7d6f536",
+  "packet": {
+    "question_id": "rq_69e38ad6acdf",
+    "prompt": "视频中三个彩环套在同一根柱上后，从下到上是什么颜色顺序？",
+    "options": {
+      "A": "从下到上绿、红、蓝。",
+      "B": "从下到上红、蓝、绿。",
+      "C": "从下到上红、绿、蓝。",
+      "D": "从下到上蓝、绿、红。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "6a1580ca69106f8238ec3daeb381bc4005141504e17d1122bca6bbe46cc5cd3b",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

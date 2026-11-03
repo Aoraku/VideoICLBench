@@ -1,0 +1,353 @@
+{
+  "schema_version": 1,
+  "physics": {
+    "dt": 0.004,
+    "render_hz": 25,
+    "action_seconds": 0.2,
+    "solver_position_iterations": 16,
+    "solver_velocity_iterations": 4,
+    "disable_gravity": true,
+    "self_collision": true,
+    "max_joint_delta": 0.08
+  },
+  "control": {
+    "frame": "grasp_center",
+    "step_mm": [
+      0.5,
+      50
+    ],
+    "rotation_deg": [
+      0.5,
+      20
+    ],
+    "ik_method": "dls"
+  },
+  "name": "franka",
+  "reference": {
+    "benchmark": "RoboTwin",
+    "embodiment": "franka-panda",
+    "source_snapshot": "reference/robotwin/source_snapshot.json",
+    "source_config_sha256": "e9826ccd545276275a5a2759331429100c7383b371b62146462816bd48852d93",
+    "source_urdf": "./panda.urdf",
+    "upstream_gripper_bias": 0.08,
+    "upstream_delta_matrix": [
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        -1,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ]
+    ],
+    "upstream_global_trans_matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        0,
+        -1
+      ]
+    ],
+    "dual_arm_separation_m": 0.6,
+    "adaptations": [
+      "RoboTwin SAPIEN camera basis converted exactly to USD/OpenGL",
+      "Large_D435 source preset selected for all three cameras",
+      "Native URDF converted once with fixed camera links retained",
+      "Harness uses physical grasp center; Panda hand +Z 103.4 mm",
+      "Gravity disabled to approximate upstream per-tick gravity compensation",
+      "Native gripper limits respected; upstream out-of-range targets are clipped",
+      "For RealWorld50 cross-table layouts move both native Panda mounts 150mm toward the table; native joints/meshes/control unchanged.",
+      "Additional 50mm inward mount adjustment after a 12mm block grasp reached a 5mm IK boundary; actual joint limits retained.",
+      "RealWorld50 action interval 0.2s with original 4ms physical dt; actual render sampling remains 15Hz and frame-clock checked.",
+      "Private author recording at 25fps and continuous minimum-jerk Cartesian targets through real native IK/PhysX; physical dt remains 4ms.",
+      "Private half2 speed2 trial, real motion retimed by speed x2 and acceleration x4; not video playback acceleration; native acceptance unchanged."
+    ]
+  },
+  "asset": {
+    "path": "assets/embodiments/robotwin-r5/franka-panda/robot.usd",
+    "env": "VIC_FRANKA_ROBOTWIN_USD",
+    "format": "usd",
+    "source_embodiment": "franka-panda"
+  },
+  "layout": {
+    "id": "realworld50-franka-reach-v2",
+    "kind": "robotwin",
+    "task_rotation": [
+      0.7071067811865476,
+      0,
+      0,
+      0.7071067811865476
+    ],
+    "task_translation": [
+      0,
+      0,
+      -0.06
+    ],
+    "table": {
+      "position": [
+        0,
+        0,
+        0.715
+      ],
+      "size": [
+        1.2,
+        0.7,
+        0.05
+      ],
+      "top": 0.74,
+      "static_friction": 0.5,
+      "dynamic_friction": 0.5,
+      "restitution": 0
+    },
+    "background": {
+      "wall_position": [
+        0,
+        1,
+        1.5
+      ],
+      "wall_half_size": [
+        3,
+        0.6,
+        1.5
+      ],
+      "wall_color": [
+        1,
+        0.9,
+        0.9
+      ],
+      "table_color": [
+        1,
+        1,
+        1
+      ],
+      "ambient_color": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "directional_lights": [
+        {
+          "direction": [
+            0,
+            0.5,
+            -1
+          ],
+          "color": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "shadow": true
+        }
+      ],
+      "point_lights": [
+        {
+          "position": [
+            1,
+            0,
+            1.8
+          ],
+          "color": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "position": [
+            -1,
+            0,
+            1.8
+          ],
+          "color": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "renderer_note": "SAPIEN RGB energy adapted to RTX light units, preserving light positions and directions"
+    }
+  },
+  "robots": {
+    "left": {
+      "position": [
+        -0.3,
+        -0.45,
+        0.75
+      ],
+      "rotation": [
+        0.7071067811865476,
+        0.0,
+        0.0,
+        0.7071067811865476
+      ],
+      "initial_joints": {
+        "panda_joint1": 0,
+        "panda_joint2": 0.19634954084936207,
+        "panda_joint3": 0.0,
+        "panda_joint4": -2.617993877991494,
+        "panda_joint5": 0.0,
+        "panda_joint6": 2.941592653589793,
+        "panda_joint7": 0.7853981633974483,
+        "panda_finger_joint1": 0.04,
+        "panda_finger_joint2": 0.04
+      }
+    },
+    "right": {
+      "position": [
+        0.3,
+        -0.45,
+        0.75
+      ],
+      "rotation": [
+        0.7071067811865476,
+        0.0,
+        0.0,
+        0.7071067811865476
+      ],
+      "initial_joints": {
+        "panda_joint1": 0,
+        "panda_joint2": 0.19634954084936207,
+        "panda_joint3": 0.0,
+        "panda_joint4": -2.617993877991494,
+        "panda_joint5": 0.0,
+        "panda_joint6": 2.941592653589793,
+        "panda_joint7": 0.7853981633974483,
+        "panda_finger_joint1": 0.04,
+        "panda_finger_joint2": 0.04
+      }
+    }
+  },
+  "cameras": {
+    "profile": "robotwin-large-d435-franka-panda-v1",
+    "head": {
+      "width": 640,
+      "height": 480,
+      "intrinsics": {
+        "focal_length": 13.0,
+        "horizontal_aperture": 11.599304409405201,
+        "vertical_aperture": 8.699478307053901,
+        "clipping_range": [
+          0.1,
+          100.0
+        ]
+      },
+      "source_preset": "Large_D435",
+      "source_fovy_deg": 37,
+      "position": [
+        -0.032,
+        -0.45,
+        1.35
+      ],
+      "rotation": [
+        0.9486832980505138,
+        0.31622776601683794,
+        0,
+        0
+      ],
+      "convention": "opengl"
+    },
+    "wrist": {
+      "width": 640,
+      "height": 480,
+      "intrinsics": {
+        "focal_length": 13.0,
+        "horizontal_aperture": 11.599304409405201,
+        "vertical_aperture": 8.699478307053901,
+        "clipping_range": [
+          0.1,
+          100.0
+        ]
+      },
+      "source_preset": "Large_D435",
+      "source_fovy_deg": 37,
+      "link": "camera",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0.5,
+        0.5,
+        -0.5,
+        -0.5
+      ],
+      "convention": "opengl"
+    }
+  },
+  "kinematics": {
+    "arm_joints": [
+      "panda_joint1",
+      "panda_joint2",
+      "panda_joint3",
+      "panda_joint4",
+      "panda_joint5",
+      "panda_joint6",
+      "panda_joint7"
+    ],
+    "hand": "panda_hand",
+    "tcp": [
+      0,
+      0,
+      0.1034
+    ],
+    "contact_links": [
+      "panda_leftfinger",
+      "panda_rightfinger"
+    ]
+  },
+  "gripper": {
+    "joints": [
+      "panda_finger_joint1",
+      "panda_finger_joint2"
+    ],
+    "open": [
+      0.04,
+      0.04
+    ],
+    "closed": [
+      0,
+      0
+    ],
+    "note": "Upstream commands .05 beyond native .04 URDF upper stop; use native physical open stop"
+  },
+  "actuators": {
+    "arm": {
+      "effort_limit": 100.0,
+      "velocity_limit": 5.0,
+      "stiffness": 1000,
+      "damping": 200,
+      "armature": 0.01
+    },
+    "gripper": {
+      "effort_limit": 100.0,
+      "velocity_limit": 0.2,
+      "stiffness": 1000,
+      "damping": 200,
+      "armature": 0.001
+    }
+  },
+  "author_recording": {
+    "trajectory_speed_scale": 2.0,
+    "note": "Half2 prototype: retime native actuator trajectories; unchanged 4ms dt,25fps,joint limits,grip/contact guards",
+    "joint_velocity_feedforward": true
+  }
+}

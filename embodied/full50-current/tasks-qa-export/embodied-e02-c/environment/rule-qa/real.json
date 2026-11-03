@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E02",
+  "variant": "C",
+  "source": "real",
+  "source_sha256": "5f9251a57bbc98c9ed76e8b6bad92a8b6c86595f3cbcaa9a462026ec935d4ca7",
+  "packet": {
+    "question_id": "rq_78b321f85694",
+    "prompt": "视频中三色块最终自下而上的叠放顺序是什么？",
+    "options": {
+      "A": "自下而上蓝、红、绿。",
+      "B": "自下而上绿、蓝、红。",
+      "C": "自下而上红、蓝、绿。",
+      "D": "自下而上红、绿、蓝。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "278d40a1a7609556448ec1934ed67d54244e67a8dc643118649ee4c8f97d89c2",
+    "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+  }
+}

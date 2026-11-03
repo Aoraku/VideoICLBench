@@ -1,0 +1,30 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E36",
+  "variant": "A",
+  "source": "sim",
+  "source_sha256": "e691d7ef7073fe68b2d9e1ba64dea6631bd485451a9ba28210316b6e8ed86fee",
+  "packet": {
+    "question_id": "rq_18894c08bfba",
+    "prompt": "视频中向空盒放入几个球？",
+    "options": {
+      "A": "向空盒放入1个球。",
+      "B": "向空盒放入3个球。",
+      "C": "向空盒放入4个球。",
+      "D": "向空盒放入2个球。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "48a39259d9a0efaebf4afe9787eee56488d315398c0631644328536ef19c9c70",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+    "media_lineage": {
+      "kind": "original_simulation_head_rgb_demo"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E05",
+  "variant": "A",
+  "source": "sim",
+  "source_sha256": "6146d32949f93cba712ab5d16f67e89192b5974e399b5718f4b4f146a8059f4a",
+  "packet": {
+    "question_id": "rq_d49ac3307802",
+    "prompt": "视频中方块、球和三角块分别放到哪些图形标记处？",
+    "options": {
+      "A": "方块→方形；球→圆形；三角块→三角形。",
+      "B": "方块→方形；球→三角形；三角块→圆形。",
+      "C": "方块→圆；球→三角；三角→方。",
+      "D": "方块→三角；球→方；三角→圆。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "2ce2f197bb87b064faf4786e19093d7b164f42e2a8874b8ffe7d8daa6c86f541",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "sha256_full_decode_duration_fps_endpoint_verified",
+    "media_lineage": {
+      "kind": "original_sim_demo_uniform_speedmatched",
+      "speedmatched": true,
+      "duration_seconds": 9.633333,
+      "fps": 30,
+      "media_lineage": {
+        "source_sim_sha256": "205a4cb8af53ed721e73e76ac8dbaaeff622a1e98b345029e09e47af423adb90",
+        "source_sim_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/sim150-20261030/media/E05/E05_A__head.mp4",
+        "source_sim_duration_seconds": 59.96,
+        "reference_real_sha256": "55cb05374ea5af6e47ae460d83651ae77ecba08d27ef1c585bc947f1068dd1b6",
+        "reference_real_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/real-text300-20261030/E05/A/human.mp4",
+        "reference_real_duration_seconds": 9.633333,
+        "speed_ratio": 6.224221668658189,
+        "transformation": "speedmatched_only",
+        "qa_answer_unchanged": true,
+        "source_manifest_sha256": "da5d21260243098b35fe6d9b9ad1f359223a621ee25f4306c421351a90eaffd5",
+        "trim_intervals_seconds": [],
+        "kept_source_frame_interval": [
+          0,
+          1499
+        ],
+        "retained_source_duration_seconds": 59.96,
+        "v1_output_sha256": "6146d32949f93cba712ab5d16f67e89192b5974e399b5718f4b4f146a8059f4a",
+        "speed_ratio_retained": 6.224221668658189,
+        "frame_selection": "round(k*(source_frame_count-1)/(output_frame_count-1)), k=0..output_frame_count-1",
+        "review_status": "conservative_no_deletion_without_semantic_evidence"
+      }
+    }
+  }
+}

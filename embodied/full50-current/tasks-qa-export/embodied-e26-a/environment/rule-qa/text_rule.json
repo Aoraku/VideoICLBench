@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E26",
+  "variant": "A",
+  "source": "text_rule",
+  "source_sha256": "8ab0913aa1f9941f038197f415ea2365bd90f368c040f1fa500e5bbaa128dfe5",
+  "packet": {
+    "question_id": "rq_3733005cf39e",
+    "prompt": "视频中左右数字牌与左右铃的按铃次数遵循哪一种对应规则？",
+    "options": {
+      "A": "左铃按左牌数字，右铃按右牌数字（本片9、1次）。",
+      "B": "仅左铃按两牌数字之和，右铃不按（本片10、0次）。",
+      "C": "仅右铃按两牌数字之和，左铃不按（本片0、10次）。",
+      "D": "左铃按右牌数字，右铃按左牌数字（本片1、9次）。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "cd9d3c2bbc79c9a5667edf1d5dab40d603c9283c5e32692ecb06b45bfc9a9a87",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

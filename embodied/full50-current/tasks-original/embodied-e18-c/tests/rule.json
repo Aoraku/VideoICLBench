@@ -1,0 +1,6 @@
+{
+  "rule": "取出蓝球放到白色目标纸上，关回抽屉",
+  "evaluation_scope": "指定球交付、其他球留抽屉、抽屉关闭。",
+  "scope_note": "均打开蓝色左抽屉，其他球留在其中；抽屉颜色不是取球规则。",
+  "source_video_sha256": "f4d20acfe64f4f997e3b60ff8ad87946789ba97c2b9964bab706a1fc3bb3f991"
+}

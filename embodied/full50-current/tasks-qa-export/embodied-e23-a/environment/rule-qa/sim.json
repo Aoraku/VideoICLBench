@@ -1,0 +1,60 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E23",
+  "variant": "A",
+  "source": "sim",
+  "source_sha256": "aca8b1ccb64f75dd4dd52e228e57c18471b59ec71fa61ba234bef5d02d4b327e",
+  "packet": {
+    "question_id": "rq_a0d05016fc8d",
+    "prompt": "视频中彩杯套上杯架后，从高层到低层是什么颜色顺序？",
+    "options": {
+      "A": "从高到低红、绿、蓝。",
+      "B": "从高到低蓝、绿、红。",
+      "C": "从高到低红、蓝、绿。",
+      "D": "从高到低绿、红、蓝。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "110c7533d8fc897bfd481da0590c543fd7f11a2350e6ea1dd4673f50c0270965",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "sha256_full_decode_duration_fps_endpoint_verified",
+    "media_lineage": {
+      "kind": "original_sim_demo_trimmed_speedmatched",
+      "speedmatched": true,
+      "duration_seconds": 8.833333,
+      "fps": 30,
+      "media_lineage": {
+        "source_sim_sha256": "ef60daeef846100b02bf4ab12914106e478e201ff5af3086995f3b52787cb815",
+        "source_sim_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/sim150-20261030/media/E23/E23_A__head.mp4",
+        "source_sim_duration_seconds": 240.12,
+        "reference_real_sha256": "d7f2b3e085ce333730ecbe0f8b1dbba4eba85a242a42e32e24e8fbbcb9fe43d5",
+        "reference_real_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/real-text300-20261030/E23/A/human.mp4",
+        "reference_real_duration_seconds": 8.833333,
+        "speed_ratio": 27.183397252203672,
+        "transformation": "trimmed_then_speedmatched",
+        "qa_answer_unchanged": true,
+        "source_manifest_sha256": "da5d21260243098b35fe6d9b9ad1f359223a621ee25f4306c421351a90eaffd5",
+        "trim_intervals_seconds": [
+          [
+            234.48,
+            240.12
+          ]
+        ],
+        "kept_source_frame_interval": [
+          0,
+          5862
+        ],
+        "retained_source_duration_seconds": 234.48,
+        "v1_output_sha256": "fff97865ca485720f2c7c7dabd70e91a1d573af104f07d120c144cdc83a2e5df",
+        "speed_ratio_retained": 26.54490666207195,
+        "frame_selection": "round(k*(retained_source_frame_count-1)/(output_frame_count-1)), k=0..output_frame_count-1",
+        "review_status": "root_and_recovery_prepare_visual_review_1fps_last20s"
+      }
+    }
+  }
+}

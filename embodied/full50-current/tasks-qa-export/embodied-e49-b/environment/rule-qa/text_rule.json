@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E49",
+  "variant": "B",
+  "source": "text_rule",
+  "source_sha256": "da46fb3c3dc653feb4d74edc49aa678c270a4d84db993760f0bdc843e1996dc5",
+  "packet": {
+    "question_id": "rq_bc34e1cfef10",
+    "prompt": "视频中翻开左起前三张牌后，按原始左起序号依次放入哪三个盘？",
+    "options": {
+      "A": "翻开左起前三张，依次放入蓝、绿、红盘。",
+      "B": "翻开左起前三张，依次放入红、蓝、绿盘。",
+      "C": "翻开左起前三张，依次放入绿、蓝、红盘。",
+      "D": "翻开左起前三张，依次放入绿、红、蓝盘。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "67c50d8577d8c23da5e2a32d2cb80e2f30bf72df4f8100801f4a38d0b272a9ec",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

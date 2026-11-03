@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E32",
+  "variant": "A",
+  "source": "real",
+  "source_sha256": "64e2b38812b6c697f0a26be967e92e2c6886429d8c0beec2449f31c1456c8b4c",
+  "packet": {
+    "question_id": "rq_0bc4f60f4e7c",
+    "prompt": "视频中从杂乱桌面选择哪些物体放到白色交付板？",
+    "options": {
+      "A": "把雪碧瓶和可乐瓶都放到白色交付板。",
+      "B": "取雪碧瓶到白色交付板。",
+      "C": "取粉色方块到白色交付板。",
+      "D": "取可乐瓶到白色交付板。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "c35d036b7faf4718606c5a65e2e55ef4f6bb5ada07c9aebedcae0bfe0eefbed8",
+    "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+  }
+}

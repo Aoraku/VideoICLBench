@@ -1,0 +1,6 @@
+{
+  "rule": "全部倒入方形格",
+  "evaluation_scope": "全部球进目标格、杯空且释放；有实际倾倒，不能逐球抓放。",
+  "scope_note": "杯中三球均进入同一格；第四个叉号格为干扰项；需杯倾斜出料而非逐球手抓。",
+  "source_video_sha256": "1533b8faabdcb4d03bf1687ad97398a9247b10589f7ede22ac9ccbb33f118dea"
+}

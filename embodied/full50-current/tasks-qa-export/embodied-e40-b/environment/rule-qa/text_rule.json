@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E40",
+  "variant": "B",
+  "source": "text_rule",
+  "source_sha256": "dad4514b94d811095d23a4a8364b92d5fcc0d525595f886aca9e1d7cb798a82c",
+  "packet": {
+    "question_id": "rq_5b7a2900ac95",
+    "prompt": "视频中把长尾夹夹在托盘边的哪些图形标记处？",
+    "options": {
+      "A": "夹住方形和三角形对应的盘边。",
+      "B": "夹住圆形、方形、三角形和叉号对应的全部四处盘边。",
+      "C": "夹住圆形和叉号对应的盘边。",
+      "D": "夹住圆形、三角形和叉号对应的盘边。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "6f63bbb7ebf63f041252c9c5c9c89393f729e85fe115ae02200721e9f8110d37",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

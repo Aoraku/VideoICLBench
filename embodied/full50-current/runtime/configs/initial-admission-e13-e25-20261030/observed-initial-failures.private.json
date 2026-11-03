@@ -1,0 +1,662 @@
+{
+  "schema": "videoicl-initial-failure-audit-v1",
+  "remote_read_only": true,
+  "GPU_started_by_audit": false,
+  "cases": [
+    {
+      "room": "embodied-e13-c--text_rule--seed4201",
+      "native": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/real-text300-20261030/on-demand/card-04/attempts/probe-20261029T165507Z-975e90613e/gpu-04-pool-00/native",
+      "case_index": 0,
+      "sealed": {
+        "observation": {
+          "released": true,
+          "stable": true,
+          "camera_end": "other",
+          "back_faces_operator": false,
+          "stand_supported": false,
+          "progress_physical": {
+            "phone": {
+              "released": true,
+              "stable": true,
+              "supported": true,
+              "hold_seconds": 0.5040000000000003,
+              "actor_id": "phone"
+            },
+            "stand": {
+              "released": true,
+              "stable": true,
+              "supported": false,
+              "hold_seconds": 0.5040000000000003,
+              "actor_id": "stand"
+            }
+          }
+        },
+        "object_status": {
+          "phone": {
+            "released": true,
+            "stable": true,
+            "supported": true,
+            "hold_seconds": 0.5040000000000003,
+            "actor_id": "phone"
+          },
+          "stand": {
+            "released": true,
+            "stable": true,
+            "supported": false,
+            "hold_seconds": 0.5040000000000003,
+            "actor_id": "stand"
+          }
+        },
+        "objects": {
+          "phone": {
+            "pos": [
+              -1.2980308354837434e-08,
+              0.13000001013278964,
+              0.8047394132614136
+            ],
+            "mat": [
+              [
+                1.0000000000000002,
+                -3.5762786843029925e-07,
+                2.396483900213299e-08
+              ],
+              [
+                3.5762786843029925e-07,
+                1.0000000000000002,
+                2.95418978168982e-08
+              ],
+              [
+                -2.3964847883917173e-08,
+                -2.9541888935114002e-08,
+                1.0
+              ]
+            ],
+            "grasp": [
+              false,
+              false
+            ]
+          },
+          "stand": {
+            "pos": [
+              0.005005463026463961,
+              -0.11168169230222705,
+              0.7896161651611329
+            ],
+            "mat": [
+              [
+                -0.2501823008060458,
+                0.3214373588562012,
+                0.9132836461067202
+              ],
+              [
+                -0.9681864976882936,
+                -0.0783124268054963,
+                -0.23765957355499293
+              ],
+              [
+                -0.0048712268471717834,
+                -0.9436871409416199,
+                0.33080363273620605
+              ]
+            ],
+            "grasp": [
+              false,
+              false
+            ]
+          }
+        },
+        "sealed": true,
+        "physics_step": 127
+      }
+    },
+    {
+      "room": "embodied-e25-c--text_rule--seed4201",
+      "native": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/real-text300-20261030/on-demand/card-15/attempts/probe-20261029T165518Z-06c85f538d/gpu-15-pool-01/native",
+      "case_index": 2,
+      "sealed": {
+        "observation": {
+          "released": true,
+          "stable": true,
+          "regions": {
+            "spoon": "right",
+            "knife": "right",
+            "fork": "right"
+          },
+          "handle_toward": {
+            "spoon": "operator",
+            "knife": "operator",
+            "fork": "operator"
+          },
+          "supported": [
+            "spoon",
+            "knife",
+            "fork"
+          ],
+          "outside_plate": [
+            "spoon",
+            "knife",
+            "fork"
+          ],
+          "far_left_to_right": [],
+          "left_inner_to_outer": [],
+          "right_inner_to_outer": [
+            "spoon",
+            "knife",
+            "fork"
+          ],
+          "progress_physical": {
+            "fork": {
+              "released": true,
+              "stable": true,
+              "supported": true,
+              "hold_seconds": 0.5040000000000003,
+              "actor_id": "fork"
+            },
+            "spoon": {
+              "released": true,
+              "stable": true,
+              "supported": true,
+              "hold_seconds": 0.5040000000000003,
+              "actor_id": "spoon"
+            },
+            "tray": {
+              "released": true,
+              "stable": true,
+              "supported": true,
+              "hold_seconds": 0.5040000000000003,
+              "actor_id": "tray"
+            },
+            "knife": {
+              "released": true,
+              "stable": true,
+              "supported": true,
+              "hold_seconds": 0.5040000000000003,
+              "actor_id": "knife"
+            }
+          }
+        },
+        "object_status": {
+          "fork": {
+            "released": true,
+            "stable": true,
+            "supported": true,
+            "hold_seconds": 0.5040000000000003,
+            "actor_id": "fork"
+          },
+          "spoon": {
+            "released": true,
+            "stable": true,
+            "supported": true,
+            "hold_seconds": 0.5040000000000003,
+            "actor_id": "spoon"
+          },
+          "tray": {
+            "released": true,
+            "stable": true,
+            "supported": true,
+            "hold_seconds": 0.5040000000000003,
+            "actor_id": "tray"
+          },
+          "knife": {
+            "released": true,
+            "stable": true,
+            "supported": true,
+            "hold_seconds": 0.5040000000000003,
+            "actor_id": "knife"
+          }
+        },
+        "objects": {
+          "fork": {
+            "pos": [
+              -0.00010970022412952754,
+              -0.19999885559082037,
+              0.8090248084068299
+            ],
+            "mat": [
+              [
+                0.9999294281005862,
+                -7.03334808347389e-05,
+                -0.011877428740262989
+              ],
+              [
+                7.033348083473892e-05,
+                1.0000000000000002,
+                -5.867332219813784e-08
+              ],
+              [
+                0.011877428740262985,
+                -7.762573659420013e-07,
+                0.9999294877052307
+              ]
+            ],
+            "grasp": [
+              false,
+              false
+            ]
+          },
+          "spoon": {
+            "pos": [
+              4.113651812056678e-06,
+              -0.08958435058593751,
+              0.8086616969108582
+            ],
+            "mat": [
+              [
+                0.999999523162842,
+                -0.0004411935806272198,
+                0.0007818991434760516
+              ],
+              [
+                0.0003972053527829812,
+                0.9984657764434817,
+                0.05536976456642152
+              ],
+              [
+                -0.0008051281911320984,
+                -0.05536942929029465,
+                0.9984655976295471
+              ]
+            ],
+            "grasp": [
+              false,
+              false
+            ]
+          },
+          "tray": {
+            "pos": [
+              -6.890331860605059e-06,
+              0.1200065612792969,
+              0.8199951624870301
+            ],
+            "mat": [
+              [
+                0.9999998807907107,
+                -7.271766662375613e-06,
+                -0.0003543788043316453
+              ],
+              [
+                7.510185241477176e-06,
+                0.9999998211860659,
+                0.000520884233992547
+              ],
+              [
+                0.000354375020833686,
+                -0.0005208868533372879,
+                0.9999998211860657
+              ]
+            ],
+            "grasp": [
+              false,
+              false
+            ]
+          },
+          "knife": {
+            "pos": [
+              -0.00045124720782044764,
+              -0.14439392089843753,
+              0.8068028664588929
+            ],
+            "mat": [
+              [
+                0.9986529350280764,
+                0.000657618045807106,
+                -0.0518813244998455
+              ],
+              [
+                0.0038847923278806386,
+                0.9961651563644411,
+                0.08740563690662387
+              ],
+              [
+                0.051739852875471115,
+                -0.08748945593833923,
+                0.9948208928108215
+              ]
+            ],
+            "grasp": [
+              false,
+              false
+            ]
+          }
+        },
+        "sealed": true,
+        "physics_step": 127
+      }
+    },
+    {
+      "room": "embodied-e13-c--real--seed4201",
+      "native": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/real-text300-20261030/on-demand/card-00/attempts/probe-20261029T165503Z-be16a38e52/gpu-00-pool-01/native",
+      "case_index": 0,
+      "sealed": {
+        "observation": {
+          "released": true,
+          "stable": true,
+          "camera_end": "other",
+          "back_faces_operator": false,
+          "stand_supported": false,
+          "progress_physical": {
+            "phone": {
+              "released": true,
+              "stable": true,
+              "supported": true,
+              "hold_seconds": 0.5040000000000003,
+              "actor_id": "phone"
+            },
+            "stand": {
+              "released": true,
+              "stable": true,
+              "supported": true,
+              "hold_seconds": 0.5040000000000003,
+              "actor_id": "stand"
+            }
+          }
+        },
+        "object_status": {
+          "phone": {
+            "released": true,
+            "stable": true,
+            "supported": true,
+            "hold_seconds": 0.5040000000000003,
+            "actor_id": "phone"
+          },
+          "stand": {
+            "released": true,
+            "stable": true,
+            "supported": true,
+            "hold_seconds": 0.5040000000000003,
+            "actor_id": "stand"
+          }
+        },
+        "objects": {
+          "phone": {
+            "pos": [
+              -5.23868945334627e-09,
+              0.12999999523162845,
+              0.8047394132614136
+            ],
+            "mat": [
+              [
+                1.0000000000000002,
+                -2.3841857887951795e-07,
+                -3.610744769844131e-08
+              ],
+              [
+                2.3841857887951795e-07,
+                1.0000000000000002,
+                5.092468668976837e-08
+              ],
+              [
+                3.610743704030028e-08,
+                -5.092469734790939e-08,
+                1.0
+              ]
+            ],
+            "grasp": [
+              false,
+              false
+            ]
+          },
+          "stand": {
+            "pos": [
+              8.821050869298529e-05,
+              -0.10959041118621829,
+              0.8628624653816224
+            ],
+            "mat": [
+              [
+                1.9578583305479576e-05,
+                0.999998986721039,
+                0.001417679479345681
+              ],
+              [
+                -0.9999785423278811,
+                1.0296854270341884e-05,
+                0.006546840071678163
+              ],
+              [
+                0.0065468186512589455,
+                -0.001417777268216014,
+                0.9999775886535645
+              ]
+            ],
+            "grasp": [
+              false,
+              false
+            ]
+          }
+        },
+        "sealed": true,
+        "physics_step": 127
+      }
+    },
+    {
+      "room": "embodied-e25-c--real--seed4201",
+      "native": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/real-text300-20261030/on-demand/card-00/attempts/probe-20261029T165503Z-be16a38e52/gpu-00-pool-00/native",
+      "case_index": 4,
+      "sealed": {
+        "observation": {
+          "released": true,
+          "stable": false,
+          "regions": {
+            "spoon": "right",
+            "knife": "right",
+            "fork": "right"
+          },
+          "handle_toward": {
+            "spoon": "operator",
+            "knife": "operator",
+            "fork": "operator"
+          },
+          "supported": [],
+          "outside_plate": [
+            "spoon",
+            "knife",
+            "fork"
+          ],
+          "far_left_to_right": [],
+          "left_inner_to_outer": [],
+          "right_inner_to_outer": [
+            "spoon",
+            "knife",
+            "fork"
+          ],
+          "progress_physical": {
+            "fork": {
+              "released": true,
+              "stable": false,
+              "supported": false,
+              "hold_seconds": 0.0,
+              "actor_id": "fork"
+            },
+            "spoon": {
+              "released": true,
+              "stable": false,
+              "supported": false,
+              "hold_seconds": 0.0,
+              "actor_id": "spoon"
+            },
+            "tray": {
+              "released": true,
+              "stable": true,
+              "supported": true,
+              "hold_seconds": 0.5040000000000003,
+              "actor_id": "tray"
+            },
+            "knife": {
+              "released": true,
+              "stable": false,
+              "supported": false,
+              "hold_seconds": 0.0,
+              "actor_id": "knife"
+            }
+          }
+        },
+        "object_status": {
+          "fork": {
+            "released": true,
+            "stable": false,
+            "supported": false,
+            "hold_seconds": 0.0,
+            "actor_id": "fork"
+          },
+          "spoon": {
+            "released": true,
+            "stable": false,
+            "supported": false,
+            "hold_seconds": 0.0,
+            "actor_id": "spoon"
+          },
+          "tray": {
+            "released": true,
+            "stable": true,
+            "supported": true,
+            "hold_seconds": 0.5040000000000003,
+            "actor_id": "tray"
+          },
+          "knife": {
+            "released": true,
+            "stable": false,
+            "supported": false,
+            "hold_seconds": 0.0,
+            "actor_id": "knife"
+          }
+        },
+        "objects": {
+          "fork": {
+            "pos": [
+              -4.44088786333589e-17,
+              -0.19999980926513677,
+              -10.373768272399902
+            ],
+            "mat": [
+              [
+                1.0000000000000002,
+                2.220446049250313e-16,
+                0.0
+              ],
+              [
+                -2.220446049250313e-16,
+                1.0000000000000002,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "grasp": [
+              false,
+              false
+            ]
+          },
+          "spoon": {
+            "pos": [
+              -1.9984048324570708e-17,
+              -0.09000015258789064,
+              -10.372243347167968
+            ],
+            "mat": [
+              [
+                1.0000000000000002,
+                2.220446049250313e-16,
+                0.0
+              ],
+              [
+                -2.220446049250313e-16,
+                1.0000000000000002,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "grasp": [
+              false,
+              false
+            ]
+          },
+          "tray": {
+            "pos": [
+              -1.4305114745827295e-06,
+              0.12000274658203128,
+              0.8199670886993409
+            ],
+            "mat": [
+              [
+                1.0000000000000002,
+                8.940696718529042e-07,
+                -6.438844138756359e-06
+              ],
+              [
+                -8.940696718529042e-07,
+                1.0000000000000002,
+                0.00016838818555697801
+              ],
+              [
+                6.438996933866292e-06,
+                -0.000168388185556978,
+                1.0
+              ]
+            ],
+            "grasp": [
+              false,
+              false
+            ]
+          },
+          "knife": {
+            "pos": [
+              -3.219656935808321e-17,
+              -0.1450004577636719,
+              -10.371320190429687
+            ],
+            "mat": [
+              [
+                1.0000000000000002,
+                2.220446049250313e-16,
+                0.0
+              ],
+              [
+                -2.220446049250313e-16,
+                1.0000000000000002,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "grasp": [
+              false,
+              false
+            ]
+          }
+        },
+        "sealed": true,
+        "physics_step": 127
+      }
+    }
+  ],
+  "native_convex_creation_errors": [
+    {
+      "file": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/real-text300-20261030/on-demand/card-00/attempts/probe-20261029T165503Z-be16a38e52/gpu-00-pool-00/native.log",
+      "errors": [
+        "2026-10-29T16:55:31Z [27,265ms] [Error] [omni.physx.plugin] Unable to create convex mesh for:/World/Rooms/room_04/Props/fork/Model/SourceFrame/Asset/Collisions/mesh_0_geometry_0",
+        "2026-10-29T16:55:31Z [27,265ms] [Error] [omni.physx.plugin] Unable to create convex mesh for:/World/Rooms/room_04/Props/fork/Model/SourceFrame/Asset/Collisions/mesh_1_geometry_0_001",
+        "2026-10-29T16:55:31Z [27,266ms] [Error] [omni.physx.plugin] Unable to create convex mesh for:/World/Rooms/room_04/Props/fork/Model/SourceFrame/Asset/Collisions/mesh_2_geometry_0_002",
+        "2026-10-29T16:55:31Z [27,266ms] [Error] [omni.physx.plugin] Unable to create convex mesh for:/World/Rooms/room_04/Props/spoon/Model/SourceFrame/Asset/Collisions/mesh_0_textured_obj",
+        "2026-10-29T16:55:31Z [27,269ms] [Error] [omni.physx.plugin] Unable to create convex mesh for:/World/Rooms/room_04/Props/knife/Model/SourceFrame/Asset/Collisions/mesh_0_textured_obj"
+      ]
+    },
+    {
+      "file": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/real-text300-20261030/on-demand/card-04/attempts/probe-20261029T165507Z-975e90613e/gpu-04-pool-00/native.log",
+      "errors": [
+        "2026-10-29T16:55:38Z [29,870ms] [Error] [omni.physx.plugin] Unable to create convex mesh for:/World/Rooms/room_00/Props/phone/Model/SourceFrame/Asset/Collisions/mesh_2_Aluminium_frame_with_antenna_bands_ddec50",
+        "2026-10-29T16:55:38Z [29,879ms] [Error] [omni.physx.plugin] Unable to create convex mesh for:/World/Rooms/room_00/Props/phone/Model/SourceFrame/Asset/Collisions/mesh_17_Display_panel_27b724"
+      ]
+    }
+  ]
+}

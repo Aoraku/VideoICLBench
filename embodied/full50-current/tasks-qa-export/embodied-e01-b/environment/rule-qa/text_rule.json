@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E01",
+  "variant": "B",
+  "source": "text_rule",
+  "source_sha256": "a614bff5593a9cefeecb5d4f7607b2885d3b28ddf22bbe073eba6581905d91d0",
+  "packet": {
+    "question_id": "rq_bf057dcade49",
+    "prompt": "视频中的示范按哪一种食物组合装盘？",
+    "options": {
+      "A": "把汉堡、薯条和饮料全部装盘。",
+      "B": "汉堡和薯条装盘，饮料留外。",
+      "C": "薯条和饮料装盘，汉堡留外。",
+      "D": "汉堡和饮料装盘，薯条留外。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "301695f3e0b6ee9e25d94d0f715ccf53becfe214d1e51d4741b4c911cef4c459",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

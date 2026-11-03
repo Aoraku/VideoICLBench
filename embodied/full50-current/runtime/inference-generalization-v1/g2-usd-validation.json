@@ -1,0 +1,453 @@
+{
+  "assets": 56,
+  "checks": [
+    {
+      "task": "E04",
+      "id": "green_cup",
+      "source_sha256": "f95134c58cf6a581804828d5f818126c55c422b9b669bf7d8adae804f2f9afbb",
+      "bound_error_m": 2.170085902641894e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E04",
+      "id": "blue_cup",
+      "source_sha256": "902c74519b32516cc1f241391089689523686463a623f6fcef1763b4b5b42607",
+      "bound_error_m": 2.170085902641894e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E04",
+      "id": "red_cup",
+      "source_sha256": "5ef0199c0bbbd66431b06c8268080dd24e5b25f635269301c00c35f7473f5d03",
+      "bound_error_m": 2.170085902641894e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E05",
+      "id": "cube",
+      "source_sha256": "60bed81d98683a983ac577bce5100ef78d8176d2106a275f1a1dc862236fc081",
+      "bound_error_m": 1.5199184411063271e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E05",
+      "id": "sphere",
+      "source_sha256": "8cc880989caf8e0ae9357b51f579492e1169ce8ddd92a11ced64e8a4af455fa2",
+      "bound_error_m": 8.64267348660297e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E05",
+      "id": "triangle",
+      "source_sha256": "b8793774dd64c04d00168ac60d498b7afc5071f5cd18d950d46ee92b61b2cfc9",
+      "bound_error_m": 1.5497207614401098e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E06",
+      "id": "purple",
+      "source_sha256": "61b7c3dfd5b105dbbc9d6a2c7793027081a16f504883a6ed526527b43fd1f48a",
+      "bound_error_m": 1.6796287277687227e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E06",
+      "id": "pink",
+      "source_sha256": "61b7c3dfd5b105dbbc9d6a2c7793027081a16f504883a6ed526527b43fd1f48a",
+      "bound_error_m": 1.6796287277687227e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E06",
+      "id": "lightpink",
+      "source_sha256": "61b7c3dfd5b105dbbc9d6a2c7793027081a16f504883a6ed526527b43fd1f48a",
+      "bound_error_m": 1.6796287277687227e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E07",
+      "id": "block1",
+      "source_sha256": "b161776efd64ef96282a5bbb417bebd68df20d2de0b502d80e96c43a62f148f3",
+      "bound_error_m": 1.0430812810713341e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E07",
+      "id": "block2",
+      "source_sha256": "4b600afb0493be0c454aa83939c9b009e9b6e87d1325cd1d7acd388ca988979f",
+      "bound_error_m": 2.0861625621426683e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E07",
+      "id": "block3",
+      "source_sha256": "1476cc090613830447b5a73816217f89a7941cb23301cfabe780b4ee5a6b2e05",
+      "bound_error_m": 1.5497207614401098e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E07",
+      "id": "block4",
+      "source_sha256": "8a689e1e8427f738ade69ade472d0118a99912a6dc959eedd5d3ac64b4b3bdbe",
+      "bound_error_m": 4.1723251242853365e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E07",
+      "id": "block5",
+      "source_sha256": "d4a2c8e33cc80cee99754d134a34ba2630ad8ceadf7e86c2fc9f8dd27c319eb3",
+      "bound_error_m": 1.341104505225843e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E09",
+      "id": "red_square",
+      "source_sha256": "4dc14a08ed887c65ea0d33e5a3ad6d38b2bd233acdc7c15f05590a1a2a0cce24",
+      "bound_error_m": 8.940696724635266e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E09",
+      "id": "red_triangle",
+      "source_sha256": "36bf311d3351405c91f8c4baf156c193102f6b7af515af091e88154d8a8cc942",
+      "bound_error_m": 8.940696724635266e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E09",
+      "id": "red_circle",
+      "source_sha256": "6f8fec49bc509f2e213b985fd388345ad61d0540d6310796c09f8e07f2f1340f",
+      "bound_error_m": 8.940696724635266e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E09",
+      "id": "green_square",
+      "source_sha256": "1fd7f885f48f8fd65abb58431e222826d0d922747d87f10bcd3c68624f0888b6",
+      "bound_error_m": 8.940696724635266e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E09",
+      "id": "green_triangle",
+      "source_sha256": "2cc50462dddc3fc6ac4a4fa899a2325434cf1f25a3e45725bbff394e6c76799b",
+      "bound_error_m": 8.940696724635266e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E09",
+      "id": "green_circle",
+      "source_sha256": "f21700903a7cfc9eebf2c50cbe21ec8a1c2c24b0192c1132e0ca782c36ce664e",
+      "bound_error_m": 8.940696724635266e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E09",
+      "id": "blue_square",
+      "source_sha256": "427757c213eb41ac1da7b4adc21859dca2c51cdc094cd35b7b70ccdd0f0c703c",
+      "bound_error_m": 8.940696724635266e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E09",
+      "id": "blue_triangle",
+      "source_sha256": "b56037746e336119ece1de59ca9d67c42772dde6c34d166026500b39d6d71e39",
+      "bound_error_m": 8.940696724635266e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E09",
+      "id": "blue_circle",
+      "source_sha256": "48ba63f0d4757ec419e0943261efe7bc1dfd6def60c9e3d8e7bc6688f038a32d",
+      "bound_error_m": 8.940696724635266e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E11",
+      "id": "red_block",
+      "source_sha256": "5dd409f3f7d55fffeac80cfd22809d102fa68f3dbaad8e44fe1d07a67a6e48eb",
+      "bound_error_m": 8.940696724635266e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E11",
+      "id": "blue_block",
+      "source_sha256": "ec8ae7c96e431ff40e1fd794a110b9f661dac992cc030903a4f44ece4e965607",
+      "bound_error_m": 8.940696724635266e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E11",
+      "id": "yellow_block",
+      "source_sha256": "bb68a16e4f2c6c39498846d0699b9101ee67f5afb731f05b50e9f0055dfd23ca",
+      "bound_error_m": 8.940696724635266e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E11",
+      "id": "green_block",
+      "source_sha256": "aeb50b47b7b10a266e1a9bedc30e00964970e8cdff68f0c1ff831e48236f0bb7",
+      "bound_error_m": 8.940696724635266e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E20",
+      "id": "yellow_supply_1",
+      "source_sha256": "1a771929959bd8bd52da702ad69b5df64f8494aeed3b6962bbe21dd18520519d",
+      "bound_error_m": 1.5199184411063271e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E20",
+      "id": "yellow_supply_2",
+      "source_sha256": "1a771929959bd8bd52da702ad69b5df64f8494aeed3b6962bbe21dd18520519d",
+      "bound_error_m": 1.5199184411063271e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E20",
+      "id": "yellow_supply_3",
+      "source_sha256": "1a771929959bd8bd52da702ad69b5df64f8494aeed3b6962bbe21dd18520519d",
+      "bound_error_m": 1.5199184411063271e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E20",
+      "id": "yellow_supply_4",
+      "source_sha256": "1a771929959bd8bd52da702ad69b5df64f8494aeed3b6962bbe21dd18520519d",
+      "bound_error_m": 1.5199184411063271e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E20",
+      "id": "red_supply_1",
+      "source_sha256": "6d09641c82ef069d4aedcd1bb59caa03aaf2d8b3ec31c97c97b2af7d63bfc0c8",
+      "bound_error_m": 1.5199184411063271e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E20",
+      "id": "red_supply_2",
+      "source_sha256": "6d09641c82ef069d4aedcd1bb59caa03aaf2d8b3ec31c97c97b2af7d63bfc0c8",
+      "bound_error_m": 1.5199184411063271e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E20",
+      "id": "red_supply_3",
+      "source_sha256": "6d09641c82ef069d4aedcd1bb59caa03aaf2d8b3ec31c97c97b2af7d63bfc0c8",
+      "bound_error_m": 1.5199184411063271e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E20",
+      "id": "red_supply_4",
+      "source_sha256": "6d09641c82ef069d4aedcd1bb59caa03aaf2d8b3ec31c97c97b2af7d63bfc0c8",
+      "bound_error_m": 1.5199184411063271e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E20",
+      "id": "blue_supply_1",
+      "source_sha256": "e14395c1577a9b914586c2fbdd92dbab8ae4a024190601f535df71bb890f8be7",
+      "bound_error_m": 1.5199184411063271e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E20",
+      "id": "blue_supply_2",
+      "source_sha256": "e14395c1577a9b914586c2fbdd92dbab8ae4a024190601f535df71bb890f8be7",
+      "bound_error_m": 1.5199184411063271e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E20",
+      "id": "blue_supply_3",
+      "source_sha256": "e14395c1577a9b914586c2fbdd92dbab8ae4a024190601f535df71bb890f8be7",
+      "bound_error_m": 1.5199184411063271e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E20",
+      "id": "blue_supply_4",
+      "source_sha256": "e14395c1577a9b914586c2fbdd92dbab8ae4a024190601f535df71bb890f8be7",
+      "bound_error_m": 1.5199184411063271e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E20",
+      "id": "yellow_initial",
+      "source_sha256": "1a771929959bd8bd52da702ad69b5df64f8494aeed3b6962bbe21dd18520519d",
+      "bound_error_m": 1.5199184411063271e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E20",
+      "id": "blue_initial",
+      "source_sha256": "e14395c1577a9b914586c2fbdd92dbab8ae4a024190601f535df71bb890f8be7",
+      "bound_error_m": 1.5199184411063271e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E36",
+      "id": "red",
+      "source_sha256": "6ec0b25e6d1947b1f143ce5c569e9e3a9715175fb2bdbd0b3313458ca0b08ef3",
+      "bound_error_m": 8.64267348660297e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E36",
+      "id": "pink",
+      "source_sha256": "6ec0b25e6d1947b1f143ce5c569e9e3a9715175fb2bdbd0b3313458ca0b08ef3",
+      "bound_error_m": 8.64267348660297e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E36",
+      "id": "lightpink",
+      "source_sha256": "6ec0b25e6d1947b1f143ce5c569e9e3a9715175fb2bdbd0b3313458ca0b08ef3",
+      "bound_error_m": 8.64267348660297e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E36",
+      "id": "blue",
+      "source_sha256": "6ec0b25e6d1947b1f143ce5c569e9e3a9715175fb2bdbd0b3313458ca0b08ef3",
+      "bound_error_m": 8.64267348660297e-10,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E41",
+      "id": "short_ref",
+      "source_sha256": "85095adca95c6dcaf568901b110b7192c99b7182ae1e2a82f97db7843c090f65",
+      "bound_error_m": 2.980232241545089e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E41",
+      "id": "medium_ref",
+      "source_sha256": "e37189b5739af01f1f31dc7f2f7a99f1a10b08491cb8f478a416ab9b5d12e1c1",
+      "bound_error_m": 3.2782554587607038e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E41",
+      "id": "long_ref",
+      "source_sha256": "57148e972b15c5199ce2d5a9cef23c1d03189923cafdf69eca23eca5598f1743",
+      "bound_error_m": 4.1723251242853365e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E41",
+      "id": "long_piece",
+      "source_sha256": "57148e972b15c5199ce2d5a9cef23c1d03189923cafdf69eca23eca5598f1743",
+      "bound_error_m": 4.1723251242853365e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E41",
+      "id": "short_piece",
+      "source_sha256": "85095adca95c6dcaf568901b110b7192c99b7182ae1e2a82f97db7843c090f65",
+      "bound_error_m": 2.980232241545089e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E41",
+      "id": "medium_piece",
+      "source_sha256": "e37189b5739af01f1f31dc7f2f7a99f1a10b08491cb8f478a416ab9b5d12e1c1",
+      "bound_error_m": 3.2782554587607038e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E49",
+      "id": "card1",
+      "source_sha256": "21afb5c8a197d883f56f35c493c7a3c1eca7cd4ada5e3f8dad4e5d1cf553f331",
+      "bound_error_m": 3.25580626348021e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E49",
+      "id": "card2",
+      "source_sha256": "e8bc06925a6d832acaf35094b558fc2885e5afb06d36b849223d99eed661efbf",
+      "bound_error_m": 3.25580626348021e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E49",
+      "id": "card3",
+      "source_sha256": "bc4f0c70fe051b840e37028d33152f7c75ad55bab771ee548b3f38619a357f02",
+      "bound_error_m": 3.25580626348021e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E49",
+      "id": "card4",
+      "source_sha256": "4073812f820dc8efa3af13f39a0a94e0c5903fa1217635c3b2078810daf965f7",
+      "bound_error_m": 3.25580626348021e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    },
+    {
+      "task": "E49",
+      "id": "card5",
+      "source_sha256": "f26199d820554c8e9a258e7dcd55917db6a1bd1d1715336bf09a09ca6d42c330",
+      "bound_error_m": 3.25580626348021e-09,
+      "collision_meshes": 1,
+      "unresolved_dependencies": []
+    }
+  ]
+}

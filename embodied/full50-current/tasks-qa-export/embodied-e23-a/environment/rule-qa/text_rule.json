@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E23",
+  "variant": "A",
+  "source": "text_rule",
+  "source_sha256": "94266d1cd72e331106654776a4b861940c193118d187cb948bfe40d961d1a6dc",
+  "packet": {
+    "question_id": "rq_a0d05016fc8d",
+    "prompt": "视频中彩杯套上杯架后，从高层到低层是什么颜色顺序？",
+    "options": {
+      "A": "从高到低红、绿、蓝。",
+      "B": "从高到低蓝、绿、红。",
+      "C": "从高到低红、蓝、绿。",
+      "D": "从高到低绿、红、蓝。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "110c7533d8fc897bfd481da0590c543fd7f11a2350e6ea1dd4673f50c0270965",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

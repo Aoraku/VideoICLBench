@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E35",
+  "variant": "A",
+  "source": "real",
+  "source_sha256": "7bba7d8ac734d7dd3345da1cb8dabef067c3f37438bf97af1bae458b2bbc4cbd",
+  "packet": {
+    "question_id": "rq_e9b48320dbfa",
+    "prompt": "视频中三块同色、不同尺寸的物体，从下到上如何叠放？",
+    "options": {
+      "A": "从下到上大、中、小。",
+      "B": "从下到上小、中、大。",
+      "C": "从下到上中、大、小。",
+      "D": "从下到上大、小、中。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "e54839af1dcd1d79be1ffc1bbf4acc444c821ff0e69f4ac6b36e4c82eaaf8d34",
+    "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "rule": "勺、刀、叉排在盘远侧，工作端靠盘",
+  "evaluation_scope": "相对盘边区域、柄端/工作端方向及横向顺序正确。",
+  "scope_note": "实录包含盘作参照，并非单独餐具长度排序。A/B左右顺序均勺刀叉；C右侧由内到外勺叉。",
+  "source_video_sha256": "17835bde318bab2a2ea3fca5420bac9958efd2b8cc2e048013b597a8a116c7d6"
+}

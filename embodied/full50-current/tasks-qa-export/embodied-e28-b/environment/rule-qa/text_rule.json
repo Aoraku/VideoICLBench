@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E28",
+  "variant": "B",
+  "source": "text_rule",
+  "source_sha256": "70ac70a722a33eaa9c7e1edc2fe7d11ffb967e5692ed48945abcd512266c6353",
+  "packet": {
+    "question_id": "rq_2bf9d29acc3c",
+    "prompt": "视频中用平铲选择哪些食物放入盘中？",
+    "options": {
+      "A": "两块食物都留在桌上，不放入盘中。",
+      "B": "两块食物都铲入盘中。",
+      "C": "铲起白黄色圆形食物放入盘中。",
+      "D": "铲起黄色长方食物放入盘中。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "32637bc050b08606d42532875137278b03a4436026622fdb0e8765535b3e6a75",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

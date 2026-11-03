@@ -1,0 +1,55 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E19",
+  "variant": "B",
+  "source": "sim",
+  "source_sha256": "c8a3968e7359ecdbf17732269b23eb16a5a21d9f0ba028debbebe9a6873b6c07",
+  "packet": {
+    "question_id": "rq_26b307b59161",
+    "prompt": "视频中雪碧瓶、水瓶和可乐瓶分别配什么颜色的盖？",
+    "options": {
+      "A": "雪碧配白盖，水配红盖，可乐配黄盖。",
+      "B": "雪碧配黄盖，水配白盖，可乐配红盖。",
+      "C": "雪碧配红盖，水配黄盖，可乐配白盖。",
+      "D": "雪碧配黄盖，水配红盖，可乐配白盖。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "ee5bf5f16d09b2e663912f0504fc757be2a0c2c8461ac46967f864587691a264",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "sha256_full_decode_duration_fps_endpoint_verified",
+    "media_lineage": {
+      "kind": "original_sim_demo_uniform_speedmatched",
+      "speedmatched": true,
+      "duration_seconds": 15.266016,
+      "fps": 30,
+      "media_lineage": {
+        "source_sim_sha256": "fd88d2b9ee2dcf6671b2dd23a041f610c3cc2ea464336e44ccf69936265a7c45",
+        "source_sim_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/sim150-20261030/media/E19/E19_B__head.mp4",
+        "source_sim_duration_seconds": 57.96,
+        "reference_real_sha256": "aa2a9bd72d34ca00c27961584134687cb75ecbf63933d36e7b166a90e9bd8d8f",
+        "reference_real_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/real-text300-20261030/E19/B/human.mp4",
+        "reference_real_duration_seconds": 15.266667,
+        "speed_ratio": 3.7966683645556247,
+        "transformation": "speedmatched_only",
+        "qa_answer_unchanged": true,
+        "source_manifest_sha256": "da5d21260243098b35fe6d9b9ad1f359223a621ee25f4306c421351a90eaffd5",
+        "trim_intervals_seconds": [],
+        "kept_source_frame_interval": [
+          0,
+          1449
+        ],
+        "retained_source_duration_seconds": 57.96,
+        "v1_output_sha256": "c8a3968e7359ecdbf17732269b23eb16a5a21d9f0ba028debbebe9a6873b6c07",
+        "speed_ratio_retained": 3.7966683645556247,
+        "frame_selection": "round(k*(source_frame_count-1)/(output_frame_count-1)), k=0..output_frame_count-1",
+        "review_status": "conservative_no_deletion_without_semantic_evidence"
+      }
+    }
+  }
+}

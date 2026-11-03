@@ -1,0 +1,34 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E41",
+  "variant": "C",
+  "source": "sim",
+  "source_sha256": "f49c00d87a3aa2bc8334be299c1a4601421ec8514ce8e7b7e7bc854041b467a8",
+  "packet": {
+    "question_id": "rq_27663cae6337",
+    "prompt": "视频中不同长度的前段木条分别接续什么长度的备件？",
+    "options": {
+      "A": "短前段接长备件，中前段接中备件，长前段接短备件。",
+      "B": "短前段接中备件，中前段接长备件，长前段接短备件。",
+      "C": "短接长、中接短、长接中。",
+      "D": "短接短、中接中、长接长。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "13634fc5b8a277a49aead1b91afe0acdeabcb14e1cc0dba4673c264f1fea643a",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": {
+      "native_verified": true,
+      "camera_clock_verified": true,
+      "source_visual_reviewed": false,
+      "published_source_commit": "788163e9cbb7a9f90d6ab4c6ed1f9e32289a2db4",
+      "full_video_decode_verified": true
+    },
+    "media_lineage": {}
+  }
+}

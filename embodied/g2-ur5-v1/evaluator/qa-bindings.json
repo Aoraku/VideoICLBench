@@ -1,0 +1,2107 @@
+{
+  "schema": "rule-qa-evaluator-bindings-v1",
+  "bank_version": "embodied-rule-qa-v1",
+  "count": 90,
+  "records": [
+    {
+      "task_id": "E04",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_1dc2a175a2c7",
+      "correct_option": "D",
+      "source": "real",
+      "source_sha256": "cff7a11408aa3e9f8736887b24f6f1b216314baa9fc1a20ac059b5eebe529808",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "de008e3068730a5139d3236787aff6145d662b8be4d1ca048cea362d2fc3ab43",
+      "assignment_identity_sha256": "a3fc8451416b58fae72b76457c495b89cac6f64e1fa270f51b50a2211dbc6d49",
+      "relative_assignment": "embodied-e04-a/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "cbcd3e23710f8ba3ff46511aa05b3c70b9ca88bf04d9cd84cbaaa1307700b7c5",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E04",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_1dc2a175a2c7",
+      "correct_option": "D",
+      "source": "sim",
+      "source_sha256": "3b5a272dff0b7f9334e3e44b9efbcc0224de5ec2ece41897294f103c7b940940",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "1b448bb10ee3e51051cb6fba6571e65a207c80c4695d4d858bf9d53908faaf0b",
+      "assignment_identity_sha256": "8e7a3b9bacaaed13d88df909497a40cd5531389f0b8aba4363c0df86a557ab90",
+      "relative_assignment": "embodied-e04-a/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "cbcd3e23710f8ba3ff46511aa05b3c70b9ca88bf04d9cd84cbaaa1307700b7c5",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E04",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_1dc2a175a2c7",
+      "correct_option": "D",
+      "source": "text_rule",
+      "source_sha256": "5df5240a16a261cab94fb3f27782906f939fcd44b3a6916503bd265007a35042",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "ced1c3660f929a677a8fbc1d4e6e946698fb6f6230d0a357da3e717a42822803",
+      "assignment_identity_sha256": "6c5f4e3033303d21214030df361ceb8ccc0468265336be0e8ea921f961ec3bf4",
+      "relative_assignment": "embodied-e04-a/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "cbcd3e23710f8ba3ff46511aa05b3c70b9ca88bf04d9cd84cbaaa1307700b7c5",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E04",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_1dc2a175a2c7",
+      "correct_option": "C",
+      "source": "real",
+      "source_sha256": "0b65c3cec5329d52dc2a5f7a0dea0e13058552dd77cfc8f7333c3e880867e7a3",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "9fd3dcf617e78f497b757241d4f519ea141516c1ad835de1aa90b531a8e9287e",
+      "assignment_identity_sha256": "aae44536442e8b4e0f50a4af8c1f03345b74864ae709dca1fc09196d739d97a4",
+      "relative_assignment": "embodied-e04-b/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "2092160e6210dccb427cd8f61f8f3cbd45754bdd82b60a729a8dd5d248fbb908",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E04",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_1dc2a175a2c7",
+      "correct_option": "C",
+      "source": "sim",
+      "source_sha256": "10c5c8294331ef6c424c637bed1f8af9e50d629d4b8b2393df57fbe2e480ff1b",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "cd2a445e99e8d004eb5728350356bee808c800742309e35c2a4e6188136b6cca",
+      "assignment_identity_sha256": "50c64d02231ac4582793e33e30ff8f91fa0f7f9ff7443e41a56f216bc8aca166",
+      "relative_assignment": "embodied-e04-b/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "2092160e6210dccb427cd8f61f8f3cbd45754bdd82b60a729a8dd5d248fbb908",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E04",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_1dc2a175a2c7",
+      "correct_option": "C",
+      "source": "text_rule",
+      "source_sha256": "a9d1850d1a77ace0f9a58795ef5545d34ab8c48084791c25e4d2262911a94a55",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "39d9f32753120c65ad11cd1c2a74d23c1d7d0cda5da7f3034007cbc6d7168c49",
+      "assignment_identity_sha256": "b9a4d62f62b94572c7d9311d7d134d3050c1cb7195beba639b8c67755b3528cb",
+      "relative_assignment": "embodied-e04-b/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "2092160e6210dccb427cd8f61f8f3cbd45754bdd82b60a729a8dd5d248fbb908",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E04",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_1dc2a175a2c7",
+      "correct_option": "A",
+      "source": "real",
+      "source_sha256": "c059c6dd4059f63a97b022d5edb11b13bf363762b453dcca12672dea4814df39",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "d2f64922b434075b658528bf18080d01e09063382343f86714ff36132c1446fa",
+      "assignment_identity_sha256": "ca74df0c10c75c7f05be062986d55ee425036b6098f955a786c2059722bd4d32",
+      "relative_assignment": "embodied-e04-c/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "ea03f2a71da239e7dbe8d8b88efb805069b3fa4cdf38b239ce98cf6801416d19",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E04",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_1dc2a175a2c7",
+      "correct_option": "A",
+      "source": "sim",
+      "source_sha256": "2cc366fa06c4cedc34910b15ae59277517977dbeda0596cd6704c79850822ac2",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "5c203cecfd06636f15904d47a7aeca0cc526ddaf4d893c3bfd71686003db0d5e",
+      "assignment_identity_sha256": "e85be983c2aecc80a9c76b6c7a01beb4bb968c9d87f84c4d5600b0551ea6ad47",
+      "relative_assignment": "embodied-e04-c/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "ea03f2a71da239e7dbe8d8b88efb805069b3fa4cdf38b239ce98cf6801416d19",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E04",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_1dc2a175a2c7",
+      "correct_option": "A",
+      "source": "text_rule",
+      "source_sha256": "80c9f95c65554e0e82e42f217902c0e51af33556b720e96670485642f4ce1dd2",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "e6e0fd7bbf76cf988c0781185b4e257609d0bd5a6b552d296126bf576efecacd",
+      "assignment_identity_sha256": "ea211c4e00885b717659305327340d1c9723615707d9309cd594f3505114cfa0",
+      "relative_assignment": "embodied-e04-c/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "ea03f2a71da239e7dbe8d8b88efb805069b3fa4cdf38b239ce98cf6801416d19",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E05",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_d49ac3307802",
+      "correct_option": "A",
+      "source": "real",
+      "source_sha256": "55cb05374ea5af6e47ae460d83651ae77ecba08d27ef1c585bc947f1068dd1b6",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "ff95fd99ce59fd101937dd6197d38f1a02844c3e54858ea21067cbcb6f135cc9",
+      "assignment_identity_sha256": "724f5359c96d5ae370d65bc9ba5c180c1d3193202a0204a1916987fdf1929e34",
+      "relative_assignment": "embodied-e05-a/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "2ce2f197bb87b064faf4786e19093d7b164f42e2a8874b8ffe7d8daa6c86f541",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E05",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_d49ac3307802",
+      "correct_option": "A",
+      "source": "sim",
+      "source_sha256": "205a4cb8af53ed721e73e76ac8dbaaeff622a1e98b345029e09e47af423adb90",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "099e64e7acd566b3bf2a03c985acd39f0005d6306f087dcbe7dbcc7118a8ee25",
+      "assignment_identity_sha256": "168a68b2d984e52137c40c96603e3a88a30d77c3ce2f298b129c8f759f14c745",
+      "relative_assignment": "embodied-e05-a/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "2ce2f197bb87b064faf4786e19093d7b164f42e2a8874b8ffe7d8daa6c86f541",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E05",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_d49ac3307802",
+      "correct_option": "A",
+      "source": "text_rule",
+      "source_sha256": "0e88ae60e1eae3e093b67fedf66c47299cbe73b417cf2779be0329cbbed2c589",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "6655563f50ad3e082028a645391ca87617bcf52e0b73a1ba2cd925e6632e91cb",
+      "assignment_identity_sha256": "98da8141ce53adc583dc9baa4faa67bc50fbdf05c4f31d6b6ea3ff59f86c806e",
+      "relative_assignment": "embodied-e05-a/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "2ce2f197bb87b064faf4786e19093d7b164f42e2a8874b8ffe7d8daa6c86f541",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E05",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_d49ac3307802",
+      "correct_option": "C",
+      "source": "real",
+      "source_sha256": "94cbd121806fc08786dad7c6b54d13cc20dd752d9a12cc0d955fc80177b1fb0a",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "2d5eec4936cbc5f3dc2bc47b35bb4e032488a69f173a7465c716be8010613219",
+      "assignment_identity_sha256": "62bc986a0a9dd82763cb1f8dbab676fb001f71a1430a6edcc9ea5bc6e04bb4d7",
+      "relative_assignment": "embodied-e05-b/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "f2505ef9f2d507ce65b98c9fdf6e88b1730e6efe60349a80cdfd446c396bf161",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E05",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_d49ac3307802",
+      "correct_option": "C",
+      "source": "sim",
+      "source_sha256": "503743250c9413a97dbd4f2999a6a8b4393eea2c95ce5d5934ff30ad077df47b",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "f4238f9b3ab9d653426016690e45a0e80b0713510e07b71d3489a787b89ff84b",
+      "assignment_identity_sha256": "30f2b308905791ed6aad1b62c358ff0d457be77cd38a1915386d50215508a811",
+      "relative_assignment": "embodied-e05-b/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "f2505ef9f2d507ce65b98c9fdf6e88b1730e6efe60349a80cdfd446c396bf161",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E05",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_d49ac3307802",
+      "correct_option": "C",
+      "source": "text_rule",
+      "source_sha256": "0354c4a3990836cc7bb3796c690155b22612f59af3af5d6f8d1fd2e1265957e6",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "7cf52dee4b9f8c1a3f809310514266334a7c0b054a1c6c1863f32dd1e18af7ff",
+      "assignment_identity_sha256": "f2db94ecd9ff3b990c29125280810b02f38d2cb6afa8dd8357c38ee4d5223935",
+      "relative_assignment": "embodied-e05-b/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "f2505ef9f2d507ce65b98c9fdf6e88b1730e6efe60349a80cdfd446c396bf161",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E05",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_d49ac3307802",
+      "correct_option": "D",
+      "source": "real",
+      "source_sha256": "2a733422e4cd5e2b6ae4b77f790c5279b262cfcc2bcb826d581cce20fc24a69d",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "d99b8f8445fb6804ad2ea732d619ca7cd3163ddc68d64560390cfb757ce6f811",
+      "assignment_identity_sha256": "c99d729fb9550f37bbe3198080b8b4250f7030bc3753a31fe4685b2c31b88cbd",
+      "relative_assignment": "embodied-e05-c/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "d2dab6a5e166df621876889c93be4685b6b0b30b8d4939e6d159d5f40e035aca",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E05",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_d49ac3307802",
+      "correct_option": "D",
+      "source": "sim",
+      "source_sha256": "0bc1d9d1e5c8cb168783263a8a186882081beb21af30b14d12f444e6aada3c2d",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "7ec7a05ee0f6e6b2de4f61e44986494e9a14dc2867c7be1d556f4a0ed59ef6cf",
+      "assignment_identity_sha256": "659821180d1e8c2c56e40ef2c02a3de485b6077cacba21a08a90732137cb5c82",
+      "relative_assignment": "embodied-e05-c/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "d2dab6a5e166df621876889c93be4685b6b0b30b8d4939e6d159d5f40e035aca",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E05",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_d49ac3307802",
+      "correct_option": "D",
+      "source": "text_rule",
+      "source_sha256": "ba60285f0df0d6bccced23cf63e3d18c89e9bde04238fb059dfe2f75718462d0",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "d4a489fba9d2ec53cef76629fa28043c54cebed71bb4cff9cbaa1b2308d6ddc1",
+      "assignment_identity_sha256": "3df13567e76b9dd9c5ec8ca7862f5f88217e7c50ce13de0049fc2b73c5d561bd",
+      "relative_assignment": "embodied-e05-c/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "d2dab6a5e166df621876889c93be4685b6b0b30b8d4939e6d159d5f40e035aca",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E06",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_3f2b25ab859d",
+      "correct_option": "C",
+      "source": "real",
+      "source_sha256": "e316bdc2078835cacd790b07cb64de2c5b2921f13fafa1997f8dddadf98983c6",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "de5945b2864eff423d86221e492603efc3f75bb790033f720e767c14c09fbc7e",
+      "assignment_identity_sha256": "31da75ca403a466a79255e9cb98f69c17795496d0bac50a9539d93dd035b82b3",
+      "relative_assignment": "embodied-e06-a/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "57f08640719a150e2a2c16236ed9bf711bc938af28fe5e132d042f237a465f14",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E06",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_3f2b25ab859d",
+      "correct_option": "C",
+      "source": "sim",
+      "source_sha256": "959b965f9177cd5bad442d2b94f5b4c8d539cebba64e515876f5edaacab4eae2",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "b3ea09923f705004ee78c5fd01acbecf24bf429214a37cd72ba04b28adb63cb5",
+      "assignment_identity_sha256": "9b0f824f662e39c6733200ec6a6406e49c09c4f938c3eb003e77586663035b27",
+      "relative_assignment": "embodied-e06-a/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "57f08640719a150e2a2c16236ed9bf711bc938af28fe5e132d042f237a465f14",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E06",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_3f2b25ab859d",
+      "correct_option": "C",
+      "source": "text_rule",
+      "source_sha256": "461dfdfdc2820dc239ee869cc74c7e0b1c19a5faf4c8bf0cd6820c16e5fe0b72",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "fb77493c30c6735d3136f49983478e524f47d19f44d0c976f9e44b4170ae9ead",
+      "assignment_identity_sha256": "8648f314f0d97dd19cf6f52598f9ef48643e3e82435f3676a4320f2f7179afe2",
+      "relative_assignment": "embodied-e06-a/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "57f08640719a150e2a2c16236ed9bf711bc938af28fe5e132d042f237a465f14",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E06",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_3f2b25ab859d",
+      "correct_option": "B",
+      "source": "real",
+      "source_sha256": "1affddd2b0062720045df68825447e7f31b032b69ef21eb566e40938a329fd59",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "8863a5d800bb129970ea98dfa4e3782728c760ad8a94cecec55616aba990d4b9",
+      "assignment_identity_sha256": "02a058813669090b91be7a97cc046afb1dc160099af44d7cd61b12a3ab844b6e",
+      "relative_assignment": "embodied-e06-b/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "1ee85fa3ed61f9496bad6de328a6cf9d86afceb8aeedabb8e17169f7b9b3e335",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E06",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_3f2b25ab859d",
+      "correct_option": "B",
+      "source": "sim",
+      "source_sha256": "7e031ce8e359b1b88766cfb94e3013557d204685550ef97cd2878b2cc6a80c60",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "6b48baaee7948c28de300952ad7df1f45dd8cdd872c1958f1df74087cf1e3b41",
+      "assignment_identity_sha256": "ea68532b8ecc43fedb6eee6bb8762fcd9759c3afc4ed0d299d7f19ff75f69ced",
+      "relative_assignment": "embodied-e06-b/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "1ee85fa3ed61f9496bad6de328a6cf9d86afceb8aeedabb8e17169f7b9b3e335",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E06",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_3f2b25ab859d",
+      "correct_option": "B",
+      "source": "text_rule",
+      "source_sha256": "4cd93d3dc32d2842c0c2f9563fd543c75da17395b2e7c761a4cd96fcb24a537b",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "af39cb22a16eb3a3f8ddf9c836a4ea46240f6abe4528a37a52d9e8fd3ba38e9d",
+      "assignment_identity_sha256": "69d6327e4203d878caca5a8d2a87ba2f90abbb8455736c46f7b57592998f2281",
+      "relative_assignment": "embodied-e06-b/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "1ee85fa3ed61f9496bad6de328a6cf9d86afceb8aeedabb8e17169f7b9b3e335",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E06",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_3f2b25ab859d",
+      "correct_option": "A",
+      "source": "real",
+      "source_sha256": "ccedf92a0c0b49260c48007c06c705e6b6879553a1032441aecada1853164618",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "da49bd20c10840b6528cfc8ebf8a0f04bae7831371f09d08219d34d55fc0bcf0",
+      "assignment_identity_sha256": "92ff1319fd4586c94f0f676b2d28c1ad69dc0c5a9bd4a9ad5bab819fdedfff0a",
+      "relative_assignment": "embodied-e06-c/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "e218174d9908ddb8a29dd578cf2993f20d0c45b66b4b05c21308b7bce21b7b09",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E06",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_3f2b25ab859d",
+      "correct_option": "A",
+      "source": "sim",
+      "source_sha256": "17f73cdcd51337a530bd30e4a471f64ff2e844ef276c39b693ccf5c9d995104e",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "625bc7ff049d7468df75b6815f34b81540edd2c733efd85adf3aee7b31072bca",
+      "assignment_identity_sha256": "ca1989828e69dc0ac78618f0bdcada424be824d1b5af2c9322ea6830306ae0c6",
+      "relative_assignment": "embodied-e06-c/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "e218174d9908ddb8a29dd578cf2993f20d0c45b66b4b05c21308b7bce21b7b09",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E06",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_3f2b25ab859d",
+      "correct_option": "A",
+      "source": "text_rule",
+      "source_sha256": "66c613b2c939da88135294cc91c523dbc2a78584a685af32c36bc15e4c55f19f",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "f35365faef63d6a78d97ec017043417802a5889c3600c1f830d6bc03d7824451",
+      "assignment_identity_sha256": "1fbcfcad9f27aeb210a3241c08f50478737b954d7190402d066dd702cdb62505",
+      "relative_assignment": "embodied-e06-c/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "e218174d9908ddb8a29dd578cf2993f20d0c45b66b4b05c21308b7bce21b7b09",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E07",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_972f75e58d70",
+      "correct_option": "D",
+      "source": "real",
+      "source_sha256": "0cd589d86996752a4d9ddbe833e8bacfc0394fc92ddaa8fd92ec47dd26c730cb",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "a34bf1987d2cf13612ca425dfa99ae00daecc4cfb45fac542bfa99f32b070ea1",
+      "assignment_identity_sha256": "2ed94ebe6697e9f26545e0898de50335d13f904e411ca6ed21b4ebd05b1858f4",
+      "relative_assignment": "embodied-e07-a/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "094b325bf03b16f5aa120220bf0a7593458b9d8bfc44fb916c7552455707cd38",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E07",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_972f75e58d70",
+      "correct_option": "D",
+      "source": "sim",
+      "source_sha256": "759ec61e469ca90ac8ae6e41d76058bb453e16f03d8a2d717e4cf0cce2e102d1",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "8bb4c3c36e6ba4e08b7c3ecac6fe3306ec3ecf1e91214b9818ff42fa7d675703",
+      "assignment_identity_sha256": "035a47a43c395efb8726362b531efa067c81c017b8f74c01c2ffa831eaff58f2",
+      "relative_assignment": "embodied-e07-a/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "094b325bf03b16f5aa120220bf0a7593458b9d8bfc44fb916c7552455707cd38",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E07",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_972f75e58d70",
+      "correct_option": "D",
+      "source": "text_rule",
+      "source_sha256": "045abd3dcafcf445a81701af4f288b13736ae0a39d944948e7a1e79d585b7063",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "827a69528b5a62886888b728fd12c4236e3ade424cf6a6347cf6a1ba0f9201ac",
+      "assignment_identity_sha256": "de5eb595173c494564a814fe0d5def1dbcde7cbe6e976759ac4f37bd39d3e552",
+      "relative_assignment": "embodied-e07-a/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "094b325bf03b16f5aa120220bf0a7593458b9d8bfc44fb916c7552455707cd38",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E07",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_972f75e58d70",
+      "correct_option": "C",
+      "source": "real",
+      "source_sha256": "a84666a90f576a5df50bfdb4d3f02190faf185b13a38482accfd2dc0616c27a8",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "5d2bb3a5ea76268cb63da29f9b80e0262189ba58a66aaf0ec8e33dc2e474e7be",
+      "assignment_identity_sha256": "353e781462637d271f6a6514735cc1a0726a55a9c4c0ff7ffa07dec35af41184",
+      "relative_assignment": "embodied-e07-b/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "701ee7cd8814969fd65d258cdc020dd1091574e69318f0bb5ad149cfb6a60eb8",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E07",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_972f75e58d70",
+      "correct_option": "C",
+      "source": "sim",
+      "source_sha256": "a677098df1ac12da0104f91e9b6ec9f543886e7b97913d5dd551887619c6a1ab",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "3668ea5d20de0a3716dc5d8ae6f370768b07f6c13e0d64181f872d3d6e063527",
+      "assignment_identity_sha256": "49ebf0e5087b1d85cec56ddec6e7c179ab1692cf58bd800291c37bff5ccd8a03",
+      "relative_assignment": "embodied-e07-b/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "701ee7cd8814969fd65d258cdc020dd1091574e69318f0bb5ad149cfb6a60eb8",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E07",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_972f75e58d70",
+      "correct_option": "C",
+      "source": "text_rule",
+      "source_sha256": "313009711f0d6f6d1dbcf0486b034d6df38c5a40e6e5000a5099b798c7cc7358",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "937e048d846facffcf2e4bd5a072cb5bf7106b9213a3e36c165530b9ae102b80",
+      "assignment_identity_sha256": "99c6cd90ecb49689860ad1b759c1110a48d88acd1042705b35c610263ee7535f",
+      "relative_assignment": "embodied-e07-b/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "701ee7cd8814969fd65d258cdc020dd1091574e69318f0bb5ad149cfb6a60eb8",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E07",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_972f75e58d70",
+      "correct_option": "A",
+      "source": "real",
+      "source_sha256": "16b6f9980e0572cf6806ae679e6cc3af00cffe8ce3ba459e9e680fd7547faf94",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "d96e8ae214ac3ea63f85ff984ebcb03daa4007dd5f7e007bc81fdd44afcd11a3",
+      "assignment_identity_sha256": "201fede7b3804c89c2eb979dd703d26ca1aed818dfdf6705ec71317e68c8bfd9",
+      "relative_assignment": "embodied-e07-c/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "a31fdf55b07817ffa07902afbb9cfdee558f6eee9ac29abe5baa1765edc00f9d",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E07",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_972f75e58d70",
+      "correct_option": "A",
+      "source": "sim",
+      "source_sha256": "f11d694e06b57c1956faf19a6bbe86788a9065e1566d490e06ee525a11336a6f",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "a39f9d48b8e3f8270ceae3194cf5541dfba22a2120c8a5a8dd3d12da7f42e802",
+      "assignment_identity_sha256": "c897f171a3031a5b500cf4241df8f2cbfe31a48678e5a98dde432009ce114dd8",
+      "relative_assignment": "embodied-e07-c/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "a31fdf55b07817ffa07902afbb9cfdee558f6eee9ac29abe5baa1765edc00f9d",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E07",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_972f75e58d70",
+      "correct_option": "A",
+      "source": "text_rule",
+      "source_sha256": "86918d5550c5b47b8c07149b409eef2e0ad6fb7ed3af825b4aeab6033ece9a4a",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "25b8ccb0493fb6d20d3cb8fbfc385fbb8522a78e38101af672309328b4da67a1",
+      "assignment_identity_sha256": "a8239a3a68b2772f99acd3fc2ae6ac370331e218767edd76ef181af8d88a884b",
+      "relative_assignment": "embodied-e07-c/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "a31fdf55b07817ffa07902afbb9cfdee558f6eee9ac29abe5baa1765edc00f9d",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E09",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_2f0582b83429",
+      "correct_option": "B",
+      "source": "real",
+      "source_sha256": "f171b878a6e364babe2465e9fd6d6c0ed824f49aa8b37e96ba4b07ca28c7d54a",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "c9a618251ecc8583e7b055b8e615621ebf9bced77ffed5f354391262c8f2c6ed",
+      "assignment_identity_sha256": "af3de12ec3a1dbf1b85b65160fd44efc33bb873e465a56540fbc5657712dc55f",
+      "relative_assignment": "embodied-e09-a/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "69172f78492ffafa1ca9cc32d1a55edb970ae55b8e06cffe7ffd14034f93a360",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E09",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_2f0582b83429",
+      "correct_option": "B",
+      "source": "sim",
+      "source_sha256": "42d823ce4add74483a181e4b8a425629c6e3ba27f29034115ad5e9bee796a362",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "41cc2b31fff63f3411883203abf110457d324aff94f00290aa72a188c9653bb0",
+      "assignment_identity_sha256": "413d3155ec8aca4e6491787353013ebecbb5c585ac698ff932229f310a874151",
+      "relative_assignment": "embodied-e09-a/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "69172f78492ffafa1ca9cc32d1a55edb970ae55b8e06cffe7ffd14034f93a360",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E09",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_2f0582b83429",
+      "correct_option": "B",
+      "source": "text_rule",
+      "source_sha256": "ce2012a7fddbd2165ec5486bb3ec3cb96c6cc4cdd8b0f52ba60d0a89584d7d3d",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "0cf5347a38e65b3342cb27063a6b8d7fc91e289a7e0b22e078f21fddde719c46",
+      "assignment_identity_sha256": "8dc2e5b41825e05e5b9301380c32e2c1d0bdf533a46abf93f6a0a8049fd19110",
+      "relative_assignment": "embodied-e09-a/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "69172f78492ffafa1ca9cc32d1a55edb970ae55b8e06cffe7ffd14034f93a360",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E09",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_2f0582b83429",
+      "correct_option": "A",
+      "source": "real",
+      "source_sha256": "0b00307d563dfbe8abb1370f8e8607ac703727907415c06c6aa0f21f8a73f8a0",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "f2bf9a3c48b009c76add63d13a37641ff01b7f61b278374c9b69f05fd59ba0c4",
+      "assignment_identity_sha256": "3a4fd4914331c8f35dcc00ad65a70c772277006f1970e0bbd0b9ae160a5b00c8",
+      "relative_assignment": "embodied-e09-b/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "03147208179528d4524d525229bb81eca2182dc67c990c6c93596fa5ee94426d",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E09",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_2f0582b83429",
+      "correct_option": "A",
+      "source": "sim",
+      "source_sha256": "9e623d2931f0431555bf1567a8056d3525179e6188a5307e85da425b6b3131c3",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "f5130614f0fa27d3bf6a74a1f9a23705200574500e43e837c04ab2f16454e2a0",
+      "assignment_identity_sha256": "0c338d0419acbdd4fc556b66649ed33df807e1453df8c523d11a5bab0b691ada",
+      "relative_assignment": "embodied-e09-b/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "03147208179528d4524d525229bb81eca2182dc67c990c6c93596fa5ee94426d",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E09",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_2f0582b83429",
+      "correct_option": "A",
+      "source": "text_rule",
+      "source_sha256": "44886a6f4f65ffbf84a97609eee0f3ed4dee1dbac60cbed12ee2c48f80e4841d",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "02776e48bb05ee8b48c8745674f3c1ea6ba8ba94f27b5b541eb495d32dff4f60",
+      "assignment_identity_sha256": "9a6177bec168c3f6101d9dc0372dd434428d4d31a2657da04d7b60b516443f21",
+      "relative_assignment": "embodied-e09-b/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "03147208179528d4524d525229bb81eca2182dc67c990c6c93596fa5ee94426d",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E09",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_2f0582b83429",
+      "correct_option": "C",
+      "source": "real",
+      "source_sha256": "ef1fe711a1262c81782c50f3640b01904f0d7a266b1676fa34437e3012b1b3ba",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "24169b72b334b9facc5fb855321a105a445d15a7902c2ab7a2c469a9a5846123",
+      "assignment_identity_sha256": "9f5b667813625914e6f67c2a725bd83f95e427b3f703eca77104d878030886fc",
+      "relative_assignment": "embodied-e09-c/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "78f7cc593a67a2e6df59ecc1c241037ed702cdc1cca8cc0bbf071ca58ef31c49",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E09",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_2f0582b83429",
+      "correct_option": "C",
+      "source": "sim",
+      "source_sha256": "3270c725549120d982308bbebf9c5d998e7329be27e1d3a073619ea44326c20e",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "9a42d3e07353ac461d29938d138ea241ee689b768d8bfdc05cf2ff04dfaf06b6",
+      "assignment_identity_sha256": "6961641b1999afda8eb969415910e54b068967d462259962b463c167a79a75f4",
+      "relative_assignment": "embodied-e09-c/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "78f7cc593a67a2e6df59ecc1c241037ed702cdc1cca8cc0bbf071ca58ef31c49",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E09",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_2f0582b83429",
+      "correct_option": "C",
+      "source": "text_rule",
+      "source_sha256": "ba59b16369e924fc493e559d078bbcfa467f60fca7757160c48a8956be17aeba",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "e46ea328acb30a13798a87b0de0260f2fef7ef0a2229d7079de2c9b25716f3f2",
+      "assignment_identity_sha256": "a8b9251781532bb9e6ade16c0eacecd54f6f45aac080afcc890b7896478fd73c",
+      "relative_assignment": "embodied-e09-c/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "78f7cc593a67a2e6df59ecc1c241037ed702cdc1cca8cc0bbf071ca58ef31c49",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E11",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_ff1ac406dbae",
+      "correct_option": "C",
+      "source": "real",
+      "source_sha256": "66505149d65953c4fea38c7152194970452cbc396110225e3dc4601dc5aa54e5",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "5b5239d84e44f2a64b08d658cac4fa3d3e993c348d029130c7f8a80dddfb1849",
+      "assignment_identity_sha256": "5249f273870203d6ca7380be5f257ebfd0bf96562bf68173c1303ab836fd5b43",
+      "relative_assignment": "embodied-e11-a/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "0d16de69bec7f8f71df4dbfb98de465f4634a8b2325a9834fdd5b31155b862eb",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E11",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_ff1ac406dbae",
+      "correct_option": "C",
+      "source": "sim",
+      "source_sha256": "1724fbe3d649052f97a72995a8b7140a1e3d36fb178f348850d18ee4ac09a2b0",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "66a42aa5df0f965b1e32fd81136fd4aeb5491624fcc15f75699852c3e92da8ec",
+      "assignment_identity_sha256": "6441d98bec2bc8ac6819e288ab639ade59504ea146aa9ebdeaec0cf747ae8472",
+      "relative_assignment": "embodied-e11-a/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "0d16de69bec7f8f71df4dbfb98de465f4634a8b2325a9834fdd5b31155b862eb",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E11",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_ff1ac406dbae",
+      "correct_option": "C",
+      "source": "text_rule",
+      "source_sha256": "d7754bd549741ab7805e732a15e3b25314a05f723f481f7f56120bdbb220845e",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "30ffd9f3514d2c7746d16026358d1650fe327eba4617b5081e7be55d689f3d2c",
+      "assignment_identity_sha256": "8f771319b40312e7a2cd00df702536f27cb39c82c8002a200abed448a4f3591a",
+      "relative_assignment": "embodied-e11-a/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "0d16de69bec7f8f71df4dbfb98de465f4634a8b2325a9834fdd5b31155b862eb",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E11",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_ff1ac406dbae",
+      "correct_option": "B",
+      "source": "real",
+      "source_sha256": "088feae9b4752daacf433875471f7efeed082baf221d802514ab0bb3345ba927",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "fa72194c9cac561928f0d9bcba2c27b3b8c6a1d829f3cd8013c367073a1b2b21",
+      "assignment_identity_sha256": "68f8c4156d2b140edbc485c67a4a8394e7466cd422b643f70111bccbe82f1a22",
+      "relative_assignment": "embodied-e11-b/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "822653ddd13966a15cf6e87e1fe2de8190e5795cfbbc2d36ca73f866ab140bb6",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E11",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_ff1ac406dbae",
+      "correct_option": "B",
+      "source": "sim",
+      "source_sha256": "2af8524ab279dc98211390618e8122d7d96e77b0e7ce5dd8473512e10f8a6abf",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "5636ff07f9b629231a624d4c3d4eae9b4d749c8f1791c38f8bd2fead4f138d01",
+      "assignment_identity_sha256": "99c5b953c0ec7beff04973fccc63022ec0442916e94e4b7d3bb3047fbbd32ba0",
+      "relative_assignment": "embodied-e11-b/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "822653ddd13966a15cf6e87e1fe2de8190e5795cfbbc2d36ca73f866ab140bb6",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E11",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_ff1ac406dbae",
+      "correct_option": "B",
+      "source": "text_rule",
+      "source_sha256": "46ad3760f296f91f71dc4f6310034920f64c359bfa3266c4ff99cd02692d2932",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "6aae96696349d991129c2dbc74e7fa31ff5bcb8daae4e2d027ea4bef7047c3ff",
+      "assignment_identity_sha256": "da8bbecc084fa021387f0be9445fbbb38968129791c8b7f71b9383999b0dce2e",
+      "relative_assignment": "embodied-e11-b/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "822653ddd13966a15cf6e87e1fe2de8190e5795cfbbc2d36ca73f866ab140bb6",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E11",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_ff1ac406dbae",
+      "correct_option": "D",
+      "source": "real",
+      "source_sha256": "84079bc0fd535211c5c8f3dde3bad57cc083bfcee92523706a7def59a5f5f573",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "25dd6bd98d3e899ad31050a20fbeef04321bcffda5c8d55d1e0aeff0dc6d80e8",
+      "assignment_identity_sha256": "ba856da58a4e35f9e5691a66010396336af22ca64dc30e3cc49611ebfed6c422",
+      "relative_assignment": "embodied-e11-c/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "e36c905812d9eab3fe1542178939cb7d0625ff7db3a854b4815f8888f81873f7",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E11",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_ff1ac406dbae",
+      "correct_option": "D",
+      "source": "sim",
+      "source_sha256": "72585b2228be1c632dba2f028a14f1aff854d691b21af60fd8d2af5f1ebf79c3",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "d322d40d8efa993bd93ff49fda7961a16d6b54099c378af5c35fbbefabb16703",
+      "assignment_identity_sha256": "5cf625f923662d241a92feaf4ed1f69268d99769dd8fce0015a2e1f4d553534f",
+      "relative_assignment": "embodied-e11-c/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "e36c905812d9eab3fe1542178939cb7d0625ff7db3a854b4815f8888f81873f7",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E11",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_ff1ac406dbae",
+      "correct_option": "D",
+      "source": "text_rule",
+      "source_sha256": "c76a8d8370e479bfac8469d6b79c6168ce7219c775c4978e20b8549e970baec2",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "77cfcbb2b18a2a919037e4e1421c023c3f1242482cd597bcd9a1c71aac3dacfe",
+      "assignment_identity_sha256": "fdd85795ab9c0e112fc9f94da74767c3fcc14933949d84d7ce8ab9be81857ec8",
+      "relative_assignment": "embodied-e11-c/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "e36c905812d9eab3fe1542178939cb7d0625ff7db3a854b4815f8888f81873f7",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E20",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_e7fccbd8d617",
+      "correct_option": "D",
+      "source": "real",
+      "source_sha256": "c656c1fb70dcefe14cf36dbc6575503631eff6cadacb06fcfd54148ec8136f21",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "1bc946fb2593cdab20aeb09b10a4f1a1b6c942f9b0beb7eeab76fe18872bdef3",
+      "assignment_identity_sha256": "a63a0df5ae2d7b0ad4607f3f453c577ff7a6166125ae859a785ddf9d108bcd58",
+      "relative_assignment": "embodied-e20-a/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "65b51a06067ba2369aef294ef90b108835d3e6becc0f452d72c5315c7d0f7ea9",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E20",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_e7fccbd8d617",
+      "correct_option": "D",
+      "source": "sim",
+      "source_sha256": "03f54122e869e5743ec83a896bcad3899ae7a0339ef68a2afb8e1a77f307e75d",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "a33c34178d0a716abde099a0951a3ffab157299c4f833027b0b63f5f93d7a255",
+      "assignment_identity_sha256": "2226ff3a3242302501a5c73ea579b084b2008d9e087dd9a587e147c1f6cd3f08",
+      "relative_assignment": "embodied-e20-a/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "65b51a06067ba2369aef294ef90b108835d3e6becc0f452d72c5315c7d0f7ea9",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E20",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_e7fccbd8d617",
+      "correct_option": "D",
+      "source": "text_rule",
+      "source_sha256": "e1b812de5ef4a3b4df2b9698f9e86ac2ea1f09984f554b61a668075163dd79be",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "3db0404018510cac51710778f0c678347585d01a91d08126d12b09e1c235a1fa",
+      "assignment_identity_sha256": "f4463cf5c5c134a3cc3aecad00a8e0f87173559b9f473f2b0a70d9fd2853ecc8",
+      "relative_assignment": "embodied-e20-a/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "65b51a06067ba2369aef294ef90b108835d3e6becc0f452d72c5315c7d0f7ea9",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E20",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_e7fccbd8d617",
+      "correct_option": "C",
+      "source": "real",
+      "source_sha256": "8d7f88c8f2ca2567adcad7b2d19e6bde55844673845c84c2911e510102d9091f",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "eb04642161dfe46aee12edc9fd2dfdba39479e42d7423d9c1e95073635958beb",
+      "assignment_identity_sha256": "70bacd747ed5bba4ac10753ad2b588ccdd9ef5f2361d52d83535ce2ba58d6a9f",
+      "relative_assignment": "embodied-e20-b/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "b38321c3bb0af566393935b8de1c32a6f01db475c47b92edee3c82ec1a52cc61",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E20",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_e7fccbd8d617",
+      "correct_option": "C",
+      "source": "sim",
+      "source_sha256": "72c480869248055e05d77f0ba6ee14dab0d2df348b1050472663bf28a0991846",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "448bcdc38205e9259ef9db59e6f92ecd9bc6538ff13b1a857c67685c0bcca7b1",
+      "assignment_identity_sha256": "42e9d0118e2d2d8e6b60eae7e3cacd7e28df306b7d99a512f5bf4fcaefe9811e",
+      "relative_assignment": "embodied-e20-b/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "b38321c3bb0af566393935b8de1c32a6f01db475c47b92edee3c82ec1a52cc61",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E20",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_e7fccbd8d617",
+      "correct_option": "C",
+      "source": "text_rule",
+      "source_sha256": "31f8cdb0e0139b0a3fc5e9a8006b07b803fb16ba17a3972564b6d0397b6242ee",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "7805ed1ad33bf34cbe8f5192e569ccbdc08bf9e4123b83ce83cc6ea2d13891e3",
+      "assignment_identity_sha256": "00b5462bcae2cbd9c25413a365166ce932dd336ae1cf8b12eee7f048fecaaba6",
+      "relative_assignment": "embodied-e20-b/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "b38321c3bb0af566393935b8de1c32a6f01db475c47b92edee3c82ec1a52cc61",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E20",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_e7fccbd8d617",
+      "correct_option": "B",
+      "source": "real",
+      "source_sha256": "bfe42f3ca984bab018af33e364353f61d2b154f481f18a18f19782b3bc83407f",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "d1a11970115c5fc794b90bf9be137c86093471f90aacdb187ec6f416095f2e3f",
+      "assignment_identity_sha256": "87a2386b152e9c059db38d8c097783d9c9f4f3937c86002baac5212577846a0c",
+      "relative_assignment": "embodied-e20-c/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "fd01e41070bec3cd5ebb0fccfa6efbaf1e7bf10dbde9119ab6b64ae5d7430534",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E20",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_e7fccbd8d617",
+      "correct_option": "B",
+      "source": "sim",
+      "source_sha256": "68648f974c414e46de0e3e427ddaed292d78f01522192a2874f9b0b1260bca34",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "e913b065ea25601cf365b565c8dade6ed6cc9d9f8204de763a96e46c08a7cb54",
+      "assignment_identity_sha256": "1b945d3872429f7f6792f9fd425913b13ae3d70a0dd902c1a4c20c0ea8f7b2a7",
+      "relative_assignment": "embodied-e20-c/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "fd01e41070bec3cd5ebb0fccfa6efbaf1e7bf10dbde9119ab6b64ae5d7430534",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E20",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_e7fccbd8d617",
+      "correct_option": "B",
+      "source": "text_rule",
+      "source_sha256": "31ad30eaa8dc745e6a8b8ea1d3e6643dee88bd7104cd50ff47d24d0e916cb2d4",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "599d1e50675b2020b3deacc74b18453a28a847d3bacea2ce2125e5f8f41b11e4",
+      "assignment_identity_sha256": "6d34abbf4bbe0477efd91c1b67659fe909a32a4e9eff712a46d8ad6aed58cbab",
+      "relative_assignment": "embodied-e20-c/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "fd01e41070bec3cd5ebb0fccfa6efbaf1e7bf10dbde9119ab6b64ae5d7430534",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E36",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_18894c08bfba",
+      "correct_option": "A",
+      "source": "real",
+      "source_sha256": "bed9b049fe1b7278de5562840a07d34c5bd898c8d8f94cb66e0c891370d26108",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "a63952c95eab8e920f07fb6f96cc1ad601c7033fe35a3607b34f66a44175d9ed",
+      "assignment_identity_sha256": "22728c4800136e5faba85a69f77f1c8d966677fb7e6b8a8bc3b7ae0885edbbf4",
+      "relative_assignment": "embodied-e36-a/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "48a39259d9a0efaebf4afe9787eee56488d315398c0631644328536ef19c9c70",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E36",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_18894c08bfba",
+      "correct_option": "A",
+      "source": "sim",
+      "source_sha256": "e691d7ef7073fe68b2d9e1ba64dea6631bd485451a9ba28210316b6e8ed86fee",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "d9349b8cecc02fcf2cc5c5b03d3222fd259d27a2cbdffeda56e2db17db09db4a",
+      "assignment_identity_sha256": "41c0d3effe7ee0703d73c3acf7f556480d06f7cb33735882c985157bd0fd7227",
+      "relative_assignment": "embodied-e36-a/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "48a39259d9a0efaebf4afe9787eee56488d315398c0631644328536ef19c9c70",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E36",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_18894c08bfba",
+      "correct_option": "A",
+      "source": "text_rule",
+      "source_sha256": "dfe77baefb9817b2cc852ad0262d0cbf66ee9dd6b50a741f4a9d43a00d15389e",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "cb8b38d08fe2a4dd11d5e76bf50526fdfe0e20540204206be8610b2cfba87ca3",
+      "assignment_identity_sha256": "11e8d271d0f967e1beef10f16ce310b9b1669805d31c618e31d79fe0a7565d74",
+      "relative_assignment": "embodied-e36-a/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "48a39259d9a0efaebf4afe9787eee56488d315398c0631644328536ef19c9c70",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E36",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_18894c08bfba",
+      "correct_option": "D",
+      "source": "real",
+      "source_sha256": "fc41fed242d2450d056305d5d478ee29a90145963c89ed5621028a7a564661ae",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "89d3934fb6e438d0b9acfa396ac200c31b91d1047cb96dbcb6c507213c0df622",
+      "assignment_identity_sha256": "cab890af2b858ed2cbfc2532afd4d863ab4e7d515eae8907cdefaf325732b721",
+      "relative_assignment": "embodied-e36-b/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "b427a8869fac65d1c0eee49bc7b15de90f72e5bfb8ceb7e36adce05cd9380a86",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E36",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_18894c08bfba",
+      "correct_option": "D",
+      "source": "sim",
+      "source_sha256": "d47bdf6b7e165558ab14245fe6f444f6bdc1a91e2aad07746fa37e877b4ada88",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "3ffa06990873f16117354b23993ee29a13596691993125ace047cb327d8db5be",
+      "assignment_identity_sha256": "6feaf797d63e10e85b78b8a719e294fbdb3e0be76b434b54dca92d0e05d8ff99",
+      "relative_assignment": "embodied-e36-b/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "b427a8869fac65d1c0eee49bc7b15de90f72e5bfb8ceb7e36adce05cd9380a86",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E36",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_18894c08bfba",
+      "correct_option": "D",
+      "source": "text_rule",
+      "source_sha256": "35d196a87638f0dc50c4a60f57bb2f9c4b7bc4beb43cdc5d0059cd94b94f2c3f",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "c5771564a98d06d535316652d538add3de40f69a8bf5b7ab2b0d9046de37ac9c",
+      "assignment_identity_sha256": "2299551026f1c1bb18c0a4fa5a9205eae403efece424bceae82283d4cc65ac96",
+      "relative_assignment": "embodied-e36-b/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "b427a8869fac65d1c0eee49bc7b15de90f72e5bfb8ceb7e36adce05cd9380a86",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E36",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_18894c08bfba",
+      "correct_option": "B",
+      "source": "real",
+      "source_sha256": "53a46290961fac505efaa52e6d12fa69ed62f4490112bf706c09365afd1886eb",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "0cf5a6e97a41d0c539c364e1a2712600acfdaca9300081e73813bbc73e4b0f5f",
+      "assignment_identity_sha256": "6fc0c4f23b27a0d92194703db3cc810f75e98ee2a59f1a7c883da7ddb748ac37",
+      "relative_assignment": "embodied-e36-c/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "49c3700163bfb2c00d4813333f886d85cf5e8929f4c20d6388f558f9629fc2aa",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E36",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_18894c08bfba",
+      "correct_option": "B",
+      "source": "sim",
+      "source_sha256": "3a384d79ba20d66c3552c66d6739d346f9006fbc407a10c1bb13e1e67474bfdf",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "ffd52619c3136d2e8defb99aac71c4c229f08d9ee2bc318dbcd8aab46893dcb5",
+      "assignment_identity_sha256": "6232925fa61c7ade35d4130cf990bb956d0865c45760ff3227a75e92deffac43",
+      "relative_assignment": "embodied-e36-c/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "49c3700163bfb2c00d4813333f886d85cf5e8929f4c20d6388f558f9629fc2aa",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E36",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_18894c08bfba",
+      "correct_option": "B",
+      "source": "text_rule",
+      "source_sha256": "07f7ae68408aea487da65c233017e91de3ed2d3531383d88d604e0b1b9f02fe7",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "4138d3a37e717ec7db71fbb8282c3e531b1412b9931fda6acc28a667f57240ae",
+      "assignment_identity_sha256": "069b79770b2a79cc4b584058e155a617574701931cf048a31dd5d9064d99d64e",
+      "relative_assignment": "embodied-e36-c/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "49c3700163bfb2c00d4813333f886d85cf5e8929f4c20d6388f558f9629fc2aa",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E41",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_27663cae6337",
+      "correct_option": "A",
+      "source": "real",
+      "source_sha256": "ba432f12c5e61f6047a1051cdab0040b431025260ee16b8cafd247f6b693f589",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "6619593c8201abba854571a392b5b366f2423b1fa81251d60119691284a6f712",
+      "assignment_identity_sha256": "1da2cd0b935a26a40033d959b435ac78f991a46d9cfdde4651eebf9ce080365b",
+      "relative_assignment": "embodied-e41-a/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "fda45ed3c8037621588e7ab09e13af0e69e6d91c497392dfdd89b22047c8cc7c",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E41",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_27663cae6337",
+      "correct_option": "A",
+      "source": "sim",
+      "source_sha256": "e42cc9f4e53279c1341bd7cdf3070c261a4a10ab261b66521f8b0a2103f4df71",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "89e70c00577206a201620736b92a20d83352a7d48cf091100c486ebceaa8586b",
+      "assignment_identity_sha256": "fceff6614940f8e3f43147370afd5d9f0be6618eeab5a45f8517073fa0a53287",
+      "relative_assignment": "embodied-e41-a/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "fda45ed3c8037621588e7ab09e13af0e69e6d91c497392dfdd89b22047c8cc7c",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E41",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_27663cae6337",
+      "correct_option": "A",
+      "source": "text_rule",
+      "source_sha256": "46b4942fcad66b24e5bb297ae0bd45da52eb271bd048047a366cb18f77a31015",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "24e14187a561c8814f1cdb1129acd4f99f81b069433f5e731267027a8b3b03a3",
+      "assignment_identity_sha256": "878a4f4e922f17677c7fbadec5724f885f5e59a4f43391818b5966e6f1458406",
+      "relative_assignment": "embodied-e41-a/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "fda45ed3c8037621588e7ab09e13af0e69e6d91c497392dfdd89b22047c8cc7c",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E41",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_27663cae6337",
+      "correct_option": "D",
+      "source": "real",
+      "source_sha256": "fa3e33583f2a9dcb776bb5f2e5669b5ea100f21fbc6a2b04d4fd72c03f5e494b",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "bd080d107b4f576d8053f597c9536879e4bf36c67a36f04597fead040c336c7c",
+      "assignment_identity_sha256": "9094c273d651239463c8bef3711a31dea6e37ec5e6cfe2c299c874635b9a6ef5",
+      "relative_assignment": "embodied-e41-b/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "3575e3f9c89ddbac4e924805c809f0fc0695c6cba05fc3fac41d0bfe7180eb42",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E41",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_27663cae6337",
+      "correct_option": "D",
+      "source": "sim",
+      "source_sha256": "1f9e4fc2bbf0839a4939930674a840492c9b3f10ab5fb464bd04a3c032c06f95",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "f8540be8652867ae15ea3da3f3920a1e20469158e85ec112ef2fb0506edf1a24",
+      "assignment_identity_sha256": "52743c5a537199278c446db5f91958ea1fdf388823368c83f70a209af2f844c7",
+      "relative_assignment": "embodied-e41-b/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "3575e3f9c89ddbac4e924805c809f0fc0695c6cba05fc3fac41d0bfe7180eb42",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E41",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_27663cae6337",
+      "correct_option": "D",
+      "source": "text_rule",
+      "source_sha256": "8f9216f198dc5d0586bdde001662fe6216eb83b675dde021a0ca772e7f7a98ca",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "d749b3b26c29c91b04e078ad90c4b7383ecf54a99e7b2d880f775945a105e011",
+      "assignment_identity_sha256": "9c07dbb5d0d80fc1f46188a297d2e241914e33207a44efdb71bb685c62533d43",
+      "relative_assignment": "embodied-e41-b/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "3575e3f9c89ddbac4e924805c809f0fc0695c6cba05fc3fac41d0bfe7180eb42",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E41",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_27663cae6337",
+      "correct_option": "C",
+      "source": "real",
+      "source_sha256": "5e3a066926afb65e43de631fd3ce3207cfaa478f4a04f43fddfe24a1d6dc0314",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "1a0b942343fd9c07f7deaa7aef9d2127358612f0d7a1ac31dff28c6608c716fe",
+      "assignment_identity_sha256": "67fa7aeebf4176459b484137ca5c291db66dad9416e64a7f1fc2026166bbabc5",
+      "relative_assignment": "embodied-e41-c/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "13634fc5b8a277a49aead1b91afe0acdeabcb14e1cc0dba4673c264f1fea643a",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E41",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_27663cae6337",
+      "correct_option": "C",
+      "source": "sim",
+      "source_sha256": "f49c00d87a3aa2bc8334be299c1a4601421ec8514ce8e7b7e7bc854041b467a8",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "1226ed4ffbbf5eeb8c9f53a558e9925fa415adeba4b633a4e78ea61ea98f6142",
+      "assignment_identity_sha256": "ad92c16074ec92a7e15dccde5d4b17df6c20cb5ccd2365bd09429306ec200e94",
+      "relative_assignment": "embodied-e41-c/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "13634fc5b8a277a49aead1b91afe0acdeabcb14e1cc0dba4673c264f1fea643a",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E41",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_27663cae6337",
+      "correct_option": "C",
+      "source": "text_rule",
+      "source_sha256": "8f6e0fbcf71a4d217489b10c0ddcc00aa2cc2cf2d154b4dde26d6b95fda6ce71",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "4f037f7e476507fa911a011f7441f3e4306660ed7d0844d71fba40f9469ebbe3",
+      "assignment_identity_sha256": "837623327926827c76ed62586fba03a20cc065327e825df167fd0080442bf115",
+      "relative_assignment": "embodied-e41-c/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "13634fc5b8a277a49aead1b91afe0acdeabcb14e1cc0dba4673c264f1fea643a",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E49",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_bc34e1cfef10",
+      "correct_option": "C",
+      "source": "real",
+      "source_sha256": "8d7fc3ca07159acac7356827a2abf2746ccf895891a92a3e6502262d986f009d",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "3830303e7d3fa408fa1707f2f2fe35507f9855f2b444bd9a89c9a79d9ff645c5",
+      "assignment_identity_sha256": "0f6862d6e6b3466200b460a66bb4d35ce9c271d7451e1747fd9b202258e21e55",
+      "relative_assignment": "embodied-e49-a/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "04cbbde277db361a75534104f5a2c068513b21bf02a4f71c5a64cd0b97004732",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E49",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_bc34e1cfef10",
+      "correct_option": "C",
+      "source": "sim",
+      "source_sha256": "817d89b3c728c945918192741f4e5746e8a32ebe40c373db6b93fd00dd8825e6",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "fb5171bbbb52561fe7baa0130d0f319f73b2b4602afd16c47b419764602488b9",
+      "assignment_identity_sha256": "9de9d2326f0fb667b130865d03e520654efe47960d43f95b086540bf1faca9e9",
+      "relative_assignment": "embodied-e49-a/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "04cbbde277db361a75534104f5a2c068513b21bf02a4f71c5a64cd0b97004732",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E49",
+      "variant": "A",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_bc34e1cfef10",
+      "correct_option": "C",
+      "source": "text_rule",
+      "source_sha256": "e0c6af5542e27c5f6ce4b4c1641ba070c320085db7d3036cedeaf10d61797a25",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "6bdf1a1bb527233627c40c27edc5c31741259ae9ae7b01cd0d6fa0ddfa174fdd",
+      "assignment_identity_sha256": "48e41bb00c55ceb5cf5c83fa9bd8d6ecb91034446f68abd7ad9b4b3f0f878657",
+      "relative_assignment": "embodied-e49-a/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "04cbbde277db361a75534104f5a2c068513b21bf02a4f71c5a64cd0b97004732",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E49",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_bc34e1cfef10",
+      "correct_option": "D",
+      "source": "real",
+      "source_sha256": "5ebae2220410148d825893f40bf96254eb445337e5be6be21c0cb3a58fab90a2",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "b47fa2c184b19087a39dfae3b5bd80cf84099048e867a606f79118222c0c5399",
+      "assignment_identity_sha256": "6ae13f01090a66ff668c908e20e44cdd7e4975cd3cb3ee7c48a21567d0b91035",
+      "relative_assignment": "embodied-e49-b/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "67c50d8577d8c23da5e2a32d2cb80e2f30bf72df4f8100801f4a38d0b272a9ec",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E49",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_bc34e1cfef10",
+      "correct_option": "D",
+      "source": "sim",
+      "source_sha256": "a195ead2de615f321cb095b5eec8634b44f9be0ccdba843fda9ba4b34be3ac13",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "230cd508f099084e87b6cfc9851f54a26da135e3a5dadc4f1d87e40b71f6fbf5",
+      "assignment_identity_sha256": "00c41a5b0b299361d23889fde8eb4a0aa68a2c48d282e9b899aef233b1ecb8ca",
+      "relative_assignment": "embodied-e49-b/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "67c50d8577d8c23da5e2a32d2cb80e2f30bf72df4f8100801f4a38d0b272a9ec",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E49",
+      "variant": "B",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_bc34e1cfef10",
+      "correct_option": "D",
+      "source": "text_rule",
+      "source_sha256": "da46fb3c3dc653feb4d74edc49aa678c270a4d84db993760f0bdc843e1996dc5",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "fa95c3f5a807d36e24eb043289b10dbb124f3b0eb6f021ee9481178aef1ba080",
+      "assignment_identity_sha256": "7ff32e4dddbc2fd2ca9f17e016186134f26b82c31f74c6148d400e37d18ab9c0",
+      "relative_assignment": "embodied-e49-b/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "67c50d8577d8c23da5e2a32d2cb80e2f30bf72df4f8100801f4a38d0b272a9ec",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    },
+    {
+      "task_id": "E49",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "real",
+      "inference_group": "G2",
+      "question_id": "rq_bc34e1cfef10",
+      "correct_option": "B",
+      "source": "real",
+      "source_sha256": "1b9e5a0524de103e0541e736d271c4d7aaee0302ef0e8baacbc91ce022e500f9",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "3816ba842582b337758614843d52883105f0916ae79edcec7d8248d6946c3189",
+      "assignment_identity_sha256": "7b46456a017a3236aea5eb2baf268a8dab32e32f638d3559d6ed891d64024166",
+      "relative_assignment": "embodied-e49-c/environment/rule-qa/real.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "0ffec9035d9ee7c1a9654c72aa8d35e5d5a30f21481bed684972c67ac7b61bff",
+        "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+      }
+    },
+    {
+      "task_id": "E49",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "sim",
+      "inference_group": "G2",
+      "question_id": "rq_bc34e1cfef10",
+      "correct_option": "B",
+      "source": "sim",
+      "source_sha256": "e9355ba856faa0d04f0bdffaf875f73d838e650317a3c9bc73ae7ce1ec7141a9",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "e2e5cfd5a196ed412ebdb0ce5d9cc332940405cc36c85b1b8e946319d3e3f89e",
+      "assignment_identity_sha256": "6a4135467a8a2c6c449047a56155ae032cfcc8299caac3496826a7bf4089deef",
+      "relative_assignment": "embodied-e49-c/environment/rule-qa/sim.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "0ffec9035d9ee7c1a9654c72aa8d35e5d5a30f21481bed684972c67ac7b61bff",
+        "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+        "asset_verification": "copied_from_existing_frozen_media_no_new_simulation",
+        "media_lineage": {
+          "kind": "original_simulation_head_rgb_demo"
+        }
+      }
+    },
+    {
+      "task_id": "E49",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "inference_group": "G2",
+      "question_id": "rq_bc34e1cfef10",
+      "correct_option": "B",
+      "source": "text_rule",
+      "source_sha256": "5bd61301aebf932180916069164b55a54a29775dbb601295fc3a406cccb4db6f",
+      "protocol": "qa_then_act",
+      "assignment_sha256": "1e6000ced310cb52140f85c9f841b2bd9c08ac7537391cbebb3b41dba4b4ff3e",
+      "assignment_identity_sha256": "7b7c9967871154536fce7742690f14041f1823e77a5554ed92160804f525312d",
+      "relative_assignment": "embodied-e49-c/environment/rule-qa/text_rule.json",
+      "provenance": {
+        "bank_version": "embodied-rule-qa-v1",
+        "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+        "variant_rule_source_verified": true,
+        "source_video_sha256": "0ffec9035d9ee7c1a9654c72aa8d35e5d5a30f21481bed684972c67ac7b61bff",
+        "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+      }
+    }
+  ]
+}

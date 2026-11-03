@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E37",
+  "variant": "B",
+  "source": "real",
+  "source_sha256": "e7ce79a8c4dfcab23152288837cd5a4f5699cd72e1cebae67985541e05860c29",
+  "packet": {
+    "question_id": "rq_633570eb304b",
+    "prompt": "以操作者面对横梁时的左右为准，视频中卸下哪些螺丝？",
+    "options": {
+      "A": "左右两颗螺丝都保留，不卸下。",
+      "B": "左右两颗螺丝都卸下。",
+      "C": "卸下右侧螺丝，保留左侧。",
+      "D": "卸下左侧螺丝，保留右侧。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "6ae3dd90ed07f2d35dcdc7759dedbcef26c1067fa647fc5c1bcef1726e4e4f19",
+    "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+  }
+}

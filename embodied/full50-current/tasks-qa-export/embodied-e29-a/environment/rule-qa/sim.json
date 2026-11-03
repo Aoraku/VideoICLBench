@@ -1,0 +1,55 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E29",
+  "variant": "A",
+  "source": "sim",
+  "source_sha256": "050e2f85bfe9c76bcf5f599e6b0aed69809e420eccfe4fd471fb9dad8c040ffa",
+  "packet": {
+    "question_id": "rq_c17e1c5e583f",
+    "prompt": "视频中用琴槌按哪一种顺序敲击八个琴键？按最长到最短将琴键编号为1到8。",
+    "options": {
+      "A": "从最短键到最长键依次各敲1次：8→7→6→5→4→3→2→1。",
+      "B": "从最长到最短再返回，折返点只敲一次：1→2→3→4→5→6→7→8→7→6→5→4→3→2→1。",
+      "C": "从最长键到最短键依次各敲1次：1→2→3→4→5→6→7→8。",
+      "D": "往返各敲一遍：1→2→3→4→5→6→7→8→8→7→6→5→4→3→2→1。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "bfd4b0b0026efb80095644261d41742ce52e2536e075fcd0bee06aea0617c08a",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "sha256_full_decode_duration_fps_endpoint_verified",
+    "media_lineage": {
+      "kind": "original_sim_demo_uniform_speedmatched",
+      "speedmatched": true,
+      "duration_seconds": 8.0,
+      "fps": 30,
+      "media_lineage": {
+        "source_sim_sha256": "4db53a47b337b446f1e3f458e0e35ac124cff9724cd0bb6b6526e020f1670e4c",
+        "source_sim_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/sim150-20261030/media/E29/E29_A__head.mp4",
+        "source_sim_duration_seconds": 31.56,
+        "reference_real_sha256": "510f7452b1fce1ecda217a986ab0418a158a1e0fec9f9dea96b6b191dc43072d",
+        "reference_real_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/real-text300-20261030/E29/A/human.mp4",
+        "reference_real_duration_seconds": 8.0,
+        "speed_ratio": 3.945,
+        "transformation": "speedmatched_only",
+        "qa_answer_unchanged": true,
+        "source_manifest_sha256": "da5d21260243098b35fe6d9b9ad1f359223a621ee25f4306c421351a90eaffd5",
+        "trim_intervals_seconds": [],
+        "kept_source_frame_interval": [
+          0,
+          789
+        ],
+        "retained_source_duration_seconds": 31.56,
+        "v1_output_sha256": "050e2f85bfe9c76bcf5f599e6b0aed69809e420eccfe4fd471fb9dad8c040ffa",
+        "speed_ratio_retained": 3.945,
+        "frame_selection": "round(k*(source_frame_count-1)/(output_frame_count-1)), k=0..output_frame_count-1",
+        "review_status": "conservative_no_deletion_without_semantic_evidence"
+      }
+    }
+  }
+}

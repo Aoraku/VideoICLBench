@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E15",
+  "variant": "B",
+  "source": "text_rule",
+  "source_sha256": "9840d03c2e87ef9544fdd7ca3dd9fc1148aac7e2269a5b6ca4213ee1ba3f1e82",
+  "packet": {
+    "question_id": "rq_88cba630a4c6",
+    "prompt": "相对初始状态，视频中两个T形块的位置和朝向如何变化？",
+    "options": {
+      "A": "位置与朝向都交换。",
+      "B": "交换位置，各自朝向不变。",
+      "C": "两块的位置和朝向都保持不变。",
+      "D": "各自位置不变，只交换朝向。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "283a5ca656d782a3e7d14e29b0055a77ea3574b720541087a819ce402a4b9ccc",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

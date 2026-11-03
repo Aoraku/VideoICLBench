@@ -1,0 +1,6 @@
+{
+  "rule": "上层和下层都打开",
+  "evaluation_scope": "目标层可见开启、其余关闭；不要求统一拉出距离。",
+  "scope_note": "C下层只拉出较短距离，视频未支持统一开度阈值；判定可见打开状态，不能强制两层拉到相同长度。",
+  "source_video_sha256": "ca81fbd7f42532a66baad5bad37f3b140fa2910d55a9d0c097625cfdfcb834ac"
+}

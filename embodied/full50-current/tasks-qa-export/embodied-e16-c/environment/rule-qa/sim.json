@@ -1,0 +1,55 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E16",
+  "variant": "C",
+  "source": "sim",
+  "source_sha256": "1796899c648c9fbed3d43e2f7468b8ab4d244777937dc01c15da583dd4750d1f",
+  "packet": {
+    "question_id": "rq_3aaa966cec48",
+    "prompt": "视频中三件物体搬入托盘时，相对位置和各自朝向如何变化？",
+    "options": {
+      "A": "相对位置上下镜像、各件朝向不变后搬入。",
+      "B": "将三件的相对位置左右镜像，各件朝向保持不变后搬入。",
+      "C": "相对位置不变，每件原地逆时针转90°后搬入。",
+      "D": "保留三件的相对位置与朝向搬入托盘。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "18d8b19cd530eefa9918003ba79223c508e09346a49b20747356760028867ced",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "sha256_full_decode_duration_fps_endpoint_verified",
+    "media_lineage": {
+      "kind": "original_sim_demo_uniform_speedmatched",
+      "speedmatched": true,
+      "duration_seconds": 9.966016,
+      "fps": 30,
+      "media_lineage": {
+        "source_sim_sha256": "69e91623c3112600fbfd9f989af5ebc77dd21c86e0678927645762dadb375c5b",
+        "source_sim_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/sim150-20261030/media/E16/E16_C__head.mp4",
+        "source_sim_duration_seconds": 51.84,
+        "reference_real_sha256": "c7e6541f189ca7d4077022eba082e053c0dc93c7ab37c02c7c441d7fde3c9bbe",
+        "reference_real_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/real-text300-20261030/E16/C/human.mp4",
+        "reference_real_duration_seconds": 9.966667,
+        "speed_ratio": 5.201677380409585,
+        "transformation": "speedmatched_only",
+        "qa_answer_unchanged": true,
+        "source_manifest_sha256": "da5d21260243098b35fe6d9b9ad1f359223a621ee25f4306c421351a90eaffd5",
+        "trim_intervals_seconds": [],
+        "kept_source_frame_interval": [
+          0,
+          1296
+        ],
+        "retained_source_duration_seconds": 51.84,
+        "v1_output_sha256": "1796899c648c9fbed3d43e2f7468b8ab4d244777937dc01c15da583dd4750d1f",
+        "speed_ratio_retained": 5.201677380409585,
+        "frame_selection": "round(k*(source_frame_count-1)/(output_frame_count-1)), k=0..output_frame_count-1",
+        "review_status": "conservative_no_deletion_without_semantic_evidence"
+      }
+    }
+  }
+}

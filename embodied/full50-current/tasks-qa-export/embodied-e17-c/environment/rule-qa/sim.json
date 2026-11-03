@@ -1,0 +1,55 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E17",
+  "variant": "C",
+  "source": "sim",
+  "source_sha256": "4fed66bb669b374c43dc7f94ff702e08b43830a29de817f7ab18f2b25e0ecbd8",
+  "packet": {
+    "question_id": "rq_414a9c021418",
+    "prompt": "视频中四件物体如何分配到点心架上下两层？",
+    "options": {
+      "A": "蓝色放上层，绿色放下层。",
+      "B": "四件全部放上层。",
+      "C": "四件全部放下层。",
+      "D": "三角放上层，方形放下层。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "d4fd3f57c80c2ceb18771f58e9eeb4a1b1a68b7be2b6f405c878ebccdb274cba",
+    "semantic_review": "task_variant_and_rule_source_bound;independent_video_semantic_review_pending",
+    "asset_verification": "sha256_full_decode_duration_fps_endpoint_verified",
+    "media_lineage": {
+      "kind": "original_sim_demo_uniform_speedmatched",
+      "speedmatched": true,
+      "duration_seconds": 14.7,
+      "fps": 30,
+      "media_lineage": {
+        "source_sim_sha256": "98e3694a33e6e67691f11a477037f394dc63f75ab9b310f7b7380ab2a733ac03",
+        "source_sim_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/sim150-20261030/media/E17/E17_C__head.mp4",
+        "source_sim_duration_seconds": 124.56,
+        "reference_real_sha256": "a7b8bacce77603ffcca0ccaf1310868d755e5fa1c93d9765830357044e362580",
+        "reference_real_path": "/Users/lijieming/Documents/ChatGPT/VideoICL/RoboDojo-Audit/materials/real-text300-20261030/E17/C/human.mp4",
+        "reference_real_duration_seconds": 14.7,
+        "speed_ratio": 8.473469387755102,
+        "transformation": "speedmatched_only",
+        "qa_answer_unchanged": true,
+        "source_manifest_sha256": "da5d21260243098b35fe6d9b9ad1f359223a621ee25f4306c421351a90eaffd5",
+        "trim_intervals_seconds": [],
+        "kept_source_frame_interval": [
+          0,
+          3114
+        ],
+        "retained_source_duration_seconds": 124.56,
+        "v1_output_sha256": "4fed66bb669b374c43dc7f94ff702e08b43830a29de817f7ab18f2b25e0ecbd8",
+        "speed_ratio_retained": 8.473469387755102,
+        "frame_selection": "round(k*(source_frame_count-1)/(output_frame_count-1)), k=0..output_frame_count-1",
+        "review_status": "conservative_no_deletion_without_semantic_evidence"
+      }
+    }
+  }
+}

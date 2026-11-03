@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E45",
+  "variant": "A",
+  "source": "real",
+  "source_sha256": "b100f77ce0d610a9d824b4eb19b9040eca5974a8e355dfdfcddd4721c03184ea",
+  "packet": {
+    "question_id": "rq_3069a660d66e",
+    "prompt": "视频中把杯中所有球倒入哪一种图形格？",
+    "options": {
+      "A": "全部倒入圆形格。",
+      "B": "全部倒入三角形格。",
+      "C": "全部倒入方形格。",
+      "D": "全部倒入叉号格。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "538fb644da6c6355cba3a5d81256e3e581bdda6d5e5e16029c42ea93726265a9",
+    "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+  }
+}

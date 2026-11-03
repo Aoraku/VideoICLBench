@@ -1,0 +1,3199 @@
+{
+  "schema": "videoicl-task-registry-v1",
+  "registry_revision": "2026-10-18",
+  "taxonomy": "design/taxonomy52_20261016/taxonomy52.json",
+  "taxonomy_sha256": "20cbe212cee82998855102172b0b25843659b71f1cf5779f3063169dc360ed14",
+  "task_count": 48,
+  "variant_count": 144,
+  "scene_count_with_seeds": 288,
+  "variants": [
+    "A",
+    "B",
+    "C"
+  ],
+  "seeds": [
+    0,
+    7
+  ],
+  "existing_anchors": [
+    "F01",
+    "F08",
+    "F10",
+    "F11",
+    "F17",
+    "F22",
+    "F39",
+    "F44"
+  ],
+  "generated_scene_root": "scenes/generated",
+  "tasks": [
+    {
+      "id": "F01",
+      "name": "三色积木叠放",
+      "embodiment": "franka",
+      "category": "A",
+      "primary_type": "A",
+      "subtype": "A2",
+      "phase": 1,
+      "build_order": 1,
+      "design_order": 13,
+      "status": "released-anchor",
+      "existing_anchor": true,
+      "mechanism": "从示范学支撑次序，在新布局中搭建。",
+      "reference_analogue": "现有八题；RoboTwin Stack Blocks Three；RoboDojo stack_blocks",
+      "reference_url": null,
+      "variants": {
+        "A": "自下而上红绿蓝",
+        "B": "自下而上绿蓝红",
+        "C": "自下而上蓝红绿"
+      },
+      "scene_template": {
+        "asset_family": "assembly_support",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 3,
+        "goal_adapter": "stack",
+        "source_analogue": "现有八题；RoboTwin Stack Blocks Three；RoboDojo stack_blocks",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "自下而上红绿蓝",
+          "scene_paths": {
+            "0": "scenes/F01-A-0.private.json",
+            "7": "scenes/F01-A-7.private.json"
+          },
+          "source": "released"
+        },
+        {
+          "variant": "B",
+          "instruction": "自下而上绿蓝红",
+          "scene_paths": {
+            "0": "scenes/F01-B-0.private.json",
+            "7": "scenes/F01-B-7.private.json"
+          },
+          "source": "released"
+        },
+        {
+          "variant": "C",
+          "instruction": "自下而上蓝红绿",
+          "scene_paths": {
+            "0": "scenes/F01-C-0.private.json",
+            "7": "scenes/F01-C-7.private.json"
+          },
+          "source": "released"
+        }
+      ]
+    },
+    {
+      "id": "F02",
+      "name": "方杯按标记归位",
+      "embodiment": "ur5_wsg",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P1",
+      "phase": 2,
+      "build_order": 9,
+      "design_order": 1,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "学会物件到目标标记的映射，执行时打乱杯垫坐标。",
+      "reference_analogue": "内部基线；RoboTwin Place Empty Cup 仅作操作参考",
+      "reference_url": null,
+      "variants": {
+        "A": "圆标记垫",
+        "B": "三角标记垫",
+        "C": "方标记垫"
+      },
+      "scene_template": {
+        "asset_family": "hollow_square_cup",
+        "primitive": "box",
+        "object_count": 1,
+        "zone_count": 3,
+        "goal_adapter": "place",
+        "source_analogue": "内部基线；RoboTwin Place Empty Cup 仅作操作参考",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "圆标记垫",
+          "scene_paths": {
+            "0": "scenes/generated/F02-A-0.private.json",
+            "7": "scenes/generated/F02-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "三角标记垫",
+          "scene_paths": {
+            "0": "scenes/generated/F02-B-0.private.json",
+            "7": "scenes/generated/F02-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "方标记垫",
+          "scene_paths": {
+            "0": "scenes/generated/F02-C-0.private.json",
+            "7": "scenes/generated/F02-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F03",
+      "name": "多形状分类装盒",
+      "embodiment": "arx_x5",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P1",
+      "phase": 2,
+      "build_order": 10,
+      "design_order": 2,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "六件三形状，视频教形状到三个盒标记的映射。",
+      "reference_analogue": "RoboDojo classify_objects",
+      "reference_url": null,
+      "variants": {
+        "A": "圆/三角/方件进圆/三角/方盒",
+        "B": "三种形状映射循环一位",
+        "C": "三种形状映射循环两位"
+      },
+      "scene_template": {
+        "asset_family": "open_bin_shape_sorting",
+        "primitive": "box",
+        "object_count": 6,
+        "zone_count": 3,
+        "goal_adapter": "place",
+        "source_analogue": "RoboDojo classify_objects",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "圆/三角/方件进圆/三角/方盒",
+          "scene_paths": {
+            "0": "scenes/generated/F03-A-0.private.json",
+            "7": "scenes/generated/F03-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "三种形状映射循环一位",
+          "scene_paths": {
+            "0": "scenes/generated/F03-B-0.private.json",
+            "7": "scenes/generated/F03-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "三种形状映射循环两位",
+          "scene_paths": {
+            "0": "scenes/generated/F03-C-0.private.json",
+            "7": "scenes/generated/F03-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F04",
+      "name": "按示范装蛋托（Fill Egg Holder）",
+      "embodiment": "franka",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P2",
+      "phase": 2,
+      "build_order": 11,
+      "design_order": 3,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "从视频学习三个孔位的占用布局，在位置和朝向改变的蛋托上复现。",
+      "reference_analogue": "RoboDojo Fill Egg Holder；本题增加三种孔位布局规则。",
+      "reference_url": "https://robodojo-benchmark.com/doc/sim-tasks/fill-egg-holder/",
+      "variants": {
+        "A": "填满靠近蛋托方向标记的一排（三个孔）。",
+        "B": "填满远离蛋托方向标记的一排（三个孔）。",
+        "C": "交错摆放：近排两端各一枚，远排中间一枚。"
+      },
+      "scene_template": {
+        "asset_family": "three_eggs_six_open_recesses",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 7,
+        "goal_adapter": "place",
+        "source_analogue": "RoboDojo Fill Egg Holder；本题增加三种孔位布局规则。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "填满靠近蛋托方向标记的一排（三个孔）。",
+          "scene_paths": {
+            "0": "scenes/generated/F04-A-0.private.json",
+            "7": "scenes/generated/F04-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "填满远离蛋托方向标记的一排（三个孔）。",
+          "scene_paths": {
+            "0": "scenes/generated/F04-B-0.private.json",
+            "7": "scenes/generated/F04-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "交错摆放：近排两端各一枚，远排中间一枚。",
+          "scene_paths": {
+            "0": "scenes/generated/F04-C-0.private.json",
+            "7": "scenes/generated/F04-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F05",
+      "name": "尺寸序列排列",
+      "embodiment": "ur5_wsg",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P1",
+      "phase": 2,
+      "build_order": 12,
+      "design_order": 4,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "将五件按尺寸关系排成序列，避免只会挑最大件。",
+      "reference_analogue": "RoboTwin Blocks Ranking Size",
+      "reference_url": null,
+      "variants": {
+        "A": "从小到大",
+        "B": "从大到小",
+        "C": "中位、次小、次大、最小、最大"
+      },
+      "scene_template": {
+        "asset_family": "five_size_ranking",
+        "primitive": "box",
+        "object_count": 5,
+        "zone_count": 5,
+        "goal_adapter": "place",
+        "source_analogue": "RoboTwin Blocks Ranking Size",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "从小到大",
+          "scene_paths": {
+            "0": "scenes/generated/F05-A-0.private.json",
+            "7": "scenes/generated/F05-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "从大到小",
+          "scene_paths": {
+            "0": "scenes/generated/F05-B-0.private.json",
+            "7": "scenes/generated/F05-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "中位、次小、次大、最小、最大",
+          "scene_paths": {
+            "0": "scenes/generated/F05-C-0.private.json",
+            "7": "scenes/generated/F05-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F06",
+      "name": "按示范摆鞋",
+      "embodiment": "franka",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P2",
+      "phase": 2,
+      "build_order": 13,
+      "design_order": 8,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "利用鞋尖与鞋跟的自然外形，从视频学习两只鞋在鞋盒里的朝向关系，并在新布局中复现。",
+      "reference_analogue": "参考 RoboTwin Place Dual Shoes 的鞋与鞋盒场景；A/B/C 摆法为本项目扩展。原实现使用同一鞋模型的两个实例，左右脚自然可辨的资产仍须选型或适配。",
+      "reference_url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/main/envs/place_dual_shoes.py",
+      "variants": {
+        "A": "两鞋并排，鞋尖都朝鞋盒品牌标签侧。",
+        "B": "两鞋并排，鞋跟都朝品牌标签侧。",
+        "C": "两鞋一正一反：左脚鞋鞋尖朝品牌标签侧，右脚鞋鞋跟朝品牌标签侧。"
+      },
+      "scene_template": {
+        "asset_family": "F06-dedicated",
+        "primitive": "box",
+        "object_count": 2,
+        "zone_count": 1,
+        "goal_adapter": "task_specific",
+        "source_analogue": "参考 RoboTwin Place Dual Shoes 的鞋与鞋盒场景；A/B/C 摆法为本项目扩展。原实现使用同一鞋模型的两个实例，左右脚自然可辨的资产仍须选型或适配。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "两鞋并排，鞋尖都朝鞋盒品牌标签侧。",
+          "scene_paths": {
+            "0": "scenes/generated/F06-A-0.private.json",
+            "7": "scenes/generated/F06-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "两鞋并排，鞋跟都朝品牌标签侧。",
+          "scene_paths": {
+            "0": "scenes/generated/F06-B-0.private.json",
+            "7": "scenes/generated/F06-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "两鞋一正一反：左脚鞋鞋尖朝品牌标签侧，右脚鞋鞋跟朝品牌标签侧。",
+          "scene_paths": {
+            "0": "scenes/generated/F06-C-0.private.json",
+            "7": "scenes/generated/F06-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F07",
+      "name": "交叉属性分组",
+      "embodiment": "arx_x5",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P1",
+      "phase": 2,
+      "build_order": 14,
+      "design_order": 5,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "同一批颜色×形状交叉物件，区分按颜色、按形状或交叉配套。",
+      "reference_analogue": "RoboDojo classify_objects；内部 F03 扩展",
+      "reference_url": null,
+      "variants": {
+        "A": "按颜色分三组",
+        "B": "按形状分三组",
+        "C": "按公开可见标记建立的交叉配套分三组"
+      },
+      "scene_template": {
+        "asset_family": "color_shape_cross_sorting",
+        "primitive": "box",
+        "object_count": 9,
+        "zone_count": 3,
+        "goal_adapter": "place",
+        "source_analogue": "RoboDojo classify_objects；内部 F03 扩展",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "按颜色分三组",
+          "scene_paths": {
+            "0": "scenes/generated/F07-A-0.private.json",
+            "7": "scenes/generated/F07-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "按形状分三组",
+          "scene_paths": {
+            "0": "scenes/generated/F07-B-0.private.json",
+            "7": "scenes/generated/F07-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "按公开可见标记建立的交叉配套分三组",
+          "scene_paths": {
+            "0": "scenes/generated/F07-C-0.private.json",
+            "7": "scenes/generated/F07-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F08",
+      "name": "形状匹配插孔",
+      "embodiment": "ur5_wsg",
+      "category": "A",
+      "primary_type": "A",
+      "subtype": "A1",
+      "phase": 1,
+      "build_order": 4,
+      "design_order": 14,
+      "status": "released-anchor",
+      "existing_anchor": true,
+      "mechanism": "视频决定套件，真实孔形决定装配位置。",
+      "reference_analogue": "现有八题；RoboDojo insert_tubes / plug_in_charger",
+      "reference_url": null,
+      "variants": {
+        "A": "红色套件",
+        "B": "绿色套件",
+        "C": "蓝色套件"
+      },
+      "scene_template": {
+        "asset_family": "peg_socket",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 3,
+        "goal_adapter": "insert",
+        "source_analogue": "现有八题；RoboDojo insert_tubes / plug_in_charger",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "红色套件",
+          "scene_paths": {
+            "0": "scenes/F08-A-0.private.json",
+            "7": "scenes/F08-A-7.private.json"
+          },
+          "source": "released"
+        },
+        {
+          "variant": "B",
+          "instruction": "绿色套件",
+          "scene_paths": {
+            "0": "scenes/F08-B-0.private.json",
+            "7": "scenes/F08-B-7.private.json"
+          },
+          "source": "released"
+        },
+        {
+          "variant": "C",
+          "instruction": "蓝色套件",
+          "scene_paths": {
+            "0": "scenes/F08-C-0.private.json",
+            "7": "scenes/F08-C-7.private.json"
+          },
+          "source": "released"
+        }
+      ]
+    },
+    {
+      "id": "F09",
+      "name": "按规则夹衣夹",
+      "embodiment": "franka",
+      "category": "A",
+      "primary_type": "A",
+      "subtype": "A2",
+      "phase": 3,
+      "build_order": 27,
+      "design_order": 15,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "桌上有红、绿、蓝三只大号衣夹和三块标记板。按视频把衣夹夹到指定位置：A 红到圆、绿到三角、蓝到方；B 红到三角、绿到方、蓝到圆；C 红到方、绿到圆、蓝到三角。衣夹要真的夹住板边，松手后不能掉。",
+      "reference_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+      "reference_url": null,
+      "variants": {
+        "A": "红夹夹在圆标记边；绿夹夹在三角标记边；蓝夹夹在方标记边。",
+        "B": "红夹夹在三角标记边；绿夹夹在方标记边；蓝夹夹在圆标记边。",
+        "C": "红夹夹在方标记边；绿夹夹在圆标记边；蓝夹夹在三角标记边。"
+      },
+      "scene_template": {
+        "asset_family": "F09-dedicated",
+        "primitive": "box",
+        "object_count": 6,
+        "zone_count": 3,
+        "goal_adapter": "task_specific",
+        "source_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "红夹夹在圆标记边；绿夹夹在三角标记边；蓝夹夹在方标记边。",
+          "scene_paths": {
+            "0": "scenes/generated/F09-A-0.private.json",
+            "7": "scenes/generated/F09-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "红夹夹在三角标记边；绿夹夹在方标记边；蓝夹夹在圆标记边。",
+          "scene_paths": {
+            "0": "scenes/generated/F09-B-0.private.json",
+            "7": "scenes/generated/F09-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "红夹夹在方标记边；绿夹夹在圆标记边；蓝夹夹在三角标记边。",
+          "scene_paths": {
+            "0": "scenes/generated/F09-C-0.private.json",
+            "7": "scenes/generated/F09-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F10",
+      "name": "参照拼板变换",
+      "embodiment": "franka",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P2",
+      "phase": 1,
+      "build_order": 3,
+      "design_order": 9,
+      "status": "released-anchor",
+      "existing_anchor": true,
+      "mechanism": "从参照板向空框迁移示范中的变换。",
+      "reference_analogue": "现有八题锚点",
+      "reference_url": null,
+      "variants": {
+        "A": "保持相对位置",
+        "B": "顺时针旋转一格",
+        "C": "左右镜像"
+      },
+      "scene_template": {
+        "asset_family": "layout_board",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 3,
+        "goal_adapter": "place",
+        "source_analogue": "现有八题锚点",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "保持相对位置",
+          "scene_paths": {
+            "0": "scenes/F10-A-0.private.json",
+            "7": "scenes/F10-A-7.private.json"
+          },
+          "source": "released"
+        },
+        {
+          "variant": "B",
+          "instruction": "顺时针旋转一格",
+          "scene_paths": {
+            "0": "scenes/F10-B-0.private.json",
+            "7": "scenes/F10-B-7.private.json"
+          },
+          "source": "released"
+        },
+        {
+          "variant": "C",
+          "instruction": "左右镜像",
+          "scene_paths": {
+            "0": "scenes/F10-C-0.private.json",
+            "7": "scenes/F10-C-7.private.json"
+          },
+          "source": "released"
+        }
+      ]
+    },
+    {
+      "id": "F11",
+      "name": "圆环分柱套放",
+      "embodiment": "ur5_wsg",
+      "category": "A",
+      "primary_type": "A",
+      "subtype": "A1",
+      "phase": 1,
+      "build_order": 2,
+      "design_order": 16,
+      "status": "released-anchor",
+      "existing_anchor": true,
+      "mechanism": "从示范学颜色到柱标记的对应关系，真正套入。",
+      "reference_analogue": "现有八题；RoboDojo play_stacking_toy",
+      "reference_url": null,
+      "variants": {
+        "A": "圆/三角/方柱分别套红/绿/蓝",
+        "B": "圆/三角/方柱分别套绿/蓝/红",
+        "C": "圆/三角/方柱分别套蓝/红/绿"
+      },
+      "scene_template": {
+        "asset_family": "peg_socket",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 3,
+        "goal_adapter": "insert",
+        "source_analogue": "现有八题；RoboDojo play_stacking_toy",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "圆/三角/方柱分别套红/绿/蓝",
+          "scene_paths": {
+            "0": "scenes/F11-A-0.private.json",
+            "7": "scenes/F11-A-7.private.json"
+          },
+          "source": "released"
+        },
+        {
+          "variant": "B",
+          "instruction": "圆/三角/方柱分别套绿/蓝/红",
+          "scene_paths": {
+            "0": "scenes/F11-B-0.private.json",
+            "7": "scenes/F11-B-7.private.json"
+          },
+          "source": "released"
+        },
+        {
+          "variant": "C",
+          "instruction": "圆/三角/方柱分别套蓝/红/绿",
+          "scene_paths": {
+            "0": "scenes/F11-C-0.private.json",
+            "7": "scenes/F11-C-7.private.json"
+          },
+          "source": "released"
+        }
+      ]
+    },
+    {
+      "id": "F12",
+      "name": "按顺序插卡片",
+      "embodiment": "franka",
+      "category": "A",
+      "primary_type": "A",
+      "subtype": "A1",
+      "phase": 2,
+      "build_order": 15,
+      "design_order": 17,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "桌上有红、绿、蓝三张厚卡片和三个普通卡座。看视频从左到右插卡：A 红绿蓝，B 绿蓝红，C 蓝红绿。每张卡都要插进卡座并站稳。",
+      "reference_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+      "reference_url": null,
+      "variants": {
+        "A": "从左到右插红、绿、蓝。",
+        "B": "从左到右插绿、蓝、红。",
+        "C": "从左到右插蓝、红、绿。"
+      },
+      "scene_template": {
+        "asset_family": "thick_cards_open_groove_holders",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 3,
+        "goal_adapter": "place",
+        "source_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "从左到右插红、绿、蓝。",
+          "scene_paths": {
+            "0": "scenes/generated/F12-A-0.private.json",
+            "7": "scenes/generated/F12-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "从左到右插绿、蓝、红。",
+          "scene_paths": {
+            "0": "scenes/generated/F12-B-0.private.json",
+            "7": "scenes/generated/F12-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "从左到右插蓝、红、绿。",
+          "scene_paths": {
+            "0": "scenes/generated/F12-C-0.private.json",
+            "7": "scenes/generated/F12-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F13",
+      "name": "指定充电器插入插排（Plug In Charger）",
+      "embodiment": "ur5_wsg",
+      "category": "A",
+      "primary_type": "A",
+      "subtype": "A1",
+      "phase": 3,
+      "build_order": 28,
+      "design_order": 18,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "从视频识别指定充电器，调整插脚与插孔的朝向，将它真实插入插排。",
+      "reference_analogue": "参考 RoboDojo Plug In Charger。原版配置含一个 charger 和一个 socket；本题扩为三个可辨认外壳的同规格充电器，由视频指定目标。",
+      "reference_url": "https://github.com/robodojo-benchmark/RoboDojo/blob/main/task/RoboDojo/tasks/plug_in_charger.py",
+      "variants": {
+        "A": "选择黑色充电器插入插排，其他两个留在桌上。",
+        "B": "选择白色充电器插入插排，其他两个留在桌上。",
+        "C": "选择蓝色充电器插入插排，其他两个留在桌上。"
+      },
+      "scene_template": {
+        "asset_family": "F13-dedicated",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "参考 RoboDojo Plug In Charger。原版配置含一个 charger 和一个 socket；本题扩为三个可辨认外壳的同规格充电器，由视频指定目标。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "选择黑色充电器插入插排，其他两个留在桌上。",
+          "scene_paths": {
+            "0": "scenes/generated/F13-A-0.private.json",
+            "7": "scenes/generated/F13-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "选择白色充电器插入插排，其他两个留在桌上。",
+          "scene_paths": {
+            "0": "scenes/generated/F13-B-0.private.json",
+            "7": "scenes/generated/F13-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "选择蓝色充电器插入插排，其他两个留在桌上。",
+          "scene_paths": {
+            "0": "scenes/generated/F13-C-0.private.json",
+            "7": "scenes/generated/F13-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F14",
+      "name": "按示范摆放手机（Place Phone Stand）",
+      "embodiment": "ur5_wsg",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P2",
+      "phase": 2,
+      "build_order": 16,
+      "design_order": 19,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "从视频学习手机在支架上的竖屏或横屏摆法，利用听筒端辨认方向，再在新位置的支架上复现。",
+      "reference_analogue": "参考 RoboTwin Place Phone Stand 的 077_phone、078_phonestand。原版将手机放到支架目标位；三种屏幕方向是本项目扩展，不能假设原支架的每个模型都支持。",
+      "reference_url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/main/envs/place_phone_stand.py",
+      "variants": {
+        "A": "竖屏放置，听筒端朝上，屏幕朝向支架观看侧。",
+        "B": "横屏放置，从支架观看侧看听筒端朝左，屏幕仍朝向观看侧。",
+        "C": "横屏放置，从支架观看侧看听筒端朝右，屏幕仍朝向观看侧。"
+      },
+      "scene_template": {
+        "asset_family": "F14-dedicated",
+        "primitive": "box",
+        "object_count": 1,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "参考 RoboTwin Place Phone Stand 的 077_phone、078_phonestand。原版将手机放到支架目标位；三种屏幕方向是本项目扩展，不能假设原支架的每个模型都支持。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "竖屏放置，听筒端朝上，屏幕朝向支架观看侧。",
+          "scene_paths": {
+            "0": "scenes/generated/F14-A-0.private.json",
+            "7": "scenes/generated/F14-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "横屏放置，从支架观看侧看听筒端朝左，屏幕仍朝向观看侧。",
+          "scene_paths": {
+            "0": "scenes/generated/F14-B-0.private.json",
+            "7": "scenes/generated/F14-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "横屏放置，从支架观看侧看听筒端朝右，屏幕仍朝向观看侧。",
+          "scene_paths": {
+            "0": "scenes/generated/F14-C-0.private.json",
+            "7": "scenes/generated/F14-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F15",
+      "name": "稳住可动孔板再装配",
+      "embodiment": "franka",
+      "category": "A",
+      "primary_type": "A",
+      "subtype": "A1",
+      "phase": 3,
+      "build_order": 29,
+      "design_order": 47,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "孔板本身能动，插接与稳定不能只当两个静态点。",
+      "reference_analogue": "RoboDojo insert_tubes / insert_key；双臂稳定机制",
+      "reference_url": null,
+      "variants": {
+        "A": "圆标记接口",
+        "B": "三角标记接口",
+        "C": "方标记接口"
+      },
+      "scene_template": {
+        "asset_family": "F15-dedicated",
+        "primitive": "box",
+        "object_count": 2,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "RoboDojo insert_tubes / insert_key；双臂稳定机制",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "圆标记接口",
+          "scene_paths": {
+            "0": "scenes/generated/F15-A-0.private.json",
+            "7": "scenes/generated/F15-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "三角标记接口",
+          "scene_paths": {
+            "0": "scenes/generated/F15-B-0.private.json",
+            "7": "scenes/generated/F15-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "方标记接口",
+          "scene_paths": {
+            "0": "scenes/generated/F15-C-0.private.json",
+            "7": "scenes/generated/F15-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F16",
+      "name": "单空位滑块循环重排",
+      "embodiment": "ur5_wsg",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P2",
+      "phase": 3,
+      "build_order": 30,
+      "design_order": 28,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "在真实限位滑道中用唯一空位完成置换。",
+      "reference_analogue": "RoboDojo swap_blocks",
+      "reference_url": null,
+      "variants": {
+        "A": "物件角色循环一位",
+        "B": "循环两位",
+        "C": "两端角色互换"
+      },
+      "scene_template": {
+        "asset_family": "F16-dedicated",
+        "primitive": "box",
+        "object_count": 5,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "RoboDojo swap_blocks",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "物件角色循环一位",
+          "scene_paths": {
+            "0": "scenes/generated/F16-A-0.private.json",
+            "7": "scenes/generated/F16-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "循环两位",
+          "scene_paths": {
+            "0": "scenes/generated/F16-B-0.private.json",
+            "7": "scenes/generated/F16-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "两端角色互换",
+          "scene_paths": {
+            "0": "scenes/generated/F16-C-0.private.json",
+            "7": "scenes/generated/F16-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F17",
+      "name": "堆叠取件与剩余结构恢复",
+      "embodiment": "franka",
+      "category": "W",
+      "primary_type": "W",
+      "subtype": "W1",
+      "phase": 1,
+      "build_order": 6,
+      "design_order": 21,
+      "status": "released-anchor",
+      "existing_anchor": true,
+      "mechanism": "取出中间指定层，拆卸后恢复剩余层序。",
+      "reference_analogue": "现有八题；RoboDojo 长程与堆叠机制",
+      "reference_url": null,
+      "variants": {
+        "A": "从底数第 2 层",
+        "B": "从底数第 3 层",
+        "C": "从底数第 4 层"
+      },
+      "scene_template": {
+        "asset_family": "multi_stage_fixture",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 3,
+        "goal_adapter": "place",
+        "source_analogue": "现有八题；RoboDojo 长程与堆叠机制",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": true,
+        "requires_tool_contact": false,
+        "requires_multi_stage": true
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "从底数第 2 层",
+          "scene_paths": {
+            "0": "scenes/F17-A-0.private.json",
+            "7": "scenes/F17-A-7.private.json"
+          },
+          "source": "released"
+        },
+        {
+          "variant": "B",
+          "instruction": "从底数第 3 层",
+          "scene_paths": {
+            "0": "scenes/F17-B-0.private.json",
+            "7": "scenes/F17-B-7.private.json"
+          },
+          "source": "released"
+        },
+        {
+          "variant": "C",
+          "instruction": "从底数第 4 层",
+          "scene_paths": {
+            "0": "scenes/F17-C-0.private.json",
+            "7": "scenes/F17-C-7.private.json"
+          },
+          "source": "released"
+        }
+      ]
+    },
+    {
+      "id": "F18",
+      "name": "位置与朝向交换（Swap T）",
+      "embodiment": "arx_x5",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P2",
+      "phase": 2,
+      "build_order": 17,
+      "design_order": 29,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "从视频判断交换的是位置、朝向还是两者；记住红、蓝 T 形块各自的初始位置与朝向，执行对应变换。",
+      "reference_analogue": "参考 RoboDojo Swap T。其原实现要求位置和朝向一起交换，对应 C；A/B 是本项目的视频规则扩展。",
+      "reference_url": "https://github.com/robodojo-benchmark/RoboDojo/blob/main/task/RoboDojo/tasks/swap_T.py",
+      "variants": {
+        "A": "只交换位置：红、蓝 T 互换初始位置，各自保留自身初始朝向。",
+        "B": "只交换朝向：两块各自留在初始位置，红 T 采用蓝 T 的初始朝向，蓝 T 采用红 T 的初始朝向。",
+        "C": "位置与朝向都交换：每块占据另一块的初始位置，并采用另一块的初始朝向。"
+      },
+      "scene_template": {
+        "asset_family": "F18-dedicated",
+        "primitive": "box",
+        "object_count": 2,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "参考 RoboDojo Swap T。其原实现要求位置和朝向一起交换，对应 C；A/B 是本项目的视频规则扩展。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "只交换位置：红、蓝 T 互换初始位置，各自保留自身初始朝向。",
+          "scene_paths": {
+            "0": "scenes/generated/F18-A-0.private.json",
+            "7": "scenes/generated/F18-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "只交换朝向：两块各自留在初始位置，红 T 采用蓝 T 的初始朝向，蓝 T 采用红 T 的初始朝向。",
+          "scene_paths": {
+            "0": "scenes/generated/F18-B-0.private.json",
+            "7": "scenes/generated/F18-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "位置与朝向都交换：每块占据另一块的初始位置，并采用另一块的初始朝向。",
+          "scene_paths": {
+            "0": "scenes/generated/F18-C-0.private.json",
+            "7": "scenes/generated/F18-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F19",
+      "name": "参照布局的选择性纠错",
+      "embodiment": "franka",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P2",
+      "phase": 2,
+      "build_order": 18,
+      "design_order": 30,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "视频区分该修哪种错误；执行场景同时含位置错和朝向错。",
+      "reference_analogue": "内部局部纠错；RoboDojo state-conditioned correction 的启发",
+      "reference_url": null,
+      "variants": {
+        "A": "只纠正位置，保留原朝向",
+        "B": "只纠正朝向，保留原位置",
+        "C": "同时纠正位置和朝向"
+      },
+      "scene_template": {
+        "asset_family": "F19-dedicated",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 3,
+        "goal_adapter": "task_specific",
+        "source_analogue": "内部局部纠错；RoboDojo state-conditioned correction 的启发",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "只纠正位置，保留原朝向",
+          "scene_paths": {
+            "0": "scenes/generated/F19-A-0.private.json",
+            "7": "scenes/generated/F19-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "只纠正朝向，保留原位置",
+          "scene_paths": {
+            "0": "scenes/generated/F19-B-0.private.json",
+            "7": "scenes/generated/F19-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "同时纠正位置和朝向",
+          "scene_paths": {
+            "0": "scenes/generated/F19-C-0.private.json",
+            "7": "scenes/generated/F19-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F20",
+      "name": "整体布局搬迁",
+      "embodiment": "arx_x5",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P2",
+      "phase": 3,
+      "build_order": 31,
+      "design_order": 22,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "把一组物件迁入新底板，保持其内部邻接与朝向。",
+      "reference_analogue": "内部 F10 规则迁移到搬迁；RoboDojo organize_table",
+      "reference_url": null,
+      "variants": {
+        "A": "整体平移",
+        "B": "在新板内旋转 90°",
+        "C": "在新板内镜像"
+      },
+      "scene_template": {
+        "asset_family": "F20-dedicated",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "内部 F10 规则迁移到搬迁；RoboDojo organize_table",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "整体平移",
+          "scene_paths": {
+            "0": "scenes/generated/F20-A-0.private.json",
+            "7": "scenes/generated/F20-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "在新板内旋转 90°",
+          "scene_paths": {
+            "0": "scenes/generated/F20-B-0.private.json",
+            "7": "scenes/generated/F20-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "在新板内镜像",
+          "scene_paths": {
+            "0": "scenes/generated/F20-C-0.private.json",
+            "7": "scenes/generated/F20-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F21",
+      "name": "篮中指定物取放",
+      "embodiment": "franka",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P3",
+      "phase": 3,
+      "build_order": 32,
+      "design_order": 23,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "篮子里混放着几件常见小物，旁边有三个收集区。看视频选出指定物品，把它从篮子里拿出来放到目标区；其他物品留在篮子里。",
+      "reference_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+      "reference_url": null,
+      "variants": {
+        "A": "取红色物品放圆标记区。",
+        "B": "取绿色物品放三角标记区。",
+        "C": "取蓝色物品放方标记区。"
+      },
+      "scene_template": {
+        "asset_family": "F21-dedicated",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 4,
+        "goal_adapter": "task_specific",
+        "source_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "取红色物品放圆标记区。",
+          "scene_paths": {
+            "0": "scenes/generated/F21-A-0.private.json",
+            "7": "scenes/generated/F21-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "取绿色物品放三角标记区。",
+          "scene_paths": {
+            "0": "scenes/generated/F21-B-0.private.json",
+            "7": "scenes/generated/F21-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "取蓝色物品放方标记区。",
+          "scene_paths": {
+            "0": "scenes/generated/F21-C-0.private.json",
+            "7": "scenes/generated/F21-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F22",
+      "name": "双层托盘取放",
+      "embodiment": "arx_x5",
+      "category": "W",
+      "primary_type": "W",
+      "subtype": "W1",
+      "phase": 1,
+      "build_order": 5,
+      "design_order": 24,
+      "status": "released-anchor",
+      "existing_anchor": true,
+      "mechanism": "移开上层访问下层，按比较规则取件并恢复。",
+      "reference_analogue": "现有八题核心；嵌套/长程/双臂访问",
+      "reference_url": null,
+      "variants": {
+        "A": "下层最大件",
+        "B": "下层中间尺寸件",
+        "C": "下层最小件"
+      },
+      "scene_template": {
+        "asset_family": "multi_stage_fixture",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 3,
+        "goal_adapter": "place",
+        "source_analogue": "现有八题核心；嵌套/长程/双臂访问",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": true,
+        "requires_tool_contact": false,
+        "requires_multi_stage": true
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "下层最大件",
+          "scene_paths": {
+            "0": "scenes/F22-A-0.private.json",
+            "7": "scenes/F22-A-7.private.json"
+          },
+          "source": "released"
+        },
+        {
+          "variant": "B",
+          "instruction": "下层中间尺寸件",
+          "scene_paths": {
+            "0": "scenes/F22-B-0.private.json",
+            "7": "scenes/F22-B-7.private.json"
+          },
+          "source": "released"
+        },
+        {
+          "variant": "C",
+          "instruction": "下层最小件",
+          "scene_paths": {
+            "0": "scenes/F22-C-0.private.json",
+            "7": "scenes/F22-C-7.private.json"
+          },
+          "source": "released"
+        }
+      ]
+    },
+    {
+      "id": "F23",
+      "name": "抽屉取件并关回",
+      "embodiment": "ur5_wsg",
+      "category": "W",
+      "primary_type": "W",
+      "subtype": "W1",
+      "phase": 2,
+      "build_order": 19,
+      "design_order": 25,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "抽屉里有红、绿、蓝三件小物。看视频拿走哪件，就拉开抽屉，把同颜色的小物拿出来放到盘里，最后把抽屉关回去。其他两件留在抽屉里。",
+      "reference_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+      "reference_url": null,
+      "variants": {
+        "A": "取红色物品放盘中，再关回抽屉。",
+        "B": "取绿色物品放盘中，再关回抽屉。",
+        "C": "取蓝色物品放盘中，再关回抽屉。"
+      },
+      "scene_template": {
+        "asset_family": "F23-dedicated",
+        "primitive": "box",
+        "object_count": 4,
+        "zone_count": 1,
+        "goal_adapter": "task_specific",
+        "source_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": true,
+        "requires_tool_contact": false,
+        "requires_multi_stage": true
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "取红色物品放盘中，再关回抽屉。",
+          "scene_paths": {
+            "0": "scenes/generated/F23-A-0.private.json",
+            "7": "scenes/generated/F23-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "取绿色物品放盘中，再关回抽屉。",
+          "scene_paths": {
+            "0": "scenes/generated/F23-B-0.private.json",
+            "7": "scenes/generated/F23-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "取蓝色物品放盘中，再关回抽屉。",
+          "scene_paths": {
+            "0": "scenes/generated/F23-C-0.private.json",
+            "7": "scenes/generated/F23-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F24",
+      "name": "翻牌顺序并归位",
+      "embodiment": "arx_x5",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P2",
+      "phase": 2,
+      "build_order": 20,
+      "design_order": 31,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "桌上有红、绿、蓝三张正反面不同的卡片。按视频顺序把卡片翻面并放入收集盒：A 红绿蓝，B 绿蓝红，C 蓝红绿。这里既看翻面，也看先后顺序。",
+      "reference_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+      "reference_url": null,
+      "variants": {
+        "A": "先翻红卡，再翻绿卡，最后翻蓝卡。",
+        "B": "先翻绿卡，再翻蓝卡，最后翻红卡。",
+        "C": "先翻蓝卡，再翻红卡，最后翻绿卡。"
+      },
+      "scene_template": {
+        "asset_family": "F24-dedicated",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 1,
+        "goal_adapter": "task_specific",
+        "source_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "先翻红卡，再翻绿卡，最后翻蓝卡。",
+          "scene_paths": {
+            "0": "scenes/generated/F24-A-0.private.json",
+            "7": "scenes/generated/F24-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "先翻绿卡，再翻蓝卡，最后翻红卡。",
+          "scene_paths": {
+            "0": "scenes/generated/F24-B-0.private.json",
+            "7": "scenes/generated/F24-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "先翻蓝卡，再翻红卡，最后翻绿卡。",
+          "scene_paths": {
+            "0": "scenes/generated/F24-C-0.private.json",
+            "7": "scenes/generated/F24-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F25",
+      "name": "瓶盖与瓶子配对",
+      "embodiment": "ur5_wsg",
+      "category": "A",
+      "primary_type": "A",
+      "subtype": "A1",
+      "phase": 3,
+      "build_order": 33,
+      "design_order": 26,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "桌上有红绿蓝三个小瓶和三只彩色盖子，盖子大小一样，都能套在任何一个瓶口上。照视频学到的颜色配对，把三个盖子分别盖到对应的瓶子上。盖稳即可，不拧螺纹。",
+      "reference_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+      "reference_url": null,
+      "variants": {
+        "A": "红盖配红瓶、绿盖配绿瓶、蓝盖配蓝瓶。",
+        "B": "红盖配绿瓶、绿盖配蓝瓶、蓝盖配红瓶。",
+        "C": "红盖配蓝瓶、绿盖配红瓶、蓝盖配绿瓶。"
+      },
+      "scene_template": {
+        "asset_family": "F25-dedicated",
+        "primitive": "box",
+        "object_count": 6,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "红盖配红瓶、绿盖配绿瓶、蓝盖配蓝瓶。",
+          "scene_paths": {
+            "0": "scenes/generated/F25-A-0.private.json",
+            "7": "scenes/generated/F25-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "红盖配绿瓶、绿盖配蓝瓶、蓝盖配红瓶。",
+          "scene_paths": {
+            "0": "scenes/generated/F25-B-0.private.json",
+            "7": "scenes/generated/F25-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "红盖配蓝瓶、绿盖配红瓶、蓝盖配绿瓶。",
+          "scene_paths": {
+            "0": "scenes/generated/F25-C-0.private.json",
+            "7": "scenes/generated/F25-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F26",
+      "name": "按示范配餐",
+      "embodiment": "franka",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P1",
+      "phase": 2,
+      "build_order": 21,
+      "design_order": 6,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "从视频学习本次套餐包含哪两种食物，从汉堡、薯条、饮料中选出正确两样装入餐盘。",
+      "reference_analogue": "参考 RoboTwin Place Burger Fries。原版将汉堡和薯条放到托盘；本题加入饮料及三种套餐选择，不沿用原版固定盘内位置要求。",
+      "reference_url": "https://github.com/RoboTwin-Platform/RoboTwin/blob/main/envs/place_burger_fries.py",
+      "variants": {
+        "A": "汉堡＋薯条装盘，饮料留在桌上。",
+        "B": "汉堡＋饮料装盘，薯条留在桌上。",
+        "C": "薯条＋饮料装盘，汉堡留在桌上。"
+      },
+      "scene_template": {
+        "asset_family": "F26-dedicated",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 1,
+        "goal_adapter": "task_specific",
+        "source_analogue": "参考 RoboTwin Place Burger Fries。原版将汉堡和薯条放到托盘；本题加入饮料及三种套餐选择，不沿用原版固定盘内位置要求。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "汉堡＋薯条装盘，饮料留在桌上。",
+          "scene_paths": {
+            "0": "scenes/generated/F26-A-0.private.json",
+            "7": "scenes/generated/F26-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "汉堡＋饮料装盘，薯条留在桌上。",
+          "scene_paths": {
+            "0": "scenes/generated/F26-B-0.private.json",
+            "7": "scenes/generated/F26-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "薯条＋饮料装盘，汉堡留在桌上。",
+          "scene_paths": {
+            "0": "scenes/generated/F26-C-0.private.json",
+            "7": "scenes/generated/F26-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F27",
+      "name": "按已有数量补齐",
+      "embodiment": "ur5_wsg",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P1",
+      "phase": 2,
+      "build_order": 22,
+      "design_order": 7,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "读取每盒已有数量，推断应补多少，而非照抄演示动作数。",
+      "reference_analogue": "RoboDojo fill_egg_holder / press_by_number 的数量机制",
+      "reference_url": null,
+      "variants": {
+        "A": "各盒补到 2 件",
+        "B": "各盒补到 3 件",
+        "C": "各盒补到 4 件"
+      },
+      "scene_template": {
+        "asset_family": "F27-dedicated",
+        "primitive": "box",
+        "object_count": 12,
+        "zone_count": 3,
+        "goal_adapter": "task_specific",
+        "source_analogue": "RoboDojo fill_egg_holder / press_by_number 的数量机制",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "各盒补到 2 件",
+          "scene_paths": {
+            "0": "scenes/generated/F27-A-0.private.json",
+            "7": "scenes/generated/F27-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "各盒补到 3 件",
+          "scene_paths": {
+            "0": "scenes/generated/F27-B-0.private.json",
+            "7": "scenes/generated/F27-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "各盒补到 4 件",
+          "scene_paths": {
+            "0": "scenes/generated/F27-C-0.private.json",
+            "7": "scenes/generated/F27-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F28",
+      "name": "模仿分拣顺序",
+      "embodiment": "franka",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P3",
+      "phase": 2,
+      "build_order": 23,
+      "design_order": 32,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "三版终态完全相同，只有示范里的先后关系不同。",
+      "reference_analogue": "RoboDojo imitate_sorting_sequence",
+      "reference_url": null,
+      "variants": {
+        "A": "红→绿→蓝",
+        "B": "绿→蓝→红",
+        "C": "蓝→红→绿"
+      },
+      "scene_template": {
+        "asset_family": "F28-dedicated",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 3,
+        "goal_adapter": "task_specific",
+        "source_analogue": "RoboDojo imitate_sorting_sequence",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "红→绿→蓝",
+          "scene_paths": {
+            "0": "scenes/generated/F28-A-0.private.json",
+            "7": "scenes/generated/F28-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "绿→蓝→红",
+          "scene_paths": {
+            "0": "scenes/generated/F28-B-0.private.json",
+            "7": "scenes/generated/F28-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "蓝→红→绿",
+          "scene_paths": {
+            "0": "scenes/generated/F28-C-0.private.json",
+            "7": "scenes/generated/F28-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F29",
+      "name": "围绕参照物的布局",
+      "embodiment": "arx_x5",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P2",
+      "phase": 2,
+      "build_order": 24,
+      "design_order": 10,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "参照物位置与朝向变化，模型应跟随其局部坐标系。",
+      "reference_analogue": "内部参照系迁移；RoboDojo align_blocks",
+      "reference_url": null,
+      "variants": {
+        "A": "红前绿左蓝右",
+        "B": "红右绿前蓝左",
+        "C": "红左绿右蓝前"
+      },
+      "scene_template": {
+        "asset_family": "F29-dedicated",
+        "primitive": "box",
+        "object_count": 4,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "内部参照系迁移；RoboDojo align_blocks",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "红前绿左蓝右",
+          "scene_paths": {
+            "0": "scenes/generated/F29-A-0.private.json",
+            "7": "scenes/generated/F29-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "红右绿前蓝左",
+          "scene_paths": {
+            "0": "scenes/generated/F29-B-0.private.json",
+            "7": "scenes/generated/F29-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "红左绿右蓝前",
+          "scene_paths": {
+            "0": "scenes/generated/F29-C-0.private.json",
+            "7": "scenes/generated/F29-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F30",
+      "name": "按颜色规则挂杯子（Hang Mugs）",
+      "embodiment": "arx_x5",
+      "category": "A",
+      "primary_type": "A",
+      "subtype": "A2",
+      "phase": 3,
+      "build_order": 34,
+      "design_order": 20,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "从视频学会红、黄、蓝杯子到三个带标记杯架的映射，将三只杯子真实挂稳。",
+      "reference_analogue": "RoboDojo hang_mugs：mug[0..9]、cup_holder[0]；本题扩为三架颜色映射。",
+      "reference_url": "https://robodojo-benchmark.com/doc/sim-tasks/hang-mugs/",
+      "variants": {
+        "A": "红→圆架；黄→三角架；蓝→方架。",
+        "B": "红→三角架；黄→方架；蓝→圆架。",
+        "C": "红→方架；黄→圆架；蓝→三角架。"
+      },
+      "scene_template": {
+        "asset_family": "F30-dedicated",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 3,
+        "goal_adapter": "task_specific",
+        "source_analogue": "RoboDojo hang_mugs：mug[0..9]、cup_holder[0]；本题扩为三架颜色映射。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "红→圆架；黄→三角架；蓝→方架。",
+          "scene_paths": {
+            "0": "scenes/generated/F30-A-0.private.json",
+            "7": "scenes/generated/F30-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "红→三角架；黄→方架；蓝→圆架。",
+          "scene_paths": {
+            "0": "scenes/generated/F30-B-0.private.json",
+            "7": "scenes/generated/F30-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "红→方架；黄→圆架；蓝→三角架。",
+          "scene_paths": {
+            "0": "scenes/generated/F30-C-0.private.json",
+            "7": "scenes/generated/F30-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F31",
+      "name": "顺序装入宽口收纳盒",
+      "embodiment": "franka",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P3",
+      "phase": 3,
+      "build_order": 35,
+      "design_order": 34,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "桌上有红、绿、蓝三根长条和一个宽口收纳盒。按视频顺序放入盒中：A 红绿蓝，B 绿蓝红，C 蓝红绿。三根都进盒后盖上松盖。",
+      "reference_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+      "reference_url": null,
+      "variants": {
+        "A": "红、绿、蓝依次放入。",
+        "B": "绿、蓝、红依次放入。",
+        "C": "蓝、红、绿依次放入。"
+      },
+      "scene_template": {
+        "asset_family": "F31-dedicated",
+        "primitive": "box",
+        "object_count": 4,
+        "zone_count": 1,
+        "goal_adapter": "task_specific",
+        "source_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "红、绿、蓝依次放入。",
+          "scene_paths": {
+            "0": "scenes/generated/F31-A-0.private.json",
+            "7": "scenes/generated/F31-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "绿、蓝、红依次放入。",
+          "scene_paths": {
+            "0": "scenes/generated/F31-B-0.private.json",
+            "7": "scenes/generated/F31-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "蓝、红、绿依次放入。",
+          "scene_paths": {
+            "0": "scenes/generated/F31-C-0.private.json",
+            "7": "scenes/generated/F31-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F32",
+      "name": "餐具对齐摆放",
+      "embodiment": "franka",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P2",
+      "phase": 2,
+      "build_order": 25,
+      "design_order": 11,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "从视频辨认按餐具柄端、功能端还是长度中点对齐，并迁移到不同长度的餐具实例。",
+      "reference_analogue": "保留原 F32 对齐机制，按用户确认改为日常餐具；本次不宣称是某 benchmark 的同名原题。",
+      "reference_url": null,
+      "variants": {
+        "A": "柄端对齐：三个手柄末端排列在同一直线上。",
+        "B": "功能端对齐：勺头、叉尖、刀尖的最前端排列在同一直线上。",
+        "C": "中心对齐：三件餐具的长度中点排列在同一直线上。"
+      },
+      "scene_template": {
+        "asset_family": "F32-dedicated",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "保留原 F32 对齐机制，按用户确认改为日常餐具；本次不宣称是某 benchmark 的同名原题。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "柄端对齐：三个手柄末端排列在同一直线上。",
+          "scene_paths": {
+            "0": "scenes/generated/F32-A-0.private.json",
+            "7": "scenes/generated/F32-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "功能端对齐：勺头、叉尖、刀尖的最前端排列在同一直线上。",
+          "scene_paths": {
+            "0": "scenes/generated/F32-B-0.private.json",
+            "7": "scenes/generated/F32-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "中心对齐：三件餐具的长度中点排列在同一直线上。",
+          "scene_paths": {
+            "0": "scenes/generated/F32-C-0.private.json",
+            "7": "scenes/generated/F32-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F33",
+      "name": "不等长行补全",
+      "embodiment": "ur5_wsg",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P2",
+      "phase": 2,
+      "build_order": 26,
+      "design_order": 12,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "根据固定前段长度挑不同备件，建立长度补偿关系。",
+      "reference_analogue": "内部长度推理；RoboTwin Blocks Ranking Size 机制延展",
+      "reference_url": null,
+      "variants": {
+        "A": "三行补到相同终点",
+        "B": "补后总长按行号递增",
+        "C": "补后总长按行号递减"
+      },
+      "scene_template": {
+        "asset_family": "F33-dedicated",
+        "primitive": "box",
+        "object_count": 7,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "内部长度推理；RoboTwin Blocks Ranking Size 机制延展",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "三行补到相同终点",
+          "scene_paths": {
+            "0": "scenes/generated/F33-A-0.private.json",
+            "7": "scenes/generated/F33-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "补后总长按行号递增",
+          "scene_paths": {
+            "0": "scenes/generated/F33-B-0.private.json",
+            "7": "scenes/generated/F33-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "补后总长按行号递减",
+          "scene_paths": {
+            "0": "scenes/generated/F33-C-0.private.json",
+            "7": "scenes/generated/F33-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F34",
+      "name": "数量映射按钮操作",
+      "embodiment": "ur5_wsg",
+      "category": "J",
+      "primary_type": "J",
+      "subtype": "J1",
+      "phase": 4,
+      "build_order": 46,
+      "design_order": 33,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "看两张数量牌，按示范映射把计数转成两按钮的按压次数。",
+      "reference_analogue": "RoboDojo press_by_number；RoboTwin Click Bell / Stamp Seal",
+      "reference_url": null,
+      "variants": {
+        "A": "左 n 次、右 m 次",
+        "B": "左 m 次、右 n 次",
+        "C": "左 n+m 次、右 |n−m| 次"
+      },
+      "scene_template": {
+        "asset_family": "F34-dedicated",
+        "primitive": "box",
+        "object_count": 2,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "RoboDojo press_by_number；RoboTwin Click Bell / Stamp Seal",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": true,
+        "requires_tool_contact": false,
+        "requires_multi_stage": true
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "左 n 次、右 m 次",
+          "scene_paths": {
+            "0": "scenes/generated/F34-A-0.private.json",
+            "7": "scenes/generated/F34-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "左 m 次、右 n 次",
+          "scene_paths": {
+            "0": "scenes/generated/F34-B-0.private.json",
+            "7": "scenes/generated/F34-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "左 n+m 次、右 |n−m| 次",
+          "scene_paths": {
+            "0": "scenes/generated/F34-C-0.private.json",
+            "7": "scenes/generated/F34-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F35",
+      "name": "按示范摆一套餐具",
+      "embodiment": "arx_x5",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P2",
+      "phase": 3,
+      "build_order": 36,
+      "design_order": 35,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "从视频学习勺叉相对于盘子的布局，在新位置复现。",
+      "reference_analogue": "本项目改编设计；具体 benchmark 任务与资产来源尚待核实，不宣称原版已实现本题。",
+      "reference_url": null,
+      "variants": {
+        "A": "勺在盘左、叉在盘右。",
+        "B": "叉在盘左、勺在盘右。",
+        "C": "勺叉并排放在盘上方（远离用餐侧），勺左叉右。"
+      },
+      "scene_template": {
+        "asset_family": "F35-dedicated",
+        "primitive": "box",
+        "object_count": 2,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "本项目改编设计；具体 benchmark 任务与资产来源尚待核实，不宣称原版已实现本题。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "勺在盘左、叉在盘右。",
+          "scene_paths": {
+            "0": "scenes/generated/F35-A-0.private.json",
+            "7": "scenes/generated/F35-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "叉在盘左、勺在盘右。",
+          "scene_paths": {
+            "0": "scenes/generated/F35-B-0.private.json",
+            "7": "scenes/generated/F35-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "勺叉并排放在盘上方（远离用餐侧），勺左叉右。",
+          "scene_paths": {
+            "0": "scenes/generated/F35-C-0.private.json",
+            "7": "scenes/generated/F35-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F37",
+      "name": "用薄铲翻转指定食物",
+      "embodiment": "arx_x5",
+      "category": "T",
+      "primary_type": "T",
+      "subtype": "T2",
+      "phase": 3,
+      "build_order": 38,
+      "design_order": 41,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "从视频学习翻转对象，用薄铲将指定刚性仿真食物翻面。",
+      "reference_analogue": "本项目改编设计；具体 benchmark 任务与资产来源尚待核实，不宣称原版已实现本题。",
+      "reference_url": null,
+      "variants": {
+        "A": "只翻初始煎痕面朝上的饼。",
+        "B": "只翻初始无煎痕面朝上的饼。",
+        "C": "两块饼都翻面。"
+      },
+      "scene_template": {
+        "asset_family": "F37-dedicated",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "本项目改编设计；具体 benchmark 任务与资产来源尚待核实，不宣称原版已实现本题。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": true,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "只翻初始煎痕面朝上的饼。",
+          "scene_paths": {
+            "0": "scenes/generated/F37-A-0.private.json",
+            "7": "scenes/generated/F37-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "只翻初始无煎痕面朝上的饼。",
+          "scene_paths": {
+            "0": "scenes/generated/F37-B-0.private.json",
+            "7": "scenes/generated/F37-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "两块饼都翻面。",
+          "scene_paths": {
+            "0": "scenes/generated/F37-C-0.private.json",
+            "7": "scenes/generated/F37-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F38",
+      "name": "平铲承托与交付",
+      "embodiment": "franka",
+      "category": "T",
+      "primary_type": "T",
+      "subtype": "T2",
+      "phase": 3,
+      "build_order": 39,
+      "design_order": 42,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "薄片无法直接夹起，用斜前缘铲进入并承托搬运。",
+      "reference_analogue": "内部支撑型工具；RoboTwin Move Playingcard Away 的薄片接近启发",
+      "reference_url": null,
+      "variants": {
+        "A": "圆标记交付槽",
+        "B": "三角标记交付槽",
+        "C": "方标记交付槽"
+      },
+      "scene_template": {
+        "asset_family": "F38-dedicated",
+        "primitive": "box",
+        "object_count": 2,
+        "zone_count": 3,
+        "goal_adapter": "task_specific",
+        "source_analogue": "内部支撑型工具；RoboTwin Move Playingcard Away 的薄片接近启发",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": true,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "圆标记交付槽",
+          "scene_paths": {
+            "0": "scenes/generated/F38-A-0.private.json",
+            "7": "scenes/generated/F38-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "三角标记交付槽",
+          "scene_paths": {
+            "0": "scenes/generated/F38-B-0.private.json",
+            "7": "scenes/generated/F38-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "方标记交付槽",
+          "scene_paths": {
+            "0": "scenes/generated/F38-C-0.private.json",
+            "7": "scenes/generated/F38-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F39",
+      "name": "扫拢大颗粒",
+      "embodiment": "arx_x5",
+      "category": "T",
+      "primary_type": "T",
+      "subtype": "T1",
+      "phase": 1,
+      "build_order": 7,
+      "design_order": 43,
+      "status": "released-anchor",
+      "existing_anchor": true,
+      "mechanism": "组织刷子接触方向，收集而非直接抓颗粒。",
+      "reference_analogue": "现有八题；RoboDojo sweep_blocks",
+      "reference_url": null,
+      "variants": {
+        "A": "圆标记区",
+        "B": "三角标记区",
+        "C": "方标记区"
+      },
+      "scene_template": {
+        "asset_family": "tool_sweep",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 3,
+        "goal_adapter": "swept",
+        "source_analogue": "现有八题；RoboDojo sweep_blocks",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": true,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "圆标记区",
+          "scene_paths": {
+            "0": "scenes/F39-A-0.private.json",
+            "7": "scenes/F39-A-7.private.json"
+          },
+          "source": "released"
+        },
+        {
+          "variant": "B",
+          "instruction": "三角标记区",
+          "scene_paths": {
+            "0": "scenes/F39-B-0.private.json",
+            "7": "scenes/F39-B-7.private.json"
+          },
+          "source": "released"
+        },
+        {
+          "variant": "C",
+          "instruction": "方标记区",
+          "scene_paths": {
+            "0": "scenes/F39-C-0.private.json",
+            "7": "scenes/F39-C-7.private.json"
+          },
+          "source": "released"
+        }
+      ]
+    },
+    {
+      "id": "F40",
+      "name": "刚性颗粒倾倒",
+      "embodiment": "arx_x5",
+      "category": "D",
+      "primary_type": "D",
+      "subtype": "D1",
+      "phase": 4,
+      "build_order": 47,
+      "design_order": 36,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "转动容器把大颗粒倒入指定口，测试真实出料与恢复。",
+      "reference_analogue": "RoboDojo pour_balls_into_vase；RoboTwin Dump Bin Bigbin",
+      "reference_url": null,
+      "variants": {
+        "A": "倒入圆标记盒",
+        "B": "倒入三角标记盒",
+        "C": "倒入方标记盒"
+      },
+      "scene_template": {
+        "asset_family": "F40-dedicated",
+        "primitive": "box",
+        "object_count": 9,
+        "zone_count": 3,
+        "goal_adapter": "task_specific",
+        "source_analogue": "RoboDojo pour_balls_into_vase；RoboTwin Dump Bin Bigbin",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": true,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "倒入圆标记盒",
+          "scene_paths": {
+            "0": "scenes/generated/F40-A-0.private.json",
+            "7": "scenes/generated/F40-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "倒入三角标记盒",
+          "scene_paths": {
+            "0": "scenes/generated/F40-B-0.private.json",
+            "7": "scenes/generated/F40-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "倒入方标记盒",
+          "scene_paths": {
+            "0": "scenes/generated/F40-C-0.private.json",
+            "7": "scenes/generated/F40-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F41",
+      "name": "夹子夹取指定卡片",
+      "embodiment": "ur5_wsg",
+      "category": "T",
+      "primary_type": "T",
+      "subtype": "T1",
+      "phase": 3,
+      "build_order": 40,
+      "design_order": 44,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "桌上有红、绿、蓝三张卡片、积木障碍和一个大夹子。用夹子夹起视频指定的卡片，绕过障碍放到目标区；A 到圆区，B 到三角区，C 到方区。不能直接用手拿。",
+      "reference_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+      "reference_url": null,
+      "variants": {
+        "A": "取红卡放圆标记区。",
+        "B": "取绿卡放三角标记区。",
+        "C": "取蓝卡放方标记区。"
+      },
+      "scene_template": {
+        "asset_family": "F41-dedicated",
+        "primitive": "box",
+        "object_count": 5,
+        "zone_count": 3,
+        "goal_adapter": "task_specific",
+        "source_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": true,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "取红卡放圆标记区。",
+          "scene_paths": {
+            "0": "scenes/generated/F41-A-0.private.json",
+            "7": "scenes/generated/F41-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "取绿卡放三角标记区。",
+          "scene_paths": {
+            "0": "scenes/generated/F41-B-0.private.json",
+            "7": "scenes/generated/F41-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "取蓝卡放方标记区。",
+          "scene_paths": {
+            "0": "scenes/generated/F41-C-0.private.json",
+            "7": "scenes/generated/F41-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F44",
+      "name": "导向板送球",
+      "embodiment": "arx_x5",
+      "category": "D",
+      "primary_type": "D",
+      "subtype": "D2",
+      "phase": 1,
+      "build_order": 8,
+      "design_order": 46,
+      "status": "released-anchor",
+      "existing_anchor": true,
+      "mechanism": "先配置路径，再释放球沿坡道进入指定盒。",
+      "reference_analogue": "现有八题；受控动力学",
+      "reference_url": null,
+      "variants": {
+        "A": "圆标记盒",
+        "B": "三角标记盒",
+        "C": "方标记盒"
+      },
+      "scene_template": {
+        "asset_family": "guide_ramp",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 3,
+        "goal_adapter": "guided_roll",
+        "source_analogue": "现有八题；受控动力学",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": true,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "圆标记盒",
+          "scene_paths": {
+            "0": "scenes/F44-A-0.private.json",
+            "7": "scenes/F44-A-7.private.json"
+          },
+          "source": "released"
+        },
+        {
+          "variant": "B",
+          "instruction": "三角标记盒",
+          "scene_paths": {
+            "0": "scenes/F44-B-0.private.json",
+            "7": "scenes/F44-B-7.private.json"
+          },
+          "source": "released"
+        },
+        {
+          "variant": "C",
+          "instruction": "方标记盒",
+          "scene_paths": {
+            "0": "scenes/F44-C-0.private.json",
+            "7": "scenes/F44-C-7.private.json"
+          },
+          "source": "released"
+        }
+      ]
+    },
+    {
+      "id": "F45",
+      "name": "按视频顺序敲木琴（Play Xylophone）",
+      "embodiment": "franka",
+      "category": "T",
+      "primary_type": "T",
+      "subtype": "T3",
+      "phase": 3,
+      "build_order": 42,
+      "design_order": 49,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "从视频记住一段琴键序列，抓住琴槌后用真实接触按顺序复现；三版终态相同，正确事件序列不同。",
+      "reference_analogue": "RoboDojo play_Xylophone：xylophone、mallet。",
+      "reference_url": "https://robodojo-benchmark.com/doc/sim-tasks/play-xylophone/",
+      "variants": {
+        "A": "红→黄→蓝。",
+        "B": "蓝→红→黄。",
+        "C": "黄→蓝→红。"
+      },
+      "scene_template": {
+        "asset_family": "F45-dedicated",
+        "primitive": "box",
+        "object_count": 1,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "RoboDojo play_Xylophone：xylophone、mallet。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": true,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "红→黄→蓝。",
+          "scene_paths": {
+            "0": "scenes/generated/F45-A-0.private.json",
+            "7": "scenes/generated/F45-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "蓝→红→黄。",
+          "scene_paths": {
+            "0": "scenes/generated/F45-B-0.private.json",
+            "7": "scenes/generated/F45-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "黄→蓝→红。",
+          "scene_paths": {
+            "0": "scenes/generated/F45-C-0.private.json",
+            "7": "scenes/generated/F45-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F46",
+      "name": "按示范操作双层抽屉",
+      "embodiment": "ur5_wsg",
+      "category": "J",
+      "primary_type": "J",
+      "subtype": "J1",
+      "phase": 4,
+      "build_order": 49,
+      "design_order": 37,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "从视频辨认上下两层抽屉的目标开合组合，并在不同初始开度下复现。",
+      "reference_analogue": "本项目改编设计；具体 benchmark 任务与资产来源尚待核实，不宣称原版已实现本题。",
+      "reference_url": null,
+      "variants": {
+        "A": "上层打开，下层关闭。",
+        "B": "上层关闭，下层打开。",
+        "C": "两层都打开。"
+      },
+      "scene_template": {
+        "asset_family": "F46-dedicated",
+        "primitive": "box",
+        "object_count": 2,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "本项目改编设计；具体 benchmark 任务与资产来源尚待核实，不宣称原版已实现本题。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": true,
+        "requires_tool_contact": false,
+        "requires_multi_stage": true
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "上层打开，下层关闭。",
+          "scene_paths": {
+            "0": "scenes/generated/F46-A-0.private.json",
+            "7": "scenes/generated/F46-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "上层关闭，下层打开。",
+          "scene_paths": {
+            "0": "scenes/generated/F46-B-0.private.json",
+            "7": "scenes/generated/F46-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "两层都打开。",
+          "scene_paths": {
+            "0": "scenes/generated/F46-C-0.private.json",
+            "7": "scenes/generated/F46-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F47",
+      "name": "按规则分格装餐具",
+      "embodiment": "arx_x5",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P3",
+      "phase": 3,
+      "build_order": 43,
+      "design_order": 50,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "桌上有勺子、叉子、钝餐刀和一个三格收纳盒。按视频把它们放进对应格子，A 勺叉刀，B 叉刀勺，C 刀勺叉。三件都放好后合上松盖。",
+      "reference_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+      "reference_url": "https://robodojo-benchmark.com/doc/sim-tasks/make-toast/",
+      "variants": {
+        "A": "勺进左格、叉进中格、刀进右格。",
+        "B": "叉进左格、刀进中格、勺进右格。",
+        "C": "刀进左格、勺进中格、叉进右格。"
+      },
+      "scene_template": {
+        "asset_family": "F47-dedicated",
+        "primitive": "box",
+        "object_count": 4,
+        "zone_count": 3,
+        "goal_adapter": "task_specific",
+        "source_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "勺进左格、叉进中格、刀进右格。",
+          "scene_paths": {
+            "0": "scenes/generated/F47-A-0.private.json",
+            "7": "scenes/generated/F47-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "叉进左格、刀进中格、勺进右格。",
+          "scene_paths": {
+            "0": "scenes/generated/F47-B-0.private.json",
+            "7": "scenes/generated/F47-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "刀进左格、勺进中格、叉进右格。",
+          "scene_paths": {
+            "0": "scenes/generated/F47-C-0.private.json",
+            "7": "scenes/generated/F47-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F48",
+      "name": "按示范组合摆放碗碟",
+      "embodiment": "franka",
+      "category": "A",
+      "primary_type": "A",
+      "subtype": "A2",
+      "phase": 3,
+      "build_order": 44,
+      "design_order": 38,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "从视频辨认碗和碟的组合方式，复现支撑关系或并排布局。",
+      "reference_analogue": "本项目改编设计；具体 benchmark 任务与资产来源尚待核实，不宣称原版已实现本题。",
+      "reference_url": null,
+      "variants": {
+        "A": "碗开口朝上放在碟上。",
+        "B": "碗开口朝上，碟倒扣在碗口。",
+        "C": "碗碟开口均朝上并排，碗在用餐侧视角左边、碟在右边。"
+      },
+      "scene_template": {
+        "asset_family": "F48-dedicated",
+        "primitive": "box",
+        "object_count": 2,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "本项目改编设计；具体 benchmark 任务与资产来源尚待核实，不宣称原版已实现本题。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "碗开口朝上放在碟上。",
+          "scene_paths": {
+            "0": "scenes/generated/F48-A-0.private.json",
+            "7": "scenes/generated/F48-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "碗开口朝上，碟倒扣在碗口。",
+          "scene_paths": {
+            "0": "scenes/generated/F48-B-0.private.json",
+            "7": "scenes/generated/F48-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "碗碟开口均朝上并排，碗在用餐侧视角左边、碟在右边。",
+          "scene_paths": {
+            "0": "scenes/generated/F48-C-0.private.json",
+            "7": "scenes/generated/F48-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F49",
+      "name": "纸板折叠成指定形状",
+      "embodiment": "franka",
+      "category": "J",
+      "primary_type": "J",
+      "subtype": "J1",
+      "phase": 4,
+      "build_order": 50,
+      "design_order": 39,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "两块硬纸板用胶带连在一起，像一本书一样可以开合。照视频把它折成直角、较宽的角或较窄的角，用支撑块撑住，松手后仍保持这个形状。",
+      "reference_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+      "reference_url": null,
+      "variants": {
+        "A": "折成直角形。",
+        "B": "折成宽角形。",
+        "C": "折成窄角形。"
+      },
+      "scene_template": {
+        "asset_family": "F49-dedicated",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "资产依据见本文逐题资产核查；A/B/C 为本项目设计，不冒充上游现成任务。",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": true,
+        "requires_tool_contact": false,
+        "requires_multi_stage": true
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "折成直角形。",
+          "scene_paths": {
+            "0": "scenes/generated/F49-A-0.private.json",
+            "7": "scenes/generated/F49-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "折成宽角形。",
+          "scene_paths": {
+            "0": "scenes/generated/F49-B-0.private.json",
+            "7": "scenes/generated/F49-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "折成窄角形。",
+          "scene_paths": {
+            "0": "scenes/generated/F49-C-0.private.json",
+            "7": "scenes/generated/F49-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F51",
+      "name": "杂乱桌面中的指定物体抓取",
+      "embodiment": "franka",
+      "category": "G",
+      "primary_type": "G",
+      "subtype": "G1",
+      "phase": null,
+      "build_order": null,
+      "design_order": null,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "从视频识别目标，在相似干扰物与部分遮挡中建立真实抓持并抬离。",
+      "reference_analogue": "",
+      "reference_url": null,
+      "variants": {
+        "A": "抓取目标物甲",
+        "B": "抓取目标物乙",
+        "C": "抓取目标物丙"
+      },
+      "scene_template": {
+        "asset_family": "F51-dedicated",
+        "primitive": "box",
+        "object_count": 7,
+        "zone_count": 0,
+        "goal_adapter": "task_specific",
+        "source_analogue": "internal tabletop recipe",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "抓取目标物甲",
+          "scene_paths": {
+            "0": "scenes/generated/F51-A-0.private.json",
+            "7": "scenes/generated/F51-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "抓取目标物乙",
+          "scene_paths": {
+            "0": "scenes/generated/F51-B-0.private.json",
+            "7": "scenes/generated/F51-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "抓取目标物丙",
+          "scene_paths": {
+            "0": "scenes/generated/F51-C-0.private.json",
+            "7": "scenes/generated/F51-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    },
+    {
+      "id": "F52",
+      "name": "指定瓶子投入垃圾桶",
+      "embodiment": "arx_x5",
+      "category": "P",
+      "primary_type": "P",
+      "subtype": "P3",
+      "phase": null,
+      "build_order": null,
+      "design_order": null,
+      "status": "task-specific-pending-physx",
+      "existing_anchor": false,
+      "mechanism": "多种瓶子中只取视频指定的一种，搬到桶口释放，其他瓶子不误投。",
+      "reference_analogue": "",
+      "reference_url": null,
+      "variants": {
+        "A": "投放目标瓶甲",
+        "B": "投放目标瓶乙",
+        "C": "投放目标瓶丙"
+      },
+      "scene_template": {
+        "asset_family": "F52-dedicated",
+        "primitive": "box",
+        "object_count": 3,
+        "zone_count": 1,
+        "goal_adapter": "task_specific",
+        "source_analogue": "internal tabletop recipe",
+        "asset_sources": [
+          "RoboTwin shared assets",
+          "RoboDojo assets",
+          "Isaac Lab primitive fallback"
+        ],
+        "requires_articulation": false,
+        "requires_tool_contact": false,
+        "requires_multi_stage": false
+      },
+      "variants_manifest": [
+        {
+          "variant": "A",
+          "instruction": "投放目标瓶甲",
+          "scene_paths": {
+            "0": "scenes/generated/F52-A-0.private.json",
+            "7": "scenes/generated/F52-A-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "B",
+          "instruction": "投放目标瓶乙",
+          "scene_paths": {
+            "0": "scenes/generated/F52-B-0.private.json",
+            "7": "scenes/generated/F52-B-7.private.json"
+          },
+          "source": "generated"
+        },
+        {
+          "variant": "C",
+          "instruction": "投放目标瓶丙",
+          "scene_paths": {
+            "0": "scenes/generated/F52-C-0.private.json",
+            "7": "scenes/generated/F52-C-7.private.json"
+          },
+          "source": "generated"
+        }
+      ]
+    }
+  ]
+}

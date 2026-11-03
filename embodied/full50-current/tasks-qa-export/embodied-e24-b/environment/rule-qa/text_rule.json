@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E24",
+  "variant": "B",
+  "source": "text_rule",
+  "source_sha256": "d82df2462cd08ec83557b3a164c47f69f777fbff28530e9bac5d0ae0afb80573",
+  "packet": {
+    "question_id": "rq_9a6b62dcb1f2",
+    "prompt": "视频中三个彩杯按什么顺序装盒，然后盖上盒盖？",
+    "options": {
+      "A": "红→绿→蓝依次装盒，盖上盒盖。",
+      "B": "蓝→红→绿依次装盒，盖上盒盖。",
+      "C": "红→蓝→绿依次装盒，盖上盒盖。",
+      "D": "绿→蓝→红依次装盒，盖上盒盖。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "1a51bb6831fb4bc360fe8edfe15cfd252d5f2bd76955a0ebbf4bb516e2a99b77",
+    "semantic_review": "explicit_text_rule_matches_frozen_variant_annotation"
+  }
+}

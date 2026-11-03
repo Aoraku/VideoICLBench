@@ -1,0 +1,6 @@
+{
+  "rule": "绿杯→圆；蓝杯→三角；红杯→方",
+  "evaluation_scope": "每杯落在对应图形标记区域并释放。",
+  "scope_note": "实录为三个彩杯配三图形，不是单杯三选一。方形纸标为旋转的正方形。",
+  "source_video_sha256": "ea03f2a71da239e7dbe8d8b88efb805069b3fa4cdf38b239ce98cf6801416d19"
+}

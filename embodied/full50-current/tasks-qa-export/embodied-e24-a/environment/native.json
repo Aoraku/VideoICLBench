@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "backend": "videoicl-native-slurm",
+  "kind": "embodied",
+  "task_id": "E24",
+  "variant": "A",
+  "seed": 4201,
+  "demo": {
+    "path": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/real-text300-20261030/materials/E24/A/human.mp4",
+    "sha256": "3eb1020f80f27df4a02dbbe4afb403cb90dd6fd386c78b5a90bec57e63ada56f",
+    "verification": "file_sha256_and_full_decode_verified",
+    "kind": "original_human_rgb_demo_transcoded"
+  },
+  "readiness": "requires_native_interaction_validation",
+  "source_root": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/inference450-remaining300-qa-20261102/runtime",
+  "instruction_sha256": "e95b31f3905a83320e835f8db9a2c427343e9f49c7e1e7711d5f897eefbe807e",
+  "instruction_hash_scheme": "sha256_utf8_exact_file_bytes",
+  "dataset_revision": "89f009bb76ee5ffb58ee66ec584e519c86f3d4b6",
+  "catalog_sha256": "622bed91d06f04ad0c16ff7a6a92b1bd4c00cdf2bbbca03747b64a2e6e478f29",
+  "source_video": {
+    "sha256": "5362e6d961a093d20849240b8f4fc154691aeab1bbbb3c7ee693c18579bf1032",
+    "verification": "source_sha256_verified_before_transcode"
+  },
+  "action_interface": "bounded_dual_arm_tokens_v1",
+  "budget": {
+    "timeout_sec": 0,
+    "max_actions": 500,
+    "action_interface": "bounded_dual_arm_tokens_v1",
+    "status": "provisional_integration_only",
+    "basis": "User authorized remaining300; 500 physical actions; no episode deadline.",
+    "clock": "time_recorded_without_limit",
+    "termination": "graceful_drain_inflight",
+    "protocol_version": "videoicl-unlimited-time-budget-v1",
+    "time_limit_enabled": false,
+    "time_limit_seconds": null
+  },
+  "input_conditions": [
+    "real",
+    "sim",
+    "text_rule"
+  ],
+  "native_interaction_validated": false,
+  "media_acceptance_scope": "original_demo_bytes_unchanged",
+  "media_provenance": {
+    "manifest_path": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/real-text300-20261030/materials/media-manifest.private.json",
+    "manifest_sha256": "bb86f6c68ba32ee42d6eab3efc9189a9ce9ff75d4da038f0a3333ea530c8dc40",
+    "source_video_sha256": "5362e6d961a093d20849240b8f4fc154691aeab1bbbb3c7ee693c18579bf1032",
+    "conversion": "full RGB video; autorotation; H264 CRF18; no crop/resize/trim; no audio",
+    "full_decode_passed": true
+  },
+  "agent_interaction": "gui_only",
+  "agent_protocol": "roboprobe_gui_v1",
+  "gui_controls": {
+    "path": "gui-controls.md",
+    "sha256": "60334559c8f394acc45ee9bfe024b7a406aebee27a1d50d86f06dcf787d9dde6"
+  },
+  "native_bindings": {
+    "path": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/inference450-remaining300-qa-20261102/runtime/inference-generalization-v1/inference-bindings.json",
+    "sha256": "64b5de6a4c2ad2c0db2478a8f3150952ddfd0d7cf7f9e9c9b8af28c35e866fac"
+  },
+  "robot_profile": {
+    "path": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/inference450-remaining300-qa-20261102/runtime/configs/franka-workspace-v4-front100-ik-smooth-v1.json",
+    "sha256": "ae094dde351d18a1e2ba0e06dcb33928db773fe43eb6a320ad9d4af3add9e8d7",
+    "name": "franka"
+  },
+  "native_runtime_settings": {
+    "kit_args": "--/renderer/multiGpu/enabled=false --/renderer/activeGpu=0 --/persistent/physics/useLocalMeshCache=false --/physics/cooking/ujitsoCollisionCooking=false --/physics/cooking/ujitsoRemoteCacheEnabled=false --/app/settings/persistent=false",
+    "scope": "process_only_mesh_cooking_cache_no_geometry_changes"
+  },
+  "demo_sim": {
+    "path": "/mnt/pfs/robot-agent-public/home/jiemingli/RoboDojo-Audit/campaigns/sim147-20261030/materials/media/E24/E24_A__head.mp4",
+    "sha256": "af1a93ef3aaf90a02ddb0a13060c81993bb3d9781036616d7f323b5cc6cd5c12",
+    "verification": {
+      "native_verified": true,
+      "camera_clock_verified": true,
+      "source_visual_reviewed": false,
+      "published_source_commit": "788163e9cbb7a9f90d6ab4c6ed1f9e32289a2db4",
+      "full_video_decode_verified": true
+    }
+  },
+  "observation_protocol": {
+    "schema": "videoicl-structured-observation-v1",
+    "depth_source": "simulator_axial_depth",
+    "estimated_depth_fallback": false,
+    "episode_memory_only": true
+  }
+}

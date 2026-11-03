@@ -1,0 +1,26 @@
+{
+  "schema": "rule-qa-assignment-v1",
+  "protocol": "qa_then_act",
+  "task_id": "E46",
+  "variant": "C",
+  "source": "real",
+  "source_sha256": "0064c06ae4972957c1f6552617eeacf12bcd31c83f52e4e60c61f0ef577f2ea1",
+  "packet": {
+    "question_id": "rq_4bc17101f11c",
+    "prompt": "视频中用平铲承托黄色块，送到哪一种图形标记纸处？",
+    "options": {
+      "A": "铲起黄色块，放在圆标记纸和三角标记纸之间的桌面上，不接触两张标记纸。",
+      "B": "铲起黄色块，送到圆标记纸。",
+      "C": "铲起黄色块，送到方标记纸。",
+      "D": "铲起黄色块，送到三角标记纸。"
+    },
+    "response_instruction": "只提交一个大写选项字母：A、B、C或D。"
+  },
+  "provenance": {
+    "bank_version": "embodied-rule-qa-v1",
+    "bank_sha256": "6d4c76135868b753103167f10246dc238ff3d0a359a17c997ff5e7dac32e38ea",
+    "variant_rule_source_verified": true,
+    "source_video_sha256": "e042abd237a3f0e756bfc9eec4d2f9feea9be5ec994f11c6e714516c2d59174f",
+    "semantic_review": "frozen_source_annotation_and_transcode_provenance;not_new_visual_review"
+  }
+}
