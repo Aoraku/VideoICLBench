@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.data-cache/
+asset_roots/
+robot/
+private_data/
+runtime/execution-design-v3/assets/
+runtime/configs/source_geometry/
+runtime/engineering-vendor/
+outputs/
+*.log
+.env

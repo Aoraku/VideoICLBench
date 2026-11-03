@@ -1,0 +1,4834 @@
+{
+  "schema": "realworld50-source-bindings-v1",
+  "tasks": {
+    "E38": {
+      "scene_adapter": "full50-source-v1",
+      "objects": {
+        "board": {
+          "mechanical_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "five_group_post_board.usda",
+            "sha256": "3abac168defd8588353c95dbef95e29b5be29df154be2b03defd3f4c5830a3ac",
+            "dependencies": [
+              {
+                "relative_path": "five_group_post_board_parts/visual.glb",
+                "sha256": "a6bca0370cb352a7011f95575c7f8df55fc201366baa689d48208ab1367ab37d"
+              },
+              {
+                "relative_path": "five_group_post_board_parts/visual.provenance.json",
+                "sha256": "f2cfd930e428eda71251640e366ef7102bca528e4e09832336ef8e61fd755a6c"
+              },
+              {
+                "relative_path": "five_group_post_board_parts/visual.usda",
+                "sha256": "f3be75597df350d19b634d9537b97172e9141478f8f5c8210c3d44bf30e50454"
+              },
+              {
+                "relative_path": "five_group_post_board_parts/visual_textures/9adb56c185dcce173d4636c561b11840b697f66de22893defa8fc7a96ee83975.png",
+                "sha256": "9adb56c185dcce173d4636c561b11840b697f66de22893defa8fc7a96ee83975"
+              }
+            ],
+            "joint_count": 0,
+            "kind": "static_mesh"
+          },
+          "role": "fixture",
+          "size": [
+            0.16,
+            0.028999999999999998,
+            0.03199999933833376
+          ],
+          "local_bounds_center": [
+            0.0,
+            -1.734723475976807e-18,
+            0.03199999933833376
+          ],
+          "xy": [
+            0.14,
+            0
+          ],
+          "quaternion": [
+            0.7071067811865476,
+            0,
+            0,
+            0.7071067811865476
+          ],
+          "center_z": 0.80001,
+          "bottom": 0.80001,
+          "mass": 0.5
+        },
+        "red": {
+          "source_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "source_single_hole_ring.usda",
+            "sha256": "043034c6aad20115868b17db73066c112e089da589acaf38de3d06c1aaf2c179",
+            "dependencies": [],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.01999999317560597,
+            0.01999999600011981,
+            0.003
+          ],
+          "xy": [
+            -0.02,
+            -0.1
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "recolor": true,
+          "rgba": [
+            0.8,
+            0.04,
+            0.02,
+            1
+          ],
+          "hole_radius": 0.0048
+        },
+        "blue": {
+          "source_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "source_single_hole_ring.usda",
+            "sha256": "043034c6aad20115868b17db73066c112e089da589acaf38de3d06c1aaf2c179",
+            "dependencies": [],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.01999999317560597,
+            0.01999999600011981,
+            0.003
+          ],
+          "xy": [
+            -0.02,
+            -0.165
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "recolor": true,
+          "rgba": [
+            0.04,
+            0.15,
+            0.7,
+            1
+          ],
+          "hole_radius": 0.0048
+        },
+        "green": {
+          "source_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "source_single_hole_ring.usda",
+            "sha256": "043034c6aad20115868b17db73066c112e089da589acaf38de3d06c1aaf2c179",
+            "dependencies": [],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.01999999317560597,
+            0.01999999600011981,
+            0.003
+          ],
+          "xy": [
+            -0.02,
+            -0.23
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "recolor": true,
+          "rgba": [
+            0.08,
+            0.45,
+            0.07,
+            1
+          ],
+          "hole_radius": 0.0048
+        }
+      },
+      "variants": {
+        "A": {
+          "zones": [
+            {
+              "id": "rightmost",
+              "xy": [
+                0.14,
+                -0.12
+              ],
+              "half_size": [
+                0.018,
+                0.018
+              ],
+              "surface_z": 0.80901,
+              "hidden": true,
+              "support": "board"
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red",
+              "target": "rightmost",
+              "required_support": "board",
+              "stack_rank": 0
+            },
+            {
+              "type": "place",
+              "object": "green",
+              "target": "rightmost",
+              "required_support": "board",
+              "stack_rank": 1
+            },
+            {
+              "type": "place",
+              "object": "blue",
+              "target": "rightmost",
+              "required_support": "board",
+              "stack_rank": 2
+            }
+          ],
+          "semantic": {
+            "mode": "ring_stack",
+            "groups": {
+              "rings": [
+                "red",
+                "green",
+                "blue"
+              ],
+              "active": [
+                "red",
+                "green",
+                "blue"
+              ]
+            },
+            "post": "board",
+            "post_tip": [
+              -0.12,
+              0,
+              0.064
+            ],
+            "post_radius": 0.0026,
+            "post_support_z": 0.009,
+            "post_support_frame": "asset",
+            "post_contact": "board",
+            "required_order": [
+              "red",
+              "green",
+              "blue"
+            ],
+            "post_support_z_local": 0.009
+          }
+        },
+        "B": {
+          "zones": [
+            {
+              "id": "rightmost",
+              "xy": [
+                0.14,
+                -0.12
+              ],
+              "half_size": [
+                0.018,
+                0.018
+              ],
+              "surface_z": 0.80901,
+              "hidden": true,
+              "support": "board"
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red",
+              "target": "rightmost",
+              "required_support": "board",
+              "stack_rank": 0
+            },
+            {
+              "type": "place",
+              "object": "blue",
+              "target": "rightmost",
+              "required_support": "board",
+              "stack_rank": 1
+            },
+            {
+              "type": "place",
+              "object": "green",
+              "target": "rightmost",
+              "required_support": "board",
+              "stack_rank": 2
+            }
+          ],
+          "semantic": {
+            "mode": "ring_stack",
+            "groups": {
+              "rings": [
+                "red",
+                "green",
+                "blue"
+              ],
+              "active": [
+                "red",
+                "green",
+                "blue"
+              ]
+            },
+            "post": "board",
+            "post_tip": [
+              -0.12,
+              0,
+              0.064
+            ],
+            "post_radius": 0.0026,
+            "post_support_z": 0.009,
+            "post_support_frame": "asset",
+            "post_contact": "board",
+            "required_order": [
+              "red",
+              "blue",
+              "green"
+            ],
+            "post_support_z_local": 0.009
+          }
+        },
+        "C": {
+          "zones": [
+            {
+              "id": "rightmost",
+              "xy": [
+                0.14,
+                -0.12
+              ],
+              "half_size": [
+                0.018,
+                0.018
+              ],
+              "surface_z": 0.80901,
+              "hidden": true,
+              "support": "board"
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "blue",
+              "target": "rightmost",
+              "required_support": "board",
+              "stack_rank": 0
+            },
+            {
+              "type": "place",
+              "object": "green",
+              "target": "rightmost",
+              "required_support": "board",
+              "stack_rank": 1
+            },
+            {
+              "type": "place",
+              "object": "red",
+              "target": "rightmost",
+              "required_support": "board",
+              "stack_rank": 2
+            }
+          ],
+          "semantic": {
+            "mode": "ring_stack",
+            "groups": {
+              "rings": [
+                "red",
+                "green",
+                "blue"
+              ],
+              "active": [
+                "red",
+                "green",
+                "blue"
+              ]
+            },
+            "post": "board",
+            "post_tip": [
+              -0.12,
+              0,
+              0.064
+            ],
+            "post_radius": 0.0026,
+            "post_support_z": 0.009,
+            "post_support_frame": "asset",
+            "post_contact": "board",
+            "required_order": [
+              "blue",
+              "green",
+              "red"
+            ],
+            "post_support_z_local": 0.009
+          }
+        }
+      },
+      "expert_action_budget": 4000,
+      "fidelity_status": "Reviewed source 112-114; rightmost single post of complete five-group board; true ring holes retained in32 source-arc collision pieces",
+      "validation_status": {
+        "physics_verified": false,
+        "source_geometry_cpu_checked": true
+      },
+      "coordinate_frame": "Task +X away, +Y left, Z up; layout rotates +90Z to world."
+    },
+    "E39": {
+      "scene_adapter": "full50-source-v1",
+      "fidelity_status": "native_T_source_recolored_geometry_ratio_approximate",
+      "objects": {
+        "red_ref": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_t0.usdz",
+            "sha256": "98bae9ae3dddf67e58004695930c09f3d36f715dfa2bf5d65d1ed2b7179fa493",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.026,
+            0.0195,
+            0.004875
+          ],
+          "xy": [
+            0.12,
+            0.14
+          ],
+          "yaw": -1.5707963267948966,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.8,
+            0.04,
+            0.03,
+            1
+          ],
+          "semantic_identity": "red",
+          "grasp_point_local": [
+            0.009749999999999998,
+            0,
+            0
+          ],
+          "grasp_axis_local": [
+            0,
+            1,
+            0
+          ]
+        },
+        "blue_ref": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_t0.usdz",
+            "sha256": "98bae9ae3dddf67e58004695930c09f3d36f715dfa2bf5d65d1ed2b7179fa493",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.026,
+            0.0195,
+            0.004875
+          ],
+          "xy": [
+            0.12,
+            0
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.03,
+            0.15,
+            0.65,
+            1
+          ],
+          "semantic_identity": "blue",
+          "grasp_point_local": [
+            0.009749999999999998,
+            0,
+            0
+          ],
+          "grasp_axis_local": [
+            0,
+            1,
+            0
+          ]
+        },
+        "black_ref": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_t0.usdz",
+            "sha256": "98bae9ae3dddf67e58004695930c09f3d36f715dfa2bf5d65d1ed2b7179fa493",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.026,
+            0.0195,
+            0.004875
+          ],
+          "xy": [
+            0.12,
+            -0.14
+          ],
+          "yaw": 1.5707963267948966,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.025,
+            0.025,
+            0.025,
+            1
+          ],
+          "semantic_identity": "black",
+          "grasp_point_local": [
+            0.009749999999999998,
+            0,
+            0
+          ],
+          "grasp_axis_local": [
+            0,
+            1,
+            0
+          ]
+        },
+        "blue_active": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_t0.usdz",
+            "sha256": "98bae9ae3dddf67e58004695930c09f3d36f715dfa2bf5d65d1ed2b7179fa493",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.026,
+            0.0195,
+            0.004875
+          ],
+          "xy": [
+            -0.08,
+            0.14
+          ],
+          "yaw": 3.141592653589793,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.03,
+            0.15,
+            0.65,
+            1
+          ],
+          "semantic_identity": "blue",
+          "grasp_point_local": [
+            0.009749999999999998,
+            0,
+            0
+          ],
+          "grasp_axis_local": [
+            0,
+            1,
+            0
+          ]
+        },
+        "black_active": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_t0.usdz",
+            "sha256": "98bae9ae3dddf67e58004695930c09f3d36f715dfa2bf5d65d1ed2b7179fa493",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.026,
+            0.0195,
+            0.004875
+          ],
+          "xy": [
+            -0.08,
+            0
+          ],
+          "yaw": 3.141592653589793,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.025,
+            0.025,
+            0.025,
+            1
+          ],
+          "semantic_identity": "black",
+          "grasp_point_local": [
+            0.009749999999999998,
+            0,
+            0
+          ],
+          "grasp_axis_local": [
+            0,
+            1,
+            0
+          ]
+        },
+        "red_active": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_t0.usdz",
+            "sha256": "98bae9ae3dddf67e58004695930c09f3d36f715dfa2bf5d65d1ed2b7179fa493",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.026,
+            0.0195,
+            0.004875
+          ],
+          "xy": [
+            -0.08,
+            -0.14
+          ],
+          "yaw": 3.141592653589793,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.8,
+            0.04,
+            0.03,
+            1
+          ],
+          "semantic_identity": "red",
+          "grasp_point_local": [
+            0.009749999999999998,
+            0,
+            0
+          ],
+          "grasp_axis_local": [
+            0,
+            1,
+            0
+          ]
+        }
+      },
+      "variants": {
+        "A": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "red_active_target",
+              "xy": [
+                -0.06,
+                0.14
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_active_target",
+              "xy": [
+                -0.06,
+                0
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "black_active_target",
+              "xy": [
+                -0.06,
+                -0.14
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "temporary",
+              "xy": [
+                -0.23,
+                -0.23
+              ],
+              "half_size": [
+                0.055,
+                0.055
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red_active",
+              "target": "temporary",
+              "yaw": 3.141592653589793
+            },
+            {
+              "type": "place",
+              "object": "black_active",
+              "target": "black_active_target",
+              "yaw": 3.141592653589793
+            },
+            {
+              "type": "place",
+              "object": "blue_active",
+              "target": "blue_active_target",
+              "yaw": 3.141592653589793
+            },
+            {
+              "type": "place",
+              "object": "red_active",
+              "target": "red_active_target",
+              "yaw": 3.141592653589793
+            }
+          ],
+          "semantic": {
+            "mode": "reference_pose_correction",
+            "groups": {
+              "active": [
+                "red_active",
+                "blue_active",
+                "black_active"
+              ],
+              "reference": [
+                "red_ref",
+                "blue_ref",
+                "black_ref"
+              ],
+              "blocks": [
+                "red_active",
+                "blue_active",
+                "black_active"
+              ]
+            },
+            "match_order": true,
+            "match_orientation": false,
+            "targets": {
+              "red_active": {
+                "xy": [
+                  -0.06,
+                  0.14
+                ],
+                "yaw": 3.141592653589793
+              },
+              "blue_active": {
+                "xy": [
+                  -0.06,
+                  0
+                ],
+                "yaw": 3.141592653589793
+              },
+              "black_active": {
+                "xy": [
+                  -0.06,
+                  -0.14
+                ],
+                "yaw": 3.141592653589793
+              }
+            },
+            "preserve_reference": true,
+            "orientation_axis_local": [
+              1,
+              0,
+              0
+            ],
+            "reference_by_object": {
+              "red_active": "red_ref",
+              "blue_active": "blue_ref",
+              "black_active": "black_ref"
+            }
+          }
+        },
+        "B": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "red_active_target",
+              "xy": [
+                -0.08,
+                -0.14
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_active_target",
+              "xy": [
+                -0.08,
+                0.14
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "black_active_target",
+              "xy": [
+                -0.08,
+                0
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "temporary",
+              "xy": [
+                -0.23,
+                -0.23
+              ],
+              "half_size": [
+                0.055,
+                0.055
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red_active",
+              "target": "red_active_target",
+              "yaw": -1.5707963267948966
+            },
+            {
+              "type": "place",
+              "object": "blue_active",
+              "target": "blue_active_target",
+              "yaw": 0
+            },
+            {
+              "type": "place",
+              "object": "black_active",
+              "target": "black_active_target",
+              "yaw": 1.5707963267948966
+            }
+          ],
+          "semantic": {
+            "mode": "reference_pose_correction",
+            "groups": {
+              "active": [
+                "red_active",
+                "blue_active",
+                "black_active"
+              ],
+              "reference": [
+                "red_ref",
+                "blue_ref",
+                "black_ref"
+              ],
+              "blocks": [
+                "red_active",
+                "blue_active",
+                "black_active"
+              ]
+            },
+            "match_order": false,
+            "match_orientation": true,
+            "targets": {
+              "red_active": {
+                "xy": [
+                  -0.08,
+                  -0.14
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "blue_active": {
+                "xy": [
+                  -0.08,
+                  0.14
+                ],
+                "yaw": 0
+              },
+              "black_active": {
+                "xy": [
+                  -0.08,
+                  0
+                ],
+                "yaw": 1.5707963267948966
+              }
+            },
+            "preserve_reference": true,
+            "orientation_axis_local": [
+              1,
+              0,
+              0
+            ],
+            "reference_by_object": {
+              "red_active": "red_ref",
+              "blue_active": "blue_ref",
+              "black_active": "black_ref"
+            }
+          }
+        },
+        "C": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "red_active_target",
+              "xy": [
+                -0.06,
+                0.14
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_active_target",
+              "xy": [
+                -0.06,
+                0
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "black_active_target",
+              "xy": [
+                -0.06,
+                -0.14
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "temporary",
+              "xy": [
+                -0.23,
+                -0.23
+              ],
+              "half_size": [
+                0.055,
+                0.055
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red_active",
+              "target": "temporary",
+              "yaw": 3.141592653589793
+            },
+            {
+              "type": "place",
+              "object": "black_active",
+              "target": "black_active_target",
+              "yaw": 1.5707963267948966
+            },
+            {
+              "type": "place",
+              "object": "blue_active",
+              "target": "blue_active_target",
+              "yaw": 0
+            },
+            {
+              "type": "place",
+              "object": "red_active",
+              "target": "red_active_target",
+              "yaw": -1.5707963267948966
+            }
+          ],
+          "semantic": {
+            "mode": "reference_pose_correction",
+            "groups": {
+              "active": [
+                "red_active",
+                "blue_active",
+                "black_active"
+              ],
+              "reference": [
+                "red_ref",
+                "blue_ref",
+                "black_ref"
+              ],
+              "blocks": [
+                "red_active",
+                "blue_active",
+                "black_active"
+              ]
+            },
+            "match_order": true,
+            "match_orientation": true,
+            "targets": {
+              "red_active": {
+                "xy": [
+                  -0.06,
+                  0.14
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "blue_active": {
+                "xy": [
+                  -0.06,
+                  0
+                ],
+                "yaw": 0
+              },
+              "black_active": {
+                "xy": [
+                  -0.06,
+                  -0.14
+                ],
+                "yaw": 1.5707963267948966
+              }
+            },
+            "preserve_reference": true,
+            "orientation_axis_local": [
+              1,
+              0,
+              0
+            ],
+            "reference_by_object": {
+              "red_active": "red_ref",
+              "blue_active": "blue_ref",
+              "black_active": "black_ref"
+            }
+          }
+        }
+      },
+      "source_evidence": [
+        "../source_media/evidence/115.jpg",
+        "../source_media/evidence/116.jpg",
+        "../source_media/evidence/117.jpg"
+      ],
+      "review_notes": [
+        "ABC sheets reviewed; reference left-to-right red blue black, stems right far left.",
+        "Active initial order blue black red with all stems near. A/C order targets allow row approach as original demonstration.",
+        "Native T source retained and recolored; proportions differ from original short-stem wooden T."
+      ],
+      "expert_preserve_goal_order": true
+    },
+    "E40": {
+      "scene_adapter": "full50-source-v1",
+      "objects": {
+        "tray": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "four_grid_wooden_tray.usda",
+            "sha256": "b6b5837110820a23f6dc743e0ea007259500124d8da632686c708732a4e3633c",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "wooden_open_box.usda",
+                "sha256": "b489f317e294a0395c65594fbc43f950c64ef5c5aeff0d0bee1c2079f0d76de6"
+              },
+              {
+                "relative_path": "native_wood_plank.usdz",
+                "sha256": "9e71af43eaa1afcf63198dfc5653f11472fae47d498264b065aa269aa26be611"
+              },
+              {
+                "relative_path": "wooden_open_box_textures/4da9a5b98ddaad6dcb8c0a391b6086e7adbbb3aa344e4509fcbb87c9c7d6d376.png",
+                "sha256": "4da9a5b98ddaad6dcb8c0a391b6086e7adbbb3aa344e4509fcbb87c9c7d6d376"
+              }
+            ]
+          },
+          "size": [
+            0.12,
+            0.1,
+            0.02
+          ],
+          "xy": [
+            0.05,
+            0
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.2,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "identity": "tray",
+          "role": "fixture"
+        }
+      },
+      "mechanisms": [
+        {
+          "id": "clip1",
+          "mechanical_asset": {
+            "id": "binder_clip_spring_v3",
+            "tasks": [
+              "E40",
+              "E50"
+            ],
+            "kind": "articulation",
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "path": "/home/descfly/VideoICL/realworld50_20261027/converted_assets_mechanisms_v1/binder_clip_spring_v3.usda",
+            "relative_path": "binder_clip_spring_v3.usda",
+            "sha256": "9b26925fe2505ca71204ffdffb2eeb9f2e4e48a58279662a8bc4c6e7af710385",
+            "joint_count": 2,
+            "source_path": "/home/descfly/VideoICL/realworld50_20261027/mechanism_upstream/binder_clip_cc0.glb",
+            "source_sha256": "7045bff0ace29e0a258fefde8783033a7837601d4b979f7fcd1f5f6d42761bde",
+            "source_url": "https://www.innerscene.com/api/library/fold-clip-stationery-86d1fa5e/download",
+            "publisher": "Innerscene",
+            "license": "CC0",
+            "license_url": "https://www.innerscene.com/tools/library/3d-parts/fold-clip-stationery-86d1fa5e",
+            "source_hash_status": "Local SHA256 after public download; publisher provides no checksum",
+            "joint_roles": {
+              "positive_jaw": "JawPositiveFlexure",
+              "negative_jaw": "JawNegativeFlexure"
+            },
+            "contact_links": {
+              "positive_jaw": "JawPositive",
+              "negative_jaw": "JawNegative",
+              "back": "Spine"
+            },
+            "mesh_diff": [
+              {
+                "body": "JawPositive",
+                "original_outer_triangles": 56,
+                "derived_wall_thickness_m": 0.0006,
+                "removed_solid_mouth_closure": true
+              },
+              {
+                "body": "JawNegative",
+                "original_outer_triangles": 28,
+                "derived_wall_thickness_m": 0.0006,
+                "removed_solid_mouth_closure": true
+              }
+            ],
+            "source_modified": false,
+            "free_base": true,
+            "physical_affordances": {
+              "hinge_local": [
+                0,
+                0,
+                0.022
+              ],
+              "jaw_normal_axis": [
+                0,
+                1,
+                0
+              ],
+              "source_handle_centers_local": [
+                [
+                  0,
+                  -0.01626446,
+                  0.02756749
+                ],
+                [
+                  0,
+                  0.01626446,
+                  0.02756749
+                ]
+              ],
+              "spring_target_degrees": [
+                30,
+                -30
+              ],
+              "opening_action": "Compress the real wire handles toward local Y=0; card retention only through jaw contacts.",
+              "initial_state": "Publisher mesh is open; passive closing springs settle it physically. No time-sampled transforms.",
+              "body_geometry": {
+                "JawPositive": {
+                  "body_name": "JawPositive",
+                  "joint": "JawPositiveFlexure",
+                  "jaw_point_body_local": [
+                    -1.734723475976807e-18,
+                    -0.008539800444245339,
+                    0.0018579813186079264
+                  ],
+                  "inner_gap_normal_body_local": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "handle_point_body_local": [
+                    0.0,
+                    -0.018533295020461082,
+                    0.045314289862290025
+                  ],
+                  "hinge_point_body_local": [
+                    0,
+                    0,
+                    0.022
+                  ],
+                  "joint_axis_body_local": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "closing_joint_direction": 1,
+                  "body_to_asset_translation": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "body_to_asset_quaternion_wxyz": [
+                    1,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                "JawNegative": {
+                  "body_name": "JawNegative",
+                  "joint": "JawNegativeFlexure",
+                  "jaw_point_body_local": [
+                    -3.469446951953614e-18,
+                    0.010726123348959473,
+                    0.0032346090310332223
+                  ],
+                  "inner_gap_normal_body_local": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "handle_point_body_local": [
+                    0.0,
+                    0.018533295020461082,
+                    0.04531429358758032
+                  ],
+                  "hinge_point_body_local": [
+                    0,
+                    0,
+                    0.022
+                  ],
+                  "joint_axis_body_local": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "closing_joint_direction": -1,
+                  "body_to_asset_translation": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "body_to_asset_quaternion_wxyz": [
+                    1,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              }
+            },
+            "adaptations": [
+              "Source folded shell split into spring spine and two source-mesh jaws.",
+              "Original wire handles kept as physical geometry rigidly attached to corresponding jaw.",
+              "Two revolute flexure approximations with constant opposing closing spring torque; free-floating base.",
+              "Per-source-part convex hulls retain the space between jaws; no card attachment or success-conditioned drive.",
+              "Remove source solid bridging mouth faces; retain actual outward wall triangles and extrude each inward by 0.6 mm into physical thin shell.",
+              "Enable articulation self-collision so nonadjacent jaws can contact."
+            ],
+            "dependencies": [
+              {
+                "relative_path": "binder_clip_v3b_parts/JawNegative.glb",
+                "sha256": "20f513949a622946f8419db9cdff67ce9fdda484e07aba8a8084029348fd73e5"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawNegative.provenance.json",
+                "sha256": "f8a1b3b89b0df5eafad6cca3d4d481dc2e8ec6450ede5a833803e1f2a01a0813"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawNegative.usda",
+                "sha256": "1c9b48f275e6bca1500ddf69074d3961fd38fd391ef23967f54fe860799953c4"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawNegative_textures/5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa.png",
+                "sha256": "5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawNegative_textures/c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571.png",
+                "sha256": "c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawPositive.glb",
+                "sha256": "da2f0705b148b3ae6dd0b941abd42fda932151779f4b0536c319eab91507a97b"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawPositive.provenance.json",
+                "sha256": "f12462da34580fdda2516ce2a0e682a8bd90fc092ad4bafa84a89bf0cefa1db8"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawPositive.usda",
+                "sha256": "4d932aaf9808cc9d497d02ba8f336974ac6a9f7e0a06617b69617f62b7573668"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawPositive_textures/5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa.png",
+                "sha256": "5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawPositive_textures/c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571.png",
+                "sha256": "c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/Spine.glb",
+                "sha256": "59c67605d918d2a33dd1f592a0b6d3812503641d17711647067c3d09e70045aa"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/Spine.provenance.json",
+                "sha256": "a284c27887d36a234ac187de63b59deab1b5b7591aaac4aa4f1d35b78fe4d1af"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/Spine.usda",
+                "sha256": "b577bb3b61e3190653dfc588464cb736ff2bbd5454de133d4e829719328d8e1e"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/Spine_textures/c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571.png",
+                "sha256": "c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571"
+              }
+            ],
+            "gpu_used": false,
+            "physics_verified": false,
+            "identity_fidelity": "Original CC0 binder clip geometry; flexure mechanics approximated by passive hinges",
+            "limitations": [
+              "GPU contact test must verify closure, handle leverage and card retention.",
+              "Wire handles are fixed to jaws; their independent folding degree of freedom is not modeled.",
+              "Articulation starts in source open rest coordinates and closes through spring torque; released jaw gap has not yet been measured in PhysX.",
+              "Publisher source was solid art, so 0.6 mm shell thickness is an explicit adaptation; previous v1/v2 are invalid for physical clip insertion."
+            ],
+            "cpu_validation": {
+              "central_mouth_gap_probes_passed": 18,
+              "positive_volume_wall_prisms": 84
+            }
+          },
+          "position": [
+            -0.17,
+            0.14,
+            0.802
+          ],
+          "quaternion": [
+            0.7071067811865476,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "id": "clip2",
+          "mechanical_asset": {
+            "id": "binder_clip_spring_v3",
+            "tasks": [
+              "E40",
+              "E50"
+            ],
+            "kind": "articulation",
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "path": "/home/descfly/VideoICL/realworld50_20261027/converted_assets_mechanisms_v1/binder_clip_spring_v3.usda",
+            "relative_path": "binder_clip_spring_v3.usda",
+            "sha256": "9b26925fe2505ca71204ffdffb2eeb9f2e4e48a58279662a8bc4c6e7af710385",
+            "joint_count": 2,
+            "source_path": "/home/descfly/VideoICL/realworld50_20261027/mechanism_upstream/binder_clip_cc0.glb",
+            "source_sha256": "7045bff0ace29e0a258fefde8783033a7837601d4b979f7fcd1f5f6d42761bde",
+            "source_url": "https://www.innerscene.com/api/library/fold-clip-stationery-86d1fa5e/download",
+            "publisher": "Innerscene",
+            "license": "CC0",
+            "license_url": "https://www.innerscene.com/tools/library/3d-parts/fold-clip-stationery-86d1fa5e",
+            "source_hash_status": "Local SHA256 after public download; publisher provides no checksum",
+            "joint_roles": {
+              "positive_jaw": "JawPositiveFlexure",
+              "negative_jaw": "JawNegativeFlexure"
+            },
+            "contact_links": {
+              "positive_jaw": "JawPositive",
+              "negative_jaw": "JawNegative",
+              "back": "Spine"
+            },
+            "mesh_diff": [
+              {
+                "body": "JawPositive",
+                "original_outer_triangles": 56,
+                "derived_wall_thickness_m": 0.0006,
+                "removed_solid_mouth_closure": true
+              },
+              {
+                "body": "JawNegative",
+                "original_outer_triangles": 28,
+                "derived_wall_thickness_m": 0.0006,
+                "removed_solid_mouth_closure": true
+              }
+            ],
+            "source_modified": false,
+            "free_base": true,
+            "physical_affordances": {
+              "hinge_local": [
+                0,
+                0,
+                0.022
+              ],
+              "jaw_normal_axis": [
+                0,
+                1,
+                0
+              ],
+              "source_handle_centers_local": [
+                [
+                  0,
+                  -0.01626446,
+                  0.02756749
+                ],
+                [
+                  0,
+                  0.01626446,
+                  0.02756749
+                ]
+              ],
+              "spring_target_degrees": [
+                30,
+                -30
+              ],
+              "opening_action": "Compress the real wire handles toward local Y=0; card retention only through jaw contacts.",
+              "initial_state": "Publisher mesh is open; passive closing springs settle it physically. No time-sampled transforms.",
+              "body_geometry": {
+                "JawPositive": {
+                  "body_name": "JawPositive",
+                  "joint": "JawPositiveFlexure",
+                  "jaw_point_body_local": [
+                    -1.734723475976807e-18,
+                    -0.008539800444245339,
+                    0.0018579813186079264
+                  ],
+                  "inner_gap_normal_body_local": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "handle_point_body_local": [
+                    0.0,
+                    -0.018533295020461082,
+                    0.045314289862290025
+                  ],
+                  "hinge_point_body_local": [
+                    0,
+                    0,
+                    0.022
+                  ],
+                  "joint_axis_body_local": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "closing_joint_direction": 1,
+                  "body_to_asset_translation": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "body_to_asset_quaternion_wxyz": [
+                    1,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                "JawNegative": {
+                  "body_name": "JawNegative",
+                  "joint": "JawNegativeFlexure",
+                  "jaw_point_body_local": [
+                    -3.469446951953614e-18,
+                    0.010726123348959473,
+                    0.0032346090310332223
+                  ],
+                  "inner_gap_normal_body_local": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "handle_point_body_local": [
+                    0.0,
+                    0.018533295020461082,
+                    0.04531429358758032
+                  ],
+                  "hinge_point_body_local": [
+                    0,
+                    0,
+                    0.022
+                  ],
+                  "joint_axis_body_local": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "closing_joint_direction": -1,
+                  "body_to_asset_translation": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "body_to_asset_quaternion_wxyz": [
+                    1,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              }
+            },
+            "adaptations": [
+              "Source folded shell split into spring spine and two source-mesh jaws.",
+              "Original wire handles kept as physical geometry rigidly attached to corresponding jaw.",
+              "Two revolute flexure approximations with constant opposing closing spring torque; free-floating base.",
+              "Per-source-part convex hulls retain the space between jaws; no card attachment or success-conditioned drive.",
+              "Remove source solid bridging mouth faces; retain actual outward wall triangles and extrude each inward by 0.6 mm into physical thin shell.",
+              "Enable articulation self-collision so nonadjacent jaws can contact."
+            ],
+            "dependencies": [
+              {
+                "relative_path": "binder_clip_v3b_parts/JawNegative.glb",
+                "sha256": "20f513949a622946f8419db9cdff67ce9fdda484e07aba8a8084029348fd73e5"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawNegative.provenance.json",
+                "sha256": "f8a1b3b89b0df5eafad6cca3d4d481dc2e8ec6450ede5a833803e1f2a01a0813"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawNegative.usda",
+                "sha256": "1c9b48f275e6bca1500ddf69074d3961fd38fd391ef23967f54fe860799953c4"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawNegative_textures/5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa.png",
+                "sha256": "5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawNegative_textures/c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571.png",
+                "sha256": "c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawPositive.glb",
+                "sha256": "da2f0705b148b3ae6dd0b941abd42fda932151779f4b0536c319eab91507a97b"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawPositive.provenance.json",
+                "sha256": "f12462da34580fdda2516ce2a0e682a8bd90fc092ad4bafa84a89bf0cefa1db8"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawPositive.usda",
+                "sha256": "4d932aaf9808cc9d497d02ba8f336974ac6a9f7e0a06617b69617f62b7573668"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawPositive_textures/5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa.png",
+                "sha256": "5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawPositive_textures/c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571.png",
+                "sha256": "c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/Spine.glb",
+                "sha256": "59c67605d918d2a33dd1f592a0b6d3812503641d17711647067c3d09e70045aa"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/Spine.provenance.json",
+                "sha256": "a284c27887d36a234ac187de63b59deab1b5b7591aaac4aa4f1d35b78fe4d1af"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/Spine.usda",
+                "sha256": "b577bb3b61e3190653dfc588464cb736ff2bbd5454de133d4e829719328d8e1e"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/Spine_textures/c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571.png",
+                "sha256": "c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571"
+              }
+            ],
+            "gpu_used": false,
+            "physics_verified": false,
+            "identity_fidelity": "Original CC0 binder clip geometry; flexure mechanics approximated by passive hinges",
+            "limitations": [
+              "GPU contact test must verify closure, handle leverage and card retention.",
+              "Wire handles are fixed to jaws; their independent folding degree of freedom is not modeled.",
+              "Articulation starts in source open rest coordinates and closes through spring torque; released jaw gap has not yet been measured in PhysX.",
+              "Publisher source was solid art, so 0.6 mm shell thickness is an explicit adaptation; previous v1/v2 are invalid for physical clip insertion."
+            ],
+            "cpu_validation": {
+              "central_mouth_gap_probes_passed": 18,
+              "positive_volume_wall_prisms": 84
+            }
+          },
+          "position": [
+            -0.17,
+            0.0,
+            0.802
+          ],
+          "quaternion": [
+            0.7071067811865476,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        },
+        {
+          "id": "clip3",
+          "mechanical_asset": {
+            "id": "binder_clip_spring_v3",
+            "tasks": [
+              "E40",
+              "E50"
+            ],
+            "kind": "articulation",
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "path": "/home/descfly/VideoICL/realworld50_20261027/converted_assets_mechanisms_v1/binder_clip_spring_v3.usda",
+            "relative_path": "binder_clip_spring_v3.usda",
+            "sha256": "9b26925fe2505ca71204ffdffb2eeb9f2e4e48a58279662a8bc4c6e7af710385",
+            "joint_count": 2,
+            "source_path": "/home/descfly/VideoICL/realworld50_20261027/mechanism_upstream/binder_clip_cc0.glb",
+            "source_sha256": "7045bff0ace29e0a258fefde8783033a7837601d4b979f7fcd1f5f6d42761bde",
+            "source_url": "https://www.innerscene.com/api/library/fold-clip-stationery-86d1fa5e/download",
+            "publisher": "Innerscene",
+            "license": "CC0",
+            "license_url": "https://www.innerscene.com/tools/library/3d-parts/fold-clip-stationery-86d1fa5e",
+            "source_hash_status": "Local SHA256 after public download; publisher provides no checksum",
+            "joint_roles": {
+              "positive_jaw": "JawPositiveFlexure",
+              "negative_jaw": "JawNegativeFlexure"
+            },
+            "contact_links": {
+              "positive_jaw": "JawPositive",
+              "negative_jaw": "JawNegative",
+              "back": "Spine"
+            },
+            "mesh_diff": [
+              {
+                "body": "JawPositive",
+                "original_outer_triangles": 56,
+                "derived_wall_thickness_m": 0.0006,
+                "removed_solid_mouth_closure": true
+              },
+              {
+                "body": "JawNegative",
+                "original_outer_triangles": 28,
+                "derived_wall_thickness_m": 0.0006,
+                "removed_solid_mouth_closure": true
+              }
+            ],
+            "source_modified": false,
+            "free_base": true,
+            "physical_affordances": {
+              "hinge_local": [
+                0,
+                0,
+                0.022
+              ],
+              "jaw_normal_axis": [
+                0,
+                1,
+                0
+              ],
+              "source_handle_centers_local": [
+                [
+                  0,
+                  -0.01626446,
+                  0.02756749
+                ],
+                [
+                  0,
+                  0.01626446,
+                  0.02756749
+                ]
+              ],
+              "spring_target_degrees": [
+                30,
+                -30
+              ],
+              "opening_action": "Compress the real wire handles toward local Y=0; card retention only through jaw contacts.",
+              "initial_state": "Publisher mesh is open; passive closing springs settle it physically. No time-sampled transforms.",
+              "body_geometry": {
+                "JawPositive": {
+                  "body_name": "JawPositive",
+                  "joint": "JawPositiveFlexure",
+                  "jaw_point_body_local": [
+                    -1.734723475976807e-18,
+                    -0.008539800444245339,
+                    0.0018579813186079264
+                  ],
+                  "inner_gap_normal_body_local": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "handle_point_body_local": [
+                    0.0,
+                    -0.018533295020461082,
+                    0.045314289862290025
+                  ],
+                  "hinge_point_body_local": [
+                    0,
+                    0,
+                    0.022
+                  ],
+                  "joint_axis_body_local": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "closing_joint_direction": 1,
+                  "body_to_asset_translation": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "body_to_asset_quaternion_wxyz": [
+                    1,
+                    0,
+                    0,
+                    0
+                  ]
+                },
+                "JawNegative": {
+                  "body_name": "JawNegative",
+                  "joint": "JawNegativeFlexure",
+                  "jaw_point_body_local": [
+                    -3.469446951953614e-18,
+                    0.010726123348959473,
+                    0.0032346090310332223
+                  ],
+                  "inner_gap_normal_body_local": [
+                    0,
+                    -1,
+                    0
+                  ],
+                  "handle_point_body_local": [
+                    0.0,
+                    0.018533295020461082,
+                    0.04531429358758032
+                  ],
+                  "hinge_point_body_local": [
+                    0,
+                    0,
+                    0.022
+                  ],
+                  "joint_axis_body_local": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "closing_joint_direction": -1,
+                  "body_to_asset_translation": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "body_to_asset_quaternion_wxyz": [
+                    1,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              }
+            },
+            "adaptations": [
+              "Source folded shell split into spring spine and two source-mesh jaws.",
+              "Original wire handles kept as physical geometry rigidly attached to corresponding jaw.",
+              "Two revolute flexure approximations with constant opposing closing spring torque; free-floating base.",
+              "Per-source-part convex hulls retain the space between jaws; no card attachment or success-conditioned drive.",
+              "Remove source solid bridging mouth faces; retain actual outward wall triangles and extrude each inward by 0.6 mm into physical thin shell.",
+              "Enable articulation self-collision so nonadjacent jaws can contact."
+            ],
+            "dependencies": [
+              {
+                "relative_path": "binder_clip_v3b_parts/JawNegative.glb",
+                "sha256": "20f513949a622946f8419db9cdff67ce9fdda484e07aba8a8084029348fd73e5"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawNegative.provenance.json",
+                "sha256": "f8a1b3b89b0df5eafad6cca3d4d481dc2e8ec6450ede5a833803e1f2a01a0813"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawNegative.usda",
+                "sha256": "1c9b48f275e6bca1500ddf69074d3961fd38fd391ef23967f54fe860799953c4"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawNegative_textures/5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa.png",
+                "sha256": "5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawNegative_textures/c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571.png",
+                "sha256": "c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawPositive.glb",
+                "sha256": "da2f0705b148b3ae6dd0b941abd42fda932151779f4b0536c319eab91507a97b"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawPositive.provenance.json",
+                "sha256": "f12462da34580fdda2516ce2a0e682a8bd90fc092ad4bafa84a89bf0cefa1db8"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawPositive.usda",
+                "sha256": "4d932aaf9808cc9d497d02ba8f336974ac6a9f7e0a06617b69617f62b7573668"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawPositive_textures/5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa.png",
+                "sha256": "5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/JawPositive_textures/c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571.png",
+                "sha256": "c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/Spine.glb",
+                "sha256": "59c67605d918d2a33dd1f592a0b6d3812503641d17711647067c3d09e70045aa"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/Spine.provenance.json",
+                "sha256": "a284c27887d36a234ac187de63b59deab1b5b7591aaac4aa4f1d35b78fe4d1af"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/Spine.usda",
+                "sha256": "b577bb3b61e3190653dfc588464cb736ff2bbd5454de133d4e829719328d8e1e"
+              },
+              {
+                "relative_path": "binder_clip_v3b_parts/Spine_textures/c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571.png",
+                "sha256": "c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571"
+              }
+            ],
+            "gpu_used": false,
+            "physics_verified": false,
+            "identity_fidelity": "Original CC0 binder clip geometry; flexure mechanics approximated by passive hinges",
+            "limitations": [
+              "GPU contact test must verify closure, handle leverage and card retention.",
+              "Wire handles are fixed to jaws; their independent folding degree of freedom is not modeled.",
+              "Articulation starts in source open rest coordinates and closes through spring torque; released jaw gap has not yet been measured in PhysX.",
+              "Publisher source was solid art, so 0.6 mm shell thickness is an explicit adaptation; previous v1/v2 are invalid for physical clip insertion."
+            ],
+            "cpu_validation": {
+              "central_mouth_gap_probes_passed": 18,
+              "positive_volume_wall_prisms": 84
+            }
+          },
+          "position": [
+            -0.17,
+            -0.14,
+            0.802
+          ],
+          "quaternion": [
+            0.7071067811865476,
+            0,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "variants": {
+        "A": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "circle",
+              "xy": [
+                -0.005,
+                -0.05
+              ],
+              "half_size": [
+                0.033,
+                0.033
+              ],
+              "surface_z": 0.8087,
+              "shape": "circle",
+              "support": "tray",
+              "edge_point": [
+                -0.065,
+                -0.05,
+                0.842
+              ]
+            },
+            {
+              "id": "triangle",
+              "xy": [
+                -0.005,
+                0.05
+              ],
+              "half_size": [
+                0.033,
+                0.033
+              ],
+              "surface_z": 0.8087,
+              "shape": "triangle",
+              "support": "tray",
+              "edge_point": [
+                -0.065,
+                0.05,
+                0.842
+              ]
+            },
+            {
+              "id": "square",
+              "xy": [
+                0.105,
+                -0.05
+              ],
+              "half_size": [
+                0.033,
+                0.033
+              ],
+              "surface_z": 0.8087,
+              "shape": "square",
+              "support": "tray",
+              "edge_point": [
+                0.165,
+                -0.05,
+                0.842
+              ]
+            },
+            {
+              "id": "cross",
+              "xy": [
+                0.105,
+                0.05
+              ],
+              "half_size": [
+                0.033,
+                0.033
+              ],
+              "surface_z": 0.8087,
+              "shape": "cross",
+              "support": "tray",
+              "edge_point": [
+                0.165,
+                0.05,
+                0.842
+              ]
+            }
+          ],
+          "goals": [],
+          "semantic": {
+            "mode": "actual_spring_clip_edge_capture",
+            "groups": {},
+            "clips": {
+              "clip1": {
+                "mechanism": "clip1",
+                "joint": "JawPositiveFlexure",
+                "handle_contacts": [
+                  "clip1/positive_jaw",
+                  "clip1/negative_jaw"
+                ],
+                "capture_radius": 0.021,
+                "left": {
+                  "body": "JawPositive",
+                  "contact_body": "clip1/positive_jaw",
+                  "point_local": [
+                    -1.734723475976807e-18,
+                    -0.008539800444245339,
+                    0.0018579813186079264
+                  ]
+                },
+                "right": {
+                  "body": "JawNegative",
+                  "contact_body": "clip1/negative_jaw",
+                  "point_local": [
+                    -3.469446951953614e-18,
+                    0.010726123348959473,
+                    0.0032346090310332223
+                  ]
+                },
+                "expert": {
+                  "handle_grasp": {
+                    "body": "JawPositive",
+                    "contact_body": "clip1/positive_jaw",
+                    "local": [
+                      0.0,
+                      0.0,
+                      0.045314291724935174
+                    ],
+                    "jaw_axis_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "grasp_contacts": [
+                      "clip1/positive_jaw",
+                      "clip1/negative_jaw"
+                    ]
+                  },
+                  "body_grasp": {
+                    "body": "Spine",
+                    "contact_body": "clip1/back",
+                    "local": [
+                      0,
+                      0,
+                      0.022
+                    ],
+                    "jaw_axis_local": [
+                      1,
+                      0,
+                      0
+                    ]
+                  },
+                  "open_gap_m": 0.018,
+                  "insert_direction_task": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "return_point_task": [
+                    -0.17,
+                    0.14,
+                    0.827
+                  ]
+                }
+              },
+              "clip2": {
+                "mechanism": "clip2",
+                "joint": "JawPositiveFlexure",
+                "handle_contacts": [
+                  "clip2/positive_jaw",
+                  "clip2/negative_jaw"
+                ],
+                "capture_radius": 0.021,
+                "left": {
+                  "body": "JawPositive",
+                  "contact_body": "clip2/positive_jaw",
+                  "point_local": [
+                    -1.734723475976807e-18,
+                    -0.008539800444245339,
+                    0.0018579813186079264
+                  ]
+                },
+                "right": {
+                  "body": "JawNegative",
+                  "contact_body": "clip2/negative_jaw",
+                  "point_local": [
+                    -3.469446951953614e-18,
+                    0.010726123348959473,
+                    0.0032346090310332223
+                  ]
+                },
+                "expert": {
+                  "handle_grasp": {
+                    "body": "JawPositive",
+                    "contact_body": "clip2/positive_jaw",
+                    "local": [
+                      0.0,
+                      0.0,
+                      0.045314291724935174
+                    ],
+                    "jaw_axis_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "grasp_contacts": [
+                      "clip2/positive_jaw",
+                      "clip2/negative_jaw"
+                    ]
+                  },
+                  "body_grasp": {
+                    "body": "Spine",
+                    "contact_body": "clip2/back",
+                    "local": [
+                      0,
+                      0,
+                      0.022
+                    ],
+                    "jaw_axis_local": [
+                      1,
+                      0,
+                      0
+                    ]
+                  },
+                  "open_gap_m": 0.018,
+                  "insert_direction_task": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "return_point_task": [
+                    -0.17,
+                    0.0,
+                    0.827
+                  ]
+                }
+              },
+              "clip3": {
+                "mechanism": "clip3",
+                "joint": "JawPositiveFlexure",
+                "handle_contacts": [
+                  "clip3/positive_jaw",
+                  "clip3/negative_jaw"
+                ],
+                "capture_radius": 0.021,
+                "left": {
+                  "body": "JawPositive",
+                  "contact_body": "clip3/positive_jaw",
+                  "point_local": [
+                    -1.734723475976807e-18,
+                    -0.008539800444245339,
+                    0.0018579813186079264
+                  ]
+                },
+                "right": {
+                  "body": "JawNegative",
+                  "contact_body": "clip3/negative_jaw",
+                  "point_local": [
+                    -3.469446951953614e-18,
+                    0.010726123348959473,
+                    0.0032346090310332223
+                  ]
+                },
+                "expert": {
+                  "handle_grasp": {
+                    "body": "JawPositive",
+                    "contact_body": "clip3/positive_jaw",
+                    "local": [
+                      0.0,
+                      0.0,
+                      0.045314291724935174
+                    ],
+                    "jaw_axis_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "grasp_contacts": [
+                      "clip3/positive_jaw",
+                      "clip3/negative_jaw"
+                    ]
+                  },
+                  "body_grasp": {
+                    "body": "Spine",
+                    "contact_body": "clip3/back",
+                    "local": [
+                      0,
+                      0,
+                      0.022
+                    ],
+                    "jaw_axis_local": [
+                      1,
+                      0,
+                      0
+                    ]
+                  },
+                  "open_gap_m": 0.018,
+                  "insert_direction_task": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "return_point_task": [
+                    -0.17,
+                    -0.14,
+                    0.827
+                  ]
+                }
+              }
+            },
+            "expert_clearance_z": 1.1
+          }
+        },
+        "B": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "circle",
+              "xy": [
+                -0.005,
+                -0.05
+              ],
+              "half_size": [
+                0.033,
+                0.033
+              ],
+              "surface_z": 0.8087,
+              "shape": "circle",
+              "support": "tray",
+              "edge_point": [
+                -0.065,
+                -0.05,
+                0.842
+              ]
+            },
+            {
+              "id": "triangle",
+              "xy": [
+                -0.005,
+                0.05
+              ],
+              "half_size": [
+                0.033,
+                0.033
+              ],
+              "surface_z": 0.8087,
+              "shape": "triangle",
+              "support": "tray",
+              "edge_point": [
+                -0.065,
+                0.05,
+                0.842
+              ]
+            },
+            {
+              "id": "square",
+              "xy": [
+                0.105,
+                -0.05
+              ],
+              "half_size": [
+                0.033,
+                0.033
+              ],
+              "surface_z": 0.8087,
+              "shape": "square",
+              "support": "tray",
+              "edge_point": [
+                0.165,
+                -0.05,
+                0.842
+              ]
+            },
+            {
+              "id": "cross",
+              "xy": [
+                0.105,
+                0.05
+              ],
+              "half_size": [
+                0.033,
+                0.033
+              ],
+              "surface_z": 0.8087,
+              "shape": "cross",
+              "support": "tray",
+              "edge_point": [
+                0.165,
+                0.05,
+                0.842
+              ]
+            }
+          ],
+          "goals": [],
+          "semantic": {
+            "mode": "actual_spring_clip_edge_capture",
+            "groups": {},
+            "clips": {
+              "clip1": {
+                "mechanism": "clip1",
+                "joint": "JawPositiveFlexure",
+                "handle_contacts": [
+                  "clip1/positive_jaw",
+                  "clip1/negative_jaw"
+                ],
+                "capture_radius": 0.021,
+                "left": {
+                  "body": "JawPositive",
+                  "contact_body": "clip1/positive_jaw",
+                  "point_local": [
+                    -1.734723475976807e-18,
+                    -0.008539800444245339,
+                    0.0018579813186079264
+                  ]
+                },
+                "right": {
+                  "body": "JawNegative",
+                  "contact_body": "clip1/negative_jaw",
+                  "point_local": [
+                    -3.469446951953614e-18,
+                    0.010726123348959473,
+                    0.0032346090310332223
+                  ]
+                },
+                "expert": {
+                  "handle_grasp": {
+                    "body": "JawPositive",
+                    "contact_body": "clip1/positive_jaw",
+                    "local": [
+                      0.0,
+                      0.0,
+                      0.045314291724935174
+                    ],
+                    "jaw_axis_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "grasp_contacts": [
+                      "clip1/positive_jaw",
+                      "clip1/negative_jaw"
+                    ]
+                  },
+                  "body_grasp": {
+                    "body": "Spine",
+                    "contact_body": "clip1/back",
+                    "local": [
+                      0,
+                      0,
+                      0.022
+                    ],
+                    "jaw_axis_local": [
+                      1,
+                      0,
+                      0
+                    ]
+                  },
+                  "open_gap_m": 0.018,
+                  "insert_direction_task": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "return_point_task": [
+                    -0.17,
+                    0.14,
+                    0.827
+                  ]
+                }
+              },
+              "clip2": {
+                "mechanism": "clip2",
+                "joint": "JawPositiveFlexure",
+                "handle_contacts": [
+                  "clip2/positive_jaw",
+                  "clip2/negative_jaw"
+                ],
+                "capture_radius": 0.021,
+                "left": {
+                  "body": "JawPositive",
+                  "contact_body": "clip2/positive_jaw",
+                  "point_local": [
+                    -1.734723475976807e-18,
+                    -0.008539800444245339,
+                    0.0018579813186079264
+                  ]
+                },
+                "right": {
+                  "body": "JawNegative",
+                  "contact_body": "clip2/negative_jaw",
+                  "point_local": [
+                    -3.469446951953614e-18,
+                    0.010726123348959473,
+                    0.0032346090310332223
+                  ]
+                },
+                "expert": {
+                  "handle_grasp": {
+                    "body": "JawPositive",
+                    "contact_body": "clip2/positive_jaw",
+                    "local": [
+                      0.0,
+                      0.0,
+                      0.045314291724935174
+                    ],
+                    "jaw_axis_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "grasp_contacts": [
+                      "clip2/positive_jaw",
+                      "clip2/negative_jaw"
+                    ]
+                  },
+                  "body_grasp": {
+                    "body": "Spine",
+                    "contact_body": "clip2/back",
+                    "local": [
+                      0,
+                      0,
+                      0.022
+                    ],
+                    "jaw_axis_local": [
+                      1,
+                      0,
+                      0
+                    ]
+                  },
+                  "open_gap_m": 0.018,
+                  "insert_direction_task": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "return_point_task": [
+                    -0.17,
+                    0.0,
+                    0.827
+                  ]
+                }
+              },
+              "clip3": {
+                "mechanism": "clip3",
+                "joint": "JawPositiveFlexure",
+                "handle_contacts": [
+                  "clip3/positive_jaw",
+                  "clip3/negative_jaw"
+                ],
+                "capture_radius": 0.021,
+                "left": {
+                  "body": "JawPositive",
+                  "contact_body": "clip3/positive_jaw",
+                  "point_local": [
+                    -1.734723475976807e-18,
+                    -0.008539800444245339,
+                    0.0018579813186079264
+                  ]
+                },
+                "right": {
+                  "body": "JawNegative",
+                  "contact_body": "clip3/negative_jaw",
+                  "point_local": [
+                    -3.469446951953614e-18,
+                    0.010726123348959473,
+                    0.0032346090310332223
+                  ]
+                },
+                "expert": {
+                  "handle_grasp": {
+                    "body": "JawPositive",
+                    "contact_body": "clip3/positive_jaw",
+                    "local": [
+                      0.0,
+                      0.0,
+                      0.045314291724935174
+                    ],
+                    "jaw_axis_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "grasp_contacts": [
+                      "clip3/positive_jaw",
+                      "clip3/negative_jaw"
+                    ]
+                  },
+                  "body_grasp": {
+                    "body": "Spine",
+                    "contact_body": "clip3/back",
+                    "local": [
+                      0,
+                      0,
+                      0.022
+                    ],
+                    "jaw_axis_local": [
+                      1,
+                      0,
+                      0
+                    ]
+                  },
+                  "open_gap_m": 0.018,
+                  "insert_direction_task": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "return_point_task": [
+                    -0.17,
+                    -0.14,
+                    0.827
+                  ]
+                }
+              }
+            },
+            "expert_clearance_z": 1.1
+          }
+        },
+        "C": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "circle",
+              "xy": [
+                -0.005,
+                -0.05
+              ],
+              "half_size": [
+                0.033,
+                0.033
+              ],
+              "surface_z": 0.8087,
+              "shape": "circle",
+              "support": "tray",
+              "edge_point": [
+                -0.065,
+                -0.05,
+                0.842
+              ]
+            },
+            {
+              "id": "triangle",
+              "xy": [
+                -0.005,
+                0.05
+              ],
+              "half_size": [
+                0.033,
+                0.033
+              ],
+              "surface_z": 0.8087,
+              "shape": "triangle",
+              "support": "tray",
+              "edge_point": [
+                -0.065,
+                0.05,
+                0.842
+              ]
+            },
+            {
+              "id": "square",
+              "xy": [
+                0.105,
+                -0.05
+              ],
+              "half_size": [
+                0.033,
+                0.033
+              ],
+              "surface_z": 0.8087,
+              "shape": "square",
+              "support": "tray",
+              "edge_point": [
+                0.165,
+                -0.05,
+                0.842
+              ]
+            },
+            {
+              "id": "cross",
+              "xy": [
+                0.105,
+                0.05
+              ],
+              "half_size": [
+                0.033,
+                0.033
+              ],
+              "surface_z": 0.8087,
+              "shape": "cross",
+              "support": "tray",
+              "edge_point": [
+                0.165,
+                0.05,
+                0.842
+              ]
+            }
+          ],
+          "goals": [],
+          "semantic": {
+            "mode": "actual_spring_clip_edge_capture",
+            "groups": {},
+            "clips": {
+              "clip1": {
+                "mechanism": "clip1",
+                "joint": "JawPositiveFlexure",
+                "handle_contacts": [
+                  "clip1/positive_jaw",
+                  "clip1/negative_jaw"
+                ],
+                "capture_radius": 0.021,
+                "left": {
+                  "body": "JawPositive",
+                  "contact_body": "clip1/positive_jaw",
+                  "point_local": [
+                    -1.734723475976807e-18,
+                    -0.008539800444245339,
+                    0.0018579813186079264
+                  ]
+                },
+                "right": {
+                  "body": "JawNegative",
+                  "contact_body": "clip1/negative_jaw",
+                  "point_local": [
+                    -3.469446951953614e-18,
+                    0.010726123348959473,
+                    0.0032346090310332223
+                  ]
+                },
+                "expert": {
+                  "handle_grasp": {
+                    "body": "JawPositive",
+                    "contact_body": "clip1/positive_jaw",
+                    "local": [
+                      0.0,
+                      0.0,
+                      0.045314291724935174
+                    ],
+                    "jaw_axis_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "grasp_contacts": [
+                      "clip1/positive_jaw",
+                      "clip1/negative_jaw"
+                    ]
+                  },
+                  "body_grasp": {
+                    "body": "Spine",
+                    "contact_body": "clip1/back",
+                    "local": [
+                      0,
+                      0,
+                      0.022
+                    ],
+                    "jaw_axis_local": [
+                      1,
+                      0,
+                      0
+                    ]
+                  },
+                  "open_gap_m": 0.018,
+                  "insert_direction_task": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "return_point_task": [
+                    -0.17,
+                    0.14,
+                    0.827
+                  ]
+                }
+              },
+              "clip2": {
+                "mechanism": "clip2",
+                "joint": "JawPositiveFlexure",
+                "handle_contacts": [
+                  "clip2/positive_jaw",
+                  "clip2/negative_jaw"
+                ],
+                "capture_radius": 0.021,
+                "left": {
+                  "body": "JawPositive",
+                  "contact_body": "clip2/positive_jaw",
+                  "point_local": [
+                    -1.734723475976807e-18,
+                    -0.008539800444245339,
+                    0.0018579813186079264
+                  ]
+                },
+                "right": {
+                  "body": "JawNegative",
+                  "contact_body": "clip2/negative_jaw",
+                  "point_local": [
+                    -3.469446951953614e-18,
+                    0.010726123348959473,
+                    0.0032346090310332223
+                  ]
+                },
+                "expert": {
+                  "handle_grasp": {
+                    "body": "JawPositive",
+                    "contact_body": "clip2/positive_jaw",
+                    "local": [
+                      0.0,
+                      0.0,
+                      0.045314291724935174
+                    ],
+                    "jaw_axis_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "grasp_contacts": [
+                      "clip2/positive_jaw",
+                      "clip2/negative_jaw"
+                    ]
+                  },
+                  "body_grasp": {
+                    "body": "Spine",
+                    "contact_body": "clip2/back",
+                    "local": [
+                      0,
+                      0,
+                      0.022
+                    ],
+                    "jaw_axis_local": [
+                      1,
+                      0,
+                      0
+                    ]
+                  },
+                  "open_gap_m": 0.018,
+                  "insert_direction_task": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "return_point_task": [
+                    -0.17,
+                    0.0,
+                    0.827
+                  ]
+                }
+              },
+              "clip3": {
+                "mechanism": "clip3",
+                "joint": "JawPositiveFlexure",
+                "handle_contacts": [
+                  "clip3/positive_jaw",
+                  "clip3/negative_jaw"
+                ],
+                "capture_radius": 0.021,
+                "left": {
+                  "body": "JawPositive",
+                  "contact_body": "clip3/positive_jaw",
+                  "point_local": [
+                    -1.734723475976807e-18,
+                    -0.008539800444245339,
+                    0.0018579813186079264
+                  ]
+                },
+                "right": {
+                  "body": "JawNegative",
+                  "contact_body": "clip3/negative_jaw",
+                  "point_local": [
+                    -3.469446951953614e-18,
+                    0.010726123348959473,
+                    0.0032346090310332223
+                  ]
+                },
+                "expert": {
+                  "handle_grasp": {
+                    "body": "JawPositive",
+                    "contact_body": "clip3/positive_jaw",
+                    "local": [
+                      0.0,
+                      0.0,
+                      0.045314291724935174
+                    ],
+                    "jaw_axis_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "grasp_contacts": [
+                      "clip3/positive_jaw",
+                      "clip3/negative_jaw"
+                    ]
+                  },
+                  "body_grasp": {
+                    "body": "Spine",
+                    "contact_body": "clip3/back",
+                    "local": [
+                      0,
+                      0,
+                      0.022
+                    ],
+                    "jaw_axis_local": [
+                      1,
+                      0,
+                      0
+                    ]
+                  },
+                  "open_gap_m": 0.018,
+                  "insert_direction_task": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "return_point_task": [
+                    -0.17,
+                    -0.14,
+                    0.827
+                  ]
+                }
+              }
+            },
+            "expert_clearance_z": 1.1
+          }
+        }
+      },
+      "expert_action_budget": 5000,
+      "expert_loaded_step_mm": 4,
+      "fidelity_status": "source_geometry_schema_ready_native_physics_and_video_alignment_pending",
+      "validation_status": {
+        "physics_verified": false,
+        "source_geometry_cpu_checked": true
+      },
+      "review_notes": [
+        "No object teleportation, attachment, or prescribed joint trajectory. Source-derived geometry and process scoring require actual native contact validation."
+      ],
+      "joints": [
+        {
+          "type": "fixed",
+          "child": "tray",
+          "anchor0": [
+            0.05,
+            0,
+            0.822
+          ],
+          "anchor1": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "source_evidence": [
+        "../source_media/evidence/118.jpg",
+        "../source_media/evidence/119.jpg",
+        "../source_media/evidence/120.jpg"
+      ]
+    },
+    "E41": {
+      "scene_adapter": "full50-source-v1",
+      "fidelity_status": "source_derived_plank_dimensions_rounded_end_fidelity_gap",
+      "objects": {
+        "short_ref": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_wood_plank.usdz",
+            "sha256": "9e71af43eaa1afcf63198dfc5653f11472fae47d498264b065aa269aa26be611",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": [],
+            "allow_nonuniform_scale": true
+          },
+          "size": [
+            0.0375,
+            0.01,
+            0.002
+          ],
+          "xy": [
+            0.14,
+            0.14
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "adaptation_note": "Explicit anisotropic scale of published wood plank; flat rectangular ends differ from rounded source-video popsicle sticks.",
+          "adaptations": [
+            "Reviewed explicit axis scaling to source-video tray/strip dimensions; original mesh topology and cavities retained."
+          ]
+        },
+        "medium_ref": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_wood_plank.usdz",
+            "sha256": "9e71af43eaa1afcf63198dfc5653f11472fae47d498264b065aa269aa26be611",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": [],
+            "allow_nonuniform_scale": true
+          },
+          "size": [
+            0.0525,
+            0.01,
+            0.002
+          ],
+          "xy": [
+            0.14,
+            0
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "adaptation_note": "Explicit anisotropic scale of published wood plank; flat rectangular ends differ from rounded source-video popsicle sticks.",
+          "adaptations": [
+            "Reviewed explicit axis scaling to source-video tray/strip dimensions; original mesh topology and cavities retained."
+          ]
+        },
+        "long_ref": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_wood_plank.usdz",
+            "sha256": "9e71af43eaa1afcf63198dfc5653f11472fae47d498264b065aa269aa26be611",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": [],
+            "allow_nonuniform_scale": true
+          },
+          "size": [
+            0.0725,
+            0.01,
+            0.002
+          ],
+          "xy": [
+            0.14,
+            -0.14
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "adaptation_note": "Explicit anisotropic scale of published wood plank; flat rectangular ends differ from rounded source-video popsicle sticks.",
+          "adaptations": [
+            "Reviewed explicit axis scaling to source-video tray/strip dimensions; original mesh topology and cavities retained."
+          ]
+        },
+        "long_piece": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_wood_plank.usdz",
+            "sha256": "9e71af43eaa1afcf63198dfc5653f11472fae47d498264b065aa269aa26be611",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": [],
+            "allow_nonuniform_scale": true
+          },
+          "size": [
+            0.0725,
+            0.01,
+            0.002
+          ],
+          "xy": [
+            -0.11,
+            0.14
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "length_rank": "long",
+          "adaptations": [
+            "Reviewed explicit axis scaling to source-video tray/strip dimensions; original mesh topology and cavities retained."
+          ]
+        },
+        "short_piece": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_wood_plank.usdz",
+            "sha256": "9e71af43eaa1afcf63198dfc5653f11472fae47d498264b065aa269aa26be611",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": [],
+            "allow_nonuniform_scale": true
+          },
+          "size": [
+            0.0375,
+            0.01,
+            0.002
+          ],
+          "xy": [
+            -0.11,
+            0
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "length_rank": "short",
+          "adaptations": [
+            "Reviewed explicit axis scaling to source-video tray/strip dimensions; original mesh topology and cavities retained."
+          ]
+        },
+        "medium_piece": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_wood_plank.usdz",
+            "sha256": "9e71af43eaa1afcf63198dfc5653f11472fae47d498264b065aa269aa26be611",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": [],
+            "allow_nonuniform_scale": true
+          },
+          "size": [
+            0.0525,
+            0.01,
+            0.002
+          ],
+          "xy": [
+            -0.11,
+            -0.14
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "length_rank": "medium",
+          "adaptations": [
+            "Reviewed explicit axis scaling to source-video tray/strip dimensions; original mesh topology and cavities retained."
+          ]
+        }
+      },
+      "variants": {
+        "A": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "long_piece_target",
+              "xy": [
+                0.029000000000000012,
+                0.14
+              ],
+              "half_size": [
+                0.03,
+                0.02
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "medium_piece_target",
+              "xy": [
+                0.03400000000000002,
+                0
+              ],
+              "half_size": [
+                0.03,
+                0.02
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "short_piece_target",
+              "xy": [
+                0.02900000000000002,
+                -0.14
+              ],
+              "half_size": [
+                0.03,
+                0.02
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "long_piece",
+              "target": "long_piece_target",
+              "yaw": 0
+            },
+            {
+              "type": "place",
+              "object": "medium_piece",
+              "target": "medium_piece_target",
+              "yaw": 0
+            },
+            {
+              "type": "place",
+              "object": "short_piece",
+              "target": "short_piece_target",
+              "yaw": 0
+            }
+          ],
+          "semantic": {
+            "mode": "length_extension",
+            "groups": {
+              "active": [
+                "short_piece",
+                "medium_piece",
+                "long_piece"
+              ],
+              "reference": [
+                "short_ref",
+                "medium_ref",
+                "long_ref"
+              ],
+              "extensions": [
+                "short_piece",
+                "medium_piece",
+                "long_piece"
+              ]
+            },
+            "mapping": {
+              "short_ref": "long_piece",
+              "medium_ref": "medium_piece",
+              "long_ref": "short_piece"
+            },
+            "lengths": {
+              "short_ref": 0.075,
+              "medium_ref": 0.105,
+              "long_ref": 0.145,
+              "long_piece": 0.145,
+              "short_piece": 0.075,
+              "medium_piece": 0.105
+            },
+            "extension_axis_local": [
+              -1,
+              0,
+              0
+            ],
+            "max_endpoint_gap": 0.012,
+            "collinearity_tolerance": 0.015,
+            "preserve_reference": true,
+            "segments": {
+              "short": "short_ref",
+              "medium": "medium_ref",
+              "long": "long_ref"
+            },
+            "axes": {
+              "short_ref": [
+                1,
+                0,
+                0
+              ],
+              "medium_ref": [
+                1,
+                0,
+                0
+              ],
+              "long_ref": [
+                1,
+                0,
+                0
+              ],
+              "short_piece": [
+                1,
+                0,
+                0
+              ],
+              "medium_piece": [
+                1,
+                0,
+                0
+              ],
+              "long_piece": [
+                1,
+                0,
+                0
+              ]
+            },
+            "end_points": {
+              "short_ref": [
+                -0.0375,
+                0,
+                0
+              ],
+              "medium_ref": [
+                -0.0525,
+                0,
+                0
+              ],
+              "long_ref": [
+                -0.0725,
+                0,
+                0
+              ]
+            },
+            "start_points": {
+              "short_piece": [
+                0.0375,
+                0,
+                0
+              ],
+              "medium_piece": [
+                0.0525,
+                0,
+                0
+              ],
+              "long_piece": [
+                0.0725,
+                0,
+                0
+              ]
+            }
+          }
+        },
+        "B": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "short_piece_target",
+              "xy": [
+                0.064,
+                0.14
+              ],
+              "half_size": [
+                0.03,
+                0.02
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "medium_piece_target",
+              "xy": [
+                0.03400000000000002,
+                0
+              ],
+              "half_size": [
+                0.03,
+                0.02
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "long_piece_target",
+              "xy": [
+                -0.005999999999999977,
+                -0.14
+              ],
+              "half_size": [
+                0.03,
+                0.02
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "short_piece",
+              "target": "short_piece_target",
+              "yaw": 0
+            },
+            {
+              "type": "place",
+              "object": "medium_piece",
+              "target": "medium_piece_target",
+              "yaw": 0
+            },
+            {
+              "type": "place",
+              "object": "long_piece",
+              "target": "long_piece_target",
+              "yaw": 0
+            }
+          ],
+          "semantic": {
+            "mode": "length_extension",
+            "groups": {
+              "active": [
+                "short_piece",
+                "medium_piece",
+                "long_piece"
+              ],
+              "reference": [
+                "short_ref",
+                "medium_ref",
+                "long_ref"
+              ],
+              "extensions": [
+                "short_piece",
+                "medium_piece",
+                "long_piece"
+              ]
+            },
+            "mapping": {
+              "short_ref": "short_piece",
+              "medium_ref": "medium_piece",
+              "long_ref": "long_piece"
+            },
+            "lengths": {
+              "short_ref": 0.075,
+              "medium_ref": 0.105,
+              "long_ref": 0.145,
+              "long_piece": 0.145,
+              "short_piece": 0.075,
+              "medium_piece": 0.105
+            },
+            "extension_axis_local": [
+              -1,
+              0,
+              0
+            ],
+            "max_endpoint_gap": 0.012,
+            "collinearity_tolerance": 0.015,
+            "preserve_reference": true,
+            "segments": {
+              "short": "short_ref",
+              "medium": "medium_ref",
+              "long": "long_ref"
+            },
+            "axes": {
+              "short_ref": [
+                1,
+                0,
+                0
+              ],
+              "medium_ref": [
+                1,
+                0,
+                0
+              ],
+              "long_ref": [
+                1,
+                0,
+                0
+              ],
+              "short_piece": [
+                1,
+                0,
+                0
+              ],
+              "medium_piece": [
+                1,
+                0,
+                0
+              ],
+              "long_piece": [
+                1,
+                0,
+                0
+              ]
+            },
+            "end_points": {
+              "short_ref": [
+                -0.0375,
+                0,
+                0
+              ],
+              "medium_ref": [
+                -0.0525,
+                0,
+                0
+              ],
+              "long_ref": [
+                -0.0725,
+                0,
+                0
+              ]
+            },
+            "start_points": {
+              "short_piece": [
+                0.0375,
+                0,
+                0
+              ],
+              "medium_piece": [
+                0.0525,
+                0,
+                0
+              ],
+              "long_piece": [
+                0.0725,
+                0,
+                0
+              ]
+            }
+          }
+        },
+        "C": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "long_piece_target",
+              "xy": [
+                0.029000000000000012,
+                0.14
+              ],
+              "half_size": [
+                0.03,
+                0.02
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "short_piece_target",
+              "xy": [
+                0.04900000000000002,
+                0
+              ],
+              "half_size": [
+                0.03,
+                0.02
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "medium_piece_target",
+              "xy": [
+                0.01400000000000002,
+                -0.14
+              ],
+              "half_size": [
+                0.03,
+                0.02
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "long_piece",
+              "target": "long_piece_target",
+              "yaw": 0
+            },
+            {
+              "type": "place",
+              "object": "short_piece",
+              "target": "short_piece_target",
+              "yaw": 0
+            },
+            {
+              "type": "place",
+              "object": "medium_piece",
+              "target": "medium_piece_target",
+              "yaw": 0
+            }
+          ],
+          "semantic": {
+            "mode": "length_extension",
+            "groups": {
+              "active": [
+                "short_piece",
+                "medium_piece",
+                "long_piece"
+              ],
+              "reference": [
+                "short_ref",
+                "medium_ref",
+                "long_ref"
+              ],
+              "extensions": [
+                "short_piece",
+                "medium_piece",
+                "long_piece"
+              ]
+            },
+            "mapping": {
+              "short_ref": "long_piece",
+              "medium_ref": "short_piece",
+              "long_ref": "medium_piece"
+            },
+            "lengths": {
+              "short_ref": 0.075,
+              "medium_ref": 0.105,
+              "long_ref": 0.145,
+              "long_piece": 0.145,
+              "short_piece": 0.075,
+              "medium_piece": 0.105
+            },
+            "extension_axis_local": [
+              -1,
+              0,
+              0
+            ],
+            "max_endpoint_gap": 0.012,
+            "collinearity_tolerance": 0.015,
+            "preserve_reference": true,
+            "segments": {
+              "short": "short_ref",
+              "medium": "medium_ref",
+              "long": "long_ref"
+            },
+            "axes": {
+              "short_ref": [
+                1,
+                0,
+                0
+              ],
+              "medium_ref": [
+                1,
+                0,
+                0
+              ],
+              "long_ref": [
+                1,
+                0,
+                0
+              ],
+              "short_piece": [
+                1,
+                0,
+                0
+              ],
+              "medium_piece": [
+                1,
+                0,
+                0
+              ],
+              "long_piece": [
+                1,
+                0,
+                0
+              ]
+            },
+            "end_points": {
+              "short_ref": [
+                -0.0375,
+                0,
+                0
+              ],
+              "medium_ref": [
+                -0.0525,
+                0,
+                0
+              ],
+              "long_ref": [
+                -0.0725,
+                0,
+                0
+              ]
+            },
+            "start_points": {
+              "short_piece": [
+                0.0375,
+                0,
+                0
+              ],
+              "medium_piece": [
+                0.0525,
+                0,
+                0
+              ],
+              "long_piece": [
+                0.0725,
+                0,
+                0
+              ]
+            }
+          }
+        }
+      },
+      "source_evidence": [
+        "../source_media/evidence/121.jpg",
+        "../source_media/evidence/122.jpg",
+        "../source_media/evidence/123.jpg"
+      ],
+      "review_notes": [
+        "ABC sheets reviewed; reference row short medium long, spares long short medium.",
+        "Each new segment extends toward operator and keeps reference piece unchanged.",
+        "Published textured plank resized explicitly; rounded ends and varying widths in video are not yet matched."
+      ]
+    },
+    "E42": {
+      "scene_adapter": "full50-source-v1",
+      "fidelity_status": "source_derived_geometry_ready_visual_and_physics_review_pending",
+      "objects": {
+        "spatula": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "ycb_spatula_aligned.usda",
+            "sha256": "80783d541400ad8ff889274efcecca551e08c9b12c28004427922e1a0a4f0966",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "ycb_spatula_aligned_textures/49a96dfbced54ca1589cef744c6732a55434b300bdeb15897ee1cf6aa2d481b7.png",
+                "sha256": "49a96dfbced54ca1589cef744c6732a55434b300bdeb15897ee1cf6aa2d481b7"
+              }
+            ],
+            "allow_nonuniform_scale": true,
+            "instance_adaptation": "Reviewed source-dimension scaling; same actual mesh in ABC"
+          },
+          "size": [
+            0.14,
+            0.03761496517,
+            0.01481387076
+          ],
+          "xy": [
+            0,
+            -0.29
+          ],
+          "yaw": 1.5707963267948966,
+          "bottom": 0.802,
+          "mass": 0.085,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "grasp_point_local": [
+            -0.09033605958,
+            -0.00043158051,
+            -0.00263704093
+          ],
+          "grasp_axis_local": [
+            0,
+            1,
+            0
+          ],
+          "identity": "spatula"
+        },
+        "pink_ball": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "sphere_white.usda",
+            "sha256": "257fb8afcd8eb2787aa4c59fd39314b036f78287e4d277f210168048f8becc1a",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": [],
+            "allow_nonuniform_scale": true,
+            "instance_adaptation": "Reviewed source-dimension scaling; same actual mesh in ABC"
+          },
+          "size": [
+            0.014,
+            0.014,
+            0.014
+          ],
+          "xy": [
+            0.018,
+            -0.09
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.006,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.8,
+            0.42,
+            0.55,
+            1
+          ],
+          "type": "sphere",
+          "sphere_radius": 0.014,
+          "kind": "sphere"
+        },
+        "red_ball": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "sphere_white.usda",
+            "sha256": "257fb8afcd8eb2787aa4c59fd39314b036f78287e4d277f210168048f8becc1a",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": [],
+            "allow_nonuniform_scale": true,
+            "instance_adaptation": "Reviewed source-dimension scaling; same actual mesh in ABC"
+          },
+          "size": [
+            0.014,
+            0.014,
+            0.014
+          ],
+          "xy": [
+            -0.018,
+            -0.09
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.006,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.75,
+            0.1,
+            0.04,
+            1
+          ],
+          "type": "sphere",
+          "sphere_radius": 0.014,
+          "kind": "sphere"
+        }
+      },
+      "variants": {
+        "A": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "circle",
+              "xy": [
+                0.14,
+                0.13
+              ],
+              "half_size": [
+                0.042,
+                0.042
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "circle"
+            },
+            {
+              "id": "triangle",
+              "xy": [
+                0,
+                0.13
+              ],
+              "half_size": [
+                0.042,
+                0.042
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "triangle"
+            },
+            {
+              "id": "square",
+              "xy": [
+                -0.14,
+                0.13
+              ],
+              "half_size": [
+                0.042,
+                0.042
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "square"
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "pink_ball",
+              "target": "circle"
+            },
+            {
+              "type": "place",
+              "object": "red_ball",
+              "target": "circle"
+            }
+          ],
+          "semantic": {
+            "mode": "spatula_edge_push",
+            "groups": {
+              "active": [
+                "pink_ball",
+                "red_ball"
+              ],
+              "tools": [
+                "spatula"
+              ],
+              "balls": [
+                "pink_ball",
+                "red_ball"
+              ]
+            },
+            "tool": "spatula",
+            "mapping": {
+              "pink_ball": "circle",
+              "red_ball": "circle"
+            },
+            "target": "circle",
+            "paper_region_semantics": "objects must be on target paper; drawn shape boundary not strict",
+            "working_point_local": [
+              0.108114159,
+              0.00193627,
+              -0.002844772
+            ],
+            "handle_point_local": [
+              -0.09033605958,
+              -0.00043158051,
+              -0.00263704093
+            ],
+            "blade_support_normal_local": [
+              0.31051123751731474,
+              0.003563444459256049,
+              0.9505630295982753
+            ],
+            "blade_bounds_local": [
+              [
+                0.070018,
+                -0.037615,
+                -0.012298
+              ],
+              [
+                0.124997,
+                0.037615,
+                0.009448
+              ]
+            ],
+            "blade_support_plane_offset": 0.030816407699910116,
+            "edge_segment_local": [
+              [
+                0.133357545439574,
+                -0.03227696104657471,
+                -0.012838732669397092
+              ],
+              [
+                0.13321440704072107,
+                0.03195417701103229,
+                -0.013332131262379686
+              ]
+            ],
+            "edge_outward_normal_local": [
+              1,
+              0,
+              0
+            ],
+            "contact_actor": "spatula",
+            "contact_region_filter_required": true,
+            "auxiliary_loading_hand_allowed": false,
+            "handcarry_during_transport_allowed": false,
+            "requires_continuous_tool_contact_transport": true,
+            "tools": {
+              "main": {
+                "actor": "spatula",
+                "support_bounds": {
+                  "lower": [
+                    0.070018,
+                    -0.037615,
+                    -0.012298
+                  ],
+                  "upper": [
+                    0.124997,
+                    0.037615,
+                    0.009448
+                  ]
+                },
+                "support_normal_local": [
+                  0.31051123751731474,
+                  0.003563444459256049,
+                  0.9505630295982753
+                ],
+                "support_plane_offset": 0.030816407699910116,
+                "edge_segment": [
+                  [
+                    0.133357545439574,
+                    -0.03227696104657471,
+                    -0.012838732669397092
+                  ],
+                  [
+                    0.13321440704072107,
+                    0.03195417701103229,
+                    -0.013332131262379686
+                  ]
+                ],
+                "grasp_local": [
+                  -0.09033605958,
+                  -0.00043158051,
+                  -0.00263704093
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ],
+                "working_local": [
+                  0.108114159,
+                  0.00193627,
+                  -0.002844772
+                ],
+                "withdraw_local": [
+                  -1,
+                  0,
+                  0
+                ]
+              }
+            }
+          }
+        },
+        "B": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "circle",
+              "xy": [
+                0.14,
+                0.13
+              ],
+              "half_size": [
+                0.042,
+                0.042
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "circle"
+            },
+            {
+              "id": "triangle",
+              "xy": [
+                0,
+                0.13
+              ],
+              "half_size": [
+                0.042,
+                0.042
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "triangle"
+            },
+            {
+              "id": "square",
+              "xy": [
+                -0.14,
+                0.13
+              ],
+              "half_size": [
+                0.042,
+                0.042
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "square"
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "pink_ball",
+              "target": "triangle"
+            },
+            {
+              "type": "place",
+              "object": "red_ball",
+              "target": "triangle"
+            }
+          ],
+          "semantic": {
+            "mode": "spatula_edge_push",
+            "groups": {
+              "active": [
+                "pink_ball",
+                "red_ball"
+              ],
+              "tools": [
+                "spatula"
+              ],
+              "balls": [
+                "pink_ball",
+                "red_ball"
+              ]
+            },
+            "tool": "spatula",
+            "mapping": {
+              "pink_ball": "triangle",
+              "red_ball": "triangle"
+            },
+            "target": "triangle",
+            "paper_region_semantics": "objects must be on target paper; drawn shape boundary not strict",
+            "working_point_local": [
+              0.108114159,
+              0.00193627,
+              -0.002844772
+            ],
+            "handle_point_local": [
+              -0.09033605958,
+              -0.00043158051,
+              -0.00263704093
+            ],
+            "blade_support_normal_local": [
+              0.31051123751731474,
+              0.003563444459256049,
+              0.9505630295982753
+            ],
+            "blade_bounds_local": [
+              [
+                0.070018,
+                -0.037615,
+                -0.012298
+              ],
+              [
+                0.124997,
+                0.037615,
+                0.009448
+              ]
+            ],
+            "blade_support_plane_offset": 0.030816407699910116,
+            "edge_segment_local": [
+              [
+                0.133357545439574,
+                -0.03227696104657471,
+                -0.012838732669397092
+              ],
+              [
+                0.13321440704072107,
+                0.03195417701103229,
+                -0.013332131262379686
+              ]
+            ],
+            "edge_outward_normal_local": [
+              1,
+              0,
+              0
+            ],
+            "contact_actor": "spatula",
+            "contact_region_filter_required": true,
+            "auxiliary_loading_hand_allowed": false,
+            "handcarry_during_transport_allowed": false,
+            "requires_continuous_tool_contact_transport": true,
+            "tools": {
+              "main": {
+                "actor": "spatula",
+                "support_bounds": {
+                  "lower": [
+                    0.070018,
+                    -0.037615,
+                    -0.012298
+                  ],
+                  "upper": [
+                    0.124997,
+                    0.037615,
+                    0.009448
+                  ]
+                },
+                "support_normal_local": [
+                  0.31051123751731474,
+                  0.003563444459256049,
+                  0.9505630295982753
+                ],
+                "support_plane_offset": 0.030816407699910116,
+                "edge_segment": [
+                  [
+                    0.133357545439574,
+                    -0.03227696104657471,
+                    -0.012838732669397092
+                  ],
+                  [
+                    0.13321440704072107,
+                    0.03195417701103229,
+                    -0.013332131262379686
+                  ]
+                ],
+                "grasp_local": [
+                  -0.09033605958,
+                  -0.00043158051,
+                  -0.00263704093
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ],
+                "working_local": [
+                  0.108114159,
+                  0.00193627,
+                  -0.002844772
+                ],
+                "withdraw_local": [
+                  -1,
+                  0,
+                  0
+                ]
+              }
+            }
+          }
+        },
+        "C": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "circle",
+              "xy": [
+                0.14,
+                0.13
+              ],
+              "half_size": [
+                0.042,
+                0.042
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "circle"
+            },
+            {
+              "id": "triangle",
+              "xy": [
+                0,
+                0.13
+              ],
+              "half_size": [
+                0.042,
+                0.042
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "triangle"
+            },
+            {
+              "id": "square",
+              "xy": [
+                -0.14,
+                0.13
+              ],
+              "half_size": [
+                0.042,
+                0.042
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "square"
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "pink_ball",
+              "target": "square"
+            },
+            {
+              "type": "place",
+              "object": "red_ball",
+              "target": "square"
+            }
+          ],
+          "semantic": {
+            "mode": "spatula_edge_push",
+            "groups": {
+              "active": [
+                "pink_ball",
+                "red_ball"
+              ],
+              "tools": [
+                "spatula"
+              ],
+              "balls": [
+                "pink_ball",
+                "red_ball"
+              ]
+            },
+            "tool": "spatula",
+            "mapping": {
+              "pink_ball": "square",
+              "red_ball": "square"
+            },
+            "target": "square",
+            "paper_region_semantics": "objects must be on target paper; drawn shape boundary not strict",
+            "working_point_local": [
+              0.108114159,
+              0.00193627,
+              -0.002844772
+            ],
+            "handle_point_local": [
+              -0.09033605958,
+              -0.00043158051,
+              -0.00263704093
+            ],
+            "blade_support_normal_local": [
+              0.31051123751731474,
+              0.003563444459256049,
+              0.9505630295982753
+            ],
+            "blade_bounds_local": [
+              [
+                0.070018,
+                -0.037615,
+                -0.012298
+              ],
+              [
+                0.124997,
+                0.037615,
+                0.009448
+              ]
+            ],
+            "blade_support_plane_offset": 0.030816407699910116,
+            "edge_segment_local": [
+              [
+                0.133357545439574,
+                -0.03227696104657471,
+                -0.012838732669397092
+              ],
+              [
+                0.13321440704072107,
+                0.03195417701103229,
+                -0.013332131262379686
+              ]
+            ],
+            "edge_outward_normal_local": [
+              1,
+              0,
+              0
+            ],
+            "contact_actor": "spatula",
+            "contact_region_filter_required": true,
+            "auxiliary_loading_hand_allowed": false,
+            "handcarry_during_transport_allowed": false,
+            "requires_continuous_tool_contact_transport": true,
+            "tools": {
+              "main": {
+                "actor": "spatula",
+                "support_bounds": {
+                  "lower": [
+                    0.070018,
+                    -0.037615,
+                    -0.012298
+                  ],
+                  "upper": [
+                    0.124997,
+                    0.037615,
+                    0.009448
+                  ]
+                },
+                "support_normal_local": [
+                  0.31051123751731474,
+                  0.003563444459256049,
+                  0.9505630295982753
+                ],
+                "support_plane_offset": 0.030816407699910116,
+                "edge_segment": [
+                  [
+                    0.133357545439574,
+                    -0.03227696104657471,
+                    -0.012838732669397092
+                  ],
+                  [
+                    0.13321440704072107,
+                    0.03195417701103229,
+                    -0.013332131262379686
+                  ]
+                ],
+                "grasp_local": [
+                  -0.09033605958,
+                  -0.00043158051,
+                  -0.00263704093
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ],
+                "working_local": [
+                  0.108114159,
+                  0.00193627,
+                  -0.002844772
+                ],
+                "withdraw_local": [
+                  -1,
+                  0,
+                  0
+                ]
+              }
+            }
+          }
+        }
+      },
+      "source_evidence": [
+        "../source_media/evidence/124.jpg",
+        "../source_media/evidence/125.jpg",
+        "../source_media/evidence/126.jpg"
+      ],
+      "review_notes": [
+        "Viewed all ABC official contactsheets. Paper far-to-near circle / triangle / square for all variants. E42 two balls pink+red; E46 yellow four-hole plate, not solid yellow cube.",
+        "YCB spatula source is slotted metal black handle; original is wide white solid plastic scraper. Functional source preview only; geometry/material adaptation remains. Source scan bends and conservative convex collision may affect supports; real contact region filtered.",
+        "Dimensions estimated. Loading phase may use other hand; continuous transport phase must have tool contact and no hand carrying."
+      ]
+    },
+    "E43": {
+      "scene_adapter": "full50-source-v1",
+      "objects": {
+        "launcher": {
+          "mechanical_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "source_plank_gravity_ramp_v2.usda",
+            "sha256": "e4b604171aa6c8c861951de1bd76093010c9cbd649c9580e144fe8b4492717ca",
+            "dependencies": [
+              {
+                "relative_path": "guide_launcher_parts/source_wood_plank.usdz",
+                "sha256": "9e71af43eaa1afcf63198dfc5653f11472fae47d498264b065aa269aa26be611"
+              }
+            ],
+            "kind": "static_mesh",
+            "joint_count": 0
+          },
+          "role": "fixture",
+          "size": [
+            0.11949617664443983,
+            0.11000000534166254,
+            0.01734389111476232
+          ],
+          "local_bounds_center": [
+            0.0,
+            0.0,
+            0.017343890782231922
+          ],
+          "xy": [
+            0.04,
+            0
+          ],
+          "center_z": 0.80003,
+          "bottom": 0.80003,
+          "mass": 0.5,
+          "recolor": true,
+          "rgba": [
+            0.025,
+            0.025,
+            0.025,
+            1
+          ]
+        },
+        "gate": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_wood_plank.usdz",
+            "sha256": "9e71af43eaa1afcf63198dfc5653f11472fae47d498264b065aa269aa26be611",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": [],
+            "allow_nonuniform_scale": true,
+            "adaptation": "Explicit scale of published plank for gate or guide; same source collision and visible mesh."
+          },
+          "size": [
+            0.003,
+            0.025,
+            0.025
+          ],
+          "xy": [
+            0.1,
+            0
+          ],
+          "yaw": 0,
+          "bottom": 0.818,
+          "mass": 0.03,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "adaptation_note": "Explicit anisotropic scale of published wood plank; flat rectangular ends differ from rounded source-video popsicle sticks.",
+          "identity": "gate",
+          "contact_offset": 0.0001
+        },
+        "guide": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_wood_plank.usdz",
+            "sha256": "9e71af43eaa1afcf63198dfc5653f11472fae47d498264b065aa269aa26be611",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": [],
+            "allow_nonuniform_scale": true,
+            "adaptation": "Explicit scale of published plank for gate or guide; same source collision and visible mesh."
+          },
+          "size": [
+            0.09,
+            0.003,
+            0.015
+          ],
+          "xy": [
+            -0.1,
+            -0.2
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.03,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "adaptation_note": "Explicit anisotropic scale of published wood plank; flat rectangular ends differ from rounded source-video popsicle sticks.",
+          "identity": "guide"
+        },
+        "ball": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "sphere_white.usda",
+            "sha256": "257fb8afcd8eb2787aa4c59fd39314b036f78287e4d277f210168048f8becc1a",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.013652941818490449,
+            0.014,
+            0.013857428965220098
+          ],
+          "xy": [
+            0.117,
+            0
+          ],
+          "yaw": 0,
+          "bottom": 0.831,
+          "mass": 0.008,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "recolor": true,
+          "rgba": [
+            0.96,
+            0.55,
+            0.75,
+            1
+          ],
+          "identity": "ball",
+          "kind": "sphere"
+        }
+      },
+      "mechanisms": [],
+      "variants": {
+        "A": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "circle",
+              "xy": [
+                -0.17,
+                0.12
+              ],
+              "half_size": [
+                0.045,
+                0.043
+              ],
+              "shape": "circle",
+              "surface_z": 0.8
+            },
+            {
+              "id": "triangle",
+              "xy": [
+                -0.17,
+                0
+              ],
+              "half_size": [
+                0.045,
+                0.043
+              ],
+              "shape": "triangle",
+              "surface_z": 0.8
+            },
+            {
+              "id": "square",
+              "xy": [
+                -0.17,
+                -0.12
+              ],
+              "half_size": [
+                0.045,
+                0.043
+              ],
+              "shape": "square",
+              "surface_z": 0.8
+            }
+          ],
+          "goals": [],
+          "semantic": {
+            "mode": "actual_guide_and_gravity_release",
+            "groups": {
+              "balls": [
+                "ball"
+              ]
+            },
+            "tools": {
+              "main": {
+                "actor": "guide",
+                "grasp_local": [
+                  -0.06,
+                  0,
+                  0.005
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ],
+                "working_local": [
+                  0,
+                  0,
+                  0
+                ],
+                "guide_normal_local": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            },
+            "launcher": {
+              "actor": "launcher",
+              "release_direction_task": [
+                -1,
+                0,
+                0
+              ],
+              "guide_intercept_task": [
+                -0.055,
+                0,
+                0.817
+              ],
+              "trigger": {
+                "actor": "gate",
+                "local": [
+                  0,
+                  0.025,
+                  0
+                ],
+                "press_direction_task": [
+                  0,
+                  -1,
+                  0
+                ],
+                "max_travel": 0.075
+              }
+            },
+            "expert_clearance_z": 1.12
+          }
+        },
+        "B": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "circle",
+              "xy": [
+                -0.17,
+                0.12
+              ],
+              "half_size": [
+                0.045,
+                0.043
+              ],
+              "shape": "circle",
+              "surface_z": 0.8
+            },
+            {
+              "id": "triangle",
+              "xy": [
+                -0.17,
+                0
+              ],
+              "half_size": [
+                0.045,
+                0.043
+              ],
+              "shape": "triangle",
+              "surface_z": 0.8
+            },
+            {
+              "id": "square",
+              "xy": [
+                -0.17,
+                -0.12
+              ],
+              "half_size": [
+                0.045,
+                0.043
+              ],
+              "shape": "square",
+              "surface_z": 0.8
+            }
+          ],
+          "goals": [],
+          "semantic": {
+            "mode": "actual_guide_and_gravity_release",
+            "groups": {
+              "balls": [
+                "ball"
+              ]
+            },
+            "tools": {
+              "main": {
+                "actor": "guide",
+                "grasp_local": [
+                  -0.06,
+                  0,
+                  0.005
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ],
+                "working_local": [
+                  0,
+                  0,
+                  0
+                ],
+                "guide_normal_local": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            },
+            "launcher": {
+              "actor": "launcher",
+              "release_direction_task": [
+                -1,
+                0,
+                0
+              ],
+              "guide_intercept_task": [
+                -0.055,
+                0,
+                0.817
+              ],
+              "trigger": {
+                "actor": "gate",
+                "local": [
+                  0,
+                  0.025,
+                  0
+                ],
+                "press_direction_task": [
+                  0,
+                  -1,
+                  0
+                ],
+                "max_travel": 0.075
+              }
+            },
+            "expert_clearance_z": 1.12
+          }
+        },
+        "C": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "circle",
+              "xy": [
+                -0.17,
+                0.12
+              ],
+              "half_size": [
+                0.045,
+                0.043
+              ],
+              "shape": "circle",
+              "surface_z": 0.8
+            },
+            {
+              "id": "triangle",
+              "xy": [
+                -0.17,
+                0
+              ],
+              "half_size": [
+                0.045,
+                0.043
+              ],
+              "shape": "triangle",
+              "surface_z": 0.8
+            },
+            {
+              "id": "square",
+              "xy": [
+                -0.17,
+                -0.12
+              ],
+              "half_size": [
+                0.045,
+                0.043
+              ],
+              "shape": "square",
+              "surface_z": 0.8
+            }
+          ],
+          "goals": [],
+          "semantic": {
+            "mode": "actual_guide_and_gravity_release",
+            "groups": {
+              "balls": [
+                "ball"
+              ]
+            },
+            "tools": {
+              "main": {
+                "actor": "guide",
+                "grasp_local": [
+                  -0.06,
+                  0,
+                  0.005
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ],
+                "working_local": [
+                  0,
+                  0,
+                  0
+                ],
+                "guide_normal_local": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            },
+            "launcher": {
+              "actor": "launcher",
+              "release_direction_task": [
+                -1,
+                0,
+                0
+              ],
+              "guide_intercept_task": [
+                -0.055,
+                0,
+                0.817
+              ],
+              "trigger": {
+                "actor": "gate",
+                "local": [
+                  0,
+                  0.025,
+                  0
+                ],
+                "press_direction_task": [
+                  0,
+                  -1,
+                  0
+                ],
+                "max_travel": 0.075
+              }
+            },
+            "expert_clearance_z": 1.12
+          }
+        }
+      },
+      "expert_action_budget": 5000,
+      "expert_loaded_step_mm": 4,
+      "fidelity_status": "source_geometry_schema_ready_native_physics_and_video_alignment_pending",
+      "validation_status": {
+        "physics_verified": false,
+        "source_geometry_cpu_checked": true
+      },
+      "review_notes": [
+        "No object teleportation, attachment, or prescribed joint trajectory. Source-derived geometry and process scoring require actual native contact validation.",
+        "Evidence127 viewed: black tilted board, pink ball and handheld wooden guides. Source plank ramp is recolored black; separate sliding gate provides an actual contact-driven release. Source-video metric layout and number of guide pieces remain approximate."
+      ],
+      "joints": [
+        {
+          "type": "prismatic",
+          "child": "gate",
+          "axis": "Y",
+          "limits": [
+            -0.09,
+            0
+          ],
+          "anchor0": [
+            0.1,
+            0,
+            0.843
+          ],
+          "anchor1": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "source_evidence": [
+        "../source_media/evidence/127.jpg",
+        "../source_media/evidence/128.jpg",
+        "../source_media/evidence/129.jpg"
+      ]
+    }
+  },
+  "execution_design": {
+    "revision": "embodied50-execution-v3-20261102",
+    "condition": "I"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "schema": "videoicl-e38-e43-functional-delivery-v1",
+  "label": "e38-e43-functional-20261103T114345Z",
+  "selected_tasks": [
+    "E38",
+    "E39",
+    "E40",
+    "E41",
+    "E42",
+    "E43"
+  ],
+  "condition": "I",
+  "seed": 4201,
+  "case_count": 18,
+  "functional_verified": 10,
+  "counts": {
+    "source_initial_verified": 6,
+    "checkpoint_assisted_verified": 4,
+    "pending": 8
+  },
+  "formal_model_evaluation_resumed": false,
+  "model_launch_enabled": false,
+  "all_cases_passed": false,
+  "checkpoint_evidence_is_not_source_initial_pass": true,
+  "e43_physical_adapters": {
+    "analytic_ball": true,
+    "passive_rail": true
+  },
+  "runtime_python": "Linux Python 3.11 with Isaac Sim / Isaac Lab",
+  "qa": "one four-option task question; ABC have variant-specific private answers",
+  "input_media_included": false,
+  "raw_trajectories": "original locations and digests retained in evidence index; not duplicated",
+  "created_unix": 1793706226.4881809
+}

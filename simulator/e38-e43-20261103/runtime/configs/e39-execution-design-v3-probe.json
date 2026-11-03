@@ -1,0 +1,721 @@
+{
+  "schema": "realworld50-source-bindings-v1",
+  "tasks": {
+    "E39": {
+      "scene_adapter": "full50-source-v1",
+      "fidelity_status": "native_T_source_recolored_geometry_ratio_approximate",
+      "objects": {
+        "red_ref": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_t0.usdz",
+            "sha256": "98bae9ae3dddf67e58004695930c09f3d36f715dfa2bf5d65d1ed2b7179fa493",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.026,
+            0.0195,
+            0.004875
+          ],
+          "xy": [
+            0.12,
+            0.14
+          ],
+          "yaw": -1.5707963267948966,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.8,
+            0.04,
+            0.03,
+            1
+          ],
+          "semantic_identity": "red",
+          "grasp_point_local": [
+            0.009749999999999998,
+            0,
+            0
+          ],
+          "grasp_axis_local": [
+            0,
+            1,
+            0
+          ]
+        },
+        "blue_ref": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_t0.usdz",
+            "sha256": "98bae9ae3dddf67e58004695930c09f3d36f715dfa2bf5d65d1ed2b7179fa493",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.026,
+            0.0195,
+            0.004875
+          ],
+          "xy": [
+            0.12,
+            0
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.03,
+            0.15,
+            0.65,
+            1
+          ],
+          "semantic_identity": "blue",
+          "grasp_point_local": [
+            0.009749999999999998,
+            0,
+            0
+          ],
+          "grasp_axis_local": [
+            0,
+            1,
+            0
+          ]
+        },
+        "black_ref": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_t0.usdz",
+            "sha256": "98bae9ae3dddf67e58004695930c09f3d36f715dfa2bf5d65d1ed2b7179fa493",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.026,
+            0.0195,
+            0.004875
+          ],
+          "xy": [
+            0.12,
+            -0.14
+          ],
+          "yaw": 1.5707963267948966,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.025,
+            0.025,
+            0.025,
+            1
+          ],
+          "semantic_identity": "black",
+          "grasp_point_local": [
+            0.009749999999999998,
+            0,
+            0
+          ],
+          "grasp_axis_local": [
+            0,
+            1,
+            0
+          ]
+        },
+        "blue_active": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_t0.usdz",
+            "sha256": "98bae9ae3dddf67e58004695930c09f3d36f715dfa2bf5d65d1ed2b7179fa493",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.026,
+            0.0195,
+            0.004875
+          ],
+          "xy": [
+            -0.08,
+            0.14
+          ],
+          "yaw": 3.141592653589793,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.03,
+            0.15,
+            0.65,
+            1
+          ],
+          "semantic_identity": "blue",
+          "grasp_point_local": [
+            0.009749999999999998,
+            0,
+            0
+          ],
+          "grasp_axis_local": [
+            0,
+            1,
+            0
+          ]
+        },
+        "black_active": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_t0.usdz",
+            "sha256": "98bae9ae3dddf67e58004695930c09f3d36f715dfa2bf5d65d1ed2b7179fa493",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.026,
+            0.0195,
+            0.004875
+          ],
+          "xy": [
+            -0.08,
+            0
+          ],
+          "yaw": 3.141592653589793,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.025,
+            0.025,
+            0.025,
+            1
+          ],
+          "semantic_identity": "black",
+          "grasp_point_local": [
+            0.009749999999999998,
+            0,
+            0
+          ],
+          "grasp_axis_local": [
+            0,
+            1,
+            0
+          ]
+        },
+        "red_active": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_t0.usdz",
+            "sha256": "98bae9ae3dddf67e58004695930c09f3d36f715dfa2bf5d65d1ed2b7179fa493",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.026,
+            0.0195,
+            0.004875
+          ],
+          "xy": [
+            -0.08,
+            -0.14
+          ],
+          "yaw": 3.141592653589793,
+          "bottom": 0.802,
+          "mass": 0.035,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.8,
+            0.04,
+            0.03,
+            1
+          ],
+          "semantic_identity": "red",
+          "grasp_point_local": [
+            0.009749999999999998,
+            0,
+            0
+          ],
+          "grasp_axis_local": [
+            0,
+            1,
+            0
+          ]
+        }
+      },
+      "variants": {
+        "A": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "red_active_target",
+              "xy": [
+                -0.06,
+                0.14
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_active_target",
+              "xy": [
+                -0.06,
+                0
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "black_active_target",
+              "xy": [
+                -0.06,
+                -0.14
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "temporary",
+              "xy": [
+                -0.23,
+                -0.23
+              ],
+              "half_size": [
+                0.055,
+                0.055
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red_active",
+              "target": "temporary",
+              "yaw": 3.141592653589793
+            },
+            {
+              "type": "place",
+              "object": "black_active",
+              "target": "black_active_target",
+              "yaw": 3.141592653589793
+            },
+            {
+              "type": "place",
+              "object": "blue_active",
+              "target": "blue_active_target",
+              "yaw": 3.141592653589793
+            },
+            {
+              "type": "place",
+              "object": "red_active",
+              "target": "red_active_target",
+              "yaw": 3.141592653589793
+            }
+          ],
+          "semantic": {
+            "mode": "reference_pose_correction",
+            "groups": {
+              "active": [
+                "red_active",
+                "blue_active",
+                "black_active"
+              ],
+              "reference": [
+                "red_ref",
+                "blue_ref",
+                "black_ref"
+              ],
+              "blocks": [
+                "red_active",
+                "blue_active",
+                "black_active"
+              ]
+            },
+            "match_order": true,
+            "match_orientation": false,
+            "targets": {
+              "red_active": {
+                "xy": [
+                  -0.06,
+                  0.14
+                ],
+                "yaw": 3.141592653589793
+              },
+              "blue_active": {
+                "xy": [
+                  -0.06,
+                  0
+                ],
+                "yaw": 3.141592653589793
+              },
+              "black_active": {
+                "xy": [
+                  -0.06,
+                  -0.14
+                ],
+                "yaw": 3.141592653589793
+              }
+            },
+            "preserve_reference": true,
+            "orientation_axis_local": [
+              1,
+              0,
+              0
+            ],
+            "reference_by_object": {
+              "red_active": "red_ref",
+              "blue_active": "blue_ref",
+              "black_active": "black_ref"
+            }
+          }
+        },
+        "B": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "red_active_target",
+              "xy": [
+                -0.08,
+                -0.14
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_active_target",
+              "xy": [
+                -0.08,
+                0.14
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "black_active_target",
+              "xy": [
+                -0.08,
+                0
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "temporary",
+              "xy": [
+                -0.23,
+                -0.23
+              ],
+              "half_size": [
+                0.055,
+                0.055
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red_active",
+              "target": "red_active_target",
+              "yaw": -1.5707963267948966
+            },
+            {
+              "type": "place",
+              "object": "blue_active",
+              "target": "blue_active_target",
+              "yaw": 0
+            },
+            {
+              "type": "place",
+              "object": "black_active",
+              "target": "black_active_target",
+              "yaw": 1.5707963267948966
+            }
+          ],
+          "semantic": {
+            "mode": "reference_pose_correction",
+            "groups": {
+              "active": [
+                "red_active",
+                "blue_active",
+                "black_active"
+              ],
+              "reference": [
+                "red_ref",
+                "blue_ref",
+                "black_ref"
+              ],
+              "blocks": [
+                "red_active",
+                "blue_active",
+                "black_active"
+              ]
+            },
+            "match_order": false,
+            "match_orientation": true,
+            "targets": {
+              "red_active": {
+                "xy": [
+                  -0.08,
+                  -0.14
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "blue_active": {
+                "xy": [
+                  -0.08,
+                  0.14
+                ],
+                "yaw": 0
+              },
+              "black_active": {
+                "xy": [
+                  -0.08,
+                  0
+                ],
+                "yaw": 1.5707963267948966
+              }
+            },
+            "preserve_reference": true,
+            "orientation_axis_local": [
+              1,
+              0,
+              0
+            ],
+            "reference_by_object": {
+              "red_active": "red_ref",
+              "blue_active": "blue_ref",
+              "black_active": "black_ref"
+            }
+          }
+        },
+        "C": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "red_active_target",
+              "xy": [
+                -0.06,
+                0.14
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_active_target",
+              "xy": [
+                -0.06,
+                0
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "black_active_target",
+              "xy": [
+                -0.06,
+                -0.14
+              ],
+              "half_size": [
+                0.04,
+                0.04
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "temporary",
+              "xy": [
+                -0.23,
+                -0.23
+              ],
+              "half_size": [
+                0.055,
+                0.055
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red_active",
+              "target": "temporary",
+              "yaw": 3.141592653589793
+            },
+            {
+              "type": "place",
+              "object": "black_active",
+              "target": "black_active_target",
+              "yaw": 1.5707963267948966
+            },
+            {
+              "type": "place",
+              "object": "blue_active",
+              "target": "blue_active_target",
+              "yaw": 0
+            },
+            {
+              "type": "place",
+              "object": "red_active",
+              "target": "red_active_target",
+              "yaw": -1.5707963267948966
+            }
+          ],
+          "semantic": {
+            "mode": "reference_pose_correction",
+            "groups": {
+              "active": [
+                "red_active",
+                "blue_active",
+                "black_active"
+              ],
+              "reference": [
+                "red_ref",
+                "blue_ref",
+                "black_ref"
+              ],
+              "blocks": [
+                "red_active",
+                "blue_active",
+                "black_active"
+              ]
+            },
+            "match_order": true,
+            "match_orientation": true,
+            "targets": {
+              "red_active": {
+                "xy": [
+                  -0.06,
+                  0.14
+                ],
+                "yaw": -1.5707963267948966
+              },
+              "blue_active": {
+                "xy": [
+                  -0.06,
+                  0
+                ],
+                "yaw": 0
+              },
+              "black_active": {
+                "xy": [
+                  -0.06,
+                  -0.14
+                ],
+                "yaw": 1.5707963267948966
+              }
+            },
+            "preserve_reference": true,
+            "orientation_axis_local": [
+              1,
+              0,
+              0
+            ],
+            "reference_by_object": {
+              "red_active": "red_ref",
+              "blue_active": "blue_ref",
+              "black_active": "black_ref"
+            }
+          }
+        }
+      },
+      "source_evidence": [
+        "../source_media/evidence/115.jpg",
+        "../source_media/evidence/116.jpg",
+        "../source_media/evidence/117.jpg"
+      ],
+      "review_notes": [
+        "ABC sheets reviewed; reference left-to-right red blue black, stems right far left.",
+        "Active initial order blue black red with all stems near. A/C order targets allow row approach as original demonstration.",
+        "Native T source retained and recolored; proportions differ from original short-stem wooden T."
+      ],
+      "expert_preserve_goal_order": true
+    }
+  },
+  "execution_design": {
+    "revision": "embodied50-execution-v3-20261102",
+    "condition": "I"
+  }
+}

@@ -1,0 +1,164 @@
+[
+  {
+    "episode_id": "E38-A-I-s4201",
+    "task": "E38",
+    "variant": "A",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": true,
+    "verification_kind": "source_initial_verified"
+  },
+  {
+    "episode_id": "E38-B-I-s4201",
+    "task": "E38",
+    "variant": "B",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": true,
+    "verification_kind": "source_initial_verified"
+  },
+  {
+    "episode_id": "E38-C-I-s4201",
+    "task": "E38",
+    "variant": "C",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": true,
+    "verification_kind": "source_initial_verified"
+  },
+  {
+    "episode_id": "E39-A-I-s4201",
+    "task": "E39",
+    "variant": "A",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": false,
+    "verification_kind": "pending"
+  },
+  {
+    "episode_id": "E39-B-I-s4201",
+    "task": "E39",
+    "variant": "B",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": false,
+    "verification_kind": "pending"
+  },
+  {
+    "episode_id": "E39-C-I-s4201",
+    "task": "E39",
+    "variant": "C",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": false,
+    "verification_kind": "pending"
+  },
+  {
+    "episode_id": "E40-A-I-s4201",
+    "task": "E40",
+    "variant": "A",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": false,
+    "verification_kind": "pending"
+  },
+  {
+    "episode_id": "E40-B-I-s4201",
+    "task": "E40",
+    "variant": "B",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": false,
+    "verification_kind": "pending"
+  },
+  {
+    "episode_id": "E40-C-I-s4201",
+    "task": "E40",
+    "variant": "C",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": false,
+    "verification_kind": "pending"
+  },
+  {
+    "episode_id": "E41-A-I-s4201",
+    "task": "E41",
+    "variant": "A",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": true,
+    "verification_kind": "source_initial_verified"
+  },
+  {
+    "episode_id": "E41-B-I-s4201",
+    "task": "E41",
+    "variant": "B",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": true,
+    "verification_kind": "source_initial_verified"
+  },
+  {
+    "episode_id": "E41-C-I-s4201",
+    "task": "E41",
+    "variant": "C",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": true,
+    "verification_kind": "source_initial_verified"
+  },
+  {
+    "episode_id": "E42-A-I-s4201",
+    "task": "E42",
+    "variant": "A",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": true,
+    "verification_kind": "checkpoint_assisted_verified"
+  },
+  {
+    "episode_id": "E42-B-I-s4201",
+    "task": "E42",
+    "variant": "B",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": true,
+    "verification_kind": "checkpoint_assisted_verified"
+  },
+  {
+    "episode_id": "E42-C-I-s4201",
+    "task": "E42",
+    "variant": "C",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": false,
+    "verification_kind": "pending"
+  },
+  {
+    "episode_id": "E43-A-I-s4201",
+    "task": "E43",
+    "variant": "A",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": true,
+    "verification_kind": "checkpoint_assisted_verified"
+  },
+  {
+    "episode_id": "E43-B-I-s4201",
+    "task": "E43",
+    "variant": "B",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": true,
+    "verification_kind": "checkpoint_assisted_verified"
+  },
+  {
+    "episode_id": "E43-C-I-s4201",
+    "task": "E43",
+    "variant": "C",
+    "seed": 4201,
+    "condition": "I",
+    "functional_verified": false,
+    "verification_kind": "pending"
+  }
+]

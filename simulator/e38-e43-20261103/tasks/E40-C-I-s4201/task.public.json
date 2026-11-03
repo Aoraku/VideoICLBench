@@ -1,0 +1,8 @@
+{
+  "task": "E40",
+  "variant": "C",
+  "seed": 4201,
+  "title": "在指定图形处夹长尾夹",
+  "instruction": "按照示范的图形选择，在对应盘边夹上长尾夹。",
+  "order": null
+}

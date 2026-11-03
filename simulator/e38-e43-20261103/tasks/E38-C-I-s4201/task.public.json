@@ -1,0 +1,8 @@
+{
+  "task": "E38",
+  "variant": "C",
+  "seed": 4201,
+  "title": "彩环按序套同一根柱",
+  "instruction": "按示范中的颜色层序，把三个环套在同一根指定立柱上。",
+  "order": null
+}
