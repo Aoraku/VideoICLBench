@@ -6,7 +6,7 @@
       "bytes": 94
     },
     "README.md": {
-      "sha256": "e80c668b57fe064e54b0b58bc2210d27c46600e489ba563861a9397ab350c23e",
+      "sha256": "5bef3fe6661451c1589fa1c240ed04f65cd85109a97eb01e3a231ff90d74aaa9",
       "bytes": 4597
     },
     "acceptance.json": {
@@ -14,8 +14,8 @@
       "bytes": 10495
     },
     "asset-package.json": {
-      "sha256": "43b3fb5b880ee215c76c8f0b4624092938d5fd238e469dbdcbb17476221d0257",
-      "bytes": 28330
+      "sha256": "87da4a6c6a03d876d0a3202013a6cf60154ce71b5bafc6fb8860d0197c0c41ce",
+      "bytes": 225
     },
     "bindings/I.json": {
       "sha256": "cbb50f64f9b51aadee3213fafff9ad6f58d0bbc77a835530a6c0a9fae7410780",
