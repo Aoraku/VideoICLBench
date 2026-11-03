@@ -220,11 +220,11 @@ CC 验证版本为 2.1.117。Codex 基础操作验证版本为 0.154.0-alpha.6.2
 
 - [原UR5十题×ABC：代码与运行方法](embodied/g2-ur5-v1/README.md)
 - [全部50题现有源码与资源说明](embodied/full50-current/README.md)
-- [完整资产/纹理/real和sim视频（Hugging Face，私有）](https://huggingface.co/datasets/JJimmyL/VideoICL-Embodied-Handoff-20261103)
+- [完整资产/纹理/real和sim视频（Hugging Face）](https://huggingface.co/datasets/JJimmyL/VideoICL-Embodied-Handoff-20261103)
 
 ```bash
 pip install huggingface_hub
-# 通过HF_TOKEN环境变量或本机HF登录取得私有数据集权限；不要把token写入仓库。
+# 数据集支持直接下载；若访问设置需要认证，可用HF_TOKEN或本机HF登录，不要把token写入仓库。
 python fetch_assets.py --workers 16
 # 只下载最初UR5十题：python fetch_assets.py --g2-only --workers 16
 ```

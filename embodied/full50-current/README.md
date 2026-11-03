@@ -1,4 +1,4 @@
-> 大模型、纹理和视频位于私有 Hugging Face 数据集。先在仓库根目录运行 `python fetch_assets.py` 下载，原路径会自动恢复。
+> 模型资产、纹理和视频位于 Hugging Face 数据集。先在仓库根目录运行 `python fetch_assets.py` 下载，原路径会自动恢复。
 
 # 全部50题现有代码、资产与示范快照
 
