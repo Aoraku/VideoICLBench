@@ -1,0 +1,6 @@
+front13-assets/
+runs/
+__pycache__/
+.pytest_cache/
+*.private.log
+*.token*

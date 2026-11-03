@@ -1,0 +1,7 @@
+{
+  "task": "E07",
+  "title": "五块尺寸排序",
+  "instruction": "按照示范中的尺寸排序，把五块积木沿远到近方向排成一列。",
+  "revision": "embodied50-execution-v3-20261102",
+  "order": {}
+}

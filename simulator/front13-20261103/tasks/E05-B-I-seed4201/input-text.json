@@ -1,0 +1,34 @@
+{
+  "input_condition": "text",
+  "assignment_identity_sha256": "550dbd4dc7824da3659c33d5e800c003d54e25beedd47374a6e575b5cd48ee3c",
+  "public_task": {
+    "task": "E05",
+    "title": "形状块与图形配对",
+    "instruction": "按示范中物体形状与图形的对应关系，摆放全部三个物体。",
+    "revision": "embodied50-execution-v3-20261102",
+    "order": {}
+  },
+  "rule_qa": {
+    "local_rule_unchanged": true,
+    "question_bank": "embodied-rule-qa-v1",
+    "assignment_identity_sha256": "550dbd4dc7824da3659c33d5e800c003d54e25beedd47374a6e575b5cd48ee3c",
+    "fresh_first_answer_required": true,
+    "reuse_previous_assignment_answer": false
+  },
+  "qa_public_packet": {
+    "packet_id": "qp_2a4352d18aff1a7a338f",
+    "question_id": "rq_d49ac3307802",
+    "prompt": "视频中方块、球和三角块分别放到哪些图形标记处？",
+    "options": {
+      "A": "方块→方形；球→圆形；三角块→三角形。",
+      "B": "方块→方形；球→三角形；三角块→圆形。",
+      "C": "方块→圆；球→三角；三角→方。",
+      "D": "方块→三角；球→方；三角→圆。"
+    },
+    "response_instruction": "只输出一个大写选项字母：A、B、C或D。"
+  },
+  "demo_scope": "local_rule_only",
+  "model_launch_enabled": false,
+  "media_status": "text rule available",
+  "text_rule": "方块→圆；球→三角；三角→方"
+}

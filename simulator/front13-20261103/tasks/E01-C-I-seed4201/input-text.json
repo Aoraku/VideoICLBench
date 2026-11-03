@@ -1,0 +1,37 @@
+{
+  "input_condition": "text",
+  "assignment_identity_sha256": "5048183677a8dcebcd834f46242e37ac4f79195beb771c420eb80173834f53e8",
+  "public_task": {
+    "task": "E01",
+    "title": "套餐订单履约",
+    "instruction": "根据台面订单，为标记的取餐位准备一份套餐并装箱送达。食物组合按视频中的选配方式；订单只指定取餐位和包装，不指定组合。非套餐食物留在备料区，餐盘内物品不得掉出，交付后工作区不留包装垃圾。\n本次公开订单：批次 2，交付到 2 号目标工位。",
+    "revision": "embodied50-execution-v3-20261102",
+    "order": {
+      "batch": 2,
+      "destination": 2
+    }
+  },
+  "rule_qa": {
+    "local_rule_unchanged": true,
+    "question_bank": "embodied-rule-qa-v1",
+    "assignment_identity_sha256": "5048183677a8dcebcd834f46242e37ac4f79195beb771c420eb80173834f53e8",
+    "fresh_first_answer_required": true,
+    "reuse_previous_assignment_answer": false
+  },
+  "qa_public_packet": {
+    "packet_id": "qp_366239bba165cf6fe328",
+    "question_id": "rq_bf057dcade49",
+    "prompt": "视频中的示范按哪一种食物组合装盘？",
+    "options": {
+      "A": "把汉堡、薯条和饮料全部装盘。",
+      "B": "汉堡和薯条装盘，饮料留外。",
+      "C": "薯条和饮料装盘，汉堡留外。",
+      "D": "汉堡和饮料装盘，薯条留外。"
+    },
+    "response_instruction": "只输出一个大写选项字母：A、B、C或D。"
+  },
+  "demo_scope": "local_rule_only",
+  "model_launch_enabled": false,
+  "media_status": "text rule available",
+  "text_rule": "薯条和饮料装盘，汉堡留外"
+}

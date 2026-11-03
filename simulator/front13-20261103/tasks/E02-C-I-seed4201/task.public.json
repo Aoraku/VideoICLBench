@@ -1,0 +1,7 @@
+{
+  "task": "E02",
+  "title": "三色块叠放",
+  "instruction": "按示范中的颜色层序，把三个色块叠成稳定的一摞。",
+  "revision": "embodied50-execution-v3-20261102",
+  "order": {}
+}

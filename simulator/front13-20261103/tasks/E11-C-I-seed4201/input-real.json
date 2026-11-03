@@ -1,0 +1,42 @@
+{
+  "input_condition": "real",
+  "assignment_identity_sha256": "7e58f22fc146fccb9183ddcc97f293cb41760bfa9aa1ed34449af6411d6c5941",
+  "public_task": {
+    "task": "E11",
+    "title": "四格布局变换入框",
+    "instruction": "按示范中的平面布局变换，将开局的四块积木搬入四格框。",
+    "revision": "embodied50-execution-v3-20261102",
+    "order": {}
+  },
+  "rule_qa": {
+    "local_rule_unchanged": true,
+    "question_bank": "embodied-rule-qa-v1",
+    "assignment_identity_sha256": "7e58f22fc146fccb9183ddcc97f293cb41760bfa9aa1ed34449af6411d6c5941",
+    "fresh_first_answer_required": true,
+    "reuse_previous_assignment_answer": false
+  },
+  "qa_public_packet": {
+    "packet_id": "qp_1e6bafd73a996617c3ab",
+    "question_id": "rq_ff1ac406dbae",
+    "prompt": "视频中如何将初始2×2布局变换后搬入四格框？",
+    "options": {
+      "A": "初始布局逆时针旋转90°后入框。",
+      "B": "初始布局顺时针旋转90°后入框。",
+      "C": "保留初始2×2布局搬入四格框。",
+      "D": "初始布局左右镜像后入框。"
+    },
+    "response_instruction": "只输出一个大写选项字母：A、B、C或D。"
+  },
+  "demo_scope": "local_rule_only",
+  "model_launch_enabled": false,
+  "media_status": "real packaged; sim requires explicit reviewed binding",
+  "media": {
+    "task": "E11",
+    "variant": "C",
+    "input": "real",
+    "path": "media/real/E11/C.mp4",
+    "sha256": "84079bc0fd535211c5c8f3dde3bad57cc083bfcee92523706a7def59a5f5f573",
+    "scope": "local_rule_only",
+    "source_sha256": "e36c905812d9eab3fe1542178939cb7d0625ff7db3a854b4815f8888f81873f7"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "input_condition": "real",
+  "assignment_identity_sha256": "ba9c09ef6b01d82872ca0e5d254c430f67c94ebd077aff230503aed35e863a0d",
+  "public_task": {
+    "task": "E03",
+    "title": "三色杯套叠",
+    "instruction": "按示范中的颜色内外次序，把三个杯子套在一起。",
+    "revision": "embodied50-execution-v3-20261102",
+    "order": {}
+  },
+  "rule_qa": {
+    "local_rule_unchanged": true,
+    "question_bank": "embodied-rule-qa-v1",
+    "assignment_identity_sha256": "ba9c09ef6b01d82872ca0e5d254c430f67c94ebd077aff230503aed35e863a0d",
+    "fresh_first_answer_required": true,
+    "reuse_previous_assignment_answer": false
+  },
+  "qa_public_packet": {
+    "packet_id": "qp_57d02da2e409b8cf0f80",
+    "question_id": "rq_99a6749b07c1",
+    "prompt": "视频中三个彩杯由外层到内层如何套叠？",
+    "options": {
+      "A": "外层到内层：红、绿、蓝。",
+      "B": "外层到内层：绿、蓝、红。",
+      "C": "外层到内层：蓝、红、绿。",
+      "D": "外层到内层：红、蓝、绿。"
+    },
+    "response_instruction": "只输出一个大写选项字母：A、B、C或D。"
+  },
+  "demo_scope": "local_rule_only",
+  "model_launch_enabled": false,
+  "media_status": "real packaged; sim requires explicit reviewed binding",
+  "media": {
+    "task": "E03",
+    "variant": "B",
+    "input": "real",
+    "path": "media/real/E03/B.mp4",
+    "sha256": "d4d028d2efb0a16702ff21fabed4ada6885d36ca4d15179287a7a859bd17caa2",
+    "scope": "local_rule_only",
+    "source_sha256": "d791123e7ba9bc64aa972539f6e537b4ef525876f595dc7ce8daf6b56345c977"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "python_sources_compiled": true,
+  "asset_cases_verified": 39,
+  "physical_assets_and_media_files_hashed": 132,
+  "credential_pattern_scan_passed": true,
+  "real_sim_agent_inputs_exclude_answers_and_rule_text": true,
+  "reviewed_controller_sha256": "4b444bcda63697c05b241a3f835a89bf6c74a5601c634c019a36a367c86887bb",
+  "native39_completed": false,
+  "formal_model_started": false
+}

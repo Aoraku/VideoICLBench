@@ -1,0 +1,152 @@
+{
+  "schema": "videoicl-source-mesh-conversion-v1",
+  "visual": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/textured_objs/original-53.obj",
+  "collision": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/textured_objs/original-53.obj",
+  "collision_fallback_to_visual": true,
+  "collision_approximation": "convexDecomposition",
+  "output": "/home/descfly/VideoICL/realworld50_20261027/converted_assets_mechanisms_v1/cabinet_three_drawers_parts/original-53_867c96df86.usda",
+  "output_sha256": "f5f0b0d5189cd22a0d8bc1c2dbb58ee32fcfdceeda95efda438fe9c5d2f769dc",
+  "default_prim": "/Asset",
+  "source_modified": false,
+  "coordinate_policy": "All source node transforms baked; no additional axis rotation, scaling, centering or simplification.",
+  "meters_per_unit_metadata": 1.0,
+  "up_axis_metadata_authored": false,
+  "rigid_body_authored": false,
+  "textures": [],
+  "meshes": [
+    {
+      "role": "visual",
+      "source": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/textured_objs/original-53.obj",
+      "source_node": "original-53.obj",
+      "source_geometry": "original-53.obj",
+      "prim": "/Asset/Visuals/mesh_0_original_53_obj",
+      "node_transform_baked": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "vertices": 8,
+      "triangles": 4,
+      "bounds": [
+        [
+          -0.36602500081062317,
+          0.3404819965362549,
+          -0.3621729910373688
+        ],
+        [
+          0.36372101306915283,
+          0.3404819965362549,
+          0.36757299304008484
+        ]
+      ]
+    },
+    {
+      "role": "collision",
+      "source": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/textured_objs/original-53.obj",
+      "source_node": "original-53.obj",
+      "source_geometry": "original-53.obj",
+      "prim": "/Asset/Collisions/mesh_0_original_53_obj",
+      "node_transform_baked": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "vertices": 8,
+      "triangles": 4,
+      "bounds": [
+        [
+          -0.36602500081062317,
+          0.3404819965362549,
+          -0.3621729910373688
+        ],
+        [
+          0.36372101306915283,
+          0.3404819965362549,
+          0.36757299304008484
+        ]
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "prim": "/Asset/Visuals/mesh_0_original_53_obj_Material",
+      "source_alpha_mode": null,
+      "effective_alpha_mode": "OPAQUE",
+      "base_color_factor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "image_mode": null,
+      "alpha_range": null,
+      "texture_opacity_connected": false
+    }
+  ],
+  "sources": [
+    {
+      "path": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/textured_objs/original-53.mtl",
+      "bytes": 113,
+      "sha256": "5a0e0067eb977aa7e645a9b459860c3a138b55e664f9ae856eb639106899d616"
+    },
+    {
+      "path": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/textured_objs/original-53.obj",
+      "bytes": 317,
+      "sha256": "867c96df866f01d072a3927d499d0385e4eef078a4e9e357677ca8071a7e5848"
+    }
+  ],
+  "unresolved_dependency_declarations": [],
+  "warnings": [
+    "Only base-color texture/factor, opacity, metallic/roughness factors and vertex/face colors are exported; other PBR channels are listed when omitted.",
+    "Collision approximation is authored for PhysX cooking; this CPU conversion does not verify cooked collision quality or task success."
+  ],
+  "trimesh_version": "4.5.1",
+  "usd_version": [
+    0,
+    25,
+    5
+  ],
+  "validation": "CPU USD reopen and source hashes only; no PhysX cooking or GPU render test"
+}

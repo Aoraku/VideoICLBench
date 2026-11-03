@@ -1,0 +1,131 @@
+{
+  "schema": "execution-e40-width-instances-v1",
+  "instances": [
+    {
+      "index": 0,
+      "width_scale": 1.04,
+      "source_sha256": "9b26925fe2505ca71204ffdffb2eeb9f2e4e48a58279662a8bc4c6e7af710385",
+      "asset": {
+        "id": "binder_clip_width_v3_0",
+        "kind": "articulation",
+        "tasks": [
+          "E40"
+        ],
+        "root_env": "VIC_EXECUTION_DESIGN_ASSETS",
+        "relative_path": "E40/clip_width_0.usda",
+        "sha256": "374a7d14bbf8fed34c207e256d0c750a3693542dcb6091e7311c5db8b38bbbb5",
+        "bounds": [
+          [
+            -0.01664000004529953,
+            -0.021466705614995803,
+            4.669797639355619e-05
+          ],
+          [
+            0.01664000004529953,
+            0.02146670255594279,
+            0.046037115848828275
+          ]
+        ],
+        "dependencies": [
+          {
+            "relative_path": "E40/textures/5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa.png",
+            "sha256": "5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa"
+          },
+          {
+            "relative_path": "E40/textures/c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571.png",
+            "sha256": "c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571"
+          }
+        ]
+      },
+      "mesh_count": 174,
+      "collision_mesh_count": 87,
+      "joint_limits_drives_anchors_preserved": true,
+      "jaw_yz_geometry_preserved": true,
+      "native_verified": false
+    },
+    {
+      "index": 1,
+      "width_scale": 1.07,
+      "source_sha256": "9b26925fe2505ca71204ffdffb2eeb9f2e4e48a58279662a8bc4c6e7af710385",
+      "asset": {
+        "id": "binder_clip_width_v3_1",
+        "kind": "articulation",
+        "tasks": [
+          "E40"
+        ],
+        "root_env": "VIC_EXECUTION_DESIGN_ASSETS",
+        "relative_path": "E40/clip_width_1.usda",
+        "sha256": "f5ca354c459cdcd5181d6d8063bb7712ccf2de15644904f3941d52a10f3d3df7",
+        "bounds": [
+          [
+            -0.01711999997496605,
+            -0.021466705614995803,
+            4.669797639355619e-05
+          ],
+          [
+            0.01711999997496605,
+            0.02146670255594279,
+            0.046037115848828275
+          ]
+        ],
+        "dependencies": [
+          {
+            "relative_path": "E40/textures/5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa.png",
+            "sha256": "5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa"
+          },
+          {
+            "relative_path": "E40/textures/c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571.png",
+            "sha256": "c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571"
+          }
+        ]
+      },
+      "mesh_count": 174,
+      "collision_mesh_count": 87,
+      "joint_limits_drives_anchors_preserved": true,
+      "jaw_yz_geometry_preserved": true,
+      "native_verified": false
+    },
+    {
+      "index": 2,
+      "width_scale": 1.1,
+      "source_sha256": "9b26925fe2505ca71204ffdffb2eeb9f2e4e48a58279662a8bc4c6e7af710385",
+      "asset": {
+        "id": "binder_clip_width_v3_2",
+        "kind": "articulation",
+        "tasks": [
+          "E40"
+        ],
+        "root_env": "VIC_EXECUTION_DESIGN_ASSETS",
+        "relative_path": "E40/clip_width_2.usda",
+        "sha256": "9f5a9eede301b47358e5afa84bbe6f6098602365b476a1881277b39c56a71dad",
+        "bounds": [
+          [
+            -0.01759999990463257,
+            -0.021466705614995803,
+            4.669797639355619e-05
+          ],
+          [
+            0.01759999990463257,
+            0.02146670255594279,
+            0.046037115848828275
+          ]
+        ],
+        "dependencies": [
+          {
+            "relative_path": "E40/textures/5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa.png",
+            "sha256": "5f1330e27bf64bfd50eb5f0bcd256cd8927752e1a445132cacba80cb28459afa"
+          },
+          {
+            "relative_path": "E40/textures/c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571.png",
+            "sha256": "c4be144a49401578b38cd25da05d9240527e9acb3266c20db5c4b9d6ae725571"
+          }
+        ]
+      },
+      "mesh_count": 174,
+      "collision_mesh_count": 87,
+      "joint_limits_drives_anchors_preserved": true,
+      "jaw_yz_geometry_preserved": true,
+      "native_verified": false
+    }
+  ]
+}

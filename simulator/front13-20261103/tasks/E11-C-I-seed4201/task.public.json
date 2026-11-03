@@ -1,0 +1,7 @@
+{
+  "task": "E11",
+  "title": "四格布局变换入框",
+  "instruction": "按示范中的平面布局变换，将开局的四块积木搬入四格框。",
+  "revision": "embodied50-execution-v3-20261102",
+  "order": {}
+}

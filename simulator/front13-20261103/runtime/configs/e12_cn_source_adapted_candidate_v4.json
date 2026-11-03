@@ -1,0 +1,1542 @@
+{
+  "schema": "realworld50-source-bindings-v1",
+  "tasks": {
+    "E12": {
+      "scene_adapter": "full50-source-v1",
+      "objects": {
+        "strip": {
+          "mechanical_asset": {
+            "relative_path": "e12_cn_four_column_strip_v4.usda",
+            "sha256": "33ee70ec99344c27ca3f8e33c4fbee938800122af2bc64c37ba09ea963389acd",
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "joint_count": 0,
+            "kind": "static_mesh"
+          },
+          "role": "fixture",
+          "size": [
+            0.22078820178353042,
+            0.11934047051347145,
+            0.01780808419868077
+          ],
+          "local_bounds_center": [
+            0.08928819606148453,
+            -0.06262427873675398,
+            0.01780808419868077
+          ],
+          "xy": [
+            0.08,
+            0.01
+          ],
+          "quaternion": [
+            0.7071067811865476,
+            0,
+            0,
+            0.7071067811865476
+          ],
+          "center_z": 0.80001,
+          "bottom": 0.80001,
+          "mass": 0.5
+        },
+        "charger_1": {
+          "source_asset": {
+            "relative_path": "e12_charger_1_source_adapted_v4.usda",
+            "sha256": "4c93c0b3125293997aebae318047cfaa9178dda4676da956b944cdccbbddbb39",
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "dependencies": [
+              {
+                "relative_path": "e12_90W_source_marking.png",
+                "sha256": "ea506a8ba3b1706554a97b91b3c9ca4e3d322e8bca39e59568781e9d9f3f589b"
+              }
+            ],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.01600000075995922,
+            0.02199999988079071,
+            0.03599999922513962
+          ],
+          "xy": [
+            -0.1,
+            -0.035
+          ],
+          "yaw": 1.5707963267948966,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "quaternion": [
+            0.7071067811865476,
+            0.7071067811865476,
+            0,
+            0
+          ],
+          "identity": "charger_1",
+          "contact_offset": 5e-05,
+          "rest_offset": 0,
+          "local_bounds_center": [
+            0,
+            0,
+            0
+          ]
+        },
+        "charger_2": {
+          "source_asset": {
+            "relative_path": "e12_charger_2_source_adapted_v4.usda",
+            "sha256": "78066e9dcc4865f846204e18fd4e8173613b25a9eccd17048cb6fb18bffd581e",
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.014000000432133675,
+            0.03999999910593033,
+            0.04800000020861626
+          ],
+          "xy": [
+            -0.1,
+            -0.14
+          ],
+          "yaw": 1.5707963267948966,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "quaternion": [
+            0.7071067811865476,
+            0.7071067811865476,
+            0,
+            0
+          ],
+          "identity": "charger_2",
+          "contact_offset": 5e-05,
+          "rest_offset": 0,
+          "local_bounds_center": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "variants": {
+        "A": {
+          "zones": [
+            {
+              "id": "slot_1",
+              "xy": [
+                0.099,
+                0.08149999999999999
+              ],
+              "half_size": [
+                0.012,
+                0.012
+              ],
+              "surface_z": 0.82501,
+              "hidden": true,
+              "support": "strip"
+            },
+            {
+              "id": "slot_2",
+              "xy": [
+                0.099,
+                0.0325
+              ],
+              "half_size": [
+                0.012,
+                0.012
+              ],
+              "surface_z": 0.82501,
+              "hidden": true,
+              "support": "strip"
+            },
+            {
+              "id": "slot_3",
+              "xy": [
+                0.099,
+                -0.0165
+              ],
+              "half_size": [
+                0.012,
+                0.012
+              ],
+              "surface_z": 0.82501,
+              "hidden": true,
+              "support": "strip"
+            },
+            {
+              "id": "slot_4",
+              "xy": [
+                0.099,
+                -0.0655
+              ],
+              "half_size": [
+                0.012,
+                0.012
+              ],
+              "surface_z": 0.82501,
+              "hidden": true,
+              "support": "strip"
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "charger_1",
+              "target": "slot_1",
+              "required_support": "strip",
+              "yaw": 1.5707963267948966,
+              "quaternion": [
+                0.7071067811865476,
+                0,
+                0,
+                0.7071067811865476
+              ]
+            },
+            {
+              "type": "place",
+              "object": "charger_2",
+              "target": "slot_2",
+              "required_support": "strip",
+              "yaw": 1.5707963267948966,
+              "quaternion": [
+                0.7071067811865476,
+                0,
+                0,
+                0.7071067811865476
+              ]
+            }
+          ],
+          "semantic": {
+            "mode": "real_pin_insertion",
+            "groups": {
+              "chargers": [
+                "charger_1",
+                "charger_2"
+              ]
+            },
+            "strip": "strip",
+            "slots_task": {
+              "1": [
+                0.099,
+                0.08149999999999999,
+                0.82501
+              ],
+              "2": [
+                0.099,
+                0.0325,
+                0.82501
+              ],
+              "3": [
+                0.099,
+                -0.0165,
+                0.82501
+              ],
+              "4": [
+                0.099,
+                -0.0655,
+                0.82501
+              ]
+            },
+            "desired_slots": [
+              1,
+              2
+            ],
+            "slot_size_xy": [
+              0.0075,
+              0.0018
+            ],
+            "slot_depth": 0.018,
+            "fixture_rotation": [
+              0.7071067811865476,
+              0,
+              0,
+              0.7071067811865476
+            ],
+            "slots": {
+              "1": {
+                "ref": {
+                  "actor": "strip"
+                },
+                "holes": [
+                  {
+                    "center_local": [
+                      0.06515,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  },
+                  {
+                    "center_local": [
+                      0.07784999999999999,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  }
+                ]
+              },
+              "2": {
+                "ref": {
+                  "actor": "strip"
+                },
+                "holes": [
+                  {
+                    "center_local": [
+                      0.016149999999999998,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  },
+                  {
+                    "center_local": [
+                      0.02885,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  }
+                ]
+              },
+              "3": {
+                "ref": {
+                  "actor": "strip"
+                },
+                "holes": [
+                  {
+                    "center_local": [
+                      -0.03285,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  },
+                  {
+                    "center_local": [
+                      -0.02015,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  }
+                ]
+              },
+              "4": {
+                "ref": {
+                  "actor": "strip"
+                },
+                "holes": [
+                  {
+                    "center_local": [
+                      -0.08184999999999999,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  },
+                  {
+                    "center_local": [
+                      -0.06915,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  }
+                ]
+              }
+            },
+            "pins": {
+              "charger_1": [
+                {
+                  "tip_local": [
+                    -0.00635,
+                    0,
+                    -0.036000000000000004
+                  ],
+                  "axis_local": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "u_local": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "half_size": [
+                    0.003125,
+                    0.000402
+                  ],
+                  "length": 0.016
+                },
+                {
+                  "tip_local": [
+                    0.00635,
+                    0,
+                    -0.036000000000000004
+                  ],
+                  "axis_local": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "u_local": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "half_size": [
+                    0.003125,
+                    0.000402
+                  ],
+                  "length": 0.016
+                }
+              ],
+              "charger_2": [
+                {
+                  "tip_local": [
+                    -0.00635,
+                    0,
+                    -0.048
+                  ],
+                  "axis_local": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "u_local": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "half_size": [
+                    0.003125,
+                    0.000402
+                  ],
+                  "length": 0.016
+                },
+                {
+                  "tip_local": [
+                    0.00635,
+                    0,
+                    -0.048
+                  ],
+                  "axis_local": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "u_local": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "half_size": [
+                    0.003125,
+                    0.000402
+                  ],
+                  "length": 0.016
+                }
+              ]
+            },
+            "structural_grasps": {
+              "charger_1": {
+                "local": [
+                  0,
+                  0,
+                  0.018
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ],
+                "pre_grasp_task_yaw_rad": 1.5707963267948966
+              },
+              "charger_2": {
+                "local": [
+                  0,
+                  0,
+                  0.018
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ],
+                "pre_grasp_task_yaw_rad": 1.5707963267948966
+              }
+            }
+          }
+        },
+        "B": {
+          "zones": [
+            {
+              "id": "slot_1",
+              "xy": [
+                0.099,
+                0.08149999999999999
+              ],
+              "half_size": [
+                0.012,
+                0.012
+              ],
+              "surface_z": 0.82501,
+              "hidden": true,
+              "support": "strip"
+            },
+            {
+              "id": "slot_2",
+              "xy": [
+                0.099,
+                0.0325
+              ],
+              "half_size": [
+                0.012,
+                0.012
+              ],
+              "surface_z": 0.82501,
+              "hidden": true,
+              "support": "strip"
+            },
+            {
+              "id": "slot_3",
+              "xy": [
+                0.099,
+                -0.0165
+              ],
+              "half_size": [
+                0.012,
+                0.012
+              ],
+              "surface_z": 0.82501,
+              "hidden": true,
+              "support": "strip"
+            },
+            {
+              "id": "slot_4",
+              "xy": [
+                0.099,
+                -0.0655
+              ],
+              "half_size": [
+                0.012,
+                0.012
+              ],
+              "surface_z": 0.82501,
+              "hidden": true,
+              "support": "strip"
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "charger_1",
+              "target": "slot_3",
+              "required_support": "strip",
+              "yaw": 1.5707963267948966,
+              "quaternion": [
+                0.7071067811865476,
+                0,
+                0,
+                0.7071067811865476
+              ]
+            },
+            {
+              "type": "place",
+              "object": "charger_2",
+              "target": "slot_4",
+              "required_support": "strip",
+              "yaw": 1.5707963267948966,
+              "quaternion": [
+                0.7071067811865476,
+                0,
+                0,
+                0.7071067811865476
+              ]
+            }
+          ],
+          "semantic": {
+            "mode": "real_pin_insertion",
+            "groups": {
+              "chargers": [
+                "charger_1",
+                "charger_2"
+              ]
+            },
+            "strip": "strip",
+            "slots_task": {
+              "1": [
+                0.099,
+                0.08149999999999999,
+                0.82501
+              ],
+              "2": [
+                0.099,
+                0.0325,
+                0.82501
+              ],
+              "3": [
+                0.099,
+                -0.0165,
+                0.82501
+              ],
+              "4": [
+                0.099,
+                -0.0655,
+                0.82501
+              ]
+            },
+            "desired_slots": [
+              3,
+              4
+            ],
+            "slot_size_xy": [
+              0.0075,
+              0.0018
+            ],
+            "slot_depth": 0.018,
+            "fixture_rotation": [
+              0.7071067811865476,
+              0,
+              0,
+              0.7071067811865476
+            ],
+            "slots": {
+              "1": {
+                "ref": {
+                  "actor": "strip"
+                },
+                "holes": [
+                  {
+                    "center_local": [
+                      0.06515,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  },
+                  {
+                    "center_local": [
+                      0.07784999999999999,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  }
+                ]
+              },
+              "2": {
+                "ref": {
+                  "actor": "strip"
+                },
+                "holes": [
+                  {
+                    "center_local": [
+                      0.016149999999999998,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  },
+                  {
+                    "center_local": [
+                      0.02885,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  }
+                ]
+              },
+              "3": {
+                "ref": {
+                  "actor": "strip"
+                },
+                "holes": [
+                  {
+                    "center_local": [
+                      -0.03285,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  },
+                  {
+                    "center_local": [
+                      -0.02015,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  }
+                ]
+              },
+              "4": {
+                "ref": {
+                  "actor": "strip"
+                },
+                "holes": [
+                  {
+                    "center_local": [
+                      -0.08184999999999999,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  },
+                  {
+                    "center_local": [
+                      -0.06915,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  }
+                ]
+              }
+            },
+            "pins": {
+              "charger_1": [
+                {
+                  "tip_local": [
+                    -0.00635,
+                    0,
+                    -0.036000000000000004
+                  ],
+                  "axis_local": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "u_local": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "half_size": [
+                    0.003125,
+                    0.000402
+                  ],
+                  "length": 0.016
+                },
+                {
+                  "tip_local": [
+                    0.00635,
+                    0,
+                    -0.036000000000000004
+                  ],
+                  "axis_local": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "u_local": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "half_size": [
+                    0.003125,
+                    0.000402
+                  ],
+                  "length": 0.016
+                }
+              ],
+              "charger_2": [
+                {
+                  "tip_local": [
+                    -0.00635,
+                    0,
+                    -0.048
+                  ],
+                  "axis_local": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "u_local": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "half_size": [
+                    0.003125,
+                    0.000402
+                  ],
+                  "length": 0.016
+                },
+                {
+                  "tip_local": [
+                    0.00635,
+                    0,
+                    -0.048
+                  ],
+                  "axis_local": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "u_local": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "half_size": [
+                    0.003125,
+                    0.000402
+                  ],
+                  "length": 0.016
+                }
+              ]
+            },
+            "structural_grasps": {
+              "charger_1": {
+                "local": [
+                  0,
+                  0,
+                  0.018
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ],
+                "pre_grasp_task_yaw_rad": 1.5707963267948966
+              },
+              "charger_2": {
+                "local": [
+                  0,
+                  0,
+                  0.018
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ],
+                "pre_grasp_task_yaw_rad": 1.5707963267948966
+              }
+            }
+          }
+        },
+        "C": {
+          "zones": [
+            {
+              "id": "slot_1",
+              "xy": [
+                0.099,
+                0.08149999999999999
+              ],
+              "half_size": [
+                0.012,
+                0.012
+              ],
+              "surface_z": 0.82501,
+              "hidden": true,
+              "support": "strip"
+            },
+            {
+              "id": "slot_2",
+              "xy": [
+                0.099,
+                0.0325
+              ],
+              "half_size": [
+                0.012,
+                0.012
+              ],
+              "surface_z": 0.82501,
+              "hidden": true,
+              "support": "strip"
+            },
+            {
+              "id": "slot_3",
+              "xy": [
+                0.099,
+                -0.0165
+              ],
+              "half_size": [
+                0.012,
+                0.012
+              ],
+              "surface_z": 0.82501,
+              "hidden": true,
+              "support": "strip"
+            },
+            {
+              "id": "slot_4",
+              "xy": [
+                0.099,
+                -0.0655
+              ],
+              "half_size": [
+                0.012,
+                0.012
+              ],
+              "surface_z": 0.82501,
+              "hidden": true,
+              "support": "strip"
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "charger_1",
+              "target": "slot_1",
+              "required_support": "strip",
+              "yaw": 1.5707963267948966,
+              "quaternion": [
+                0.7071067811865476,
+                0,
+                0,
+                0.7071067811865476
+              ]
+            },
+            {
+              "type": "place",
+              "object": "charger_2",
+              "target": "slot_4",
+              "required_support": "strip",
+              "yaw": 1.5707963267948966,
+              "quaternion": [
+                0.7071067811865476,
+                0,
+                0,
+                0.7071067811865476
+              ]
+            }
+          ],
+          "semantic": {
+            "mode": "real_pin_insertion",
+            "groups": {
+              "chargers": [
+                "charger_1",
+                "charger_2"
+              ]
+            },
+            "strip": "strip",
+            "slots_task": {
+              "1": [
+                0.099,
+                0.08149999999999999,
+                0.82501
+              ],
+              "2": [
+                0.099,
+                0.0325,
+                0.82501
+              ],
+              "3": [
+                0.099,
+                -0.0165,
+                0.82501
+              ],
+              "4": [
+                0.099,
+                -0.0655,
+                0.82501
+              ]
+            },
+            "desired_slots": [
+              1,
+              4
+            ],
+            "slot_size_xy": [
+              0.0075,
+              0.0018
+            ],
+            "slot_depth": 0.018,
+            "fixture_rotation": [
+              0.7071067811865476,
+              0,
+              0,
+              0.7071067811865476
+            ],
+            "slots": {
+              "1": {
+                "ref": {
+                  "actor": "strip"
+                },
+                "holes": [
+                  {
+                    "center_local": [
+                      0.06515,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  },
+                  {
+                    "center_local": [
+                      0.07784999999999999,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  }
+                ]
+              },
+              "2": {
+                "ref": {
+                  "actor": "strip"
+                },
+                "holes": [
+                  {
+                    "center_local": [
+                      0.016149999999999998,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  },
+                  {
+                    "center_local": [
+                      0.02885,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  }
+                ]
+              },
+              "3": {
+                "ref": {
+                  "actor": "strip"
+                },
+                "holes": [
+                  {
+                    "center_local": [
+                      -0.03285,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  },
+                  {
+                    "center_local": [
+                      -0.02015,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  }
+                ]
+              },
+              "4": {
+                "ref": {
+                  "actor": "strip"
+                },
+                "holes": [
+                  {
+                    "center_local": [
+                      -0.08184999999999999,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  },
+                  {
+                    "center_local": [
+                      -0.06915,
+                      -0.019,
+                      0.025
+                    ],
+                    "axis_local": [
+                      0,
+                      0,
+                      1
+                    ],
+                    "u_local": [
+                      0,
+                      1,
+                      0
+                    ],
+                    "half_size": [
+                      0.00375,
+                      0.0009
+                    ],
+                    "depth": 0.018
+                  }
+                ]
+              }
+            },
+            "pins": {
+              "charger_1": [
+                {
+                  "tip_local": [
+                    -0.00635,
+                    0,
+                    -0.036000000000000004
+                  ],
+                  "axis_local": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "u_local": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "half_size": [
+                    0.003125,
+                    0.000402
+                  ],
+                  "length": 0.016
+                },
+                {
+                  "tip_local": [
+                    0.00635,
+                    0,
+                    -0.036000000000000004
+                  ],
+                  "axis_local": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "u_local": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "half_size": [
+                    0.003125,
+                    0.000402
+                  ],
+                  "length": 0.016
+                }
+              ],
+              "charger_2": [
+                {
+                  "tip_local": [
+                    -0.00635,
+                    0,
+                    -0.048
+                  ],
+                  "axis_local": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "u_local": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "half_size": [
+                    0.003125,
+                    0.000402
+                  ],
+                  "length": 0.016
+                },
+                {
+                  "tip_local": [
+                    0.00635,
+                    0,
+                    -0.048
+                  ],
+                  "axis_local": [
+                    0,
+                    0,
+                    -1
+                  ],
+                  "u_local": [
+                    0,
+                    1,
+                    0
+                  ],
+                  "half_size": [
+                    0.003125,
+                    0.000402
+                  ],
+                  "length": 0.016
+                }
+              ]
+            },
+            "structural_grasps": {
+              "charger_1": {
+                "local": [
+                  0,
+                  0,
+                  0.018
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ],
+                "pre_grasp_task_yaw_rad": 1.5707963267948966
+              },
+              "charger_2": {
+                "local": [
+                  0,
+                  0,
+                  0.018
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ],
+                "pre_grasp_task_yaw_rad": 1.5707963267948966
+              }
+            }
+          }
+        }
+      },
+      "expert_action_budget": 4000,
+      "fidelity_status": "Independent source-reviewed geometry candidate: published RoboDojo CAD envelopes adapted to four seven-hole CN columns, two distinct adapters; source dimensions estimated, native and final visual verification pending",
+      "validation_status": {
+        "physics_verified": false,
+        "source_geometry_cpu_checked": true,
+        "source_visual_reviewed": false,
+        "formal_done": false,
+        "additional_open_source_cable": {
+          "uid": "429f8e1add81409cabb0c8ad0af8dc5c",
+          "title": "IPad Charger",
+          "author": "lonkplus",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0/",
+          "source_sha256": "9d9a0b7d3079779ae4b243357a4b6260218f91537fd4606bc81356b03e4c457f",
+          "adaptation": "Published Object_3 cable mesh, coordinate transform, uniform 0.20 scale and two loose-coil copies"
+        }
+      },
+      "coordinate_frame": "Task +X away, +Y left, Z up; layout rotates +90Z to world."
+    }
+  }
+}

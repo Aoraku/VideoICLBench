@@ -1,0 +1,42 @@
+{
+  "input_condition": "real",
+  "assignment_identity_sha256": "c31e62712d1ff7d69f560a0c05e3bcb0383a50c5aad37cf48b29d2c4c4cc0fb1",
+  "public_task": {
+    "task": "E06",
+    "title": "蛋托孔位布局",
+    "instruction": "按示范的孔位布局，把三枚球放入六孔托盘。左右以你面对托盘的方向为准。",
+    "revision": "embodied50-execution-v3-20261102",
+    "order": {}
+  },
+  "rule_qa": {
+    "local_rule_unchanged": true,
+    "question_bank": "embodied-rule-qa-v1",
+    "assignment_identity_sha256": "c31e62712d1ff7d69f560a0c05e3bcb0383a50c5aad37cf48b29d2c4c4cc0fb1",
+    "fresh_first_answer_required": true,
+    "reuse_previous_assignment_answer": false
+  },
+  "qa_public_packet": {
+    "packet_id": "qp_08e97ce0cede6dbbaf30",
+    "question_id": "rq_3f2b25ab859d",
+    "prompt": "以示范操作者的视角看，视频中三个球放入蛋托的哪些孔？",
+    "options": {
+      "A": "左列两端、右列中间各放一球。",
+      "B": "填满右列三个孔。",
+      "C": "填满左列三个孔。",
+      "D": "右列两端、左列中间各放一球。"
+    },
+    "response_instruction": "只输出一个大写选项字母：A、B、C或D。"
+  },
+  "demo_scope": "local_rule_only",
+  "model_launch_enabled": false,
+  "media_status": "real packaged; sim requires explicit reviewed binding",
+  "media": {
+    "task": "E06",
+    "variant": "B",
+    "input": "real",
+    "path": "media/real/E06/B.mp4",
+    "sha256": "1affddd2b0062720045df68825447e7f31b032b69ef21eb566e40938a329fd59",
+    "scope": "local_rule_only",
+    "source_sha256": "1ee85fa3ed61f9496bad6de328a6cf9d86afceb8aeedabb8e17169f7b9b3e335"
+  }
+}

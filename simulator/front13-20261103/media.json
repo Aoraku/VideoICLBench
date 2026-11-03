@@ -1,0 +1,347 @@
+{
+  "real": [
+    {
+      "task": "E01",
+      "variant": "A",
+      "input": "real",
+      "path": "media/real/E01/A.mp4",
+      "sha256": "d8e617fc95c1807e8cf6bfaac616a53a3887a1d177789bbdbbbb1917aaf2a9a8",
+      "scope": "local_rule_only",
+      "source_sha256": "b518b8a98a055d429e25be2f833d14d373c2232e81c2c1838794d84aa3827f60"
+    },
+    {
+      "task": "E01",
+      "variant": "B",
+      "input": "real",
+      "path": "media/real/E01/B.mp4",
+      "sha256": "e6d48fc6a2424d80cef13cb3a7315131200ce3acf7c6b16161e5a7b502b87e41",
+      "scope": "local_rule_only",
+      "source_sha256": "301695f3e0b6ee9e25d94d0f715ccf53becfe214d1e51d4741b4c911cef4c459"
+    },
+    {
+      "task": "E01",
+      "variant": "C",
+      "input": "real",
+      "path": "media/real/E01/C.mp4",
+      "sha256": "3f69722a915710892063bb031c967718fd6a7f79dd26251dafe46b223d9a8fb7",
+      "scope": "local_rule_only",
+      "source_sha256": "4c4b0b4ea5bc133ea4f9519f271e9dc34b30be27266232afff4c5d192e97f651"
+    },
+    {
+      "task": "E02",
+      "variant": "A",
+      "input": "real",
+      "path": "media/real/E02/A.mp4",
+      "sha256": "2db571f588ea808edd714f61b111b50ec555fc8fa0d5e8296a99480c8052a830",
+      "scope": "local_rule_only",
+      "source_sha256": "01402bcefe9b10f41fe22ce6434a48b6f7663cceb01054016bbaaed7761dfb91"
+    },
+    {
+      "task": "E02",
+      "variant": "B",
+      "input": "real",
+      "path": "media/real/E02/B.mp4",
+      "sha256": "64b620893104fd2613741aea7adb1ed5a9de90330f13f1dcf65ce1301d4300a1",
+      "scope": "local_rule_only",
+      "source_sha256": "4c18f7185b1b268cb6fe1f77a6eff44251a45de1fb37279813612306511de551"
+    },
+    {
+      "task": "E02",
+      "variant": "C",
+      "input": "real",
+      "path": "media/real/E02/C.mp4",
+      "sha256": "5f9251a57bbc98c9ed76e8b6bad92a8b6c86595f3cbcaa9a462026ec935d4ca7",
+      "scope": "local_rule_only",
+      "source_sha256": "278d40a1a7609556448ec1934ed67d54244e67a8dc643118649ee4c8f97d89c2"
+    },
+    {
+      "task": "E03",
+      "variant": "A",
+      "input": "real",
+      "path": "media/real/E03/A.mp4",
+      "sha256": "9e493f2f1ae1e9334b7f96c6c3c6435d6627eac9097b15ed1968d7b7177cfeae",
+      "scope": "local_rule_only",
+      "source_sha256": "332fbcde1872ad52d9837e5534d26eb942228da7e0ed52792e38958e161a4485"
+    },
+    {
+      "task": "E03",
+      "variant": "B",
+      "input": "real",
+      "path": "media/real/E03/B.mp4",
+      "sha256": "d4d028d2efb0a16702ff21fabed4ada6885d36ca4d15179287a7a859bd17caa2",
+      "scope": "local_rule_only",
+      "source_sha256": "d791123e7ba9bc64aa972539f6e537b4ef525876f595dc7ce8daf6b56345c977"
+    },
+    {
+      "task": "E03",
+      "variant": "C",
+      "input": "real",
+      "path": "media/real/E03/C.mp4",
+      "sha256": "0bc0f994960ebd41ce1edcf701c8053b011fd7b73a8bda0ad8ea90ae56626309",
+      "scope": "local_rule_only",
+      "source_sha256": "a470e766923702617cdc225c05020bd12eacdcdfee4df4284425cf2e92a06edf"
+    },
+    {
+      "task": "E04",
+      "variant": "A",
+      "input": "real",
+      "path": "media/real/E04/A.mp4",
+      "sha256": "cff7a11408aa3e9f8736887b24f6f1b216314baa9fc1a20ac059b5eebe529808",
+      "scope": "local_rule_only",
+      "source_sha256": "cbcd3e23710f8ba3ff46511aa05b3c70b9ca88bf04d9cd84cbaaa1307700b7c5"
+    },
+    {
+      "task": "E04",
+      "variant": "B",
+      "input": "real",
+      "path": "media/real/E04/B.mp4",
+      "sha256": "0b65c3cec5329d52dc2a5f7a0dea0e13058552dd77cfc8f7333c3e880867e7a3",
+      "scope": "local_rule_only",
+      "source_sha256": "2092160e6210dccb427cd8f61f8f3cbd45754bdd82b60a729a8dd5d248fbb908"
+    },
+    {
+      "task": "E04",
+      "variant": "C",
+      "input": "real",
+      "path": "media/real/E04/C.mp4",
+      "sha256": "c059c6dd4059f63a97b022d5edb11b13bf363762b453dcca12672dea4814df39",
+      "scope": "local_rule_only",
+      "source_sha256": "ea03f2a71da239e7dbe8d8b88efb805069b3fa4cdf38b239ce98cf6801416d19"
+    },
+    {
+      "task": "E05",
+      "variant": "B",
+      "input": "real",
+      "path": "media/real/E05/B.mp4",
+      "sha256": "94cbd121806fc08786dad7c6b54d13cc20dd752d9a12cc0d955fc80177b1fb0a",
+      "scope": "local_rule_only",
+      "source_sha256": "f2505ef9f2d507ce65b98c9fdf6e88b1730e6efe60349a80cdfd446c396bf161"
+    },
+    {
+      "task": "E05",
+      "variant": "C",
+      "input": "real",
+      "path": "media/real/E05/C.mp4",
+      "sha256": "2a733422e4cd5e2b6ae4b77f790c5279b262cfcc2bcb826d581cce20fc24a69d",
+      "scope": "local_rule_only",
+      "source_sha256": "d2dab6a5e166df621876889c93be4685b6b0b30b8d4939e6d159d5f40e035aca"
+    },
+    {
+      "task": "E06",
+      "variant": "A",
+      "input": "real",
+      "path": "media/real/E06/A.mp4",
+      "sha256": "e316bdc2078835cacd790b07cb64de2c5b2921f13fafa1997f8dddadf98983c6",
+      "scope": "local_rule_only",
+      "source_sha256": "57f08640719a150e2a2c16236ed9bf711bc938af28fe5e132d042f237a465f14"
+    },
+    {
+      "task": "E06",
+      "variant": "B",
+      "input": "real",
+      "path": "media/real/E06/B.mp4",
+      "sha256": "1affddd2b0062720045df68825447e7f31b032b69ef21eb566e40938a329fd59",
+      "scope": "local_rule_only",
+      "source_sha256": "1ee85fa3ed61f9496bad6de328a6cf9d86afceb8aeedabb8e17169f7b9b3e335"
+    },
+    {
+      "task": "E06",
+      "variant": "C",
+      "input": "real",
+      "path": "media/real/E06/C.mp4",
+      "sha256": "ccedf92a0c0b49260c48007c06c705e6b6879553a1032441aecada1853164618",
+      "scope": "local_rule_only",
+      "source_sha256": "e218174d9908ddb8a29dd578cf2993f20d0c45b66b4b05c21308b7bce21b7b09"
+    },
+    {
+      "task": "E07",
+      "variant": "A",
+      "input": "real",
+      "path": "media/real/E07/A.mp4",
+      "sha256": "0cd589d86996752a4d9ddbe833e8bacfc0394fc92ddaa8fd92ec47dd26c730cb",
+      "scope": "local_rule_only",
+      "source_sha256": "094b325bf03b16f5aa120220bf0a7593458b9d8bfc44fb916c7552455707cd38"
+    },
+    {
+      "task": "E07",
+      "variant": "B",
+      "input": "real",
+      "path": "media/real/E07/B.mp4",
+      "sha256": "a84666a90f576a5df50bfdb4d3f02190faf185b13a38482accfd2dc0616c27a8",
+      "scope": "local_rule_only",
+      "source_sha256": "701ee7cd8814969fd65d258cdc020dd1091574e69318f0bb5ad149cfb6a60eb8"
+    },
+    {
+      "task": "E07",
+      "variant": "C",
+      "input": "real",
+      "path": "media/real/E07/C.mp4",
+      "sha256": "16b6f9980e0572cf6806ae679e6cc3af00cffe8ce3ba459e9e680fd7547faf94",
+      "scope": "local_rule_only",
+      "source_sha256": "a31fdf55b07817ffa07902afbb9cfdee558f6eee9ac29abe5baa1765edc00f9d"
+    },
+    {
+      "task": "E08",
+      "variant": "A",
+      "input": "real",
+      "path": "media/real/E08/A.mp4",
+      "sha256": "3ff80d640831139773f366b4b946e3064e6312dd906eaf88a905eb326613547b",
+      "scope": "local_rule_only",
+      "source_sha256": "0838eccd090fd244dc9e8faef52881fc9d4edc1e1f43e69501dd05c3992f8942"
+    },
+    {
+      "task": "E08",
+      "variant": "B",
+      "input": "real",
+      "path": "media/real/E08/B.mp4",
+      "sha256": "a78ef61840afec4e2ea1f3a2db4c54cd6c89919ac90cf36245c1979dab7dc72a",
+      "scope": "local_rule_only",
+      "source_sha256": "e79d989a7863933abb1c1e20508b2094ef1bc83a8d56a2448bca36ac9d582614"
+    },
+    {
+      "task": "E08",
+      "variant": "C",
+      "input": "real",
+      "path": "media/real/E08/C.mp4",
+      "sha256": "34d1eb1a63b8835f62149ea0d2e3e41683e90dfd4cba986a8429a3ae1615faad",
+      "scope": "local_rule_only",
+      "source_sha256": "48e711dd5c0a8fa0d29a6a187545ba9a65e8ff8d18a0e48a55cea742bc53c76e"
+    },
+    {
+      "task": "E09",
+      "variant": "A",
+      "input": "real",
+      "path": "media/real/E09/A.mp4",
+      "sha256": "f171b878a6e364babe2465e9fd6d6c0ed824f49aa8b37e96ba4b07ca28c7d54a",
+      "scope": "local_rule_only",
+      "source_sha256": "69172f78492ffafa1ca9cc32d1a55edb970ae55b8e06cffe7ffd14034f93a360"
+    },
+    {
+      "task": "E09",
+      "variant": "B",
+      "input": "real",
+      "path": "media/real/E09/B.mp4",
+      "sha256": "0b00307d563dfbe8abb1370f8e8607ac703727907415c06c6aa0f21f8a73f8a0",
+      "scope": "local_rule_only",
+      "source_sha256": "03147208179528d4524d525229bb81eca2182dc67c990c6c93596fa5ee94426d"
+    },
+    {
+      "task": "E09",
+      "variant": "C",
+      "input": "real",
+      "path": "media/real/E09/C.mp4",
+      "sha256": "ef1fe711a1262c81782c50f3640b01904f0d7a266b1676fa34437e3012b1b3ba",
+      "scope": "local_rule_only",
+      "source_sha256": "78f7cc593a67a2e6df59ecc1c241037ed702cdc1cca8cc0bbf071ca58ef31c49"
+    },
+    {
+      "task": "E10",
+      "variant": "A",
+      "input": "real",
+      "path": "media/real/E10/A.mp4",
+      "sha256": "b26030ff33b98397e2f9cfa9cc600ecc94831c94566c95f2498d3e00780bac74",
+      "scope": "local_rule_only",
+      "source_sha256": "d59944ea73e5b344292780b64429f517b9da22308b5158f8b5ef179c95c211e4"
+    },
+    {
+      "task": "E10",
+      "variant": "B",
+      "input": "real",
+      "path": "media/real/E10/B.mp4",
+      "sha256": "993649c568cda6c828bf563ac91ee0f79cfeb6344edb4993f687f6211058a995",
+      "scope": "local_rule_only",
+      "source_sha256": "0f810c9383c1a5664ea7ac2308a861d890225a3a0102fe84820cdba657a02e2f"
+    },
+    {
+      "task": "E10",
+      "variant": "C",
+      "input": "real",
+      "path": "media/real/E10/C.mp4",
+      "sha256": "a6128a64ae62c305fbf60f57cc7352fdfbdfcbc032d0ed1b72ef5fb8ef58fa17",
+      "scope": "local_rule_only",
+      "source_sha256": "2c539d94f4f85eca1739c8bcde612d80fd1b70b4077f4bfc6969d30228471e93"
+    },
+    {
+      "task": "E11",
+      "variant": "A",
+      "input": "real",
+      "path": "media/real/E11/A.mp4",
+      "sha256": "66505149d65953c4fea38c7152194970452cbc396110225e3dc4601dc5aa54e5",
+      "scope": "local_rule_only",
+      "source_sha256": "0d16de69bec7f8f71df4dbfb98de465f4634a8b2325a9834fdd5b31155b862eb"
+    },
+    {
+      "task": "E11",
+      "variant": "B",
+      "input": "real",
+      "path": "media/real/E11/B.mp4",
+      "sha256": "088feae9b4752daacf433875471f7efeed082baf221d802514ab0bb3345ba927",
+      "scope": "local_rule_only",
+      "source_sha256": "822653ddd13966a15cf6e87e1fe2de8190e5795cfbbc2d36ca73f866ab140bb6"
+    },
+    {
+      "task": "E11",
+      "variant": "C",
+      "input": "real",
+      "path": "media/real/E11/C.mp4",
+      "sha256": "84079bc0fd535211c5c8f3dde3bad57cc083bfcee92523706a7def59a5f5f573",
+      "scope": "local_rule_only",
+      "source_sha256": "e36c905812d9eab3fe1542178939cb7d0625ff7db3a854b4815f8888f81873f7"
+    },
+    {
+      "task": "E12",
+      "variant": "A",
+      "input": "real",
+      "path": "media/real/E12/A.mp4",
+      "sha256": "48b0eaa2a4f8036745da5bd3763f40a0b826416fb1998f0bf0cf4b10c45d257d",
+      "scope": "local_rule_only",
+      "source_sha256": "0a2577e7c2459f5a57e7289baf99c9a56a067974b28ef69c9e0a3a72646daa93"
+    },
+    {
+      "task": "E12",
+      "variant": "B",
+      "input": "real",
+      "path": "media/real/E12/B.mp4",
+      "sha256": "1755cfc690055e7f70752dc58e3d58697428b4785082f9cd25cf74857fee13da",
+      "scope": "local_rule_only",
+      "source_sha256": "75e833e8d607bcbeeffe1d82f3f554499b8996b44da37ed99eef17d340121557"
+    },
+    {
+      "task": "E12",
+      "variant": "C",
+      "input": "real",
+      "path": "media/real/E12/C.mp4",
+      "sha256": "e361b09fce294de6f0baf4e6173f179b8550b5d894072b1f9b73cbfd4cd182c9",
+      "scope": "local_rule_only",
+      "source_sha256": "18b9a67a8e7c5046c24afde8b00554e6b4a402f3059477bb3dba697ead5c1d1a"
+    },
+    {
+      "task": "E13",
+      "variant": "A",
+      "input": "real",
+      "path": "media/real/E13/A.mp4",
+      "sha256": "4acb37acb8c47dc20c42ae001f02944631e8a08924db4c9ecd0d1d3d3ed40799",
+      "scope": "local_rule_only",
+      "source_sha256": "7bfe1c99993c5a0c79f86df6d779a129ad6319f1be42dc6a14581506e243a79d"
+    },
+    {
+      "task": "E13",
+      "variant": "B",
+      "input": "real",
+      "path": "media/real/E13/B.mp4",
+      "sha256": "62855f4c7d4e8d34db53b838846d13554ee58b8982644f0c8b67e89cce2f7feb",
+      "scope": "local_rule_only",
+      "source_sha256": "a2a6eee08492003f862b2200fac8676ab32c96f5b66c818a72a28bbd8d30a017"
+    },
+    {
+      "task": "E13",
+      "variant": "C",
+      "input": "real",
+      "path": "media/real/E13/C.mp4",
+      "sha256": "da07501fea236b836ee1999921eaf22a901fdea78f0733bddafa016a72bc73fe",
+      "scope": "local_rule_only",
+      "source_sha256": "68b91c7fa6566918e258b2bffea92f62856838b52e9ecda05ecc93746a111333"
+    }
+  ],
+  "sim": "Existing engineering full workflows are not substituted as local-rule demonstration. Bind a reviewed local sim video explicitly."
+}

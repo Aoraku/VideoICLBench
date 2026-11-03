@@ -1,0 +1,34 @@
+{
+  "input_condition": "text",
+  "assignment_identity_sha256": "7f8453af8384e6752be41d31a058235bd43c6d6840f34303d17b610715c8b858",
+  "public_task": {
+    "task": "E04",
+    "title": "彩杯与图形配对",
+    "instruction": "按示范中杯子颜色与图形的对应关系，把三个杯子摆到相应标记上。",
+    "revision": "embodied50-execution-v3-20261102",
+    "order": {}
+  },
+  "rule_qa": {
+    "local_rule_unchanged": true,
+    "question_bank": "embodied-rule-qa-v1",
+    "assignment_identity_sha256": "7f8453af8384e6752be41d31a058235bd43c6d6840f34303d17b610715c8b858",
+    "fresh_first_answer_required": true,
+    "reuse_previous_assignment_answer": false
+  },
+  "qa_public_packet": {
+    "packet_id": "qp_940ea26920fa8ae0e857",
+    "question_id": "rq_1dc2a175a2c7",
+    "prompt": "视频中的三个彩杯分别与哪些图形配对？",
+    "options": {
+      "A": "绿杯→圆；蓝杯→三角；红杯→方。",
+      "B": "绿杯→三角；蓝杯→方；红杯→圆。",
+      "C": "绿杯→方；蓝杯→圆；红杯→三角。",
+      "D": "绿杯→三角；蓝杯→圆；红杯→方。"
+    },
+    "response_instruction": "只输出一个大写选项字母：A、B、C或D。"
+  },
+  "demo_scope": "local_rule_only",
+  "model_launch_enabled": false,
+  "media_status": "text rule available",
+  "text_rule": "绿杯→圆；蓝杯→三角；红杯→方"
+}

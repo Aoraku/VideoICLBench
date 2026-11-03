@@ -1,0 +1,7 @@
+{
+  "task": "E04",
+  "title": "彩杯与图形配对",
+  "instruction": "按示范中杯子颜色与图形的对应关系，把三个杯子摆到相应标记上。",
+  "revision": "embodied50-execution-v3-20261102",
+  "order": {}
+}

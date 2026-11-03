@@ -1,0 +1,7 @@
+{
+  "task": "E03",
+  "title": "三色杯套叠",
+  "instruction": "按示范中的颜色内外次序，把三个杯子套在一起。",
+  "revision": "embodied50-execution-v3-20261102",
+  "order": {}
+}

@@ -1,0 +1,42 @@
+{
+  "input_condition": "real",
+  "assignment_identity_sha256": "f17b45d78e0ed742349012134bd30e553bed111f7ce7c93f864aa9ab95f7d254",
+  "public_task": {
+    "task": "E02",
+    "title": "三色块叠放",
+    "instruction": "按示范中的颜色层序，把三个色块叠成稳定的一摞。",
+    "revision": "embodied50-execution-v3-20261102",
+    "order": {}
+  },
+  "rule_qa": {
+    "local_rule_unchanged": true,
+    "question_bank": "embodied-rule-qa-v1",
+    "assignment_identity_sha256": "f17b45d78e0ed742349012134bd30e553bed111f7ce7c93f864aa9ab95f7d254",
+    "fresh_first_answer_required": true,
+    "reuse_previous_assignment_answer": false
+  },
+  "qa_public_packet": {
+    "packet_id": "qp_6377f044069f54bd47cf",
+    "question_id": "rq_78b321f85694",
+    "prompt": "视频中三色块最终自下而上的叠放顺序是什么？",
+    "options": {
+      "A": "自下而上蓝、红、绿。",
+      "B": "自下而上绿、蓝、红。",
+      "C": "自下而上红、蓝、绿。",
+      "D": "自下而上红、绿、蓝。"
+    },
+    "response_instruction": "只输出一个大写选项字母：A、B、C或D。"
+  },
+  "demo_scope": "local_rule_only",
+  "model_launch_enabled": false,
+  "media_status": "real packaged; sim requires explicit reviewed binding",
+  "media": {
+    "task": "E02",
+    "variant": "A",
+    "input": "real",
+    "path": "media/real/E02/A.mp4",
+    "sha256": "2db571f588ea808edd714f61b111b50ec555fc8fa0d5e8296a99480c8052a830",
+    "scope": "local_rule_only",
+    "source_sha256": "01402bcefe9b10f41fe22ce6434a48b6f7663cceb01054016bbaaed7761dfb91"
+  }
+}

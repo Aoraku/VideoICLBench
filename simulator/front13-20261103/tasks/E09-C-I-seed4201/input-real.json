@@ -1,0 +1,45 @@
+{
+  "input_condition": "real",
+  "assignment_identity_sha256": "0741bb2ff358a3f84ddf3b371aee718b98450d093515c971f97bc8786010c1f2",
+  "public_task": {
+    "task": "E09",
+    "title": "分类教具配套出库",
+    "instruction": "为本次课堂准备完整三包教具，分组对应关系按视频。每包有三件且放入独立透明盒，盒内不得混组；将三盒装入订单指定的周转箱并送到对应领取区，备用件留在原架。\n本次公开订单：批次 2，交付到 2 号目标工位。",
+    "revision": "embodied50-execution-v3-20261102",
+    "order": {
+      "batch": 2,
+      "destination": 2
+    }
+  },
+  "rule_qa": {
+    "local_rule_unchanged": true,
+    "question_bank": "embodied-rule-qa-v1",
+    "assignment_identity_sha256": "0741bb2ff358a3f84ddf3b371aee718b98450d093515c971f97bc8786010c1f2",
+    "fresh_first_answer_required": true,
+    "reuse_previous_assignment_answer": false
+  },
+  "qa_public_packet": {
+    "packet_id": "qp_141d4e8b678f3a8e4ba1",
+    "question_id": "rq_2f0582b83429",
+    "prompt": "视频中九件物体按哪一种成员关系分成三组？",
+    "options": {
+      "A": "同形一组：方、三角、圆各三件。",
+      "B": "同色一组：红、绿、蓝各三件。",
+      "C": "红圆+绿三角+蓝方；红三角+绿方+蓝圆；红方+绿圆+蓝三角。",
+      "D": "红圆+红三角+绿方；绿圆+绿三角+蓝方；蓝圆+蓝三角+红方。"
+    },
+    "response_instruction": "只输出一个大写选项字母：A、B、C或D。"
+  },
+  "demo_scope": "local_rule_only",
+  "model_launch_enabled": false,
+  "media_status": "real packaged; sim requires explicit reviewed binding",
+  "media": {
+    "task": "E09",
+    "variant": "C",
+    "input": "real",
+    "path": "media/real/E09/C.mp4",
+    "sha256": "ef1fe711a1262c81782c50f3640b01904f0d7a266b1676fa34437e3012b1b3ba",
+    "scope": "local_rule_only",
+    "source_sha256": "78f7cc593a67a2e6df59ecc1c241037ed702cdc1cca8cc0bbf071ca58ef31c49"
+  }
+}

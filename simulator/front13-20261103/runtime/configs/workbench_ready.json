@@ -1,0 +1,1272 @@
+{
+  "schema": "videoicl-workbench-readiness-v1",
+  "source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6",
+  "equivalent_source_fingerprints": [],
+  "tasks": [
+    {
+      "task": "F01",
+      "name": "三色积木叠放",
+      "loadable": true,
+      "construction_control_checked": false,
+      "variants": [],
+      "legacy_preview": true,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {}
+    },
+    {
+      "task": "F02",
+      "name": "方杯按标记归位",
+      "loadable": true,
+      "construction_control_checked": false,
+      "variants": [],
+      "legacy_preview": true,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {}
+    },
+    {
+      "task": "F03",
+      "name": "多形状分类装盒",
+      "loadable": true,
+      "construction_control_checked": false,
+      "variants": [],
+      "legacy_preview": true,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {}
+    },
+    {
+      "task": "F04",
+      "name": "按示范装蛋托（Fill Egg Holder）",
+      "loadable": true,
+      "construction_control_checked": false,
+      "variants": [],
+      "legacy_preview": true,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {}
+    },
+    {
+      "task": "F05",
+      "name": "尺寸序列排列",
+      "loadable": true,
+      "construction_control_checked": false,
+      "variants": [],
+      "legacy_preview": true,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {}
+    },
+    {
+      "task": "F06",
+      "name": "按示范摆鞋",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F06-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.014907476026565,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F06-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 14.00427693896927,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F06-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 14.505655839922838,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F07",
+      "name": "交叉属性分组",
+      "loadable": true,
+      "construction_control_checked": false,
+      "variants": [],
+      "legacy_preview": true,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {}
+    },
+    {
+      "task": "F08",
+      "name": "形状匹配插孔",
+      "loadable": true,
+      "construction_control_checked": false,
+      "variants": [],
+      "legacy_preview": true,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {}
+    },
+    {
+      "task": "F09",
+      "name": "按规则夹衣夹",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F09-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 16.004216568078846,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F09-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 16.005668133031577,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F09-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 16.504441256052814,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F10",
+      "name": "参照拼板变换",
+      "loadable": true,
+      "construction_control_checked": false,
+      "variants": [],
+      "legacy_preview": true,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {}
+    },
+    {
+      "task": "F11",
+      "name": "圆环分柱套放",
+      "loadable": true,
+      "construction_control_checked": false,
+      "variants": [],
+      "legacy_preview": true,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {}
+    },
+    {
+      "task": "F12",
+      "name": "按顺序插卡片",
+      "loadable": true,
+      "construction_control_checked": false,
+      "variants": [],
+      "legacy_preview": true,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {}
+    },
+    {
+      "task": "F13",
+      "name": "指定充电器插入插排（Plug In Charger）",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F13-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.505647127982229,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F13-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 16.007559502031654,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F13-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 16.006474629975855,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F14",
+      "name": "按示范摆放手机（Place Phone Stand）",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F14-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.008235142100602,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F14-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.00759440800175,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F14-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 14.505973386927508,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F15",
+      "name": "稳住可动孔板再装配",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F15-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.005842762067914,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F15-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 14.506645192042924,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F15-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 14.506253461004235,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F16",
+      "name": "单空位滑块循环重排",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F16-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 16.005519972066395,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F16-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 16.005940226954408,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F16-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 16.00655365991406,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F17",
+      "name": "堆叠取件与剩余结构恢复",
+      "loadable": true,
+      "construction_control_checked": false,
+      "variants": [],
+      "legacy_preview": true,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {}
+    },
+    {
+      "task": "F18",
+      "name": "位置与朝向交换（Swap T）",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F18-A-7.receipt.json",
+          "gpu": 3,
+          "elapsed_seconds": 69.5921913660004,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F18-B-7.receipt.json",
+          "gpu": 4,
+          "elapsed_seconds": 69.08709489500052,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F18-C-7.receipt.json",
+          "gpu": 5,
+          "elapsed_seconds": 68.08705043000009,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F19",
+      "name": "参照布局的选择性纠错",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F19-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.006093785981648,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F19-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.006481494987383,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F19-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 14.506610136013478,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F20",
+      "name": "整体布局搬迁",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F20-A-7.receipt.json",
+          "gpu": 6,
+          "elapsed_seconds": 67.57961391499975,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F20-B-7.receipt.json",
+          "gpu": 7,
+          "elapsed_seconds": 67.0848420759994,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F20-C-7.receipt.json",
+          "gpu": 7,
+          "elapsed_seconds": 66.09104398999989,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F21",
+      "name": "篮中指定物取放",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F21-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 16.01171491795685,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F21-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 16.006908227922395,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F21-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.505506703979336,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F22",
+      "name": "双层托盘取放",
+      "loadable": true,
+      "construction_control_checked": false,
+      "variants": [],
+      "legacy_preview": true,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {}
+    },
+    {
+      "task": "F23",
+      "name": "抽屉取件并关回",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F23-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 16.004190398030914,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F23-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 16.0052856230177,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F23-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 16.0056391680846,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F24",
+      "name": "翻牌顺序并归位",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F24-A-7.receipt.json",
+          "gpu": 6,
+          "elapsed_seconds": 61.09134459500001,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F24-B-7.receipt.json",
+          "gpu": 5,
+          "elapsed_seconds": 62.57878124599938,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F24-C-7.receipt.json",
+          "gpu": 4,
+          "elapsed_seconds": 60.078494125999896,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F25",
+      "name": "瓶盖与瓶子配对",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F25-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 17.00555555091705,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F25-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 17.006001468980685,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F25-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 16.506368387956172,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F26",
+      "name": "按示范配餐",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F26-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.00553973193746,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F26-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 14.004149398999289,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F26-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 14.005243474966846,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F27",
+      "name": "按已有数量补齐",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F27-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 19.004537468892522,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F27-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 18.50644674198702,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F27-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 18.006469657062553,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F28",
+      "name": "模仿分拣顺序",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F28-A-7.receipt.json",
+          "gpu": 3,
+          "elapsed_seconds": 54.56833709200055,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F28-B-7.receipt.json",
+          "gpu": 3,
+          "elapsed_seconds": 32.046990003000246,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F28-C-7.receipt.json",
+          "gpu": 6,
+          "elapsed_seconds": 42.55958736899993,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F29",
+      "name": "围绕参照物的布局",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F29-A-7.receipt.json",
+          "gpu": 4,
+          "elapsed_seconds": 47.061445414000445,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F29-B-7.receipt.json",
+          "gpu": 5,
+          "elapsed_seconds": 46.0647091310002,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F29-C-7.receipt.json",
+          "gpu": 7,
+          "elapsed_seconds": 43.05708106200018,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F30",
+      "name": "按颜色规则挂杯子（Hang Mugs）",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F30-A-7.receipt.json",
+          "gpu": 3,
+          "elapsed_seconds": 49.560422518999985,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F30-B-7.receipt.json",
+          "gpu": 6,
+          "elapsed_seconds": 38.05467999299981,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F30-C-7.receipt.json",
+          "gpu": 4,
+          "elapsed_seconds": 36.552926013000615,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F31",
+      "name": "顺序装入宽口收纳盒",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F31-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.506226641940884,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F31-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 13.50530025002081,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F31-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 13.505391360027716,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F32",
+      "name": "餐具对齐摆放",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F32-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 13.505099136033095,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F32-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 13.005140156019479,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F32-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 13.505428873933852,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F33",
+      "name": "不等长行补全",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F33-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 14.505358499009162,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F33-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 14.005212204996496,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F33-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 14.005075660999864,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F34",
+      "name": "数量映射按钮操作",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F34-A-7.receipt.json",
+          "gpu": 7,
+          "elapsed_seconds": 31.043173956999453,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F34-B-7.receipt.json",
+          "gpu": 5,
+          "elapsed_seconds": 31.040625194999848,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F34-C-7.receipt.json",
+          "gpu": 3,
+          "elapsed_seconds": 59.07489660699957,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F35",
+      "name": "按示范摆一套餐具",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F35-A-7.receipt.json",
+          "gpu": 7,
+          "elapsed_seconds": 63.582611189999625,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F35-B-7.receipt.json",
+          "gpu": 5,
+          "elapsed_seconds": 61.58136579999973,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F35-C-7.receipt.json",
+          "gpu": 6,
+          "elapsed_seconds": 61.07232298100007,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F37",
+      "name": "用薄铲翻转指定食物",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F37-A-7.receipt.json",
+          "gpu": 4,
+          "elapsed_seconds": 59.58282396300001,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F37-B-7.receipt.json",
+          "gpu": 3,
+          "elapsed_seconds": 37.55507928899988,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F37-C-7.receipt.json",
+          "gpu": 5,
+          "elapsed_seconds": 54.07790327500061,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F38",
+      "name": "平铲承托与交付",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F38-A-7.receipt.json",
+          "gpu": 6,
+          "elapsed_seconds": 48.07263273799981,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F38-B-7.receipt.json",
+          "gpu": 7,
+          "elapsed_seconds": 47.569041888000356,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F38-C-7.receipt.json",
+          "gpu": 4,
+          "elapsed_seconds": 46.05772425699979,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F39",
+      "name": "扫拢大颗粒",
+      "loadable": true,
+      "construction_control_checked": false,
+      "variants": [],
+      "legacy_preview": true,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {}
+    },
+    {
+      "task": "F40",
+      "name": "刚性颗粒倾倒",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F40-A-7.receipt.json",
+          "gpu": 3,
+          "elapsed_seconds": 40.05052258999967,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F40-B-7.receipt.json",
+          "gpu": 4,
+          "elapsed_seconds": 39.05930268599968,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F40-C-7.receipt.json",
+          "gpu": 7,
+          "elapsed_seconds": 41.05871582300006,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F41",
+      "name": "夹子夹取指定卡片",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F41-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 17.005961277987808,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F41-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 17.006458773976192,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F41-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.510016184998676,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F44",
+      "name": "导向板送球",
+      "loadable": true,
+      "construction_control_checked": false,
+      "variants": [],
+      "legacy_preview": true,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {}
+    },
+    {
+      "task": "F45",
+      "name": "按视频顺序敲木琴（Play Xylophone）",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F45-A-7.receipt.json",
+          "gpu": 6,
+          "elapsed_seconds": 31.54497413700028,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F45-B-7.receipt.json",
+          "gpu": 5,
+          "elapsed_seconds": 28.539403443999618,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F45-C-7.receipt.json",
+          "gpu": 3,
+          "elapsed_seconds": 52.070102162000694,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F46",
+      "name": "按示范操作双层抽屉",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F46-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.505587697960436,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F46-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.506013222038746,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F46-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 12.004714457085356,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F47",
+      "name": "按规则分格装餐具",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F47-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 17.00598707399331,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F47-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.004934092983603,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F47-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.505211823037826,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F48",
+      "name": "按示范组合摆放碗碟",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F48-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 13.00491570297163,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F48-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 13.505260139005259,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F48-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 12.00456759496592,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F49",
+      "name": "纸板折叠成指定形状",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F49-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 11.504711571033113,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F49-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 12.004651253926568,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F49-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 11.504833934013732,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F51",
+      "name": "杂乱桌面中的指定物体抓取",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F51-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 13.004471397027373,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F51-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 17.505621123942547,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F51-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 13.004056664998643,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    },
+    {
+      "task": "F52",
+      "name": "指定瓶子投入垃圾桶",
+      "loadable": true,
+      "construction_control_checked": true,
+      "variants": [
+        "A",
+        "B",
+        "C"
+      ],
+      "legacy_preview": false,
+      "demo_validation": "separate_from_construction_gate",
+      "receipts": {
+        "A": {
+          "file": "F52-A-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.005823965999298,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "B": {
+          "file": "F52-B-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 15.005700525012799,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        },
+        "C": {
+          "file": "F52-C-7.receipt.json",
+          "gpu": 0,
+          "elapsed_seconds": 14.505285219987854,
+          "recorded_source_sha256": "89b875f17e837fa32d41b87ff0e6ecc8d9027c5fddb63100e7f286368f4b72c6"
+        }
+      }
+    }
+  ],
+  "loadable": 48,
+  "construction_control_checked": 34,
+  "note": "Dedicated scenes with native control QA. This does not certify task solving or demo completion."
+}

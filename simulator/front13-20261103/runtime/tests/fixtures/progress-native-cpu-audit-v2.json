@@ -1,0 +1,635 @@
+{
+  "exitstatus": 0,
+  "scope": "CPU measured-state fixtures; not live physics",
+  "cases": {
+    "E01-A": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E01-B": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E01-C": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E03-A": {
+      "samples": 32,
+      "native_success_samples": 3,
+      "progress_available_samples": 32,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E03-B": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E03-C": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E05-A": {
+      "samples": 9,
+      "native_success_samples": 0,
+      "progress_available_samples": 9,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E06-A": {
+      "samples": 408,
+      "native_success_samples": 35,
+      "progress_available_samples": 398,
+      "missing": {
+        "history_invalid_or_untrusted": 10
+      },
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E06-B": {
+      "samples": 7,
+      "native_success_samples": 2,
+      "progress_available_samples": 7,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E06-C": {
+      "samples": 7,
+      "native_success_samples": 2,
+      "progress_available_samples": 7,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E07-A": {
+      "samples": 8,
+      "native_success_samples": 4,
+      "progress_available_samples": 0,
+      "missing": {
+        "initial_denominator_not_sealed": 7,
+        "history_invalid_or_untrusted": 1
+      },
+      "exceptions": [],
+      "successful_score_mismatches": [
+        {
+          "raw": null,
+          "missing": [
+            "initial_denominator_not_sealed"
+          ],
+          "units": []
+        }
+      ]
+    },
+    "E08-A": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E08-B": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E08-C": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E10-A": {
+      "samples": 18,
+      "native_success_samples": 3,
+      "progress_available_samples": 18,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E10-B": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E10-C": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E12-A": {
+      "samples": 25,
+      "native_success_samples": 3,
+      "progress_available_samples": 24,
+      "missing": {
+        "history_invalid_or_untrusted": 1
+      },
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E12-B": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E12-C": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E17-A": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E17-B": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E17-C": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E18-A": {
+      "samples": 86,
+      "native_success_samples": 4,
+      "progress_available_samples": 82,
+      "missing": {
+        "history_invalid_or_untrusted": 4
+      },
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E18-B": {
+      "samples": 11,
+      "native_success_samples": 2,
+      "progress_available_samples": 11,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E18-C": {
+      "samples": 11,
+      "native_success_samples": 2,
+      "progress_available_samples": 11,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E19-A": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E19-B": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E19-C": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E22-A": {
+      "samples": 8,
+      "native_success_samples": 0,
+      "progress_available_samples": 8,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E23-A": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E23-B": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E23-C": {
+      "samples": 16,
+      "native_success_samples": 3,
+      "progress_available_samples": 16,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E24-A": {
+      "samples": 57,
+      "native_success_samples": 6,
+      "progress_available_samples": 57,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E24-B": {
+      "samples": 27,
+      "native_success_samples": 6,
+      "progress_available_samples": 27,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E24-C": {
+      "samples": 27,
+      "native_success_samples": 6,
+      "progress_available_samples": 27,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E26-A": {
+      "samples": 35,
+      "native_success_samples": 3,
+      "progress_available_samples": 31,
+      "missing": {
+        "history_invalid_or_untrusted": 4
+      },
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E26-B": {
+      "samples": 28,
+      "native_success_samples": 3,
+      "progress_available_samples": 28,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E26-C": {
+      "samples": 157,
+      "native_success_samples": 8,
+      "progress_available_samples": 157,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E28-A": {
+      "samples": 2,
+      "native_success_samples": 1,
+      "progress_available_samples": 2,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E28-B": {
+      "samples": 2,
+      "native_success_samples": 1,
+      "progress_available_samples": 2,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E28-C": {
+      "samples": 2,
+      "native_success_samples": 1,
+      "progress_available_samples": 2,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E29-A": {
+      "samples": 13,
+      "native_success_samples": 3,
+      "progress_available_samples": 12,
+      "missing": {
+        "history_invalid_or_untrusted": 1
+      },
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E29-B": {
+      "samples": 11,
+      "native_success_samples": 2,
+      "progress_available_samples": 11,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E29-C": {
+      "samples": 19,
+      "native_success_samples": 2,
+      "progress_available_samples": 19,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E30-A": {
+      "samples": 237,
+      "native_success_samples": 32,
+      "progress_available_samples": 232,
+      "missing": {
+        "history_invalid_or_untrusted": 5
+      },
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E30-B": {
+      "samples": 9,
+      "native_success_samples": 2,
+      "progress_available_samples": 9,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E30-C": {
+      "samples": 9,
+      "native_success_samples": 2,
+      "progress_available_samples": 9,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E35-A": {
+      "samples": 3,
+      "native_success_samples": 1,
+      "progress_available_samples": 3,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E36-A": {
+      "samples": 7,
+      "native_success_samples": 3,
+      "progress_available_samples": 6,
+      "missing": {
+        "history_invalid_or_untrusted": 1
+      },
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E37-A": {
+      "samples": 295,
+      "native_success_samples": 8,
+      "progress_available_samples": 295,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E37-B": {
+      "samples": 46,
+      "native_success_samples": 4,
+      "progress_available_samples": 46,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E37-C": {
+      "samples": 83,
+      "native_success_samples": 4,
+      "progress_available_samples": 83,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E40-A": {
+      "samples": 3,
+      "native_success_samples": 1,
+      "progress_available_samples": 3,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E40-B": {
+      "samples": 2,
+      "native_success_samples": 1,
+      "progress_available_samples": 2,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E40-C": {
+      "samples": 2,
+      "native_success_samples": 1,
+      "progress_available_samples": 2,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E42-A": {
+      "samples": 1,
+      "native_success_samples": 1,
+      "progress_available_samples": 1,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E42-B": {
+      "samples": 1,
+      "native_success_samples": 1,
+      "progress_available_samples": 1,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E42-C": {
+      "samples": 1,
+      "native_success_samples": 1,
+      "progress_available_samples": 1,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E43-A": {
+      "samples": 2,
+      "native_success_samples": 1,
+      "progress_available_samples": 2,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E43-B": {
+      "samples": 2,
+      "native_success_samples": 1,
+      "progress_available_samples": 2,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E43-C": {
+      "samples": 2,
+      "native_success_samples": 1,
+      "progress_available_samples": 2,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E44-A": {
+      "samples": 4,
+      "native_success_samples": 1,
+      "progress_available_samples": 3,
+      "missing": {
+        "history_invalid_or_untrusted": 1
+      },
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E44-B": {
+      "samples": 2,
+      "native_success_samples": 1,
+      "progress_available_samples": 2,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E44-C": {
+      "samples": 2,
+      "native_success_samples": 1,
+      "progress_available_samples": 2,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E45-A": {
+      "samples": 3,
+      "native_success_samples": 1,
+      "progress_available_samples": 3,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E45-B": {
+      "samples": 3,
+      "native_success_samples": 1,
+      "progress_available_samples": 3,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E45-C": {
+      "samples": 3,
+      "native_success_samples": 1,
+      "progress_available_samples": 3,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E46-A": {
+      "samples": 73,
+      "native_success_samples": 13,
+      "progress_available_samples": 69,
+      "missing": {
+        "history_invalid_or_untrusted": 4
+      },
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E46-B": {
+      "samples": 2,
+      "native_success_samples": 1,
+      "progress_available_samples": 2,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E46-C": {
+      "samples": 1,
+      "native_success_samples": 1,
+      "progress_available_samples": 1,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E50-A": {
+      "samples": 1,
+      "native_success_samples": 1,
+      "progress_available_samples": 1,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E50-B": {
+      "samples": 1,
+      "native_success_samples": 1,
+      "progress_available_samples": 1,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    },
+    "E50-C": {
+      "samples": 1,
+      "native_success_samples": 1,
+      "progress_available_samples": 1,
+      "missing": {},
+      "exceptions": [],
+      "successful_score_mismatches": []
+    }
+  },
+  "validation_summary": {
+    "test_result": "140 passed",
+    "native_task_count": 28,
+    "native_variant_count": 74,
+    "exception_count": 0,
+    "live_physics_verified": false,
+    "expected_success_score_null_cases": "E07 pre-seal/already-complete synthetic initialization; production pool seals baseline before ready"
+  }
+}

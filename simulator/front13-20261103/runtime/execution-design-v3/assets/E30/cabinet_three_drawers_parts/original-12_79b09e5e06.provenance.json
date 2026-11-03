@@ -1,0 +1,272 @@
+{
+  "schema": "videoicl-source-mesh-conversion-v1",
+  "visual": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/textured_objs/original-12.obj",
+  "collision": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/textured_objs/original-12.obj",
+  "collision_fallback_to_visual": true,
+  "collision_approximation": "convexDecomposition",
+  "output": "/home/descfly/VideoICL/realworld50_20261027/converted_assets_mechanisms_v1/cabinet_three_drawers_parts/original-12_79b09e5e06.usda",
+  "output_sha256": "99fd5d4d57caf575eaf807ab4bca6dbef3a7700a2827c6fec0f5563b229d205c",
+  "default_prim": "/Asset",
+  "source_modified": false,
+  "coordinate_policy": "All source node transforms baked; no additional axis rotation, scaling, centering or simplification.",
+  "meters_per_unit_metadata": 1.0,
+  "up_axis_metadata_authored": false,
+  "rigid_body_authored": false,
+  "textures": [
+    {
+      "path": "original-12_79b09e5e06_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+      "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c",
+      "bytes": 83855,
+      "source_image_mode": "RGB"
+    }
+  ],
+  "meshes": [
+    {
+      "role": "visual",
+      "source": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/textured_objs/original-12.obj",
+      "source_node": "material_0_0",
+      "source_geometry": "material_0_0",
+      "prim": "/Asset/Visuals/mesh_0_material_0_0",
+      "node_transform_baked": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "vertices": 4,
+      "triangles": 2,
+      "bounds": [
+        [
+          -0.401623010635376,
+          0.775638997554779,
+          0.3853890001773834
+        ],
+        [
+          0.39931800961494446,
+          0.8112360239028931,
+          0.3853890001773834
+        ]
+      ]
+    },
+    {
+      "role": "visual",
+      "source": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/textured_objs/original-12.obj",
+      "source_node": "material_1_0",
+      "source_geometry": "material_1_0",
+      "prim": "/Asset/Visuals/mesh_1_material_1_0",
+      "node_transform_baked": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "vertices": 4,
+      "triangles": 2,
+      "bounds": [
+        [
+          -0.401623010635376,
+          0.775638997554779,
+          0.3853890001773834
+        ],
+        [
+          0.39931800961494446,
+          0.8112360239028931,
+          0.3853890001773834
+        ]
+      ]
+    },
+    {
+      "role": "collision",
+      "source": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/textured_objs/original-12.obj",
+      "source_node": "material_0_0",
+      "source_geometry": "material_0_0",
+      "prim": "/Asset/Collisions/mesh_0_material_0_0",
+      "node_transform_baked": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "vertices": 4,
+      "triangles": 2,
+      "bounds": [
+        [
+          -0.401623010635376,
+          0.775638997554779,
+          0.3853890001773834
+        ],
+        [
+          0.39931800961494446,
+          0.8112360239028931,
+          0.3853890001773834
+        ]
+      ]
+    },
+    {
+      "role": "collision",
+      "source": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/textured_objs/original-12.obj",
+      "source_node": "material_1_0",
+      "source_geometry": "material_1_0",
+      "prim": "/Asset/Collisions/mesh_1_material_1_0",
+      "node_transform_baked": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "vertices": 4,
+      "triangles": 2,
+      "bounds": [
+        [
+          -0.401623010635376,
+          0.775638997554779,
+          0.3853890001773834
+        ],
+        [
+          0.39931800961494446,
+          0.8112360239028931,
+          0.3853890001773834
+        ]
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "prim": "/Asset/Visuals/mesh_0_material_0_0_Material",
+      "source_alpha_mode": null,
+      "effective_alpha_mode": "OPAQUE",
+      "base_color_factor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "image_mode": "RGB",
+      "alpha_range": null,
+      "texture_opacity_connected": false
+    },
+    {
+      "prim": "/Asset/Visuals/mesh_1_material_1_0_Material",
+      "source_alpha_mode": null,
+      "effective_alpha_mode": "OPAQUE",
+      "base_color_factor": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "image_mode": null,
+      "alpha_range": null,
+      "texture_opacity_connected": false
+    }
+  ],
+  "sources": [
+    {
+      "path": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/images/texture_0.jpg",
+      "bytes": 9570,
+      "sha256": "85b2e5105eb91bce14f8cf0d1ee0bfcc52c0bea9498edd49d6d8a11e69f7775d"
+    },
+    {
+      "path": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/textured_objs/original-12.mtl",
+      "bytes": 257,
+      "sha256": "bbd6a3b373bf7b4492a4f5550a0dc430dbdec0cf3c95727655a804d7b6e6ef8d"
+    },
+    {
+      "path": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/textured_objs/original-12.obj",
+      "bytes": 424,
+      "sha256": "79b09e5e062e0c2b3312b5a68f2f2223b1a4382f970b350f4eeccf8bd99e8dab"
+    }
+  ],
+  "unresolved_dependency_declarations": [],
+  "warnings": [
+    "Only base-color texture/factor, opacity, metallic/roughness factors and vertex/face colors are exported; other PBR channels are listed when omitted.",
+    "Collision approximation is authored for PhysX cooking; this CPU conversion does not verify cooked collision quality or task success."
+  ],
+  "trimesh_version": "4.5.1",
+  "usd_version": [
+    0,
+    25,
+    5
+  ],
+  "validation": "CPU USD reopen and source hashes only; no PhysX cooking or GPU render test"
+}

@@ -1,0 +1,42 @@
+{
+  "input_condition": "real",
+  "assignment_identity_sha256": "ba297c5a793fd3cb19907a72bf78c7e3d88ffad7bfc60d11589af934be499a36",
+  "public_task": {
+    "task": "E12",
+    "title": "插排孔位选择",
+    "instruction": "按示范相对于电线端的插位选择，将两个充电器插入四位插排。",
+    "revision": "embodied50-execution-v3-20261102",
+    "order": {}
+  },
+  "rule_qa": {
+    "local_rule_unchanged": true,
+    "question_bank": "embodied-rule-qa-v1",
+    "assignment_identity_sha256": "ba297c5a793fd3cb19907a72bf78c7e3d88ffad7bfc60d11589af934be499a36",
+    "fresh_first_answer_required": true,
+    "reuse_previous_assignment_answer": false
+  },
+  "qa_public_packet": {
+    "packet_id": "qp_09c35fe8ed5660b3d08f",
+    "question_id": "rq_e65974279e7a",
+    "prompt": "视频中两个充电器插入插排的哪两个插位？",
+    "options": {
+      "A": "两充电器插入靠电线端的两个插位。",
+      "B": "插入中间两个插位，两端插位空着。",
+      "C": "插入远离电线端的两个插位。",
+      "D": "插入两端插位，中间两个空着。"
+    },
+    "response_instruction": "只输出一个大写选项字母：A、B、C或D。"
+  },
+  "demo_scope": "local_rule_only",
+  "model_launch_enabled": false,
+  "media_status": "real packaged; sim requires explicit reviewed binding",
+  "media": {
+    "task": "E12",
+    "variant": "C",
+    "input": "real",
+    "path": "media/real/E12/C.mp4",
+    "sha256": "e361b09fce294de6f0baf4e6173f179b8550b5d894072b1f9b73cbfd4cd182c9",
+    "scope": "local_rule_only",
+    "source_sha256": "18b9a67a8e7c5046c24afde8b00554e6b4a402f3059477bb3dba697ead5c1d1a"
+  }
+}

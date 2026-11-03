@@ -1,0 +1,3729 @@
+{
+  "schema": "realworld50-source-bindings-v1",
+  "tasks": {
+    "E03": {
+      "scene_adapter": "full50-source-v1",
+      "objects": {
+        "red": {
+          "source_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "hollow_cup.usda",
+            "sha256": "c9d82475379f3bc83666d97222a3c55a39f3334f97eb9ed02df4efab84183b5b",
+            "dependencies": [
+              {
+                "relative_path": "hollow_cup_parts/visual.provenance.json",
+                "sha256": "6a42be813c76c3b2b9ecede426da8f04021beaca6f968bd78421bde8422121b8"
+              },
+              {
+                "relative_path": "hollow_cup_parts/visual.usda",
+                "sha256": "ff7aa2234044ea2c8bdd2ddb20583d251ff840438ccce8b322dd791f8494458d"
+              },
+              {
+                "relative_path": "hollow_cup_parts/visual_textures/bc59d4ac737100f9c0774784e076a47752b7c591ebe09887caafd91b888db427.png",
+                "sha256": "bc59d4ac737100f9c0774784e076a47752b7c591ebe09887caafd91b888db427"
+              }
+            ],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.04127701522395277,
+            0.04098903641349957,
+            0.04400000116457628
+          ],
+          "xy": [
+            -0.05,
+            0.14
+          ],
+          "bottom": 0.802,
+          "yaw": 0,
+          "mass": 0.04,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "identity": "red",
+          "recolor": true,
+          "rgba": [
+            0.8,
+            0.04,
+            0.02,
+            1
+          ]
+        },
+        "green": {
+          "source_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "hollow_cup.usda",
+            "sha256": "c9d82475379f3bc83666d97222a3c55a39f3334f97eb9ed02df4efab84183b5b",
+            "dependencies": [
+              {
+                "relative_path": "hollow_cup_parts/visual.provenance.json",
+                "sha256": "6a42be813c76c3b2b9ecede426da8f04021beaca6f968bd78421bde8422121b8"
+              },
+              {
+                "relative_path": "hollow_cup_parts/visual.usda",
+                "sha256": "ff7aa2234044ea2c8bdd2ddb20583d251ff840438ccce8b322dd791f8494458d"
+              },
+              {
+                "relative_path": "hollow_cup_parts/visual_textures/bc59d4ac737100f9c0774784e076a47752b7c591ebe09887caafd91b888db427.png",
+                "sha256": "bc59d4ac737100f9c0774784e076a47752b7c591ebe09887caafd91b888db427"
+              }
+            ],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.04127701522395277,
+            0.04098903641349957,
+            0.04400000116457628
+          ],
+          "xy": [
+            -0.05,
+            0.0
+          ],
+          "bottom": 0.802,
+          "yaw": 0,
+          "mass": 0.04,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "identity": "green",
+          "recolor": true,
+          "rgba": [
+            0.08,
+            0.45,
+            0.07,
+            1
+          ]
+        },
+        "blue": {
+          "source_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "hollow_cup.usda",
+            "sha256": "c9d82475379f3bc83666d97222a3c55a39f3334f97eb9ed02df4efab84183b5b",
+            "dependencies": [
+              {
+                "relative_path": "hollow_cup_parts/visual.provenance.json",
+                "sha256": "6a42be813c76c3b2b9ecede426da8f04021beaca6f968bd78421bde8422121b8"
+              },
+              {
+                "relative_path": "hollow_cup_parts/visual.usda",
+                "sha256": "ff7aa2234044ea2c8bdd2ddb20583d251ff840438ccce8b322dd791f8494458d"
+              },
+              {
+                "relative_path": "hollow_cup_parts/visual_textures/bc59d4ac737100f9c0774784e076a47752b7c591ebe09887caafd91b888db427.png",
+                "sha256": "bc59d4ac737100f9c0774784e076a47752b7c591ebe09887caafd91b888db427"
+              }
+            ],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.04127701522395277,
+            0.04098903641349957,
+            0.04400000116457628
+          ],
+          "xy": [
+            -0.05,
+            -0.14
+          ],
+          "bottom": 0.802,
+          "yaw": 0,
+          "mass": 0.04,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "identity": "blue",
+          "recolor": true,
+          "rgba": [
+            0.04,
+            0.15,
+            0.7,
+            1
+          ]
+        }
+      },
+      "mechanisms": [],
+      "variants": {
+        "A": {
+          "object_overrides": {},
+          "zones": [],
+          "goals": [],
+          "semantic": {
+            "mode": "measured_tapered_cup_nesting",
+            "groups": {
+              "cups": [
+                "red",
+                "green",
+                "blue"
+              ]
+            },
+            "cups": {
+              "red": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              },
+              "green": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              },
+              "blue": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              }
+            },
+            "structural_grasps": {
+              "red": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "green": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "blue": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              }
+            },
+            "expert_clearance_z": 0.98,
+            "structural_expert": {
+              "support_contact_stop_m": 0.008
+            }
+          }
+        },
+        "B": {
+          "object_overrides": {},
+          "zones": [],
+          "goals": [],
+          "semantic": {
+            "mode": "measured_tapered_cup_nesting",
+            "groups": {
+              "cups": [
+                "red",
+                "green",
+                "blue"
+              ]
+            },
+            "cups": {
+              "red": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              },
+              "green": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              },
+              "blue": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              }
+            },
+            "structural_grasps": {
+              "red": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "green": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "blue": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              }
+            },
+            "expert_clearance_z": 0.98,
+            "structural_expert": {
+              "support_contact_stop_m": 0.008
+            }
+          }
+        },
+        "C": {
+          "object_overrides": {},
+          "zones": [],
+          "goals": [],
+          "semantic": {
+            "mode": "measured_tapered_cup_nesting",
+            "groups": {
+              "cups": [
+                "red",
+                "green",
+                "blue"
+              ]
+            },
+            "cups": {
+              "red": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              },
+              "green": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              },
+              "blue": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              }
+            },
+            "structural_grasps": {
+              "red": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "green": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "blue": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              }
+            },
+            "expert_clearance_z": 0.98,
+            "structural_expert": {
+              "support_contact_stop_m": 0.008
+            }
+          }
+        }
+      },
+      "expert_action_budget": 5000,
+      "expert_loaded_step_mm": 4,
+      "fidelity_status": "source_geometry_schema_ready_native_physics_and_video_alignment_pending",
+      "validation_status": {
+        "physics_verified": false,
+        "source_geometry_cpu_checked": true
+      },
+      "review_notes": [
+        "No object teleportation, attachment, or prescribed joint trajectory. Source-derived geometry and process scoring require actual native contact validation."
+      ]
+    },
+    "E19": {
+      "scene_adapter": "full50-source-v1",
+      "objects": {
+        "sprite_bottle": {
+          "source_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "open_sprite_bottle.usda",
+            "sha256": "9052baafd28e5b66dcbc4d2f94932cd51a66f9f15df7afe57c2716e465b704cb",
+            "dependencies": [
+              {
+                "relative_path": "open_sprite_bottle_parts/visual.glb",
+                "sha256": "24c7671ac7ffd598cfd2195660c22424b8819055ede93379d1a0a19ccb2013a2"
+              },
+              {
+                "relative_path": "open_sprite_bottle_parts/visual.provenance.json",
+                "sha256": "8e70d5b1b1bce3e56ac11ff5b0beb7992936e1ba822d6fe1c9e7f7fb2c841d5e"
+              },
+              {
+                "relative_path": "open_sprite_bottle_parts/visual.usda",
+                "sha256": "3b690809f271f1223048153afe7b2f6baf5dccfd6ec32a49828cd43cf8c9bf74"
+              },
+              {
+                "relative_path": "open_sprite_bottle_parts/visual_textures/385354a1ea845078216dd42395e97f9dbc3b279934da6f161cd085b5491d7c1e.png",
+                "sha256": "385354a1ea845078216dd42395e97f9dbc3b279934da6f161cd085b5491d7c1e"
+              }
+            ],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.02791970521211624,
+            0.027823950648307803,
+            0.0978999998062849
+          ],
+          "xy": [
+            0.06,
+            0.15
+          ],
+          "bottom": 0.802,
+          "yaw": 0,
+          "mass": 0.15,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "identity": "sprite_bottle"
+        },
+        "water_bottle": {
+          "source_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "open_water_bottle.usda",
+            "sha256": "a1063067fb4ff0db03ba5436820756f9149f6eb45b5c9c5973ef5d6274eff71f",
+            "dependencies": [
+              {
+                "relative_path": "open_water_bottle_parts/visual.glb",
+                "sha256": "a9cb7f56926d17f76ff0e98a4d2d11a56dc9396c03eddb00c67adb29ac0e3287"
+              },
+              {
+                "relative_path": "open_water_bottle_parts/visual.provenance.json",
+                "sha256": "cd94a80112eaeebeb00f4d9f4a3a77258efceca829b4bb33fe8720d1d5b25c32"
+              },
+              {
+                "relative_path": "open_water_bottle_parts/visual.usda",
+                "sha256": "9d8b0efa1c7e1521c97e0fa9c52bf5cc94c734b3abd9dc7ab70bd9c7802a3fb1"
+              },
+              {
+                "relative_path": "open_water_bottle_parts/visual_textures/4c23c9b2df64c42613ad08968759c7445fe2b549676c684187aa0ad7d8b50751.png",
+                "sha256": "4c23c9b2df64c42613ad08968759c7445fe2b549676c684187aa0ad7d8b50751"
+              }
+            ],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.028979227542877198,
+            0.028957059979437132,
+            0.09735000032481418
+          ],
+          "xy": [
+            0.06,
+            0.0
+          ],
+          "bottom": 0.802,
+          "yaw": 0,
+          "mass": 0.15,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "identity": "water_bottle"
+        },
+        "cola_bottle": {
+          "source_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "open_cola_bottle.usda",
+            "sha256": "3214c273e9c79040687cfc96144c8af580b4c50eccd0a2aa8b1dec401b6b70e8",
+            "dependencies": [
+              {
+                "relative_path": "open_cola_bottle_parts/visual.glb",
+                "sha256": "83784552047174af9b7cbd90103677375a85e148e0c28421d279a7026fd52876"
+              },
+              {
+                "relative_path": "open_cola_bottle_parts/visual.provenance.json",
+                "sha256": "e771e8595cca824b2151adf3f32d18feb08111f2d9fe42baaf566fff64a2aadc"
+              },
+              {
+                "relative_path": "open_cola_bottle_parts/visual.usda",
+                "sha256": "361f07a500a5aa9d228abb985cb38e7cc9a62e32cfa054bca483b15bef7204c3"
+              },
+              {
+                "relative_path": "open_cola_bottle_parts/visual_textures/6a8d2d0fa9f06f683a1051e525ead7c13fd435a18eb42b0ec4b8984b8b7911ca.png",
+                "sha256": "6a8d2d0fa9f06f683a1051e525ead7c13fd435a18eb42b0ec4b8984b8b7911ca"
+              }
+            ],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.026900059580802917,
+            0.0264668807387352,
+            0.09533539772704244
+          ],
+          "xy": [
+            0.06,
+            -0.15
+          ],
+          "bottom": 0.802,
+          "yaw": 0,
+          "mass": 0.15,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "identity": "cola_bottle"
+        },
+        "cap_yellow": {
+          "source_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "sprite_removable_cap.usda",
+            "sha256": "1486a6aee643e5994844720f169e1a13c19af2a450eada38361c310e4609cfc0",
+            "dependencies": [
+              {
+                "relative_path": "sprite_removable_cap_parts/visual.glb",
+                "sha256": "e9fab5f3a27d3fbfbbc4604f3d34f761e56518eeb6ffc8e98cf10bf9afb168b0"
+              },
+              {
+                "relative_path": "sprite_removable_cap_parts/visual.provenance.json",
+                "sha256": "efb8a27a85af8930c33adf2af24a2aeea16caf23384d0cd272a3d9403dfead56"
+              },
+              {
+                "relative_path": "sprite_removable_cap_parts/visual.usda",
+                "sha256": "30423c34269ead6f048d040d1c5d368f786f076f76373c2c9a5b61e20b9d9d7f"
+              },
+              {
+                "relative_path": "sprite_removable_cap_parts/visual_textures/385354a1ea845078216dd42395e97f9dbc3b279934da6f161cd085b5491d7c1e.png",
+                "sha256": "385354a1ea845078216dd42395e97f9dbc3b279934da6f161cd085b5491d7c1e"
+              }
+            ],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.016951674595475197,
+            0.01693233847618103,
+            0.007000000216066837
+          ],
+          "xy": [
+            -0.13,
+            0.13
+          ],
+          "bottom": 0.802,
+          "yaw": 0,
+          "mass": 0.008,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "identity": "yellow",
+          "recolor": true,
+          "rgba": [
+            0.95,
+            0.75,
+            0.04,
+            1
+          ],
+          "contact_offset": 0.0001
+        },
+        "cap_white": {
+          "source_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "water_removable_cap.usda",
+            "sha256": "8a584f2a88472a959642cf99d2f0a3d5507a0ea0b621cb971c6c0021ab38fc9f",
+            "dependencies": [
+              {
+                "relative_path": "water_removable_cap_parts/visual.glb",
+                "sha256": "c9fa0712240a0bcae42b7e17322605563d9f50c29a6c83c5cc1ee787900b8382"
+              },
+              {
+                "relative_path": "water_removable_cap_parts/visual.provenance.json",
+                "sha256": "87245ecc610d8a47046e27b9f257293a9fd10ff9b4b5f6936e3992090b98cc15"
+              },
+              {
+                "relative_path": "water_removable_cap_parts/visual.usda",
+                "sha256": "0a930f84af3c7573936b5adf738a69e4ba423044c1495ccbf787a498b23cefc5"
+              },
+              {
+                "relative_path": "water_removable_cap_parts/visual_textures/4c23c9b2df64c42613ad08968759c7445fe2b549676c684187aa0ad7d8b50751.png",
+                "sha256": "4c23c9b2df64c42613ad08968759c7445fe2b549676c684187aa0ad7d8b50751"
+              }
+            ],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.016999718733131886,
+            0.01699922513216734,
+            0.007000000216066837
+          ],
+          "xy": [
+            -0.13,
+            0.0
+          ],
+          "bottom": 0.802,
+          "yaw": 0,
+          "mass": 0.008,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "identity": "white",
+          "recolor": true,
+          "rgba": [
+            0.96,
+            0.96,
+            0.96,
+            1
+          ],
+          "contact_offset": 0.0001
+        },
+        "cap_red": {
+          "source_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "cola_removable_cap.usda",
+            "sha256": "a8d1a023e305cc173e0bda92a4c52f7f2f20731a32894b4fbab2a2669f840c4a",
+            "dependencies": [
+              {
+                "relative_path": "cola_removable_cap_parts/visual.glb",
+                "sha256": "4763319350812a3a129a1a76e083e8cc3b38aa50ebeaededde446180b94be6cf"
+              },
+              {
+                "relative_path": "cola_removable_cap_parts/visual.provenance.json",
+                "sha256": "d77a524d179bf4fbab84f1afc6f9415fc1b1036aa1b53872feb5ace4ee552d75"
+              },
+              {
+                "relative_path": "cola_removable_cap_parts/visual.usda",
+                "sha256": "d5f552d5093cd3766e2396cf9be781edfdf387f7f4f03235b5272d2d1d3772f5"
+              },
+              {
+                "relative_path": "cola_removable_cap_parts/visual_textures/6a8d2d0fa9f06f683a1051e525ead7c13fd435a18eb42b0ec4b8984b8b7911ca.png",
+                "sha256": "6a8d2d0fa9f06f683a1051e525ead7c13fd435a18eb42b0ec4b8984b8b7911ca"
+              }
+            ],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.01697642356157303,
+            0.016598839312791824,
+            0.007000000216066837
+          ],
+          "xy": [
+            -0.13,
+            -0.13
+          ],
+          "bottom": 0.802,
+          "yaw": 0,
+          "mass": 0.008,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "identity": "red",
+          "recolor": true,
+          "rgba": [
+            0.8,
+            0.04,
+            0.02,
+            1
+          ],
+          "contact_offset": 0.0001
+        }
+      },
+      "mechanisms": [],
+      "variants": {
+        "A": {
+          "object_overrides": {},
+          "zones": [],
+          "goals": [],
+          "semantic": {
+            "mode": "actual_free_cap_mouth_seating",
+            "groups": {
+              "caps": [
+                "cap_yellow",
+                "cap_white",
+                "cap_red"
+              ],
+              "bottles": [
+                "sprite_bottle",
+                "water_bottle",
+                "cola_bottle"
+              ]
+            },
+            "mouths": {
+              "sprite_bottle": {
+                "center_local": [
+                  1.1539459228507298e-06,
+                  6.379485130309989e-06,
+                  0.0979000001937151
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0105,
+                "outer_radius": 0.014
+              },
+              "water_bottle": {
+                "center_local": [
+                  0.0,
+                  1.7411783057030839e-09,
+                  0.09735000071224438
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0105,
+                "outer_radius": 0.014
+              },
+              "cola_bottle": {
+                "center_local": [
+                  0.0,
+                  0.0,
+                  0.09551460227295758
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0105,
+                "outer_radius": 0.014
+              }
+            },
+            "caps": {
+              "cap_yellow": {
+                "center_local": [
+                  -8.91275703907013e-06,
+                  -1.099705696105957e-05,
+                  -0.007000000216066837
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0145,
+                "outer_radius": 0.017,
+                "depth": 0.011
+              },
+              "cap_white": {
+                "center_local": [
+                  -9.96515154838562e-08,
+                  1.94646418094635e-07,
+                  -0.007000000216066837
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0145,
+                "outer_radius": 0.017,
+                "depth": 0.011
+              },
+              "cap_red": {
+                "center_local": [
+                  2.3502856492996216e-05,
+                  -5.7777389883995056e-05,
+                  -0.007000000216066837
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0145,
+                "outer_radius": 0.017,
+                "depth": 0.011
+              }
+            },
+            "structural_grasps": {
+              "cap_yellow": {
+                "local": [
+                  0,
+                  0,
+                  0.003
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "cap_white": {
+                "local": [
+                  0,
+                  0,
+                  0.003
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "cap_red": {
+                "local": [
+                  0,
+                  0,
+                  0.003
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            },
+            "expert_clearance_z": 0.98,
+            "structural_expert": {
+              "support_contact_stop_m": 0.008
+            }
+          }
+        },
+        "B": {
+          "object_overrides": {},
+          "zones": [],
+          "goals": [],
+          "semantic": {
+            "mode": "actual_free_cap_mouth_seating",
+            "groups": {
+              "caps": [
+                "cap_yellow",
+                "cap_white",
+                "cap_red"
+              ],
+              "bottles": [
+                "sprite_bottle",
+                "water_bottle",
+                "cola_bottle"
+              ]
+            },
+            "mouths": {
+              "sprite_bottle": {
+                "center_local": [
+                  1.1539459228507298e-06,
+                  6.379485130309989e-06,
+                  0.0979000001937151
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0105,
+                "outer_radius": 0.014
+              },
+              "water_bottle": {
+                "center_local": [
+                  0.0,
+                  1.7411783057030839e-09,
+                  0.09735000071224438
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0105,
+                "outer_radius": 0.014
+              },
+              "cola_bottle": {
+                "center_local": [
+                  0.0,
+                  0.0,
+                  0.09551460227295758
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0105,
+                "outer_radius": 0.014
+              }
+            },
+            "caps": {
+              "cap_yellow": {
+                "center_local": [
+                  -8.91275703907013e-06,
+                  -1.099705696105957e-05,
+                  -0.007000000216066837
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0145,
+                "outer_radius": 0.017,
+                "depth": 0.011
+              },
+              "cap_white": {
+                "center_local": [
+                  -9.96515154838562e-08,
+                  1.94646418094635e-07,
+                  -0.007000000216066837
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0145,
+                "outer_radius": 0.017,
+                "depth": 0.011
+              },
+              "cap_red": {
+                "center_local": [
+                  2.3502856492996216e-05,
+                  -5.7777389883995056e-05,
+                  -0.007000000216066837
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0145,
+                "outer_radius": 0.017,
+                "depth": 0.011
+              }
+            },
+            "structural_grasps": {
+              "cap_yellow": {
+                "local": [
+                  0,
+                  0,
+                  0.003
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "cap_white": {
+                "local": [
+                  0,
+                  0,
+                  0.003
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "cap_red": {
+                "local": [
+                  0,
+                  0,
+                  0.003
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            },
+            "expert_clearance_z": 0.98,
+            "structural_expert": {
+              "support_contact_stop_m": 0.008
+            }
+          }
+        },
+        "C": {
+          "object_overrides": {},
+          "zones": [],
+          "goals": [],
+          "semantic": {
+            "mode": "actual_free_cap_mouth_seating",
+            "groups": {
+              "caps": [
+                "cap_yellow",
+                "cap_white",
+                "cap_red"
+              ],
+              "bottles": [
+                "sprite_bottle",
+                "water_bottle",
+                "cola_bottle"
+              ]
+            },
+            "mouths": {
+              "sprite_bottle": {
+                "center_local": [
+                  1.1539459228507298e-06,
+                  6.379485130309989e-06,
+                  0.0979000001937151
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0105,
+                "outer_radius": 0.014
+              },
+              "water_bottle": {
+                "center_local": [
+                  0.0,
+                  1.7411783057030839e-09,
+                  0.09735000071224438
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0105,
+                "outer_radius": 0.014
+              },
+              "cola_bottle": {
+                "center_local": [
+                  0.0,
+                  0.0,
+                  0.09551460227295758
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0105,
+                "outer_radius": 0.014
+              }
+            },
+            "caps": {
+              "cap_yellow": {
+                "center_local": [
+                  -8.91275703907013e-06,
+                  -1.099705696105957e-05,
+                  -0.007000000216066837
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0145,
+                "outer_radius": 0.017,
+                "depth": 0.011
+              },
+              "cap_white": {
+                "center_local": [
+                  -9.96515154838562e-08,
+                  1.94646418094635e-07,
+                  -0.007000000216066837
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0145,
+                "outer_radius": 0.017,
+                "depth": 0.011
+              },
+              "cap_red": {
+                "center_local": [
+                  2.3502856492996216e-05,
+                  -5.7777389883995056e-05,
+                  -0.007000000216066837
+                ],
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "inner_radius": 0.0145,
+                "outer_radius": 0.017,
+                "depth": 0.011
+              }
+            },
+            "structural_grasps": {
+              "cap_yellow": {
+                "local": [
+                  0,
+                  0,
+                  0.003
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "cap_white": {
+                "local": [
+                  0,
+                  0,
+                  0.003
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "cap_red": {
+                "local": [
+                  0,
+                  0,
+                  0.003
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            },
+            "expert_clearance_z": 0.98,
+            "structural_expert": {
+              "support_contact_stop_m": 0.008
+            }
+          }
+        }
+      },
+      "expert_action_budget": 5000,
+      "expert_loaded_step_mm": 4,
+      "fidelity_status": "source_geometry_schema_ready_native_physics_and_video_alignment_pending",
+      "validation_status": {
+        "physics_verified": false,
+        "source_geometry_cpu_checked": true
+      },
+      "review_notes": [
+        "No object teleportation, attachment, or prescribed joint trajectory. Source-derived geometry and process scoring require actual native contact validation."
+      ]
+    },
+    "E24": {
+      "scene_adapter": "full50-source-v1",
+      "objects": {
+        "box": {
+          "mechanical_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "open_source_storage_box.usda",
+            "sha256": "b70d3aea3eccf90089cc839ee631bd7ccbabfd26a1c2a7d2d696d0746df6de21",
+            "dependencies": [
+              {
+                "relative_path": "open_source_storage_box_parts/source_adapted.glb",
+                "sha256": "9fb1bb0f0dbc59203a9fe2b3254b4cfecd23bda0ea3ea9bd35535741d7d73817"
+              },
+              {
+                "relative_path": "open_source_storage_box_parts/source_adapted.provenance.json",
+                "sha256": "e8fc5bbbf27dfa1d8a497814c14aea13c3955ae1e50bcf5150b2f29373ba948a"
+              },
+              {
+                "relative_path": "open_source_storage_box_parts/source_adapted.usda",
+                "sha256": "772be9e308cb8b16d435aad350c237d9312768a60bda2e4e43c123fdacd614a1"
+              }
+            ],
+            "joint_count": 0,
+            "kind": "static_mesh"
+          },
+          "role": "fixture",
+          "size": [
+            0.16750000417232513,
+            0.098996102809906,
+            0.05400669784285128
+          ],
+          "local_bounds_center": [
+            0.0,
+            0.0,
+            0.05400669784285128
+          ],
+          "xy": [
+            0.04,
+            0
+          ],
+          "quaternion": [
+            0.7071067811865476,
+            0,
+            0,
+            0.7071067811865476
+          ],
+          "center_z": 0.80001,
+          "bottom": 0.80001,
+          "mass": 0.5
+        },
+        "lid": {
+          "source_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "removable_box_lid.usda",
+            "sha256": "180837493663657fecabc2cbfb1f3ffeedfc96c700ae4ae4a1c82eae5c412fde",
+            "dependencies": [
+              {
+                "relative_path": "removable_box_lid_parts/source_adapted.glb",
+                "sha256": "38bf8031f9945fbad71e164f827354fa692d92465ec26784a782279d14ebce9a"
+              },
+              {
+                "relative_path": "removable_box_lid_parts/source_adapted.provenance.json",
+                "sha256": "98542d0c829294f83d00308fc66479e7ef05133a651fb0788b1f8fe931237768"
+              },
+              {
+                "relative_path": "removable_box_lid_parts/source_adapted.usda",
+                "sha256": "231f1c2874028c9665cff560c52847f80e6a8a25883464e16250ae5da3948e9c"
+              }
+            ],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.17500951886177063,
+            0.10601214319467545,
+            0.022015942260622978
+          ],
+          "xy": [
+            0.04,
+            0.3
+          ],
+          "yaw": 1.5707963267948966,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0
+        },
+        "blue": {
+          "source_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "hollow_cup.usda",
+            "sha256": "c9d82475379f3bc83666d97222a3c55a39f3334f97eb9ed02df4efab84183b5b",
+            "dependencies": [
+              {
+                "relative_path": "hollow_cup_parts/visual.provenance.json",
+                "sha256": "6a42be813c76c3b2b9ecede426da8f04021beaca6f968bd78421bde8422121b8"
+              },
+              {
+                "relative_path": "hollow_cup_parts/visual.usda",
+                "sha256": "ff7aa2234044ea2c8bdd2ddb20583d251ff840438ccce8b322dd791f8494458d"
+              },
+              {
+                "relative_path": "hollow_cup_parts/visual_textures/bc59d4ac737100f9c0774784e076a47752b7c591ebe09887caafd91b888db427.png",
+                "sha256": "bc59d4ac737100f9c0774784e076a47752b7c591ebe09887caafd91b888db427"
+              }
+            ],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.04127701522395277,
+            0.04098903641349957,
+            0.04400000116457628
+          ],
+          "xy": [
+            0.16,
+            -0.25
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "recolor": true,
+          "rgba": [
+            0.04,
+            0.15,
+            0.7,
+            1
+          ]
+        },
+        "green": {
+          "source_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "hollow_cup.usda",
+            "sha256": "c9d82475379f3bc83666d97222a3c55a39f3334f97eb9ed02df4efab84183b5b",
+            "dependencies": [
+              {
+                "relative_path": "hollow_cup_parts/visual.provenance.json",
+                "sha256": "6a42be813c76c3b2b9ecede426da8f04021beaca6f968bd78421bde8422121b8"
+              },
+              {
+                "relative_path": "hollow_cup_parts/visual.usda",
+                "sha256": "ff7aa2234044ea2c8bdd2ddb20583d251ff840438ccce8b322dd791f8494458d"
+              },
+              {
+                "relative_path": "hollow_cup_parts/visual_textures/bc59d4ac737100f9c0774784e076a47752b7c591ebe09887caafd91b888db427.png",
+                "sha256": "bc59d4ac737100f9c0774784e076a47752b7c591ebe09887caafd91b888db427"
+              }
+            ],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.04127701522395277,
+            0.04098903641349957,
+            0.04400000116457628
+          ],
+          "xy": [
+            0.04000000000000001,
+            -0.25
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "recolor": true,
+          "rgba": [
+            0.08,
+            0.45,
+            0.07,
+            1
+          ]
+        },
+        "red": {
+          "source_asset": {
+            "root_env": "VIC_MECHANISM_ASSETS",
+            "relative_path": "hollow_cup.usda",
+            "sha256": "c9d82475379f3bc83666d97222a3c55a39f3334f97eb9ed02df4efab84183b5b",
+            "dependencies": [
+              {
+                "relative_path": "hollow_cup_parts/visual.provenance.json",
+                "sha256": "6a42be813c76c3b2b9ecede426da8f04021beaca6f968bd78421bde8422121b8"
+              },
+              {
+                "relative_path": "hollow_cup_parts/visual.usda",
+                "sha256": "ff7aa2234044ea2c8bdd2ddb20583d251ff840438ccce8b322dd791f8494458d"
+              },
+              {
+                "relative_path": "hollow_cup_parts/visual_textures/bc59d4ac737100f9c0774784e076a47752b7c591ebe09887caafd91b888db427.png",
+                "sha256": "bc59d4ac737100f9c0774784e076a47752b7c591ebe09887caafd91b888db427"
+              }
+            ],
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "size": [
+            0.04127701522395277,
+            0.04098903641349957,
+            0.04400000116457628
+          ],
+          "xy": [
+            -0.07999999999999999,
+            -0.25
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "restitution": 0,
+          "recolor": true,
+          "rgba": [
+            0.8,
+            0.04,
+            0.02,
+            1
+          ]
+        }
+      },
+      "variants": {
+        "A": {
+          "zones": [
+            {
+              "id": "inside_0",
+              "xy": [
+                0.04,
+                0.095
+              ],
+              "half_size": [
+                0.043,
+                0.043
+              ],
+              "surface_z": 0.80461,
+              "hidden": true,
+              "support": "box"
+            },
+            {
+              "id": "inside_1",
+              "xy": [
+                0.04,
+                0.0
+              ],
+              "half_size": [
+                0.043,
+                0.043
+              ],
+              "surface_z": 0.80461,
+              "hidden": true,
+              "support": "box"
+            },
+            {
+              "id": "inside_2",
+              "xy": [
+                0.04,
+                -0.095
+              ],
+              "half_size": [
+                0.043,
+                0.043
+              ],
+              "surface_z": 0.80461,
+              "hidden": true,
+              "support": "box"
+            },
+            {
+              "id": "lid_closed",
+              "xy": [
+                0.04,
+                0
+              ],
+              "half_size": [
+                0.1,
+                0.1
+              ],
+              "surface_z": 0.868,
+              "hidden": true,
+              "support": "box"
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red",
+              "target": "inside_0",
+              "required_support": "box"
+            },
+            {
+              "type": "place",
+              "object": "green",
+              "target": "inside_1",
+              "required_support": "box"
+            },
+            {
+              "type": "place",
+              "object": "blue",
+              "target": "inside_2",
+              "required_support": "box"
+            },
+            {
+              "type": "place",
+              "object": "lid",
+              "target": "lid_closed",
+              "required_support": "box",
+              "yaw": 1.5707963267948966
+            }
+          ],
+          "semantic": {
+            "mode": "ordered_box_and_lid",
+            "groups": {
+              "cups": [
+                "red",
+                "green",
+                "blue"
+              ]
+            },
+            "box": "box",
+            "lid": "lid",
+            "required_order": [
+              "red",
+              "green",
+              "blue"
+            ],
+            "cavity_bounds_asset": [
+              [
+                -0.1615,
+                -0.093,
+                0.0046
+              ],
+              [
+                0.1615,
+                0.093,
+                0.108
+              ]
+            ],
+            "fixture_rotation": [
+              0.7071067811865476,
+              0,
+              0,
+              0.7071067811865476
+            ],
+            "lid_target_asset_bottom": 0.068,
+            "lid_requires_after_cups": true,
+            "containers": {
+              "box": {
+                "ref": {
+                  "actor": "box"
+                },
+                "shape": "box",
+                "lower": [
+                  -0.1615,
+                  -0.093,
+                  0.0046
+                ],
+                "upper": [
+                  0.1615,
+                  0.093,
+                  0.108
+                ],
+                "axis": 2
+              }
+            },
+            "cups": {
+              "red": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              },
+              "green": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              },
+              "blue": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              }
+            },
+            "structural_grasps": {
+              "red": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "green": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "blue": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "lid": {
+                "local": [
+                  0,
+                  0.098,
+                  0.008
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            },
+            "structural_expert": {
+              "box_positions": [
+                [
+                  0.095,
+                  0,
+                  0.0046
+                ],
+                [
+                  0,
+                  0,
+                  0.0046
+                ],
+                [
+                  -0.095,
+                  0,
+                  0.0046
+                ]
+              ],
+              "support_contact_stop_m": 0.008
+            },
+            "lid_geometry": {
+              "ref": {
+                "actor": "lid"
+              },
+              "box_ref": {
+                "actor": "box"
+              },
+              "cover_center_local": [
+                0.0,
+                0.0,
+                0.018015942260622975
+              ],
+              "normal_local": [
+                0,
+                0,
+                1
+              ],
+              "half_size": [
+                0.169,
+                0.101
+              ],
+              "box_rim_center_local": [
+                0,
+                0,
+                0.108
+              ],
+              "box_rim_half_size": [
+                0.1675,
+                0.099
+              ],
+              "closed_offset_m": 0
+            },
+            "expert_clearance_z": 0.98
+          }
+        },
+        "B": {
+          "zones": [
+            {
+              "id": "inside_0",
+              "xy": [
+                0.04,
+                0.095
+              ],
+              "half_size": [
+                0.043,
+                0.043
+              ],
+              "surface_z": 0.80461,
+              "hidden": true,
+              "support": "box"
+            },
+            {
+              "id": "inside_1",
+              "xy": [
+                0.04,
+                0.0
+              ],
+              "half_size": [
+                0.043,
+                0.043
+              ],
+              "surface_z": 0.80461,
+              "hidden": true,
+              "support": "box"
+            },
+            {
+              "id": "inside_2",
+              "xy": [
+                0.04,
+                -0.095
+              ],
+              "half_size": [
+                0.043,
+                0.043
+              ],
+              "surface_z": 0.80461,
+              "hidden": true,
+              "support": "box"
+            },
+            {
+              "id": "lid_closed",
+              "xy": [
+                0.04,
+                0
+              ],
+              "half_size": [
+                0.1,
+                0.1
+              ],
+              "surface_z": 0.868,
+              "hidden": true,
+              "support": "box"
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "green",
+              "target": "inside_0",
+              "required_support": "box"
+            },
+            {
+              "type": "place",
+              "object": "blue",
+              "target": "inside_1",
+              "required_support": "box"
+            },
+            {
+              "type": "place",
+              "object": "red",
+              "target": "inside_2",
+              "required_support": "box"
+            },
+            {
+              "type": "place",
+              "object": "lid",
+              "target": "lid_closed",
+              "required_support": "box",
+              "yaw": 1.5707963267948966
+            }
+          ],
+          "semantic": {
+            "mode": "ordered_box_and_lid",
+            "groups": {
+              "cups": [
+                "red",
+                "green",
+                "blue"
+              ]
+            },
+            "box": "box",
+            "lid": "lid",
+            "required_order": [
+              "green",
+              "blue",
+              "red"
+            ],
+            "cavity_bounds_asset": [
+              [
+                -0.1615,
+                -0.093,
+                0.0046
+              ],
+              [
+                0.1615,
+                0.093,
+                0.108
+              ]
+            ],
+            "fixture_rotation": [
+              0.7071067811865476,
+              0,
+              0,
+              0.7071067811865476
+            ],
+            "lid_target_asset_bottom": 0.068,
+            "lid_requires_after_cups": true,
+            "containers": {
+              "box": {
+                "ref": {
+                  "actor": "box"
+                },
+                "shape": "box",
+                "lower": [
+                  -0.1615,
+                  -0.093,
+                  0.0046
+                ],
+                "upper": [
+                  0.1615,
+                  0.093,
+                  0.108
+                ],
+                "axis": 2
+              }
+            },
+            "cups": {
+              "red": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              },
+              "green": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              },
+              "blue": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              }
+            },
+            "structural_grasps": {
+              "red": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "green": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "blue": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "lid": {
+                "local": [
+                  0,
+                  0.098,
+                  0.008
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            },
+            "structural_expert": {
+              "box_positions": [
+                [
+                  0.095,
+                  0,
+                  0.0046
+                ],
+                [
+                  0,
+                  0,
+                  0.0046
+                ],
+                [
+                  -0.095,
+                  0,
+                  0.0046
+                ]
+              ],
+              "support_contact_stop_m": 0.008
+            },
+            "lid_geometry": {
+              "ref": {
+                "actor": "lid"
+              },
+              "box_ref": {
+                "actor": "box"
+              },
+              "cover_center_local": [
+                0.0,
+                0.0,
+                0.018015942260622975
+              ],
+              "normal_local": [
+                0,
+                0,
+                1
+              ],
+              "half_size": [
+                0.169,
+                0.101
+              ],
+              "box_rim_center_local": [
+                0,
+                0,
+                0.108
+              ],
+              "box_rim_half_size": [
+                0.1675,
+                0.099
+              ],
+              "closed_offset_m": 0
+            },
+            "expert_clearance_z": 0.98
+          }
+        },
+        "C": {
+          "zones": [
+            {
+              "id": "inside_0",
+              "xy": [
+                0.04,
+                0.095
+              ],
+              "half_size": [
+                0.043,
+                0.043
+              ],
+              "surface_z": 0.80461,
+              "hidden": true,
+              "support": "box"
+            },
+            {
+              "id": "inside_1",
+              "xy": [
+                0.04,
+                0.0
+              ],
+              "half_size": [
+                0.043,
+                0.043
+              ],
+              "surface_z": 0.80461,
+              "hidden": true,
+              "support": "box"
+            },
+            {
+              "id": "inside_2",
+              "xy": [
+                0.04,
+                -0.095
+              ],
+              "half_size": [
+                0.043,
+                0.043
+              ],
+              "surface_z": 0.80461,
+              "hidden": true,
+              "support": "box"
+            },
+            {
+              "id": "lid_closed",
+              "xy": [
+                0.04,
+                0
+              ],
+              "half_size": [
+                0.1,
+                0.1
+              ],
+              "surface_z": 0.868,
+              "hidden": true,
+              "support": "box"
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "blue",
+              "target": "inside_0",
+              "required_support": "box"
+            },
+            {
+              "type": "place",
+              "object": "red",
+              "target": "inside_1",
+              "required_support": "box"
+            },
+            {
+              "type": "place",
+              "object": "green",
+              "target": "inside_2",
+              "required_support": "box"
+            },
+            {
+              "type": "place",
+              "object": "lid",
+              "target": "lid_closed",
+              "required_support": "box",
+              "yaw": 1.5707963267948966
+            }
+          ],
+          "semantic": {
+            "mode": "ordered_box_and_lid",
+            "groups": {
+              "cups": [
+                "red",
+                "green",
+                "blue"
+              ]
+            },
+            "box": "box",
+            "lid": "lid",
+            "required_order": [
+              "blue",
+              "red",
+              "green"
+            ],
+            "cavity_bounds_asset": [
+              [
+                -0.1615,
+                -0.093,
+                0.0046
+              ],
+              [
+                0.1615,
+                0.093,
+                0.108
+              ]
+            ],
+            "fixture_rotation": [
+              0.7071067811865476,
+              0,
+              0,
+              0.7071067811865476
+            ],
+            "lid_target_asset_bottom": 0.068,
+            "lid_requires_after_cups": true,
+            "containers": {
+              "box": {
+                "ref": {
+                  "actor": "box"
+                },
+                "shape": "box",
+                "lower": [
+                  -0.1615,
+                  -0.093,
+                  0.0046
+                ],
+                "upper": [
+                  0.1615,
+                  0.093,
+                  0.108
+                ],
+                "axis": 2
+              }
+            },
+            "cups": {
+              "red": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              },
+              "green": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              },
+              "blue": {
+                "axis_local": [
+                  0,
+                  0,
+                  1
+                ],
+                "bottom_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  -0.04399999976158139
+                ],
+                "rim_local": [
+                  0.0,
+                  1.5060558286594805e-09,
+                  0.0440000002384186
+                ],
+                "inner_profile": [
+                  [
+                    0,
+                    0.0001
+                  ],
+                  [
+                    0.00187105,
+                    0.029
+                  ],
+                  [
+                    0.006,
+                    0.030347279812981864
+                  ],
+                  [
+                    0.01,
+                    0.030780207362729527
+                  ],
+                  [
+                    0.025,
+                    0.032351055885949644
+                  ],
+                  [
+                    0.05,
+                    0.03506910320740355
+                  ],
+                  [
+                    0.075,
+                    0.037704010021887654
+                  ],
+                  [
+                    0.085,
+                    0.03873634403732307
+                  ],
+                  [
+                    0.088,
+                    0.039
+                  ]
+                ],
+                "outer_profile": [
+                  [
+                    0,
+                    0.0293
+                  ],
+                  [
+                    0.006,
+                    0.03286582417389582
+                  ],
+                  [
+                    0.01,
+                    0.03336029885676155
+                  ],
+                  [
+                    0.025,
+                    0.03502742558705516
+                  ],
+                  [
+                    0.05,
+                    0.038029621717906366
+                  ],
+                  [
+                    0.075,
+                    0.04041378298880336
+                  ],
+                  [
+                    0.085,
+                    0.041290342918314675
+                  ],
+                  [
+                    0.088,
+                    0.0413
+                  ]
+                ]
+              }
+            },
+            "structural_grasps": {
+              "red": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "green": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "blue": {
+                "local": [
+                  -0.036,
+                  0,
+                  0.031
+                ],
+                "jaw_axis_local": [
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "lid": {
+                "local": [
+                  0,
+                  0.098,
+                  0.008
+                ],
+                "jaw_axis_local": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            },
+            "structural_expert": {
+              "box_positions": [
+                [
+                  0.095,
+                  0,
+                  0.0046
+                ],
+                [
+                  0,
+                  0,
+                  0.0046
+                ],
+                [
+                  -0.095,
+                  0,
+                  0.0046
+                ]
+              ],
+              "support_contact_stop_m": 0.008
+            },
+            "lid_geometry": {
+              "ref": {
+                "actor": "lid"
+              },
+              "box_ref": {
+                "actor": "box"
+              },
+              "cover_center_local": [
+                0.0,
+                0.0,
+                0.018015942260622975
+              ],
+              "normal_local": [
+                0,
+                0,
+                1
+              ],
+              "half_size": [
+                0.169,
+                0.101
+              ],
+              "box_rim_center_local": [
+                0,
+                0,
+                0.108
+              ],
+              "box_rim_half_size": [
+                0.1675,
+                0.099
+              ],
+              "closed_offset_m": 0
+            },
+            "expert_clearance_z": 0.98
+          }
+        }
+      },
+      "expert_action_budget": 4000,
+      "fidelity_status": "Reviewed source070-072; real source-derived empty box and removable pocketed lid; source colors and metric dimensions approximate",
+      "validation_status": {
+        "physics_verified": false,
+        "source_geometry_cpu_checked": true
+      },
+      "coordinate_frame": "Task +X away, +Y left, Z up; layout rotates +90Z to world."
+    }
+  }
+}

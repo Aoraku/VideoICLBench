@@ -1,0 +1,400 @@
+{
+  "as_of_utc": "2026-11-03T11:43:26.169654+00:00",
+  "source": "FRONT13_ABC_SINGLE_MANIFEST.private.json",
+  "case_count": 39,
+  "functional_passes": 24,
+  "native100": 21,
+  "cases": [
+    {
+      "case_id": "E01-A-I-seed4201",
+      "task": "E01",
+      "variant": "A",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": false,
+      "native_single_world_score_100": null,
+      "acceptance": "implementation_available_validation_pending"
+    },
+    {
+      "case_id": "E01-B-I-seed4201",
+      "task": "E01",
+      "variant": "B",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": false,
+      "native_single_world_score_100": null,
+      "acceptance": "implementation_available_validation_pending"
+    },
+    {
+      "case_id": "E01-C-I-seed4201",
+      "task": "E01",
+      "variant": "C",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": false,
+      "native_single_world_score_100": null,
+      "acceptance": "implementation_available_validation_pending"
+    },
+    {
+      "case_id": "E02-A-I-seed4201",
+      "task": "E02",
+      "variant": "A",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E02-B-I-seed4201",
+      "task": "E02",
+      "variant": "B",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E02-C-I-seed4201",
+      "task": "E02",
+      "variant": "C",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E03-A-I-seed4201",
+      "task": "E03",
+      "variant": "A",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E03-B-I-seed4201",
+      "task": "E03",
+      "variant": "B",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E03-C-I-seed4201",
+      "task": "E03",
+      "variant": "C",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E04-A-I-seed4201",
+      "task": "E04",
+      "variant": "A",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E04-B-I-seed4201",
+      "task": "E04",
+      "variant": "B",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E04-C-I-seed4201",
+      "task": "E04",
+      "variant": "C",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E05-A-I-seed4201",
+      "task": "E05",
+      "variant": "A",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E05-B-I-seed4201",
+      "task": "E05",
+      "variant": "B",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E05-C-I-seed4201",
+      "task": "E05",
+      "variant": "C",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E06-A-I-seed4201",
+      "task": "E06",
+      "variant": "A",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E06-B-I-seed4201",
+      "task": "E06",
+      "variant": "B",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E06-C-I-seed4201",
+      "task": "E06",
+      "variant": "C",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E07-A-I-seed4201",
+      "task": "E07",
+      "variant": "A",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E07-B-I-seed4201",
+      "task": "E07",
+      "variant": "B",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E07-C-I-seed4201",
+      "task": "E07",
+      "variant": "C",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E08-A-I-seed4201",
+      "task": "E08",
+      "variant": "A",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": false,
+      "native_single_world_score_100": null,
+      "acceptance": "implementation_available_validation_pending"
+    },
+    {
+      "case_id": "E08-B-I-seed4201",
+      "task": "E08",
+      "variant": "B",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": false,
+      "native_single_world_score_100": null,
+      "acceptance": "implementation_available_validation_pending"
+    },
+    {
+      "case_id": "E08-C-I-seed4201",
+      "task": "E08",
+      "variant": "C",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": false,
+      "native_single_world_score_100": null,
+      "acceptance": "implementation_available_validation_pending"
+    },
+    {
+      "case_id": "E09-A-I-seed4201",
+      "task": "E09",
+      "variant": "A",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": false,
+      "native_single_world_score_100": null,
+      "acceptance": "implementation_available_validation_pending"
+    },
+    {
+      "case_id": "E09-B-I-seed4201",
+      "task": "E09",
+      "variant": "B",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": false,
+      "native_single_world_score_100": null,
+      "acceptance": "implementation_available_validation_pending"
+    },
+    {
+      "case_id": "E09-C-I-seed4201",
+      "task": "E09",
+      "variant": "C",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": false,
+      "native_single_world_score_100": null,
+      "acceptance": "implementation_available_validation_pending"
+    },
+    {
+      "case_id": "E10-A-I-seed4201",
+      "task": "E10",
+      "variant": "A",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": false,
+      "native_single_world_score_100": null,
+      "acceptance": "implementation_available_validation_pending"
+    },
+    {
+      "case_id": "E10-B-I-seed4201",
+      "task": "E10",
+      "variant": "B",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": false,
+      "native_single_world_score_100": null,
+      "acceptance": "implementation_available_validation_pending"
+    },
+    {
+      "case_id": "E10-C-I-seed4201",
+      "task": "E10",
+      "variant": "C",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": false,
+      "native_single_world_score_100": null,
+      "acceptance": "implementation_available_validation_pending"
+    },
+    {
+      "case_id": "E11-A-I-seed4201",
+      "task": "E11",
+      "variant": "A",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E11-B-I-seed4201",
+      "task": "E11",
+      "variant": "B",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E11-C-I-seed4201",
+      "task": "E11",
+      "variant": "C",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": true,
+      "native_single_world_score_100": 100,
+      "acceptance": "native100"
+    },
+    {
+      "case_id": "E12-A-R-seed4201",
+      "task": "E12",
+      "variant": "A",
+      "seed": 4201,
+      "condition": "R",
+      "functional_pass": true,
+      "native_single_world_score_100": null,
+      "acceptance": "functional_checkpoint_chain"
+    },
+    {
+      "case_id": "E12-B-R-seed4201",
+      "task": "E12",
+      "variant": "B",
+      "seed": 4201,
+      "condition": "R",
+      "functional_pass": true,
+      "native_single_world_score_100": null,
+      "acceptance": "functional_checkpoint_chain"
+    },
+    {
+      "case_id": "E12-C-R-seed4201",
+      "task": "E12",
+      "variant": "C",
+      "seed": 4201,
+      "condition": "R",
+      "functional_pass": true,
+      "native_single_world_score_100": null,
+      "acceptance": "functional_checkpoint_chain"
+    },
+    {
+      "case_id": "E13-A-I-seed4201",
+      "task": "E13",
+      "variant": "A",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": false,
+      "native_single_world_score_100": null,
+      "acceptance": "implementation_available_validation_pending"
+    },
+    {
+      "case_id": "E13-B-I-seed4201",
+      "task": "E13",
+      "variant": "B",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": false,
+      "native_single_world_score_100": null,
+      "acceptance": "implementation_available_validation_pending"
+    },
+    {
+      "case_id": "E13-C-I-seed4201",
+      "task": "E13",
+      "variant": "C",
+      "seed": 4201,
+      "condition": "I",
+      "functional_pass": false,
+      "native_single_world_score_100": null,
+      "acceptance": "implementation_available_validation_pending"
+    }
+  ],
+  "criterion": "Core workflow complete, broad ABC rule correct, no obvious penetration/drop; precise native score unchanged. Functional chains are not represented as one-world native100."
+}

@@ -1,0 +1,10 @@
+{
+  "dataset": "JJimmyL/VideoICL-inference450-20261102",
+  "repo_type": "dataset",
+  "private": true,
+  "path": "deliveries/front13-20261103-r1/front13-assets-20261103-r1.tar.gz",
+  "sha256": "0d8ef88a8909b7828bb41d13b9f334a635fdcfe9bec2011e4a8bb7fc60e58251",
+  "bytes": 281570432,
+  "files": 132,
+  "default_extraction_directory": "front13-assets"
+}

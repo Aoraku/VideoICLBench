@@ -1,0 +1,4965 @@
+{
+  "schema": "realworld50-source-bindings-v1",
+  "tasks": {
+    "E09": {
+      "scene_adapter": "full50-source-v1",
+      "fidelity_status": "source_derived_geometry_ready_visual_and_physics_review_pending",
+      "objects": {
+        "red_square": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_four_hole_plate.usda",
+            "sha256": "fed57b9b0e69a5b8b98d75324ed6856c0cdb21ebc56c8f98cb372670255b61bb",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.003
+          ],
+          "xy": [
+            0.14,
+            -0.045
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.75,
+            0.1,
+            0.04,
+            1
+          ],
+          "identity_attributes": {
+            "color": "red",
+            "shape": "square"
+          }
+        },
+        "red_triangle": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_three_hole_triangle_v2.usda",
+            "sha256": "caae5e783af9afae7ee6c1933e42a1654d746635873c7a1bb221ea4554a70e7b",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.017320508,
+            0.003
+          ],
+          "xy": [
+            0.0,
+            -0.045
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.75,
+            0.1,
+            0.04,
+            1
+          ],
+          "identity_attributes": {
+            "color": "red",
+            "shape": "triangle"
+          }
+        },
+        "red_circle": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_ring.usdz",
+            "sha256": "df00d91f5ab3d172ad8699751be9a5b3b6115eb1702e8a6c65da29470151d550",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.004
+          ],
+          "xy": [
+            -0.14,
+            -0.045
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.75,
+            0.1,
+            0.04,
+            1
+          ],
+          "identity_attributes": {
+            "color": "red",
+            "shape": "circle"
+          }
+        },
+        "green_square": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_four_hole_plate.usda",
+            "sha256": "fed57b9b0e69a5b8b98d75324ed6856c0cdb21ebc56c8f98cb372670255b61bb",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.003
+          ],
+          "xy": [
+            0.14,
+            -0.135
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.25,
+            0.53,
+            0.26,
+            1
+          ],
+          "identity_attributes": {
+            "color": "green",
+            "shape": "square"
+          }
+        },
+        "green_triangle": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_three_hole_triangle_v2.usda",
+            "sha256": "caae5e783af9afae7ee6c1933e42a1654d746635873c7a1bb221ea4554a70e7b",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.017320508,
+            0.003
+          ],
+          "xy": [
+            0.0,
+            -0.135
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.25,
+            0.53,
+            0.26,
+            1
+          ],
+          "identity_attributes": {
+            "color": "green",
+            "shape": "triangle"
+          }
+        },
+        "green_circle": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_ring.usdz",
+            "sha256": "df00d91f5ab3d172ad8699751be9a5b3b6115eb1702e8a6c65da29470151d550",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.004
+          ],
+          "xy": [
+            -0.14,
+            -0.135
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.25,
+            0.53,
+            0.26,
+            1
+          ],
+          "identity_attributes": {
+            "color": "green",
+            "shape": "circle"
+          }
+        },
+        "blue_square": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_four_hole_plate.usda",
+            "sha256": "fed57b9b0e69a5b8b98d75324ed6856c0cdb21ebc56c8f98cb372670255b61bb",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.003
+          ],
+          "xy": [
+            0.14,
+            -0.22499999999999998
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.08,
+            0.36,
+            0.72,
+            1
+          ],
+          "identity_attributes": {
+            "color": "blue",
+            "shape": "square"
+          }
+        },
+        "blue_triangle": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_three_hole_triangle_v2.usda",
+            "sha256": "caae5e783af9afae7ee6c1933e42a1654d746635873c7a1bb221ea4554a70e7b",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.017320508,
+            0.003
+          ],
+          "xy": [
+            0.0,
+            -0.22499999999999998
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.08,
+            0.36,
+            0.72,
+            1
+          ],
+          "identity_attributes": {
+            "color": "blue",
+            "shape": "triangle"
+          }
+        },
+        "blue_circle": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "native_ring.usdz",
+            "sha256": "df00d91f5ab3d172ad8699751be9a5b3b6115eb1702e8a6c65da29470151d550",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.004
+          ],
+          "xy": [
+            -0.14,
+            -0.22499999999999998
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.08,
+            0.36,
+            0.72,
+            1
+          ],
+          "identity_attributes": {
+            "color": "blue",
+            "shape": "circle"
+          }
+        }
+      },
+      "variants": {
+        "A": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "paper0",
+              "xy": [
+                0.18,
+                0.18
+              ],
+              "half_size": [
+                0.072,
+                0.072
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "blank"
+            },
+            {
+              "id": "paper1",
+              "xy": [
+                0.0,
+                0.18
+              ],
+              "half_size": [
+                0.072,
+                0.072
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "blank"
+            },
+            {
+              "id": "paper2",
+              "xy": [
+                -0.18,
+                0.18
+              ],
+              "half_size": [
+                0.072,
+                0.072
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "blank"
+            },
+            {
+              "id": "red_square_target",
+              "xy": [
+                0.207,
+                0.205
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "red_triangle_target",
+              "xy": [
+                0.207,
+                0.155
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "red_circle_target",
+              "xy": [
+                0.155,
+                0.18
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "green_square_target",
+              "xy": [
+                0.027,
+                0.205
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "green_triangle_target",
+              "xy": [
+                0.027,
+                0.155
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "green_circle_target",
+              "xy": [
+                -0.025,
+                0.18
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_square_target",
+              "xy": [
+                -0.153,
+                0.205
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_triangle_target",
+              "xy": [
+                -0.153,
+                0.155
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_circle_target",
+              "xy": [
+                -0.205,
+                0.18
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red_square",
+              "target": "red_square_target"
+            },
+            {
+              "type": "place",
+              "object": "red_triangle",
+              "target": "red_triangle_target"
+            },
+            {
+              "type": "place",
+              "object": "red_circle",
+              "target": "red_circle_target"
+            },
+            {
+              "type": "place",
+              "object": "green_square",
+              "target": "green_square_target"
+            },
+            {
+              "type": "place",
+              "object": "green_triangle",
+              "target": "green_triangle_target"
+            },
+            {
+              "type": "place",
+              "object": "green_circle",
+              "target": "green_circle_target"
+            },
+            {
+              "type": "place",
+              "object": "blue_square",
+              "target": "blue_square_target"
+            },
+            {
+              "type": "place",
+              "object": "blue_triangle",
+              "target": "blue_triangle_target"
+            },
+            {
+              "type": "place",
+              "object": "blue_circle",
+              "target": "blue_circle_target"
+            }
+          ],
+          "semantic": {
+            "mode": "cross_attribute_groups",
+            "groups": {
+              "active": [
+                "red_square",
+                "red_triangle",
+                "red_circle",
+                "green_square",
+                "green_triangle",
+                "green_circle",
+                "blue_square",
+                "blue_triangle",
+                "blue_circle"
+              ],
+              "pieces": [
+                "red_square",
+                "red_triangle",
+                "red_circle",
+                "green_square",
+                "green_triangle",
+                "green_circle",
+                "blue_square",
+                "blue_triangle",
+                "blue_circle"
+              ]
+            },
+            "expected_groups": [
+              [
+                "red_square",
+                "red_triangle",
+                "red_circle"
+              ],
+              [
+                "green_square",
+                "green_triangle",
+                "green_circle"
+              ],
+              [
+                "blue_square",
+                "blue_triangle",
+                "blue_circle"
+              ]
+            ],
+            "group_region_ids": [
+              "paper0",
+              "paper1",
+              "paper2"
+            ],
+            "region_labels_visible": false,
+            "score_membership_unordered_regions": true
+          },
+          "expert_arm": "left"
+        },
+        "B": {
+          "object_overrides": {
+            "red_square": {
+              "xy": [
+                0.14,
+                -0.045
+              ]
+            },
+            "red_triangle": {
+              "xy": [
+                0.14,
+                -0.135
+              ]
+            },
+            "red_circle": {
+              "xy": [
+                0.14,
+                -0.22499999999999998
+              ]
+            },
+            "green_square": {
+              "xy": [
+                0.0,
+                -0.045
+              ]
+            },
+            "green_triangle": {
+              "xy": [
+                0.0,
+                -0.135
+              ]
+            },
+            "green_circle": {
+              "xy": [
+                0.0,
+                -0.22499999999999998
+              ]
+            },
+            "blue_square": {
+              "xy": [
+                -0.14,
+                -0.045
+              ]
+            },
+            "blue_triangle": {
+              "xy": [
+                -0.14,
+                -0.135
+              ]
+            },
+            "blue_circle": {
+              "xy": [
+                -0.14,
+                -0.22499999999999998
+              ]
+            }
+          },
+          "zones": [
+            {
+              "id": "paper0",
+              "xy": [
+                0.18,
+                0.18
+              ],
+              "half_size": [
+                0.072,
+                0.072
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "blank"
+            },
+            {
+              "id": "paper1",
+              "xy": [
+                0.0,
+                0.18
+              ],
+              "half_size": [
+                0.072,
+                0.072
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "blank"
+            },
+            {
+              "id": "paper2",
+              "xy": [
+                -0.18,
+                0.18
+              ],
+              "half_size": [
+                0.072,
+                0.072
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "blank"
+            },
+            {
+              "id": "red_square_target",
+              "xy": [
+                0.207,
+                0.205
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "green_square_target",
+              "xy": [
+                0.207,
+                0.155
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_square_target",
+              "xy": [
+                0.155,
+                0.18
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "red_triangle_target",
+              "xy": [
+                0.027,
+                0.205
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "green_triangle_target",
+              "xy": [
+                0.027,
+                0.155
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_triangle_target",
+              "xy": [
+                -0.025,
+                0.18
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "red_circle_target",
+              "xy": [
+                -0.153,
+                0.205
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "green_circle_target",
+              "xy": [
+                -0.153,
+                0.155
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_circle_target",
+              "xy": [
+                -0.205,
+                0.18
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red_square",
+              "target": "red_square_target"
+            },
+            {
+              "type": "place",
+              "object": "green_square",
+              "target": "green_square_target"
+            },
+            {
+              "type": "place",
+              "object": "blue_square",
+              "target": "blue_square_target"
+            },
+            {
+              "type": "place",
+              "object": "red_triangle",
+              "target": "red_triangle_target"
+            },
+            {
+              "type": "place",
+              "object": "green_triangle",
+              "target": "green_triangle_target"
+            },
+            {
+              "type": "place",
+              "object": "blue_triangle",
+              "target": "blue_triangle_target"
+            },
+            {
+              "type": "place",
+              "object": "red_circle",
+              "target": "red_circle_target"
+            },
+            {
+              "type": "place",
+              "object": "green_circle",
+              "target": "green_circle_target"
+            },
+            {
+              "type": "place",
+              "object": "blue_circle",
+              "target": "blue_circle_target"
+            }
+          ],
+          "semantic": {
+            "mode": "cross_attribute_groups",
+            "groups": {
+              "active": [
+                "red_square",
+                "red_triangle",
+                "red_circle",
+                "green_square",
+                "green_triangle",
+                "green_circle",
+                "blue_square",
+                "blue_triangle",
+                "blue_circle"
+              ],
+              "pieces": [
+                "red_square",
+                "red_triangle",
+                "red_circle",
+                "green_square",
+                "green_triangle",
+                "green_circle",
+                "blue_square",
+                "blue_triangle",
+                "blue_circle"
+              ]
+            },
+            "expected_groups": [
+              [
+                "red_square",
+                "green_square",
+                "blue_square"
+              ],
+              [
+                "red_triangle",
+                "green_triangle",
+                "blue_triangle"
+              ],
+              [
+                "red_circle",
+                "green_circle",
+                "blue_circle"
+              ]
+            ],
+            "group_region_ids": [
+              "paper0",
+              "paper1",
+              "paper2"
+            ],
+            "region_labels_visible": false,
+            "score_membership_unordered_regions": true
+          },
+          "expert_arm": "left"
+        },
+        "C": {
+          "object_overrides": {
+            "red_square": {
+              "xy": [
+                0.14,
+                -0.045
+              ]
+            },
+            "red_triangle": {
+              "xy": [
+                0.14,
+                -0.135
+              ]
+            },
+            "red_circle": {
+              "xy": [
+                0.14,
+                -0.22499999999999998
+              ]
+            },
+            "green_square": {
+              "xy": [
+                0.0,
+                -0.045
+              ]
+            },
+            "green_triangle": {
+              "xy": [
+                0.0,
+                -0.135
+              ]
+            },
+            "green_circle": {
+              "xy": [
+                0.0,
+                -0.22499999999999998
+              ]
+            },
+            "blue_square": {
+              "xy": [
+                -0.14,
+                -0.045
+              ]
+            },
+            "blue_triangle": {
+              "xy": [
+                -0.14,
+                -0.135
+              ]
+            },
+            "blue_circle": {
+              "xy": [
+                -0.14,
+                -0.22499999999999998
+              ]
+            }
+          },
+          "zones": [
+            {
+              "id": "paper0",
+              "xy": [
+                0.18,
+                0.18
+              ],
+              "half_size": [
+                0.072,
+                0.072
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "blank"
+            },
+            {
+              "id": "paper1",
+              "xy": [
+                0.0,
+                0.18
+              ],
+              "half_size": [
+                0.072,
+                0.072
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "blank"
+            },
+            {
+              "id": "paper2",
+              "xy": [
+                -0.18,
+                0.18
+              ],
+              "half_size": [
+                0.072,
+                0.072
+              ],
+              "surface_z": 0.8,
+              "hidden": false,
+              "shape": "blank"
+            },
+            {
+              "id": "red_circle_target",
+              "xy": [
+                0.207,
+                0.205
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "green_triangle_target",
+              "xy": [
+                0.207,
+                0.155
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_square_target",
+              "xy": [
+                0.155,
+                0.18
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "red_triangle_target",
+              "xy": [
+                0.027,
+                0.205
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "green_square_target",
+              "xy": [
+                0.027,
+                0.155
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_circle_target",
+              "xy": [
+                -0.025,
+                0.18
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "red_square_target",
+              "xy": [
+                -0.153,
+                0.205
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "green_circle_target",
+              "xy": [
+                -0.153,
+                0.155
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_triangle_target",
+              "xy": [
+                -0.205,
+                0.18
+              ],
+              "half_size": [
+                0.025,
+                0.025
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red_circle",
+              "target": "red_circle_target"
+            },
+            {
+              "type": "place",
+              "object": "green_triangle",
+              "target": "green_triangle_target"
+            },
+            {
+              "type": "place",
+              "object": "blue_square",
+              "target": "blue_square_target"
+            },
+            {
+              "type": "place",
+              "object": "red_triangle",
+              "target": "red_triangle_target"
+            },
+            {
+              "type": "place",
+              "object": "green_square",
+              "target": "green_square_target"
+            },
+            {
+              "type": "place",
+              "object": "blue_circle",
+              "target": "blue_circle_target"
+            },
+            {
+              "type": "place",
+              "object": "red_square",
+              "target": "red_square_target"
+            },
+            {
+              "type": "place",
+              "object": "green_circle",
+              "target": "green_circle_target"
+            },
+            {
+              "type": "place",
+              "object": "blue_triangle",
+              "target": "blue_triangle_target"
+            }
+          ],
+          "semantic": {
+            "mode": "cross_attribute_groups",
+            "groups": {
+              "active": [
+                "red_square",
+                "red_triangle",
+                "red_circle",
+                "green_square",
+                "green_triangle",
+                "green_circle",
+                "blue_square",
+                "blue_triangle",
+                "blue_circle"
+              ],
+              "pieces": [
+                "red_square",
+                "red_triangle",
+                "red_circle",
+                "green_square",
+                "green_triangle",
+                "green_circle",
+                "blue_square",
+                "blue_triangle",
+                "blue_circle"
+              ]
+            },
+            "expected_groups": [
+              [
+                "red_circle",
+                "green_triangle",
+                "blue_square"
+              ],
+              [
+                "red_triangle",
+                "green_square",
+                "blue_circle"
+              ],
+              [
+                "red_square",
+                "green_circle",
+                "blue_triangle"
+              ]
+            ],
+            "group_region_ids": [
+              "paper0",
+              "paper1",
+              "paper2"
+            ],
+            "region_labels_visible": false,
+            "score_membership_unordered_regions": true
+          },
+          "expert_arm": "left"
+        }
+      },
+      "source_evidence": [
+        "../source_media/evidence/025.jpg",
+        "../source_media/evidence/026.jpg",
+        "../source_media/evidence/027.jpg"
+      ],
+      "review_notes": [
+        "All ABC sheets reviewed: square has4holes, triangle3holes, circle1hole; real source-derived through-holes retained.",
+        "Unmarked paper regions are not semantically numbered; expected groups are evaluated by membership, no invented paper labels.",
+        "A initial grid is shape rows/color columns; B/C color rows/shape columns.",
+        "Hole radii, board thickness and circle size are estimates; previous triangle cut candidate rejected for edge cutouts, v2 has Euler-4 / three true holes."
+      ],
+      "expert_arm": "left"
+    },
+    "E11": {
+      "scene_adapter": "full50-source-v1",
+      "fidelity_status": "source_derived_geometry_ready_visual_and_physics_review_pending",
+      "objects": {
+        "tray": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "four_grid_wooden_tray.usda",
+            "sha256": "b6b5837110820a23f6dc743e0ea007259500124d8da632686c708732a4e3633c",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "wooden_open_box.usda",
+                "sha256": "b489f317e294a0395c65594fbc43f950c64ef5c5aeff0d0bee1c2079f0d76de6"
+              },
+              {
+                "relative_path": "native_wood_plank.usdz",
+                "sha256": "9e71af43eaa1afcf63198dfc5653f11472fae47d498264b065aa269aa26be611"
+              },
+              {
+                "relative_path": "wooden_open_box_textures/4da9a5b98ddaad6dcb8c0a391b6086e7adbbb3aa344e4509fcbb87c9c7d6d376.png",
+                "sha256": "4da9a5b98ddaad6dcb8c0a391b6086e7adbbb3aa344e4509fcbb87c9c7d6d376"
+              }
+            ]
+          },
+          "size": [
+            0.12,
+            0.1,
+            0.02
+          ],
+          "xy": [
+            0.15,
+            0
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.2,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6
+        },
+        "red_block": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_four_hole_plate.usda",
+            "sha256": "fed57b9b0e69a5b8b98d75324ed6856c0cdb21ebc56c8f98cb372670255b61bb",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.003
+          ],
+          "xy": [
+            -0.06,
+            0.06
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.75,
+            0.1,
+            0.04,
+            1
+          ]
+        },
+        "blue_block": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_four_hole_plate.usda",
+            "sha256": "fed57b9b0e69a5b8b98d75324ed6856c0cdb21ebc56c8f98cb372670255b61bb",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.003
+          ],
+          "xy": [
+            -0.06,
+            -0.06
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.08,
+            0.36,
+            0.72,
+            1
+          ]
+        },
+        "yellow_block": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_four_hole_plate.usda",
+            "sha256": "fed57b9b0e69a5b8b98d75324ed6856c0cdb21ebc56c8f98cb372670255b61bb",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.003
+          ],
+          "xy": [
+            -0.16,
+            0.06
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.95,
+            0.82,
+            0.08,
+            1
+          ]
+        },
+        "green_block": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_four_hole_plate.usda",
+            "sha256": "fed57b9b0e69a5b8b98d75324ed6856c0cdb21ebc56c8f98cb372670255b61bb",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.003
+          ],
+          "xy": [
+            -0.16,
+            -0.06
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.25,
+            0.53,
+            0.26,
+            1
+          ]
+        }
+      },
+      "variants": {
+        "A": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "far_left",
+              "xy": [
+                0.21,
+                0.05
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.809,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                0.051500000000000004,
+                0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "far_right",
+              "xy": [
+                0.21,
+                -0.05
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.809,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                0.051500000000000004,
+                -0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "near_left",
+              "xy": [
+                0.09,
+                0.05
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.809,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                -0.051500000000000004,
+                0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "near_right",
+              "xy": [
+                0.09,
+                -0.05
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.809,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                -0.051500000000000004,
+                -0.0405,
+                0.0034999999999999996
+              ]
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red_block",
+              "target": "far_left",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "blue_block",
+              "target": "far_right",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "yellow_block",
+              "target": "near_left",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "green_block",
+              "target": "near_right",
+              "required_support": "tray"
+            }
+          ],
+          "semantic": {
+            "mode": "grid_frame_placement",
+            "groups": {
+              "active": [
+                "red_block",
+                "blue_block",
+                "yellow_block",
+                "green_block"
+              ],
+              "container": [
+                "tray"
+              ],
+              "blocks": [
+                "red_block",
+                "blue_block",
+                "yellow_block",
+                "green_block"
+              ]
+            },
+            "container": "tray",
+            "compartment_bounds": {
+              "far_left": {
+                "lower": [
+                  0.005,
+                  0.005,
+                  -0.012
+                ],
+                "upper": [
+                  0.098,
+                  0.076,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "far_right": {
+                "lower": [
+                  0.005,
+                  -0.076,
+                  -0.012
+                ],
+                "upper": [
+                  0.098,
+                  -0.005,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "near_left": {
+                "lower": [
+                  -0.098,
+                  0.005,
+                  -0.012
+                ],
+                "upper": [
+                  -0.005,
+                  0.076,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "near_right": {
+                "lower": [
+                  -0.098,
+                  -0.076,
+                  -0.012
+                ],
+                "upper": [
+                  -0.005,
+                  -0.005,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              }
+            },
+            "container_floor_local_z_max": -0.0133722152,
+            "mapping": {
+              "red_block": "far_left",
+              "blue_block": "far_right",
+              "yellow_block": "near_left",
+              "green_block": "near_right"
+            },
+            "layout_transform": "identity",
+            "orientation_required": false,
+            "requires_actual_container_contact": true,
+            "grid_cells": [
+              [
+                "far_left",
+                "far_right"
+              ],
+              [
+                "near_left",
+                "near_right"
+              ]
+            ]
+          },
+          "expert_arm": "left"
+        },
+        "B": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "far_left",
+              "xy": [
+                0.21,
+                0.05
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.809,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                0.051500000000000004,
+                0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "far_right",
+              "xy": [
+                0.21,
+                -0.05
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.809,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                0.051500000000000004,
+                -0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "near_left",
+              "xy": [
+                0.09,
+                0.05
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.809,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                -0.051500000000000004,
+                0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "near_right",
+              "xy": [
+                0.09,
+                -0.05
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.809,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                -0.051500000000000004,
+                -0.0405,
+                0.0034999999999999996
+              ]
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red_block",
+              "target": "far_right",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "blue_block",
+              "target": "near_right",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "yellow_block",
+              "target": "far_left",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "green_block",
+              "target": "near_left",
+              "required_support": "tray"
+            }
+          ],
+          "semantic": {
+            "mode": "grid_frame_placement",
+            "groups": {
+              "active": [
+                "red_block",
+                "blue_block",
+                "yellow_block",
+                "green_block"
+              ],
+              "container": [
+                "tray"
+              ],
+              "blocks": [
+                "red_block",
+                "blue_block",
+                "yellow_block",
+                "green_block"
+              ]
+            },
+            "container": "tray",
+            "compartment_bounds": {
+              "far_left": {
+                "lower": [
+                  0.005,
+                  0.005,
+                  -0.012
+                ],
+                "upper": [
+                  0.098,
+                  0.076,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "far_right": {
+                "lower": [
+                  0.005,
+                  -0.076,
+                  -0.012
+                ],
+                "upper": [
+                  0.098,
+                  -0.005,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "near_left": {
+                "lower": [
+                  -0.098,
+                  0.005,
+                  -0.012
+                ],
+                "upper": [
+                  -0.005,
+                  0.076,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "near_right": {
+                "lower": [
+                  -0.098,
+                  -0.076,
+                  -0.012
+                ],
+                "upper": [
+                  -0.005,
+                  -0.005,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              }
+            },
+            "container_floor_local_z_max": -0.0133722152,
+            "mapping": {
+              "red_block": "far_right",
+              "blue_block": "near_right",
+              "yellow_block": "far_left",
+              "green_block": "near_left"
+            },
+            "layout_transform": "clockwise_90",
+            "orientation_required": false,
+            "requires_actual_container_contact": true,
+            "grid_cells": [
+              [
+                "far_left",
+                "far_right"
+              ],
+              [
+                "near_left",
+                "near_right"
+              ]
+            ]
+          },
+          "expert_arm": "left"
+        },
+        "C": {
+          "object_overrides": {},
+          "zones": [
+            {
+              "id": "far_left",
+              "xy": [
+                0.21,
+                0.05
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.809,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                0.051500000000000004,
+                0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "far_right",
+              "xy": [
+                0.21,
+                -0.05
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.809,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                0.051500000000000004,
+                -0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "near_left",
+              "xy": [
+                0.09,
+                0.05
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.809,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                -0.051500000000000004,
+                0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "near_right",
+              "xy": [
+                0.09,
+                -0.05
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.809,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                -0.051500000000000004,
+                -0.0405,
+                0.0034999999999999996
+              ]
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red_block",
+              "target": "far_right",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "blue_block",
+              "target": "far_left",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "yellow_block",
+              "target": "near_right",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "green_block",
+              "target": "near_left",
+              "required_support": "tray"
+            }
+          ],
+          "semantic": {
+            "mode": "grid_frame_placement",
+            "groups": {
+              "active": [
+                "red_block",
+                "blue_block",
+                "yellow_block",
+                "green_block"
+              ],
+              "container": [
+                "tray"
+              ],
+              "blocks": [
+                "red_block",
+                "blue_block",
+                "yellow_block",
+                "green_block"
+              ]
+            },
+            "container": "tray",
+            "compartment_bounds": {
+              "far_left": {
+                "lower": [
+                  0.005,
+                  0.005,
+                  -0.012
+                ],
+                "upper": [
+                  0.098,
+                  0.076,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "far_right": {
+                "lower": [
+                  0.005,
+                  -0.076,
+                  -0.012
+                ],
+                "upper": [
+                  0.098,
+                  -0.005,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "near_left": {
+                "lower": [
+                  -0.098,
+                  0.005,
+                  -0.012
+                ],
+                "upper": [
+                  -0.005,
+                  0.076,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "near_right": {
+                "lower": [
+                  -0.098,
+                  -0.076,
+                  -0.012
+                ],
+                "upper": [
+                  -0.005,
+                  -0.005,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              }
+            },
+            "container_floor_local_z_max": -0.0133722152,
+            "mapping": {
+              "red_block": "far_right",
+              "blue_block": "far_left",
+              "yellow_block": "near_right",
+              "green_block": "near_left"
+            },
+            "layout_transform": "mirror_left_right",
+            "orientation_required": false,
+            "requires_actual_container_contact": true,
+            "grid_cells": [
+              [
+                "far_left",
+                "far_right"
+              ],
+              [
+                "near_left",
+                "near_right"
+              ]
+            ]
+          },
+          "expert_arm": "left"
+        }
+      },
+      "source_evidence": [
+        "../source_media/evidence/031.jpg",
+        "../source_media/evidence/032.jpg",
+        "../source_media/evidence/033.jpg"
+      ],
+      "review_notes": [
+        "Viewed ABC contactsheets. Four actual four-hole source-derived plates, initial red blue / yellow green. A preserve cells; B clockwise90 group positions; C mirror left/right. Final within actual tray cells and contact required; global ordering insufficient.",
+        "Tray dimensions estimated; existing source open wood box plus source plank partitions; source collision floor is higher than visible floor."
+      ],
+      "expert_arm": "left"
+    },
+    "E20": {
+      "scene_adapter": "full50-source-v1",
+      "fidelity_status": "source_coaster_rescaled_recolored_to_thin_tokens",
+      "objects": {
+        "yellow_supply_1": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "coaster_disk.usda",
+            "sha256": "0a52a9c5b908277e7e408155316a3fc55f889405d6ab0331f0922e8bb4047120",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "coaster_disk_textures/9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3.png",
+                "sha256": "9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3"
+              }
+            ]
+          },
+          "size": [
+            0.016,
+            0.01603,
+            0.000988
+          ],
+          "xy": [
+            -0.15,
+            -0.07
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.004,
+          "recolor": true,
+          "rgba": [
+            0.98,
+            0.75,
+            0.02,
+            1
+          ],
+          "identity": "yellow_supply_1",
+          "identity_attributes": {
+            "color": "yellow",
+            "supply": true
+          },
+          "color": "yellow"
+        },
+        "yellow_supply_2": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "coaster_disk.usda",
+            "sha256": "0a52a9c5b908277e7e408155316a3fc55f889405d6ab0331f0922e8bb4047120",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "coaster_disk_textures/9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3.png",
+                "sha256": "9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3"
+              }
+            ]
+          },
+          "size": [
+            0.016,
+            0.01603,
+            0.000988
+          ],
+          "xy": [
+            -0.105,
+            -0.07
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.004,
+          "recolor": true,
+          "rgba": [
+            0.98,
+            0.75,
+            0.02,
+            1
+          ],
+          "identity": "yellow_supply_2",
+          "identity_attributes": {
+            "color": "yellow",
+            "supply": true
+          },
+          "color": "yellow"
+        },
+        "yellow_supply_3": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "coaster_disk.usda",
+            "sha256": "0a52a9c5b908277e7e408155316a3fc55f889405d6ab0331f0922e8bb4047120",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "coaster_disk_textures/9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3.png",
+                "sha256": "9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3"
+              }
+            ]
+          },
+          "size": [
+            0.016,
+            0.01603,
+            0.000988
+          ],
+          "xy": [
+            -0.06,
+            -0.07
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.004,
+          "recolor": true,
+          "rgba": [
+            0.98,
+            0.75,
+            0.02,
+            1
+          ],
+          "identity": "yellow_supply_3",
+          "identity_attributes": {
+            "color": "yellow",
+            "supply": true
+          },
+          "color": "yellow"
+        },
+        "yellow_supply_4": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "coaster_disk.usda",
+            "sha256": "0a52a9c5b908277e7e408155316a3fc55f889405d6ab0331f0922e8bb4047120",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "coaster_disk_textures/9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3.png",
+                "sha256": "9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3"
+              }
+            ]
+          },
+          "size": [
+            0.016,
+            0.01603,
+            0.000988
+          ],
+          "xy": [
+            -0.014999999999999986,
+            -0.07
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.004,
+          "recolor": true,
+          "rgba": [
+            0.98,
+            0.75,
+            0.02,
+            1
+          ],
+          "identity": "yellow_supply_4",
+          "identity_attributes": {
+            "color": "yellow",
+            "supply": true
+          },
+          "color": "yellow"
+        },
+        "red_supply_1": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "coaster_disk.usda",
+            "sha256": "0a52a9c5b908277e7e408155316a3fc55f889405d6ab0331f0922e8bb4047120",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "coaster_disk_textures/9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3.png",
+                "sha256": "9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3"
+              }
+            ]
+          },
+          "size": [
+            0.016,
+            0.01603,
+            0.000988
+          ],
+          "xy": [
+            -0.15,
+            -0.13
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.004,
+          "recolor": true,
+          "rgba": [
+            0.85,
+            0.025,
+            0.025,
+            1
+          ],
+          "identity": "red_supply_1",
+          "identity_attributes": {
+            "color": "red",
+            "supply": true
+          },
+          "color": "red"
+        },
+        "red_supply_2": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "coaster_disk.usda",
+            "sha256": "0a52a9c5b908277e7e408155316a3fc55f889405d6ab0331f0922e8bb4047120",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "coaster_disk_textures/9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3.png",
+                "sha256": "9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3"
+              }
+            ]
+          },
+          "size": [
+            0.016,
+            0.01603,
+            0.000988
+          ],
+          "xy": [
+            -0.105,
+            -0.13
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.004,
+          "recolor": true,
+          "rgba": [
+            0.85,
+            0.025,
+            0.025,
+            1
+          ],
+          "identity": "red_supply_2",
+          "identity_attributes": {
+            "color": "red",
+            "supply": true
+          },
+          "color": "red"
+        },
+        "red_supply_3": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "coaster_disk.usda",
+            "sha256": "0a52a9c5b908277e7e408155316a3fc55f889405d6ab0331f0922e8bb4047120",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "coaster_disk_textures/9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3.png",
+                "sha256": "9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3"
+              }
+            ]
+          },
+          "size": [
+            0.016,
+            0.01603,
+            0.000988
+          ],
+          "xy": [
+            -0.06,
+            -0.13
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.004,
+          "recolor": true,
+          "rgba": [
+            0.85,
+            0.025,
+            0.025,
+            1
+          ],
+          "identity": "red_supply_3",
+          "identity_attributes": {
+            "color": "red",
+            "supply": true
+          },
+          "color": "red"
+        },
+        "red_supply_4": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "coaster_disk.usda",
+            "sha256": "0a52a9c5b908277e7e408155316a3fc55f889405d6ab0331f0922e8bb4047120",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "coaster_disk_textures/9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3.png",
+                "sha256": "9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3"
+              }
+            ]
+          },
+          "size": [
+            0.016,
+            0.01603,
+            0.000988
+          ],
+          "xy": [
+            -0.014999999999999986,
+            -0.13
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.004,
+          "recolor": true,
+          "rgba": [
+            0.85,
+            0.025,
+            0.025,
+            1
+          ],
+          "identity": "red_supply_4",
+          "identity_attributes": {
+            "color": "red",
+            "supply": true
+          },
+          "color": "red"
+        },
+        "blue_supply_1": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "coaster_disk.usda",
+            "sha256": "0a52a9c5b908277e7e408155316a3fc55f889405d6ab0331f0922e8bb4047120",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "coaster_disk_textures/9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3.png",
+                "sha256": "9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3"
+              }
+            ]
+          },
+          "size": [
+            0.016,
+            0.01603,
+            0.000988
+          ],
+          "xy": [
+            -0.15,
+            -0.19
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.004,
+          "recolor": true,
+          "rgba": [
+            0.03,
+            0.14,
+            0.75,
+            1
+          ],
+          "identity": "blue_supply_1",
+          "identity_attributes": {
+            "color": "blue",
+            "supply": true
+          },
+          "color": "blue"
+        },
+        "blue_supply_2": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "coaster_disk.usda",
+            "sha256": "0a52a9c5b908277e7e408155316a3fc55f889405d6ab0331f0922e8bb4047120",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "coaster_disk_textures/9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3.png",
+                "sha256": "9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3"
+              }
+            ]
+          },
+          "size": [
+            0.016,
+            0.01603,
+            0.000988
+          ],
+          "xy": [
+            -0.105,
+            -0.19
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.004,
+          "recolor": true,
+          "rgba": [
+            0.03,
+            0.14,
+            0.75,
+            1
+          ],
+          "identity": "blue_supply_2",
+          "identity_attributes": {
+            "color": "blue",
+            "supply": true
+          },
+          "color": "blue"
+        },
+        "blue_supply_3": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "coaster_disk.usda",
+            "sha256": "0a52a9c5b908277e7e408155316a3fc55f889405d6ab0331f0922e8bb4047120",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "coaster_disk_textures/9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3.png",
+                "sha256": "9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3"
+              }
+            ]
+          },
+          "size": [
+            0.016,
+            0.01603,
+            0.000988
+          ],
+          "xy": [
+            -0.06,
+            -0.19
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.004,
+          "recolor": true,
+          "rgba": [
+            0.03,
+            0.14,
+            0.75,
+            1
+          ],
+          "identity": "blue_supply_3",
+          "identity_attributes": {
+            "color": "blue",
+            "supply": true
+          },
+          "color": "blue"
+        },
+        "blue_supply_4": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "coaster_disk.usda",
+            "sha256": "0a52a9c5b908277e7e408155316a3fc55f889405d6ab0331f0922e8bb4047120",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "coaster_disk_textures/9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3.png",
+                "sha256": "9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3"
+              }
+            ]
+          },
+          "size": [
+            0.016,
+            0.01603,
+            0.000988
+          ],
+          "xy": [
+            -0.014999999999999986,
+            -0.19
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.004,
+          "recolor": true,
+          "rgba": [
+            0.03,
+            0.14,
+            0.75,
+            1
+          ],
+          "identity": "blue_supply_4",
+          "identity_attributes": {
+            "color": "blue",
+            "supply": true
+          },
+          "color": "blue"
+        },
+        "yellow_initial": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "coaster_disk.usda",
+            "sha256": "0a52a9c5b908277e7e408155316a3fc55f889405d6ab0331f0922e8bb4047120",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "coaster_disk_textures/9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3.png",
+                "sha256": "9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3"
+              }
+            ]
+          },
+          "size": [
+            0.016,
+            0.01603,
+            0.000988
+          ],
+          "xy": [
+            -0.17,
+            0.13
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.004,
+          "recolor": true,
+          "rgba": [
+            0.98,
+            0.75,
+            0.02,
+            1
+          ],
+          "identity": "yellow_initial",
+          "identity_attributes": {
+            "color": "yellow",
+            "supply": false
+          },
+          "color": "yellow"
+        },
+        "blue_initial": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "coaster_disk.usda",
+            "sha256": "0a52a9c5b908277e7e408155316a3fc55f889405d6ab0331f0922e8bb4047120",
+            "source_rotation": [
+              0.7071067811865476,
+              0.7071067811865476,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "coaster_disk_textures/9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3.png",
+                "sha256": "9b1b13803e79d4fc9ab3349b304aaa3a149bd716c3ec21b3d2bad6f70f6b78c3"
+              }
+            ]
+          },
+          "size": [
+            0.016,
+            0.01603,
+            0.000988
+          ],
+          "xy": [
+            0.17,
+            0.13
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.004,
+          "recolor": true,
+          "rgba": [
+            0.03,
+            0.14,
+            0.75,
+            1
+          ],
+          "identity": "blue_initial",
+          "identity_attributes": {
+            "color": "blue",
+            "supply": false
+          },
+          "color": "blue"
+        }
+      },
+      "variants": {
+        "A": {
+          "object_overrides": {
+            "yellow_initial": {
+              "xy": [
+                -0.195,
+                0.105
+              ]
+            },
+            "blue_initial": {
+              "xy": [
+                0.14500000000000002,
+                0.105
+              ]
+            }
+          },
+          "zones": [
+            {
+              "id": "circle",
+              "shape": "circle",
+              "xy": [
+                -0.17,
+                0.13
+              ],
+              "half_size": [
+                0.065,
+                0.065
+              ],
+              "surface_z": 0.8,
+              "hidden": false
+            },
+            {
+              "id": "square",
+              "shape": "square",
+              "xy": [
+                0,
+                0.13
+              ],
+              "half_size": [
+                0.065,
+                0.065
+              ],
+              "surface_z": 0.8,
+              "hidden": false
+            },
+            {
+              "id": "triangle",
+              "shape": "triangle",
+              "xy": [
+                0.17,
+                0.13
+              ],
+              "half_size": [
+                0.065,
+                0.065
+              ],
+              "surface_z": 0.8,
+              "hidden": false
+            },
+            {
+              "id": "yellow_cell_1",
+              "xy": [
+                -0.14500000000000002,
+                0.10500000000000001
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "red_cell_0",
+              "xy": [
+                -0.025,
+                0.10500000000000001
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "red_cell_1",
+              "xy": [
+                0.025,
+                0.10500000000000001
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_cell_1",
+              "xy": [
+                0.195,
+                0.10500000000000001
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "yellow_supply_1",
+              "target": "yellow_cell_1"
+            },
+            {
+              "type": "place",
+              "object": "red_supply_1",
+              "target": "red_cell_0"
+            },
+            {
+              "type": "place",
+              "object": "red_supply_2",
+              "target": "red_cell_1"
+            },
+            {
+              "type": "place",
+              "object": "blue_supply_1",
+              "target": "blue_cell_1"
+            }
+          ],
+          "semantic": {
+            "mode": "color_count_regions",
+            "target_total": 2,
+            "mapping": {
+              "yellow": "circle",
+              "red": "square",
+              "blue": "triangle"
+            },
+            "initial_counts": {
+              "yellow": 1,
+              "red": 0,
+              "blue": 1
+            },
+            "groups": {
+              "chips": [
+                "yellow_supply_1",
+                "yellow_supply_2",
+                "yellow_supply_3",
+                "yellow_supply_4",
+                "red_supply_1",
+                "red_supply_2",
+                "red_supply_3",
+                "red_supply_4",
+                "blue_supply_1",
+                "blue_supply_2",
+                "blue_supply_3",
+                "blue_supply_4",
+                "yellow_initial",
+                "blue_initial"
+              ],
+              "active": [
+                "yellow_supply_1",
+                "yellow_supply_2",
+                "yellow_supply_3",
+                "yellow_supply_4",
+                "red_supply_1",
+                "red_supply_2",
+                "red_supply_3",
+                "red_supply_4",
+                "blue_supply_1",
+                "blue_supply_2",
+                "blue_supply_3",
+                "blue_supply_4",
+                "yellow_initial",
+                "blue_initial"
+              ]
+            },
+            "count_total_not_added": true,
+            "preserve_unused_supply": true,
+            "region_colors_pure": true
+          },
+          "expert_arm": "left"
+        },
+        "B": {
+          "object_overrides": {
+            "yellow_initial": {
+              "xy": [
+                -0.195,
+                0.105
+              ]
+            },
+            "blue_initial": {
+              "xy": [
+                0.14500000000000002,
+                0.105
+              ]
+            }
+          },
+          "zones": [
+            {
+              "id": "circle",
+              "shape": "circle",
+              "xy": [
+                -0.17,
+                0.13
+              ],
+              "half_size": [
+                0.065,
+                0.065
+              ],
+              "surface_z": 0.8,
+              "hidden": false
+            },
+            {
+              "id": "square",
+              "shape": "square",
+              "xy": [
+                0,
+                0.13
+              ],
+              "half_size": [
+                0.065,
+                0.065
+              ],
+              "surface_z": 0.8,
+              "hidden": false
+            },
+            {
+              "id": "triangle",
+              "shape": "triangle",
+              "xy": [
+                0.17,
+                0.13
+              ],
+              "half_size": [
+                0.065,
+                0.065
+              ],
+              "surface_z": 0.8,
+              "hidden": false
+            },
+            {
+              "id": "yellow_cell_1",
+              "xy": [
+                -0.14500000000000002,
+                0.10500000000000001
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "yellow_cell_2",
+              "xy": [
+                -0.195,
+                0.155
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "red_cell_0",
+              "xy": [
+                -0.025,
+                0.10500000000000001
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "red_cell_1",
+              "xy": [
+                0.025,
+                0.10500000000000001
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "red_cell_2",
+              "xy": [
+                -0.025,
+                0.155
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_cell_1",
+              "xy": [
+                0.195,
+                0.10500000000000001
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_cell_2",
+              "xy": [
+                0.14500000000000002,
+                0.155
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "yellow_supply_1",
+              "target": "yellow_cell_1"
+            },
+            {
+              "type": "place",
+              "object": "yellow_supply_2",
+              "target": "yellow_cell_2"
+            },
+            {
+              "type": "place",
+              "object": "red_supply_1",
+              "target": "red_cell_0"
+            },
+            {
+              "type": "place",
+              "object": "red_supply_2",
+              "target": "red_cell_1"
+            },
+            {
+              "type": "place",
+              "object": "red_supply_3",
+              "target": "red_cell_2"
+            },
+            {
+              "type": "place",
+              "object": "blue_supply_1",
+              "target": "blue_cell_1"
+            },
+            {
+              "type": "place",
+              "object": "blue_supply_2",
+              "target": "blue_cell_2"
+            }
+          ],
+          "semantic": {
+            "mode": "color_count_regions",
+            "target_total": 3,
+            "mapping": {
+              "yellow": "circle",
+              "red": "square",
+              "blue": "triangle"
+            },
+            "initial_counts": {
+              "yellow": 1,
+              "red": 0,
+              "blue": 1
+            },
+            "groups": {
+              "chips": [
+                "yellow_supply_1",
+                "yellow_supply_2",
+                "yellow_supply_3",
+                "yellow_supply_4",
+                "red_supply_1",
+                "red_supply_2",
+                "red_supply_3",
+                "red_supply_4",
+                "blue_supply_1",
+                "blue_supply_2",
+                "blue_supply_3",
+                "blue_supply_4",
+                "yellow_initial",
+                "blue_initial"
+              ],
+              "active": [
+                "yellow_supply_1",
+                "yellow_supply_2",
+                "yellow_supply_3",
+                "yellow_supply_4",
+                "red_supply_1",
+                "red_supply_2",
+                "red_supply_3",
+                "red_supply_4",
+                "blue_supply_1",
+                "blue_supply_2",
+                "blue_supply_3",
+                "blue_supply_4",
+                "yellow_initial",
+                "blue_initial"
+              ]
+            },
+            "count_total_not_added": true,
+            "preserve_unused_supply": true,
+            "region_colors_pure": true
+          },
+          "expert_arm": "left"
+        },
+        "C": {
+          "object_overrides": {
+            "yellow_initial": {
+              "xy": [
+                -0.195,
+                0.105
+              ]
+            },
+            "blue_initial": {
+              "xy": [
+                0.14500000000000002,
+                0.105
+              ]
+            }
+          },
+          "zones": [
+            {
+              "id": "circle",
+              "shape": "circle",
+              "xy": [
+                -0.17,
+                0.13
+              ],
+              "half_size": [
+                0.065,
+                0.065
+              ],
+              "surface_z": 0.8,
+              "hidden": false
+            },
+            {
+              "id": "square",
+              "shape": "square",
+              "xy": [
+                0,
+                0.13
+              ],
+              "half_size": [
+                0.065,
+                0.065
+              ],
+              "surface_z": 0.8,
+              "hidden": false
+            },
+            {
+              "id": "triangle",
+              "shape": "triangle",
+              "xy": [
+                0.17,
+                0.13
+              ],
+              "half_size": [
+                0.065,
+                0.065
+              ],
+              "surface_z": 0.8,
+              "hidden": false
+            },
+            {
+              "id": "yellow_cell_1",
+              "xy": [
+                -0.14500000000000002,
+                0.10500000000000001
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "yellow_cell_2",
+              "xy": [
+                -0.195,
+                0.155
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "yellow_cell_3",
+              "xy": [
+                -0.14500000000000002,
+                0.155
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "red_cell_0",
+              "xy": [
+                -0.025,
+                0.10500000000000001
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "red_cell_1",
+              "xy": [
+                0.025,
+                0.10500000000000001
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "red_cell_2",
+              "xy": [
+                -0.025,
+                0.155
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "red_cell_3",
+              "xy": [
+                0.025,
+                0.155
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_cell_1",
+              "xy": [
+                0.195,
+                0.10500000000000001
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_cell_2",
+              "xy": [
+                0.14500000000000002,
+                0.155
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "blue_cell_3",
+              "xy": [
+                0.195,
+                0.155
+              ],
+              "half_size": [
+                0.019,
+                0.019
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "yellow_supply_1",
+              "target": "yellow_cell_1"
+            },
+            {
+              "type": "place",
+              "object": "yellow_supply_2",
+              "target": "yellow_cell_2"
+            },
+            {
+              "type": "place",
+              "object": "yellow_supply_3",
+              "target": "yellow_cell_3"
+            },
+            {
+              "type": "place",
+              "object": "red_supply_1",
+              "target": "red_cell_0"
+            },
+            {
+              "type": "place",
+              "object": "red_supply_2",
+              "target": "red_cell_1"
+            },
+            {
+              "type": "place",
+              "object": "red_supply_3",
+              "target": "red_cell_2"
+            },
+            {
+              "type": "place",
+              "object": "red_supply_4",
+              "target": "red_cell_3"
+            },
+            {
+              "type": "place",
+              "object": "blue_supply_1",
+              "target": "blue_cell_1"
+            },
+            {
+              "type": "place",
+              "object": "blue_supply_2",
+              "target": "blue_cell_2"
+            },
+            {
+              "type": "place",
+              "object": "blue_supply_3",
+              "target": "blue_cell_3"
+            }
+          ],
+          "semantic": {
+            "mode": "color_count_regions",
+            "target_total": 4,
+            "mapping": {
+              "yellow": "circle",
+              "red": "square",
+              "blue": "triangle"
+            },
+            "initial_counts": {
+              "yellow": 1,
+              "red": 0,
+              "blue": 1
+            },
+            "groups": {
+              "chips": [
+                "yellow_supply_1",
+                "yellow_supply_2",
+                "yellow_supply_3",
+                "yellow_supply_4",
+                "red_supply_1",
+                "red_supply_2",
+                "red_supply_3",
+                "red_supply_4",
+                "blue_supply_1",
+                "blue_supply_2",
+                "blue_supply_3",
+                "blue_supply_4",
+                "yellow_initial",
+                "blue_initial"
+              ],
+              "active": [
+                "yellow_supply_1",
+                "yellow_supply_2",
+                "yellow_supply_3",
+                "yellow_supply_4",
+                "red_supply_1",
+                "red_supply_2",
+                "red_supply_3",
+                "red_supply_4",
+                "blue_supply_1",
+                "blue_supply_2",
+                "blue_supply_3",
+                "blue_supply_4",
+                "yellow_initial",
+                "blue_initial"
+              ]
+            },
+            "count_total_not_added": true,
+            "preserve_unused_supply": true,
+            "region_colors_pure": true
+          },
+          "expert_arm": "left"
+        }
+      },
+      "source_evidence": [
+        "../source_media/evidence/058.jpg",
+        "../source_media/evidence/059.jpg",
+        "../source_media/evidence/060.jpg"
+      ],
+      "review_notes": [
+        "All ABC sheets viewed: circle yellow initially1, square red initially0, triangle blue initially1; each color has four supply tokens.",
+        "Targets are total2/3/4, not adding2/3/4; unused supply remains.",
+        "Real solid coaster mesh retained, scaled to32mm diameter and2mm thickness, recolored; no ring or box substitution.",
+        "Metric sizes estimated; thin-object physical grip and contact require GPU checks."
+      ],
+      "expert_arm": "left"
+    },
+    "E21": {
+      "scene_adapter": "full50-source-v1",
+      "fidelity_status": "source_derived_geometry_ready_visual_and_physics_review_pending",
+      "objects": {
+        "tray": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "four_grid_wooden_tray.usda",
+            "sha256": "b6b5837110820a23f6dc743e0ea007259500124d8da632686c708732a4e3633c",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": [
+              {
+                "relative_path": "wooden_open_box.usda",
+                "sha256": "b489f317e294a0395c65594fbc43f950c64ef5c5aeff0d0bee1c2079f0d76de6"
+              },
+              {
+                "relative_path": "native_wood_plank.usdz",
+                "sha256": "9e71af43eaa1afcf63198dfc5653f11472fae47d498264b065aa269aa26be611"
+              },
+              {
+                "relative_path": "wooden_open_box_textures/4da9a5b98ddaad6dcb8c0a391b6086e7adbbb3aa344e4509fcbb87c9c7d6d376.png",
+                "sha256": "4da9a5b98ddaad6dcb8c0a391b6086e7adbbb3aa344e4509fcbb87c9c7d6d376"
+              }
+            ]
+          },
+          "size": [
+            0.12,
+            0.1,
+            0.02
+          ],
+          "xy": [
+            0,
+            0.12
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.2,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6
+        },
+        "green_block": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_four_hole_plate.usda",
+            "sha256": "fed57b9b0e69a5b8b98d75324ed6856c0cdb21ebc56c8f98cb372670255b61bb",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.003
+          ],
+          "xy": [
+            0.15,
+            -0.1
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.25,
+            0.53,
+            0.26,
+            1
+          ],
+          "semantic_identity": "green"
+        },
+        "yellow_block": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_four_hole_plate.usda",
+            "sha256": "fed57b9b0e69a5b8b98d75324ed6856c0cdb21ebc56c8f98cb372670255b61bb",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.003
+          ],
+          "xy": [
+            0.05,
+            -0.1
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.95,
+            0.82,
+            0.08,
+            1
+          ],
+          "semantic_identity": "yellow"
+        },
+        "blue_block": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_four_hole_plate.usda",
+            "sha256": "fed57b9b0e69a5b8b98d75324ed6856c0cdb21ebc56c8f98cb372670255b61bb",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.003
+          ],
+          "xy": [
+            -0.05,
+            -0.1
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.08,
+            0.36,
+            0.72,
+            1
+          ],
+          "semantic_identity": "blue"
+        },
+        "red_block": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_four_hole_plate.usda",
+            "sha256": "fed57b9b0e69a5b8b98d75324ed6856c0cdb21ebc56c8f98cb372670255b61bb",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.003
+          ],
+          "xy": [
+            -0.15,
+            -0.1
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.75,
+            0.1,
+            0.04,
+            1
+          ],
+          "semantic_identity": "red"
+        }
+      },
+      "variants": {
+        "A": {
+          "object_overrides": {
+            "green_block": {
+              "xy": [
+                0.15,
+                -0.1
+              ]
+            },
+            "yellow_block": {
+              "xy": [
+                0.04999999999999999,
+                -0.1
+              ]
+            },
+            "blue_block": {
+              "xy": [
+                -0.05000000000000002,
+                -0.1
+              ]
+            },
+            "red_block": {
+              "xy": [
+                -0.15000000000000005,
+                -0.1
+              ]
+            }
+          },
+          "zones": [
+            {
+              "id": "far_left",
+              "xy": [
+                0.06,
+                0.17
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.807,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                0.051500000000000004,
+                0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "far_right",
+              "xy": [
+                0.06,
+                0.07
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.807,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                0.051500000000000004,
+                -0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "near_left",
+              "xy": [
+                -0.06,
+                0.17
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.807,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                -0.051500000000000004,
+                0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "near_right",
+              "xy": [
+                -0.06,
+                0.07
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.807,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                -0.051500000000000004,
+                -0.0405,
+                0.0034999999999999996
+              ]
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red_block",
+              "target": "far_left",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "yellow_block",
+              "target": "far_right",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "blue_block",
+              "target": "near_left",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "green_block",
+              "target": "near_right",
+              "required_support": "tray"
+            }
+          ],
+          "semantic": {
+            "mode": "ordered_compartment_placement",
+            "groups": {
+              "active": [
+                "red_block",
+                "yellow_block",
+                "blue_block",
+                "green_block"
+              ],
+              "container": [
+                "tray"
+              ],
+              "blocks": [
+                "red_block",
+                "yellow_block",
+                "blue_block",
+                "green_block"
+              ]
+            },
+            "container": "tray",
+            "release_order": [
+              "red_block",
+              "yellow_block",
+              "blue_block",
+              "green_block"
+            ],
+            "compartment_order": [
+              "far_left",
+              "far_right",
+              "near_left",
+              "near_right"
+            ],
+            "mapping": {
+              "red_block": "far_left",
+              "yellow_block": "far_right",
+              "blue_block": "near_left",
+              "green_block": "near_right"
+            },
+            "requires_event_order": true,
+            "cell_regions": {
+              "top_left": "far_left",
+              "top_right": "far_right",
+              "bottom_left": "near_left",
+              "bottom_right": "near_right"
+            },
+            "compartment_bounds": {
+              "far_left": {
+                "lower": [
+                  0.005,
+                  0.005,
+                  -0.012
+                ],
+                "upper": [
+                  0.098,
+                  0.076,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "far_right": {
+                "lower": [
+                  0.005,
+                  -0.076,
+                  -0.012
+                ],
+                "upper": [
+                  0.098,
+                  -0.005,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "near_left": {
+                "lower": [
+                  -0.098,
+                  0.005,
+                  -0.012
+                ],
+                "upper": [
+                  -0.005,
+                  0.076,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "near_right": {
+                "lower": [
+                  -0.098,
+                  -0.076,
+                  -0.012
+                ],
+                "upper": [
+                  -0.005,
+                  -0.005,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              }
+            }
+          },
+          "expert_arm": "left"
+        },
+        "B": {
+          "object_overrides": {
+            "red_block": {
+              "xy": [
+                0.15,
+                -0.1
+              ]
+            },
+            "yellow_block": {
+              "xy": [
+                0.04999999999999999,
+                -0.1
+              ]
+            },
+            "blue_block": {
+              "xy": [
+                -0.05000000000000002,
+                -0.1
+              ]
+            },
+            "green_block": {
+              "xy": [
+                -0.15000000000000005,
+                -0.1
+              ]
+            }
+          },
+          "zones": [
+            {
+              "id": "far_left",
+              "xy": [
+                0.06,
+                0.17
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.807,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                0.051500000000000004,
+                0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "far_right",
+              "xy": [
+                0.06,
+                0.07
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.807,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                0.051500000000000004,
+                -0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "near_left",
+              "xy": [
+                -0.06,
+                0.17
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.807,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                -0.051500000000000004,
+                0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "near_right",
+              "xy": [
+                -0.06,
+                0.07
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.807,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                -0.051500000000000004,
+                -0.0405,
+                0.0034999999999999996
+              ]
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red_block",
+              "target": "far_left",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "green_block",
+              "target": "far_right",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "blue_block",
+              "target": "near_left",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "yellow_block",
+              "target": "near_right",
+              "required_support": "tray"
+            }
+          ],
+          "semantic": {
+            "mode": "ordered_compartment_placement",
+            "groups": {
+              "active": [
+                "red_block",
+                "yellow_block",
+                "blue_block",
+                "green_block"
+              ],
+              "container": [
+                "tray"
+              ],
+              "blocks": [
+                "red_block",
+                "yellow_block",
+                "blue_block",
+                "green_block"
+              ]
+            },
+            "container": "tray",
+            "release_order": [
+              "red_block",
+              "green_block",
+              "blue_block",
+              "yellow_block"
+            ],
+            "compartment_order": [
+              "far_left",
+              "far_right",
+              "near_left",
+              "near_right"
+            ],
+            "mapping": {
+              "red_block": "far_left",
+              "green_block": "far_right",
+              "blue_block": "near_left",
+              "yellow_block": "near_right"
+            },
+            "requires_event_order": true,
+            "cell_regions": {
+              "top_left": "far_left",
+              "top_right": "far_right",
+              "bottom_left": "near_left",
+              "bottom_right": "near_right"
+            },
+            "compartment_bounds": {
+              "far_left": {
+                "lower": [
+                  0.005,
+                  0.005,
+                  -0.012
+                ],
+                "upper": [
+                  0.098,
+                  0.076,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "far_right": {
+                "lower": [
+                  0.005,
+                  -0.076,
+                  -0.012
+                ],
+                "upper": [
+                  0.098,
+                  -0.005,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "near_left": {
+                "lower": [
+                  -0.098,
+                  0.005,
+                  -0.012
+                ],
+                "upper": [
+                  -0.005,
+                  0.076,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "near_right": {
+                "lower": [
+                  -0.098,
+                  -0.076,
+                  -0.012
+                ],
+                "upper": [
+                  -0.005,
+                  -0.005,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              }
+            }
+          },
+          "expert_arm": "left"
+        },
+        "C": {
+          "object_overrides": {
+            "red_block": {
+              "xy": [
+                0.15,
+                -0.1
+              ]
+            },
+            "green_block": {
+              "xy": [
+                0.04999999999999999,
+                -0.1
+              ]
+            },
+            "yellow_block": {
+              "xy": [
+                -0.05000000000000002,
+                -0.1
+              ]
+            },
+            "blue_block": {
+              "xy": [
+                -0.15000000000000005,
+                -0.1
+              ]
+            }
+          },
+          "zones": [
+            {
+              "id": "far_left",
+              "xy": [
+                0.06,
+                0.17
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.807,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                0.051500000000000004,
+                0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "far_right",
+              "xy": [
+                0.06,
+                0.07
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.807,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                0.051500000000000004,
+                -0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "near_left",
+              "xy": [
+                -0.06,
+                0.17
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.807,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                -0.051500000000000004,
+                0.0405,
+                0.0034999999999999996
+              ]
+            },
+            {
+              "id": "near_right",
+              "xy": [
+                -0.06,
+                0.07
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.807,
+              "hidden": true,
+              "support": "tray",
+              "anchor_object": "tray",
+              "anchor_local_center": [
+                -0.051500000000000004,
+                -0.0405,
+                0.0034999999999999996
+              ]
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "green_block",
+              "target": "far_left",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "blue_block",
+              "target": "far_right",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "yellow_block",
+              "target": "near_left",
+              "required_support": "tray"
+            },
+            {
+              "type": "place",
+              "object": "red_block",
+              "target": "near_right",
+              "required_support": "tray"
+            }
+          ],
+          "semantic": {
+            "mode": "ordered_compartment_placement",
+            "groups": {
+              "active": [
+                "red_block",
+                "yellow_block",
+                "blue_block",
+                "green_block"
+              ],
+              "container": [
+                "tray"
+              ],
+              "blocks": [
+                "red_block",
+                "yellow_block",
+                "blue_block",
+                "green_block"
+              ]
+            },
+            "container": "tray",
+            "release_order": [
+              "green_block",
+              "blue_block",
+              "yellow_block",
+              "red_block"
+            ],
+            "compartment_order": [
+              "far_left",
+              "far_right",
+              "near_left",
+              "near_right"
+            ],
+            "mapping": {
+              "green_block": "far_left",
+              "blue_block": "far_right",
+              "yellow_block": "near_left",
+              "red_block": "near_right"
+            },
+            "requires_event_order": true,
+            "cell_regions": {
+              "top_left": "far_left",
+              "top_right": "far_right",
+              "bottom_left": "near_left",
+              "bottom_right": "near_right"
+            },
+            "compartment_bounds": {
+              "far_left": {
+                "lower": [
+                  0.005,
+                  0.005,
+                  -0.012
+                ],
+                "upper": [
+                  0.098,
+                  0.076,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "far_right": {
+                "lower": [
+                  0.005,
+                  -0.076,
+                  -0.012
+                ],
+                "upper": [
+                  0.098,
+                  -0.005,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "near_left": {
+                "lower": [
+                  -0.098,
+                  0.005,
+                  -0.012
+                ],
+                "upper": [
+                  -0.005,
+                  0.076,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              },
+              "near_right": {
+                "lower": [
+                  -0.098,
+                  -0.076,
+                  -0.012
+                ],
+                "upper": [
+                  -0.005,
+                  -0.005,
+                  0.019
+                ],
+                "floor_local_z_max": -0.0133722152,
+                "safe_floor_local_z": -0.012
+              }
+            }
+          },
+          "expert_arm": "left"
+        }
+      },
+      "source_evidence": [
+        "../source_media/evidence/061.jpg",
+        "../source_media/evidence/062.jpg",
+        "../source_media/evidence/063.jpg"
+      ],
+      "review_notes": [
+        "All ABC sheets viewed, initial vertical color order changes across videos.",
+        "Source-derived four-through-hole blocks and four-grid wooden tray.",
+        "Require actual release-event sequence and final cell assignment, not merely all pieces somewhere inside."
+      ],
+      "expert_preserve_goal_order": true,
+      "expert_arm": "left"
+    },
+    "E22": {
+      "scene_adapter": "full50-source-v1",
+      "fidelity_status": "source_geometry_present_front_axis_visual_verification_pending",
+      "objects": {
+        "car": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "toycar0.usda",
+            "sha256": "221f2e60df534139225bfd932e81cf0788625113210dd24f27e4173bd6016a01",
+            "source_rotation": [
+              0.5,
+              0.5,
+              0.5,
+              0.5
+            ],
+            "dependencies": [
+              {
+                "relative_path": "toycar0_textures/d084e36424fdbadc49f8f993e2b76ddb28615241ead7a53ad61e107b80439a12.png",
+                "sha256": "d084e36424fdbadc49f8f993e2b76ddb28615241ead7a53ad61e107b80439a12"
+              }
+            ]
+          },
+          "size": [
+            0.0475,
+            0.029,
+            0.0255
+          ],
+          "xy": [
+            0,
+            0.08
+          ],
+          "yaw": -1.5707963267948966,
+          "bottom": 0.802,
+          "mass": 0.06,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6
+        },
+        "red_block": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_four_hole_plate.usda",
+            "sha256": "fed57b9b0e69a5b8b98d75324ed6856c0cdb21ebc56c8f98cb372670255b61bb",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.003
+          ],
+          "xy": [
+            0.14,
+            -0.16
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.75,
+            0.1,
+            0.04,
+            1
+          ],
+          "semantic_identity": "red"
+        },
+        "blue_block": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_four_hole_plate.usda",
+            "sha256": "fed57b9b0e69a5b8b98d75324ed6856c0cdb21ebc56c8f98cb372670255b61bb",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.003
+          ],
+          "xy": [
+            0,
+            -0.16
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.08,
+            0.36,
+            0.72,
+            1
+          ],
+          "semantic_identity": "blue"
+        },
+        "green_block": {
+          "source_asset": {
+            "root_env": "VIC_FULL50_RIGID_ASSETS",
+            "relative_path": "source_four_hole_plate.usda",
+            "sha256": "fed57b9b0e69a5b8b98d75324ed6856c0cdb21ebc56c8f98cb372670255b61bb",
+            "source_rotation": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "dependencies": []
+          },
+          "size": [
+            0.02,
+            0.02,
+            0.003
+          ],
+          "xy": [
+            -0.14,
+            -0.16
+          ],
+          "yaw": 0,
+          "bottom": 0.802,
+          "mass": 0.04,
+          "restitution": 0,
+          "static_friction": 0.8,
+          "dynamic_friction": 0.6,
+          "recolor": true,
+          "rgba": [
+            0.25,
+            0.53,
+            0.26,
+            1
+          ],
+          "semantic_identity": "green"
+        }
+      },
+      "variants": {
+        "A": {
+          "object_overrides": {
+            "red_block": {
+              "xy": [
+                0.14,
+                -0.16
+              ]
+            },
+            "blue_block": {
+              "xy": [
+                0.0,
+                -0.16
+              ]
+            },
+            "green_block": {
+              "xy": [
+                -0.14,
+                -0.16
+              ]
+            }
+          },
+          "zones": [
+            {
+              "id": "front",
+              "xy": [
+                0,
+                -0.025
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "left",
+              "xy": [
+                0.11,
+                0.08
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "right",
+              "xy": [
+                -0.11,
+                0.08
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "red_block",
+              "target": "front"
+            },
+            {
+              "type": "place",
+              "object": "green_block",
+              "target": "left"
+            },
+            {
+              "type": "place",
+              "object": "blue_block",
+              "target": "right"
+            }
+          ],
+          "semantic": {
+            "mode": "car_frame_color_positions",
+            "groups": {
+              "active": [
+                "red_block",
+                "green_block",
+                "blue_block"
+              ],
+              "reference": [
+                "car"
+              ],
+              "blocks": [
+                "red_block",
+                "green_block",
+                "blue_block"
+              ]
+            },
+            "car": "car",
+            "front_axis_local": [
+              1,
+              0,
+              0
+            ],
+            "mapping": {
+              "red_block": "front",
+              "green_block": "left",
+              "blue_block": "right"
+            },
+            "preserve_car": true,
+            "source_front_identity_status": "pending textured GPU review; source model is actual monster truck but axis inferred from source pose",
+            "car_frame": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "preserve_reference": true
+          },
+          "expert_arm": "left"
+        },
+        "B": {
+          "object_overrides": {
+            "green_block": {
+              "xy": [
+                0.14,
+                -0.16
+              ]
+            },
+            "blue_block": {
+              "xy": [
+                0.0,
+                -0.16
+              ]
+            },
+            "red_block": {
+              "xy": [
+                -0.14,
+                -0.16
+              ]
+            }
+          },
+          "zones": [
+            {
+              "id": "front",
+              "xy": [
+                0,
+                -0.025
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "left",
+              "xy": [
+                0.11,
+                0.08
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "right",
+              "xy": [
+                -0.11,
+                0.08
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "green_block",
+              "target": "front"
+            },
+            {
+              "type": "place",
+              "object": "blue_block",
+              "target": "left"
+            },
+            {
+              "type": "place",
+              "object": "red_block",
+              "target": "right"
+            }
+          ],
+          "semantic": {
+            "mode": "car_frame_color_positions",
+            "groups": {
+              "active": [
+                "red_block",
+                "green_block",
+                "blue_block"
+              ],
+              "reference": [
+                "car"
+              ],
+              "blocks": [
+                "red_block",
+                "green_block",
+                "blue_block"
+              ]
+            },
+            "car": "car",
+            "front_axis_local": [
+              1,
+              0,
+              0
+            ],
+            "mapping": {
+              "green_block": "front",
+              "blue_block": "left",
+              "red_block": "right"
+            },
+            "preserve_car": true,
+            "source_front_identity_status": "pending textured GPU review; source model is actual monster truck but axis inferred from source pose",
+            "car_frame": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "preserve_reference": true
+          },
+          "expert_arm": "left"
+        },
+        "C": {
+          "object_overrides": {
+            "blue_block": {
+              "xy": [
+                0.14,
+                -0.16
+              ]
+            },
+            "red_block": {
+              "xy": [
+                0.0,
+                -0.16
+              ]
+            },
+            "green_block": {
+              "xy": [
+                -0.14,
+                -0.16
+              ]
+            }
+          },
+          "zones": [
+            {
+              "id": "front",
+              "xy": [
+                0,
+                -0.025
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "left",
+              "xy": [
+                0.11,
+                0.08
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            },
+            {
+              "id": "right",
+              "xy": [
+                -0.11,
+                0.08
+              ],
+              "half_size": [
+                0.035,
+                0.035
+              ],
+              "surface_z": 0.8,
+              "hidden": true
+            }
+          ],
+          "goals": [
+            {
+              "type": "place",
+              "object": "blue_block",
+              "target": "front"
+            },
+            {
+              "type": "place",
+              "object": "red_block",
+              "target": "left"
+            },
+            {
+              "type": "place",
+              "object": "green_block",
+              "target": "right"
+            }
+          ],
+          "semantic": {
+            "mode": "car_frame_color_positions",
+            "groups": {
+              "active": [
+                "red_block",
+                "green_block",
+                "blue_block"
+              ],
+              "reference": [
+                "car"
+              ],
+              "blocks": [
+                "red_block",
+                "green_block",
+                "blue_block"
+              ]
+            },
+            "car": "car",
+            "front_axis_local": [
+              1,
+              0,
+              0
+            ],
+            "mapping": {
+              "blue_block": "front",
+              "red_block": "left",
+              "green_block": "right"
+            },
+            "preserve_car": true,
+            "source_front_identity_status": "pending textured GPU review; source model is actual monster truck but axis inferred from source pose",
+            "car_frame": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                0,
+                0,
+                1
+              ]
+            ],
+            "preserve_reference": true
+          },
+          "expert_arm": "left"
+        }
+      },
+      "source_evidence": [
+        "../source_media/evidence/064.jpg",
+        "../source_media/evidence/065.jpg",
+        "../source_media/evidence/066.jpg"
+      ],
+      "review_notes": [
+        "All ABC sheets viewed: original rear wing left, front right; directional frame belongs to car.",
+        "Source monster truck has real wheels/body; blue styling differs from original gold-white truck.",
+        "Real four-hole boards, initial colors change ABC.",
+        "Chosen source front-axis alignment still needs rendered front/rear verification; do not release based on semantic frame alone."
+      ],
+      "expert_arm": "left"
+    }
+  }
+}

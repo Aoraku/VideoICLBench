@@ -1,0 +1,42 @@
+{
+  "input_condition": "real",
+  "assignment_identity_sha256": "5115590606fefd4deb9e1fe3772ccd36aaf5f5685264bc9bdf3ed0bcb47ed248",
+  "public_task": {
+    "task": "E07",
+    "title": "五块尺寸排序",
+    "instruction": "按照示范中的尺寸排序，把五块积木沿远到近方向排成一列。",
+    "revision": "embodied50-execution-v3-20261102",
+    "order": {}
+  },
+  "rule_qa": {
+    "local_rule_unchanged": true,
+    "question_bank": "embodied-rule-qa-v1",
+    "assignment_identity_sha256": "5115590606fefd4deb9e1fe3772ccd36aaf5f5685264bc9bdf3ed0bcb47ed248",
+    "fresh_first_answer_required": true,
+    "reuse_previous_assignment_answer": false
+  },
+  "qa_public_packet": {
+    "packet_id": "qp_269e07ecad8aed47915f",
+    "question_id": "rq_972f75e58d70",
+    "prompt": "视频中五块物体按尺寸从远到近如何排列？",
+    "options": {
+      "A": "从远到近：中等、次小、最小、次大、最大。",
+      "B": "从远到近：最小、中等、最大、次大、次小。",
+      "C": "从远到近：最大、次大、中等、次小、最小。",
+      "D": "从远到近：最小、次小、中等、次大、最大。"
+    },
+    "response_instruction": "只输出一个大写选项字母：A、B、C或D。"
+  },
+  "demo_scope": "local_rule_only",
+  "model_launch_enabled": false,
+  "media_status": "real packaged; sim requires explicit reviewed binding",
+  "media": {
+    "task": "E07",
+    "variant": "C",
+    "input": "real",
+    "path": "media/real/E07/C.mp4",
+    "sha256": "16b6f9980e0572cf6806ae679e6cc3af00cffe8ce3ba459e9e680fd7547faf94",
+    "scope": "local_rule_only",
+    "source_sha256": "a31fdf55b07817ffa07902afbb9cfdee558f6eee9ac29abe5baa1765edc00f9d"
+  }
+}

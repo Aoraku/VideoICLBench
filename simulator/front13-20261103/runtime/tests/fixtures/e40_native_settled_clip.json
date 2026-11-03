@@ -1,0 +1,176 @@
+{
+  "source": "E40 I/A/4201 actual native settled clip; read-only before successful grasp",
+  "geometry": {
+    "JawPositive": {
+      "body_name": "JawPositive",
+      "joint": "JawPositiveFlexure",
+      "jaw_point_body_local": [
+        -1.734723475976807e-18,
+        -0.008539800444245339,
+        0.0018579813186079264
+      ],
+      "inner_gap_normal_body_local": [
+        0,
+        1,
+        0
+      ],
+      "handle_point_body_local": [
+        0.0,
+        -0.018533295020461082,
+        0.045314289862290025
+      ],
+      "hinge_point_body_local": [
+        0,
+        0,
+        0.022
+      ],
+      "joint_axis_body_local": [
+        1,
+        0,
+        0
+      ],
+      "closing_joint_direction": 1,
+      "body_to_asset_translation": [
+        0,
+        0,
+        0
+      ],
+      "body_to_asset_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    "JawNegative": {
+      "body_name": "JawNegative",
+      "joint": "JawNegativeFlexure",
+      "jaw_point_body_local": [
+        -3.469446951953614e-18,
+        0.010726123348959473,
+        0.0032346090310332223
+      ],
+      "inner_gap_normal_body_local": [
+        0,
+        -1,
+        0
+      ],
+      "handle_point_body_local": [
+        0.0,
+        0.018533295020461082,
+        0.04531429358758032
+      ],
+      "hinge_point_body_local": [
+        0,
+        0,
+        0.022
+      ],
+      "joint_axis_body_local": [
+        1,
+        0,
+        0
+      ],
+      "closing_joint_direction": -1,
+      "body_to_asset_translation": [
+        0,
+        0,
+        0
+      ],
+      "body_to_asset_quaternion_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "mechanism": {
+    "joint_names": [
+      "JawPositiveFlexure",
+      "JawNegativeFlexure"
+    ],
+    "joint_pos": [
+      0.35097143054008484,
+      -0.5217136740684509
+    ],
+    "joint_vel": [
+      -0.12471003085374832,
+      0.11511323601007462
+    ],
+    "body_names": [
+      "Spine",
+      "JawPositive",
+      "JawNegative"
+    ],
+    "body_pos_task": {
+      "Spine": [
+        -0.16717027127742773,
+        -0.14058399200439453,
+        0.8045136308670044
+      ],
+      "JawPositive": [
+        -0.17006605863571173,
+        -0.14061927795410156,
+        0.8116286373138428
+      ],
+      "JawNegative": [
+        -0.15885147452354437,
+        -0.14048385620117188,
+        0.7967958426475525
+      ]
+    },
+    "body_mat_task": {
+      "Spine": [
+        [
+          -0.012037547305226107,
+          -0.5328720808029176,
+          0.8461102843284609
+        ],
+        [
+          0.9999276399612429,
+          -0.006414327304810169,
+          0.010186213999986463
+        ],
+        [
+          -7.208435022221238e-07,
+          0.8461715579032898,
+          0.5329105854034424
+        ]
+      ],
+      "JawPositive": [
+        [
+          -0.012037547305226107,
+          -0.2094861268997193,
+          0.9777375459671023
+        ],
+        [
+          0.9999275207519533,
+          -0.0025211782194673555,
+          0.011770565994083668
+        ],
+        [
+          -7.199123501777649e-07,
+          0.9778083562850952,
+          0.20950132608413696
+        ]
+      ],
+      "JawNegative": [
+        [
+          -0.012037540785968085,
+          -0.8836550712585451,
+          0.46798360347747814
+        ],
+        [
+          0.9999275207519533,
+          -0.010637465864419743,
+          0.005634421948343412
+        ],
+        [
+          -7.264314945132355e-07,
+          0.4680175185203552,
+          0.8837192058563232
+        ]
+      ]
+    }
+  }
+}

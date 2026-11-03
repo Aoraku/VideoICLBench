@@ -1,0 +1,3416 @@
+{
+  "schema": "execution-e30-physical-instances-v1",
+  "instances": [
+    {
+      "index": 0,
+      "asset": {
+        "id": "cabinet_outer_frame_legs_v3_0",
+        "kind": "articulation",
+        "tasks": [
+          "E30"
+        ],
+        "root_env": "VIC_EXECUTION_DESIGN_ASSETS",
+        "relative_path": "E30/cabinet_outer_frame_legs_0.usda",
+        "sha256": "e5734fba520a7c72edf9c05d4cd37fc2d6c4c9711bc140e4eca2bf14f0a7d56e",
+        "source_urdf": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/mobility.urdf",
+        "source_urdf_sha256": "3905eaebdce2c7bee60612ba30633d63a373f4cfbda33d27737c7abc9f2da209",
+        "source_scale": 0.162,
+        "source_url": "https://robotwin-platform.github.io/doc/tasks/put_object_cabinet.html",
+        "joint_count": 4,
+        "joint_roles": {
+          "lower": "joint_1",
+          "upper": "joint_2"
+        },
+        "contact_links": {
+          "lower": "Links/link_1",
+          "upper": "Links/link_2"
+        },
+        "bounds": [
+          [
+            -0.0754082500934601,
+            -0.07501459121704103,
+            -0.0419999964981094
+          ],
+          [
+            0.07020270079374313,
+            0.07538799941539766,
+            0.1863654732258305
+          ]
+        ],
+        "linear_limits_m": [
+          0,
+          0.10692000000000002
+        ],
+        "source_modified": true,
+        "mesh_diff": [
+          {
+            "prim": "/Asset/Links/link_0/visual_0/Visuals/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_0/Visuals/mesh_1_material_1_0",
+            "source_faces": 18,
+            "output_faces": 19,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_1/Visuals/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_1/Visuals/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_2/Visuals/mesh_0_material_0_0",
+            "source_faces": 18,
+            "output_faces": 19,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_2/Visuals/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_3/Visuals/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_3/Visuals/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_4/Visuals/mesh_0_original_15_obj",
+            "source_faces": 24,
+            "output_faces": 28,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_9/Visuals/mesh_0_original_14_obj",
+            "source_faces": 24,
+            "output_faces": 0,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_0/Collisions/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_0/Collisions/mesh_1_material_1_0",
+            "source_faces": 18,
+            "output_faces": 19,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_1/Collisions/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_1/Collisions/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_2/Collisions/mesh_0_material_0_0",
+            "source_faces": 18,
+            "output_faces": 19,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_2/Collisions/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_3/Collisions/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_3/Collisions/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_4/Collisions/mesh_0_original_15_obj",
+            "source_faces": 24,
+            "output_faces": 28,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_9/Collisions/mesh_0_original_14_obj",
+            "source_faces": 24,
+            "output_faces": 0,
+            "cut_world_z": 0.07372917051033838
+          }
+        ],
+        "dependencies": [
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-10_68dce12e87.provenance.json",
+            "sha256": "266d2c17a6d6c5d3287a0dd07f9301f2ab89d8a6cbf328e05f743e9101014d40"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-10_68dce12e87.usda",
+            "sha256": "24ea65b607a7a8e4d23188b1917e194fedaa1f57815ed6dfd6af042d9827bcf2"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-12_79b09e5e06.provenance.json",
+            "sha256": "436e17618f3ecfff3c32a877d7efd69f8e4e88dacac49622025ea4eeccac6a02"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-12_79b09e5e06.usda",
+            "sha256": "99fd5d4d57caf575eaf807ab4bca6dbef3a7700a2827c6fec0f5563b229d205c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-12_79b09e5e06_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-13_a6c36e409a.provenance.json",
+            "sha256": "640c79ca327b4b14c439e2baa05c1e72f146f10d585fddd7985c203917e9c0ca"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-13_a6c36e409a.usda",
+            "sha256": "231b2cf12e3e652b7cbdc965b70ef0c74f384102061468f4bc51389930a85e8d"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-14_ea092c7412.provenance.json",
+            "sha256": "f26e1096526da2f7944c7a0dfc2301635c879ae4ca57b9d7c072ddf0bded71fd"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-14_ea092c7412.usda",
+            "sha256": "d1b9edde6b28790480acc626e27701bd9321ab9f6eee118c0acc22828422590f"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-15_a1d99d2b4e.provenance.json",
+            "sha256": "83394a6d7afc0b46a0d1f969261c55a854c367ba48382e1297b09e4e5fb9e37e"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-15_a1d99d2b4e.usda",
+            "sha256": "cfa097d555128234d814e5a9c91cfb4ea250fffef84f12abc37a34db29682273"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-16_0e9c9148af.provenance.json",
+            "sha256": "3c705c0454763359f052e02992492d0f65660b3c85698ec01e680899642f0f6e"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-16_0e9c9148af.usda",
+            "sha256": "cc938ca9a4c7e4a45f6a6f9f2bab647226a9301de56e06fb971a9a2d48ea8d24"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-18_707f7e877e.provenance.json",
+            "sha256": "865ed18c47a83a9292449b63567ba51503720b3668813236b95589e20586bce7"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-18_707f7e877e.usda",
+            "sha256": "56be707c331ea3db9cfc6e173b3614a9b181fa98418c5b7129d29f44ef38780f"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-18_707f7e877e_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-21_42bbe8c65d.provenance.json",
+            "sha256": "34e734b4b764009c7314b2c0014e75781bcc27ba8944af6bb97c200fb6e2ead3"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-21_42bbe8c65d.usda",
+            "sha256": "992ab3c537a36bdaa158761cfc0816e2d8bf9e507973fa1f8b0e69f17eef3d04"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-22_0d59695df1.provenance.json",
+            "sha256": "570efaa62d475f89ec9a65ff7cc1f048b6502a909ac8d8e8be96f31cc793eec8"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-22_0d59695df1.usda",
+            "sha256": "b28298cf1f5d2932124b51169dacc5205e2d1f69c36af7fda31a2429b583e4b6"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-23_2107a3ec25.provenance.json",
+            "sha256": "057e8ac7a16938ca0af3f6c48e50982037a8189fd7fd1451f98a0ec81ab00c7c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-23_2107a3ec25.usda",
+            "sha256": "2690383b73bafb6f84adf86509efb2b933eef611d8ef284757c8bb77b5330e3d"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-24_85d73e462a.provenance.json",
+            "sha256": "4f58167c3f6c57f6f4cd4593c51816c499fe4debf2b3316ebd625ed25795ddfd"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-24_85d73e462a.usda",
+            "sha256": "a14b437a0c186df5faf9f67457f22600be98dd9e0cbac87fa4581b9778c61fe4"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-25_2714beabaa.provenance.json",
+            "sha256": "eb6571099f3371a2fba4a75dd366b0d514fc1d3ae9508927ee7499f082d9ce7d"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-25_2714beabaa.usda",
+            "sha256": "af7cec38cfd268f733fe1053fcce284b6e86b13b0f6215296f7794fc034af932"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-26_62cca5dddf.provenance.json",
+            "sha256": "2b65c0872cff1233e7cd56d2bb3ab886a86c9dab26904897a965825fdd16abb8"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-26_62cca5dddf.usda",
+            "sha256": "2b03bff277e330b787e827c2c12f4d2db21ee5080502e55f07a5b88307f82cc5"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-27_b6e74521f8.provenance.json",
+            "sha256": "a33c3d4509237444d12acc7c5ec17fdfacfb03a4c10870cdfb4a653e56f28bad"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-27_b6e74521f8.usda",
+            "sha256": "7736520c2fcae0b83f5535fa26cbd20e05d24f8cb20f4ca2e7b90769feb68859"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-28_f6869e6846.provenance.json",
+            "sha256": "be90686c4637da55b3eab323fcc1aea699b8a588241c8a7649cf5b4a27331fde"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-28_f6869e6846.usda",
+            "sha256": "25b99b1a053e2c3530d85aaf6918cf8773f1d58a6151ca74e9a46be3a122845d"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-30_ffeaff9e5f.provenance.json",
+            "sha256": "9ea443621dc6357cd37ab7b6a3dbca29ebcf51b782f31fdebf76ca3ac229a942"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-30_ffeaff9e5f.usda",
+            "sha256": "928ca6959c71b33e52cbcce1454392fb8a42524c9c21837df1e83b6d1ef004cf"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-31_116be40019.provenance.json",
+            "sha256": "4216e48e14e53e31235d09a81a7802f692fdfadcd64dbd4bd42017a45d75e78c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-31_116be40019.usda",
+            "sha256": "7797913a405c88cb298e00c5fbe38709abc3e15cf25a8a7154b68316111da11e"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-32_6fb8f1fa04.provenance.json",
+            "sha256": "26045c6abff98e6257a842381a9281265378bcd704998d7865af47c65d4fcee7"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-32_6fb8f1fa04.usda",
+            "sha256": "7e2e62fd78faa99224d027afd26c0c606c91acdd279ac006b59043e0a945c93c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-34_c466c13307.provenance.json",
+            "sha256": "42a4587669b70cfb0a37fde7e74b278a0e4325d6c0ec74389594170928633832"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-34_c466c13307.usda",
+            "sha256": "40a234be0072ca952b3c6d26968b2c0fd97a1113b9b677dae1b2e8c93b5cde70"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-34_c466c13307_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-37_58d52948b3.provenance.json",
+            "sha256": "ed5edc743e35e08f5ec0826cb628e68a6a2a837b366cc5afbea2ad190ab1c364"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-37_58d52948b3.usda",
+            "sha256": "89e2231351c7708dc6a0398f0a704c386fb9ba20107aa2864f67d783adcca989"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-38_093ff2ba12.provenance.json",
+            "sha256": "4395907e172f3fb0d339d8139a59eaa7a26ff7b631eb82e24983de4129c99012"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-38_093ff2ba12.usda",
+            "sha256": "10e3fd33450b91a3310a5b3daa2cbc51c482f6d1aa49fdc74a8f0e06291c5706"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-39_c259d55326.provenance.json",
+            "sha256": "45ba9e83549105994da8cb3df626a2b0811824ae6775190e934b947a24e4fed8"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-39_c259d55326.usda",
+            "sha256": "a847de1480e2e956e49490e04f1fdf749852a5b7457c9557979f7b6e9aa781d4"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-3_acab24e2b6.provenance.json",
+            "sha256": "02e6e67f862a1916351c30f25e84d1973fed992027363bd7aef85c2d3f83a8f5"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-3_acab24e2b6.usda",
+            "sha256": "df669d856488379eaf51d3ab3a90040453758eade139a76d8eac8a4a1f8f22ac"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-3_acab24e2b6_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-40_d491b734c1.provenance.json",
+            "sha256": "e18f40ee7b37dae0378c1936f30c8366abd97b79f042937e20bab5be5bfba6a8"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-40_d491b734c1.usda",
+            "sha256": "459b90e5ef2d668f8cc966d261ac950be0fff418014899fefa06c93d7e54d6b3"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-41_e2e866efa8.provenance.json",
+            "sha256": "f3bdc6befbf71557383b82cf7cf3acf69b15a34f2ae92a12b0b6fb27b2aefdc9"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-41_e2e866efa8.usda",
+            "sha256": "18a8e67cfc56380fe908ff8db4dc56db17bf64d9c84bc69ec08c7eaf9756e392"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-42_c443a61775.provenance.json",
+            "sha256": "ff99e851a4bbc9140c272a68447a02631b18810b82871daaa0ce6fa04e7f8624"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-42_c443a61775.usda",
+            "sha256": "91749ed869a2f82ce1eda4cce7b4dad84d4015a2d03d2d5fde98dbaa97856502"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-43_03d3195e41.provenance.json",
+            "sha256": "d00cd27fdd5ab0202b2a529996f17077a8338dfb4ceb22ab3d0e6c13f8834131"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-43_03d3195e41.usda",
+            "sha256": "b3be592422c6f3076775c5a3569f62fb83468f572b84ad28af55d7fc0cb9cfd6"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-44_7b0e860cd5.provenance.json",
+            "sha256": "1b0547dadb795616e915096b393ca097abbe1a89c07753900a4c3cd77819c87e"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-44_7b0e860cd5.usda",
+            "sha256": "2ae753d0f1e159cdf586aac222f3cb86f20f63dbeb155d7afd9be2d084c8466b"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-46_f4540e83c5.provenance.json",
+            "sha256": "56afca1d9fe3e8deb29242c68eb18c16220900e85e6ef2b2d60bc3aeead50328"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-46_f4540e83c5.usda",
+            "sha256": "8b1a6fb889e04d9c2d81d1468d3dd8519768f4dcbf586c84b7a5b79d2c6c08dc"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-47_023624550f.provenance.json",
+            "sha256": "208c73303c176f4722b7b208806f57174fe624f8599cf2010871d88b84442a82"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-47_023624550f.usda",
+            "sha256": "9736eb20414b8a32ead240b11d327d118b9c9deb648ec0ed8fb45870f294e9d8"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-48_f6b220a741.provenance.json",
+            "sha256": "048d82534009ff022ff4d0a0df04636c063d56940633d24469355d50b5ea5519"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-48_f6b220a741.usda",
+            "sha256": "0c8b27549b84f09a9e65de8d87b8551da579697b32150e6983a2f0007aca25bc"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-4_28176b29d8.provenance.json",
+            "sha256": "eb43497c151168001ca8e73aa7c943e0a2abf1c6ab33443083805453926ff1e2"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-4_28176b29d8.usda",
+            "sha256": "2c382582eaa4656c6ccb7a28226d32f3be865d5786ae1c377d21ac5ed7b4af4c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-4_28176b29d8_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-50_7d43a19b21.provenance.json",
+            "sha256": "d3acd8a27d70873f3faa2e6de5d2d6de03612ccaf6150be122af9d495cb2d49a"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-50_7d43a19b21.usda",
+            "sha256": "701a530803b0c537fb904dc9b99e6a7775529298c0e604e84e01c7c99a709216"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-50_7d43a19b21_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-53_867c96df86.provenance.json",
+            "sha256": "4da210c3f175ca2d07b6b3b1701b8017b6dc1e338adc1b65d65eaeff6820018b"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-53_867c96df86.usda",
+            "sha256": "f5f0b0d5189cd22a0d8bc1c2dbb58ee32fcfdceeda95efda438fe9c5d2f769dc"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-54_f01e5d3bbe.provenance.json",
+            "sha256": "aecc43f9543cc65ecc5edba9402817ac24d7f7f1ef4626549294434be0d84377"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-54_f01e5d3bbe.usda",
+            "sha256": "acde1fa1ea4cea5c76ee053ce9d199c61e73d0999cdca6dd958207e561e32622"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-55_29f6d289ae.provenance.json",
+            "sha256": "6fb6132548290d66dfb9cf0f32e7d29a487f8f15a081f705789b019e3c2d5ebf"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-55_29f6d289ae.usda",
+            "sha256": "546fecd53633935fe28f39f0613b5b9d534713ce770c105e20c8e70888d2e209"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-56_22d175e34f.provenance.json",
+            "sha256": "5131c0817004042b3d4e0272f0a4c48803acd38d080662b2cd77ecf27c327765"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-56_22d175e34f.usda",
+            "sha256": "f035984ded1abe3bc14d967e4aba302a4513cf6c51771484c867a1ab1f0a4f93"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-57_818122b13b.provenance.json",
+            "sha256": "b0e05c8fbc19b8cfd96b040c8810e4bc2c2499866fb8e60bb14557920bd5bdcd"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-57_818122b13b.usda",
+            "sha256": "61a5fd1101cf377bca094baa936c32eb8336347098880dbacffdec61e7430cd0"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-58_502eb5fcce.provenance.json",
+            "sha256": "2293264146493126dfac0f0fa912f1ac32efb6c7319e3b705a1ca8a5a142385c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-58_502eb5fcce.usda",
+            "sha256": "69dc31c15a9723a82a84d5eca7af7a326134425959d42d5f397d93b741468f57"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-59_5dcb87bcb6.provenance.json",
+            "sha256": "219bb854aeb3f5426e75bf062eb2450598607c656b59bf40692ac3222f46563f"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-59_5dcb87bcb6.usda",
+            "sha256": "611877a473c8d5ee849cbb496d1d550f72f4a3b2145e79cceb5a79a001164aef"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-60_6ed63d7430.provenance.json",
+            "sha256": "0bf540a2dfbf53eda344bd47d7bc1f311f06b8ed96942d22d3ec438d61874530"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-60_6ed63d7430.usda",
+            "sha256": "5bad09ccaecfeadb817087744e93e41debdf20f64dc64aed208775279ca6a83c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-62_3541927aa0.provenance.json",
+            "sha256": "f89db0022b7352e9f62f793b62cd4502d08b82026dc01bd82e1067f27690f003"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-62_3541927aa0.usda",
+            "sha256": "4cb9a03fdc43b3839d75ef69f0183f374ebe18ba4b38113eb43f20231687edc6"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-63_84c39aea3b.provenance.json",
+            "sha256": "f6a79d62118dc06bcd26f8334404ce08b0c749f221ba9b075ef0f13677ef5a22"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-63_84c39aea3b.usda",
+            "sha256": "be7e7ad9932f9645462230b46bbe9027c64ea7dbf4defc097ed11a198b03f148"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-64_75810dd9c1.provenance.json",
+            "sha256": "fe9e1d290b3581d0ceb0ff12c26b4504a901bb8aa041420de41eab8097602b5b"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-64_75810dd9c1.usda",
+            "sha256": "3b75143cf0d1c6015b8bea4438a5c3301e1e5c5517a17185e6d9038e5431cfdf"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-6_b1a6b63988.provenance.json",
+            "sha256": "d9407845b27ffcea7271857f9bbf44a16c58363ecce30c5c829252476588f1ff"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-6_b1a6b63988.usda",
+            "sha256": "952bd2cd1185e51cfb67b14e0231c35e1ac8da00fa0adcc3aa4456e1a7bfbc2a"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-6_b1a6b63988_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-7_af226926ee.provenance.json",
+            "sha256": "c75240fb4ea9fb086ee4ea43259f342dceb1b3773b6838fdcc27fb1251c31004"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-7_af226926ee.usda",
+            "sha256": "2f3ebfdd22977f9a54ca420c98e1aa1de8f0c1e7295c696a9495745a8b68a023"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-7_af226926ee_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-9_aa50a5b628.provenance.json",
+            "sha256": "1e54dc5dad02267ea23b2fa4a5700a65b33fe7aaf465e8b0065222ed9e813c5b"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-9_aa50a5b628.usda",
+            "sha256": "57020fb0e6b650cd0812b487c20eafe85052819d5436c1a83bb5d9d5f33412b7"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-9_aa50a5b628_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          }
+        ],
+        "adaptations": [
+          "Remove upper 1 drawer bodies and their joints.",
+          "Trim original housing side/back source triangles at retained tier height.",
+          "Translate original top-panel meshes down; preserve original bottom panel.",
+          "Bake uniform .6 reduction into geometry, body frames and prismatic limits.",
+          "Recolor retained lower drawer blue, upper drawer red; place cabinet bottom at local Z=0.",
+          "Merge original surfaces only within each source semantic board to preserve measured thickness; use one convex collider per real board. Keep each handle segment separate and preserve every cavity.",
+          "Explicit passive PhysX joint friction 0.5 on each prismatic drawer joint; no drive/spring or state writes added."
+        ],
+        "physics_verified": false,
+        "gpu_used": false,
+        "identity_fidelity": "source-derived toy-scale drawer assembly; video comparison and rendered seams pending",
+        "parent_asset_sha256": "463a20a71f06e4241d36260c7e34d4c2ed252d34df21b12b730b034576b3d208",
+        "collision_board_diff": [
+          {
+            "body": "link_0",
+            "source_semantic_part": "vertical_side_panel-32",
+            "source_vertex_count": 84,
+            "hull_vertices": 8,
+            "volume_m3": 0.00010002638907960666,
+            "body_local_bounds": [
+              [
+                0.06468951774803065,
+                -0.13012796082652048,
+                -0.07020269968907833
+              ],
+              [
+                0.06901459267187882,
+                0.044237500678573155,
+                0.06243301821250391
+              ]
+            ]
+          },
+          {
+            "body": "link_0",
+            "source_semantic_part": "vertical_side_panel-33",
+            "source_vertex_count": 84,
+            "hull_vertices": 8,
+            "volume_m3": 0.00010002638907960687,
+            "body_local_bounds": [
+              [
+                -0.06938800283828785,
+                -0.13012796082652045,
+                -0.07020269968907834
+              ],
+              [
+                -0.06506292791443968,
+                0.04423750067857313,
+                0.06243301821250391
+              ]
+            ]
+          },
+          {
+            "body": "link_0",
+            "source_semantic_part": "back_panel-34",
+            "source_vertex_count": 84,
+            "hull_vertices": 8,
+            "volume_m3": 3.153739876964816e-05,
+            "body_local_bounds": [
+              [
+                -0.0650629279144397,
+                -0.1243610783899598,
+                -0.06587762476523018
+              ],
+              [
+                0.06468951774803067,
+                0.04423751033452561,
+                -0.06443598623168612
+              ]
+            ]
+          },
+          {
+            "body": "link_0",
+            "source_semantic_part": "bottom_panel-35",
+            "source_vertex_count": 48,
+            "hull_vertices": 8,
+            "volume_m3": 9.924694398953295e-05,
+            "body_local_bounds": [
+              [
+                -0.06506292791443968,
+                -0.13012796082652048,
+                -0.07020269968907833
+              ],
+              [
+                0.06468951774803067,
+                -0.1243610783899598,
+                0.06243301821250391
+              ]
+            ]
+          },
+          {
+            "body": "link_0",
+            "source_semantic_part": "top_panel-36",
+            "source_vertex_count": 48,
+            "hull_vertices": 8,
+            "volume_m3": 9.924411897890428e-05,
+            "body_local_bounds": [
+              [
+                -0.0650629279144397,
+                0.038470784013467485,
+                -0.07020269968907833
+              ],
+              [
+                0.06468951774803067,
+                0.04423750229883597,
+                0.06243301821250391
+              ]
+            ]
+          },
+          {
+            "body": "link_0",
+            "source_semantic_part": "frame_horizontal_bar-38",
+            "source_vertex_count": 48,
+            "hull_vertices": 8,
+            "volume_m3": 1.6181171616723016e-05,
+            "body_local_bounds": [
+              [
+                -0.06506292791443968,
+                -0.1243610783899598,
+                -0.07020269968907834
+              ],
+              [
+                0.06468951774803067,
+                -0.09552735177978278,
+                -0.06587762476523018
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_front-25",
+            "source_vertex_count": 96,
+            "hull_vertices": 12,
+            "volume_m3": 8.340784602487218e-05,
+            "body_local_bounds": [
+              [
+                -0.06902755096010971,
+                -0.13012796082652045,
+                0.0595468250477662
+              ],
+              [
+                0.06865414079370069,
+                -0.043665964851161476,
+                0.06711854501453018
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_side-26",
+            "source_vertex_count": 32,
+            "hull_vertices": 8,
+            "volume_m3": 2.162333404098619e-05,
+            "body_local_bounds": [
+              [
+                -0.062179486696159365,
+                -0.12209081912214614,
+                -0.058672024720751274
+              ],
+              [
+                -0.059296050305855275,
+                -0.05865631448606301,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_side-27",
+            "source_vertex_count": 32,
+            "hull_vertices": 8,
+            "volume_m3": 2.1622103045888087e-05,
+            "body_local_bounds": [
+              [
+                0.05892280429063844,
+                -0.12209081912214614,
+                -0.058672024720751274
+              ],
+              [
+                0.061806076529750335,
+                -0.05865631448606301,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_back-28",
+            "source_vertex_count": 48,
+            "hull_vertices": 8,
+            "volume_m3": 2.2678187900103082e-05,
+            "body_local_bounds": [
+              [
+                -0.062179486696159365,
+                -0.12209081912214614,
+                -0.061555465939031606
+              ],
+              [
+                0.06180624068094253,
+                -0.05865631448606301,
+                -0.058672024720751274
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_bottom-29",
+            "source_vertex_count": 16,
+            "hull_vertices": 8,
+            "volume_m3": 2.0147835870364368e-05,
+            "body_local_bounds": [
+              [
+                -0.059296050305855275,
+                -0.12064901160943363,
+                -0.058672024720751274
+              ],
+              [
+                0.05892280429063844,
+                -0.1192073779038658,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "handle-24_7",
+            "source_vertex_count": 20,
+            "hull_vertices": 10,
+            "volume_m3": 4.840125450790239e-07,
+            "body_local_bounds": [
+              [
+                -0.048909093941167825,
+                -0.055573777183555606,
+                0.07280020884246063
+              ],
+              [
+                0.04902913674242448,
+                -0.052831438398895245,
+                0.07540824781202461
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "handle-24_8",
+            "source_vertex_count": 78,
+            "hull_vertices": 20,
+            "volume_m3": 1.550973515840461e-07,
+            "body_local_bounds": [
+              [
+                0.04902913674242447,
+                -0.055573777183555606,
+                0.06711854501453018
+              ],
+              [
+                0.0605627278084011,
+                -0.05283143839889526,
+                0.0754082478120246
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "handle-24_9",
+            "source_vertex_count": 78,
+            "hull_vertices": 20,
+            "volume_m3": 1.5509790669341035e-07,
+            "body_local_bounds": [
+              [
+                -0.06044268500714445,
+                -0.055573777183555606,
+                0.06711854501453018
+              ],
+              [
+                -0.04890909394116782,
+                -0.052831438398895245,
+                0.07540824781202461
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_rails-30",
+            "source_vertex_count": 88,
+            "hull_vertices": 8,
+            "volume_m3": 1.8961585791026048e-06,
+            "body_local_bounds": [
+              [
+                0.061806076529750335,
+                -0.11906109022376297,
+                -0.06155546593903161
+              ],
+              [
+                0.06396861399167442,
+                -0.11198913821758792,
+                0.06243026626604653
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_rails-31",
+            "source_vertex_count": 88,
+            "hull_vertices": 8,
+            "volume_m3": 1.896158579102614e-06,
+            "body_local_bounds": [
+              [
+                -0.06434202415808345,
+                -0.11906109022376297,
+                -0.06155546593903161
+              ],
+              [
+                -0.06217948669615936,
+                -0.11198913821758792,
+                0.06243026626604653
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_front-16",
+            "source_vertex_count": 96,
+            "hull_vertices": 12,
+            "volume_m3": 8.340771230021066e-05,
+            "body_local_bounds": [
+              [
+                -0.06902755096010972,
+                -0.04294523007397366,
+                0.0595468250477662
+              ],
+              [
+                0.06865414079370069,
+                0.043516601750193146,
+                0.0671185450145302
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_side-17",
+            "source_vertex_count": 32,
+            "hull_vertices": 8,
+            "volume_m3": 2.1622102223063097e-05,
+            "body_local_bounds": [
+              [
+                0.058922804290638446,
+                -0.03490808354162313,
+                -0.058672024720751274
+              ],
+              [
+                0.06180607652975034,
+                0.028526418680471927,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_side-18",
+            "source_vertex_count": 32,
+            "hull_vertices": 8,
+            "volume_m3": 2.1623333218114217e-05,
+            "body_local_bounds": [
+              [
+                -0.06217948669615936,
+                -0.03490808354162313,
+                -0.058672024720751274
+              ],
+              [
+                -0.05929605030585527,
+                0.028526418680471927,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_back-19",
+            "source_vertex_count": 48,
+            "hull_vertices": 8,
+            "volume_m3": 2.2678187037088927e-05,
+            "body_local_bounds": [
+              [
+                -0.06217948669615936,
+                -0.03490808354162313,
+                -0.061555465939031606
+              ],
+              [
+                0.06180624068094254,
+                0.028526418680471927,
+                -0.058672024720751274
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_bottom-20",
+            "source_vertex_count": 16,
+            "hull_vertices": 8,
+            "volume_m3": 2.014786960753093e-05,
+            "body_local_bounds": [
+              [
+                -0.05929605030585527,
+                -0.03346628327087499,
+                -0.058672024720751274
+              ],
+              [
+                0.058922804290638446,
+                -0.032024647151319044,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "handle-15_7",
+            "source_vertex_count": 78,
+            "hull_vertices": 20,
+            "volume_m3": 1.5509783491582431e-07,
+            "body_local_bounds": [
+              [
+                -0.06044268500714444,
+                0.03160895356899118,
+                0.06711854501453018
+              ],
+              [
+                -0.04890909394116782,
+                0.03435128993966341,
+                0.0754082478120246
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "handle-15_8",
+            "source_vertex_count": 20,
+            "hull_vertices": 10,
+            "volume_m3": 4.840124273242359e-07,
+            "body_local_bounds": [
+              [
+                -0.048909093941167825,
+                0.03160895356899118,
+                0.07280020884246062
+              ],
+              [
+                0.04902913674242448,
+                0.03435128993966344,
+                0.0754082478120246
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "handle-15_9",
+            "source_vertex_count": 78,
+            "hull_vertices": 20,
+            "volume_m3": 1.5509730498763268e-07,
+            "body_local_bounds": [
+              [
+                0.04902913674242447,
+                0.03160895356899121,
+                0.06711854501453017
+              ],
+              [
+                0.0605627278084011,
+                0.03435128993966344,
+                0.07540824781202458
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_rails-21",
+            "source_vertex_count": 88,
+            "hull_vertices": 8,
+            "volume_m3": 1.8961572846073142e-06,
+            "body_local_bounds": [
+              [
+                0.061806076529750335,
+                -0.031878359471216214,
+                -0.061555465939031606
+              ],
+              [
+                0.06396861399167442,
+                -0.024806412293017388,
+                0.06243026626604653
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_rails-22",
+            "source_vertex_count": 88,
+            "hull_vertices": 8,
+            "volume_m3": 1.8961572846073142e-06,
+            "body_local_bounds": [
+              [
+                -0.06434202415808343,
+                -0.031878359471216214,
+                -0.061555465939031606
+              ],
+              [
+                -0.06217948669615936,
+                -0.024806412293017388,
+                0.06243026626604653
+              ]
+            ]
+          }
+        ],
+        "joint_friction": {
+          "coefficient": 0.5,
+          "paths": [
+            "/Asset/Joints/joint_1",
+            "/Asset/Joints/joint_2"
+          ],
+          "mechanism": "PhysxJointAPI.physxJoint:jointFriction"
+        },
+        "supersedes": "cabinet_2_tier_v2"
+      },
+      "source_sha256": "5fda0eee3704c225d31a066701009cce8d9721008ea6e424ea2b0ebba000aecc",
+      "new_collision_components": 5,
+      "base_lift_m": 0.04,
+      "source_collision_and_joints_unchanged": true,
+      "side_clearance_m": 0.002,
+      "top_clearance_m": 0.006,
+      "top_front_asset_x_m": -0.06243301928043367,
+      "top_front_setback_from_handle_m": 0.012975230813026414,
+      "side_thickness_m": 0.004,
+      "native_verified": false,
+      "source_joint_axes": [
+        {
+          "joint": "/Asset/Joints/joint_1",
+          "axis_asset": [
+            -0.9999999999999993,
+            3.422854166768019e-08,
+            -3.800131518205962e-24
+          ],
+          "limits": [
+            0.0,
+            0.10692000389099121
+          ]
+        },
+        {
+          "joint": "/Asset/Joints/joint_2",
+          "axis_asset": [
+            -0.9999999999999993,
+            3.422854166768019e-08,
+            -3.800131518205962e-24
+          ],
+          "limits": [
+            0.0,
+            0.10692000389099121
+          ]
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "asset": {
+        "id": "cabinet_outer_frame_legs_v3_1",
+        "kind": "articulation",
+        "tasks": [
+          "E30"
+        ],
+        "root_env": "VIC_EXECUTION_DESIGN_ASSETS",
+        "relative_path": "E30/cabinet_outer_frame_legs_1.usda",
+        "sha256": "0196361714f2b0334dd0283122d8a1f62f8cba065e60d874253c94a91ef3db51",
+        "source_urdf": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/mobility.urdf",
+        "source_urdf_sha256": "3905eaebdce2c7bee60612ba30633d63a373f4cfbda33d27737c7abc9f2da209",
+        "source_scale": 0.162,
+        "source_url": "https://robotwin-platform.github.io/doc/tasks/put_object_cabinet.html",
+        "joint_count": 4,
+        "joint_roles": {
+          "lower": "joint_1",
+          "upper": "joint_2"
+        },
+        "contact_links": {
+          "lower": "Links/link_1",
+          "upper": "Links/link_2"
+        },
+        "bounds": [
+          [
+            -0.0754082500934601,
+            -0.0780145972967148,
+            -0.04700000663089901
+          ],
+          [
+            0.07020270079374313,
+            0.07838800549507143,
+            0.1863654732258305
+          ]
+        ],
+        "linear_limits_m": [
+          0,
+          0.10692000000000002
+        ],
+        "source_modified": true,
+        "mesh_diff": [
+          {
+            "prim": "/Asset/Links/link_0/visual_0/Visuals/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_0/Visuals/mesh_1_material_1_0",
+            "source_faces": 18,
+            "output_faces": 19,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_1/Visuals/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_1/Visuals/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_2/Visuals/mesh_0_material_0_0",
+            "source_faces": 18,
+            "output_faces": 19,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_2/Visuals/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_3/Visuals/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_3/Visuals/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_4/Visuals/mesh_0_original_15_obj",
+            "source_faces": 24,
+            "output_faces": 28,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_9/Visuals/mesh_0_original_14_obj",
+            "source_faces": 24,
+            "output_faces": 0,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_0/Collisions/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_0/Collisions/mesh_1_material_1_0",
+            "source_faces": 18,
+            "output_faces": 19,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_1/Collisions/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_1/Collisions/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_2/Collisions/mesh_0_material_0_0",
+            "source_faces": 18,
+            "output_faces": 19,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_2/Collisions/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_3/Collisions/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_3/Collisions/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_4/Collisions/mesh_0_original_15_obj",
+            "source_faces": 24,
+            "output_faces": 28,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_9/Collisions/mesh_0_original_14_obj",
+            "source_faces": 24,
+            "output_faces": 0,
+            "cut_world_z": 0.07372917051033838
+          }
+        ],
+        "dependencies": [
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-10_68dce12e87.provenance.json",
+            "sha256": "266d2c17a6d6c5d3287a0dd07f9301f2ab89d8a6cbf328e05f743e9101014d40"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-10_68dce12e87.usda",
+            "sha256": "24ea65b607a7a8e4d23188b1917e194fedaa1f57815ed6dfd6af042d9827bcf2"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-12_79b09e5e06.provenance.json",
+            "sha256": "436e17618f3ecfff3c32a877d7efd69f8e4e88dacac49622025ea4eeccac6a02"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-12_79b09e5e06.usda",
+            "sha256": "99fd5d4d57caf575eaf807ab4bca6dbef3a7700a2827c6fec0f5563b229d205c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-12_79b09e5e06_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-13_a6c36e409a.provenance.json",
+            "sha256": "640c79ca327b4b14c439e2baa05c1e72f146f10d585fddd7985c203917e9c0ca"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-13_a6c36e409a.usda",
+            "sha256": "231b2cf12e3e652b7cbdc965b70ef0c74f384102061468f4bc51389930a85e8d"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-14_ea092c7412.provenance.json",
+            "sha256": "f26e1096526da2f7944c7a0dfc2301635c879ae4ca57b9d7c072ddf0bded71fd"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-14_ea092c7412.usda",
+            "sha256": "d1b9edde6b28790480acc626e27701bd9321ab9f6eee118c0acc22828422590f"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-15_a1d99d2b4e.provenance.json",
+            "sha256": "83394a6d7afc0b46a0d1f969261c55a854c367ba48382e1297b09e4e5fb9e37e"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-15_a1d99d2b4e.usda",
+            "sha256": "cfa097d555128234d814e5a9c91cfb4ea250fffef84f12abc37a34db29682273"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-16_0e9c9148af.provenance.json",
+            "sha256": "3c705c0454763359f052e02992492d0f65660b3c85698ec01e680899642f0f6e"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-16_0e9c9148af.usda",
+            "sha256": "cc938ca9a4c7e4a45f6a6f9f2bab647226a9301de56e06fb971a9a2d48ea8d24"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-18_707f7e877e.provenance.json",
+            "sha256": "865ed18c47a83a9292449b63567ba51503720b3668813236b95589e20586bce7"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-18_707f7e877e.usda",
+            "sha256": "56be707c331ea3db9cfc6e173b3614a9b181fa98418c5b7129d29f44ef38780f"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-18_707f7e877e_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-21_42bbe8c65d.provenance.json",
+            "sha256": "34e734b4b764009c7314b2c0014e75781bcc27ba8944af6bb97c200fb6e2ead3"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-21_42bbe8c65d.usda",
+            "sha256": "992ab3c537a36bdaa158761cfc0816e2d8bf9e507973fa1f8b0e69f17eef3d04"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-22_0d59695df1.provenance.json",
+            "sha256": "570efaa62d475f89ec9a65ff7cc1f048b6502a909ac8d8e8be96f31cc793eec8"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-22_0d59695df1.usda",
+            "sha256": "b28298cf1f5d2932124b51169dacc5205e2d1f69c36af7fda31a2429b583e4b6"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-23_2107a3ec25.provenance.json",
+            "sha256": "057e8ac7a16938ca0af3f6c48e50982037a8189fd7fd1451f98a0ec81ab00c7c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-23_2107a3ec25.usda",
+            "sha256": "2690383b73bafb6f84adf86509efb2b933eef611d8ef284757c8bb77b5330e3d"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-24_85d73e462a.provenance.json",
+            "sha256": "4f58167c3f6c57f6f4cd4593c51816c499fe4debf2b3316ebd625ed25795ddfd"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-24_85d73e462a.usda",
+            "sha256": "a14b437a0c186df5faf9f67457f22600be98dd9e0cbac87fa4581b9778c61fe4"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-25_2714beabaa.provenance.json",
+            "sha256": "eb6571099f3371a2fba4a75dd366b0d514fc1d3ae9508927ee7499f082d9ce7d"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-25_2714beabaa.usda",
+            "sha256": "af7cec38cfd268f733fe1053fcce284b6e86b13b0f6215296f7794fc034af932"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-26_62cca5dddf.provenance.json",
+            "sha256": "2b65c0872cff1233e7cd56d2bb3ab886a86c9dab26904897a965825fdd16abb8"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-26_62cca5dddf.usda",
+            "sha256": "2b03bff277e330b787e827c2c12f4d2db21ee5080502e55f07a5b88307f82cc5"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-27_b6e74521f8.provenance.json",
+            "sha256": "a33c3d4509237444d12acc7c5ec17fdfacfb03a4c10870cdfb4a653e56f28bad"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-27_b6e74521f8.usda",
+            "sha256": "7736520c2fcae0b83f5535fa26cbd20e05d24f8cb20f4ca2e7b90769feb68859"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-28_f6869e6846.provenance.json",
+            "sha256": "be90686c4637da55b3eab323fcc1aea699b8a588241c8a7649cf5b4a27331fde"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-28_f6869e6846.usda",
+            "sha256": "25b99b1a053e2c3530d85aaf6918cf8773f1d58a6151ca74e9a46be3a122845d"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-30_ffeaff9e5f.provenance.json",
+            "sha256": "9ea443621dc6357cd37ab7b6a3dbca29ebcf51b782f31fdebf76ca3ac229a942"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-30_ffeaff9e5f.usda",
+            "sha256": "928ca6959c71b33e52cbcce1454392fb8a42524c9c21837df1e83b6d1ef004cf"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-31_116be40019.provenance.json",
+            "sha256": "4216e48e14e53e31235d09a81a7802f692fdfadcd64dbd4bd42017a45d75e78c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-31_116be40019.usda",
+            "sha256": "7797913a405c88cb298e00c5fbe38709abc3e15cf25a8a7154b68316111da11e"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-32_6fb8f1fa04.provenance.json",
+            "sha256": "26045c6abff98e6257a842381a9281265378bcd704998d7865af47c65d4fcee7"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-32_6fb8f1fa04.usda",
+            "sha256": "7e2e62fd78faa99224d027afd26c0c606c91acdd279ac006b59043e0a945c93c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-34_c466c13307.provenance.json",
+            "sha256": "42a4587669b70cfb0a37fde7e74b278a0e4325d6c0ec74389594170928633832"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-34_c466c13307.usda",
+            "sha256": "40a234be0072ca952b3c6d26968b2c0fd97a1113b9b677dae1b2e8c93b5cde70"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-34_c466c13307_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-37_58d52948b3.provenance.json",
+            "sha256": "ed5edc743e35e08f5ec0826cb628e68a6a2a837b366cc5afbea2ad190ab1c364"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-37_58d52948b3.usda",
+            "sha256": "89e2231351c7708dc6a0398f0a704c386fb9ba20107aa2864f67d783adcca989"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-38_093ff2ba12.provenance.json",
+            "sha256": "4395907e172f3fb0d339d8139a59eaa7a26ff7b631eb82e24983de4129c99012"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-38_093ff2ba12.usda",
+            "sha256": "10e3fd33450b91a3310a5b3daa2cbc51c482f6d1aa49fdc74a8f0e06291c5706"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-39_c259d55326.provenance.json",
+            "sha256": "45ba9e83549105994da8cb3df626a2b0811824ae6775190e934b947a24e4fed8"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-39_c259d55326.usda",
+            "sha256": "a847de1480e2e956e49490e04f1fdf749852a5b7457c9557979f7b6e9aa781d4"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-3_acab24e2b6.provenance.json",
+            "sha256": "02e6e67f862a1916351c30f25e84d1973fed992027363bd7aef85c2d3f83a8f5"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-3_acab24e2b6.usda",
+            "sha256": "df669d856488379eaf51d3ab3a90040453758eade139a76d8eac8a4a1f8f22ac"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-3_acab24e2b6_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-40_d491b734c1.provenance.json",
+            "sha256": "e18f40ee7b37dae0378c1936f30c8366abd97b79f042937e20bab5be5bfba6a8"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-40_d491b734c1.usda",
+            "sha256": "459b90e5ef2d668f8cc966d261ac950be0fff418014899fefa06c93d7e54d6b3"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-41_e2e866efa8.provenance.json",
+            "sha256": "f3bdc6befbf71557383b82cf7cf3acf69b15a34f2ae92a12b0b6fb27b2aefdc9"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-41_e2e866efa8.usda",
+            "sha256": "18a8e67cfc56380fe908ff8db4dc56db17bf64d9c84bc69ec08c7eaf9756e392"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-42_c443a61775.provenance.json",
+            "sha256": "ff99e851a4bbc9140c272a68447a02631b18810b82871daaa0ce6fa04e7f8624"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-42_c443a61775.usda",
+            "sha256": "91749ed869a2f82ce1eda4cce7b4dad84d4015a2d03d2d5fde98dbaa97856502"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-43_03d3195e41.provenance.json",
+            "sha256": "d00cd27fdd5ab0202b2a529996f17077a8338dfb4ceb22ab3d0e6c13f8834131"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-43_03d3195e41.usda",
+            "sha256": "b3be592422c6f3076775c5a3569f62fb83468f572b84ad28af55d7fc0cb9cfd6"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-44_7b0e860cd5.provenance.json",
+            "sha256": "1b0547dadb795616e915096b393ca097abbe1a89c07753900a4c3cd77819c87e"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-44_7b0e860cd5.usda",
+            "sha256": "2ae753d0f1e159cdf586aac222f3cb86f20f63dbeb155d7afd9be2d084c8466b"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-46_f4540e83c5.provenance.json",
+            "sha256": "56afca1d9fe3e8deb29242c68eb18c16220900e85e6ef2b2d60bc3aeead50328"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-46_f4540e83c5.usda",
+            "sha256": "8b1a6fb889e04d9c2d81d1468d3dd8519768f4dcbf586c84b7a5b79d2c6c08dc"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-47_023624550f.provenance.json",
+            "sha256": "208c73303c176f4722b7b208806f57174fe624f8599cf2010871d88b84442a82"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-47_023624550f.usda",
+            "sha256": "9736eb20414b8a32ead240b11d327d118b9c9deb648ec0ed8fb45870f294e9d8"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-48_f6b220a741.provenance.json",
+            "sha256": "048d82534009ff022ff4d0a0df04636c063d56940633d24469355d50b5ea5519"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-48_f6b220a741.usda",
+            "sha256": "0c8b27549b84f09a9e65de8d87b8551da579697b32150e6983a2f0007aca25bc"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-4_28176b29d8.provenance.json",
+            "sha256": "eb43497c151168001ca8e73aa7c943e0a2abf1c6ab33443083805453926ff1e2"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-4_28176b29d8.usda",
+            "sha256": "2c382582eaa4656c6ccb7a28226d32f3be865d5786ae1c377d21ac5ed7b4af4c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-4_28176b29d8_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-50_7d43a19b21.provenance.json",
+            "sha256": "d3acd8a27d70873f3faa2e6de5d2d6de03612ccaf6150be122af9d495cb2d49a"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-50_7d43a19b21.usda",
+            "sha256": "701a530803b0c537fb904dc9b99e6a7775529298c0e604e84e01c7c99a709216"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-50_7d43a19b21_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-53_867c96df86.provenance.json",
+            "sha256": "4da210c3f175ca2d07b6b3b1701b8017b6dc1e338adc1b65d65eaeff6820018b"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-53_867c96df86.usda",
+            "sha256": "f5f0b0d5189cd22a0d8bc1c2dbb58ee32fcfdceeda95efda438fe9c5d2f769dc"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-54_f01e5d3bbe.provenance.json",
+            "sha256": "aecc43f9543cc65ecc5edba9402817ac24d7f7f1ef4626549294434be0d84377"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-54_f01e5d3bbe.usda",
+            "sha256": "acde1fa1ea4cea5c76ee053ce9d199c61e73d0999cdca6dd958207e561e32622"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-55_29f6d289ae.provenance.json",
+            "sha256": "6fb6132548290d66dfb9cf0f32e7d29a487f8f15a081f705789b019e3c2d5ebf"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-55_29f6d289ae.usda",
+            "sha256": "546fecd53633935fe28f39f0613b5b9d534713ce770c105e20c8e70888d2e209"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-56_22d175e34f.provenance.json",
+            "sha256": "5131c0817004042b3d4e0272f0a4c48803acd38d080662b2cd77ecf27c327765"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-56_22d175e34f.usda",
+            "sha256": "f035984ded1abe3bc14d967e4aba302a4513cf6c51771484c867a1ab1f0a4f93"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-57_818122b13b.provenance.json",
+            "sha256": "b0e05c8fbc19b8cfd96b040c8810e4bc2c2499866fb8e60bb14557920bd5bdcd"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-57_818122b13b.usda",
+            "sha256": "61a5fd1101cf377bca094baa936c32eb8336347098880dbacffdec61e7430cd0"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-58_502eb5fcce.provenance.json",
+            "sha256": "2293264146493126dfac0f0fa912f1ac32efb6c7319e3b705a1ca8a5a142385c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-58_502eb5fcce.usda",
+            "sha256": "69dc31c15a9723a82a84d5eca7af7a326134425959d42d5f397d93b741468f57"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-59_5dcb87bcb6.provenance.json",
+            "sha256": "219bb854aeb3f5426e75bf062eb2450598607c656b59bf40692ac3222f46563f"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-59_5dcb87bcb6.usda",
+            "sha256": "611877a473c8d5ee849cbb496d1d550f72f4a3b2145e79cceb5a79a001164aef"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-60_6ed63d7430.provenance.json",
+            "sha256": "0bf540a2dfbf53eda344bd47d7bc1f311f06b8ed96942d22d3ec438d61874530"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-60_6ed63d7430.usda",
+            "sha256": "5bad09ccaecfeadb817087744e93e41debdf20f64dc64aed208775279ca6a83c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-62_3541927aa0.provenance.json",
+            "sha256": "f89db0022b7352e9f62f793b62cd4502d08b82026dc01bd82e1067f27690f003"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-62_3541927aa0.usda",
+            "sha256": "4cb9a03fdc43b3839d75ef69f0183f374ebe18ba4b38113eb43f20231687edc6"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-63_84c39aea3b.provenance.json",
+            "sha256": "f6a79d62118dc06bcd26f8334404ce08b0c749f221ba9b075ef0f13677ef5a22"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-63_84c39aea3b.usda",
+            "sha256": "be7e7ad9932f9645462230b46bbe9027c64ea7dbf4defc097ed11a198b03f148"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-64_75810dd9c1.provenance.json",
+            "sha256": "fe9e1d290b3581d0ceb0ff12c26b4504a901bb8aa041420de41eab8097602b5b"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-64_75810dd9c1.usda",
+            "sha256": "3b75143cf0d1c6015b8bea4438a5c3301e1e5c5517a17185e6d9038e5431cfdf"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-6_b1a6b63988.provenance.json",
+            "sha256": "d9407845b27ffcea7271857f9bbf44a16c58363ecce30c5c829252476588f1ff"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-6_b1a6b63988.usda",
+            "sha256": "952bd2cd1185e51cfb67b14e0231c35e1ac8da00fa0adcc3aa4456e1a7bfbc2a"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-6_b1a6b63988_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-7_af226926ee.provenance.json",
+            "sha256": "c75240fb4ea9fb086ee4ea43259f342dceb1b3773b6838fdcc27fb1251c31004"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-7_af226926ee.usda",
+            "sha256": "2f3ebfdd22977f9a54ca420c98e1aa1de8f0c1e7295c696a9495745a8b68a023"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-7_af226926ee_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-9_aa50a5b628.provenance.json",
+            "sha256": "1e54dc5dad02267ea23b2fa4a5700a65b33fe7aaf465e8b0065222ed9e813c5b"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-9_aa50a5b628.usda",
+            "sha256": "57020fb0e6b650cd0812b487c20eafe85052819d5436c1a83bb5d9d5f33412b7"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-9_aa50a5b628_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          }
+        ],
+        "adaptations": [
+          "Remove upper 1 drawer bodies and their joints.",
+          "Trim original housing side/back source triangles at retained tier height.",
+          "Translate original top-panel meshes down; preserve original bottom panel.",
+          "Bake uniform .6 reduction into geometry, body frames and prismatic limits.",
+          "Recolor retained lower drawer blue, upper drawer red; place cabinet bottom at local Z=0.",
+          "Merge original surfaces only within each source semantic board to preserve measured thickness; use one convex collider per real board. Keep each handle segment separate and preserve every cavity.",
+          "Explicit passive PhysX joint friction 0.5 on each prismatic drawer joint; no drive/spring or state writes added."
+        ],
+        "physics_verified": false,
+        "gpu_used": false,
+        "identity_fidelity": "source-derived toy-scale drawer assembly; video comparison and rendered seams pending",
+        "parent_asset_sha256": "463a20a71f06e4241d36260c7e34d4c2ed252d34df21b12b730b034576b3d208",
+        "collision_board_diff": [
+          {
+            "body": "link_0",
+            "source_semantic_part": "vertical_side_panel-32",
+            "source_vertex_count": 84,
+            "hull_vertices": 8,
+            "volume_m3": 0.00010002638907960666,
+            "body_local_bounds": [
+              [
+                0.06468951774803065,
+                -0.13012796082652048,
+                -0.07020269968907833
+              ],
+              [
+                0.06901459267187882,
+                0.044237500678573155,
+                0.06243301821250391
+              ]
+            ]
+          },
+          {
+            "body": "link_0",
+            "source_semantic_part": "vertical_side_panel-33",
+            "source_vertex_count": 84,
+            "hull_vertices": 8,
+            "volume_m3": 0.00010002638907960687,
+            "body_local_bounds": [
+              [
+                -0.06938800283828785,
+                -0.13012796082652045,
+                -0.07020269968907834
+              ],
+              [
+                -0.06506292791443968,
+                0.04423750067857313,
+                0.06243301821250391
+              ]
+            ]
+          },
+          {
+            "body": "link_0",
+            "source_semantic_part": "back_panel-34",
+            "source_vertex_count": 84,
+            "hull_vertices": 8,
+            "volume_m3": 3.153739876964816e-05,
+            "body_local_bounds": [
+              [
+                -0.0650629279144397,
+                -0.1243610783899598,
+                -0.06587762476523018
+              ],
+              [
+                0.06468951774803067,
+                0.04423751033452561,
+                -0.06443598623168612
+              ]
+            ]
+          },
+          {
+            "body": "link_0",
+            "source_semantic_part": "bottom_panel-35",
+            "source_vertex_count": 48,
+            "hull_vertices": 8,
+            "volume_m3": 9.924694398953295e-05,
+            "body_local_bounds": [
+              [
+                -0.06506292791443968,
+                -0.13012796082652048,
+                -0.07020269968907833
+              ],
+              [
+                0.06468951774803067,
+                -0.1243610783899598,
+                0.06243301821250391
+              ]
+            ]
+          },
+          {
+            "body": "link_0",
+            "source_semantic_part": "top_panel-36",
+            "source_vertex_count": 48,
+            "hull_vertices": 8,
+            "volume_m3": 9.924411897890428e-05,
+            "body_local_bounds": [
+              [
+                -0.0650629279144397,
+                0.038470784013467485,
+                -0.07020269968907833
+              ],
+              [
+                0.06468951774803067,
+                0.04423750229883597,
+                0.06243301821250391
+              ]
+            ]
+          },
+          {
+            "body": "link_0",
+            "source_semantic_part": "frame_horizontal_bar-38",
+            "source_vertex_count": 48,
+            "hull_vertices": 8,
+            "volume_m3": 1.6181171616723016e-05,
+            "body_local_bounds": [
+              [
+                -0.06506292791443968,
+                -0.1243610783899598,
+                -0.07020269968907834
+              ],
+              [
+                0.06468951774803067,
+                -0.09552735177978278,
+                -0.06587762476523018
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_front-25",
+            "source_vertex_count": 96,
+            "hull_vertices": 12,
+            "volume_m3": 8.340784602487218e-05,
+            "body_local_bounds": [
+              [
+                -0.06902755096010971,
+                -0.13012796082652045,
+                0.0595468250477662
+              ],
+              [
+                0.06865414079370069,
+                -0.043665964851161476,
+                0.06711854501453018
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_side-26",
+            "source_vertex_count": 32,
+            "hull_vertices": 8,
+            "volume_m3": 2.162333404098619e-05,
+            "body_local_bounds": [
+              [
+                -0.062179486696159365,
+                -0.12209081912214614,
+                -0.058672024720751274
+              ],
+              [
+                -0.059296050305855275,
+                -0.05865631448606301,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_side-27",
+            "source_vertex_count": 32,
+            "hull_vertices": 8,
+            "volume_m3": 2.1622103045888087e-05,
+            "body_local_bounds": [
+              [
+                0.05892280429063844,
+                -0.12209081912214614,
+                -0.058672024720751274
+              ],
+              [
+                0.061806076529750335,
+                -0.05865631448606301,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_back-28",
+            "source_vertex_count": 48,
+            "hull_vertices": 8,
+            "volume_m3": 2.2678187900103082e-05,
+            "body_local_bounds": [
+              [
+                -0.062179486696159365,
+                -0.12209081912214614,
+                -0.061555465939031606
+              ],
+              [
+                0.06180624068094253,
+                -0.05865631448606301,
+                -0.058672024720751274
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_bottom-29",
+            "source_vertex_count": 16,
+            "hull_vertices": 8,
+            "volume_m3": 2.0147835870364368e-05,
+            "body_local_bounds": [
+              [
+                -0.059296050305855275,
+                -0.12064901160943363,
+                -0.058672024720751274
+              ],
+              [
+                0.05892280429063844,
+                -0.1192073779038658,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "handle-24_7",
+            "source_vertex_count": 20,
+            "hull_vertices": 10,
+            "volume_m3": 4.840125450790239e-07,
+            "body_local_bounds": [
+              [
+                -0.048909093941167825,
+                -0.055573777183555606,
+                0.07280020884246063
+              ],
+              [
+                0.04902913674242448,
+                -0.052831438398895245,
+                0.07540824781202461
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "handle-24_8",
+            "source_vertex_count": 78,
+            "hull_vertices": 20,
+            "volume_m3": 1.550973515840461e-07,
+            "body_local_bounds": [
+              [
+                0.04902913674242447,
+                -0.055573777183555606,
+                0.06711854501453018
+              ],
+              [
+                0.0605627278084011,
+                -0.05283143839889526,
+                0.0754082478120246
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "handle-24_9",
+            "source_vertex_count": 78,
+            "hull_vertices": 20,
+            "volume_m3": 1.5509790669341035e-07,
+            "body_local_bounds": [
+              [
+                -0.06044268500714445,
+                -0.055573777183555606,
+                0.06711854501453018
+              ],
+              [
+                -0.04890909394116782,
+                -0.052831438398895245,
+                0.07540824781202461
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_rails-30",
+            "source_vertex_count": 88,
+            "hull_vertices": 8,
+            "volume_m3": 1.8961585791026048e-06,
+            "body_local_bounds": [
+              [
+                0.061806076529750335,
+                -0.11906109022376297,
+                -0.06155546593903161
+              ],
+              [
+                0.06396861399167442,
+                -0.11198913821758792,
+                0.06243026626604653
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_rails-31",
+            "source_vertex_count": 88,
+            "hull_vertices": 8,
+            "volume_m3": 1.896158579102614e-06,
+            "body_local_bounds": [
+              [
+                -0.06434202415808345,
+                -0.11906109022376297,
+                -0.06155546593903161
+              ],
+              [
+                -0.06217948669615936,
+                -0.11198913821758792,
+                0.06243026626604653
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_front-16",
+            "source_vertex_count": 96,
+            "hull_vertices": 12,
+            "volume_m3": 8.340771230021066e-05,
+            "body_local_bounds": [
+              [
+                -0.06902755096010972,
+                -0.04294523007397366,
+                0.0595468250477662
+              ],
+              [
+                0.06865414079370069,
+                0.043516601750193146,
+                0.0671185450145302
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_side-17",
+            "source_vertex_count": 32,
+            "hull_vertices": 8,
+            "volume_m3": 2.1622102223063097e-05,
+            "body_local_bounds": [
+              [
+                0.058922804290638446,
+                -0.03490808354162313,
+                -0.058672024720751274
+              ],
+              [
+                0.06180607652975034,
+                0.028526418680471927,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_side-18",
+            "source_vertex_count": 32,
+            "hull_vertices": 8,
+            "volume_m3": 2.1623333218114217e-05,
+            "body_local_bounds": [
+              [
+                -0.06217948669615936,
+                -0.03490808354162313,
+                -0.058672024720751274
+              ],
+              [
+                -0.05929605030585527,
+                0.028526418680471927,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_back-19",
+            "source_vertex_count": 48,
+            "hull_vertices": 8,
+            "volume_m3": 2.2678187037088927e-05,
+            "body_local_bounds": [
+              [
+                -0.06217948669615936,
+                -0.03490808354162313,
+                -0.061555465939031606
+              ],
+              [
+                0.06180624068094254,
+                0.028526418680471927,
+                -0.058672024720751274
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_bottom-20",
+            "source_vertex_count": 16,
+            "hull_vertices": 8,
+            "volume_m3": 2.014786960753093e-05,
+            "body_local_bounds": [
+              [
+                -0.05929605030585527,
+                -0.03346628327087499,
+                -0.058672024720751274
+              ],
+              [
+                0.058922804290638446,
+                -0.032024647151319044,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "handle-15_7",
+            "source_vertex_count": 78,
+            "hull_vertices": 20,
+            "volume_m3": 1.5509783491582431e-07,
+            "body_local_bounds": [
+              [
+                -0.06044268500714444,
+                0.03160895356899118,
+                0.06711854501453018
+              ],
+              [
+                -0.04890909394116782,
+                0.03435128993966341,
+                0.0754082478120246
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "handle-15_8",
+            "source_vertex_count": 20,
+            "hull_vertices": 10,
+            "volume_m3": 4.840124273242359e-07,
+            "body_local_bounds": [
+              [
+                -0.048909093941167825,
+                0.03160895356899118,
+                0.07280020884246062
+              ],
+              [
+                0.04902913674242448,
+                0.03435128993966344,
+                0.0754082478120246
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "handle-15_9",
+            "source_vertex_count": 78,
+            "hull_vertices": 20,
+            "volume_m3": 1.5509730498763268e-07,
+            "body_local_bounds": [
+              [
+                0.04902913674242447,
+                0.03160895356899121,
+                0.06711854501453017
+              ],
+              [
+                0.0605627278084011,
+                0.03435128993966344,
+                0.07540824781202458
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_rails-21",
+            "source_vertex_count": 88,
+            "hull_vertices": 8,
+            "volume_m3": 1.8961572846073142e-06,
+            "body_local_bounds": [
+              [
+                0.061806076529750335,
+                -0.031878359471216214,
+                -0.061555465939031606
+              ],
+              [
+                0.06396861399167442,
+                -0.024806412293017388,
+                0.06243026626604653
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_rails-22",
+            "source_vertex_count": 88,
+            "hull_vertices": 8,
+            "volume_m3": 1.8961572846073142e-06,
+            "body_local_bounds": [
+              [
+                -0.06434202415808343,
+                -0.031878359471216214,
+                -0.061555465939031606
+              ],
+              [
+                -0.06217948669615936,
+                -0.024806412293017388,
+                0.06243026626604653
+              ]
+            ]
+          }
+        ],
+        "joint_friction": {
+          "coefficient": 0.5,
+          "paths": [
+            "/Asset/Joints/joint_1",
+            "/Asset/Joints/joint_2"
+          ],
+          "mechanism": "PhysxJointAPI.physxJoint:jointFriction"
+        },
+        "supersedes": "cabinet_2_tier_v2"
+      },
+      "source_sha256": "5fda0eee3704c225d31a066701009cce8d9721008ea6e424ea2b0ebba000aecc",
+      "new_collision_components": 5,
+      "base_lift_m": 0.045,
+      "source_collision_and_joints_unchanged": true,
+      "side_clearance_m": 0.002,
+      "top_clearance_m": 0.006,
+      "top_front_asset_x_m": -0.06243301928043367,
+      "top_front_setback_from_handle_m": 0.012975230813026414,
+      "side_thickness_m": 0.007,
+      "native_verified": false,
+      "source_joint_axes": [
+        {
+          "joint": "/Asset/Joints/joint_1",
+          "axis_asset": [
+            -0.9999999999999993,
+            3.422854166768019e-08,
+            -3.800131518205962e-24
+          ],
+          "limits": [
+            0.0,
+            0.10692000389099121
+          ]
+        },
+        {
+          "joint": "/Asset/Joints/joint_2",
+          "axis_asset": [
+            -0.9999999999999993,
+            3.422854166768019e-08,
+            -3.800131518205962e-24
+          ],
+          "limits": [
+            0.0,
+            0.10692000389099121
+          ]
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "asset": {
+        "id": "cabinet_outer_frame_legs_v3_2",
+        "kind": "articulation",
+        "tasks": [
+          "E30"
+        ],
+        "root_env": "VIC_EXECUTION_DESIGN_ASSETS",
+        "relative_path": "E30/cabinet_outer_frame_legs_2.usda",
+        "sha256": "a71528a2dbbb66b336bf6d8bd4dc2f11297c55a19021ffeff16485cf92b5bdb6",
+        "source_urdf": "/home/descfly/robotwin-eval/assets-shared/objects/036_cabinet/46653/mobility.urdf",
+        "source_urdf_sha256": "3905eaebdce2c7bee60612ba30633d63a373f4cfbda33d27737c7abc9f2da209",
+        "source_scale": 0.162,
+        "source_url": "https://robotwin-platform.github.io/doc/tasks/put_object_cabinet.html",
+        "joint_count": 4,
+        "joint_roles": {
+          "lower": "joint_1",
+          "upper": "joint_2"
+        },
+        "contact_links": {
+          "lower": "Links/link_1",
+          "upper": "Links/link_2"
+        },
+        "bounds": [
+          [
+            -0.0754082500934601,
+            -0.08101459592580797,
+            -0.05200000186252743
+          ],
+          [
+            0.07020270079374313,
+            0.0813880041241646,
+            0.1863654732258305
+          ]
+        ],
+        "linear_limits_m": [
+          0,
+          0.10692000000000002
+        ],
+        "source_modified": true,
+        "mesh_diff": [
+          {
+            "prim": "/Asset/Links/link_0/visual_0/Visuals/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_0/Visuals/mesh_1_material_1_0",
+            "source_faces": 18,
+            "output_faces": 19,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_1/Visuals/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_1/Visuals/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_2/Visuals/mesh_0_material_0_0",
+            "source_faces": 18,
+            "output_faces": 19,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_2/Visuals/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_3/Visuals/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_3/Visuals/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_4/Visuals/mesh_0_original_15_obj",
+            "source_faces": 24,
+            "output_faces": 28,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/visual_9/Visuals/mesh_0_original_14_obj",
+            "source_faces": 24,
+            "output_faces": 0,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_0/Collisions/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_0/Collisions/mesh_1_material_1_0",
+            "source_faces": 18,
+            "output_faces": 19,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_1/Collisions/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_1/Collisions/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_2/Collisions/mesh_0_material_0_0",
+            "source_faces": 18,
+            "output_faces": 19,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_2/Collisions/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_3/Collisions/mesh_0_material_0_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_3/Collisions/mesh_1_material_1_0",
+            "source_faces": 2,
+            "output_faces": 3,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_4/Collisions/mesh_0_original_15_obj",
+            "source_faces": 24,
+            "output_faces": 28,
+            "cut_world_z": 0.07372917051033838
+          },
+          {
+            "prim": "/Asset/Links/link_0/collision_9/Collisions/mesh_0_original_14_obj",
+            "source_faces": 24,
+            "output_faces": 0,
+            "cut_world_z": 0.07372917051033838
+          }
+        ],
+        "dependencies": [
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-10_68dce12e87.provenance.json",
+            "sha256": "266d2c17a6d6c5d3287a0dd07f9301f2ab89d8a6cbf328e05f743e9101014d40"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-10_68dce12e87.usda",
+            "sha256": "24ea65b607a7a8e4d23188b1917e194fedaa1f57815ed6dfd6af042d9827bcf2"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-12_79b09e5e06.provenance.json",
+            "sha256": "436e17618f3ecfff3c32a877d7efd69f8e4e88dacac49622025ea4eeccac6a02"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-12_79b09e5e06.usda",
+            "sha256": "99fd5d4d57caf575eaf807ab4bca6dbef3a7700a2827c6fec0f5563b229d205c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-12_79b09e5e06_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-13_a6c36e409a.provenance.json",
+            "sha256": "640c79ca327b4b14c439e2baa05c1e72f146f10d585fddd7985c203917e9c0ca"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-13_a6c36e409a.usda",
+            "sha256": "231b2cf12e3e652b7cbdc965b70ef0c74f384102061468f4bc51389930a85e8d"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-14_ea092c7412.provenance.json",
+            "sha256": "f26e1096526da2f7944c7a0dfc2301635c879ae4ca57b9d7c072ddf0bded71fd"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-14_ea092c7412.usda",
+            "sha256": "d1b9edde6b28790480acc626e27701bd9321ab9f6eee118c0acc22828422590f"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-15_a1d99d2b4e.provenance.json",
+            "sha256": "83394a6d7afc0b46a0d1f969261c55a854c367ba48382e1297b09e4e5fb9e37e"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-15_a1d99d2b4e.usda",
+            "sha256": "cfa097d555128234d814e5a9c91cfb4ea250fffef84f12abc37a34db29682273"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-16_0e9c9148af.provenance.json",
+            "sha256": "3c705c0454763359f052e02992492d0f65660b3c85698ec01e680899642f0f6e"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-16_0e9c9148af.usda",
+            "sha256": "cc938ca9a4c7e4a45f6a6f9f2bab647226a9301de56e06fb971a9a2d48ea8d24"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-18_707f7e877e.provenance.json",
+            "sha256": "865ed18c47a83a9292449b63567ba51503720b3668813236b95589e20586bce7"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-18_707f7e877e.usda",
+            "sha256": "56be707c331ea3db9cfc6e173b3614a9b181fa98418c5b7129d29f44ef38780f"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-18_707f7e877e_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-21_42bbe8c65d.provenance.json",
+            "sha256": "34e734b4b764009c7314b2c0014e75781bcc27ba8944af6bb97c200fb6e2ead3"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-21_42bbe8c65d.usda",
+            "sha256": "992ab3c537a36bdaa158761cfc0816e2d8bf9e507973fa1f8b0e69f17eef3d04"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-22_0d59695df1.provenance.json",
+            "sha256": "570efaa62d475f89ec9a65ff7cc1f048b6502a909ac8d8e8be96f31cc793eec8"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-22_0d59695df1.usda",
+            "sha256": "b28298cf1f5d2932124b51169dacc5205e2d1f69c36af7fda31a2429b583e4b6"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-23_2107a3ec25.provenance.json",
+            "sha256": "057e8ac7a16938ca0af3f6c48e50982037a8189fd7fd1451f98a0ec81ab00c7c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-23_2107a3ec25.usda",
+            "sha256": "2690383b73bafb6f84adf86509efb2b933eef611d8ef284757c8bb77b5330e3d"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-24_85d73e462a.provenance.json",
+            "sha256": "4f58167c3f6c57f6f4cd4593c51816c499fe4debf2b3316ebd625ed25795ddfd"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-24_85d73e462a.usda",
+            "sha256": "a14b437a0c186df5faf9f67457f22600be98dd9e0cbac87fa4581b9778c61fe4"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-25_2714beabaa.provenance.json",
+            "sha256": "eb6571099f3371a2fba4a75dd366b0d514fc1d3ae9508927ee7499f082d9ce7d"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-25_2714beabaa.usda",
+            "sha256": "af7cec38cfd268f733fe1053fcce284b6e86b13b0f6215296f7794fc034af932"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-26_62cca5dddf.provenance.json",
+            "sha256": "2b65c0872cff1233e7cd56d2bb3ab886a86c9dab26904897a965825fdd16abb8"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-26_62cca5dddf.usda",
+            "sha256": "2b03bff277e330b787e827c2c12f4d2db21ee5080502e55f07a5b88307f82cc5"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-27_b6e74521f8.provenance.json",
+            "sha256": "a33c3d4509237444d12acc7c5ec17fdfacfb03a4c10870cdfb4a653e56f28bad"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-27_b6e74521f8.usda",
+            "sha256": "7736520c2fcae0b83f5535fa26cbd20e05d24f8cb20f4ca2e7b90769feb68859"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-28_f6869e6846.provenance.json",
+            "sha256": "be90686c4637da55b3eab323fcc1aea699b8a588241c8a7649cf5b4a27331fde"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-28_f6869e6846.usda",
+            "sha256": "25b99b1a053e2c3530d85aaf6918cf8773f1d58a6151ca74e9a46be3a122845d"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-30_ffeaff9e5f.provenance.json",
+            "sha256": "9ea443621dc6357cd37ab7b6a3dbca29ebcf51b782f31fdebf76ca3ac229a942"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-30_ffeaff9e5f.usda",
+            "sha256": "928ca6959c71b33e52cbcce1454392fb8a42524c9c21837df1e83b6d1ef004cf"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-31_116be40019.provenance.json",
+            "sha256": "4216e48e14e53e31235d09a81a7802f692fdfadcd64dbd4bd42017a45d75e78c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-31_116be40019.usda",
+            "sha256": "7797913a405c88cb298e00c5fbe38709abc3e15cf25a8a7154b68316111da11e"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-32_6fb8f1fa04.provenance.json",
+            "sha256": "26045c6abff98e6257a842381a9281265378bcd704998d7865af47c65d4fcee7"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-32_6fb8f1fa04.usda",
+            "sha256": "7e2e62fd78faa99224d027afd26c0c606c91acdd279ac006b59043e0a945c93c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-34_c466c13307.provenance.json",
+            "sha256": "42a4587669b70cfb0a37fde7e74b278a0e4325d6c0ec74389594170928633832"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-34_c466c13307.usda",
+            "sha256": "40a234be0072ca952b3c6d26968b2c0fd97a1113b9b677dae1b2e8c93b5cde70"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-34_c466c13307_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-37_58d52948b3.provenance.json",
+            "sha256": "ed5edc743e35e08f5ec0826cb628e68a6a2a837b366cc5afbea2ad190ab1c364"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-37_58d52948b3.usda",
+            "sha256": "89e2231351c7708dc6a0398f0a704c386fb9ba20107aa2864f67d783adcca989"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-38_093ff2ba12.provenance.json",
+            "sha256": "4395907e172f3fb0d339d8139a59eaa7a26ff7b631eb82e24983de4129c99012"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-38_093ff2ba12.usda",
+            "sha256": "10e3fd33450b91a3310a5b3daa2cbc51c482f6d1aa49fdc74a8f0e06291c5706"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-39_c259d55326.provenance.json",
+            "sha256": "45ba9e83549105994da8cb3df626a2b0811824ae6775190e934b947a24e4fed8"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-39_c259d55326.usda",
+            "sha256": "a847de1480e2e956e49490e04f1fdf749852a5b7457c9557979f7b6e9aa781d4"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-3_acab24e2b6.provenance.json",
+            "sha256": "02e6e67f862a1916351c30f25e84d1973fed992027363bd7aef85c2d3f83a8f5"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-3_acab24e2b6.usda",
+            "sha256": "df669d856488379eaf51d3ab3a90040453758eade139a76d8eac8a4a1f8f22ac"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-3_acab24e2b6_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-40_d491b734c1.provenance.json",
+            "sha256": "e18f40ee7b37dae0378c1936f30c8366abd97b79f042937e20bab5be5bfba6a8"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-40_d491b734c1.usda",
+            "sha256": "459b90e5ef2d668f8cc966d261ac950be0fff418014899fefa06c93d7e54d6b3"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-41_e2e866efa8.provenance.json",
+            "sha256": "f3bdc6befbf71557383b82cf7cf3acf69b15a34f2ae92a12b0b6fb27b2aefdc9"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-41_e2e866efa8.usda",
+            "sha256": "18a8e67cfc56380fe908ff8db4dc56db17bf64d9c84bc69ec08c7eaf9756e392"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-42_c443a61775.provenance.json",
+            "sha256": "ff99e851a4bbc9140c272a68447a02631b18810b82871daaa0ce6fa04e7f8624"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-42_c443a61775.usda",
+            "sha256": "91749ed869a2f82ce1eda4cce7b4dad84d4015a2d03d2d5fde98dbaa97856502"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-43_03d3195e41.provenance.json",
+            "sha256": "d00cd27fdd5ab0202b2a529996f17077a8338dfb4ceb22ab3d0e6c13f8834131"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-43_03d3195e41.usda",
+            "sha256": "b3be592422c6f3076775c5a3569f62fb83468f572b84ad28af55d7fc0cb9cfd6"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-44_7b0e860cd5.provenance.json",
+            "sha256": "1b0547dadb795616e915096b393ca097abbe1a89c07753900a4c3cd77819c87e"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-44_7b0e860cd5.usda",
+            "sha256": "2ae753d0f1e159cdf586aac222f3cb86f20f63dbeb155d7afd9be2d084c8466b"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-46_f4540e83c5.provenance.json",
+            "sha256": "56afca1d9fe3e8deb29242c68eb18c16220900e85e6ef2b2d60bc3aeead50328"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-46_f4540e83c5.usda",
+            "sha256": "8b1a6fb889e04d9c2d81d1468d3dd8519768f4dcbf586c84b7a5b79d2c6c08dc"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-47_023624550f.provenance.json",
+            "sha256": "208c73303c176f4722b7b208806f57174fe624f8599cf2010871d88b84442a82"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-47_023624550f.usda",
+            "sha256": "9736eb20414b8a32ead240b11d327d118b9c9deb648ec0ed8fb45870f294e9d8"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-48_f6b220a741.provenance.json",
+            "sha256": "048d82534009ff022ff4d0a0df04636c063d56940633d24469355d50b5ea5519"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-48_f6b220a741.usda",
+            "sha256": "0c8b27549b84f09a9e65de8d87b8551da579697b32150e6983a2f0007aca25bc"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-4_28176b29d8.provenance.json",
+            "sha256": "eb43497c151168001ca8e73aa7c943e0a2abf1c6ab33443083805453926ff1e2"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-4_28176b29d8.usda",
+            "sha256": "2c382582eaa4656c6ccb7a28226d32f3be865d5786ae1c377d21ac5ed7b4af4c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-4_28176b29d8_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-50_7d43a19b21.provenance.json",
+            "sha256": "d3acd8a27d70873f3faa2e6de5d2d6de03612ccaf6150be122af9d495cb2d49a"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-50_7d43a19b21.usda",
+            "sha256": "701a530803b0c537fb904dc9b99e6a7775529298c0e604e84e01c7c99a709216"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-50_7d43a19b21_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-53_867c96df86.provenance.json",
+            "sha256": "4da210c3f175ca2d07b6b3b1701b8017b6dc1e338adc1b65d65eaeff6820018b"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-53_867c96df86.usda",
+            "sha256": "f5f0b0d5189cd22a0d8bc1c2dbb58ee32fcfdceeda95efda438fe9c5d2f769dc"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-54_f01e5d3bbe.provenance.json",
+            "sha256": "aecc43f9543cc65ecc5edba9402817ac24d7f7f1ef4626549294434be0d84377"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-54_f01e5d3bbe.usda",
+            "sha256": "acde1fa1ea4cea5c76ee053ce9d199c61e73d0999cdca6dd958207e561e32622"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-55_29f6d289ae.provenance.json",
+            "sha256": "6fb6132548290d66dfb9cf0f32e7d29a487f8f15a081f705789b019e3c2d5ebf"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-55_29f6d289ae.usda",
+            "sha256": "546fecd53633935fe28f39f0613b5b9d534713ce770c105e20c8e70888d2e209"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-56_22d175e34f.provenance.json",
+            "sha256": "5131c0817004042b3d4e0272f0a4c48803acd38d080662b2cd77ecf27c327765"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-56_22d175e34f.usda",
+            "sha256": "f035984ded1abe3bc14d967e4aba302a4513cf6c51771484c867a1ab1f0a4f93"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-57_818122b13b.provenance.json",
+            "sha256": "b0e05c8fbc19b8cfd96b040c8810e4bc2c2499866fb8e60bb14557920bd5bdcd"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-57_818122b13b.usda",
+            "sha256": "61a5fd1101cf377bca094baa936c32eb8336347098880dbacffdec61e7430cd0"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-58_502eb5fcce.provenance.json",
+            "sha256": "2293264146493126dfac0f0fa912f1ac32efb6c7319e3b705a1ca8a5a142385c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-58_502eb5fcce.usda",
+            "sha256": "69dc31c15a9723a82a84d5eca7af7a326134425959d42d5f397d93b741468f57"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-59_5dcb87bcb6.provenance.json",
+            "sha256": "219bb854aeb3f5426e75bf062eb2450598607c656b59bf40692ac3222f46563f"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-59_5dcb87bcb6.usda",
+            "sha256": "611877a473c8d5ee849cbb496d1d550f72f4a3b2145e79cceb5a79a001164aef"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-60_6ed63d7430.provenance.json",
+            "sha256": "0bf540a2dfbf53eda344bd47d7bc1f311f06b8ed96942d22d3ec438d61874530"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-60_6ed63d7430.usda",
+            "sha256": "5bad09ccaecfeadb817087744e93e41debdf20f64dc64aed208775279ca6a83c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-62_3541927aa0.provenance.json",
+            "sha256": "f89db0022b7352e9f62f793b62cd4502d08b82026dc01bd82e1067f27690f003"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-62_3541927aa0.usda",
+            "sha256": "4cb9a03fdc43b3839d75ef69f0183f374ebe18ba4b38113eb43f20231687edc6"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-63_84c39aea3b.provenance.json",
+            "sha256": "f6a79d62118dc06bcd26f8334404ce08b0c749f221ba9b075ef0f13677ef5a22"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-63_84c39aea3b.usda",
+            "sha256": "be7e7ad9932f9645462230b46bbe9027c64ea7dbf4defc097ed11a198b03f148"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-64_75810dd9c1.provenance.json",
+            "sha256": "fe9e1d290b3581d0ceb0ff12c26b4504a901bb8aa041420de41eab8097602b5b"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-64_75810dd9c1.usda",
+            "sha256": "3b75143cf0d1c6015b8bea4438a5c3301e1e5c5517a17185e6d9038e5431cfdf"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-6_b1a6b63988.provenance.json",
+            "sha256": "d9407845b27ffcea7271857f9bbf44a16c58363ecce30c5c829252476588f1ff"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-6_b1a6b63988.usda",
+            "sha256": "952bd2cd1185e51cfb67b14e0231c35e1ac8da00fa0adcc3aa4456e1a7bfbc2a"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-6_b1a6b63988_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-7_af226926ee.provenance.json",
+            "sha256": "c75240fb4ea9fb086ee4ea43259f342dceb1b3773b6838fdcc27fb1251c31004"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-7_af226926ee.usda",
+            "sha256": "2f3ebfdd22977f9a54ca420c98e1aa1de8f0c1e7295c696a9495745a8b68a023"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-7_af226926ee_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-9_aa50a5b628.provenance.json",
+            "sha256": "1e54dc5dad02267ea23b2fa4a5700a65b33fe7aaf465e8b0065222ed9e813c5b"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-9_aa50a5b628.usda",
+            "sha256": "57020fb0e6b650cd0812b487c20eafe85052819d5436c1a83bb5d9d5f33412b7"
+          },
+          {
+            "relative_path": "E30/cabinet_three_drawers_parts/original-9_aa50a5b628_textures/8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c.png",
+            "sha256": "8052082fedf17f34bb31ce6ec3d4262fa3cd363404d7c6be3f751dd38601ed2c"
+          }
+        ],
+        "adaptations": [
+          "Remove upper 1 drawer bodies and their joints.",
+          "Trim original housing side/back source triangles at retained tier height.",
+          "Translate original top-panel meshes down; preserve original bottom panel.",
+          "Bake uniform .6 reduction into geometry, body frames and prismatic limits.",
+          "Recolor retained lower drawer blue, upper drawer red; place cabinet bottom at local Z=0.",
+          "Merge original surfaces only within each source semantic board to preserve measured thickness; use one convex collider per real board. Keep each handle segment separate and preserve every cavity.",
+          "Explicit passive PhysX joint friction 0.5 on each prismatic drawer joint; no drive/spring or state writes added."
+        ],
+        "physics_verified": false,
+        "gpu_used": false,
+        "identity_fidelity": "source-derived toy-scale drawer assembly; video comparison and rendered seams pending",
+        "parent_asset_sha256": "463a20a71f06e4241d36260c7e34d4c2ed252d34df21b12b730b034576b3d208",
+        "collision_board_diff": [
+          {
+            "body": "link_0",
+            "source_semantic_part": "vertical_side_panel-32",
+            "source_vertex_count": 84,
+            "hull_vertices": 8,
+            "volume_m3": 0.00010002638907960666,
+            "body_local_bounds": [
+              [
+                0.06468951774803065,
+                -0.13012796082652048,
+                -0.07020269968907833
+              ],
+              [
+                0.06901459267187882,
+                0.044237500678573155,
+                0.06243301821250391
+              ]
+            ]
+          },
+          {
+            "body": "link_0",
+            "source_semantic_part": "vertical_side_panel-33",
+            "source_vertex_count": 84,
+            "hull_vertices": 8,
+            "volume_m3": 0.00010002638907960687,
+            "body_local_bounds": [
+              [
+                -0.06938800283828785,
+                -0.13012796082652045,
+                -0.07020269968907834
+              ],
+              [
+                -0.06506292791443968,
+                0.04423750067857313,
+                0.06243301821250391
+              ]
+            ]
+          },
+          {
+            "body": "link_0",
+            "source_semantic_part": "back_panel-34",
+            "source_vertex_count": 84,
+            "hull_vertices": 8,
+            "volume_m3": 3.153739876964816e-05,
+            "body_local_bounds": [
+              [
+                -0.0650629279144397,
+                -0.1243610783899598,
+                -0.06587762476523018
+              ],
+              [
+                0.06468951774803067,
+                0.04423751033452561,
+                -0.06443598623168612
+              ]
+            ]
+          },
+          {
+            "body": "link_0",
+            "source_semantic_part": "bottom_panel-35",
+            "source_vertex_count": 48,
+            "hull_vertices": 8,
+            "volume_m3": 9.924694398953295e-05,
+            "body_local_bounds": [
+              [
+                -0.06506292791443968,
+                -0.13012796082652048,
+                -0.07020269968907833
+              ],
+              [
+                0.06468951774803067,
+                -0.1243610783899598,
+                0.06243301821250391
+              ]
+            ]
+          },
+          {
+            "body": "link_0",
+            "source_semantic_part": "top_panel-36",
+            "source_vertex_count": 48,
+            "hull_vertices": 8,
+            "volume_m3": 9.924411897890428e-05,
+            "body_local_bounds": [
+              [
+                -0.0650629279144397,
+                0.038470784013467485,
+                -0.07020269968907833
+              ],
+              [
+                0.06468951774803067,
+                0.04423750229883597,
+                0.06243301821250391
+              ]
+            ]
+          },
+          {
+            "body": "link_0",
+            "source_semantic_part": "frame_horizontal_bar-38",
+            "source_vertex_count": 48,
+            "hull_vertices": 8,
+            "volume_m3": 1.6181171616723016e-05,
+            "body_local_bounds": [
+              [
+                -0.06506292791443968,
+                -0.1243610783899598,
+                -0.07020269968907834
+              ],
+              [
+                0.06468951774803067,
+                -0.09552735177978278,
+                -0.06587762476523018
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_front-25",
+            "source_vertex_count": 96,
+            "hull_vertices": 12,
+            "volume_m3": 8.340784602487218e-05,
+            "body_local_bounds": [
+              [
+                -0.06902755096010971,
+                -0.13012796082652045,
+                0.0595468250477662
+              ],
+              [
+                0.06865414079370069,
+                -0.043665964851161476,
+                0.06711854501453018
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_side-26",
+            "source_vertex_count": 32,
+            "hull_vertices": 8,
+            "volume_m3": 2.162333404098619e-05,
+            "body_local_bounds": [
+              [
+                -0.062179486696159365,
+                -0.12209081912214614,
+                -0.058672024720751274
+              ],
+              [
+                -0.059296050305855275,
+                -0.05865631448606301,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_side-27",
+            "source_vertex_count": 32,
+            "hull_vertices": 8,
+            "volume_m3": 2.1622103045888087e-05,
+            "body_local_bounds": [
+              [
+                0.05892280429063844,
+                -0.12209081912214614,
+                -0.058672024720751274
+              ],
+              [
+                0.061806076529750335,
+                -0.05865631448606301,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_back-28",
+            "source_vertex_count": 48,
+            "hull_vertices": 8,
+            "volume_m3": 2.2678187900103082e-05,
+            "body_local_bounds": [
+              [
+                -0.062179486696159365,
+                -0.12209081912214614,
+                -0.061555465939031606
+              ],
+              [
+                0.06180624068094253,
+                -0.05865631448606301,
+                -0.058672024720751274
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_bottom-29",
+            "source_vertex_count": 16,
+            "hull_vertices": 8,
+            "volume_m3": 2.0147835870364368e-05,
+            "body_local_bounds": [
+              [
+                -0.059296050305855275,
+                -0.12064901160943363,
+                -0.058672024720751274
+              ],
+              [
+                0.05892280429063844,
+                -0.1192073779038658,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "handle-24_7",
+            "source_vertex_count": 20,
+            "hull_vertices": 10,
+            "volume_m3": 4.840125450790239e-07,
+            "body_local_bounds": [
+              [
+                -0.048909093941167825,
+                -0.055573777183555606,
+                0.07280020884246063
+              ],
+              [
+                0.04902913674242448,
+                -0.052831438398895245,
+                0.07540824781202461
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "handle-24_8",
+            "source_vertex_count": 78,
+            "hull_vertices": 20,
+            "volume_m3": 1.550973515840461e-07,
+            "body_local_bounds": [
+              [
+                0.04902913674242447,
+                -0.055573777183555606,
+                0.06711854501453018
+              ],
+              [
+                0.0605627278084011,
+                -0.05283143839889526,
+                0.0754082478120246
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "handle-24_9",
+            "source_vertex_count": 78,
+            "hull_vertices": 20,
+            "volume_m3": 1.5509790669341035e-07,
+            "body_local_bounds": [
+              [
+                -0.06044268500714445,
+                -0.055573777183555606,
+                0.06711854501453018
+              ],
+              [
+                -0.04890909394116782,
+                -0.052831438398895245,
+                0.07540824781202461
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_rails-30",
+            "source_vertex_count": 88,
+            "hull_vertices": 8,
+            "volume_m3": 1.8961585791026048e-06,
+            "body_local_bounds": [
+              [
+                0.061806076529750335,
+                -0.11906109022376297,
+                -0.06155546593903161
+              ],
+              [
+                0.06396861399167442,
+                -0.11198913821758792,
+                0.06243026626604653
+              ]
+            ]
+          },
+          {
+            "body": "link_1",
+            "source_semantic_part": "drawer_rails-31",
+            "source_vertex_count": 88,
+            "hull_vertices": 8,
+            "volume_m3": 1.896158579102614e-06,
+            "body_local_bounds": [
+              [
+                -0.06434202415808345,
+                -0.11906109022376297,
+                -0.06155546593903161
+              ],
+              [
+                -0.06217948669615936,
+                -0.11198913821758792,
+                0.06243026626604653
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_front-16",
+            "source_vertex_count": 96,
+            "hull_vertices": 12,
+            "volume_m3": 8.340771230021066e-05,
+            "body_local_bounds": [
+              [
+                -0.06902755096010972,
+                -0.04294523007397366,
+                0.0595468250477662
+              ],
+              [
+                0.06865414079370069,
+                0.043516601750193146,
+                0.0671185450145302
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_side-17",
+            "source_vertex_count": 32,
+            "hull_vertices": 8,
+            "volume_m3": 2.1622102223063097e-05,
+            "body_local_bounds": [
+              [
+                0.058922804290638446,
+                -0.03490808354162313,
+                -0.058672024720751274
+              ],
+              [
+                0.06180607652975034,
+                0.028526418680471927,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_side-18",
+            "source_vertex_count": 32,
+            "hull_vertices": 8,
+            "volume_m3": 2.1623333218114217e-05,
+            "body_local_bounds": [
+              [
+                -0.06217948669615936,
+                -0.03490808354162313,
+                -0.058672024720751274
+              ],
+              [
+                -0.05929605030585527,
+                0.028526418680471927,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_back-19",
+            "source_vertex_count": 48,
+            "hull_vertices": 8,
+            "volume_m3": 2.2678187037088927e-05,
+            "body_local_bounds": [
+              [
+                -0.06217948669615936,
+                -0.03490808354162313,
+                -0.061555465939031606
+              ],
+              [
+                0.06180624068094254,
+                0.028526418680471927,
+                -0.058672024720751274
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_bottom-20",
+            "source_vertex_count": 16,
+            "hull_vertices": 8,
+            "volume_m3": 2.014786960753093e-05,
+            "body_local_bounds": [
+              [
+                -0.05929605030585527,
+                -0.03346628327087499,
+                -0.058672024720751274
+              ],
+              [
+                0.058922804290638446,
+                -0.032024647151319044,
+                0.0595468250477662
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "handle-15_7",
+            "source_vertex_count": 78,
+            "hull_vertices": 20,
+            "volume_m3": 1.5509783491582431e-07,
+            "body_local_bounds": [
+              [
+                -0.06044268500714444,
+                0.03160895356899118,
+                0.06711854501453018
+              ],
+              [
+                -0.04890909394116782,
+                0.03435128993966341,
+                0.0754082478120246
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "handle-15_8",
+            "source_vertex_count": 20,
+            "hull_vertices": 10,
+            "volume_m3": 4.840124273242359e-07,
+            "body_local_bounds": [
+              [
+                -0.048909093941167825,
+                0.03160895356899118,
+                0.07280020884246062
+              ],
+              [
+                0.04902913674242448,
+                0.03435128993966344,
+                0.0754082478120246
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "handle-15_9",
+            "source_vertex_count": 78,
+            "hull_vertices": 20,
+            "volume_m3": 1.5509730498763268e-07,
+            "body_local_bounds": [
+              [
+                0.04902913674242447,
+                0.03160895356899121,
+                0.06711854501453017
+              ],
+              [
+                0.0605627278084011,
+                0.03435128993966344,
+                0.07540824781202458
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_rails-21",
+            "source_vertex_count": 88,
+            "hull_vertices": 8,
+            "volume_m3": 1.8961572846073142e-06,
+            "body_local_bounds": [
+              [
+                0.061806076529750335,
+                -0.031878359471216214,
+                -0.061555465939031606
+              ],
+              [
+                0.06396861399167442,
+                -0.024806412293017388,
+                0.06243026626604653
+              ]
+            ]
+          },
+          {
+            "body": "link_2",
+            "source_semantic_part": "drawer_rails-22",
+            "source_vertex_count": 88,
+            "hull_vertices": 8,
+            "volume_m3": 1.8961572846073142e-06,
+            "body_local_bounds": [
+              [
+                -0.06434202415808343,
+                -0.031878359471216214,
+                -0.061555465939031606
+              ],
+              [
+                -0.06217948669615936,
+                -0.024806412293017388,
+                0.06243026626604653
+              ]
+            ]
+          }
+        ],
+        "joint_friction": {
+          "coefficient": 0.5,
+          "paths": [
+            "/Asset/Joints/joint_1",
+            "/Asset/Joints/joint_2"
+          ],
+          "mechanism": "PhysxJointAPI.physxJoint:jointFriction"
+        },
+        "supersedes": "cabinet_2_tier_v2"
+      },
+      "source_sha256": "5fda0eee3704c225d31a066701009cce8d9721008ea6e424ea2b0ebba000aecc",
+      "new_collision_components": 5,
+      "base_lift_m": 0.05,
+      "source_collision_and_joints_unchanged": true,
+      "side_clearance_m": 0.002,
+      "top_clearance_m": 0.006,
+      "top_front_asset_x_m": -0.06243301928043367,
+      "top_front_setback_from_handle_m": 0.012975230813026414,
+      "side_thickness_m": 0.01,
+      "native_verified": false,
+      "source_joint_axes": [
+        {
+          "joint": "/Asset/Joints/joint_1",
+          "axis_asset": [
+            -0.9999999999999993,
+            3.422854166768019e-08,
+            -3.800131518205962e-24
+          ],
+          "limits": [
+            0.0,
+            0.10692000389099121
+          ]
+        },
+        {
+          "joint": "/Asset/Joints/joint_2",
+          "axis_asset": [
+            -0.9999999999999993,
+            3.422854166768019e-08,
+            -3.800131518205962e-24
+          ],
+          "limits": [
+            0.0,
+            0.10692000389099121
+          ]
+        }
+      ]
+    }
+  ],
+  "source_collision_bounds": [
+    [
+      -0.07540825009346008,
+      -0.06901459395885468,
+      -7.896438225518665e-10
+    ],
+    [
+      0.07020270079374313,
+      0.06938800215721132,
+      0.17436547498416752
+    ]
+  ]
+}

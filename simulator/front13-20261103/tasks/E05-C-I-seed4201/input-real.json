@@ -1,0 +1,42 @@
+{
+  "input_condition": "real",
+  "assignment_identity_sha256": "22b5c3ea5b81c63b677c0bcfef721ffb0b02773c4a22a1b70ac8e5520cbc5ee1",
+  "public_task": {
+    "task": "E05",
+    "title": "形状块与图形配对",
+    "instruction": "按示范中物体形状与图形的对应关系，摆放全部三个物体。",
+    "revision": "embodied50-execution-v3-20261102",
+    "order": {}
+  },
+  "rule_qa": {
+    "local_rule_unchanged": true,
+    "question_bank": "embodied-rule-qa-v1",
+    "assignment_identity_sha256": "22b5c3ea5b81c63b677c0bcfef721ffb0b02773c4a22a1b70ac8e5520cbc5ee1",
+    "fresh_first_answer_required": true,
+    "reuse_previous_assignment_answer": false
+  },
+  "qa_public_packet": {
+    "packet_id": "qp_ebc0cc825f3136ecd0d3",
+    "question_id": "rq_d49ac3307802",
+    "prompt": "视频中方块、球和三角块分别放到哪些图形标记处？",
+    "options": {
+      "A": "方块→方形；球→圆形；三角块→三角形。",
+      "B": "方块→方形；球→三角形；三角块→圆形。",
+      "C": "方块→圆；球→三角；三角→方。",
+      "D": "方块→三角；球→方；三角→圆。"
+    },
+    "response_instruction": "只输出一个大写选项字母：A、B、C或D。"
+  },
+  "demo_scope": "local_rule_only",
+  "model_launch_enabled": false,
+  "media_status": "real packaged; sim requires explicit reviewed binding",
+  "media": {
+    "task": "E05",
+    "variant": "C",
+    "input": "real",
+    "path": "media/real/E05/C.mp4",
+    "sha256": "2a733422e4cd5e2b6ae4b77f790c5279b262cfcc2bcb826d581cce20fc24a69d",
+    "scope": "local_rule_only",
+    "source_sha256": "d2dab6a5e166df621876889c93be4685b6b0b30b8d4939e6d159d5f40e035aca"
+  }
+}

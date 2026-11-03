@@ -1,0 +1,42 @@
+{
+  "input_condition": "real",
+  "assignment_identity_sha256": "1d63adf7baf669d4824050dab3b0165c39624cd9c13681e73da9153eae95e2df",
+  "public_task": {
+    "task": "E13",
+    "title": "手机支架姿态",
+    "instruction": "按示范的手机朝向，把手机放稳在支架上；以支架开口侧判断左右。",
+    "revision": "embodied50-execution-v3-20261102",
+    "order": {}
+  },
+  "rule_qa": {
+    "local_rule_unchanged": true,
+    "question_bank": "embodied-rule-qa-v1",
+    "assignment_identity_sha256": "1d63adf7baf669d4824050dab3b0165c39624cd9c13681e73da9153eae95e2df",
+    "fresh_first_answer_required": true,
+    "reuse_previous_assignment_answer": false
+  },
+  "qa_public_packet": {
+    "packet_id": "qp_8e97bc11ab2b1832c203",
+    "question_id": "rq_ea645ac88800",
+    "prompt": "从支架开口观看侧看，视频中手机如何放在支架上？",
+    "options": {
+      "A": "横放，后摄像头端朝左。",
+      "B": "横放，后摄像头端朝右。",
+      "C": "竖放，后摄像头端朝上。",
+      "D": "竖放，后摄像头端朝下。"
+    },
+    "response_instruction": "只输出一个大写选项字母：A、B、C或D。"
+  },
+  "demo_scope": "local_rule_only",
+  "model_launch_enabled": false,
+  "media_status": "real packaged; sim requires explicit reviewed binding",
+  "media": {
+    "task": "E13",
+    "variant": "C",
+    "input": "real",
+    "path": "media/real/E13/C.mp4",
+    "sha256": "da07501fea236b836ee1999921eaf22a901fdea78f0733bddafa016a72bc73fe",
+    "scope": "local_rule_only",
+    "source_sha256": "68b91c7fa6566918e258b2bffea92f62856838b52e9ecda05ecc93746a111333"
+  }
+}

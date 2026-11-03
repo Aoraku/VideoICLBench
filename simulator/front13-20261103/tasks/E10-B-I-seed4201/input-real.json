@@ -1,0 +1,42 @@
+{
+  "input_condition": "real",
+  "assignment_identity_sha256": "e553d869b850854c4b509abc54f568d8fc2d439ccc57b15792c6b5c3e87eec67",
+  "public_task": {
+    "task": "E10",
+    "title": "按属性选择并套柱",
+    "instruction": "按示范的颜色、形状选择方式，把符合条件的零件套到匹配的立柱上，其余留在桌上。",
+    "revision": "embodied50-execution-v3-20261102",
+    "order": {}
+  },
+  "rule_qa": {
+    "local_rule_unchanged": true,
+    "question_bank": "embodied-rule-qa-v1",
+    "assignment_identity_sha256": "e553d869b850854c4b509abc54f568d8fc2d439ccc57b15792c6b5c3e87eec67",
+    "fresh_first_answer_required": true,
+    "reuse_previous_assignment_answer": false
+  },
+  "qa_public_packet": {
+    "packet_id": "qp_54bc031df04f8d13b697",
+    "question_id": "rq_df23b3a1fbbc",
+    "prompt": "视频中按什么属性选择零件套到柱上？",
+    "options": {
+      "A": "只套入同时为红色且为方形的零件，共1件。",
+      "B": "套入所有方形件，共3件。",
+      "C": "套入所有红色件，共3件。",
+      "D": "套入红色件或方形件，共5件；红方只处理一次。"
+    },
+    "response_instruction": "只输出一个大写选项字母：A、B、C或D。"
+  },
+  "demo_scope": "local_rule_only",
+  "model_launch_enabled": false,
+  "media_status": "real packaged; sim requires explicit reviewed binding",
+  "media": {
+    "task": "E10",
+    "variant": "B",
+    "input": "real",
+    "path": "media/real/E10/B.mp4",
+    "sha256": "993649c568cda6c828bf563ac91ee0f79cfeb6344edb4993f687f6211058a995",
+    "scope": "local_rule_only",
+    "source_sha256": "0f810c9383c1a5664ea7ac2308a861d890225a3a0102fe84820cdba657a02e2f"
+  }
+}

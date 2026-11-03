@@ -1,0 +1,10 @@
+{
+  "source": "RoboDojo-Audit/verification/task-design-revision-20261102/back25-e26-held-abc-e4201-v1/a-evidence/sealed-media",
+  "hashes": {
+    "reference-final-head.png": "b85a499896abb77c3d07ad3fd6dbe0908b577234bc821bdce58bd4e458bd8222",
+    "reference-final-left_wrist.png": "d3e8d3e0959fd39ca11590aef24309763cd505134b434cd41f462fc5695ad6ff",
+    "reference-final-right_wrist.png": "bb73bca12af56d1472f0bc653c4abb1bc5d46db3054ca93d454430df157720f2",
+    "reference-initial-head.png": "7196a750e49c35de83c99fa9188e628831ad563d3542dee8d0c0b16c9e7d3f3c"
+  },
+  "review": "All final images visibly show only a shaded wall; initial head shows the real task."
+}

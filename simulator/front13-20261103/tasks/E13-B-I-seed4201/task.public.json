@@ -1,0 +1,7 @@
+{
+  "task": "E13",
+  "title": "手机支架姿态",
+  "instruction": "按示范的手机朝向，把手机放稳在支架上；以支架开口侧判断左右。",
+  "revision": "embodied50-execution-v3-20261102",
+  "order": {}
+}

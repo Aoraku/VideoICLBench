@@ -1,0 +1,34 @@
+{
+  "input_condition": "text",
+  "assignment_identity_sha256": "82a2ddd9961c5cf48634a5b801e96d93b336890e44a3a3fd0c41f66990159c8c",
+  "public_task": {
+    "task": "E08",
+    "title": "鞋盒内朝向摆放",
+    "instruction": "按示范中鞋尖与鞋盒标签端的朝向关系，把两只鞋放入鞋盒。",
+    "revision": "embodied50-execution-v3-20261102",
+    "order": {}
+  },
+  "rule_qa": {
+    "local_rule_unchanged": true,
+    "question_bank": "embodied-rule-qa-v1",
+    "assignment_identity_sha256": "82a2ddd9961c5cf48634a5b801e96d93b336890e44a3a3fd0c41f66990159c8c",
+    "fresh_first_answer_required": true,
+    "reuse_previous_assignment_answer": false
+  },
+  "qa_public_packet": {
+    "packet_id": "qp_b8398eff6e084d0e09ad",
+    "question_id": "rq_09e9b3f3e402",
+    "prompt": "视频中两只鞋放入鞋盒后，鞋尖或鞋跟与标签端是什么关系？",
+    "options": {
+      "A": "两只鞋跟均朝标签端。",
+      "B": "左脚鞋尖朝标签端，右脚鞋跟朝标签端。",
+      "C": "左脚鞋跟朝鞋盒标签端，右脚鞋尖朝标签端。",
+      "D": "两只鞋尖均朝鞋盒标签端。"
+    },
+    "response_instruction": "只输出一个大写选项字母：A、B、C或D。"
+  },
+  "demo_scope": "local_rule_only",
+  "model_launch_enabled": false,
+  "media_status": "text rule available",
+  "text_rule": "两只鞋跟均朝标签端"
+}
