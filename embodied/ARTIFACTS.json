@@ -1,10 +1,10 @@
 {
   "repo_id": "JJimmyL/VideoICL-Embodied-Handoff-20261103",
   "repo_type": "dataset",
-  "private": true,
-  "revision": "main",
+  "private": false,
+  "revision": "a43cf0cf0c2f8601d7d39d9bab501f1da2e946b1",
   "workers": 16,
-  "upload_status": "in_progress",
+  "upload_status": "completed",
   "includes": [
     "g2-ur5-v1",
     "full50-current"
@@ -12,5 +12,8 @@
   "new_simulation_runs": 0,
   "storage": "individual files; concurrent downloads selected by FILE_MANIFEST.json",
   "file_manifest": "FILE_MANIFEST.json",
-  "upload_workers": 16
+  "upload_workers": 16,
+  "file_count": 4601,
+  "total_bytes": 1931216574,
+  "completed_unix": 1793719025.933033
 }
