@@ -9,12 +9,18 @@ if a.archive:archive=a.archive
 else:
  from huggingface_hub import hf_hub_download
  from concurrent.futures import ThreadPoolExecutor
- records=record.get('parts')
+ records=record.get('encoded_parts') or record.get('parts')
  if records:
   def fetch(row):
    f=Path(hf_hub_download(record['dataset'],row['path'],repo_type='dataset',revision=record.get('revision')))
-   if hashlib.sha256(f.read_bytes()).hexdigest()!=row['sha256']:raise ValueError('Asset part SHA256 mismatch')
-   return f
+   raw=f.read_bytes()
+   if row.get('encoding')=='base64':
+    import base64
+    raw=base64.b64decode(raw,validate=True)
+   if hashlib.sha256(raw).hexdigest()!=row['sha256']:raise ValueError('Asset part SHA256 mismatch')
+   cache=ROOT/'.asset-parts-cache';cache.mkdir(exist_ok=True)
+   target=cache/Path(row['path']).name;target.write_bytes(raw)
+   return target
   with ThreadPoolExecutor(max_workers=8)as pool:files=list(pool.map(fetch,records))
   archive=ROOT/'front13-assets-20261103-r1.tar.gz'
   with archive.open('wb')as output:
