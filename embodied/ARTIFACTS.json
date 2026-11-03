@@ -5,6 +5,12 @@
   "revision": "main",
   "workers": 16,
   "upload_status": "in_progress",
-  "includes": ["g2-ur5-v1", "full50-current"],
-  "new_simulation_runs": 0
+  "includes": [
+    "g2-ur5-v1",
+    "full50-current"
+  ],
+  "new_simulation_runs": 0,
+  "storage": "96 parallel tar.gz parts plus existing individual files",
+  "bundle_manifest": "BUNDLE_MANIFEST.json",
+  "upload_workers": 48
 }
