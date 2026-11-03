@@ -3,5 +3,10 @@
   "repo_type": "dataset",
   "sha256": "0d8ef88a8909b7828bb41d13b9f334a635fdcfe9bec2011e4a8bb7fc60e58251",
   "bytes": 281570432,
-  "storage": "single LFS archive"
+  "storage": "single LFS archive",
+  "path": "E01-E13/front13-assets-20261103-r1.tar.gz",
+  "private": true,
+  "files": 132,
+  "default_extraction_directory": "front13-assets",
+  "revision": "feb6525439092adbc02b5d441df2a39ee57cd03b"
 }
