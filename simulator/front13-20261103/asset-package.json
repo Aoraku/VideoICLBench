@@ -1,10 +1,53 @@
 {
-  "dataset": "JJimmyL/VideoICL-inference450-20261102",
+  "dataset": "JJimmyL/VideoICL-Embodied-Handoff-20261103",
   "repo_type": "dataset",
   "private": true,
-  "path": "deliveries/front13-20261103-r1/front13-assets-20261103-r1.tar.gz",
+  "path": "E01-E13/front13-assets-20261103-r1.tar.gz",
   "sha256": "0d8ef88a8909b7828bb41d13b9f334a635fdcfe9bec2011e4a8bb7fc60e58251",
   "bytes": 281570432,
   "files": 132,
-  "default_extraction_directory": "front13-assets"
+  "default_extraction_directory": "front13-assets",
+  "parts": [
+    {
+      "path": "E01-E13/asset-parts/front13-assets-20261103-r1.tar.gz.part00",
+      "sha256": "60729118b9602168439d3a6351def567d16b707292deca8b1e27d4f11feb9733",
+      "bytes": 37748736
+    },
+    {
+      "path": "E01-E13/asset-parts/front13-assets-20261103-r1.tar.gz.part01",
+      "sha256": "2725dafc0c40c40956b50ba9b50ff0901b8fbec24de71b29e9f00908cb723a9e",
+      "bytes": 37748736
+    },
+    {
+      "path": "E01-E13/asset-parts/front13-assets-20261103-r1.tar.gz.part02",
+      "sha256": "f8761aa90d33eabcf9e06f52d7de4312eea4472ae3d20e8494d165ec06facb2f",
+      "bytes": 37748736
+    },
+    {
+      "path": "E01-E13/asset-parts/front13-assets-20261103-r1.tar.gz.part03",
+      "sha256": "ac4bf4cd77132c110ef171b4abeb8bd43a10e77b5affee5e8b75d91b1a020d32",
+      "bytes": 37748736
+    },
+    {
+      "path": "E01-E13/asset-parts/front13-assets-20261103-r1.tar.gz.part04",
+      "sha256": "cd21dea344369e03b064315983bd015d1532748a8bff82359cd847d72b5694aa",
+      "bytes": 37748736
+    },
+    {
+      "path": "E01-E13/asset-parts/front13-assets-20261103-r1.tar.gz.part05",
+      "sha256": "bd8374ede8532b6681013520c74ed3290b4b14e2f29a6a6d46599ed913f6e977",
+      "bytes": 37748736
+    },
+    {
+      "path": "E01-E13/asset-parts/front13-assets-20261103-r1.tar.gz.part06",
+      "sha256": "079751045b8723f1bc256f39b3a33dc77537eefffa9231d5d3a7d7a407039198",
+      "bytes": 37748736
+    },
+    {
+      "path": "E01-E13/asset-parts/front13-assets-20261103-r1.tar.gz.part07",
+      "sha256": "f5b502820c046ab72def828da47eb0bc3f325e2a04fca31eda197e311559df16",
+      "bytes": 17329280
+    }
+  ],
+  "download_parallelism": 8
 }

@@ -8,7 +8,21 @@ record=json.loads((ROOT/'asset-package.json').read_text())
 if a.archive:archive=a.archive
 else:
  from huggingface_hub import hf_hub_download
- archive=Path(hf_hub_download(record['dataset'],record['path'],repo_type='dataset',revision=record.get('revision')))
+ from concurrent.futures import ThreadPoolExecutor
+ records=record.get('parts')
+ if records:
+  def fetch(row):
+   f=Path(hf_hub_download(record['dataset'],row['path'],repo_type='dataset',revision=record.get('revision')))
+   if hashlib.sha256(f.read_bytes()).hexdigest()!=row['sha256']:raise ValueError('Asset part SHA256 mismatch')
+   return f
+  with ThreadPoolExecutor(max_workers=8)as pool:files=list(pool.map(fetch,records))
+  archive=ROOT/'front13-assets-20261103-r1.tar.gz'
+  with archive.open('wb')as output:
+   for f in files:
+    with f.open('rb')as stream:
+     import shutil
+     shutil.copyfileobj(stream,output)
+ else:archive=Path(hf_hub_download(record['dataset'],record['path'],repo_type='dataset',revision=record.get('revision')))
 if hashlib.sha256(archive.read_bytes()).hexdigest()!=record['sha256']:raise SystemExit('Asset package SHA256 mismatch')
 target=a.destination.expanduser().resolve();target.mkdir(parents=True,exist_ok=True)
 if(target/'front13-assets').exists():raise SystemExit('Destination front13-assets already exists; preserve it or choose another directory')

@@ -50,3 +50,6 @@ python run_front13.py serve --task E02 --variant A --out runs/e02-a-model-env
 - `acceptance.json`中的`native_single_world_score_100=null`表示该完整身份尚无单世界整体成绩；检查点链的功能通过不合成100分。
 
 原生评分逻辑、原始物体和ABC核心规则保留。工程参考作者放宽的是中途私有精度/稳定等待；精确原生评分照实记录。模型正式450评测仍暂停，本交付不修改旧批次或既有运行世界。
+
+
+统一数据地址：https://huggingface.co/datasets/JJimmyL/VideoICL-Embodied-Handoff-20261103/tree/main/E01-E13 。下载器并行取8个分片并自动合并。
