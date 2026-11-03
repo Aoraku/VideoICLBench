@@ -1,17 +1,21 @@
 {
   "schema": "front13-code-checksums-v1",
   "files": {
+    ".gitignore": {
+      "sha256": "35715305089dd03c7cca40460b61cbfe9940496d5cb8cff0e6b69cdd31872435",
+      "bytes": 73
+    },
     "README.md": {
-      "sha256": "32898dddbaede868db6f55aaeca69ca54044346f0a3fa5ce56ccba638e461c86",
-      "bytes": 4429
+      "sha256": "0baa0540aa678007d778adf1f33b3be7cb1645f77a39b2812da2f4685d4a8d35",
+      "bytes": 4595
     },
     "acceptance.json": {
       "sha256": "ddea93754c13c9d1290521711249a906b59b65b82d1a288bebb0e81ab84951b0",
       "bytes": 10495
     },
     "asset-package.json": {
-      "sha256": "778cb74ece1c11ab55d632b5d56ef6112ae9f0c286cf90a928dc350b81991ebf",
-      "bytes": 351
+      "sha256": "7f1c8709d25f2e77debc57e418272f8184fe232a7ada9876eb96037ccd51c39a",
+      "bytes": 1970
     },
     "bindings/I.json": {
       "sha256": "cbb50f64f9b51aadee3213fafff9ad6f58d0bbc77a835530a6c0a9fae7410780",
@@ -22,8 +26,8 @@
       "bytes": 1238940
     },
     "download_assets.py": {
-      "sha256": "6c6edfd46a35eeca95b4cffff2b8922ecc4e284d864d175b2cb9d43671d21d87",
-      "bytes": 1609
+      "sha256": "6d5e489c6ce8153a4b2b9ea71b75496d91db977c7ea602d01f13152b8cec1b60",
+      "bytes": 2238
     },
     "media.json": {
       "sha256": "85a2dd5a845f8a98db09b0098c00bbc9ff665b791f968bb01ee4ffab2abadacc",
@@ -4880,6 +4884,10 @@
     "tasks/E13-C-I-seed4201/task.public.json": {
       "sha256": "5154280b0a692bfa82b270552d4fc548dad6af58a7fe280250546bca8242deca",
       "bytes": 229
+    },
+    "validation.json": {
+      "sha256": "898bf5c33dbe0fd590bb1cd94d76feaae0cb30ad7d34eba16ec9b3e1be3b9b19",
+      "bytes": 386
     }
   }
 }
