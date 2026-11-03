@@ -227,4 +227,6 @@ python fetch_assets.py --workers 16
 # 只下载最初UR5十题：python fetch_assets.py --g2-only --workers 16
 ```
 
+下载器按 HF 的 `FILE_MANIFEST.json` 并发下载独立文件，可重复执行；`--g2-only` 只下载十题所需文件，不下载其余任务或整包分卷。文件按清单核对大小和 SHA256 后原子写入 `embodied/`，保留 GitHub 中现有的代码、配置和说明版本。
+
 资产下载回`embodied/`后，按十题目录内`run.py`说明运行。全量当前快照保留修改中状态，不宣称全部已验收。本轮仅上传，未启动仿真或模型验收。

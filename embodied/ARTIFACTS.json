@@ -10,7 +10,7 @@
     "full50-current"
   ],
   "new_simulation_runs": 0,
-  "storage": "96 parallel tar.gz parts plus existing individual files",
-  "bundle_manifest": "BUNDLE_MANIFEST.json",
-  "upload_workers": 48
+  "storage": "individual files; concurrent downloads selected by FILE_MANIFEST.json",
+  "file_manifest": "FILE_MANIFEST.json",
+  "upload_workers": 16
 }
