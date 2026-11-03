@@ -1,5 +1,7 @@
 # VideoICL-Bench
 
+2026-11-03 具身交付入口：请使用 [UR5 十题的 `run.py`](embodied/g2-ur5-v1/README.md)。该入口显式设置 1,050,000 token 窗口、945,000 原生 compact 阈值、500 物理动作和无 episode 时间上限。[本轮 harness 检查记录](embodied/g2-ur5-v1/HARNESS_AUDIT.md)区分了离线检查与实际模型服务支持范围。其余通用平台命令沿用各自默认设置。
+
 VideoICL-Bench 为人类录制者和 GUI Agent 提供统一的应用、任务、截图输入、录像和状态评测平台。
 
 应用界面预览与来源见 [应用界面](docs/native-frontends.md)。

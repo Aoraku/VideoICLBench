@@ -24,7 +24,7 @@
 ## 下载
 
 ```bash
-git clone --single-branch --branch codex/g2-ur5-handoff-20261103 \
+git clone --single-branch --branch codex/embodied-all-handoff-20261103 \
   git@github.com:Aoraku/VideoICLBench.git
 cd VideoICLBench/embodied/g2-ur5-v1
 ```
@@ -72,6 +72,8 @@ CUDA_VISIBLE_DEVICES=0 .venv/bin/python run.py \
 换题时改 `--task`，换规则时改 `--variant A/B/C`，换输入时改 `--condition real/sim/text_rule`。每次使用新的输出目录；脚本不会覆盖或重启已有实验。
 
 默认：**500个物理动作、无episode时间上限、原生compact、1,050,000 context window /945,000自动压缩阈值、program_gui、high effort**。实际API必须支持所选模型和窗口。`--ca-bundle`可指定中转站TLS证书，`--experience`可指定本机IsaacSim5.0的`.kit`文件。暂时只想获取命令可加 `--print-command`，只生成启动JSON，不占GPU、不调用API。
+
+请使用本目录 `run.py`，它显式覆盖底层通用脚本的历史默认值；直接调用底层脚本时需要自行传入上述参数。[harness 检查记录](HARNESS_AUDIT.md)列明本轮离线检查及实际服务端能力边界。
 
 模型先通过demo工具查看原示范，再答一道四选一QA，然后操作仿真。QA首次有效答案持久化，错误答案也继续执行；正确性只供离线统计，不反馈给模型。三种条件均有各自绑定，QA答案在控制侧`evaluator/qa-bindings.json`，不放入模型工作目录。
 
