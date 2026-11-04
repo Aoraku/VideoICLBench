@@ -133,7 +133,9 @@ GET  /v1/runs/{run_id}/evidence
 
 `check_native_ui.py` 从应用入口导航并操作原应用或新增产品界面；`check_application_ui.py` 仅检查开发诊断控件，不能证明原应用录制可用。模型执行协议为截图与键鼠输入。界面与验收范围见 [应用界面](docs/native-frontends.md)，操作说明见 [录制指南](docs/recording-guide.md)，架构见 [业务模型](docs/implementation-scope.md)。
 
-## 原生 Codex / Claude Code 执行
+## 原生 CLI 执行
+
+新增 Gemini CLI、dsh、ZCode、Kimi Code CLI 四种适配，通用入口与具身包共用协议。安装版本、API 协议、1M/原生 compact、恢复范围和已知限制见 [多 CLI 接入说明](docs/native-cli-adapters.md)。四种真实 CLI 的本地假服务测试已覆盖 MCP 图像与同 session 续接；真实模型服务和长跑恢复需要另行确认。
 
 `scripts/native_agent.py` 启动本机安装的原生 `codex exec` 或 `claude -p`。模型请求、历史维护、工具循环、自动压缩和 session 恢复均由原生 CLI 负责。共享的 `vic-computer` MCP 只提供平台截图、坐标键鼠操作、指定视频抽帧和结束声明。
 

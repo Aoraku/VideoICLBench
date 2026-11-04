@@ -2,6 +2,8 @@
 
 # 原版 G2：UR5 十题交付
 
+2026-11-04：启动入口新增 `--engine gemini/dsh/zcode/kimi`，沿用原 CLI 的历史和 compact。固定版本、配置示例、原生图像测试与自动恢复的当前边界见 [多 CLI 接入说明](../../docs/native-cli-adapters.md)。默认仍为 Codex；新接入不修改原任务与 QA。
+
 这是最初已迁移到 **双 UR5 + WSG 夹爪、蓝灰色新桌面** 的十题：
 
 |题号|推理场景|

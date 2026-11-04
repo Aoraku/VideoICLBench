@@ -7,11 +7,14 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "packages/sdk"))
 
 from vic_sdk.embodied_agent import run
+from vic_sdk.native_cli_engines import ENGINES
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("engine", choices=["codex", "claude"])
+    parser.add_argument("engine", choices=ENGINES)
+    parser.add_argument('--native-context-window', type=int)
+    parser.add_argument('--native-compact-tokens', type=int)
     parser.add_argument("--embodied-task-dir", type=Path, required=True)
     parser.add_argument("--embodied-connection", type=Path, required=True)
     parser.add_argument("--embodied-harness", choices=["gui", "program_gui"], default="gui", help="Opt-in episode-local GUI programs; default: gui")

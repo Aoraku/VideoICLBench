@@ -25,6 +25,7 @@ import uuid
 import httpx
 
 from .native_agent import codex_config, cli_command, private_json, summarize, execution_status
+from . import native_cli_engines
 from .embodied_recovery import (failure_class, resolve_session, recover_control, append_ledger,
                                 checked_barrier, reconcile_pending, retire_exited_cli_tools,
                                 stream_identity_and_completion)
@@ -230,8 +231,8 @@ def run(args):
         raise ValueError('Unknown embodied harness')
     transport_contract, transport_version = TRANSPORT_CONTRACT, TRANSPORT_CONTRACT_VERSION
     if harness == 'program_gui':
-        if args.engine != 'codex':
-            raise ValueError('The experimental program GUI adapter currently supports Codex only')
+        if args.engine not in native_cli_engines.ENGINES:
+            raise ValueError('Unknown native engine for program GUI')
         from .embodied_program_gui import PROGRAM_INSTRUCTIONS, PROGRAM_VERSION
         transport_contract += '\n\n' + PROGRAM_INSTRUCTIONS
         transport_version += '+' + PROGRAM_VERSION
@@ -293,7 +294,9 @@ def run(args):
                     transport_backoff_seconds=[5, 300], quota_backoff_seconds=[300, 1800]),
                 "developer_transport_contract": dict(version=transport_version,
                     sha256=hashlib.sha256(transport_contract.encode()).hexdigest(),
-                    enabled=args.engine == 'codex', task_information_added=False),
+                    enabled=args.engine == 'codex' or args.engine in native_cli_engines.EXTRA_ENGINES,
+                    transport='developer_config' if args.engine == 'codex' else 'stdin_prompt',
+                    task_information_added=False),
                 "gui_controls_sha256": spec['gui_controls']['sha256'],
                 "gui_viewport": computer['gui_viewport'],
                 "budgets": {"time_limit_seconds": args.timeout or None, "time_limit_enabled": args.timeout > 0, "clock": 'effective_time_excluding_native_service' if graceful_budget else 'wall_time',
@@ -340,10 +343,17 @@ def run(args):
         private_json(profile / "hooks.json", hooks)
         if provider.get("native_auth", False):
             private_json(profile / "auth.json", {"auth_mode": "apikey", "OPENAI_API_KEY": key})
-    else:
+    elif args.engine == 'claude':
         claude_server = {name: server[name] for name in ('command', 'args', 'env')}
         private_json(profile / "mcp.json", {"mcpServers": {"vic": claude_server}})
         private_json(profile / "settings.json", hooks)
+    else:
+        metadata['native_cli_adapter'] = native_cli_engines.configure(args.engine, profile, workspace, model, server,
+            {**provider, 'api_key': key, 'base_url': base_url}, native_cli_engines.options_from_args(args, provider))
+        receipt = metadata['native_cli_adapter']
+        metadata['compaction'] = dict(implementation='native ' + args.engine,
+            context_window=receipt.get('context_window'), threshold_tokens=receipt.get('compact_tokens'),
+            custom_history_reconstruction=False, independent_episode_session=True)
     compact = getattr(args, "claude_compact_percent", None)
     if compact is not None and not 1 <= compact <= 95:
         raise ValueError("Claude compaction percentage must be 1..95")
@@ -352,9 +362,13 @@ def run(args):
         serial_tools=getattr(args, "serial_tools", False))
     if args.engine == "codex":
         env["VIC_MODEL_API_KEY"] = key
-    else:
+    elif args.engine == 'claude':
         env.update(ANTHROPIC_BASE_URL=base_url, ANTHROPIC_AUTH_TOKEN=key)
         env['MCP_TOOL_TIMEOUT'] = str(server['tool_timeout_sec'] * 1000)
+    if args.engine in native_cli_engines.EXTRA_ENGINES:
+        metadata['cli_version'] = native_cli_engines.binary_version(args.engine,
+            getattr(args, 'binary', None) or provider.get('binary'), env=env)
+        private_json(out / 'manifest.json', metadata)
     result = {"engine": args.engine, "evaluation": None, "outcome": "environment_error",
               "validation_only": validation_only, "scientific_evaluation": ready,
               'native_attempts': [], 'recovery': dict(enabled=auto_recover, attempt_count=0,
@@ -403,6 +417,8 @@ def run(args):
             # Public assignment only. GUI affordances teach interaction; limits
             # remain enforced by the controller rather than narrated to the model.
             prompt = instruction + "\n\n" + QA_INSTRUCTIONS
+            if args.engine in native_cli_engines.EXTRA_ENGINES:
+                prompt = transport_contract + '\n\n' + prompt
             if args.condition == "text_rule":
                 rule = state.get("text_rule")
                 if not isinstance(rule, str) or not rule.strip():

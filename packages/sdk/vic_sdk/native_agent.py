@@ -1,4 +1,4 @@
-"""Launch unmodified Codex/Claude Code CLIs with a private computer MCP.
+"""Launch native model CLIs with a private computer MCP.
 
 The native CLI owns all model calls, history, tool loops and compaction.
 This module only prepares a run, starts the CLI and preserves its evidence.
@@ -21,6 +21,7 @@ import time
 import uuid
 
 import httpx
+from . import native_cli_engines
 
 ROOT = Path(__file__).resolve().parents[3]
 
@@ -48,7 +49,7 @@ def execution_status(result, *, environment_error=False, timed_out=False):
 def clean_env():
     # Deliberately do not inherit this developer's agent/session/provider settings.
     keep = {"PATH", "HOME", "USER", "TMPDIR", "LANG", "LC_ALL", "SHELL", "SYSTEMROOT",
-            "SSL_CERT_FILE", "SSL_CERT_DIR", "HTTP_PROXY", "HTTPS_PROXY", "ALL_PROXY", "NO_PROXY"}
+            "SSL_CERT_FILE", "SSL_CERT_DIR", "NODE_EXTRA_CA_CERTS", "HTTP_PROXY", "HTTPS_PROXY", "ALL_PROXY", "NO_PROXY"}
     return {k: v for k, v in os.environ.items() if k in keep}
 
 
@@ -79,6 +80,12 @@ def codex_config(model, base_url, server, compact_tokens=None, native_auth=False
 
 def cli_command(engine, profile, workspace, model, server, *, resume=None, compact=None, budget=1.0, binary=None, serial_tools=False):
     env = clean_env()
+    if engine in native_cli_engines.EXTRA_ENGINES:
+        cmd, extra = native_cli_engines.command(engine, profile, workspace, model, binary=binary, resume=resume)
+        env.update(extra)
+        return cmd, env
+    if engine not in ('codex', 'claude'):
+        raise ValueError('Unknown native CLI engine: ' + str(engine))
     if engine == "codex":
         # CODEX_HOME is used for its documented purpose, only in the child process.
         env["CODEX_HOME"] = str(profile)
@@ -113,6 +120,8 @@ def cli_command(engine, profile, workspace, model, server, *, resume=None, compa
 
 
 def summarize(engine: str, output: Path, profile: Path, session_id=None):
+    if engine in native_cli_engines.EXTRA_ENGINES:
+        return native_cli_engines.summarize(engine, output, profile, session_id)
     result = {"engine": engine, "session_id": session_id, "final_text": "", "compaction_events": [],
               "tool_calls": [], "errors": [], "usage": None}
     for line in output.read_text().splitlines():
@@ -172,7 +181,14 @@ def run(args):
     base_url = args.base_url or provider.get("base_url")
     if not api_key or not base_url:
         raise ValueError("Provide --base-url and --api-key-env, or a private credentials JSON file")
-    model = args.model or provider.get("model") or {"codex": "gpt-5.6-luna", "claude": "claude-sonnet-4-6"}[args.engine]
+    model = args.model or provider.get("model") or {"codex": "gpt-5.6-luna", "claude": "claude-sonnet-4-6"}.get(args.engine)
+    if not model:
+        raise ValueError('Choose an explicit model for the native CLI')
+    if args.engine in native_cli_engines.EXTRA_ENGINES:
+        native_cli_engines.preflight(args.engine, model,
+            {**provider, 'api_key': api_key, 'base_url': base_url},
+            native_cli_engines.options_from_args(args, provider),
+            binary=args.binary or provider.get('binary'), env=clean_env())
     if args.resume:
         output_dir = args.resume.resolve()
         meta = json.loads((output_dir / "manifest.json").read_text())
@@ -270,9 +286,13 @@ def run(args):
         private_json(profile / "hooks.json", hook_settings)
         if native_auth:
             private_json(profile / "auth.json", {"auth_mode": "apikey", "OPENAI_API_KEY": api_key})
-    else:
+    elif args.engine == 'claude':
         private_json(profile / "mcp.json", {"mcpServers": {"vic": server}})
         private_json(profile / "settings.json", hook_settings)
+    else:
+        meta['native_cli_adapter'] = native_cli_engines.configure(args.engine, profile, workspace, model, server,
+            {**provider, 'api_key': api_key, 'base_url': base_url},
+            native_cli_engines.options_from_args(args, provider))
     cmd, env = cli_command(args.engine, profile, workspace, model, server,
                             resume=session_id, compact=compact, budget=args.max_budget_usd,
                             binary=args.binary or provider.get("binary"),
@@ -280,7 +300,7 @@ def run(args):
     meta["serial_tools_instruction"] = getattr(args, "serial_tools", False) or provider.get("serial_tools", False)
     if args.engine == "codex":
         env["VIC_MODEL_API_KEY"] = api_key
-    else:
+    elif args.engine == 'claude':
         env.update(ANTHROPIC_BASE_URL=base_url, ANTHROPIC_AUTH_TOKEN=api_key)
     prompt = args.prompt or (
         "Use only the vic computer tools to operate the real application. "
@@ -297,7 +317,9 @@ def run(args):
     index = len(list(output_dir.glob("stdout-*.jsonl"))) + 1
     stdout, stderr = output_dir / f"stdout-{index}.jsonl", output_dir / f"stderr-{index}.log"
     (output_dir / f"prompt-{index}.txt").write_text(prompt)
-    version = subprocess.check_output([cmd[0], "--version"], text=True).strip()
+    version = (native_cli_engines.binary_version(args.engine, args.binary or provider.get("binary"), env=env)
+               if args.engine in native_cli_engines.EXTRA_ENGINES else
+               subprocess.check_output([cmd[0], "--version"], text=True).strip())
     meta["cli_version"] = version
     private_json(output_dir / "manifest.json", meta)
     print(f"Starting {version}; model={model}; artifacts={output_dir}", flush=True)
@@ -394,7 +416,9 @@ def evaluate_result(args, computer_config, meta, result):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("engine", choices=["codex", "claude"])
+    p.add_argument("engine", choices=native_cli_engines.ENGINES)
+    p.add_argument('--native-context-window', type=int)
+    p.add_argument('--native-compact-tokens', type=int)
     p.add_argument("--model")
     p.add_argument("--code-mode", action="store_true", help="Enable native Codex Code Mode for gateways requiring that tool transport")
     p.add_argument("--lift-tool-images", action="store_true", help="CC only: compatibility for gateways dropping nested tool_result images; no pixel or history changes")

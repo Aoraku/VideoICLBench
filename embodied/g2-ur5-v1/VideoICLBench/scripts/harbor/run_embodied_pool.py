@@ -27,6 +27,7 @@ from vic_sdk.process_lifecycle import ProcessIdentity, alive, identity, terminat
 from vic_sdk.process_identity import named_python_command
 from native_collision_admission import assert_native_collision_admission
 from vic_sdk.direct_tools import validate_context_window, validate_model_catalog, SUPPORTED_NATIVE_CLI_VERSIONS
+from vic_sdk import native_cli_engines
 
 
 class Stopped(RuntimeError):
@@ -119,6 +120,10 @@ def room_agent_command(args, package, folder, condition, credentials):
         '--effort',args.effort,'--codex-compact-tokens',args.codex_compact_tokens,'--output-root',folder/'agent','--allow-unvalidated-environment']
     if getattr(args, 'codex_context_window', None) is not None:
         command += ['--codex-context-window', args.codex_context_window]
+    for option, name in [('--native-context-window', 'native_context_window'), ('--native-compact-tokens', 'native_compact_tokens')]:
+        value = getattr(args, name, None)
+        if value is not None:
+            command += [option, value]
     if not getattr(args, 'lean_text_projection', True):
         command += ['--no-lean-text-projection']
     if args.embodied_auto_recover:
@@ -154,7 +159,9 @@ def main():
     p.add_argument('--browser-path', type=Path)
     p.add_argument('--model')
     p.add_argument('--condition', choices=['real','sim','text_rule'], default='text_rule')
-    p.add_argument('--engine', choices=['codex','claude'], default='codex')
+    p.add_argument('--engine', choices=native_cli_engines.ENGINES, default='codex')
+    p.add_argument('--native-context-window', type=int)
+    p.add_argument('--native-compact-tokens', type=int)
     p.add_argument('--embodied-harness', choices=['gui','program_gui'], default='gui',
                    help='Opt-in episode-local GUI programs; default: gui')
     p.add_argument('--effort', default='high')
@@ -180,8 +187,8 @@ def main():
     args = p.parse_args()
     if args.unknown_api_policy == 'resume_closed_unknown' and (args.timeout != 0 or args.probe_only or not args.embodied_auto_recover or args.engine != 'codex'):
         p.error('Closed unknown recovery requires timeout 0 and an auto-recovering Codex model run')
-    if args.embodied_harness == 'program_gui' and (args.probe_only or args.engine != 'codex'):
-        p.error('program_gui requires a Codex model run')
+    if args.embodied_harness == 'program_gui' and args.probe_only:
+        p.error('program_gui requires a native model run')
     if args.api_concurrency_config:
         if args.probe_only or not args.provider_ca_bundle:
             p.error('API concurrency admission requires a model run through the verified provider relay')
@@ -197,6 +204,17 @@ def main():
     if args.codex_compact_tokens <= 0: p.error('codex-compact-tokens must be positive')
     if not args.probe_only and not all((args.credentials,args.binary,args.model)):
         p.error('Model execution requires explicit --credentials, --binary and --model')
+    if not args.probe_only and args.engine in native_cli_engines.EXTRA_ENGINES:
+        # Validate local installation and protocol before allocating a world.
+        from vic_sdk.native_agent import clean_env
+        try:
+            providers = json.loads(args.credentials.read_text())
+            provider = providers[args.engine]
+            native_cli_engines.preflight(args.engine, args.model, provider,
+                native_cli_engines.options_from_args(args, provider), binary=args.binary,
+                server={'command': str(args.gui_python), 'args': []}, env=clean_env())
+        except (ValueError, OSError, KeyError, subprocess.SubprocessError) as error:
+            p.error('Native CLI preflight failed (' + type(error).__name__ + '); no world created')
     if not args.probe_only and args.engine == 'codex':
         if args.codex_model_catalog is None:
             p.error('Codex execution requires a pinned model catalog before native startup')

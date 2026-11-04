@@ -81,3 +81,30 @@ def test_existing_trial_is_rejected(launcher, tmp_path, monkeypatch):
     with pytest.raises(SystemExit, match='2'):
         launcher.main()
     assert not (tmp_path / '.trial-launch').exists()
+
+
+@pytest.mark.parametrize('engine', ['gemini', 'dsh', 'zcode', 'kimi'])
+def test_extra_cli_preview_has_native_context_without_codex_relay(launcher, tmp_path, monkeypatch, engine):
+    args = arguments(tmp_path)
+    index = args.index('--ca-bundle')
+    del args[index:index+2]
+    args += ['--engine', engine, '--binary', '/unused/'+engine,
+             '--model', 'explicit-native-model', '--print-command']
+    monkeypatch.setattr(launcher.sys, 'argv', args)
+    assert launcher.main() == 0
+    record = json.loads((tmp_path/'.trial-launch/launch.json').read_text())
+    command = record['command']
+    assert command[command.index('--engine')+1] == engine
+    assert command[command.index('--native-context-window')+1] == '1050000'
+    assert command[command.index('--native-compact-tokens')+1] == '945000'
+    assert command[command.index('--timeout')+1] == '0'
+    assert not {'--provider-ca-bundle', '--embodied-auto-recover', '--codex-model-catalog'} & set(command)
+    assert not (tmp_path/'trial').exists()
+
+
+def test_extra_cli_cannot_silently_use_codex_recovery(launcher, tmp_path, monkeypatch):
+    monkeypatch.setattr(launcher.sys, 'argv', arguments(tmp_path)+['--engine', 'dsh',
+        '--model', 'explicit-model', '--auto-recover', '--print-command'])
+    with pytest.raises(SystemExit, match='2'):
+        launcher.main()
+    assert not (tmp_path/'.trial-launch').exists()

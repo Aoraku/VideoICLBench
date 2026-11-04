@@ -1,5 +1,6 @@
 numpy>=1.26,<3
 mcp>=1.26,<2
+zstandard>=0.23,<1
 playwright>=1.51,<2
 pillow>=11,<13
 httpx>=0.28,<1

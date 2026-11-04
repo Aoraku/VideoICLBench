@@ -14,6 +14,7 @@ from vic_sdk.native_agent import clean_env, cli_command, codex_config, private_j
 
 
 def test_native_profiles_use_real_cli_and_no_custom_context_loop(tmp_path, monkeypatch):
+    monkeypatch.setattr("vic_sdk.native_agent.shutil.which", lambda name: "/test/bin/" + name)
     monkeypatch.setenv("OPENAI_API_KEY", "unrelated-secret")
     monkeypatch.setenv("VIC_ADMIN_TOKEN", "admin-secret")
     monkeypatch.setenv("CLAUDECODE", "parent-session")

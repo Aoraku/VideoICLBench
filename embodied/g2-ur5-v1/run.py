@@ -32,8 +32,10 @@ def main():
  p.add_argument('--native-python',required=True,type=Path,help='Python with Isaac Sim5.0 and IsaacLab')
  p.add_argument('--gui-python',type=Path,default=Path(sys.executable))
  p.add_argument('--credentials',type=Path,required=True,help='External private provider JSON, never committed')
- p.add_argument('--binary',default='codex')
- p.add_argument('--model',default='gpt-6-astra')
+ p.add_argument('--engine',choices=['codex','claude','gemini','dsh','zcode','kimi'],default='codex')
+ p.add_argument('--binary')
+ p.add_argument('--model')
+ p.add_argument('--auto-recover',action=argparse.BooleanOptionalAction,default=None)
  p.add_argument('--model-catalog',type=Path,default=ROOT/'config/model-catalog.json')
  p.add_argument('--ca-bundle',type=Path,help='Provider TLS CA bundle; defaults to certifi')
  p.add_argument('--browser-path',type=Path)
@@ -45,6 +47,12 @@ def main():
  p.add_argument('--print-command',action='store_true',help='Prepare launch files and print command only; no GPU/model/API')
  a=p.parse_args()
  if a.max_actions<1:p.error('max-actions must be positive')
+ if not a.model:
+  if a.engine=='codex':a.model='gpt-6-astra'
+  else:p.error('Choose the explicit provider model ID with --model')
+ recover=a.engine=='codex'if a.auto_recover is None else a.auto_recover
+ if recover and a.engine!='codex':p.error('Automatic provider recovery currently requires the Codex timing relay')
+ if a.ca_bundle and a.engine!='codex':p.error('For native CLI TLS use SSL_CERT_FILE/NODE_EXTRA_CA_CERTS; the Responses relay is Codex-only')
  out=a.out.expanduser().resolve()
  if out.exists():p.error('Use a new output directory; existing runs are never restarted or overwritten')
  launch=out.parent/('.'+out.name+'-launch')
@@ -56,22 +64,25 @@ def main():
  case=dict(episode_id=f'g2-{a.task.lower()}-{a.variant.lower()}-{a.condition}-s4201',task=a.task,variant=a.variant,seed=4201,
            input_condition=a.condition,bindings=str(ROOT/'runtime/inference-generalization-v1/g2-bindings.json'),robot=str(profile))
  cases=launch/'cases.json'
- binary=shutil.which(a.binary)or str(Path(a.binary).expanduser().resolve())
+ chosen_binary=a.binary or a.engine
+ binary=shutil.which(chosen_binary)or str(Path(chosen_binary).expanduser().resolve())
  ca=a.ca_bundle
- if ca is None:
+ if ca is None and a.engine=='codex':
   import certifi
   ca=Path(certifi.where())
  cmd=[str(a.gui_python.expanduser().resolve()),str(ROOT/'VideoICLBench/scripts/harbor/run_embodied_pool.py'),
       '--native-python',str(a.native_python.expanduser().resolve()),'--gui-python',str(a.gui_python.expanduser().resolve()),
       '--runtime-root',str(ROOT/'runtime'),'--task-root',str(ROOT/'tasks'),'--cases',str(cases),
       '--credentials',str(a.credentials.expanduser().resolve()),'--binary',binary,'--model',a.model,
-      '--condition',a.condition,'--engine','codex','--embodied-harness','program_gui','--effort','high',
+      '--condition',a.condition,'--engine',a.engine,'--embodied-harness','program_gui','--effort','high',
       '--max-actions',str(a.max_actions),'--timeout','0','--unknown-api-policy','preserve_world',
-      '--provider-ca-bundle',str(ca.expanduser().resolve()),'--embodied-auto-recover',
-      '--codex-context-window',str(a.context_window),'--codex-compact-tokens',str(a.compact_tokens),
-      '--codex-model-catalog',str(a.model_catalog.resolve()),'--codex-model-catalog-sha256',hashlib.sha256(a.model_catalog.read_bytes()).hexdigest(),
       '--epoch','g2-ur5-original-handoff-v1','--out',str(out),'--allow-unvalidated-environment',
       '--native-kit-args','--/renderer/multiGpu/enabled=false --/renderer/activeGpu=0 --/persistent/physics/useLocalMeshCache=false --/physics/cooking/ujitsoCollisionCooking=false --/physics/cooking/ujitsoRemoteCacheEnabled=false --/app/settings/persistent=false']
+ if a.engine=='codex':
+  cmd+=['--provider-ca-bundle',str(ca.expanduser().resolve()),'--codex-context-window',str(a.context_window),'--codex-compact-tokens',str(a.compact_tokens),
+        '--codex-model-catalog',str(a.model_catalog.resolve()),'--codex-model-catalog-sha256',hashlib.sha256(a.model_catalog.read_bytes()).hexdigest()]
+ else:cmd+=['--native-context-window',str(a.context_window),'--native-compact-tokens',str(a.compact_tokens)]
+ if recover:cmd+=['--embodied-auto-recover']
  if a.browser_path:cmd+=['--browser-path',str(a.browser_path.resolve())]
  if a.experience:cmd+=['--experience',str(a.experience.resolve())]
  launch_record=dict(command=cmd,environment_paths={k:env[k]for k in env if k.startswith('VIC_')and k.endswith(('ASSETS','USD'))},seed=4201,task=a.task,variant=a.variant,condition=a.condition,automatic_compact='native',credentials_included=False)

@@ -1,0 +1,102 @@
+{
+  "schema": "videoicl-native-cli-local-validation-v1",
+  "date": "2026-11-04",
+  "scope": "official native CLI with localhost fake provider and stdio MCP; no real model API or simulation",
+  "tests": {
+    "root_suite_passed": 78,
+    "root_suite_failures": 0,
+    "bundled_sdk_regression_passed": 27,
+    "bundled_suite_is_overlapping_subset": true
+  },
+  "real_model_api_calls": 0,
+  "rtx_calls": 0,
+  "actual_1m_payload_sent": false,
+  "synthetic_usage_used_for_native_compaction_trigger": true,
+  "automatic_embodied_world_recovery_engines": [
+    "codex"
+  ],
+  "adapters": [
+    {
+      "engine": "gemini",
+      "version": "0.32.1",
+      "native_fake_provider_verified": true,
+      "mcp_image_verified": true,
+      "gui_mcp_only_verified": true,
+      "same_native_session_resume_verified": true,
+      "native_automatic_compaction_verified": true,
+      "post_compact_tool_use_verified": true,
+      "real_provider_capability_verified": false,
+      "tested_protocol": "google_generate_content",
+      "configured_context_window": 1048576,
+      "configured_compact_tokens": 945000,
+      "module_sha256": "f896a9f9f7d6457b70e862c1c202470636f5dcd6f31eece1e91ddca8b0abdad8",
+      "resume_snapshot_retained": false,
+      "error_result_images_verified": false,
+      "usage_includes_returned_compaction_usage": true,
+      "post_compact_model_continuation_verified": true
+    },
+    {
+      "engine": "dsh",
+      "version": "0.2.1-rc.5",
+      "native_fake_provider_verified": true,
+      "mcp_image_verified": true,
+      "gui_mcp_only_verified": true,
+      "same_native_session_resume_verified": true,
+      "native_automatic_compaction_verified": true,
+      "post_compact_tool_use_verified": true,
+      "real_provider_capability_verified": false,
+      "tested_protocol": "anthropic_messages",
+      "configured_context_window": 1050000,
+      "configured_compact_tokens": 945000,
+      "module_sha256": "20404885a9aa3efa6d5a54aba019a6e53dd9d35dc012adf4b66bd0d6fa2724e7",
+      "usage_scope": "decision steps; compact usage separate from native zstd journal",
+      "log_decoder": "zstandard",
+      "post_compact_model_continuation_verified": true
+    },
+    {
+      "engine": "zcode",
+      "version": "0.17.1",
+      "native_fake_provider_verified": true,
+      "mcp_image_verified": true,
+      "gui_mcp_only_verified": true,
+      "same_native_session_resume_verified": true,
+      "native_automatic_compaction_verified": true,
+      "post_compact_tool_use_verified": true,
+      "real_provider_capability_verified": false,
+      "tested_protocol": "anthropic_messages",
+      "configured_context_window": 1050000,
+      "configured_compact_tokens": null,
+      "module_sha256": "1434c95c841fc6abb90b137b1dcd66909f531e39ff7b605d6841c22d1cafe0fa",
+      "source_commit": "a9fe401eede6e6e5e01be9048679c206fe6f02d9",
+      "requested_compact_tokens_not_applied": 945000,
+      "observed_native_compact_threshold": 1016000,
+      "raw_projection_window": 200000,
+      "model_event_window": 1050000,
+      "post_compact_model_continuation_verified": true
+    },
+    {
+      "engine": "kimi",
+      "version": "2.5.0",
+      "native_fake_provider_verified": true,
+      "mcp_image_verified": true,
+      "gui_mcp_only_verified": true,
+      "same_native_session_resume_verified": true,
+      "native_automatic_compaction_verified": true,
+      "post_compact_tool_use_verified": null,
+      "real_provider_capability_verified": false,
+      "tested_protocol": "chat_completions",
+      "configured_context_window": 1048576,
+      "configured_compact_tokens": 945000,
+      "module_sha256": "b681fa73db591b4be09b01dd329f63785d20fd5e2171d55c8e3293e75016b313",
+      "requested_context_window": 1050000,
+      "usage_scope": "attempt",
+      "resume_attempt_usage": {
+        "input_tokens": 50,
+        "cached_input_tokens": 10,
+        "output_tokens": 4
+      },
+      "session_usage_is_separate": true,
+      "post_compact_model_continuation_verified": true
+    }
+  ]
+}
