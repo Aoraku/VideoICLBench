@@ -37,7 +37,7 @@ def main():
     parser.add_argument("--codex-model-catalog-sha256", help="Exact SHA256 of the pinned native model catalog")
     parser.add_argument("--embodied-auto-recover", action="store_true", help="Recover the same Codex session and environment after transient provider failures")
     parser.add_argument("--code-mode", action="store_true")
-    parser.add_argument("--max-budget-usd", type=float, default=1.)
+    parser.add_argument("--max-budget-usd", type=float, default=1., help="Claude cost cap;0 disables this cap")
     parser.add_argument("--claude-compact-percent", type=int)
     parser.add_argument("--serial-tools", action="store_true")
     parser.add_argument("--preflight", action="store_true")

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Run one original G2 task/variant using the bundled native GUI harness."""
 from pathlib import Path
-import argparse,hashlib,json,os,shlex,shutil,stat,subprocess,sys
+import argparse,hashlib,json,math,os,shlex,shutil,stat,subprocess,sys
 ROOT=Path(__file__).resolve().parent
 TASKS=('E04','E05','E06','E07','E09','E11','E20','E36','E41','E49')
 
@@ -42,11 +42,14 @@ def main():
  p.add_argument('--experience',type=Path,help='Optional installed IsaacSim5.0 .kit experience')
  p.add_argument('--out',required=True,type=Path,help='New output directory for this independent run')
  p.add_argument('--max-actions',type=int,default=500)
- p.add_argument('--context-window',type=int,default=1050000)
+ p.add_argument('--max-budget-usd',type=float,default=0,help='Optional Claude dollar cap; default0 means no cost cap')
+ p.add_argument('--context-window',type=int,help='Defaults to the selected CLI/model maximum: Codex1050000, Claude1000000, Gemini/DSH/ZCode/Kimi1048576')
  p.add_argument('--compact-tokens',type=int,default=945000)
  p.add_argument('--print-command',action='store_true',help='Prepare launch files and print command only; no GPU/model/API')
  a=p.parse_args()
+ if a.context_window is None:a.context_window=1050000 if a.engine=='codex' else 1000000 if a.engine=='claude' else 1048576
  if a.max_actions<1:p.error('max-actions must be positive')
+ if not math.isfinite(a.max_budget_usd) or a.max_budget_usd<0:p.error('max-budget-usd must be finite and nonnegative;0 means no cap')
  if not a.model:
   if a.engine=='codex':a.model='gpt-6-astra'
   else:p.error('Choose the explicit provider model ID with --model')
@@ -82,6 +85,7 @@ def main():
   cmd+=['--provider-ca-bundle',str(ca.expanduser().resolve()),'--codex-context-window',str(a.context_window),'--codex-compact-tokens',str(a.compact_tokens),
         '--codex-model-catalog',str(a.model_catalog.resolve()),'--codex-model-catalog-sha256',hashlib.sha256(a.model_catalog.read_bytes()).hexdigest()]
  else:cmd+=['--native-context-window',str(a.context_window),'--native-compact-tokens',str(a.compact_tokens)]
+ if a.engine=='claude':cmd+=['--max-budget-usd',str(a.max_budget_usd)]
  if recover:cmd+=['--embodied-auto-recover']
  if a.browser_path:cmd+=['--browser-path',str(a.browser_path.resolve())]
  if a.experience:cmd+=['--experience',str(a.experience.resolve())]

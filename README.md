@@ -2,7 +2,7 @@
 
 2026-11-03 数据已上传至 [Hugging Face 数据集](https://huggingface.co/datasets/JJimmyL/VideoICL-Embodied-Handoff-20261103)：4,601 文件，约 1.93 GB。包含原 UR5 十题包及全部 50 题当前快照（含尚未验收的修改）。使用 `python fetch_assets.py --g2-only` 下载原十题资产；去掉 `--g2-only` 下载完整快照。下载入口已固定数据版本。
 
-2026-11-03 具身交付入口：请使用 [UR5 十题的 `run.py`](embodied/g2-ur5-v1/README.md)。该入口显式设置 1,050,000 token 窗口、945,000 原生 compact 阈值、500 物理动作和无 episode 时间上限。[本轮 harness 检查记录](embodied/g2-ur5-v1/HARNESS_AUDIT.md)区分了离线检查与实际模型服务支持范围。其余通用平台命令沿用各自默认设置。
+2026-11-03 具身交付入口：请使用 [UR5 十题的 `run.py`](embodied/g2-ur5-v1/README.md)。Codex 默认显式设置 1,050,000 token 窗口、945,000 原生 compact 阈值、500 物理动作和无 episode 时间上限。其他 CLI 的最大窗口和原生压缩策略见 [接入说明](docs/native-cli-adapters.md)。[本轮 harness 检查记录](embodied/g2-ur5-v1/HARNESS_AUDIT.md)区分了离线检查与实际模型服务支持范围。其余通用平台命令沿用各自默认设置。
 
 VideoICL-Bench 为人类录制者和 GUI Agent 提供统一的应用、任务、截图输入、录像和状态评测平台。
 

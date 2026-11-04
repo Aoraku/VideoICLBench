@@ -14,6 +14,12 @@ import tempfile
 EXTRA_ENGINES = ('gemini', 'dsh', 'zcode', 'kimi')
 ENGINES = ('codex', 'claude', *EXTRA_ENGINES)
 
+def claude_context_config(profile, model, options):
+    return import_module('.claude_context', __name__).configure(Path(profile), model, options)
+
+def claude_context_environment(profile, binary):
+    return import_module('.claude_context', __name__).environment(Path(profile), binary)
+
 def options_from_args(args, provider):
     options = dict(provider.get('cli_options') or {})
     requested = getattr(args, 'native_context_window', None)
@@ -22,7 +28,7 @@ def options_from_args(args, provider):
         options['context_window'] = requested
     if compact is not None:
         options['compact_tokens'] = compact
-    options.setdefault('context_window', 1050000)
+    options.setdefault('context_window', 1048576)
     options.setdefault('compact_tokens', 945000)
     options.setdefault('effort', getattr(args, 'effort', 'high'))
     return options

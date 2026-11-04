@@ -95,7 +95,7 @@ def test_extra_cli_preview_has_native_context_without_codex_relay(launcher, tmp_
     record = json.loads((tmp_path/'.trial-launch/launch.json').read_text())
     command = record['command']
     assert command[command.index('--engine')+1] == engine
-    assert command[command.index('--native-context-window')+1] == '1050000'
+    assert command[command.index('--native-context-window')+1] == '1048576'
     assert command[command.index('--native-compact-tokens')+1] == '945000'
     assert command[command.index('--timeout')+1] == '0'
     assert not {'--provider-ca-bundle', '--embodied-auto-recover', '--codex-model-catalog'} & set(command)
@@ -108,3 +108,14 @@ def test_extra_cli_cannot_silently_use_codex_recovery(launcher, tmp_path, monkey
     with pytest.raises(SystemExit, match='2'):
         launcher.main()
     assert not (tmp_path/'.trial-launch').exists()
+
+
+def test_claude_preview_explicitly_selects_its_maximum(launcher, tmp_path, monkeypatch):
+    args = arguments(tmp_path)
+    index = args.index('--ca-bundle');del args[index:index+2]
+    monkeypatch.setattr(launcher.sys, 'argv', args+['--engine', 'claude',
+        '--model', 'claude-opus-5-5', '--print-command'])
+    assert launcher.main() == 0
+    command = json.loads((tmp_path/'.trial-launch/launch.json').read_text())['command']
+    assert command[command.index('--native-context-window')+1] == '1000000'
+    assert command[command.index('--max-budget-usd')+1] == '0'

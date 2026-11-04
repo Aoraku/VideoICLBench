@@ -6,12 +6,14 @@ requires --prompt text, so a transparent exec launcher preserves stdin exactly.
 from __future__ import annotations
 
 import json
+import copy
 import os
 from pathlib import Path
 import sys
 
 if __package__:
-    from .dsh import _empty, _events, _options, _private_json, _provider, _native_compactions
+    from .dsh import (_empty, _events, _options, _private_json, _provider, _native_compactions,
+                      _model_context_window, MAX_MODEL_CONTEXT_WINDOW)
 else:  # Invoked directly only as the stdin-to-native-argv exec carrier.
     import importlib.util
     _spec = importlib.util.spec_from_file_location('vic_native_dsh_helpers', Path(__file__).with_name('dsh.py'))
@@ -20,6 +22,8 @@ else:  # Invoked directly only as the stdin-to-native-argv exec carrier.
     _empty, _events = _helpers._empty, _helpers._events
     _options, _private_json = _helpers._options, _helpers._private_json
     _provider, _native_compactions = _helpers._provider, _helpers._native_compactions
+    _model_context_window = _helpers._model_context_window
+    MAX_MODEL_CONTEXT_WINDOW = _helpers.MAX_MODEL_CONTEXT_WINDOW
 
 # Pinned-build outgoing tool schemas must still be checked: this is a deny list,
 # not a false claim that every future builtin/plugin tool is known here.
@@ -62,11 +66,9 @@ def configure(profile: Path, workspace: Path, model, server, provider, options=N
     # Current provider model rules are sparse overlays. Declare image transport
     # explicitly: the native fallback catalog otherwise strips tool-result PNGs.
     properties = {'inputFormat': {'supportsImage': True}}
-    window = opt.get('context_window')
-    if window is not None:
-        if type(window) is not int or window <= 0:
-            raise ValueError('context_window must be a positive integer')
-        properties['contextWindow'] = window
+    requested_window = opt.get('context_window')
+    window = _model_context_window(requested_window)
+    properties['contextWindow'] = window
     provider_config['config']['modelConfigRules']['providerModelRules'] = [
         dict(providerId='vic', modelId=model, config=dict(properties=properties))]
     # Optional full native rules remain supported without guessing reasoning maps.
@@ -76,7 +78,26 @@ def configure(profile: Path, workspace: Path, model, server, provider, options=N
             raise ValueError('native_model_rules must contain official model rule arrays')
         if any(not isinstance(value, list) for value in rules.values()):
             raise ValueError('Native model rule values must be arrays')
+        rules = copy.deepcopy(rules)
+        # A manual model rule also defines capacity. Apply the selected model's
+        # official ceiling and preserve explicitly smaller native limits.
+        for group in rules.values():
+            for rule in group:
+                if rule.get('providerId') != 'vic' or rule.get('modelId') != model:
+                    continue
+                prop = rule.get('config', {}).get('properties', {})
+                if prop.get('contextWindow') is not None:
+                    prop['contextWindow'] = _model_context_window(prop['contextWindow'])
+                    window = min(window, prop['contextWindow'])
         provider_config['config']['modelConfigRules'].update(rules)
+        target_rules = provider_config['config']['modelConfigRules']
+        target = next((rule for group in target_rules.values() for rule in group
+                       if rule.get('providerId') == 'vic' and rule.get('modelId') == model), None)
+        if target is None:
+            target = dict(providerId='vic', modelId=model, config=dict(properties={}))
+            target_rules['providerModelRules'].append(target)
+        target.setdefault('config', {}).setdefault('properties', {})['contextWindow'] = window
+        target['config']['properties'].setdefault('inputFormat', {})['supportsImage'] = True
     runtime = dict(features=dict(mcp=True, subagent=False, memory=False, skill=False, compact=True),
         memory=dict(use=False), plugins=dict(enabled=False), skills=dict(enabled=False),
         hooks=dict(enabled=False), mcp=dict(servers=dict(vic=dict(
@@ -89,6 +110,9 @@ def configure(profile: Path, workspace: Path, model, server, provider, options=N
         native_protocol=protocols[protocol], native_compact=True,
         requested_context_window=opt.get('context_window'), requested_compact_tokens=opt.get('compact_tokens'),
         context_window=window, compact_tokens=None, context_window_runtime_verified=False,
+        model_max_context_window=MAX_MODEL_CONTEXT_WINDOW,
+        context_window_mapping='legacy_1050000_to_official_1048576'
+        if requested_window == 1050000 else 'explicit_or_official_maximum',
         compact_tokens_status='Requested threshold is not applied: official headless config exposes native policy only',
         native_compact_threshold_formula='contextWindow - min(normalRequestMaxOutputTokens,21000) - 13000',
         context_configuration_status='native model rule configured; exact compact threshold uses native policy',

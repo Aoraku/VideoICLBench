@@ -22,6 +22,17 @@ DISABLED_ROWS = (
     'plugin-package-inventory-deepseek',
 )
 SUPPORTED_CLI_VERSION = '0.2.1-rc.5'
+MAX_MODEL_CONTEXT_WINDOW = 1048576
+
+
+def _model_context_window(requested=None):
+    """Honor smaller limits; the historical 1050000 spelling means the 1M tier."""
+    value = MAX_MODEL_CONTEXT_WINDOW if requested is None else _positive(requested, 'context_window')
+    if value == 1050000:
+        return MAX_MODEL_CONTEXT_WINDOW
+    if value > MAX_MODEL_CONTEXT_WINDOW:
+        raise ValueError('Selected official model supports at most 1048576 context tokens')
+    return value
 
 
 def _options(value):
@@ -132,10 +143,12 @@ def configure(profile: Path, workspace: Path, model, server, provider, options=N
         raise ValueError('An explicit native model ID is required')
     if not isinstance(server, dict) or not server.get('command'):
         raise ValueError('Exactly one stdio GUI MCP server is required')
-    window = _positive(opt.get('context_window', 1048576), 'context_window')
-    threshold = _positive(opt.get('compact_tokens', min(945000, int(window * .9))), 'compact_tokens')
+    requested_window = opt.get('context_window')
+    window = _model_context_window(requested_window)
     max_tokens = _positive(opt.get('max_output_tokens', 16384), 'max_output_tokens')
     headroom = _positive(opt.get('compact_headroom_tokens', 65536), 'compact_headroom_tokens')
+    threshold = _positive(opt.get('compact_tokens', min(945000, int(window * .9),
+                         window - max_tokens - headroom)), 'compact_tokens')
     if threshold >= window or threshold > window - max_tokens - headroom:
         raise ValueError('Compact threshold must leave native output and summary headroom')
     effort = opt.get('effort', 'high')
@@ -167,6 +180,9 @@ def configure(profile: Path, workspace: Path, model, server, provider, options=N
     _private_json(profile / 'provider.private.json', {'api_key': key})
     receipt = dict(engine='dsh', model=model, workspace=str(workspace), native_compact=True,
                    context_window=window, compact_tokens=threshold, gui_mcp_only_requested=True,
+                   requested_context_window=requested_window, model_max_context_window=MAX_MODEL_CONTEXT_WINDOW,
+                   context_window_mapping='legacy_1050000_to_official_1048576'
+                   if requested_window == 1050000 else 'explicit_or_official_maximum',
                    tool_surface_runtime_verified=False, provider_capability_verified=False,
                    native_protocol='anthropic-messages', cli_version=SUPPORTED_CLI_VERSION,
                    prompt_transport='stdin', credentials_in_receipt=False)

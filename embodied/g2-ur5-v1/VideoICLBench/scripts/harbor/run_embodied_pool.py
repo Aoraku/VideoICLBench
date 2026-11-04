@@ -9,6 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 import ctypes
 from dataclasses import asdict
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -118,6 +119,8 @@ def room_agent_command(args, package, folder, condition, credentials):
         '--condition',condition,'--max-actions',args.max_actions,'--timeout',args.timeout,
         '--credentials',credentials,'--binary',args.binary,'--model',args.model,
         '--effort',args.effort,'--codex-compact-tokens',args.codex_compact_tokens,'--output-root',folder/'agent','--allow-unvalidated-environment']
+    if args.engine == 'claude':
+        command += ['--max-budget-usd', getattr(args, 'max_budget_usd', 1.)]
     if getattr(args, 'codex_context_window', None) is not None:
         command += ['--codex-context-window', args.codex_context_window]
     for option, name in [('--native-context-window', 'native_context_window'), ('--native-compact-tokens', 'native_compact_tokens')]:
@@ -165,6 +168,7 @@ def main():
     p.add_argument('--embodied-harness', choices=['gui','program_gui'], default='gui',
                    help='Opt-in episode-local GUI programs; default: gui')
     p.add_argument('--effort', default='high')
+    p.add_argument('--max-budget-usd', type=float, default=1., help='Claude cost cap;0 disables it')
     p.add_argument('--codex-compact-tokens',type=int,default=32768)
     p.add_argument('--codex-context-window', type=int, help='Explicit native Codex context window; requires compatible pinned catalog')
     p.add_argument('--lean-text-projection', action=argparse.BooleanOptionalAction, default=True, help='Compact JSON output for new program_gui episodes; images and fields unchanged')
@@ -185,6 +189,8 @@ def main():
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--allow-unvalidated-environment', action='store_true', required=True)
     args = p.parse_args()
+    if not math.isfinite(args.max_budget_usd) or args.max_budget_usd < 0:
+        p.error('max-budget-usd must be finite and nonnegative;0 means no cap')
     if args.unknown_api_policy == 'resume_closed_unknown' and (args.timeout != 0 or args.probe_only or not args.embodied_auto_recover or args.engine != 'codex'):
         p.error('Closed unknown recovery requires timeout 0 and an auto-recovering Codex model run')
     if args.embodied_harness == 'program_gui' and args.probe_only:
@@ -215,6 +221,17 @@ def main():
                 server={'command': str(args.gui_python), 'args': []}, env=clean_env())
         except (ValueError, OSError, KeyError, subprocess.SubprocessError) as error:
             p.error('Native CLI preflight failed (' + type(error).__name__ + '); no world created')
+    if not args.probe_only and args.engine == 'claude':
+        import tempfile
+        try:
+            provider = json.loads(args.credentials.read_text())['claude']
+            if args.native_context_window is not None or 'context_window' in provider.get('cli_options', {}):
+                with tempfile.TemporaryDirectory(prefix='vic-claude-preflight-') as directory:
+                    native_cli_engines.claude_context_config(Path(directory), args.model,
+                        native_cli_engines.options_from_args(args, provider))
+                    native_cli_engines.claude_context_environment(Path(directory), args.binary)
+        except (ValueError, RuntimeError, OSError, KeyError, subprocess.SubprocessError) as error:
+            p.error('Claude context preflight failed (' + type(error).__name__ + '); no world created')
     if not args.probe_only and args.engine == 'codex':
         if args.codex_model_catalog is None:
             p.error('Codex execution requires a pinned model catalog before native startup')

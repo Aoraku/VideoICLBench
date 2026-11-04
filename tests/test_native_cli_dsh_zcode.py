@@ -40,6 +40,8 @@ class NativeDshZcodeContract(unittest.TestCase):
         llm = next(r['config'] for r in rows if r.get('id') == 'llm-deepseek')
         self.assertNotIn('protocol', llm)
         self.assertEqual(llm['models'][0]['inputModalities'], ['text', 'image'])
+        self.assertEqual(llm['models'][0]['contextWindow'], 1048576)
+        self.assertEqual(receipt['context_window_mapping'], 'legacy_1050000_to_official_1048576')
         self.assertEqual(llm['baseURL'], self.provider['base_url'])
         self.assertNotIn('offline-dummy', json.dumps(receipt))
         for p in profile.rglob('*'):
@@ -51,6 +53,8 @@ class NativeDshZcodeContract(unittest.TestCase):
                           dict(self.provider, wire_api='responses'), {})
         with self.assertRaises(ValueError): self.configure(dsh, compact_tokens=1040000)
         with self.assertRaises(ValueError): self.configure(dsh, cli_version='unknown-build')
+        with self.assertRaises(ValueError): self.configure(dsh, context_window=2000000)
+        self.assertEqual(self.configure(dsh, context_window=500000)['context_window'], 500000)
 
     def test_dsh_explicit_session_and_stdin(self):
         self.configure(dsh)
@@ -121,10 +125,10 @@ class NativeDshZcodeContract(unittest.TestCase):
         self.assertEqual(p['config']['defaultModelSelection']['modelId'], 'flash-model')
         self.assertEqual(p['config']['providerConfigRules']['providerRules'][0]['config']['api']['type'],
                          'anthropic-messages')
-        self.assertEqual(receipt['context_window'], 1050000)
+        self.assertEqual(receipt['context_window'], 1048576)
         self.assertIsNone(receipt['compact_tokens'])
         rule = p['config']['modelConfigRules']['providerModelRules'][0]
-        self.assertEqual(rule['config']['properties']['contextWindow'], 1050000)
+        self.assertEqual(rule['config']['properties']['contextWindow'], 1048576)
         self.assertTrue(rule['config']['properties']['inputFormat']['supportsImage'])
         self.assertNotIn('offline-dummy', json.dumps(receipt))
         runtime = json.loads((home / '.zcode/cli/config.json').read_text())
@@ -139,6 +143,19 @@ class NativeDshZcodeContract(unittest.TestCase):
         self.assertEqual(cmd[-2:], ['--resume', 's'])
         self.assertNotIn('--model', cmd)
         self.assertEqual(env['HOME'], str((self.root / 'zcode/home').resolve()))
+
+    def test_selected_model_maximum_and_explicit_smaller_native_rule(self):
+        self.assertEqual(self.configure(dsh)['context_window'], 1048576)
+        self.assertEqual(self.configure(zcode)['context_window'], 1048576)
+        with self.assertRaises(ValueError): self.configure(zcode, context_window=2000000)
+        receipt = self.configure(zcode, context_window=1048576, native_model_rules={
+            'providerModelRules': [{'providerId': 'vic', 'modelId': 'flash-model',
+                'config': {'properties': {'contextWindow': 400000}}}]})
+        self.assertEqual(receipt['context_window'], 400000)
+        with self.assertRaises(ValueError):
+            self.configure(zcode, native_model_rules={
+                'providerModelRules': [{'providerId': 'vic', 'modelId': 'flash-model',
+                    'config': {'properties': {'contextWindow': 2000000}}}]})
 
     def test_zcode_stdin_exec_preserves_unicode_newlines_and_no_shell(self):
         # Real local exec carrier, replacing the agent with a tiny argv recorder.

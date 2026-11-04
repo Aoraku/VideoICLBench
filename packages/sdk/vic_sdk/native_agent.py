@@ -104,14 +104,16 @@ def cli_command(engine, profile, workspace, model, server, *, resume=None, compa
                     "CLAUDE_CODE_ATTRIBUTION_HEADER": "0", "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1",
                     "ANTHROPIC_DEFAULT_HAIKU_MODEL": model,
                     "CLAUDE_AGENT_SDK_DISABLE_BUILTIN_AGENTS": "1"})
+        env.update(native_cli_engines.claude_context_environment(profile, binary or 'claude'))
         if compact is not None:
             env["CLAUDE_AUTOCOMPACT_PCT_OVERRIDE"] = str(compact)
         cmd = [str(binary or "claude"), "-p", "--model", model, "--tools", "", "--setting-sources", "",
                "--strict-mcp-config", "--mcp-config", str(profile / "mcp.json"),
                "--settings", str(profile / "settings.json"),
                "--disable-slash-commands", "--permission-mode", "dontAsk",
-               "--allowedTools", "mcp__vic__*", "--output-format", "stream-json", "--verbose",
-               "--max-budget-usd", str(budget)]
+               "--allowedTools", "mcp__vic__*", "--output-format", "stream-json", "--verbose"]
+        if budget is not None and budget != 0:
+            cmd += ["--max-budget-usd", str(budget)]
         if resume:
             cmd += ["--resume", resume]
         if serial_tools:
@@ -189,6 +191,12 @@ def run(args):
             {**provider, 'api_key': api_key, 'base_url': base_url},
             native_cli_engines.options_from_args(args, provider),
             binary=args.binary or provider.get('binary'), env=clean_env())
+    if args.engine == 'claude' and (getattr(args, 'native_context_window', None) is not None
+            or 'context_window' in provider.get('cli_options', {})):
+        with tempfile.TemporaryDirectory(prefix='vic-claude-preflight-') as directory:
+            native_cli_engines.claude_context_config(Path(directory), model,
+                native_cli_engines.options_from_args(args, provider))
+            native_cli_engines.claude_context_environment(Path(directory), args.binary or provider.get('binary') or 'claude')
     if args.resume:
         output_dir = args.resume.resolve()
         meta = json.loads((output_dir / "manifest.json").read_text())
@@ -289,6 +297,9 @@ def run(args):
     elif args.engine == 'claude':
         private_json(profile / "mcp.json", {"mcpServers": {"vic": server}})
         private_json(profile / "settings.json", hook_settings)
+        if getattr(args, 'native_context_window', None) is not None or 'context_window' in provider.get('cli_options', {}):
+            meta['native_context'] = native_cli_engines.claude_context_config(profile, model,
+                native_cli_engines.options_from_args(args, provider))
     else:
         meta['native_cli_adapter'] = native_cli_engines.configure(args.engine, profile, workspace, model, server,
             {**provider, 'api_key': api_key, 'base_url': base_url},

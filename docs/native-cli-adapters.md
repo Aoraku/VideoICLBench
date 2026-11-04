@@ -4,20 +4,35 @@
 
 ## 已验证范围
 
+当前选定模型按各自最大窗口配置，自动压缩保留原生实现：
+
+|CLI / 模型|最大窗口|自动压缩|
+|---|---|---|
+|Codex / GPT-6 Astra|1,050,000|945,000 token 触发|
+|Claude Code / Opus 5.5、Qwen3.8-Max|1,000,000|原生窗口扣除输出和压缩余量，通常约 967,000|
+|Gemini CLI / Gemini4Argon|1,048,576|945,000 token 触发|
+|dsh / DeepSeek-V4.1-Flash|1,048,576|945,000 token 触发|
+|ZCode / GLM-5.3-Flash|1,048,576|原生策略，本次约 1,014,576|
+|Kimi Code CLI / Kimi K3|1,048,576|945,000 token 触发|
+
+最大窗口和压缩阈值是两个参数：保留完整窗口，在满窗前预留下一次输出、工具返回和压缩所需空间。服务端模型名保持传入的原 ID，不为匹配文档改名。自定义网关的模型映射和套餐权限仍须支持这些上限；例如 Kimi 的 `k3-256k` 与仅开放 256K 的套餐不能因客户端配置而变成 1M。
+
+模型上限来源：[GPT-6 Astra](https://developers.openai.com/api/docs/models/gpt-6-astra)、[Codex 配置项](https://learn.chatgpt.com/docs/config-file/config-reference)、[Claude Opus 5.5](https://platform.claude.com/docs/en/models/opus-5-5/overview)、[Qwen3.8](https://qwen.ai/blog?id=qwen3.8)、[Gemini4Argon](https://aistudio.google.com/docs/models/gemini-4-argon)、[DeepSeek 官方模型配置](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/raw/main/config.json)、[GLM 官方模型配置](https://huggingface.co/zai-org/GLM-5.3-Flash/raw/main/config.json)、[Kimi K3](https://huggingface.co/moonshotai/Kimi-K3)。
+
 使用真实官方 CLI、仅监听 `127.0.0.1` 的假模型服务和 stdio MCP 验证了：工具名单、PNG 字节传递、原 session 恢复和用量读取。compact 压力测试用合成 usage 触发原生流程，没有发送实际 1M 输入。没有调用真实模型 API，也没有启动 RTX/仿真。这证明客户端集成可用，不证明任意中转站或模型支持图像、工具调用和 1M 上下文。
 
-离线套件 **78 项通过**；具身包内 SDK 副本另跑 27 项相同回归也通过（两者存在重叠，不合并计数）。版本和公开验证摘要见 [验证记录](reviews/native-cli-adapters-20261104.json)。
+离线套件 **101 项通过**；具身包内 SDK 副本另跑 48 项相同回归也通过（两者存在重叠，不合并计数）。版本和公开验证摘要见 [验证记录](reviews/native-cli-adapters-20261104.json)。
 
 |`--engine`|固定 CLI|模型协议|1M 配置与 compact|
 |---|---|---|---|
 |`gemini`|Gemini CLI `0.32.1`|Google GenerateContent|原生窗口 `1,048,576`，原生压缩触发阈值 `945,000`|
-|`dsh`|`@deepseek-ai/dsh@0.2.1-rc.5`|Messages-compatible|配置窗口 `1,050,000`、原生阈值 `945,000`，预留输出和摘要空间|
-|`zcode`|官方源码构建 `0.17.1`|原生 Messages / Chat Completions / Responses|配置窗口 `1,050,000`；阈值由原生策略计算，**没有应用 `945,000`**|
+|`dsh`|`@deepseek-ai/dsh@0.2.1-rc.5`|Messages-compatible|配置窗口 `1,048,576`、原生阈值 `945,000`，预留输出和摘要空间|
+|`zcode`|官方源码构建 `0.17.1`|原生 Messages / Chat Completions / Responses|配置窗口 `1,048,576`；阈值由原生策略计算，**没有应用 `945,000`**|
 |`kimi`|`@moonshot-ai/kimi-code@2.5.0`|Chat Completions|实际窗口 `1,048,576`，原生阈值 `945,000`；原生 compact 已在本地压力测试完成|
 
-既有入口的 `1,050,000` 表示 1M 档；Gemini/Kimi 的实际窗口保留为 `1,048,576`。Kimi 的显式较小窗口可用，超过此上限会拒绝启动。DSH/ZCode 的模型规则不会扩大服务端能力。
+窗口按已核对的模型上限分别设置：Codex/GPT-6 Astra 为 `1,050,000`；四种新增 CLI 对应模型为 `1,048,576`。原先统一的 `1,050,000` 默认值已改正；旧命令传这个 1M 档数值时适配器映射为 `1,048,576` 并记录请求值。显式较小窗口可用，超过此上限会拒绝启动。DSH/ZCode 的模型规则不会扩大服务端能力。
 
-ZCode 的本地压力测试在请求前触发并完成了原生自动 compact，然后继续同一 session 的工具调用。该固定构建的阈值来自 `contextWindow - maxOutputTokens - buffer`；本地测试读回 `1,016,000`。原生 `session.updated` 读回窗口 `1,050,000`，但 `result.projection.contextWindow` 仍显示旧默认 `200,000`；结果同时保留两者，不能把投影值改写成 1M。
+ZCode 的本地压力测试在请求前触发并完成了原生自动 compact，然后继续同一 session 的工具调用。该固定构建的阈值来自 `contextWindow - maxOutputTokens - buffer`；按精确上限重测读回 `1,014,576`。原生 `session.updated` 读回窗口 `1,048,576`，但 `result.projection.contextWindow` 仍显示旧默认 `200,000`；结果同时保留两者，不能把投影值改写成 1M。
 
 ## 安装
 
@@ -27,6 +42,7 @@ ZCode 的本地压力测试在请求前触发并完成了原生自动 compact，
 npm install --prefix /opt/videoicl/gemini @google/gemini-cli@0.32.1
 npm install --prefix /opt/videoicl/dsh @deepseek-ai/dsh@0.2.1-rc.5
 npm install --prefix /opt/videoicl/kimi @moonshot-ai/kimi-code@2.5.0
+npm install --prefix /opt/videoicl/claude @anthropic-ai/claude-code@2.1.292
 ```
 
 对应可执行文件位于各安装目录的 `node_modules/.bin/`。Kimi 使用当前官方 `kimi-code`，旧 Python `kimi-cli` 已弃用，其退出码 0 也可能没有任何模型请求；本适配器拒绝旧入口。
@@ -44,6 +60,10 @@ node apps/zcode-cli/packages/cli/dist/zcode.cjs --version
 ```
 
 `--binary` 指向 `/opt/videoicl/ZCode/apps/zcode-cli/packages/cli/dist/zcode.cjs`，启动器用 PATH 中的 Node 运行。保留构建仓库的依赖和相邻资源：产物仍依赖 `@zcode/tui`、`playwright-core`、`koffi` 等，不能只复制单个 `.cjs`。本地构建沿用官方 lockfile 和 `patchedDependencies`，没有修改 CLI 源码。
+
+Claude Code 的显式 1M 模式固定到 `2.1.292`。对选定的 Opus 5.5 使用原生模型能力；对 Qwen 等自定义 ID 设置 `CLAUDE_CODE_MAX_CONTEXT_TOKENS=1000000`，并把 `CLAUDE_CODE_AUTO_COMPACT_WINDOW` 设为同一窗口，`autoCompactEnabled=true`。旧版可能将未知模型固定到 200K，预检会拒绝不支持的版本。不会用关闭 compact 的方式扩大窗口，也不设置小的 `MAX_INPUT_TOKENS`。原生自动压缩会自行扣除输出与摘要余量，1M 不表示等到百万 token 才开始压缩。未显式要求大窗口的历史通用入口保留旧行为；具身 `run.py --engine claude` 会显式传入 1M。
+
+新的具身 `run.py` 对 Claude 默认 `--max-budget-usd 0`，表示不传原生美元费用上限，避免旧的 1 美元默认值在长上下文前提前终止。500 个物理动作上限仍保留。需要单独限制费用时显式传正数；历史通用入口的默认 1 美元不变。
 
 ## API 配置
 
@@ -110,7 +130,7 @@ python scripts/native_agent.py gemini \
   --binary /opt/videoicl/gemini/node_modules/.bin/gemini \
   --model YOUR_EXPLICIT_MODEL_ID \
   --credentials /secure/native-providers.json \
-  --native-context-window 1050000 --native-compact-tokens 945000 \
+  --native-context-window 1048576 --native-compact-tokens 945000 \
   --help
 ```
 

@@ -221,8 +221,8 @@ def run(args):
         validate_context_window(catalog_source, catalog_hash, model,
             getattr(args, "codex_context_window", None), getattr(args, "codex_compact_tokens", 32768))
     budget = getattr(args, "max_budget_usd", 1.)
-    if not math.isfinite(budget) or budget <= 0:
-        raise ValueError("Claude budget must be finite and positive")
+    if not math.isfinite(budget) or budget < 0:
+        raise ValueError("Claude budget must be nonnegative and finite;0 means no cost cap")
     actor = token_file(connection_path, connection, "actor_token_file")
     admin = token_file(connection_path, connection, "admin_token_file")
     identity = {k: connection["identity"][k] for k in IDENTITY_FIELDS}
@@ -294,7 +294,7 @@ def run(args):
                     transport_backoff_seconds=[5, 300], quota_backoff_seconds=[300, 1800]),
                 "developer_transport_contract": dict(version=transport_version,
                     sha256=hashlib.sha256(transport_contract.encode()).hexdigest(),
-                    enabled=args.engine == 'codex' or args.engine in native_cli_engines.EXTRA_ENGINES,
+                    enabled=True,
                     transport='developer_config' if args.engine == 'codex' else 'stdin_prompt',
                     task_information_added=False),
                 "gui_controls_sha256": spec['gui_controls']['sha256'],
@@ -304,7 +304,7 @@ def run(args):
                             "max_physical_actions": args.max_actions,
                             "max_gui_inputs": computer['max_gui_inputs']},
                 "reasoning_effort": getattr(args, "effort", "low") if args.engine == "codex" else None,
-                "claude_reported_cost_cap_usd": budget if args.engine == "claude" else None,
+                "claude_reported_cost_cap_usd": (budget or None) if args.engine == "claude" else None,
                 "compaction": ({"implementation": "native Codex automatic compaction",
                     "threshold_tokens": getattr(args, "codex_compact_tokens", 32768),
                     "context_window": getattr(args, "codex_context_window", None),
@@ -347,6 +347,10 @@ def run(args):
         claude_server = {name: server[name] for name in ('command', 'args', 'env')}
         private_json(profile / "mcp.json", {"mcpServers": {"vic": claude_server}})
         private_json(profile / "settings.json", hooks)
+        if getattr(args, 'native_context_window', None) is not None or 'context_window' in provider.get('cli_options', {}):
+            metadata['native_context'] = native_cli_engines.claude_context_config(profile, model,
+                native_cli_engines.options_from_args(args, provider))
+            metadata['compaction'] = metadata['native_context']
     else:
         metadata['native_cli_adapter'] = native_cli_engines.configure(args.engine, profile, workspace, model, server,
             {**provider, 'api_key': key, 'base_url': base_url}, native_cli_engines.options_from_args(args, provider))
@@ -417,7 +421,7 @@ def run(args):
             # Public assignment only. GUI affordances teach interaction; limits
             # remain enforced by the controller rather than narrated to the model.
             prompt = instruction + "\n\n" + QA_INSTRUCTIONS
-            if args.engine in native_cli_engines.EXTRA_ENGINES:
+            if args.engine != 'codex':
                 prompt = transport_contract + '\n\n' + prompt
             if args.condition == "text_rule":
                 rule = state.get("text_rule")

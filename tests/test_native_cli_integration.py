@@ -107,3 +107,36 @@ def test_tls_ca_is_preserved_but_unrelated_provider_keys_are_not(monkeypatch):
     env = clean_env()
     assert env['NODE_EXTRA_CA_CERTS'] == '/private/local-ca.pem'
     assert 'GEMINI_API_KEY' not in env and 'KIMI_CODE_HOME' not in env
+
+
+def test_claude_declared_maximum_reaches_native_launch_environment(tmp_path, monkeypatch):
+    from vic_sdk.native_cli_engines import claude_context
+    profile = tmp_path/'profile'
+    engines.claude_context_config(profile, 'qwen3.8-max', {'context_window': 1000000})
+    monkeypatch.setattr(claude_context.subprocess, 'run',
+        lambda *a, **kw: SimpleNamespace(stdout='2.1.292 (Claude Code)\n'))
+    command, env = cli_command('claude', profile, tmp_path, 'qwen3.8-max', {})
+    assert command[command.index('--model')+1] == 'qwen3.8-max'
+    assert env['CLAUDE_CODE_MAX_CONTEXT_TOKENS'] == '1000000'
+    assert env['CLAUDE_CODE_AUTO_COMPACT_WINDOW'] == '1000000'
+    assert env['DISABLE_COMPACT'] == env['DISABLE_AUTO_COMPACT'] == '0'
+    command, _ = cli_command('claude', profile, tmp_path, 'qwen3.8-max', {}, budget=0)
+    assert '--max-budget-usd' not in command
+    command, _ = cli_command('claude', profile, tmp_path, 'qwen3.8-max', {}, budget=5)
+    assert command[command.index('--max-budget-usd')+1] == '5'
+
+
+def test_claude_unknown_version_is_rejected_before_environment_allocation(tmp_path, monkeypatch):
+    from vic_sdk.native_cli_engines import claude_context
+    credentials = tmp_path/'credentials.json'
+    credentials.write_text(json.dumps({'claude': {'api_key': 'test-secret',
+        'base_url': 'http://127.0.0.1:9000'}}))
+    monkeypatch.setattr('vic_sdk.native_agent.httpx.Client',
+        lambda **kwargs: pytest.fail('Control allocation before context validation'))
+    monkeypatch.setattr(claude_context.subprocess, 'run',
+        lambda *a, **kw: SimpleNamespace(stdout='2.1.152 (Claude Code)\n'))
+    args = SimpleNamespace(output_root=tmp_path/'output', credentials=credentials,
+        engine='claude', api_key_env=None, base_url=None, model='qwen3.8-max',
+        native_context_window=1000000, binary='/unused/claude')
+    with pytest.raises(RuntimeError, match='requires audited'):
+        run(args)
