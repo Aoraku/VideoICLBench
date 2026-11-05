@@ -2,9 +2,9 @@
 
 本版使用真正的 Codex CLI 连续会话。Codex 负责模型请求、工具调用与返回、会话历史和自动 compact；宿主负责 GUI 工具、原生仿真、身份核对、恢复与评分。
 
-本文记录 2026-11-06 原生 Codex 单条测试的代码合同，发布目标为 `Aoraku/VideoICLBench` 的 `codex/embodied-all-handoff-20261103` 分支下 `/simulation`。首轮 relay bootstrap 曾因导入旧 SDK 失败，当时模型 API、Codex session 和物理动作均为 0。修复后 run2 已在 slot2 启动真正 Codex CLI 0.163.0：首个完整 GUI、同 session 连续工具调用、至少 8 个 Commit / 55 个物理动作和逐 pair 公开反馈已核对。snapshot8（17:57:55Z）记录 provider 11 次成功、0 次失败、1 次在途；最新请求 input62005 / cached57856 / output307，缓存率约 93.3%。实际 compact、完整原生终态、评分和资源释放仍待验证。旧 episode 保持暂停。
+本文记录 2026-11-06 原生 Codex 单条测试的代码合同，发布目标为 `Aoraku/VideoICLBench` 的 `codex/embodied-all-handoff-20261103` 分支下 `/simulation`。首轮 relay bootstrap 曾因导入旧 SDK 失败，当时模型 API、Codex session 和物理动作均为 0。修复后的 run2 在唯一 Codex CLI 0.163.0 原生 session 中完成 **130 个物理动作、18 次 Commit**，调用 Done 后得到原生工程评分 **100/100、success=true**；该运行 `validation_only=true`、`scientific_evaluation=false`。snapshot18 核对 **27 个真实上游成功请求、0 失败、0 在途**，并确认发生 1 次原生 compact。压缩后同 session 继续 observe、Done，没有再执行物理动作。独立核查确认本轮 live 进程0、GPU进程0；旧 episode 保持暂停。CLI exit1 对应 Done 后两次本地410保护拒绝，均未发往上游，未把它记作 clean exit0。
 
-阶段结果及证据范围见 [LIVE_VALIDATION.md](../../LIVE_VALIDATION.md)。
+最终工程结果及证据范围见 [LIVE_VALIDATION.md](../../LIVE_VALIDATION.md)。
 
 ## 固定设置
 
@@ -123,7 +123,7 @@ pool 的 `--provider-request-metadata` 会向新 relay 传递 `--request-metadat
 - 实际 compact 读取私有 native rollout 的 `compacted` / `context_compacted` 持久事件。配置 120000 本身不等于已经发生 compact；摘要费用只有与真实请求唯一锚定后才单列。
 - 有效推进同时核对完整 API 响应、MCP 回执和原生动作数。HTTP200 不等于模型完成决策，更不等于任务成功。
 
-## 本地回归与待补实测
+## 本地回归与真实单条结果
 
 | 项目 | 当前状态 | 证据 |
 | --- | --- | --- |
@@ -136,11 +136,13 @@ pool 的 `--provider-request-metadata` 会向新 relay 传递 `--request-metadat
 | CLI 普通退出不 seal、真正终态 + API drained 后才评分/关闭 | 离线合同已覆盖 | 监督器回归 |
 | 首轮启动尝试 | relay bootstrap 旧 SDK 导入失败；当时 0 模型 API / 0 Codex session / 0 物理动作 | 原故障保留；修复后 run2 已真实启动 |
 | run2 首 API 与 bootstrap GUI | 已核对 1440×1280 完整 GUI，含 head/双 wrist、初始 0/500；任务与 assigned instruction 逐字匹配 | 真实首请求合同核对，示范 7.3 秒、按需读取 5 帧 |
-| run2 连续动作与反馈 | 同 session 已完成至少 8 批：6/4/11/3/6/10/4/11，共 55 个物理动作；每批一次 Commit、一张末图，逐 pair 公开反馈完整 | 原生动作与 MCP 公开回执交叉核对 |
-| run2 缓存与输入增长 | 首请求 input9659 / cached3968；先前后续请求缓存约 87–89%，最新 input62005 / cached57856 / output307（约 93.3%）；两个 Commit 后输入增量示例为 4218/4634 token | snapshot8 为 11 success / 0 failure / 1 in-flight；唯一 session，实际 compact 仍待验证 |
-| run2 原生终态、分数和资源释放 | 待真实验证 | 未把阶段动作/HTTP 成功计作整条成功，最终还需 native final snapshot / API drained / 资源证明 |
+| run2 连续动作与反馈 | 唯一 session 完成 18 次 Commit、130 个物理动作；首 GUI/task/demo 与逐 pair 反馈合同已验证 | snapshot18，原生动作与 MCP 公开回执交叉核对 |
+| run2 最终用量 | input1769349 / cached1533824 / uncached235525 / output6100；总 token1775449，reasoning 已含在 output | provider/native 精确一致；27 success / 0 failure / 0 in-flight |
+| run2 原生 compact | 1 次，摘要请求 input120473 / cached3968 / output902，已包含在总额中 | 120k 触发；之后同 session observe→Done，没有压缩后物理动作 |
+| run2 原生终态与评分 | Done，工程100/100，success=true；validation_only=true，scientific_evaluation=false | 原生终态与评分已核对；本轮 live进程0/GPU进程0，API排空、uncertain=false |
+| CLI 退出与终态保护 | exit1；Done 后2次本地410 episode_closed / admission_rejected，forward_attempts=0 | 上游27次均HTTP200且已排空；这2次未发上游，不计API失败，也不记作clean exit0 |
 
-离线回归和 run2 的真实阶段验证分别记录。run2 已验证首图、工具到原生动作的链路与部分请求缓存效果；完整任务成功、最终评分、实际 compact 及完整费用仍待补齐。后续是否扩展评测依据完整结果决定。
+离线回归与真实单条结果分别记录。本轮已核对首图、任务文本、按需示范、逐动作反馈、原生 compact、同 session 收尾及工程评分。独立核查已确认 native/GUI/relay/model 均退出；controller/pool 精确身份只剩 Z 状态条目，无本轮 live 进程或 GPU 进程。共享卡核查时还有其他用户 UID65534 占用9488MiB显存，保持原样。该单条结果保持 validation-only 的评测属性。
 
 表中的 `.private.*` 文件是维护者保存的审计索引，不属于运行依赖；公开代码交付不包含凭据、私有 profile 或原始模型对话。
 

@@ -1,47 +1,63 @@
-# 原生 Codex run2：真实阶段验证
+# 原生 Codex run2：最终单条工程结果
 
-本页记录维护者核对过的 `progress-6` / `progress-7`、snapshot8（17:57:55Z）与首请求合同快照，范围固定在这些快照。它不是完整 episode 终态报告。原始审计件保持私有，含图像数据的请求/回执不在此发布。
+本页依据维护者核对的 snapshot18 与首请求合同证据，记录这条运行的原生结果。原始审计件保持私有；本页不发布图像数据、凭据或 session 私有路径。
 
-## 首轮故障与本轮区别
+## 结果
 
-首轮在 relay bootstrap 阶段因导入旧 SDK 而失败，模型 API、Codex session 和物理动作均为 0。修复加入固定源码的绝对路径 relay 入口，并核对 pool/GUI 子入口来源。该次失败记录保留。
-
-修复后的 run2 已在 slot2 启动真正的 **Codex CLI 0.163.0**。下述模型请求和动作属于 run2，同一个原生 session 连续推进。
-
-## 已核对的真实链路
-
-| 检查项 | 已观察结果 |
+| 项目 | 最终核对结果 |
 | --- | --- |
-| 初始 GUI | 维护者实际查看了完整 **1440×1280** GUI，含 head、左右 wrist 三路视图和初始 **0/500** 动作计数 |
-| 首请求任务文本 | 与该 episode 的 assigned instruction **逐字匹配** |
-| 示范 | assigned video 时长 **7.3 秒**；模型按需调用 `demo_frames`，读取 **5 帧** |
-| 连续会话 | `demo_frames → depth_points → observe → action_batch` 发生在同一个原生 session 中 |
-| 物理动作 | 至少 **8 批**，批次长度依次 **6 / 4 / 11 / 3 / 6 / 10 / 4 / 11**，合计 **55 个物理动作** |
-| Commit 与图像 | 每批一次 Commit；执行完成后返回一张末态 GUI，排队控件编辑没有变成独立模型回合 |
-| 逐 pair 反馈 | 上述批次的公开动作回执和控制反馈完整；批次数、物理动作数、MCP 返回交叉核对 |
-| API 阶段状态 | snapshot8 为 provider **11 次成功、0 次失败、1 次在途**；保持唯一 session，该计数不是终态或资源排空证明 |
+| 运行引擎 | 真正 Codex CLI **0.163.0**，全程唯一原生 session |
+| 物理动作 / Commit | **130 / 18**；物理预算按动作对计数 |
+| 原生终态 | **Done** |
+| 工程评分 / 成功 | **100/100，success=true** |
+| 评测属性 | **validation_only=true，scientific_evaluation=false** |
+| 真实上游请求 | **27 次成功、0 次失败、0 次在途** |
+| 原生 compact | **1 次**，120k 配置触发后完成原会话收尾 |
+| 独立资源核查 | **本轮 live 进程0、GPU进程0**；native/GUI/relay/model 均已退出 |
+| CLI 退出状态 | **exit1**，由 Done 后2次本地410保护拒绝导致；这两次均未转发上游 |
 
-已确认的链路包含真正模型请求、公开工具调用和原生动作。模型是否完成任务仍以最终原生评分为准。
+首轮 relay bootstrap 曾因导入旧 SDK 失败，当时模型 API、Codex session 和物理动作均为 0。固定源码的绝对路径 relay 入口修复后，run2 得到以上真实结果；原故障历史保留。
 
-原生 runtime 在等待下一请求时仅 sleep、不调用物理 step（`scripts/serve_realworld_room_pool.py:348–349`）；因此网络等待期间仿真不会自行推进。
+## 首图、任务与动作合同
 
-## 用量与缓存的阶段观察
+- 初始完整 GUI 为 **1440×1280**，维护者实际查看了 head、左右 wrist 三路视图及初始 **0/500** 动作计数。
+- 首请求任务与 assigned instruction **逐字匹配**。
+- assigned video 时长 **7.3 秒**；模型通过 `demo_frames` 按需读取 **5 帧**。
+- 同 session 实际执行了 `demo_frames → depth_points → observe → action_batch`。最终完成 18 次 Commit、130 个物理动作；每批经原 GUI 队列后一次 Commit，轮末新图及逐 pair 公开反馈合同已验证。
+- 原生 runtime 等待下一请求时仅 sleep、不调用物理 step（`scripts/serve_realworld_room_pool.py:348–349`）；网络等待期间仿真不会自行推进。
 
-| 指标 | 快照数值 | 口径 |
-| --- | ---: | --- |
-| 首请求 input | **9,659 token** | 单次请求输入，包含首轮材料和 GUI |
-| 首请求 cached | **3,968 token** | 已包含在 input 内，不能重复相加 |
-| 后续已观察请求缓存率 | **约 87–89%** | 相应请求的 cached/input，并非整条累计命中率 |
-| 两个 Commit 后的典型输入增长 | **4,218 / 4,634 token** | 相邻请求输入增量示例，不是每个物理动作的固定开销 |
-| snapshot8 最新 input / cached / output | **62,005 / 57,856 / 307 token** | 单次请求；缓存率约 **93.3%**，不是本 episode 累计用量 |
+## 精确用量
 
-自动 compact 配置仍为 **120000**，raw window 为 **262144**。本快照尚未观察到实际 compact；配置生效与实际触发分别核对。实际摘要请求、压缩后续接和相应费用还需原生日志与请求账证明。
+provider 逐请求记录与 native 用量精确核对：
 
-## 仍待完成
+| 计量项 | Token |
+| --- | ---: |
+| input | **1,769,349** |
+| cached input | **1,533,824** |
+| uncached input | **235,525** |
+| output | **6,100** |
+| input + output | **1,775,449** |
 
-- 真正的原生 compact 事件、压缩后同 session 连续推进及摘要请求费用。
-- 完整原生终态、最终评分、成功与否。
-- 完整逐请求用量及最终费用。
-- API fully drained、本轮进程和 GPU 资源释放。
+cached 与 uncached 是 input 的分桶；reasoning 已包含在 output 中，均不能再次相加。摘要请求也已包含在以上总额中。
 
-当前阶段结果证明修复后的首图、原生对话、工具执行及反馈链路已工作。上述四项仍保留待验证，不由阶段动作或 HTTP 成功代替。
+先前快照中，首请求 input/cached 为 **9,659/3,968**；后续请求曾观察到约 **87–89%** 缓存率，snapshot8 的单次请求为 **62,005 input / 57,856 cached / 307 output**（约 **93.3%**）。这些是历史单次样例，不是最终累计数。两个 Commit 后的输入增长样例 **4,218/4,634 token** 也不代表每个物理动作固定消耗。
+
+## 真正的原生 compact 与同会话收尾
+
+配置为 raw window **262144**、自动 compact 阈值 **120000**。本轮实际发生 **1 次 Codex 原生 compact**：
+
+| 请求 | input | cached | output |
+| --- | ---: | ---: | ---: |
+| 原生摘要请求 | **120,473** | **3,968** | **902** |
+| 压缩后的请求26 | **8,373** | **3,968** | **15** |
+| 压缩后的请求27 | **11,891** | **8,192** | **73** |
+
+摘要请求费用对应的 token 已包含在整条总额中。压缩后模型在同一原生 session 中继续 **observe → Done**，随后得到真实原生终态与工程评分。压缩后没有再次执行物理动作；本轮验证的是原会话续接和正确收尾。
+
+## 收尾状态
+
+原生终态、工程评分、完整 token 账和27个真实上游HTTP200请求已核对。API已排空，`uncertain=false`。
+
+Done 后发生2次本地 `410 episode_closed / admission_rejected`，两次 `forward_attempts=0`，没有发送到上游。因此 CLI 记录为 **exit1**，属于终态后 admission 保护拒绝；不是上游失败，也不记作 clean exit0。
+
+独立只读资源核查的 SSH 返回0，完整回传通过双SHA校验。native、GUI、relay、model 进程均已退出；controller/pool 按精确 PID/start_ticks 核对仅剩 Z 状态条目，本轮 live进程0、GPU进程0。核查时共享GPU上其他用户 UID65534 仍使用9488MiB显存，该占用保持原样。

@@ -471,27 +471,30 @@
     },
     "README.md": {
       "source": "verification/astra-iclworld-codexsingle1-20261106/HANDOFF_NATIVE_CODEX.md",
-      "sha256": "09227c4edbc042662c5b2c2df82a857e231146af71740ee8f39a528917d0c94c",
-      "bytes": 13039,
+      "sha256": "ac6c8e138f7efc96bc1327a9e211fefdd5d765f3c1ef6a57f0218667d543bbb4",
+      "bytes": 13717,
       "byte_identical": false,
       "source_sha256_before_live_update": "147105413eb3bb5874e989ac7bd0459623366d83d180b5b1b230706ee1a4601f",
-      "transformation": "Documentation updated with verified run2 observations and package-relative links; SDK source unchanged."
+      "transformation": "Documentation updated to verified run2 final engineering outcome, exact compact/usage, post-Done local admission rejections and independent resource-release evidence; runtime SDK source unchanged.",
+      "source_sha256": "147105413eb3bb5874e989ac7bd0459623366d83d180b5b1b230706ee1a4601f"
     },
     "docs/HANDOFF_NATIVE_CODEX.md": {
       "source": "verification/astra-iclworld-codexsingle1-20261106/HANDOFF_NATIVE_CODEX.md",
-      "sha256": "c2045423c18251f9e65a43dee492af7ea3e36c00b131379cd626d4b97981a232",
-      "bytes": 13042,
+      "sha256": "6442b7e1b7a9db44b6658396c9c03317e098a9e331a1f9fdcc4f0dfa6c263968",
+      "bytes": 13720,
       "byte_identical": false,
       "source_sha256_before_live_update": "147105413eb3bb5874e989ac7bd0459623366d83d180b5b1b230706ee1a4601f",
-      "transformation": "Documentation updated with verified run2 observations and package-relative links; SDK source unchanged."
+      "transformation": "Documentation updated to verified run2 final engineering outcome, exact compact/usage, post-Done local admission rejections and independent resource-release evidence; runtime SDK source unchanged.",
+      "source_sha256": "147105413eb3bb5874e989ac7bd0459623366d83d180b5b1b230706ee1a4601f"
     },
     "VideoICLBench/docs/evaluation/native-codex-20261106.md": {
       "source": "verification/astra-iclworld-codexsingle1-20261106/HANDOFF_NATIVE_CODEX.md",
-      "sha256": "7faa0b1d4c6b5f98fecc48219bfef73ab58f7223cbc862cd6951ce4d36c55e07",
-      "bytes": 13048,
+      "sha256": "39fc03fa9c6d889542dedc31b5dbf74bd9942fb3f0adae3e1ca179ff95bd78e7",
+      "bytes": 13726,
       "byte_identical": false,
       "source_sha256_before_live_update": "147105413eb3bb5874e989ac7bd0459623366d83d180b5b1b230706ee1a4601f",
-      "transformation": "Documentation updated with verified run2 observations and package-relative links; SDK source unchanged."
+      "transformation": "Documentation updated to verified run2 final engineering outcome, exact compact/usage, post-Done local admission rejections and independent resource-release evidence; runtime SDK source unchanged.",
+      "source_sha256": "147105413eb3bb5874e989ac7bd0459623366d83d180b5b1b230706ee1a4601f"
     }
   },
   "generated_files": [
