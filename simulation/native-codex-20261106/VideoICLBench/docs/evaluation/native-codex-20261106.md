@@ -2,7 +2,9 @@
 
 本版使用真正的 Codex CLI 连续会话。Codex 负责模型请求、工具调用与返回、会话历史和自动 compact；宿主负责 GUI 工具、原生仿真、身份核对、恢复与评分。
 
-本文记录 2026-11-06 新单条测试的代码合同，发布目标为 `Aoraku/VideoICLBench` 的 `codex/embodied-all-handoff-20261103` 分支下 `/simulation`。首轮启动在 relay bootstrap 阶段因导入旧 SDK 而失败，模型 API 请求、原生 Codex session 和物理动作均为 0。本版已补绝对路径 relay 入口并通过离线回归；修复后的真实 API、初始图像、连续动作、缓存与压缩仍待实测。旧 episode 保持暂停。
+本文记录 2026-11-06 原生 Codex 单条测试的代码合同，发布目标为 `Aoraku/VideoICLBench` 的 `codex/embodied-all-handoff-20261103` 分支下 `/simulation`。首轮 relay bootstrap 曾因导入旧 SDK 失败，当时模型 API、Codex session 和物理动作均为 0。修复后 run2 已在 slot2 启动真正 Codex CLI 0.163.0：首个完整 GUI、同 session 连续工具调用、至少 8 个 Commit / 55 个物理动作和逐 pair 公开反馈已核对。snapshot8（17:57:55Z）记录 provider 11 次成功、0 次失败、1 次在途；最新请求 input62005 / cached57856 / output307，缓存率约 93.3%。实际 compact、完整原生终态、评分和资源释放仍待验证。旧 episode 保持暂停。
+
+阶段结果及证据范围见 [LIVE_VALIDATION.md](../../../../LIVE_VALIDATION.md)。
 
 ## 固定设置
 
@@ -132,13 +134,13 @@ pool 的 `--provider-request-metadata` 会向新 relay 传递 `--request-metadat
 | relay metadata 与真实 localhost TLS 回归 | 24 项通过 | 同上；只有本机假服务，无付费 API |
 | 重复 ID 不重放、未知输入保持、24 pair 计数、公开反馈和图片分离 | 离线合同已覆盖 | 原生工具回归 |
 | CLI 普通退出不 seal、真正终态 + API drained 后才评分/关闭 | 离线合同已覆盖 | 监督器回归 |
-| 首轮启动尝试 | relay bootstrap 旧 SDK 导入失败；0 模型 API / 0 Codex session / 0 物理动作 | 已定位并补 `tls_relay_entry.py`；修复后实测待完成 |
-| 新单条首 API 确实看到 bootstrap GUI | 待真实验证 | 待运行方填入请求结构/图像计数与 session 证据 |
-| 新单条连续原生动作、每 pair 反馈与末图 | 待真实验证 | 待填 native receipt / MCP / 逐请求账 |
-| 新单条缓存命中及实际 compact | 待真实验证；未达到阈值时可正常无 compact | 待填 native rollout 与请求 usage |
-| 新单条原生终态、分数和资源释放 | 待真实验证 | 待填 native final snapshot / API drained / 进程资源证明 |
+| 首轮启动尝试 | relay bootstrap 旧 SDK 导入失败；当时 0 模型 API / 0 Codex session / 0 物理动作 | 原故障保留；修复后 run2 已真实启动 |
+| run2 首 API 与 bootstrap GUI | 已核对 1440×1280 完整 GUI，含 head/双 wrist、初始 0/500；任务与 assigned instruction 逐字匹配 | 真实首请求合同核对，示范 7.3 秒、按需读取 5 帧 |
+| run2 连续动作与反馈 | 同 session 已完成至少 8 批：6/4/11/3/6/10/4/11，共 55 个物理动作；每批一次 Commit、一张末图，逐 pair 公开反馈完整 | 原生动作与 MCP 公开回执交叉核对 |
+| run2 缓存与输入增长 | 首请求 input9659 / cached3968；先前后续请求缓存约 87–89%，最新 input62005 / cached57856 / output307（约 93.3%）；两个 Commit 后输入增量示例为 4218/4634 token | snapshot8 为 11 success / 0 failure / 1 in-flight；唯一 session，实际 compact 仍待验证 |
+| run2 原生终态、分数和资源释放 | 待真实验证 | 未把阶段动作/HTTP 成功计作整条成功，最终还需 native final snapshot / API drained / 资源证明 |
 
-离线 mock 通过只证明代码合同；本表不把它计成真实模型成功、物理验收或缓存效果。新单条运行结果由维护者在实测后补齐，随后再决定是否扩展评测。
+离线回归和 run2 的真实阶段验证分别记录。run2 已验证首图、工具到原生动作的链路与部分请求缓存效果；完整任务成功、最终评分、实际 compact 及完整费用仍待补齐。后续是否扩展评测依据完整结果决定。
 
 表中的 `.private.*` 文件是维护者保存的审计索引，不属于运行依赖；公开代码交付不包含凭据、私有 profile 或原始模型对话。
 
