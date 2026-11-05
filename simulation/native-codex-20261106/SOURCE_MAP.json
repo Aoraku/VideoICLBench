@@ -471,21 +471,27 @@
     },
     "README.md": {
       "source": "verification/astra-iclworld-codexsingle1-20261106/HANDOFF_NATIVE_CODEX.md",
-      "sha256": "147105413eb3bb5874e989ac7bd0459623366d83d180b5b1b230706ee1a4601f",
-      "bytes": 12218,
-      "byte_identical": true
+      "sha256": "09227c4edbc042662c5b2c2df82a857e231146af71740ee8f39a528917d0c94c",
+      "bytes": 13039,
+      "byte_identical": false,
+      "source_sha256_before_live_update": "147105413eb3bb5874e989ac7bd0459623366d83d180b5b1b230706ee1a4601f",
+      "transformation": "Documentation updated with verified run2 observations and package-relative links; SDK source unchanged."
     },
     "docs/HANDOFF_NATIVE_CODEX.md": {
       "source": "verification/astra-iclworld-codexsingle1-20261106/HANDOFF_NATIVE_CODEX.md",
-      "sha256": "147105413eb3bb5874e989ac7bd0459623366d83d180b5b1b230706ee1a4601f",
-      "bytes": 12218,
-      "byte_identical": true
+      "sha256": "c2045423c18251f9e65a43dee492af7ea3e36c00b131379cd626d4b97981a232",
+      "bytes": 13042,
+      "byte_identical": false,
+      "source_sha256_before_live_update": "147105413eb3bb5874e989ac7bd0459623366d83d180b5b1b230706ee1a4601f",
+      "transformation": "Documentation updated with verified run2 observations and package-relative links; SDK source unchanged."
     },
     "VideoICLBench/docs/evaluation/native-codex-20261106.md": {
       "source": "verification/astra-iclworld-codexsingle1-20261106/HANDOFF_NATIVE_CODEX.md",
-      "sha256": "147105413eb3bb5874e989ac7bd0459623366d83d180b5b1b230706ee1a4601f",
-      "bytes": 12218,
-      "byte_identical": true
+      "sha256": "7faa0b1d4c6b5f98fecc48219bfef73ab58f7223cbc862cd6951ce4d36c55e07",
+      "bytes": 13048,
+      "byte_identical": false,
+      "source_sha256_before_live_update": "147105413eb3bb5874e989ac7bd0459623366d83d180b5b1b230706ee1a4601f",
+      "transformation": "Documentation updated with verified run2 observations and package-relative links; SDK source unchanged."
     }
   },
   "generated_files": [
