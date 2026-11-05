@@ -1,0 +1,498 @@
+{
+  "schema": "native-codex-handoff-source-map-v1",
+  "source_files": {
+    "VideoICLBench/packages/sdk/vic_sdk/__init__.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/__init__.py",
+      "sha256": "1675fd1c7fb675700396e35fb9c83df093cc7ebb8ca01a4df4447d95991542f4",
+      "bytes": 49,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/anthropic_image_proxy.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/anthropic_image_proxy.py",
+      "sha256": "29307ec6a53ce7effa3e9471a6e27801f4f4475845070e817ca7b4129297f9e6",
+      "bytes": 4817,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/api_concurrency.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/api_concurrency.py",
+      "sha256": "687796e58e25b3e5118b431f35d513b846c9f01cb979549bdd0883a0911bca38",
+      "bytes": 7993,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/api_timing.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/api_timing.py",
+      "sha256": "c33769ec1e6649336a92bcdeac4f7e4f3e3f3a94a5ea47b7ad90196b1debdcca",
+      "bytes": 8811,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/client.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/client.py",
+      "sha256": "73b856bf97ec77dea16478067cab3bb679d7d5fccdae03aa1a913cfb0630096a",
+      "bytes": 1677,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/computer_mcp.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/computer_mcp.py",
+      "sha256": "75ad883a1732ebda8a37f628e398229a434a103f125704ff03fb94a82bd21cac",
+      "bytes": 10748,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/direct_tools.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/direct_tools.py",
+      "sha256": "56c979c28d45340c4f16a7e3bfcabe87a94fb7734889867ca4d5945f1985f191",
+      "bytes": 6139,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_agent.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_agent.py",
+      "sha256": "45aaab040de9a18c4b3f4e3425bf9ace5edb5d898cd3c1616c5a1dc036e62ced",
+      "bytes": 45955,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_codex_mcp.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_codex_mcp.py",
+      "sha256": "80f48e4fa0da8bfa1a84d62733ae0987d1f2035b33f7092f834f69ccfe211201",
+      "bytes": 18673,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_codex_mcp_entry.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_codex_mcp_entry.py",
+      "sha256": "5eb06c0cc41e09f0303b360ab67d16565496ede2dacd917124b6d17dad0d15a6",
+      "bytes": 602,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/__init__.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/__init__.py",
+      "sha256": "e1ad07c4285218c5dea4f2caa4816032486e9b3a47ab8ff83265c6b4dc18ace2",
+      "bytes": 76,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/episode.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/episode.py",
+      "sha256": "bb7dac593db5438c6555ca2381cd7c809e6e42af7fe199d4e0de4fdd1737d71f",
+      "bytes": 46709,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/native.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/native.py",
+      "sha256": "8d9a94f3f8c600723bff06dae14370c2fd3a80400b8182b660b6159d99c6095c",
+      "bytes": 3423,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/pool.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/pool.py",
+      "sha256": "cda3f21dfe52684f71f4641b6fc7d57e699c74b1585b37f384f88e61bb09838e",
+      "bytes": 12966,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/scoring.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/scoring.py",
+      "sha256": "27b893d9b48724e5d3c295f519210f2bf71924d4481d40dd5950c8334f771290",
+      "bytes": 17766,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/sensor_depth.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/sensor_depth.py",
+      "sha256": "3afddae5282ae05a769d70e0ae8e47c815f90637ba155088ce3aca80ad748504",
+      "bytes": 2395,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/sensor_depth_public.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/sensor_depth_public.py",
+      "sha256": "9db2fef7da480b135126d0fb18c6af3268a34fa17cf93c64ec837742ec37a851",
+      "bytes": 7302,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/server.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/server.py",
+      "sha256": "760db9d79c2948f756ef0e227dd69bbc3f2806c985c8eb836a8b5216ee7b6492",
+      "bytes": 13881,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_gui_mcp.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_gui_mcp.py",
+      "sha256": "24df5d408c6e337cec0aaa102d36e0ba829f4d5f2eb91fa209a6b302488711a0",
+      "bytes": 40296,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_mcp.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_mcp.py",
+      "sha256": "a805643165f387e0d3aac9096b1559b71440004dbd05551b1f760ba38668d205",
+      "bytes": 12484,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_program_geometry.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_program_geometry.py",
+      "sha256": "8157db8a8060446e27bfb316897293139717e9d95d7f0017acbe9fa79da4c979",
+      "bytes": 7057,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_program_gui.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_program_gui.py",
+      "sha256": "ff5ce2d0944cf7292de65f691daf9eaed3a484530dd4e0581c6e2c4fbc684f7c",
+      "bytes": 18441,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_program_runtime.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_program_runtime.py",
+      "sha256": "42c5997b2f8b9ba8fd3dda69822cd9df295a3177085c38d270437f43fe2ce29b",
+      "bytes": 29310,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_protocol.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_protocol.py",
+      "sha256": "bee105b58d7692b53d13650fad5915579735e3435ba2a63460f776c3e6b2d434",
+      "bytes": 6601,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_public_observation.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_public_observation.py",
+      "sha256": "b30a3320906b0ea2cf4de9f228fe92a82ef4d737cc7cbc80f8b2b75200cbc243",
+      "bytes": 5766,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_recovery.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_recovery.py",
+      "sha256": "2c1062c0f2af6683933e04e553b55588705bf2b7c9219bc9c2df96de0635fd2a",
+      "bytes": 13554,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_token_projection.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/embodied_token_projection.py",
+      "sha256": "7b30d97401916e4d4dfede8e4a066543e773be821c5bebd952a41b7d887e2185",
+      "bytes": 8407,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/episode_api_admission.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/episode_api_admission.py",
+      "sha256": "710375aa2227d3fb61743b5005074a39f6d00a86680e3c70c62a5693fc1ce356",
+      "bytes": 2904,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/native_agent.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/native_agent.py",
+      "sha256": "329a3250fec7ca3a310d6c1936af60f3be10cb7f271261a437fec5d87fdf9179",
+      "bytes": 31923,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/native_stop_hook.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/native_stop_hook.py",
+      "sha256": "ee07d1f780bff590c8fa88aae98bc43f49ab958129745e40153027309c44bffd",
+      "bytes": 4286,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/native_structured_supervisor.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/native_structured_supervisor.py",
+      "sha256": "b6e3c649d70476111e0eff922902e8d0f52c648f54b9e4960e57cbf3d9111804",
+      "bytes": 9621,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/process_identity.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/process_identity.py",
+      "sha256": "d0245cbc303b8155f881f77b9a2ad300f436b1fde463fb25968e48054b7750dc",
+      "bytes": 622,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/process_lifecycle.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/process_lifecycle.py",
+      "sha256": "46576d13c61c0724f63a866a1a5bd6b7c83e0a7bb94d46c03fef4aa138281e0c",
+      "bytes": 2947,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/robodawn_context.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/robodawn_context.py",
+      "sha256": "d36d01de6bfba05df9f1a7fb179b71be7c2fc8f18ce818561009b5fd20b4a7d9",
+      "bytes": 46958,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/robodawn_entry.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/robodawn_entry.py",
+      "sha256": "7ae60c70a3c257cfd7a9467b619c58b9403c1c822d4535ee2863ee3484aa68d2",
+      "bytes": 2310,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/robodawn_message_boundaries.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/robodawn_message_boundaries.py",
+      "sha256": "4b7c13050789eb4a4e84e93bf4155f6071330a88a0af4f551d3bd7c8459e5cb2",
+      "bytes": 2822,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/robodawn_runner.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/robodawn_runner.py",
+      "sha256": "647fdea33da160c46082fe13921559c9ea042f37f613d7518ff6417478d7bbc7",
+      "bytes": 32604,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/robodawn_tools.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/robodawn_tools.py",
+      "sha256": "a68e8ac95854ab211f015cf132b2fe012482288e8c28b8529a64e792f4fc62f7",
+      "bytes": 15966,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/robodawn_turn_context.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/robodawn_turn_context.py",
+      "sha256": "2e51a728c39a3ac3042aaabf4250648faf205f89dc321c0c1b56d824fe9c5136",
+      "bytes": 66842,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/robodawn_turn_executor.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/robodawn_turn_executor.py",
+      "sha256": "be27e3614ef0beb82575c0db4194c0aa8421b4439fac21e6e17932108c5d4b56",
+      "bytes": 24808,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/robodawn_turn_runner.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/robodawn_turn_runner.py",
+      "sha256": "c49b95112385a9df6e482e2bd0e0bb546388408e31c5b66ccd0ca2107d164daa",
+      "bytes": 53456,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/tls_relay.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/tls_relay.py",
+      "sha256": "4e6627cbae44257bd736ba83dd1f30d3a732878b390dd5cd81b0004449d5bda6",
+      "bytes": 32584,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/tls_relay_entry.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/tls_relay_entry.py",
+      "sha256": "635a27399b160f048f324379f9307469a62a3aaeb324641e16d5943e9c2a7a46",
+      "bytes": 568,
+      "byte_identical": true
+    },
+    "VideoICLBench/packages/sdk/vic_sdk/worker.py": {
+      "source": "VideoICLBench/packages/sdk/vic_sdk/worker.py",
+      "sha256": "f032f2b3d0b7af921035e00e1c066dfcd78ac39febfab9613d4ad931dcfe3145",
+      "bytes": 817,
+      "byte_identical": true
+    },
+    "VideoICLBench/scripts/harbor/run_embodied_pool.py": {
+      "source": "VideoICLBench/scripts/harbor/run_embodied_pool.py",
+      "sha256": "97aef0af28caf24439b7aae2182268236831023991d1905cdf56991d04a17f37",
+      "bytes": 30090,
+      "byte_identical": true
+    },
+    "VideoICLBench/scripts/harbor/run_embodied.py": {
+      "source": "VideoICLBench/scripts/harbor/run_embodied.py",
+      "sha256": "4bba313e1e27698dcf3a07b3b661207fadcdd0edfc597c862b6b9b778174f5c1",
+      "bytes": 3757,
+      "byte_identical": true
+    },
+    "VideoICLBench/scripts/harbor/serve_embodied_pool_room.py": {
+      "source": "VideoICLBench/scripts/harbor/serve_embodied_pool_room.py",
+      "sha256": "1acfd5a86df8d3734025dfe0e92dc5f1a3f7afa12c3e110aaee16e6c6bfa458b",
+      "bytes": 5944,
+      "byte_identical": true
+    },
+    "VideoICLBench/scripts/harbor/serve_embodied.py": {
+      "source": "VideoICLBench/scripts/harbor/serve_embodied.py",
+      "sha256": "280a8c1983e2c1c18019e98ce9d01c28a8555edbd9139409fc0c075765ede424",
+      "bytes": 11942,
+      "byte_identical": true
+    },
+    "VideoICLBench/scripts/harbor/native_collision_admission.py": {
+      "source": "VideoICLBench/scripts/harbor/native_collision_admission.py",
+      "sha256": "f4e9283b056ca3446b28bc07ba4a454c19440d06b55f5932c9cdf23574a68037",
+      "bytes": 900,
+      "byte_identical": true
+    },
+    "VideoICLBench/scripts/harbor/probe_embodied_gui.py": {
+      "source": "VideoICLBench/scripts/harbor/probe_embodied_gui.py",
+      "sha256": "f8b2f70ad34bfbcb90487108ea5fe285045373d218b2962a323bbc50f8c1304e",
+      "bytes": 18913,
+      "byte_identical": true
+    },
+    "VideoICLBench/scripts/harbor/control_embodied300.py": {
+      "source": "VideoICLBench/scripts/harbor/control_embodied300.py",
+      "sha256": "8bdc7659ffe26924890db53521eb68f7d817079c9c38b9cdc65486b0dec0a9b4",
+      "bytes": 37964,
+      "byte_identical": true
+    },
+    "VideoICLBench/scripts/harbor/preflight_embodied300.py": {
+      "source": "VideoICLBench/scripts/harbor/preflight_embodied300.py",
+      "sha256": "9ff421cf659b6a8f43bd4eaa0d5e56e6bfa697201fd3ed0393b6da9f6b3f06a6",
+      "bytes": 9534,
+      "byte_identical": true
+    },
+    "VideoICLBench/scripts/harbor/panel_contract.py": {
+      "source": "VideoICLBench/scripts/harbor/panel_contract.py",
+      "sha256": "32f6d3b86474696b20764641f5c824585bfa0e239877264a30c7d2969ca40b75",
+      "bytes": 18179,
+      "byte_identical": true
+    },
+    "VideoICLBench/scripts/harbor/plan_embodied_campaign.py": {
+      "source": "VideoICLBench/scripts/harbor/plan_embodied_campaign.py",
+      "sha256": "f72e845dadbda990af6ddb967224130a3d7a283910859033f64f5f19867a01a2",
+      "bytes": 22268,
+      "byte_identical": true
+    },
+    "VideoICLBench/scripts/diagnostics/probe_native_tool_wait.py": {
+      "source": "VideoICLBench/scripts/diagnostics/probe_native_tool_wait.py",
+      "sha256": "ee528855f31d7d7143e5baf50f9a4853918b972df0d8b65a0dbb2c63a234ccc6",
+      "bytes": 23574,
+      "byte_identical": true
+    },
+    "VideoICLBench/apps/portal/public/embodied/index.html": {
+      "source": "VideoICLBench/apps/portal/public/embodied/index.html",
+      "sha256": "de3a59e4ec9a69b5353e3badfd4bcd55143fa5cb86bc5d81efbab23b0be24031",
+      "bytes": 8515,
+      "byte_identical": true
+    },
+    "VideoICLBench/apps/portal/public/embodied/app.js": {
+      "source": "VideoICLBench/apps/portal/public/embodied/app.js",
+      "sha256": "4f51733cad4536c26e0a777d4b04f4da81651e9032e7abebf7fcbc92be7e0b8b",
+      "bytes": 38272,
+      "byte_identical": true
+    },
+    "VideoICLBench/apps/portal/public/embodied/style.css": {
+      "source": "VideoICLBench/apps/portal/public/embodied/style.css",
+      "sha256": "16be6aa65eba7894746f31c421e21a3e7b2edbc5673e3f229dc4a0fe6a84807a",
+      "bytes": 13419,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_embodied_action_batch.py": {
+      "source": "VideoICLBench/tests/test_embodied_action_batch.py",
+      "sha256": "a792ff999cb35072ba857cf8770caef3eb6d652b244224f314e42e2a2a86f677",
+      "bytes": 12698,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_embodied_codex_native_tools.py": {
+      "source": "VideoICLBench/tests/test_embodied_codex_native_tools.py",
+      "sha256": "1ebdd22e78582eabd6deb8fbf747eb30600ae511a4825afcd59741d00b2891f8",
+      "bytes": 12592,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_embodied_environment.py": {
+      "source": "VideoICLBench/tests/test_embodied_environment.py",
+      "sha256": "5b905256bcc4cf7c9a35ac8f598f0cacd30e2045ed5212728de47b8fefaf1c6e",
+      "bytes": 18987,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_embodied_gui_mcp.py": {
+      "source": "VideoICLBench/tests/test_embodied_gui_mcp.py",
+      "sha256": "a69955e2565d2961f98183fccacbb93df5c6055d8592ac044ffc518031bed5bb",
+      "bytes": 28582,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_embodied_native_agent.py": {
+      "source": "VideoICLBench/tests/test_embodied_native_agent.py",
+      "sha256": "a6f700e045b415d3cd794282539de446a3125aa7c1d9281de59606bab15b324c",
+      "bytes": 21748,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_embodied_native_tool_wait.py": {
+      "source": "VideoICLBench/tests/test_embodied_native_tool_wait.py",
+      "sha256": "2cfeb09c781de6f425b9da858237e9e49da21ed6a830c9f24c03f112fbaf4a27",
+      "bytes": 6488,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_embodied_pool_proxy.py": {
+      "source": "VideoICLBench/tests/test_embodied_pool_proxy.py",
+      "sha256": "c86d8653dc387c95200e72e40c317bbc4416c2b58c3f30194823358c903fc4c6",
+      "bytes": 13053,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_embodied_scoring.py": {
+      "source": "VideoICLBench/tests/test_embodied_scoring.py",
+      "sha256": "399be63c0c4779c78515ab9c19637a371dca751c5f1ce094b61d5e1bfd8ce8d7",
+      "bytes": 14505,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_native_agents.py": {
+      "source": "VideoICLBench/tests/test_native_agents.py",
+      "sha256": "7468ef1265363518f4224e27fb32d065ca3c04eb155cb3ec3422eadf3bde2596",
+      "bytes": 13725,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_native_structured_supervisor.py": {
+      "source": "VideoICLBench/tests/test_native_structured_supervisor.py",
+      "sha256": "932c2ffc9a4e2b7fa5304163bf5f12e1913bc41484941105ebf6083bc7abeab5",
+      "bytes": 7680,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_pinned_relay_entry.py": {
+      "source": "VideoICLBench/tests/test_pinned_relay_entry.py",
+      "sha256": "6506dcfef481f786a48aed798508fe1bc7c5ca7870ece8833dacb6fe38eab337",
+      "bytes": 3801,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_robodawn_batch_browser.py": {
+      "source": "VideoICLBench/tests/test_robodawn_batch_browser.py",
+      "sha256": "0389a27d1780b4f25fef2260a449b1043c41c18d7b403b23658fec499837b086",
+      "bytes": 8434,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_robodawn_turn_executor.py": {
+      "source": "VideoICLBench/tests/test_robodawn_turn_executor.py",
+      "sha256": "48c90e33ec9d718c14384fd5358d2dc33914bd42c9e875bcd76fa43505f63337",
+      "bytes": 28069,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_robodawn_turn_integration.py": {
+      "source": "VideoICLBench/tests/test_robodawn_turn_integration.py",
+      "sha256": "665e76e17ffb4addcf5bee274e6d0e465889574a0fd3a2770989bfebc8452e0a",
+      "bytes": 36217,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_tls_relay.py": {
+      "source": "VideoICLBench/tests/test_tls_relay.py",
+      "sha256": "e27bde138fee0d31bd02af932ad97ba2af72d0d2113042e14275f97c5caefa14",
+      "bytes": 12481,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_tls_relay_concurrency.py": {
+      "source": "VideoICLBench/tests/test_tls_relay_concurrency.py",
+      "sha256": "5b988bf75d707ebb24f77e44e50efaa4b56c6f5f3f8521a662bdc56817c28195",
+      "bytes": 8893,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_tls_relay_request_metadata.py": {
+      "source": "VideoICLBench/tests/test_tls_relay_request_metadata.py",
+      "sha256": "2a3c98b138aa4db948b55651c5d8663203813ab5b03631d95896a512c5e6b402",
+      "bytes": 7794,
+      "byte_identical": true
+    },
+    "VideoICLBench/tests/test_tls_relay_timing.py": {
+      "source": "VideoICLBench/tests/test_tls_relay_timing.py",
+      "sha256": "cc6643b474c9afc1b6ee32e43a1a86bbdd9f9dc6df9ffa38c386e9ae2503ccd8",
+      "bytes": 7514,
+      "byte_identical": true
+    },
+    "process_launcher.py": {
+      "source": "process_launcher.py",
+      "sha256": "c6e4d26fe3be04f379368972d100f488c81ce0d2eb65a3b3d7d2408906e3855c",
+      "bytes": 6100,
+      "byte_identical": true
+    },
+    "LICENSE": {
+      "source": "VideoICLBench/LICENSE",
+      "sha256": "983d115562ed030f5ccf5ede4b189b4f143619c0673e4b6dc013c46022003a5e",
+      "bytes": 1063,
+      "byte_identical": true
+    },
+    "README.md": {
+      "source": "verification/astra-iclworld-codexsingle1-20261106/HANDOFF_NATIVE_CODEX.md",
+      "sha256": "147105413eb3bb5874e989ac7bd0459623366d83d180b5b1b230706ee1a4601f",
+      "bytes": 12218,
+      "byte_identical": true
+    },
+    "docs/HANDOFF_NATIVE_CODEX.md": {
+      "source": "verification/astra-iclworld-codexsingle1-20261106/HANDOFF_NATIVE_CODEX.md",
+      "sha256": "147105413eb3bb5874e989ac7bd0459623366d83d180b5b1b230706ee1a4601f",
+      "bytes": 12218,
+      "byte_identical": true
+    },
+    "VideoICLBench/docs/evaluation/native-codex-20261106.md": {
+      "source": "verification/astra-iclworld-codexsingle1-20261106/HANDOFF_NATIVE_CODEX.md",
+      "sha256": "147105413eb3bb5874e989ac7bd0459623366d83d180b5b1b230706ee1a4601f",
+      "bytes": 12218,
+      "byte_identical": true
+    }
+  },
+  "generated_files": [
+    "INSTALL.md",
+    "VideoICLBench/pyproject.toml",
+    "VideoICLBench/tests/__init__.py",
+    "SOURCE_MAP.json",
+    "IMPORT_CLOSURE.json"
+  ]
+}
