@@ -1,0 +1,617 @@
+{
+  "source_release_sha256": "586a544b4bfb91899f9023ffce28f65638431c98cde0ef52e4fead5197e7afa0",
+  "scenes": [
+    {
+      "task": "F01",
+      "variant": "A",
+      "seed": 0,
+      "file": "F01-A-0.private.json",
+      "sha256": "e02fb9dbed47c5e3d52580c3f16043a4d99c60df927ebeae3ebb796a5da46161",
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "objects": 3,
+      "goal_types": [
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F01",
+      "variant": "B",
+      "seed": 0,
+      "file": "F01-B-0.private.json",
+      "sha256": "f36bd44a583f88dcfd38ca940a7e82cff9ed331454be7d2db1378c29f6db6cd6",
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "objects": 3,
+      "goal_types": [
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F01",
+      "variant": "C",
+      "seed": 0,
+      "file": "F01-C-0.private.json",
+      "sha256": "50e88a2236f3d8063e65823976bf2cdea7774f7577ca278b3dcc887cb5c3cfd6",
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "objects": 3,
+      "goal_types": [
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F01",
+      "variant": "A",
+      "seed": 7,
+      "file": "F01-A-7.private.json",
+      "sha256": "487729e92eb492dc17aac510856b7d121570027f3f8d41e45b675d04566674ce",
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "objects": 3,
+      "goal_types": [
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F01",
+      "variant": "B",
+      "seed": 7,
+      "file": "F01-B-7.private.json",
+      "sha256": "c624e1b37f476c517101e0fd421fad503be1911754653cb146f8a8ea4526235a",
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "objects": 3,
+      "goal_types": [
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F01",
+      "variant": "C",
+      "seed": 7,
+      "file": "F01-C-7.private.json",
+      "sha256": "a7c6c4e3379a17c98ccf5bf0d680eb3d89008711e2e7b12e16e3e2b553bfeb57",
+      "source_sha256": "78248b6e1505554ec6f7b8bf96cdb5e738c913ea9d93e8b28a8adf36ada0334f",
+      "objects": 3,
+      "goal_types": [
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F11",
+      "variant": "A",
+      "seed": 0,
+      "file": "F11-A-0.private.json",
+      "sha256": "504ea8a95ec5992b49c0dbf6c0c9f0864c2b41c4fdbad03c69abf12e272ac030",
+      "source_sha256": "258d0484f4dc06071e2d3476ebab1c7232d258ca65bbab17e81aa58a24c51878",
+      "objects": 6,
+      "goal_types": [
+        "threaded"
+      ]
+    },
+    {
+      "task": "F11",
+      "variant": "B",
+      "seed": 0,
+      "file": "F11-B-0.private.json",
+      "sha256": "31e9f47da827f2082088cd3fe107b11279e6c6dc48b73cb5fe273a2f5f8a45f6",
+      "source_sha256": "258d0484f4dc06071e2d3476ebab1c7232d258ca65bbab17e81aa58a24c51878",
+      "objects": 6,
+      "goal_types": [
+        "threaded"
+      ]
+    },
+    {
+      "task": "F11",
+      "variant": "C",
+      "seed": 0,
+      "file": "F11-C-0.private.json",
+      "sha256": "b7afa0baaf67ab85d33918c0685cc9801ea9aae0f9281df3663f36b7c2577e1f",
+      "source_sha256": "258d0484f4dc06071e2d3476ebab1c7232d258ca65bbab17e81aa58a24c51878",
+      "objects": 6,
+      "goal_types": [
+        "threaded"
+      ]
+    },
+    {
+      "task": "F11",
+      "variant": "A",
+      "seed": 7,
+      "file": "F11-A-7.private.json",
+      "sha256": "1bf2d57c42a998a4701b7cd974ec1886ff014aeb2ad962c16bc4d03a2f487711",
+      "source_sha256": "258d0484f4dc06071e2d3476ebab1c7232d258ca65bbab17e81aa58a24c51878",
+      "objects": 6,
+      "goal_types": [
+        "threaded"
+      ]
+    },
+    {
+      "task": "F11",
+      "variant": "B",
+      "seed": 7,
+      "file": "F11-B-7.private.json",
+      "sha256": "0ce1fb35f9cc12916e03c4337146f36303c1bdb5710161234e9185095a9a3f20",
+      "source_sha256": "258d0484f4dc06071e2d3476ebab1c7232d258ca65bbab17e81aa58a24c51878",
+      "objects": 6,
+      "goal_types": [
+        "threaded"
+      ]
+    },
+    {
+      "task": "F11",
+      "variant": "C",
+      "seed": 7,
+      "file": "F11-C-7.private.json",
+      "sha256": "3c2129d3bd53e92da64f5e989933e6d574bb9db7b6c0d270e32749c15f74f211",
+      "source_sha256": "258d0484f4dc06071e2d3476ebab1c7232d258ca65bbab17e81aa58a24c51878",
+      "objects": 6,
+      "goal_types": [
+        "threaded"
+      ]
+    },
+    {
+      "task": "F10",
+      "variant": "A",
+      "seed": 0,
+      "file": "F10-A-0.private.json",
+      "sha256": "ba1938c338cddcabf78ca2fa67fa24e0954028df8d57c6f9f83f1f1855d4bf62",
+      "source_sha256": "3a7103a0cf3670c304ac8a608f2a3b22b13df1d87645a4f8e3ea4b970c8b04be",
+      "objects": 8,
+      "goal_types": [
+        "place"
+      ]
+    },
+    {
+      "task": "F10",
+      "variant": "B",
+      "seed": 0,
+      "file": "F10-B-0.private.json",
+      "sha256": "7e14eaf6cf0a6a6cc19999a01d40da0630c62f222e00e922de5ba8e57b67a679",
+      "source_sha256": "3a7103a0cf3670c304ac8a608f2a3b22b13df1d87645a4f8e3ea4b970c8b04be",
+      "objects": 8,
+      "goal_types": [
+        "place"
+      ]
+    },
+    {
+      "task": "F10",
+      "variant": "C",
+      "seed": 0,
+      "file": "F10-C-0.private.json",
+      "sha256": "72373aaf5032739de9300c17d22cf0e822b8287f5d1ed3015895e3fed19ccb5b",
+      "source_sha256": "3a7103a0cf3670c304ac8a608f2a3b22b13df1d87645a4f8e3ea4b970c8b04be",
+      "objects": 8,
+      "goal_types": [
+        "place"
+      ]
+    },
+    {
+      "task": "F10",
+      "variant": "A",
+      "seed": 7,
+      "file": "F10-A-7.private.json",
+      "sha256": "7b2cec331761475d60fa691a40a56a4fb1e5b5bf4dc1976baced00e0e137563f",
+      "source_sha256": "3a7103a0cf3670c304ac8a608f2a3b22b13df1d87645a4f8e3ea4b970c8b04be",
+      "objects": 8,
+      "goal_types": [
+        "place"
+      ]
+    },
+    {
+      "task": "F10",
+      "variant": "B",
+      "seed": 7,
+      "file": "F10-B-7.private.json",
+      "sha256": "7370edbb707822a551a55499aae51b6a06522231d83beba2fcae826138e9dbd1",
+      "source_sha256": "3a7103a0cf3670c304ac8a608f2a3b22b13df1d87645a4f8e3ea4b970c8b04be",
+      "objects": 8,
+      "goal_types": [
+        "place"
+      ]
+    },
+    {
+      "task": "F10",
+      "variant": "C",
+      "seed": 7,
+      "file": "F10-C-7.private.json",
+      "sha256": "d60bcd45a0d5950f0afc9ca95ce6f1c2ab103cb270a4a93731e24a65b690b10e",
+      "source_sha256": "3a7103a0cf3670c304ac8a608f2a3b22b13df1d87645a4f8e3ea4b970c8b04be",
+      "objects": 8,
+      "goal_types": [
+        "place"
+      ]
+    },
+    {
+      "task": "F08",
+      "variant": "A",
+      "seed": 0,
+      "file": "F08-A-0.private.json",
+      "sha256": "327834ea0f6622b4f3e8e236144fe9b6b679ddab03d2d725128eedd64a008cce",
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "objects": 12,
+      "goal_types": [
+        "insert"
+      ]
+    },
+    {
+      "task": "F08",
+      "variant": "B",
+      "seed": 0,
+      "file": "F08-B-0.private.json",
+      "sha256": "34c0baba8ae4264a5bae5a617fc781f4dc7fdb38e74c779d7a7bf6f7f9dc4508",
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "objects": 12,
+      "goal_types": [
+        "insert"
+      ]
+    },
+    {
+      "task": "F08",
+      "variant": "C",
+      "seed": 0,
+      "file": "F08-C-0.private.json",
+      "sha256": "2a9361aedc67024dc700734942ec85028635c27e592c16863467261a53d7b499",
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "objects": 12,
+      "goal_types": [
+        "insert"
+      ]
+    },
+    {
+      "task": "F08",
+      "variant": "A",
+      "seed": 7,
+      "file": "F08-A-7.private.json",
+      "sha256": "f7747b42f722c11be5879a5e0cfa055dc43518b73c67678d7003c1286409d0d6",
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "objects": 12,
+      "goal_types": [
+        "insert"
+      ]
+    },
+    {
+      "task": "F08",
+      "variant": "B",
+      "seed": 7,
+      "file": "F08-B-7.private.json",
+      "sha256": "0d2c903c1a03254a7def382270aa0e50fb156d434b180bf7dd97688c41ce3d73",
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "objects": 12,
+      "goal_types": [
+        "insert"
+      ]
+    },
+    {
+      "task": "F08",
+      "variant": "C",
+      "seed": 7,
+      "file": "F08-C-7.private.json",
+      "sha256": "5ec84b51429c47caabb48ef36d6b03315f0a28b7ed0dac498f7193d6722efe9a",
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "objects": 12,
+      "goal_types": [
+        "insert"
+      ]
+    },
+    {
+      "task": "F22",
+      "variant": "A",
+      "seed": 0,
+      "file": "F22-A-0.private.json",
+      "sha256": "02866cc626ff5c89413bab0655eee04c7fbbd2debaeea49056df3fb113573f0b",
+      "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+      "objects": 8,
+      "goal_types": [
+        "nest",
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F22",
+      "variant": "B",
+      "seed": 0,
+      "file": "F22-B-0.private.json",
+      "sha256": "be438594d26a66d606e0ef2f0ec5ab025b1505ac9231c6cecadbbb36f8277796",
+      "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+      "objects": 8,
+      "goal_types": [
+        "nest",
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F22",
+      "variant": "C",
+      "seed": 0,
+      "file": "F22-C-0.private.json",
+      "sha256": "0fd550c0292b0e5afa36e468ea4e9f00d63bf11f2de872bbf5f281c5c964b721",
+      "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+      "objects": 8,
+      "goal_types": [
+        "nest",
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F22",
+      "variant": "A",
+      "seed": 7,
+      "file": "F22-A-7.private.json",
+      "sha256": "d4e892c529bfb6d1661328cb257c871b2c335f7016de67a0fcca8ce6490ad1e6",
+      "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+      "objects": 8,
+      "goal_types": [
+        "nest",
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F22",
+      "variant": "B",
+      "seed": 7,
+      "file": "F22-B-7.private.json",
+      "sha256": "6804ce0672d301515cf521b6ac9b915f30f366ebe3fa25c7c4094de52f16a974",
+      "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+      "objects": 8,
+      "goal_types": [
+        "nest",
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F22",
+      "variant": "C",
+      "seed": 7,
+      "file": "F22-C-7.private.json",
+      "sha256": "b295e57e7d943cbe2d96b379b3a4037ba0491ad5691a81b28183988805a6e2cf",
+      "source_sha256": "e93c7b2570a2d8013bc15ae27ec3d014d759a55bd694d849bba5ca97cadf25f0",
+      "objects": 8,
+      "goal_types": [
+        "nest",
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F17",
+      "variant": "A",
+      "seed": 0,
+      "file": "F17-A-0.private.json",
+      "sha256": "8dd6a6beef78293cc3e5aea7473c6d7438d1d2ae85e0cf9aeb7af65cab85a064",
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "objects": 5,
+      "goal_types": [
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F17",
+      "variant": "B",
+      "seed": 0,
+      "file": "F17-B-0.private.json",
+      "sha256": "f367a00d93e760dd29a4fd456af6155c46ef93b0c76ae8e5d1f450ae1fc3c239",
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "objects": 5,
+      "goal_types": [
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F17",
+      "variant": "C",
+      "seed": 0,
+      "file": "F17-C-0.private.json",
+      "sha256": "53ecf5edec6977c7b27eeff5ac207cfcd968bb237133e9f0a2863d374062ff62",
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "objects": 5,
+      "goal_types": [
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F17",
+      "variant": "A",
+      "seed": 7,
+      "file": "F17-A-7.private.json",
+      "sha256": "e6e6b768423584d12d280a8c4ed5c0922578e52497e43fa96dcb5c52ff1034af",
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "objects": 5,
+      "goal_types": [
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F17",
+      "variant": "B",
+      "seed": 7,
+      "file": "F17-B-7.private.json",
+      "sha256": "65921795d8c92c0d58a6e13bbf0fdc197dbac26fee514d263e41b8f6b23f4f35",
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "objects": 5,
+      "goal_types": [
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F17",
+      "variant": "C",
+      "seed": 7,
+      "file": "F17-C-7.private.json",
+      "sha256": "440e30f09dbc4ecdc0c3134ea29c47878568191d35a68f7a299459ef2f782fba",
+      "source_sha256": "9a302c762b46b08d93f2a06635dd826f36994d2ca24da204b35933b861513da7",
+      "objects": 5,
+      "goal_types": [
+        "position",
+        "stack"
+      ]
+    },
+    {
+      "task": "F39",
+      "variant": "A",
+      "seed": 0,
+      "file": "F39-A-0.private.json",
+      "sha256": "c7e0daefa2dcc2e4c05e06d6ffc9ded520f528c186b7399ef00414fbae06317f",
+      "source_sha256": "ae4819ca49369aebbde0d370527b45283920c8915280f54d9602ce2ce5d8da53",
+      "objects": 7,
+      "goal_types": [
+        "place",
+        "swept"
+      ]
+    },
+    {
+      "task": "F39",
+      "variant": "B",
+      "seed": 0,
+      "file": "F39-B-0.private.json",
+      "sha256": "eed7b218411d2e32fc30ba8f66032566f813ccefdf9808f84f63e60b0682ef82",
+      "source_sha256": "ae4819ca49369aebbde0d370527b45283920c8915280f54d9602ce2ce5d8da53",
+      "objects": 7,
+      "goal_types": [
+        "place",
+        "swept"
+      ]
+    },
+    {
+      "task": "F39",
+      "variant": "C",
+      "seed": 0,
+      "file": "F39-C-0.private.json",
+      "sha256": "cc0811b714546baaec264a9ab13527a92bc81e20ac19016f0391b4c4de771fa1",
+      "source_sha256": "ae4819ca49369aebbde0d370527b45283920c8915280f54d9602ce2ce5d8da53",
+      "objects": 7,
+      "goal_types": [
+        "place",
+        "swept"
+      ]
+    },
+    {
+      "task": "F39",
+      "variant": "A",
+      "seed": 7,
+      "file": "F39-A-7.private.json",
+      "sha256": "c4ba3ae95351b598c9cdeb93d3ad4eddcf8191715fbd9316fb4f4eaec313cfd8",
+      "source_sha256": "ae4819ca49369aebbde0d370527b45283920c8915280f54d9602ce2ce5d8da53",
+      "objects": 7,
+      "goal_types": [
+        "place",
+        "swept"
+      ]
+    },
+    {
+      "task": "F39",
+      "variant": "B",
+      "seed": 7,
+      "file": "F39-B-7.private.json",
+      "sha256": "51d7921b9078e1c5cc5a9b9c95b27e6d910a13bf719dff7876cf678e5c43cfad",
+      "source_sha256": "ae4819ca49369aebbde0d370527b45283920c8915280f54d9602ce2ce5d8da53",
+      "objects": 7,
+      "goal_types": [
+        "place",
+        "swept"
+      ]
+    },
+    {
+      "task": "F39",
+      "variant": "C",
+      "seed": 7,
+      "file": "F39-C-7.private.json",
+      "sha256": "c0f1873ca1587b2750b794219ab8dbeb0d758a6872368328a7f005a8744c0885",
+      "source_sha256": "ae4819ca49369aebbde0d370527b45283920c8915280f54d9602ce2ce5d8da53",
+      "objects": 7,
+      "goal_types": [
+        "place",
+        "swept"
+      ]
+    },
+    {
+      "task": "F44",
+      "variant": "A",
+      "seed": 0,
+      "file": "F44-A-0.private.json",
+      "sha256": "24ea37875b8972e11c38f4584311772591ca69e949da17ad986d7d650dc22689",
+      "source_sha256": "caa2956a08932edcb204d4c7337f255a6e5e5f0da9cbbb087e33dea7d87e678a",
+      "objects": 8,
+      "goal_types": [
+        "guided_roll",
+        "nest"
+      ]
+    },
+    {
+      "task": "F44",
+      "variant": "B",
+      "seed": 0,
+      "file": "F44-B-0.private.json",
+      "sha256": "4bb2e2a0e2936fe989f46ede40d1424cc4191d985a92e8127ca2033a4e2a3a0d",
+      "source_sha256": "caa2956a08932edcb204d4c7337f255a6e5e5f0da9cbbb087e33dea7d87e678a",
+      "objects": 8,
+      "goal_types": [
+        "guided_roll",
+        "nest"
+      ]
+    },
+    {
+      "task": "F44",
+      "variant": "C",
+      "seed": 0,
+      "file": "F44-C-0.private.json",
+      "sha256": "cfa63484d8c55f05067a3b85eba147a389367c40ab613ad3458c443835420b91",
+      "source_sha256": "caa2956a08932edcb204d4c7337f255a6e5e5f0da9cbbb087e33dea7d87e678a",
+      "objects": 8,
+      "goal_types": [
+        "guided_roll",
+        "nest"
+      ]
+    },
+    {
+      "task": "F44",
+      "variant": "A",
+      "seed": 7,
+      "file": "F44-A-7.private.json",
+      "sha256": "d13efb59e3d2860666bf0b10b1282159b5893a6fc98630535c3070535d56d12a",
+      "source_sha256": "caa2956a08932edcb204d4c7337f255a6e5e5f0da9cbbb087e33dea7d87e678a",
+      "objects": 8,
+      "goal_types": [
+        "guided_roll",
+        "nest"
+      ]
+    },
+    {
+      "task": "F44",
+      "variant": "B",
+      "seed": 7,
+      "file": "F44-B-7.private.json",
+      "sha256": "71b1a03927779e3d68abb197e118190ac4464910c380c6f0f274a4555c71c976",
+      "source_sha256": "caa2956a08932edcb204d4c7337f255a6e5e5f0da9cbbb087e33dea7d87e678a",
+      "objects": 8,
+      "goal_types": [
+        "guided_roll",
+        "nest"
+      ]
+    },
+    {
+      "task": "F44",
+      "variant": "C",
+      "seed": 7,
+      "file": "F44-C-7.private.json",
+      "sha256": "89cd7229f01831f4a31cf9b857b3bbe65357f08b37d63d5d6b386ff9342cc9ed",
+      "source_sha256": "caa2956a08932edcb204d4c7337f255a6e5e5f0da9cbbb087e33dea7d87e678a",
+      "objects": 8,
+      "goal_types": [
+        "guided_roll",
+        "nest"
+      ]
+    }
+  ]
+}

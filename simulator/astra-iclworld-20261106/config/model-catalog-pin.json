@@ -1,0 +1,10 @@
+{
+  "schema": "videoicl-codex-catalog-pin-v1",
+  "sha256": "2ec6f8cc36654d121bf70b2f4c9d99d39cc1c25e2f3070810e4e9988ebaa21e8",
+  "runtime_top_level_keys": [
+    "models"
+  ],
+  "model": "gpt-6-astra",
+  "context_window": 262144,
+  "auto_compact_token_limit": 120000
+}

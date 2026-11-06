@@ -1,5 +1,7 @@
 # VideoICL-Bench
 
+具身评测入口：[Astra 实验与复现配置](simulator/astra-iclworld-20261106/README.md) · [仿真目录](simulator/README.md)。
+
 VideoICL-Bench 为人类录制者和 GUI Agent 提供统一的应用、任务、截图输入、录像和状态评测平台。
 
 应用界面预览与来源见 [应用界面](docs/native-frontends.md)。

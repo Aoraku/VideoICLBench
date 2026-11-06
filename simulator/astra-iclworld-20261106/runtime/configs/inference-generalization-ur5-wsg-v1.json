@@ -1,0 +1,367 @@
+{
+  "schema_version": 1,
+  "physics": {
+    "dt": 0.004,
+    "render_hz": 15,
+    "action_seconds": 0.4,
+    "solver_position_iterations": 16,
+    "solver_velocity_iterations": 4,
+    "disable_gravity": true,
+    "self_collision": true,
+    "max_joint_delta": 0.08,
+    "public_action_max_seconds": 1.2,
+    "public_action_check_seconds": 0.1
+  },
+  "control": {
+    "frame": "grasp_center",
+    "step_mm": [
+      0.5,
+      50
+    ],
+    "rotation_deg": [
+      0.5,
+      20
+    ],
+    "ik_method": "dls",
+    "rolling_joint_reference": true
+  },
+  "name": "ur5_wsg",
+  "reference": {
+    "benchmark": "RoboTwin",
+    "embodiment": "ur5-wsg",
+    "source_snapshot": "reference/robotwin/source_snapshot.json",
+    "source_config_sha256": "97c8c88e6817031d0ae26e69ebc4f0de7eeb663250620c64d857022006fc71ea",
+    "source_urdf": "./ur5_wsg_gripper.urdf",
+    "upstream_gripper_bias": 0.11,
+    "upstream_delta_matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "upstream_global_trans_matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        0,
+        -1
+      ]
+    ],
+    "dual_arm_separation_m": 0.6,
+    "adaptations": [
+      "RoboTwin SAPIEN camera basis converted exactly to USD/OpenGL",
+      "Large_D435 source preset selected for all three cameras",
+      "Native URDF converted once with fixed camera links retained",
+      "Gravity disabled to approximate upstream per-tick gravity compensation",
+      "Native gripper limits respected; upstream out-of-range targets are clipped",
+      "Harness TCP is native WSG fingertip plane: ee_link +X (0.023 guide offset + 0.1305 mesh length) = 0.1535 m; original planner bias 0.11 m retained above"
+    ]
+  },
+  "asset": {
+    "path": "assets/embodiments/robotwin-r5/ur5-wsg/robot.usd",
+    "env": "VIC_UR5_WSG_USD",
+    "format": "usd",
+    "source_embodiment": "ur5-wsg"
+  },
+  "layout": {
+    "id": "videoicl-g2-ur5-slate-table-v1",
+    "kind": "robotwin",
+    "task_rotation": [
+      0.7071067811865476,
+      0,
+      0,
+      0.7071067811865476
+    ],
+    "task_translation": [
+      0,
+      0,
+      -0.06
+    ],
+    "table": {
+      "position": [
+        0,
+        0,
+        0.715
+      ],
+      "size": [
+        1.4,
+        0.85,
+        0.05
+      ],
+      "top": 0.74,
+      "static_friction": 0.5,
+      "dynamic_friction": 0.5,
+      "restitution": 0
+    },
+    "background": {
+      "wall_position": [
+        0,
+        1,
+        1.5
+      ],
+      "wall_half_size": [
+        3,
+        0.6,
+        1.5
+      ],
+      "wall_color": [
+        0.88,
+        0.9,
+        0.92
+      ],
+      "table_color": [
+        0.22,
+        0.32,
+        0.4
+      ],
+      "ambient_color": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "directional_lights": [
+        {
+          "direction": [
+            0,
+            0.5,
+            -1
+          ],
+          "color": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "shadow": true
+        }
+      ],
+      "point_lights": [
+        {
+          "position": [
+            1,
+            0,
+            1.8
+          ],
+          "color": [
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "position": [
+            -1,
+            0,
+            1.8
+          ],
+          "color": [
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "renderer_note": "SAPIEN RGB energy adapted to RTX light units, preserving light positions and directions"
+    }
+  },
+  "robots": {
+    "left": {
+      "position": [
+        -0.3,
+        -0.65,
+        0.65
+      ],
+      "rotation": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "initial_joints": {
+        "shoulder_pan_joint": -1.5447,
+        "shoulder_lift_joint": -1.5447,
+        "elbow_joint": -1.5447,
+        "wrist_1_joint": -1.5794,
+        "wrist_2_joint": 1.5794,
+        "wrist_3_joint": 0,
+        "base_joint_gripper_left": -0.055,
+        "base_joint_gripper_right": 0.055
+      }
+    },
+    "right": {
+      "position": [
+        0.3,
+        -0.65,
+        0.75
+      ],
+      "rotation": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "initial_joints": {
+        "shoulder_pan_joint": -1.5447,
+        "shoulder_lift_joint": -1.5447,
+        "elbow_joint": -1.5447,
+        "wrist_1_joint": -1.5794,
+        "wrist_2_joint": 1.5794,
+        "wrist_3_joint": 0,
+        "base_joint_gripper_left": -0.055,
+        "base_joint_gripper_right": 0.055
+      }
+    }
+  },
+  "cameras": {
+    "profile": "videoicl-g2-ur5-wsg-tcp-visible-v1",
+    "head": {
+      "width": 640,
+      "height": 480,
+      "intrinsics": {
+        "focal_length": 13.0,
+        "horizontal_aperture": 11.599304409405201,
+        "vertical_aperture": 8.699478307053901,
+        "clipping_range": [
+          0.1,
+          100.0
+        ]
+      },
+      "source_preset": "Large_D435",
+      "source_fovy_deg": 37,
+      "position": [
+        -0.032,
+        -0.45,
+        1.35
+      ],
+      "rotation": [
+        0.9486832980505138,
+        0.31622776601683794,
+        0,
+        0
+      ],
+      "convention": "opengl"
+    },
+    "wrist": {
+      "width": 640,
+      "height": 480,
+      "intrinsics": {
+        "focal_length": 13.0,
+        "horizontal_aperture": 11.599304409405201,
+        "vertical_aperture": 8.699478307053901,
+        "clipping_range": [
+          0.03,
+          100.0
+        ]
+      },
+      "source_preset": "Large_D435",
+      "source_fovy_deg": 37,
+      "link": "camera",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0.5851132290301022,
+        0.3970422501186724,
+        -0.3970422102417552,
+        -0.5851131891531849
+      ],
+      "convention": "opengl"
+    }
+  },
+  "kinematics": {
+    "arm_joints": [
+      "shoulder_pan_joint",
+      "shoulder_lift_joint",
+      "elbow_joint",
+      "wrist_1_joint",
+      "wrist_2_joint",
+      "wrist_3_joint"
+    ],
+    "hand": "ee_link",
+    "tcp": [
+      0.1535,
+      0,
+      0
+    ],
+    "contact_links": [
+      "finger_left",
+      "finger_right"
+    ]
+  },
+  "gripper": {
+    "joints": [
+      "base_joint_gripper_left",
+      "base_joint_gripper_right"
+    ],
+    "open": [
+      -0.055,
+      0.055
+    ],
+    "closed": [
+      -0.0027,
+      0.0027
+    ],
+    "note": "Upstream scale [-.06,+.01] clipped to native URDF stops; right joint mirrors the left"
+  },
+  "actuators": {
+    "arm": {
+      "effort_limit": 100.0,
+      "velocity_limit": 5.0,
+      "stiffness": 1000,
+      "damping": 200,
+      "armature": 0.01
+    },
+    "gripper": {
+      "effort_limit": 100.0,
+      "velocity_limit": 0.2,
+      "stiffness": 1000,
+      "damping": 200,
+      "armature": 0.001
+    }
+  },
+  "profile_revision": "inference-generalization-ur5-wsg-table-wrist-v2",
+  "inference_generalization": {
+    "group": "G2",
+    "robot_change": "Franka Panda to UR5 with WSG parallel gripper",
+    "table_change": "1.4m x0.85m slate tabletop, original task-plane height/friction maintained",
+    "demo_environment_unchanged": true,
+    "validation_status": "pending_native_validation",
+    "wrist_adjustment": {
+      "method": "Rigid native camera-to-ee transform; minimum optical rotation centers configured TCP",
+      "rotation_degrees": 21.68046018083721,
+      "original_tcp_uv_depth": [
+        319.99993953743274,
+        525.1588086223958,
+        0.13080000317096668
+      ],
+      "adjusted_tcp_uv_depth": [
+        320.0,
+        240.00000000000006,
+        0.14075737499869842
+      ],
+      "near_clip_m": 0.03,
+      "native_occlusion_check": "pending"
+    }
+  }
+}

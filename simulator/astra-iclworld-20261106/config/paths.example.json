@@ -1,0 +1,19 @@
+{
+  "native_python": "/absolute/path/to/native_python",
+  "gui_python": "/absolute/path/to/gui_python",
+  "experience": "/absolute/path/to/experience",
+  "codex_binary": "/absolute/path/to/codex_binary",
+  "ca_bundle": "/absolute/path/to/ca_bundle",
+  "browser_path": "/absolute/path/to/browser_path",
+  "native_kit_args": "--/renderer/multiGpu/enabled=false --/renderer/activeGpu=0 --/persistent/physics/useLocalMeshCache=false --/physics/cooking/ujitsoCollisionCooking=false --/physics/cooking/ujitsoRemoteCacheEnabled=false --/app/settings/persistent=false",
+  "native_environment": {
+    "VIC_ROBODOJO_ASSETS": "/absolute/path/to/VIC_ROBODOJO_ASSETS",
+    "VIC_FULL50_RIGID_ASSETS": "/absolute/path/to/VIC_FULL50_RIGID_ASSETS",
+    "VIC_MECHANISM_ASSETS": "/absolute/path/to/VIC_MECHANISM_ASSETS",
+    "VIC_REALWORLD_ASSETS": "/absolute/path/to/VIC_REALWORLD_ASSETS",
+    "VIC_INFERENCE_ASSETS": "/absolute/path/to/VIC_INFERENCE_ASSETS",
+    "VIC_FRANKA_ROBOTWIN_USD": "/absolute/path/to/VIC_FRANKA_ROBOTWIN_USD",
+    "VIDEOICL_SENSOR_DEPTH": "1",
+    "VIC_EXECUTION_DESIGN_ASSETS": "/absolute/path/to/VIC_EXECUTION_DESIGN_ASSETS"
+  }
+}

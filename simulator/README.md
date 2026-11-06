@@ -1,10 +1,15 @@
-> **本次八题交付：[任务与24段视频](delivery8/TASKS.md) · [HTTP agent、访问连接与部署](delivery8/README.md)**。
->
-> 当前新版：**[桌面双臂50任务](tabletop50/README.md)** · **[全部视频索引](tabletop50/VIDEOS.md)** · **[部署与网页查看](tabletop50/DEPLOY.md)**。
->
-> 50族设计，50族运行配方（F42/F43/F46为未验收原型），102段合格历史视频、34族完整A/B/C；尚未完成全部150条件。新版源码、运行工具、视频与测试全部放在本 `simulator/` 目录，部署不依赖仓库其他目录。下文为保留的旧GUI原型。
+# VideoICL 具身仿真与评测
 
-# VideoICL 桌面双臂仿真模拟器
+| 要做的事 | 入口 |
+|---|---|
+| 复现 Astra 具身实验，准备 255 条物理配置和 51 道视频 QA | [Astra 实验交付与运行说明](astra-iclworld-20261106/README.md) |
+| 安装 Codex 结构化工具、GUI、原生仿真适配器和 API relay | [原生 Codex harness](native-codex-20261106/README.md) |
+| 使用八题的 HTTP agent 或查看 24 段演示 | [交付说明](delivery8/README.md) · [任务与视频](delivery8/TASKS.md) |
+| 使用 MuJoCo 桌面双臂任务族、配方和历史视频 | [Tabletop50](tabletop50/README.md) · [视频索引](tabletop50/VIDEOS.md) · [网页部署](tabletop50/DEPLOY.md) |
+
+Astra 实验用 IsaacLab/PhysX。下方的启动命令用于较早的 MuJoCo GUI 原型。Tabletop50 包含 50 族运行配方，历史记录中 34 族有完整 A/B/C，F42、F43、F46 为未验收原型。
+
+## MuJoCo GUI 原型
 
 Show-Harness / GUMI 风格的 GUI 控制原型，使用真正的 MuJoCo 接触物理和双 Panda 机械臂。Agent 看演示和四路相机，通过移动、旋转、夹爪开合按钮排队，再点击 COMMIT。底层实现 IK 和关节控制，不自动选择或对齐物体。
 
