@@ -1,0 +1,12 @@
+{
+  "model": "opus",
+  "excluded_category": "backend_temporary_native_rpc_cache",
+  "files": 59438,
+  "bytes": 275246630411,
+  "path_pattern": "pools/<pool>/native/rpc/**",
+  "reason": "Temporary backend RPC request/response caches duplicate native state and sensor payloads. Excluded from the trajectory release; no episodes are excluded. Room native actions, receipts, GUI, requested depth, model sessions, and formal API/native logs are retained.",
+  "retained_formal_aux_files": 350,
+  "retained_formal_aux_bytes": 5246143155,
+  "physical_episodes": 158,
+  "source_files_deleted": false
+}

@@ -2,6 +2,7 @@
 
 | 要做的事 | 入口 |
 |---|---|
+| 下载 Astra 255 条、Opus 158 条执行轨迹及 Astra 51 条独立 QA | [轨迹归档、索引与恢复工具](trajectories/astra-opus-20261107/README.md) |
 | 复现 Astra 具身实验，准备 255 条物理配置和 51 道视频 QA | [Astra 实验交付与运行说明](astra-iclworld-20261106/README.md) |
 | 安装 Codex 结构化工具、GUI、原生仿真适配器和 API relay | [原生 Codex harness](native-codex-20261106/README.md) |
 | 使用八题的 HTTP agent 或查看 24 段演示 | [交付说明](delivery8/README.md) · [任务与视频](delivery8/TASKS.md) |

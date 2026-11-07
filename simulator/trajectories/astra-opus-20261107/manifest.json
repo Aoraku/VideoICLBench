@@ -1,0 +1,626 @@
+{
+  "schema_version": 1,
+  "repository": "Aoraku/VideoICLBench",
+  "release_id": 437655019,
+  "release_tag": "astra-opus-trajectories-20261107",
+  "release_url": "https://github.com/Aoraku/VideoICLBench/releases/tag/astra-opus-trajectories-20261107",
+  "packages": [
+    {
+      "id": "astra-main",
+      "model": "astra",
+      "asset_prefix": "astra-",
+      "asset_count": 24,
+      "archive_parts": [
+        "astra-trajectories.tar.gz.part0001",
+        "astra-trajectories.tar.gz.part0002",
+        "astra-trajectories.tar.gz.part0003",
+        "astra-trajectories.tar.gz.part0004",
+        "astra-trajectories.tar.gz.part0005",
+        "astra-trajectories.tar.gz.part0006",
+        "astra-trajectories.tar.gz.part0007",
+        "astra-trajectories.tar.gz.part0008",
+        "astra-trajectories.tar.gz.part0009",
+        "astra-trajectories.tar.gz.part0010",
+        "astra-trajectories.tar.gz.part0011",
+        "astra-trajectories.tar.gz.part0012",
+        "astra-trajectories.tar.gz.part0013",
+        "astra-trajectories.tar.gz.part0014",
+        "astra-trajectories.tar.gz.part0015",
+        "astra-trajectories.tar.gz.part0016",
+        "astra-trajectories.tar.gz.part0017",
+        "astra-trajectories.tar.gz.part0018",
+        "astra-trajectories.tar.gz.part0019",
+        "astra-trajectories.tar.gz.part0020",
+        "astra-trajectories.tar.gz.part0021",
+        "astra-trajectories.tar.gz.part0022"
+      ],
+      "export_manifest": "astra-export-manifest.json",
+      "export_receipt": "astra-export-receipt.json"
+    },
+    {
+      "id": "astra-logs",
+      "model": "astra",
+      "asset_prefix": "astra-logs-",
+      "asset_count": 3,
+      "archive_parts": [
+        "astra-logs-trajectories.tar.gz.part0001"
+      ],
+      "export_manifest": "astra-logs-export-manifest.json",
+      "export_receipt": "astra-logs-export-receipt.json"
+    },
+    {
+      "id": "opus-main",
+      "model": "opus",
+      "asset_prefix": "opus-",
+      "asset_count": 24,
+      "archive_parts": [
+        "opus-trajectories.tar.gz.part0001",
+        "opus-trajectories.tar.gz.part0002",
+        "opus-trajectories.tar.gz.part0003",
+        "opus-trajectories.tar.gz.part0004",
+        "opus-trajectories.tar.gz.part0005",
+        "opus-trajectories.tar.gz.part0006",
+        "opus-trajectories.tar.gz.part0007",
+        "opus-trajectories.tar.gz.part0008",
+        "opus-trajectories.tar.gz.part0009",
+        "opus-trajectories.tar.gz.part0010",
+        "opus-trajectories.tar.gz.part0011",
+        "opus-trajectories.tar.gz.part0012",
+        "opus-trajectories.tar.gz.part0013",
+        "opus-trajectories.tar.gz.part0014",
+        "opus-trajectories.tar.gz.part0015",
+        "opus-trajectories.tar.gz.part0016",
+        "opus-trajectories.tar.gz.part0017",
+        "opus-trajectories.tar.gz.part0018",
+        "opus-trajectories.tar.gz.part0019",
+        "opus-trajectories.tar.gz.part0020",
+        "opus-trajectories.tar.gz.part0021",
+        "opus-trajectories.tar.gz.part0022"
+      ],
+      "export_manifest": "opus-export-manifest.json",
+      "export_receipt": "opus-export-receipt.json"
+    },
+    {
+      "id": "opus-logs",
+      "model": "opus",
+      "asset_prefix": "opus-logs-",
+      "asset_count": 3,
+      "archive_parts": [
+        "opus-logs-trajectories.tar.gz.part0001"
+      ],
+      "export_manifest": "opus-logs-export-manifest.json",
+      "export_receipt": "opus-logs-export-receipt.json"
+    },
+    {
+      "id": "opus-supplement",
+      "model": "opus",
+      "asset_prefix": "opus-supplement-",
+      "asset_count": 3,
+      "archive_parts": [
+        "opus-supplement-trajectories.tar.gz.part0001"
+      ],
+      "export_manifest": "opus-supplement-export-manifest.json",
+      "export_receipt": "opus-supplement-export-receipt.json"
+    }
+  ],
+  "assets": [
+    {
+      "name": "astra-export-manifest.json",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 48976543,
+      "sha256": "a7aefca64186cafe1ac1df06609210ffb0b42ce257e7fda3c5240183e64a921d",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-export-manifest.json",
+      "github_asset_id": 721452957
+    },
+    {
+      "name": "astra-export-receipt.json",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 3999,
+      "sha256": "c8cfb7fb9cf257a1b59b00b3e510f8651449781a8faece7059b8fd526272d4e3",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-export-receipt.json",
+      "github_asset_id": 721452968
+    },
+    {
+      "name": "astra-logs-export-manifest.json",
+      "package": "astra-logs",
+      "model": "astra",
+      "size": 13262353,
+      "sha256": "a3c69f2e407ddcf97ab598cba5f1ff2dcc1bdb12b2ef50fc02b5f8d682c87777",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-logs-export-manifest.json",
+      "github_asset_id": 721252683
+    },
+    {
+      "name": "astra-logs-export-receipt.json",
+      "package": "astra-logs",
+      "model": "astra",
+      "size": 471,
+      "sha256": "bd8d3fbab23afa97ed331c0d669141690e2a3849eacb9797dc8d742864d14c3b",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-logs-export-receipt.json",
+      "github_asset_id": 721252690
+    },
+    {
+      "name": "astra-logs-trajectories.tar.gz.part0001",
+      "package": "astra-logs",
+      "model": "astra",
+      "size": 314808004,
+      "sha256": "bc79b4e7edb6e4c6164e60f20bb021ee045719aac00b3d5d4f218ef7fbd4d6e1",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-logs-trajectories.tar.gz.part0001",
+      "github_asset_id": 721252710
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0001",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "944cd50c8848e02d45446c4d753720ea1a53a1efe1fb423f206ddf324648776a",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0001",
+      "github_asset_id": 721449610
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0002",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "657346ac97a499874855f251d0bc961791933f8fd62938b7bdd3c84008e6552f",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0002",
+      "github_asset_id": 721449609
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0003",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "04004f350417ecbe36efabf13f95450cab621b5a3075da654bd77bd8600cd9d7",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0003",
+      "github_asset_id": 721449611
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0004",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "8867afa8159f4856bc1fbbe3d5b8de3f4cd11dcb528f7b7ca50ef897a0ecd74e",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0004",
+      "github_asset_id": 721449640
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0005",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "dcd5bdc2a2fe1a07a948f015204c7dafd5bb1247f0b561707f449dbe81d78653",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0005",
+      "github_asset_id": 721449668
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0006",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "d31441ea9acf8bccce57ef3bd3ccca837a45d50825c17ee3cfc6736b15dd842d",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0006",
+      "github_asset_id": 721449613
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0007",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "8c99db5196267f2d98db03130d103fc6fb6c36c66417850ab00b06259ddd1a60",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0007",
+      "github_asset_id": 721449645
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0008",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "fe499d4bc9796abea5b8d9bc2525da8206926829dec0ad9ac7942399727ff2ca",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0008",
+      "github_asset_id": 721449618
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0009",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "bea7a84493edcce64bf5c71152dd2b3d2d099ab4af099e0fa4b980c227c59f21",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0009",
+      "github_asset_id": 721449588
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0010",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "276d507cd1a96c467073372badf8f783ecdd75c17982782660428e479ad4ad33",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0010",
+      "github_asset_id": 721449584
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0011",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "84d3f788ae906437e831b79988ebf5ba731a13c3d470dfd1c49fa08852269f9d",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0011",
+      "github_asset_id": 721449620
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0012",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "1d9aa272ee5f2e51bf76a8816c21278e1856d7a0a4ed7b07db2509b4a975fece",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0012",
+      "github_asset_id": 721449597
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0013",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "d4d0c39297c3ab0e0f6ee39d011af8ae1f3d906b11d01133d541e77b6353e2eb",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0013",
+      "github_asset_id": 721451938
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0014",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "62c13bc0ab5bcae66b00286b0b2970d8442b0a477054c616a2ebd2e84421c9f5",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0014",
+      "github_asset_id": 721451915
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0015",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "5bf3be91cab0e735ab0862bbf47d077fea31be3673138b21b8d5d28ed8bb403e",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0015",
+      "github_asset_id": 721451917
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0016",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "10b64d0ba7f09e62a8d3acdae4084e9fed447cf7393d0071532a8946735bef67",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0016",
+      "github_asset_id": 721451926
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0017",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "3d6864368d1fb2e49f40dcb95a103195cc60d3b79583ddcc9a1b127c61b7d2f6",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0017",
+      "github_asset_id": 721452419
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0018",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "306104dc2c7d1e14387bcc9f7bfc95a2ca1513e415c22c34e4f2fd11fb3dee93",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0018",
+      "github_asset_id": 721452421
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0019",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "5f5506ff32c65984931f760397a4289bb5e1f807dd3be6a89b80f6d683e703ad",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0019",
+      "github_asset_id": 721452431
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0020",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "bdbb6b1eafbb695be9c8bf93a7a40d582fbe616ac89debcc29f61a67261e52ef",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0020",
+      "github_asset_id": 721452412
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0021",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 536870912,
+      "sha256": "3c9474e26ca15db449167bc362251345f5f03508b4503680e985cc7dbedca738",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0021",
+      "github_asset_id": 721453002
+    },
+    {
+      "name": "astra-trajectories.tar.gz.part0022",
+      "package": "astra-main",
+      "model": "astra",
+      "size": 60940682,
+      "sha256": "996fd82d9833b3524d2a094da6c3ab223a43f6344db56dac90bfa1fb26948a7a",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/astra-trajectories.tar.gz.part0022",
+      "github_asset_id": 721452980
+    },
+    {
+      "name": "opus-export-manifest.json",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 46777567,
+      "sha256": "72bd736a63995daa3b47788adfeaaa6b7f867eb31527b850f7262d4700d063cc",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-export-manifest.json",
+      "github_asset_id": 721287812
+    },
+    {
+      "name": "opus-export-receipt.json",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 3999,
+      "sha256": "2bba5739232b3052639081db54ee4252009ebf57f9ce918c501bbd0dd6e163b6",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-export-receipt.json",
+      "github_asset_id": 721287882
+    },
+    {
+      "name": "opus-logs-export-manifest.json",
+      "package": "opus-logs",
+      "model": "opus",
+      "size": 280692,
+      "sha256": "d985d4edabf1bea031bfd13d50fb23551960a0801652154e7ac2fd0a9d43c9c6",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-logs-export-manifest.json",
+      "github_asset_id": 721217857
+    },
+    {
+      "name": "opus-logs-export-receipt.json",
+      "package": "opus-logs",
+      "model": "opus",
+      "size": 460,
+      "sha256": "528c39dd6d9c1df54c827341b30b4b56a47b2de5020a4e7110aaf3d9c51a2743",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-logs-export-receipt.json",
+      "github_asset_id": 721218050
+    },
+    {
+      "name": "opus-logs-trajectories.tar.gz.part0001",
+      "package": "opus-logs",
+      "model": "opus",
+      "size": 24567504,
+      "sha256": "568c3ba55d403d32dc1b02d70a1a20e3af85fdfcd85b134068d8d4febc0b9d70",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-logs-trajectories.tar.gz.part0001",
+      "github_asset_id": 721215890
+    },
+    {
+      "name": "opus-supplement-export-manifest.json",
+      "package": "opus-supplement",
+      "model": "opus",
+      "size": 25243,
+      "sha256": "6adad1462c7a132aa92f30b9a508895e96c6c552a41c3d9c0ed0197eb31d079a",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-supplement-export-manifest.json",
+      "github_asset_id": 721077498
+    },
+    {
+      "name": "opus-supplement-export-receipt.json",
+      "package": "opus-supplement",
+      "model": "opus",
+      "size": 457,
+      "sha256": "89cbd16f10e3915a0e5ba730657ca1667566a57ab18152603c71218ff3f5f90e",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-supplement-export-receipt.json",
+      "github_asset_id": 721077626
+    },
+    {
+      "name": "opus-supplement-trajectories.tar.gz.part0001",
+      "package": "opus-supplement",
+      "model": "opus",
+      "size": 8030573,
+      "sha256": "3ee8414f9bf2a46af1ceb7d749193ca8c5b64b2b26fc457458a2643b36ee4f75",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-supplement-trajectories.tar.gz.part0001",
+      "github_asset_id": 721077283
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0001",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "b866350eb30c8f4a0454a282f45ab5ebddf04a2a2a77186c1279a052c458b2c9",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0001",
+      "github_asset_id": 721221903
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0002",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "4f9db72ee565110428f829848d6608e6538bd273fe0fc71ac7bacb239e0638c4",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0002",
+      "github_asset_id": 721221937
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0003",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "6a02b3a702c1ede77d79052ff1ca1dbbaadf04b4bc0a1064f3bb248765716389",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0003",
+      "github_asset_id": 721232914
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0004",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "5b49f535ae8b48d4783c12fdfb5493d8b1a44bff1b0ff3437a445c4008872f01",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0004",
+      "github_asset_id": 721235258
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0005",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "ffad9575ceeae3ba207bdf9a0033e1b4b3da3a37f00374d1b3c305b346f9ef55",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0005",
+      "github_asset_id": 721236599
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0006",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "e2f4cd0391b14768cd570fec8c298b26a1ddf7928b8b807c2cb3ccb5a76e1a44",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0006",
+      "github_asset_id": 721240108
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0007",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "e4d2c3915105ad8e52b418b86eed5d5d20624a843864a8015787d43e0bbdc1e9",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0007",
+      "github_asset_id": 721265677
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0008",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "75db3e2afe46bcb9edcf3dd7e4cbea5a69df2422d944b6ae53ba9cb8c33230b8",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0008",
+      "github_asset_id": 721268133
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0009",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "3a8bdf9d9b03feaa55d8d6e7c88136fc033902955296b8facf2facdabdadd951",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0009",
+      "github_asset_id": 721268140
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0010",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "f27a84a8fa43aea37dc9a02f51e16f0a57744e2f043f94d73bde9fd988d4d95c",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0010",
+      "github_asset_id": 721277878
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0011",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "c826d3c55a7802491f6ef711250177396b0197d990fb9bf37d0bb1ffc0e23558",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0011",
+      "github_asset_id": 721277853
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0012",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "293b4941bed75e26a89ac10a652dbb0bbec1684307a190b9562033ce5c23ea09",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0012",
+      "github_asset_id": 721277875
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0013",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "35891f055c0b262bd79ad195a37b080172f14524469b0801d899701fe9edc559",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0013",
+      "github_asset_id": 721277876
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0014",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "61a4e7f8f458de2c40747c2bc1062f95bfd023db4fc6761970292c2115eec6ed",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0014",
+      "github_asset_id": 721278485
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0015",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "1bcd6e02c7312f79d9796775ce92bd6c76df522b14704e2e148b23d9623b349a",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0015",
+      "github_asset_id": 721278482
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0016",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "27c48da69703c4f1f30bee8d9b86d5939ec8e0564020d8ef639687260308dff7",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0016",
+      "github_asset_id": 721278476
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0017",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "ac4018402fd5d2e8e5fc75b4a350e8c3d3834b73c25a2497ebc421bb32168b0b",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0017",
+      "github_asset_id": 721278486
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0018",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "10eb029ada04ccbf3a3e10b331744ad85878c8b09b9bcd78b396074c5d4acbda",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0018",
+      "github_asset_id": 721284420
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0019",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "f8eeb1d3c94099786c3f68b190605538fab4978251c123f12819c96511891808",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0019",
+      "github_asset_id": 721284407
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0020",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "786e4503413e6409e4b3697a40b99e5110a5f3a71d0133f0e04be3f2fb85df8b",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0020",
+      "github_asset_id": 721284442
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0021",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 536870912,
+      "sha256": "0afef3021736ac75c521d3ba85c433a6e1259bd171021918b58af880c3f3f05d",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0021",
+      "github_asset_id": 721284412
+    },
+    {
+      "name": "opus-trajectories.tar.gz.part0022",
+      "package": "opus-main",
+      "model": "opus",
+      "size": 380200769,
+      "sha256": "151d9098df0b990c821582b54d9e4f037c82f3d05501493d0b0dcc7641f1d44c",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/astra-opus-trajectories-20261107/opus-trajectories.tar.gz.part0022",
+      "github_asset_id": 721287862
+    }
+  ],
+  "verification": {
+    "method": "reviewed_plans_and_local_verified_receipts_and_independent_github_release_assets",
+    "asset_count": 57,
+    "exact_package_coverage": true
+  }
+}

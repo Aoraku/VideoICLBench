@@ -1,0 +1,100 @@
+{
+  "schema": "videoicl-export-coverage-audit-v1",
+  "fixed_identities_sha256": "a8bf525f40981df5c2ccb5d262595c128b2bb9d038ce4a6708dc04208da0d79c",
+  "models": {
+    "astra": {
+      "expected_records": 306,
+      "exported_records": 306,
+      "source_files": 47244,
+      "source_bytes_before_redaction_and_deduplication": 18261968900,
+      "physical_records": 255,
+      "qa_records": 51,
+      "missing_identities": [],
+      "unexpected_identities": [],
+      "duplicate_identities": [],
+      "source_records_with_missing_files": [],
+      "sources_changed_during_read": 0,
+      "read_errors": [],
+      "export_manifest_sha256": "a7aefca64186cafe1ac1df06609210ffb0b42ce257e7fda3c5240183e64a921d",
+      "credential_audit": {
+        "exact_secret_scan": "passed",
+        "generic_pattern_scan": "passed",
+        "binary_exact_secret_scan": "passed",
+        "known_secret_count": 511,
+        "fixed_identity_coverage": "306/306",
+        "physical_native_terminals": 255,
+        "qa_first_answers": 51,
+        "all_CAS_hashes": "passed",
+        "all_core_references_resolved": true,
+        "compressed_input_part_hashes": "passed"
+      },
+      "credential_audit_passed": true,
+      "identity_coverage_passed": true,
+      "source_completeness_passed": true
+    },
+    "opus": {
+      "expected_records": 158,
+      "exported_records": 158,
+      "source_files": 51034,
+      "source_bytes_before_redaction_and_deduplication": 22753972486,
+      "physical_records": 158,
+      "qa_records": 0,
+      "missing_identities": [],
+      "unexpected_identities": [],
+      "duplicate_identities": [],
+      "source_records_with_missing_files": [],
+      "sources_changed_during_read": 0,
+      "read_errors": [],
+      "export_manifest_sha256": "72bd736a63995daa3b47788adfeaaa6b7f867eb31527b850f7262d4700d063cc",
+      "credential_audit": {
+        "exact_secret_scan": "passed",
+        "known_secret_count": 318,
+        "generic_pattern_scan": "passed",
+        "binary_exact_secret_scan": "passed",
+        "fixed_identity_coverage": "158/158",
+        "source_hash_phase": "salvage_source_reconciliation",
+        "all_source_mtime_before_original_export": true,
+        "all_CAS_hashes": "passed",
+        "all_core_references_resolved": true
+      },
+      "credential_audit_passed": true,
+      "identity_coverage_passed": true,
+      "source_completeness_passed": true
+    }
+  },
+  "identity_coverage_passed": true,
+  "source_completeness_passed": true,
+  "credential_audit_passed": true,
+  "auxiliary_packages": {
+    "astra-logs": {
+      "source_groups": 105,
+      "source_files": 1434,
+      "source_bytes_before_redaction_and_deduplication": 3292814948,
+      "export_manifest_sha256": "a3c69f2e407ddcf97ab598cba5f1ff2dcc1bdb12b2ef50fc02b5f8d682c87777",
+      "export_receipt_sha256": "bd8d3fbab23afa97ed331c0d669141690e2a3849eacb9797dc8d742864d14c3b",
+      "source_completeness_passed": true,
+      "credential_audit_passed": true
+    },
+    "opus-logs": {
+      "source_groups": 17,
+      "source_files": 350,
+      "source_bytes_before_redaction_and_deduplication": 5246143155,
+      "export_manifest_sha256": "d985d4edabf1bea031bfd13d50fb23551960a0801652154e7ac2fd0a9d43c9c6",
+      "export_receipt_sha256": "528c39dd6d9c1df54c827341b30b4b56a47b2de5020a4e7110aaf3d9c51a2743",
+      "source_completeness_passed": true,
+      "credential_audit_passed": true
+    },
+    "opus-supplement": {
+      "source_groups": 16,
+      "source_files": 16,
+      "source_bytes_before_redaction_and_deduplication": 51008779,
+      "export_manifest_sha256": "6adad1462c7a132aa92f30b9a508895e96c6c552a41c3d9c0ed0197eb31d079a",
+      "export_receipt_sha256": "89cbd16f10e3915a0e5ba730657ca1667566a57ab18152603c71218ff3f5f90e",
+      "source_completeness_passed": true,
+      "credential_audit_passed": true
+    }
+  },
+  "physical_records": 413,
+  "independent_qa_records": 51,
+  "total_exported_source_file_records": 100078
+}
