@@ -1,0 +1,22 @@
+{
+  "archive_sha256": "23b8cc64ed310473924b351465c61ba914b83153a6befeaaf7b9ff2dba5d7252",
+  "archive_bytes": 1259689349,
+  "known_credential_exact_matches": 0,
+  "known_credential_audit_passed": true,
+  "credential_configs_checked": 239,
+  "text_files_scanned_for_known_credentials": 1778,
+  "known_secret_audit_errors": 0,
+  "verified_files": 3675,
+  "checksummed_source_artifacts": 3673,
+  "episodes": 73,
+  "counts": {
+    "dsh": 50,
+    "zcode": 20,
+    "qwen": 3
+  },
+  "all146_terminal_source_hashes_match": true,
+  "native_action_logs": 73,
+  "model_trajectory_files": 184,
+  "media_files": 1897,
+  "credential_pattern_match_count": 0
+}

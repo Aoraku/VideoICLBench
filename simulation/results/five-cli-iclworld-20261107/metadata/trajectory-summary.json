@@ -1,0 +1,29 @@
+{
+  "schema": "four-model-completed-trajectories-v1",
+  "source_campaign": "five-cli-iclworld-20261107",
+  "exported_unix": 1794065231.6814446,
+  "completed": {
+    "dsh": 50,
+    "zcode": 20,
+    "qwen": 3
+  },
+  "episodes": 73,
+  "files": 3673,
+  "bytes": 1892088777,
+  "max_file_bytes": 141259688,
+  "deduplicated_media": 1897,
+  "redactions": {
+    "bearer": 0,
+    "api_key_pattern": 0
+  },
+  "errors": [],
+  "limitations": [
+    "Only completed fixed identities, never controller-drained cancellations.",
+    "Engineering scores; GLM mixed/MAX effort and4 visual-impaired cases explicitly tagged.",
+    "Model trajectories preserve public assistant/tool events; private system/developer roles and turn-start prompts omitted.",
+    "Images are content-addressed, duplicatebase64 replaced with media references.",
+    "Native per-action environment/action-batch receipts complete; redundant low-level RPC processed/response copies omitted.",
+    "No rollout video invented; available per-observation media and complete native action receipts exported.",
+    "Raw provider/connection/configuration/credential/CLIprofile/stderr files excluded."
+  ]
+}

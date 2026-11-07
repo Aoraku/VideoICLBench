@@ -1,0 +1,19 @@
+{
+  "schema": "github-release-archive-v1",
+  "repository": "Aoraku/VideoICLBench",
+  "tag": "four-model-trajectories-20261107",
+  "episodes": 73,
+  "archives": [
+    {
+      "name": "completed73.tar.gz",
+      "bytes": 1259689349,
+      "sha256": "23b8cc64ed310473924b351465c61ba914b83153a6befeaaf7b9ff2dba5d7252",
+      "url": "https://github.com/Aoraku/VideoICLBench/releases/download/four-model-trajectories-20261107/completed73.tar.gz",
+      "archive_root": "completed73/"
+    }
+  ],
+  "checksums_url": "https://github.com/Aoraku/VideoICLBench/releases/download/four-model-trajectories-20261107/SHA256SUMS.txt",
+  "media_files": 1897,
+  "indexed_data_files": 3673,
+  "indexed_uncompressed_bytes": 1892088777
+}

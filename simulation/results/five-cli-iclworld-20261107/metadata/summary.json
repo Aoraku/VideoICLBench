@@ -14,5 +14,5 @@
   },
   "known_visual_impaired_glm": 4,
   "null_scores_preserved": true,
-  "trajectories_status": "Full sanitized archive is being built; do not claim archive published until release receipt."
+  "trajectories_status": "Complete archive verified and available through the GitHub release linked in downloads.json."
 }
