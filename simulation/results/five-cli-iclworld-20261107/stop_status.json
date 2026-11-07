@@ -1,0 +1,29 @@
+{
+  "user_requested_stop": true,
+  "campaign": "five-cli-iclworld-20261107",
+  "models": [
+    "dsh",
+    "zcode",
+    "qwen",
+    "kimi"
+  ],
+  "verified_slots": 42,
+  "active_target_processes": 0,
+  "owned_gpu_contexts_after": 0,
+  "owned_gpu_contexts_released": 60,
+  "previously_occupied_slots_released": 35,
+  "completed_preserved": {
+    "dsh": 50,
+    "zcode": 20,
+    "qwen": 3,
+    "kimi": 0
+  },
+  "completed_files_sha256_verified": 146,
+  "cancelled_started": 403,
+  "cancelled_unstarted": 156,
+  "api_inflight_before_release": 0,
+  "new_model_calls": 0,
+  "score_changes": 0,
+  "unscored_cancellations": true,
+  "verified_at_utc": "2026-11-07T15:18:09.673267+00:00"
+}

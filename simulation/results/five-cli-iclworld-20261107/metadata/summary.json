@@ -1,0 +1,18 @@
+{
+  "count": 73,
+  "counts": {
+    "dsh": 50,
+    "zcode": 20,
+    "qwen": 3
+  },
+  "scope": "Natural completed native identities before userstop; controller-drain cancellations excluded.",
+  "results_are_engineering_scores": true,
+  "glm20_effort_counts": {
+    "MAX_then_HIGH": 8,
+    "HIGH_all_recorded_requests": 8,
+    "MAX_only_observed": 4
+  },
+  "known_visual_impaired_glm": 4,
+  "null_scores_preserved": true,
+  "trajectories_status": "Full sanitized archive is being built; do not claim archive published until release receipt."
+}
