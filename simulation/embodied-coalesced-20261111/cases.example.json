@@ -1,0 +1,14 @@
+{
+  "cases": [
+    {
+      "episode_id": "local-e01-c-i-text-s4201",
+      "task": "E01",
+      "variant": "C",
+      "seed": 4201,
+      "input_condition": "text_rule",
+      "bindings": "/work/videoicl/bindings/I-reviewed-objects.json",
+      "robot": "/work/videoicl/runtime-coalesced/configs/franka-workspace-v4-front100-ik-smooth-v1.json",
+      "task_package": "/work/videoicl/tasks/embodied-e01-c"
+    }
+  ]
+}

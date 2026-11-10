@@ -1,0 +1,177 @@
+{
+  "deployed_worker_index_sha256": "2ff6baa4010970479330ac130445551baeae35ce4838f43b1f455ca1e84debfb",
+  "files": {
+    "worker/adapters/__init__.py": {
+      "deployed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "published_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "worker/adapters/dsh.py": {
+      "deployed_sha256": "3e7b9bba1ad2f88f4194de5d62bdf0e10d0717ef3d8b30f43ceeaabd0573706c",
+      "published_sha256": "3e7b9bba1ad2f88f4194de5d62bdf0e10d0717ef3d8b30f43ceeaabd0573706c"
+    },
+    "worker/adapters/gemini.py": {
+      "deployed_sha256": "8486a09386e0006e8dd0aeb5bfcb1e19e355c81f9118a66020eab94c50bc5eeb",
+      "published_sha256": "8486a09386e0006e8dd0aeb5bfcb1e19e355c81f9118a66020eab94c50bc5eeb"
+    },
+    "worker/adapters/kimi.py": {
+      "deployed_sha256": "7077f68469fb36b2581f97551f9ad6f1d3789f200a4800aeee02d3d06a36f843",
+      "published_sha256": "7077f68469fb36b2581f97551f9ad6f1d3789f200a4800aeee02d3d06a36f843"
+    },
+    "worker/adapters/zcode.py": {
+      "deployed_sha256": "91a849964e170c463f6faecd8b1b952fbda17fbb909660045504896652e45f68",
+      "published_sha256": "91a849964e170c463f6faecd8b1b952fbda17fbb909660045504896652e45f68"
+    },
+    "worker/aihubmix_provider.py": {
+      "deployed_sha256": "affe30591c9ae6f27ed9c5bc31e21c783f3644b20ac73f8967f420908178cdc9",
+      "published_sha256": "41316ca1d4ae3d30d65dc4c314bfbaaf2b3f8b979e6013e1aad54a2fb9696e2f"
+    },
+    "worker/anthropic_guard_relay.py": {
+      "deployed_sha256": "f79042928f0ebf03d4279fc0eeb1652b9db389a7c2535c429401d18b3af88cf5",
+      "published_sha256": "f79042928f0ebf03d4279fc0eeb1652b9db389a7c2535c429401d18b3af88cf5"
+    },
+    "worker/anthropic_stream_guard.py": {
+      "deployed_sha256": "28af8c9b948655e91b834d076cae19af0b7914c82149294f1229dd9335d0bb68",
+      "published_sha256": "28af8c9b948655e91b834d076cae19af0b7914c82149294f1229dd9335d0bb68"
+    },
+    "worker/dsh_messages_compat.py": {
+      "deployed_sha256": "070d72fef86ce0af5dd4555e87594c91af2be14e8622e182d4d3e42095861910",
+      "published_sha256": "070d72fef86ce0af5dd4555e87594c91af2be14e8622e182d4d3e42095861910"
+    },
+    "worker/dsh_output_recovery_policy.py": {
+      "deployed_sha256": "1296b20f2343169d2827d62b0344904061adc863da5fdf5c2a2733898f085f04",
+      "published_sha256": "1296b20f2343169d2827d62b0344904061adc863da5fdf5c2a2733898f085f04"
+    },
+    "worker/gemini_gate.py": {
+      "deployed_sha256": "4e1c7042dcd266605f3408a8053eef273cae471e05c4a3f1e4dc5c36e915db9e",
+      "published_sha256": "4e1c7042dcd266605f3408a8053eef273cae471e05c4a3f1e4dc5c36e915db9e"
+    },
+    "worker/gemini_gate_core.py": {
+      "deployed_sha256": "85bb5807312a23c177df482a1709d0a8a8dd9daff7965ff997414571ae901dc5",
+      "published_sha256": "85bb5807312a23c177df482a1709d0a8a8dd9daff7965ff997414571ae901dc5"
+    },
+    "worker/gemini_route.py": {
+      "deployed_sha256": "1faf178056a8a0252d063f76766857eb8cdf8adcc6443bb76a5312d57d149922",
+      "published_sha256": "543a10c1a77849c25bc19de60138be786c6fdfae87c92d888df9f861980226ef"
+    },
+    "worker/kimi_guard_relay.py": {
+      "deployed_sha256": "15aca8797a260a9c0755ff1364847554e2f88ee066419615602cd7973b4dabd6",
+      "published_sha256": "15aca8797a260a9c0755ff1364847554e2f88ee066419615602cd7973b4dabd6"
+    },
+    "worker/kimi_stream_guard.py": {
+      "deployed_sha256": "3968a6582733d6f15435c7c00ca250eaa1b86e2ad251d642a96ad8a842e800d5",
+      "published_sha256": "3968a6582733d6f15435c7c00ca250eaa1b86e2ad251d642a96ad8a842e800d5"
+    },
+    "worker/lazy_mcp_gui.py": {
+      "deployed_sha256": "b07bd83ebc75437952c1868c881bc50b01825d3a93271a18ce99addcbc67fd98",
+      "published_sha256": "b07bd83ebc75437952c1868c881bc50b01825d3a93271a18ce99addcbc67fd98"
+    },
+    "worker/migrate_zcode_session.py": {
+      "deployed_sha256": "e532d45c08c375abd9fd63adbbdbdbaf19e5cfb04012c9c054b4079f63b56aae",
+      "published_sha256": "e532d45c08c375abd9fd63adbbdbdbaf19e5cfb04012c9c054b4079f63b56aae"
+    },
+    "worker/newapi_gate.py": {
+      "deployed_sha256": "1d2a6cba7d9b16adf48de680f1b1808e6b14988c453eef540063d7a405fa6a91",
+      "published_sha256": "1d2a6cba7d9b16adf48de680f1b1808e6b14988c453eef540063d7a405fa6a91"
+    },
+    "worker/newapi_usage.py": {
+      "deployed_sha256": "19f158c15e1bfdf2671646aea55cdacb64190851c270c82075d7055bf190ab94",
+      "published_sha256": "19f158c15e1bfdf2671646aea55cdacb64190851c270c82075d7055bf190ab94"
+    },
+    "worker/owned_provider_transport_recovery.py": {
+      "deployed_sha256": "ef0e3b3b916e1271f1b7859de59191ec4789240fe4c59625fffe5ce7ad183c79",
+      "published_sha256": "ef0e3b3b916e1271f1b7859de59191ec4789240fe4c59625fffe5ce7ad183c79"
+    },
+    "worker/public_depth.py": {
+      "deployed_sha256": "97674ef6d292f84a3b158f0bd899b12046f0bfba1b997b67f77662405ba8bb48",
+      "published_sha256": "97674ef6d292f84a3b158f0bd899b12046f0bfba1b997b67f77662405ba8bb48"
+    },
+    "worker/public_read_identity.py": {
+      "deployed_sha256": "52ed4e714d191111bbd300f7c24a478fdce745b5ab93e74ba255b0405c561042",
+      "published_sha256": "52ed4e714d191111bbd300f7c24a478fdce745b5ab93e74ba255b0405c561042"
+    },
+    "worker/qwen_runtime.py": {
+      "deployed_sha256": "814be5adf656675099e2a7339f2ae9c90136019d2e6ef7f789e55493df8a83a7",
+      "published_sha256": "814be5adf656675099e2a7339f2ae9c90136019d2e6ef7f789e55493df8a83a7"
+    },
+    "worker/run.py": {
+      "deployed_sha256": "830377bd5d346fc2d7e530b5300f30b453c12b561fb286815ada19dd034f499a",
+      "published_sha256": "d3fe6900f923e4eeb54d66d9d1340ee68025dad3c8770d797382c4b0b5c6b7a5"
+    },
+    "worker/sealed_zcode_cleanup.py": {
+      "deployed_sha256": "27ad9bc1b912dbee9ab5f88732c2d7446b19d3243b16aad71e388a2a2eff916a",
+      "published_sha256": "27ad9bc1b912dbee9ab5f88732c2d7446b19d3243b16aad71e388a2a2eff916a"
+    },
+    "worker/stream_metadata.py": {
+      "deployed_sha256": "2f38c431e3523bc62b10e6e841ffdc9ac7d475cf4389d471f337803621c34f97",
+      "published_sha256": "2f38c431e3523bc62b10e6e841ffdc9ac7d475cf4389d471f337803621c34f97"
+    },
+    "worker/stream_shape_audit.py": {
+      "deployed_sha256": "7dc2748802caa5ae150110dddd61890de515c388f9706bd309eb22d31f088d7f",
+      "published_sha256": "7dc2748802caa5ae150110dddd61890de515c388f9706bd309eb22d31f088d7f"
+    },
+    "worker/transport.py": {
+      "deployed_sha256": "a5a84bbd1ee05e70a18c2aa137d80cee949bb1e94779f60a459b0a32e9b479e3",
+      "published_sha256": "c105f327556916902f52b3baa4d464012e812bd4b586188d68f8cd78ef2ce58c"
+    },
+    "worker/transport_phases.py": {
+      "deployed_sha256": "5c3963341df26c84e273254175b692f51340ebc552cda87a8d03bf96a14b7b65",
+      "published_sha256": "5c3963341df26c84e273254175b692f51340ebc552cda87a8d03bf96a14b7b65"
+    },
+    "worker/upstream_budget_metadata.py": {
+      "deployed_sha256": "4bb591d035d160fe932ab31d9c59787d6af78480f553c6ef4ce95b08bf5ba7ea",
+      "published_sha256": "4bb591d035d160fe932ab31d9c59787d6af78480f553c6ef4ce95b08bf5ba7ea"
+    },
+    "worker/wire_images.py": {
+      "deployed_sha256": "4bbd4b005a5563ca1fda9407cce938f8d8b3c8435510712d8598e5dbb4d28f21",
+      "published_sha256": "4bbd4b005a5563ca1fda9407cce938f8d8b3c8435510712d8598e5dbb4d28f21"
+    },
+    "worker/zcode_dead_lease.py": {
+      "deployed_sha256": "559fe9b4c4d1aa0d3aca7f096150d780bdb8ebe237cb5a52675523cf9b97bc4b",
+      "published_sha256": "559fe9b4c4d1aa0d3aca7f096150d780bdb8ebe237cb5a52675523cf9b97bc4b"
+    },
+    "worker/zcode_effort.py": {
+      "deployed_sha256": "2ea0b024b5b07f1abcfdab851fe08bc387a39f453846cd992d9de5f70e7afcc4",
+      "published_sha256": "2ea0b024b5b07f1abcfdab851fe08bc387a39f453846cd992d9de5f70e7afcc4"
+    },
+    "worker/zcode_vision.py": {
+      "deployed_sha256": "340d485d6efc09cdeffce6e6f1e4b2373a38d758a902a9f3c823728ec4c6c2ed",
+      "published_sha256": "340d485d6efc09cdeffce6e6f1e4b2373a38d758a902a9f3c823728ec4c6c2ed"
+    },
+    "pool_verified.py": {
+      "deployed_sha256": "e0aa2643d8fce675e357f2080831022b5e6adb11c4a07929fe15f1da8f7c2cc2",
+      "published_sha256": "8cc0d061053664b9eef5a48be1d2b1a37ec3cbb7d63cf13854f489cbdefaa512"
+    },
+    "bootstrap_verified_room.py": {
+      "deployed_sha256": "742f3080c5fbba2a99dabf27463978e513a4ef81f308c90bb5980e59b534e464",
+      "published_sha256": "a31e04537c20c27c79321cd16ff0a6348bacb485c27e4fd2e494488a7512ce50"
+    },
+    "runtime-overlay/videoicl_isaaclab/pool_rpc.py": {
+      "deployed_sha256": "c3302514c6d297f8773b82297522d56eda1e36a22a825f5dee3ddcf8685e7805",
+      "published_sha256": "c3302514c6d297f8773b82297522d56eda1e36a22a825f5dee3ddcf8685e7805"
+    },
+    "runtime-overlay/videoicl_isaaclab/idle_room_state.py": {
+      "deployed_sha256": "93a05596e308237181a9b59b42d4b5cbb0df7c23fe06062190b36762f3fd116f",
+      "published_sha256": "93a05596e308237181a9b59b42d4b5cbb0df7c23fe06062190b36762f3fd116f"
+    },
+    "runtime-overlay/videoicl_isaaclab/control.py": {
+      "deployed_sha256": "862da2c0552c105bf2cf700b341250e6e8efbddad8ef0d8dc1ab00a8d5ff82ef",
+      "published_sha256": "862da2c0552c105bf2cf700b341250e6e8efbddad8ef0d8dc1ab00a8d5ff82ef"
+    },
+    "runtime-overlay/videoicl_isaaclab/room_pool.py": {
+      "deployed_sha256": "86f27ebb5e59c50312f882f03125e781f87cfdc53cb87ab4bbf8e44bb446f6ad",
+      "published_sha256": "86f27ebb5e59c50312f882f03125e781f87cfdc53cb87ab4bbf8e44bb446f6ad"
+    },
+    "runtime-overlay/scripts/serve_realworld_room_pool.py": {
+      "deployed_sha256": "22f25f616ff6207d1f62dab55a093b5abd3da899f53d52792ab31fa93d8e0413",
+      "published_sha256": "22f25f616ff6207d1f62dab55a093b5abd3da899f53d52792ab31fa93d8e0413"
+    },
+    "runtime-overlay/scripts/probe_realworld_room_pool.py": {
+      "deployed_sha256": "93e4758aaae38d2b21b67f59795884af71b3a4d5118429690749f53cdec572ac",
+      "published_sha256": "93e4758aaae38d2b21b67f59795884af71b3a4d5118429690749f53cdec572ac"
+    }
+  },
+  "sdk_base": "astra-iclworld-full-20261106 full-v2 SDK and room entrypoints",
+  "sdk_overlays": {
+    "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/server.py": "acknowledge room shutdown after the HTTP close response"
+  }
+}

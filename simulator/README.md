@@ -2,6 +2,7 @@
 
 | 要做的事 | 入口 |
 |---|---|
+| 查看最新异步 Harness、公开 Benchmark 和六模型轨迹 | [11 月 11 日交接](../simulation/HANDOFF_20261111.md) |
 | 下载 Astra 255 条、Opus 158 条执行轨迹及 Astra 51 条独立 QA | [轨迹归档、索引与恢复工具](trajectories/astra-opus-20261107/README.md) |
 | 复现 Astra 具身实验，准备 255 条物理配置和 51 道视频 QA | [Astra 实验交付与运行说明](astra-iclworld-20261106/README.md) |
 | 安装 Codex 结构化工具、GUI、原生仿真适配器和 API relay | [原生 Codex harness](native-codex-20261106/README.md) |
