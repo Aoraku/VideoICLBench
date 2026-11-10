@@ -1,27 +1,39 @@
 # VideoICL 具身仿真与评测
 
+## 从这里开始
+
 | 要做的事 | 入口 |
-|---|---|
-| 查看最新异步 Harness、公开 Benchmark 和六模型轨迹 | [11 月 11 日交接](../simulation/HANDOFF_20261111.md) |
-| 下载 Astra 255 条、Opus 158 条执行轨迹及 Astra 51 条独立 QA | [轨迹归档、索引与恢复工具](trajectories/astra-opus-20261107/README.md) |
-| 复现 Astra 具身实验，准备 255 条物理配置和 51 道视频 QA | [Astra 实验交付与运行说明](astra-iclworld-20261106/README.md) |
-| 安装 Codex 结构化工具、GUI、原生仿真适配器和 API relay | [原生 Codex harness](native-codex-20261106/README.md) |
-| 使用八题的 HTTP agent 或查看 24 段演示 | [交付说明](delivery8/README.md) · [任务与视频](delivery8/TASKS.md) |
-| 使用 MuJoCo 桌面双臂任务族、配方和历史视频 | [Tabletop50](tabletop50/README.md) · [视频索引](tabletop50/VIDEOS.md) · [网页部署](tabletop50/DEPLOY.md) |
+| --- | --- |
+| 接手最新实验，了解配置、数据格式与复现步骤 | [具身评测交接](../simulation/HANDOFF_20261111.md) |
+| 下载题目、QA 和实际输入视频 | [HF Benchmark](https://huggingface.co/datasets/JJimmyL/VideoICL-Embodied-Demos50/tree/main/benchmark) |
+| 下载六个模型的原生终态、逐步动作和观察回放 | [HF 评测轨迹](https://huggingface.co/datasets/JJimmyL/VideoICL-Embodied-Evaluation-Trajectories-Public) |
+| 安装新版同池并发 Harness | [异步多房间 Harness](../simulation/embodied-coalesced-20261111/README.md) |
+| 下载 Astra 和 Opus 当次实验的完整归档 | [GitHub Release 与恢复说明](trajectories/astra-opus-20261107/README.md) |
 
-Astra 实验用 IsaacLab/PhysX。下方的启动命令用于较早的 MuJoCo GUI 原型。Tabletop50 包含 50 族运行配方，历史记录中 34 族有完整 A/B/C，F42、F43、F46 为未验收原型。
+HF Benchmark 提供评测输入。HF 评测轨迹用于分析结果。GitHub Release 保留 Astra 和 Opus 的完整归档。
 
-## MuJoCo GUI 原型
+## 复现 IsaacLab 实验
 
-Show-Harness / GUMI 风格的 GUI 控制原型，使用真正的 MuJoCo 接触物理和双 Panda 机械臂。Agent 看演示和四路相机，通过移动、旋转、夹爪开合按钮排队，再点击 COMMIT。底层实现 IK 和关节控制，不自动选择或对齐物体。
+1. 核对任务、环境与输入条件，按安装说明准备 IsaacLab/IsaacSim、模型 CLI 和 GUI 依赖。[Astra 实验配置](astra-iclworld-20261106/README.md) · [原生 Codex 安装](native-codex-20261106/INSTALL.md)
+2. 下载对应的示范和仿真资产，按固定版本与 SHA-256 组装运行时。[资产与运行时](astra-iclworld-20261106/deploy/RUNTIME.md)
+3. 准备本机任务绑定、HTTPS 上游和执行池。独立视频 QA 单独启动和统计。[执行池配置](astra-iclworld-20261106/CONFIGURATION.md) · [API 传输](astra-iclworld-20261106/transport/README.md) · [视频 QA](astra-iclworld-20261106/qa/README.md)
 
-## Hosted VLM operator（服务器）
+Astra 与 Opus 的归档使用当次实验的配置。新版异步 Harness 的启动参数见其安装说明。
 
-已增加左侧仿真画面 + 右侧模型运行面板。使用 `python run_hosted.py` 启动；模型通过图片与 HTTP 基础动作交互，不需要浏览器扩展。部署、模型配置、输入边界与 Run/Pause/Step once/Stop 见 [服务器说明](SERVER_AGENT.md)。当前仅支持视觉 Chat Completions 兼容接口。
+## 历史 MuJoCo 套件
 
-## 原 GUI 启动
+| 目录或入口 | 内容 |
+| --- | --- |
+| [`tabletop50/`](tabletop50/README.md) | 50 个桌面任务族，含录像、实现进度和部署说明。[视频索引](tabletop50/VIDEOS.md) |
+| [`delivery8/`](delivery8/README.md) | 八题 HTTP agent、控制面板和 24 段 A/B/C 演示。[任务列表](delivery8/TASKS.md) |
+| [`benchmark/`](benchmark/README.md) | 早期 robosuite 改编任务，使用 `rt/rc` 编号。 |
+| [`embodied_icl/`](embodied_icl/README.md) 与 [`simulation_b01/`](simulation_b01/) | 双 Panda 桌面 GUI 原型、场景生成和 Panda 资源。 |
+| [`run_hosted.py`](run_hosted.py) 与 [`launch.py`](launch.py) | 历史 Hosted VLM 入口。网页显示仿真画面与运行面板，模型走视觉 Chat Completions 接口。[服务器说明](SERVER_AGENT.md) |
+| [`backends/robocasa/`](backends/robocasa/) 与 [`handoff/`](handoff/HANDOFF.md) | 微波炉单题后端与 10 月原型交接记录。 |
 
-在仓库根目录执行（Python 3.11+；依赖版本见 requirements.txt）：
+### 启动双 Panda GUI 原型
+
+从仓库根目录执行，需要 Python 3.11+。
 
 ```bash
 cd simulator
@@ -31,29 +43,15 @@ python -m pip install -r requirements.txt
 python run.py --variant C --seed 31 --port 18621
 ```
 
-打开 http://127.0.0.1:18621/ 。`run.py` 每次根据当前目录重新生成场景，避免迁移后仍引用原机器的资源路径。默认仅监听本机；参数见 `python embodied_icl/server.py --help`。macOS 使用本地图形环境；无显示器 Linux 需配置可用的 EGL（例如 `MUJOCO_GL=egl`）。不需要 GPU 才能运行本地原型。
+打开 <http://127.0.0.1:18621/>。启动器会重建场景，使用本机资源路径。无显示器 Linux 可配置 EGL。本原型可以在 CPU 上运行。
 
-## 内容与复现
-
-- `embodied_icl/`：GUI 服务、物理动作适配、私有判分、前端和 A/B/C demo。
-- `simulation_b01/`：双臂场景生成、基础控制与 Panda 资源。
-- 已附 A/B/C 演示 MP4 和每段 12 张时间采样图；这些是脚本驱动的仿真机器人演示，不是真人手部 demo。
-- 已附约 33 MB Panda 模型资源及上游 LICENSE、下载清单；来自 Google DeepMind MuJoCo Menagerie，遵循所附 Apache-2.0 许可。
-- 不包含开发虚拟环境、历史私有运行日志和网页验收录屏。
-
-基础验证：
+在 `simulator/` 内可执行以下验证。
 
 ```bash
 python simulation_b01/build_scene.py
 python embodied_icl/test_contract.py
 ```
 
-如需重新生成演示，先备份并移走需要重生成的 `embodied_icl/demos/<版本>/demo.mp4`，再运行 `python embodied_icl/make_demos.py`。已有视频会保留，抽帧会重新生成。此步骤是作者侧工作，不提供给参测 Agent。
+GUI 提供相机、操作说明、步长、夹爪命令、执行状态和动作计数。SUBMIT 后锁定当前回合，判分写入 `embodied_icl/private_runs/<episode>/`。正式运行时应在服务端隔离任务变体、物理真值和判分目录，只给参测模型公开的 GUI 或动作接口。[操作与判分协议](embodied_icl/README.md)
 
-## 观察边界与限制
-
-网页公开相机图像、通用操作说明、步长、夹爪开合命令、执行状态和动作计数，不提供 TCP 或物体世界坐标。夹爪开合命令不等于抓取成功真值。内部控制和判分仍需要仿真真值。SUBMIT 后锁定当前局，判分写入 `embodied_icl/private_runs/<episode>/`。
-
-正式评测必须将源码、demo 元数据、任务版本和 private_runs 隔离在 Agent 无权访问的服务端；仅开放规定的图片与动作接口或 GUI。本目录本身是开发者包，不构成权限隔离沙箱。已有开发者成功操作不能当作独立盲测 ICL 成绩。当前旋转仅 yaw，位置分布有限，demo 是仿真输入；详细动作语义和限制见 [协议说明](embodied_icl/README.md)。
-
-“开始网页录屏”使用浏览器标签页录制，需要选择当前网页并授权。停止后下载 WebM；录制保存在浏览器内存中，刷新或关闭前应停止并保存。后端自动生成的 `execution.mp4` 仅含仿真相机画面，不是网页录屏。
+浏览器录屏由标签页导出 WebM。后端生成的 `execution.mp4` 记录仿真相机画面。示范重录属于作者侧操作，命令和保存位置见协议说明。

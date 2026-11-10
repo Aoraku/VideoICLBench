@@ -1,4 +1,6 @@
-# VideoICL Embodied 50
+# VideoICL Embodied 50 · robosuite 套件
+
+本页记录早期桌面改编任务。IsaacLab 评测、真实示范和六模型轨迹从[仿真总览](../README.md)进入。
 
 50 个可编译到 **robosuite 1.5.1 双 Panda 桌面环境**的改编任务：RoboTwin 25 题、RoboCasa v0.2 25 题。MuJoCo 3.2.6 是物理引擎，机器人、夹爪和 OSC 控制器来自 robosuite；这不是裸 MuJoCo 控制器项目，也不是原平台官方 benchmark 的复现。
 

@@ -4,7 +4,7 @@
 
 ## 启动
 
-从本工作区根目录运行：
+从仓库根目录进入 `simulator/` 后运行。
 
 ```bash
 simulation_b01/.venv/bin/python simulation_b01/build_scene.py
