@@ -53,6 +53,15 @@ def worker_for_new_room(engine, room):
                        runner_sha256=hashlib.sha256(script.read_bytes()).hexdigest()), receipt)
     return script
 
+def model_worker_command(script, a, room):
+    command=[sys.executable,str(script),'--engine',a.engine,'--room',str(room),'--out',str(room/'cli')]
+    for attr,flag in [('model','--model'),('effort','--effort'),('binary','--binary'),
+                      ('context_window','--context-window'),('compact_tokens','--compact-tokens'),
+                      ('codex_model_catalog','--codex-model-catalog'),('codex_model_catalog_sha256','--codex-model-catalog-sha256')]:
+        value=getattr(a,attr)
+        if value is not None:command += [flag,str(value)]
+    return command
+
 def main():
     os.umask(0o077)
     p=argparse.ArgumentParser()
@@ -60,6 +69,9 @@ def main():
     p.add_argument('--folder',type=Path,required=True)
     p.add_argument('--condition',required=True)
     p.add_argument('--engine',required=True)
+    p.add_argument('--model');p.add_argument('--effort');p.add_argument('--binary',type=Path)
+    p.add_argument('--context-window',type=int);p.add_argument('--compact-tokens',type=int)
+    p.add_argument('--codex-model-catalog',type=Path);p.add_argument('--codex-model-catalog-sha256')
     a=p.parse_args()
     room=a.folder/'agent'
     room.mkdir(mode=0o700)
@@ -107,8 +119,8 @@ def main():
         tool.close()
     if public['observation']['step']!=0: raise RuntimeError('World already advanced')
     if rule: instruction+='\n\n'+rule
-    if a.engine != 'qwen':
-        # Claude Code already supplies both native contracts in its system prompt.
+    if a.engine not in ('qwen','claude','codex'):
+        # Codex and Claude Code supply the same contracts through their native configuration.
         tools = NATIVE_TOOL_INSTRUCTIONS.replace('The attached first GUI and public state are the initial observation.',
                                                  'Call observe for the initial GUI alongside the supplied public state.')
         instruction += '\n\n' + NATIVE_MODEL_INSTRUCTIONS + '\n' + tools
@@ -117,8 +129,8 @@ def main():
     start_room_budgets([connection_file])
     key_file=Path(os.environ.pop('VIC_POOL_AUTHFILE'))
     with key_file.open('rb') as key:
-        child=subprocess.run([sys.executable,str(script),'--engine',a.engine,
-            '--room',str(room),'--out',str(room/'cli')],stdin=key)
+        command=model_worker_command(script,a,room)
+        child=subprocess.run(command,stdin=key)
     if child.returncode or not (room/'cli/result.json').exists():
         raise RuntimeError('No verified terminal result from worker')
 if __name__=='__main__':

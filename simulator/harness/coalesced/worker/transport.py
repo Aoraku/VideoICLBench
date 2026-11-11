@@ -25,12 +25,42 @@ class MissingUpstreamHTTPStatus(RuntimeError):
     pass
 
 
+def response_observer(status, content_type, encoding, route, record):
+    """Reuse native Responses completion validation without changing wire bytes."""
+    from vic_sdk.tls_relay import ResponseOutcomeObserver
+
+    class Observer(ResponseOutcomeObserver):
+        def _value(self, value):
+            super()._value(value)
+            if not isinstance(value, dict):
+                return
+            response = value.get('response', value)
+            if not isinstance(response, dict):
+                return
+            if isinstance(response.get('model'), str):
+                record['returned_model'] = response['model']
+            # Native compaction returns response.compaction without a terminal
+            # status. The SDK validates completion, but its usage hook handles
+            # only regular Responses terminal statuses.
+            if (self.route.endswith('/compact')
+                    and response.get('object') == 'response.compaction'
+                    and isinstance(response.get('usage'), dict)
+                    and response.get('status') not in ('completed', 'failed', 'incomplete')
+                    and value.get('type') not in ('response.completed', 'response.failed', 'response.incomplete')):
+                try:
+                    self._usage(response)
+                except Exception:
+                    self.provider_usage_conflict = True
+
+    return Observer(status, content_type, encoding, route, usage_metadata=True)
+
+
 def make_relay(engine, model, token, key, out, timing):
     from vic_sdk.episode_api_admission import register_api_request_start, EpisodeApiClosed
     from vic_sdk.api_timing import append_timing_event
     curl = shutil.which('curl')
     if not curl: raise FileNotFoundError('curl')
-    from aihubmix_provider import route_for
+    from aihubmix_provider import route_for, upstream_url
     origin,provider,direct_route=route_for(engine)
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *args):
@@ -38,6 +68,7 @@ def make_relay(engine, model, token, key, out, timing):
         def do_POST(self):
             route = urlsplit(self.path)
             allowed = {'/v1/messages', '/v1/messages/count_tokens'}
+            if engine=='codex': allowed={'/v1/responses', '/v1/responses/compact'}
             if engine=='kimi': allowed={'/v1/chat/completions'}
             if engine=='gemini':
                 allowed={f'/v1beta/models/{model}:{s}' for s in ('generateContent','streamGenerateContent','countTokens')}
@@ -53,7 +84,9 @@ def make_relay(engine, model, token, key, out, timing):
                 for item in tool.get('functionDeclarations',tool.get('function_declarations',[tool.get('function',tool)])):
                     names.add(item.get('name','').removeprefix('mcp__vic__').removeprefix('mcp_vic_').removeprefix('vic_'))
             counting=route.path.endswith(('count_tokens','countTokens'))
-            compact=not names and (out/'decision-admitted').is_file() and any(s in body.lower() for s in (b'compact',b'summariz',b'compress'))
+            compact=not names and (out/'decision-admitted').is_file() and (
+                (engine=='codex' and route.path.endswith('/compact'))
+                or any(s in body.lower() for s in (b'compact',b'summariz',b'compress')))
             if not counting and not compact and names!=TOOLS:
                 self.send_error(400,'missing or unexpected GUI tools');return
             rid=uuid.uuid4().hex
@@ -64,6 +97,7 @@ def make_relay(engine, model, token, key, out, timing):
             phase=None
             status=502
             outcome='failure'
+            failure_kind='provider_error'
             try:
                 if engine=='gemini':
                     rec['upstream_image_layout']=image_layout(data)
@@ -107,7 +141,10 @@ def make_relay(engine, model, token, key, out, timing):
                         body=json.dumps(data,ensure_ascii=False,separators=(',',':')).encode()
                     rec['zcode_public_images']=moved
                     rec['upstream_body_bytes']=len(body)
-                rec['upstream_image_layout']=image_layout(data)
+                layout_data=data
+                if engine=='codex' and isinstance(data.get('input'),list):
+                    layout_data={'messages':data['input']}
+                rec['upstream_image_layout']=image_layout(layout_data)
                 rec['provider']=provider;rec['upstream_origin']=origin
                 try:
                     from upstream_budget_metadata import metadata as upstream_budget_metadata
@@ -126,11 +163,11 @@ def make_relay(engine, model, token, key, out, timing):
                     with tempfile.NamedTemporaryFile() as raw:
                         raw.write(body);raw.flush()
                         if phase is not None:phase.mark('body_file_flushed')
-                        cfg=['url = '+json.dumps(origin+self.path),'header = "Content-Type: application/json"','header = '+json.dumps('Authorization: Bearer '+key),'connect-timeout = 15','data-binary = '+json.dumps('@'+raw.name)]
+                        cfg=['url = '+json.dumps(upstream_url(origin,self.path)),'header = "Content-Type: application/json"','header = '+json.dumps('Authorization: Bearer '+key),'connect-timeout = 15','data-binary = '+json.dumps('@'+raw.name)]
                         if CA:cfg+=['proxy-cacert = '+json.dumps(CA)]
                         if engine=='zcode':cfg+=['http1.1']
                         if direct_route:cfg+=['noproxy = "*"']
-                        if engine!='kimi':cfg+=['header = '+json.dumps('x-api-key: '+key),'header = "anthropic-version: 2023-06-01"']
+                        if engine not in ('kimi','codex'):cfg+=['header = '+json.dumps('x-api-key: '+key),'header = "anthropic-version: 2023-06-01"']
                         with subprocess.Popen([curl,'-q','--silent','--no-buffer','--suppress-connect-headers','--dump-header','-','--config','-'],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.DEVNULL) as p:
                             if phase is not None:phase.mark('curl_spawned')
                             p.stdin.write(('\n'.join(cfg)+'\n').encode());p.stdin.close()
@@ -154,11 +191,15 @@ def make_relay(engine, model, token, key, out, timing):
                             rec['upstream_http']=status
                             if phase is not None:phase.headers(status,headers)
                             mime=headers.get(b'content-type','application/json')
+                            observer=(response_observer(status,mime,headers.get(b'content-encoding',''),route.path,rec)
+                                      if engine=='codex' else None)
                             rec.update(upstream_completed=False, downstream_complete_write=False)
                             connected=True
                             try:
                                 self.send_response(status)
                                 self.send_header('Content-Type',mime)
+                                if engine=='codex' and headers.get(b'content-encoding'):
+                                    self.send_header('Content-Encoding',headers[b'content-encoding'])
                                 self.end_headers()
                             except OSError:
                                 connected=False
@@ -167,6 +208,7 @@ def make_relay(engine, model, token, key, out, timing):
                             kimi_done=False
                             kimi_finished=False
                             for line in p.stdout:
+                                if observer is not None:observer.feed(line)
                                 if phase is not None:phase.line(line)
                                 if connected:
                                     try:self.wfile.write(line);self.wfile.flush()
@@ -201,6 +243,29 @@ def make_relay(engine, model, token, key, out, timing):
                                 rec.update(sse_done_observed=kimi_done,finish_reason_observed=kimi_finished)
                             rec['curl_exit']=p.wait()
                             if phase is not None:phase.mark('curl_wait_returned')
+                            if observer is not None:
+                                observed,observed_failure=observer.finish()
+                                complete=observed=='success'
+                                rec.update(response_outcome=observed,response_failure_kind=observed_failure,
+                                           response_incomplete_reason=observer.incomplete_reason,
+                                           provider_usage_records=observer.provider_usage_records,
+                                           provider_usage_duplicate_events=observer.provider_usage_duplicate_events,
+                                           provider_usage_conflict=observer.provider_usage_conflict)
+                                if len(observer.provider_usage_records)==1 and not observer.provider_usage_conflict:
+                                    usage=observer.provider_usage_records[0]
+                                    rec['provider_usage']={'source':'native_responses_terminal_usage',
+                                        'input_tokens_including_cached':usage['input_tokens'],
+                                        'cached_input_tokens':usage['cached_input_tokens'],
+                                        'output_tokens_including_reasoning':usage['output_tokens'],
+                                        'reasoning_output_tokens':usage['reasoning_output_tokens'],
+                                        'total_tokens':usage['total_tokens'],
+                                        'cache_creation_input_tokens':usage['cache_write_tokens']}
+                                if rec['curl_exit']==0:
+                                    outcome=observed
+                                    failure_kind=observed_failure
+                                else:
+                                    outcome='failure';failure_kind='upstream_transport_error'
+                                if observed_failure:rec['failure_class']=observed_failure
                             rec['upstream_completed']=(rec['curl_exit']==0 and complete and status==200 and not rec.get('error'))
                             rec['downstream_complete_write']=bool(rec['upstream_completed'] and connected)
                             if rec['downstream_complete_write']:
@@ -208,7 +273,8 @@ def make_relay(engine, model, token, key, out, timing):
                                 if names==TOOLS:(out/'decision-admitted').touch()
                             elif not connected:
                                 rec['failure_class']='downstream_disconnected'
-                            elif status==200:
+                                outcome='failure';failure_kind='downstream_disconnected'
+                            elif status==200 and observer is None:
                                 rec['failure_class']='incomplete_upstream_response'
             except Exception as exc:
                 outcome='failure'
@@ -224,7 +290,7 @@ def make_relay(engine, model, token, key, out, timing):
                 rec.update(http=status,outcome=outcome,ended=time.time())
                 if phase is not None:phase.finish()
                 with (out/'transport.jsonl').open('a') as f:f.write(json.dumps(rec)+'\n')
-                append_timing_event(timing,'request_end',request_id=rid,outcome=outcome,failure_kind=None if outcome=='success' else 'provider_error')
+                append_timing_event(timing,'request_end',request_id=rid,outcome=outcome,failure_kind=None if outcome=='success' else failure_kind)
     server=ThreadingHTTPServer(('127.0.0.1',0),Handler)
     server.daemon_threads=False
     return server

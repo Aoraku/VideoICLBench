@@ -1,4 +1,4 @@
-"""Native five-CLI supervisor; GUI/control-plane identity owns every terminal."""
+"""Shared native CLI supervisor; GUI/control-plane identity owns every terminal."""
 import argparse
 import importlib
 import json
@@ -14,7 +14,8 @@ from transport import make_relay, TOOLS
 
 SDK=Path(__file__).resolve().parents[1]/'VideoICLBench/packages/sdk'
 GUI_PY=Path(os.environ.get('VIC_GUI_PYTHON', sys.executable))
-MODELS={'qwen':'qwen3.8-max','gemini':'gemini-4-argon','dsh':'deepseek-v4.1-flash-1017','zcode':'glm-5.3-flash','kimi':'kimi-k3'}
+MODELS={'qwen':'qwen3.8-max','gemini':'gemini-4-argon','dsh':'deepseek-v4.1-flash-1017','zcode':'glm-5.3-flash','kimi':'kimi-k3','codex':'gpt-6-astra','claude':'claude-opus-5-5'}
+CLAUDE_ENGINES = ('qwen', 'claude')
 BATCH_INSTRUCTIONS = (
     'Each action_batch commits its own sequence once and returns the updated GUI. '
     'You may then submit further action_batch calls using new operation IDs, '
@@ -37,9 +38,12 @@ def hold(out,reason):
 def run(args):
     import httpx
     from vic_sdk.embodied_recovery import checked_barrier
-    engine=args.engine;model=MODELS[engine]
+    engine=args.engine
+    settings=worker_settings(args)
+    model=settings['model']
     room=args.room.resolve();out=args.out.resolve()
     os.umask(0o077);out.mkdir(mode=0o700,exist_ok=False)
+    save(out/'effective-config.json', settings)
     cfg=read(room/'computer-private.json')
     if cfg['condition']=='none':
         import transport
@@ -57,7 +61,7 @@ def run(args):
     secret=sys.stdin.readline().strip()
     if engine=='gemini':secret=json.loads(secret)
     token=secrets.token_urlsafe(32)
-    if engine in ('qwen','dsh','zcode'):
+    if engine in ('qwen','claude','dsh','zcode'):
         from anthropic_guard_relay import make_relay as make_anthropic_relay
         relay = make_anthropic_relay(engine, model, token, secret, out, timing)
     elif engine == 'kimi':
@@ -70,35 +74,92 @@ def run(args):
     workspace=out/'workspace';profile=out/'profile';workspace.mkdir();profile.mkdir()
     mcp={'command':str(GUI_PY),'args':[str(Path(__file__).resolve().with_name('lazy_mcp_gui.py')),'--sdk',str(SDK),'--config',str(room/'computer-private.json')],'tool_timeout_sec':86400}
     if engine=='zcode':mcp['args']+=['--image-ledger',str(out/'image-ledger.jsonl')]
-    if engine in ('qwen','zcode'):mcp['args']+=['--compact-depth']
-    if engine=='qwen':
-        binary=cli_binary(engine)
+    if engine in ('qwen','claude','zcode'):mcp['args']+=['--compact-depth']
+    if engine in CLAUDE_ENGINES:
+        binary=Path(settings['binary'])
         save(profile/'settings.json',{'autoCompactEnabled':True})
         save(profile/'mcp.json',{'mcpServers':{'vic':{k:mcp[k] for k in ('command','args')}}})
+        save(profile/'claude-runtime.private.json',{'mcp':mcp,'base_url':base,'token':token})
+        if engine=='claude':
+            from vic_sdk.claude_structured import configure
+            configure(profile,binary,model)
     else:
-        module,binary=adapter_runtime(engine)
-        options={'context_window':262144 if engine=='kimi' else 184000 if engine=='zcode' else 1048576,'compact_tokens':150000,'effort':'high'}
+        module,binary=adapter_runtime(engine, settings['binary'])
+        options=dict(settings)
         provider={'base_url':base,'api_key':token}
         if engine=='gemini':provider['api_version']='v1beta';mcp['includeTools']=sorted(TOOLS)
         elif engine=='kimi':provider['base_url']+='/v1'
+        elif engine=='codex':
+            provider['base_url']+='/v1'
+            provider['wire_api']='responses'
         else:provider['wire_api']='messages'
         module.configure(profile,workspace,model,mcp,provider,options)
+    if engine=='codex':
+        record=read(profile/'codex-adapter.private.json')
+        settings.update(native_cli_version=record['cli_version'],
+                        derived_model_catalog_sha256=record['catalog_sha256'])
+    settings['native_profile_configured']=True
+    save(out/'effective-config.json', settings)
     prompt=(room/'prompt-1.txt').read_text()+'\n'+BATCH_INSTRUCTIONS
-    if engine!='qwen':prompt+='\nFirst call observe for the current GUI. Use the public tools to complete the task. Use done or giveup for the terminal decision.'
-    attempt_loop(engine=engine,room=room,out=out,owner=owner,identity=identity,binary=binary,module=None if engine=='qwen' else module,
+    if engine not in CLAUDE_ENGINES and engine!='codex':prompt+='\nFirst call observe for the current GUI. Use the public tools to complete the task. Use done or giveup for the terminal decision.'
+    attempt_loop(engine=engine,room=room,out=out,owner=owner,identity=identity,binary=binary,module=None if engine in CLAUDE_ENGINES else module,
                  prompt=prompt,qwen_config=(mcp,base,token),relay=relay)
 
 
-def cli_binary(engine):
+
+def worker_settings(args):
+    engine = args.engine
+    window = (262144 if engine == 'kimi' else 184000 if engine == 'zcode'
+              else 1000000 if engine in (*CLAUDE_ENGINES, 'codex') else 1048576)
+    compact = 150000
+    if getattr(args, 'context_window', None) is not None:
+        window = args.context_window
+    if getattr(args, 'compact_tokens', None) is not None:
+        compact = args.compact_tokens
+    if type(window) is not int or window<=0:
+        raise ValueError('Context window must be a positive integer')
+    if engine!='zcode' and (type(compact) is not int or not 0 < compact < window):
+        raise ValueError('Compaction must be positive and below the context window')
+    if engine in ('dsh','kimi','gemini') and window>1048576:
+        raise ValueError('Selected native CLI model supports at most 1048576 context tokens')
+    if engine=='kimi' and not .5<=compact/window<=.99:
+        raise ValueError('Kimi native compaction ratio must be .5..99')
+    model=getattr(args,'model',None) or MODELS[engine]
+    effort=getattr(args,'effort',None) or 'high'
+    expected_compact=None
+    if engine=='zcode':
+        if effort!='high' or model!=MODELS[engine]:
+            raise ValueError('The GLM provider adapter supports glm-5.3-flash with high effort')
+        if getattr(args,'compact_tokens',None) is not None:
+            raise ValueError('ZCode derives compaction from context/output budgets; --compact-tokens is unsupported')
+        expected_compact=window-34000
+        if expected_compact<=0:
+            raise ValueError('ZCode context must leave its native output and compaction reserve')
+        compact=None
+    policy = ('native_context_output_budget' if engine=='zcode' else
+              'claude_native_autocompact_80_percent_window' if engine in CLAUDE_ENGINES else
+              'native_token_threshold')
+    return dict(compaction_policy=policy, native_compact_expected_tokens=expected_compact,
+                engine=engine, model=model, effort=effort, context_window=window,
+                compact_tokens=compact, binary=str(cli_binary(engine, getattr(args, 'binary', None))),
+                model_catalog=str(args.codex_model_catalog.resolve()) if getattr(args, 'codex_model_catalog', None) else None,
+                model_catalog_sha256=getattr(args, 'codex_model_catalog_sha256', None),
+                native_history=True, native_compaction=True)
+
+
+def cli_binary(engine, override=None):
     name = 'VIC_CLI_' + engine.upper()
-    path = os.environ.get(name)
+    path = override or os.environ.get(name)
     if not path:
         raise ValueError(name + ' must point to the installed native CLI')
-    return Path(path).expanduser().resolve(strict=True)
+    binary=Path(path).expanduser().resolve(strict=True)
+    if not binary.is_file():
+        raise ValueError(name + ' must point to a native CLI file')
+    return binary
 
 
-def adapter_runtime(engine):
-    return importlib.import_module('adapters.' + engine), cli_binary(engine)
+def adapter_runtime(engine, binary=None):
+    return importlib.import_module('adapters.' + engine), cli_binary(engine, binary)
 
 
 def wait_for_provider(owner, identity, timing_path):
@@ -123,7 +184,7 @@ def wait_for_provider(owner, identity, timing_path):
 def continue_existing(*,engine,room,owner,session,previous_attempt):
     """Called only by the owner-checked, exclusive companion. Reuses the original relay."""
     from vic_sdk.embodied_recovery import checked_barrier
-    if engine not in ('gemini','kimi','dsh','zcode') or not session or previous_attempt < 1:
+    if engine not in (*CLAUDE_ENGINES,'gemini','kimi','dsh','zcode','codex') or not session or previous_attempt < 1:
         raise ValueError('Unsupported existing CLI session')
     room=Path(room).resolve()
     out=room/'cli'
@@ -139,9 +200,16 @@ def continue_existing(*,engine,room,owner,session,previous_attempt):
     state=wait_for_provider(owner,connection['identity'],Path(connection['api_timing_log']).resolve())
     if checked_barrier(state,connection['identity']).get('recovery_id'):
         raise ValueError('Owner recovery is already locked')
-    module,binary=adapter_runtime(engine)
+    selected=read(out/'effective-config.json') if (out/'effective-config.json').exists() else {}
+    if engine in CLAUDE_ENGINES:
+        module,binary=None,cli_binary(engine,selected.get('binary'))
+        config=read(out/'profile/claude-runtime.private.json')
+        qwen_config=(config['mcp'],config['base_url'],config['token'])
+    else:
+        module,binary=adapter_runtime(engine,selected.get('binary'))
+        qwen_config=None
     return attempt_loop(engine=engine,room=room,out=out,owner=owner,identity=connection['identity'],
-                        binary=binary,module=module,prompt='',session=session,review_attempt=previous_attempt)
+                        binary=binary,module=module,prompt='',session=session,review_attempt=previous_attempt,qwen_config=qwen_config)
 
 
 def attempt_loop(*,engine,room,out,owner,identity,binary,module,prompt,session=None,review_attempt=None,qwen_config=None,relay=None,start_attempt=1,session_recovery_record=None):
@@ -174,7 +242,8 @@ def attempt_loop(*,engine,room,out,owner,identity,binary,module,prompt,session=N
             raise ValueError('Already terminal')
     workspace=out/'workspace'
     profile=out/'profile'
-    model=MODELS[engine]
+    settings=read(out/'effective-config.json') if (out/'effective-config.json').exists() else {}
+    model=settings.get('model',MODELS[engine])
     connection_path=Path(read(room/'worker-owner.json')['connection']) if (room/'worker-owner.json').is_file() else room.parent/'gui/connection.private.json'
     timing=Path(read(connection_path)['api_timing_log']).resolve()
     if qwen_config:
@@ -184,8 +253,12 @@ def attempt_loop(*,engine,room,out,owner,identity,binary,module,prompt,session=N
         if attempt == review_attempt:
             exit_code=read(out/f'attempt-{attempt}-receipt.json')['exit_code']
         else:
-            if engine=='qwen':
-                cmd,env=claude.command(profile,workspace,model,mcp,binary=binary,budget=0,base_url=base,key=token,effort='high',resume=session)
+            if engine in CLAUDE_ENGINES:
+                cmd,env=claude.command(profile,workspace,model,mcp,binary=binary,budget=0,base_url=base,key=token,effort=settings.get('effort','high'),resume=session)
+                window=settings.get('context_window',1000000)
+                compact=settings.get('compact_tokens',150000)
+                env.update(CLAUDE_CODE_MAX_CONTEXT_TOKENS=str(window),CLAUDE_CODE_AUTO_COMPACT_WINDOW=str(compact))
+                cmd[cmd.index('--autocompact')+1]=str(compact)
                 from qwen_runtime import configure_tool_wait, configure_provider_wait
                 save(out/f'attempt-{attempt}-tool-wait-policy.json',configure_tool_wait(env))
                 save(out/f'attempt-{attempt}-provider-wait-policy.json',configure_provider_wait(env))
@@ -196,12 +269,14 @@ def attempt_loop(*,engine,room,out,owner,identity,binary,module,prompt,session=N
                 cmd,env=module.command(profile,workspace,model,binary=binary,resume=session)
                 env.update(PATH=os.environ['PATH'],LD_LIBRARY_PATH=os.environ.get('LD_LIBRARY_PATH',''),NO_PROXY='localhost,127.0.0.1')
                 if engine in ('kimi','dsh'):env.setdefault('HOME',str(profile))
+                if engine=='codex' and attempt==1:
+                    cmd=cmd[:-1]+['--image',str(room/'native-structured/initial-gui.png'),cmd[-1]]
                 content=prompt
             with stream.open('xb') as stdout,(out/f'attempt-{attempt}.stderr').open('xb') as stderr:
                 proc=subprocess.run(cmd,cwd=workspace,env=env,input=content.encode(),stdout=stdout,stderr=stderr)
             exit_code=proc.returncode
         owner_state=wait_for_provider(owner,identity,timing)
-        summary=cc_summary('claude',stream,profile) if engine=='qwen' else module.summarize(stream,profile,session_id=session)
+        summary=cc_summary('claude',stream,profile) if engine in CLAUDE_ENGINES else module.summarize(stream,profile,session_id=session)
         if native_terminal_proven(owner_state,identity):
             score=owner.post('/api/private/evaluate',json={'identity':identity});score.raise_for_status()
             evaluation=checked_evaluation(score.json(),identity)
@@ -217,7 +292,7 @@ def attempt_loop(*,engine,room,out,owner,identity,binary,module,prompt,session=N
         errors=json.dumps(summary.get('errors',[])).lower()
         if ('mismatch' in errors and 'session' in errors) or 'multiple gemini native session' in errors:
             hold(out,'native_session_identity_conflict')
-        if engine=='qwen':sid=claude.resolve_session(profile,summary,session)
+        if engine in CLAUDE_ENGINES:sid=claude.resolve_session(profile,summary,session)
         if not sid or (session and sid!=session):hold(out,'missing_or_changed_native_session')
         if engine=='gemini':
             persisted={read(path).get('sessionId') for path in profile.rglob('session-*.json')}
@@ -273,8 +348,28 @@ def attempt_loop(*,engine,room,out,owner,identity,binary,module,prompt,session=N
 
 if __name__=='__main__':
     p=argparse.ArgumentParser()
-    p.add_argument('--room',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--engine',choices=MODELS,required=True)
+    p.add_argument('--room',type=Path);p.add_argument('--out',type=Path);p.add_argument('--engine',choices=MODELS,required=True)
+    p.add_argument('--check-config',action='store_true')
+    p.add_argument('--model')
+    p.add_argument('--effort')
+    p.add_argument('--context-window',type=int)
+    p.add_argument('--compact-tokens',type=int)
+    p.add_argument('--binary',type=Path)
+    p.add_argument('--codex-model-catalog',type=Path)
+    p.add_argument('--codex-model-catalog-sha256')
     args=p.parse_args()
+    if args.check_config:
+        settings=worker_settings(args)
+        if args.engine=='codex':
+            from vic_sdk.direct_tools import validate_context_window
+            if not settings['model_catalog'] or not settings['model_catalog_sha256']:
+                p.error('Codex requires --codex-model-catalog and --codex-model-catalog-sha256')
+            validate_context_window(settings['model_catalog'],settings['model_catalog_sha256'],
+                settings['model'],settings['context_window'],settings['compact_tokens'])
+        print(json.dumps(settings))
+        raise SystemExit(0)
+    if args.room is None or args.out is None:
+        p.error('--room and --out are required for model execution')
     try:run(args)
     except FileExistsError:
         raise

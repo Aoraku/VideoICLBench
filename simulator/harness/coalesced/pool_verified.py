@@ -118,12 +118,27 @@ def write_room_provider(credentials, folder, engine, route):
     return target
 
 
+def worker_option_arguments(args):
+    flags=[]
+    for attr, flag in [('model','--model'),('effort','--effort'),
+                       ('context_window','--context-window'),('compact_tokens','--compact-tokens'),('binary','--binary'),
+                       ('codex_model_catalog','--codex-model-catalog'),('codex_model_catalog_sha256','--codex-model-catalog-sha256')]:
+        value=getattr(args,attr,None)
+        if value is not None:flags += [flag,str(value)]
+    return flags
+
+
 def room_agent_command(args, package, folder, condition, credentials):
-    return [args.gui_python, CAMPAIGN/'bootstrap_verified_room.py', '--case',package,
-            '--folder',folder, '--condition',condition,'--engine',args.engine]
+    return [args.gui_python, CAMPAIGN/'bootstrap_verified_room.py','--case',package,
+            '--folder',folder,'--condition',condition,'--engine',args.engine] + worker_option_arguments(args)
 
 
-def main():
+def worker_config_command(args):
+    return [str(args.gui_python),str(CAMPAIGN/'worker/run.py'),'--check-config',
+            '--engine',args.engine] + worker_option_arguments(args)
+
+
+def build_parser():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--native-python', type=Path, required=True)
     p.add_argument('--gui-python', type=Path, required=True)
@@ -144,14 +159,14 @@ def main():
     p.add_argument('--browser-path', type=Path)
     p.add_argument('--model')
     p.add_argument('--condition', choices=['real','sim','text_rule','none'], default='text_rule')
-    p.add_argument('--engine', choices=['qwen','dsh','kimi','gemini','zcode'], required=True)
-    p.add_argument('--embodied-harness', choices=['gui','program_gui'], default='gui',
+    p.add_argument('--engine', choices=['codex','claude','qwen','dsh','kimi','gemini','zcode'], required=True)
+    p.add_argument('--embodied-harness', choices=['gui','program_gui'], default='program_gui',
                    help='Opt-in episode-local GUI programs; default: gui')
     p.add_argument('--effort', default='high')
     p.add_argument('--max-budget-usd', type=float, default=1., help='Claude CLI reported cost cap; pauses unscored on exhaustion')
-    p.add_argument('--codex-compact-tokens',type=int,default=32768)
-    p.add_argument('--codex-context-window', type=int, help='Explicit native Codex context window; requires compatible pinned catalog')
-    p.add_argument('--native-structured-tools', action='store_true', help='Native Codex event-driven structured GUI tools')
+    p.add_argument('--compact-tokens','--codex-compact-tokens',dest='compact_tokens',type=int)
+    p.add_argument('--context-window','--codex-context-window',dest='context_window', type=int, help='Native CLI context capacity; Codex additionally validates the pinned model catalog')
+    p.add_argument('--native-structured-tools', action='store_true', default=True, help='Native Codex event-driven structured GUI tools')
     p.add_argument('--provider-request-metadata', action='store_true', help='Opt-in provider request hashes/counts; no prompt content')
     p.add_argument('--lean-text-projection', action=argparse.BooleanOptionalAction, default=True, help='Compact JSON output for new program_gui episodes; images and fields unchanged')
     p.add_argument('--codex-model-catalog',type=Path)
@@ -163,12 +178,12 @@ def main():
     p.add_argument('--robodawn-max-receipts', type=int, default=12)
     p.add_argument('--robodawn-notes-max-chars', type=int, default=2500)
     p.add_argument('--robodawn-max-old-gui', type=int, default=0)
-    p.add_argument('--max-actions', type=int, default=8)
-    p.add_argument('--timeout', type=int, default=300)
+    p.add_argument('--max-actions', type=int, default=500)
+    p.add_argument('--timeout', type=int, default=0)
     p.add_argument('--unknown-api-policy', choices=['retire_unscored','preserve_world','resume_closed_unknown'], default='retire_unscored')
     p.add_argument('--startup-timeout', type=int, default=600)
     p.add_argument('--barrier-timeout', type=int, default=300)
-    p.add_argument('--coalesce-window-seconds', type=float,
+    p.add_argument('--coalesce-window-seconds', type=float, default=.05,
                    help='Opt a new native pool into short-window asynchronous room scheduling')
     p.add_argument('--capture-passes', type=int, default=64)
     p.add_argument('--native-kit-args', help='Explicit process-local Kit diagnostic arguments')
@@ -177,13 +192,21 @@ def main():
     p.add_argument('--epoch', required=True)
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--allow-unvalidated-environment', action='store_true', required=True)
+    return p
+
+
+def main():
+    p = build_parser()
     args = p.parse_args()
+    if args.context_window is not None and args.context_window <= 0:p.error('context-window must be positive')
+    if args.compact_tokens is not None and args.compact_tokens <= 0:p.error('compact-tokens must be positive')
+    if args.context_window is not None and args.compact_tokens is not None and args.compact_tokens >= args.context_window:p.error('compact-tokens must be below context-window')
     if not args.probe_only:
         if args.max_actions != 500 or args.timeout != 0:
             p.error('The verified model worker requires --max-actions 500 --timeout 0')
-        cli = Path(os.environ.get('VIC_CLI_' + args.engine.upper(), ''))
+        cli = args.binary or Path(os.environ.get('VIC_CLI_' + args.engine.upper(), ''))
         if not cli.is_file():
-            p.error('Set VIC_CLI_' + args.engine.upper() + ' to the installed native CLI')
+            p.error('Set --binary or VIC_CLI_' + args.engine.upper() + ' to the installed native CLI')
         auth = Path(os.environ.get('VIC_POOL_AUTHFILE', ''))
         if not auth.is_file() or auth.stat().st_mode & 0o077:
             p.error('VIC_POOL_AUTHFILE must name a private (0600) provider key file')
@@ -196,6 +219,11 @@ def main():
         p.error('This campaign requires the native structured model worker and GUI')
     if args.embodied_auto_recover or args.provider_ca_bundle or args.api_concurrency_config:
         p.error('The room worker owns its transport and provider recovery')
+    effective_worker_configuration=None
+    if not args.probe_only:
+        check=subprocess.run(worker_config_command(args),capture_output=True,text=True)
+        if check.returncode:p.error('Worker configuration rejected before world startup: '+check.stderr.strip().splitlines()[-1])
+        effective_worker_configuration=json.loads(check.stdout)
     if sys.platform != 'linux':
         p.error('On-demand process ownership uses Linux /proc; execute on the RTX host')
     # Adopt a native CLI's orphaned MCP/browser descendants, so shutdown still
@@ -234,7 +262,7 @@ def main():
         signal.signal(sig, lambda *_: stop.set())
     state = dict(schema='videoicl-on-demand-pool-v1', owner=asdict(identity(os.getpid())),
         started_unix=time.time(), status='starting', validation_only=True,
-        scientific_evaluation=False, campaign=CAMPAIGN.name, engine=args.engine, assigned_rooms=rooms, children=[], results=[])
+        scientific_evaluation=False, campaign=CAMPAIGN.name, engine=args.engine, worker_configuration=effective_worker_configuration, assigned_rooms=rooms, children=[], results=[])
 
     def save():
         temporary = out / 'lifecycle.tmp'

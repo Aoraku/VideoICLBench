@@ -1,3 +1,5 @@
+> 历史实验归档。所有模型的新评测统一使用[最新同池并发 Harness](../harness/coalesced/README.md)。
+
 # 原生 Codex 具身 harness
 
 本目录提供 Astra 物理执行用的 SDK、GUI、pool runner 和本机 API relay。与 [本批实验配置](../astra-iclworld-20261106/README.md) 配套使用。安装步骤见 [INSTALL.md](INSTALL.md)，原生物理环境的装配见 [RUNTIME.md](../astra-iclworld-20261106/deploy/RUNTIME.md)。

@@ -22,13 +22,13 @@ HF Benchmark 提供评测输入。HF 评测轨迹用于分析结果。GitHub Rel
 | [trajectories/](trajectories/README.md) | HF 轨迹字段和归档下载入口。 |
 | [handoff/](handoff/HANDOFF.md) | 早期原型交接记录。当前交接从 [HANDOFF.md](HANDOFF.md) 进入。 |
 
-## 复现 IsaacLab 实验
+## 使用最新统一 Harness 运行 IsaacLab 实验
 
-1. 核对任务、环境与输入条件，按安装说明准备 IsaacLab/IsaacSim、模型 CLI 和 GUI 依赖。[Astra 实验配置](astra-iclworld-20261106/README.md) · [原生 Codex 安装](native-codex-20261106/INSTALL.md)
-2. 下载对应的示范和仿真资产，按固定版本与 SHA-256 组装运行时。[资产与运行时](astra-iclworld-20261106/deploy/RUNTIME.md)
-3. 准备本机任务绑定、HTTPS 上游和执行池。独立视频 QA 单独启动和统计。[执行池配置](astra-iclworld-20261106/CONFIGURATION.md) · [API 传输](astra-iclworld-20261106/transport/README.md) · [视频 QA](astra-iclworld-20261106/qa/README.md)
+1. 从 [统一 Harness](harness/coalesced/README.md) 安装依赖，准备匹配的 IsaacLab/IsaacSim 与原生 CLI。
+2. 从 [数据交接](HANDOFF.md) 下载固定题目、输入与资产，核对 R/I/E、A/B/C、seed 和输入条件。
+3. 全部模型使用 `harness/coalesced/pool_verified.py`，通过 `--engine`、`--model` 和 CLI/provider 参数选择模型。默认短窗口并发调度，各房间独立请求模型。
 
-Astra 与 Opus 的归档使用当次实验的配置。新版异步 Harness 的启动参数见其安装说明。
+`native-codex-20261106/` 等目录保留历史实验版本；历史轨迹的原始设置保持不变。新评测统一使用上述入口。
 
 ## 历史 MuJoCo 套件
 

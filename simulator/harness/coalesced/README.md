@@ -1,8 +1,8 @@
 # 同池并发具身评测 Harness
 
-本目录包含同池并发的原生仿真调度、每房间模型 worker、GUI SDK 和 API relay，DeepSeek / GLM 消融使用了这套实现。Astra 的 Codex 和 Opus 的 Claude Code 复现入口见 [11 月 6 日交付](../../native-codex-20261106/README.md)。数据、版本与实验口径见 [交接文档](../../HANDOFF.md)。
+所有新评测统一使用本目录的同一套原生仿真调度、房间 worker、GUI/MCP 工具、动作提交、恢复与评分流程。Astra、Opus、DeepSeek、GLM、Kimi、Qwen 通过 engine/model 与 CLI/provider 配置选择后端。历史评测的数据仍保留当次真实运行版本，不能用本次代码更新改写历史实验设置。数据、版本与实验口径见 [交接文档](../../HANDOFF.md)。
 
-一个 pool 启动一个 IsaacSim 进程，每个房间有自己的 GUI、模型 CLI、API relay 和原生身份。传入 `--coalesce-window-seconds .05` 后，收到动作的房间至多等 50 ms 收集同批动作，再由仿真主线程执行。50 ms 是收集窗口，已有仿真和渲染仍可能造成排队。等待模型的房间在其他房间步进时恢复自己的机器人关节与刚体状态。需要物理隔离的任务应按固定环境清单独立实例化。
+一个 pool 启动一个 IsaacSim 进程，每个房间有自己的 GUI、模型 CLI、API relay 和原生身份。默认 `--coalesce-window-seconds .05`，收到动作的房间至多等 50 ms 收集同批动作，再由仿真主线程执行。50 ms 是收集窗口，已有仿真和渲染仍可能造成排队。等待模型的房间在其他房间步进时恢复自己的机器人关节与刚体状态。需要物理隔离的任务应按固定环境清单独立实例化。
 
 `SOURCE_MAP.json` 记录部署源和交付文件的 SHA-256。代码移植时把模型 CLI、浏览器、API 地址及 CA 文件路径改为部署参数，保留各 worker 的模型和推理设置。SDK 另带 GUI 先写完关闭回执、再退出的修复。交付包已做本地调度和协议回归，首次在新环境使用前先跑无模型诊断。
 
@@ -30,12 +30,14 @@ python3 -m venv .venv
 
 `--cases` 使用 [cases.example.json](cases.example.json) 的字段。把任务包、机器人 profile 和物体 bindings 绑定到本机文件，保留固定的 task、variant、seed、R/I/E 和输入条件。Harbor 任务包的 `instruction.md` 与 `environment/native.json` 必须匹配，规则放在 `tests/rule.json`，视频文件及 SHA-256 写在 `demo` 或 `demo_sim`。按 HF `benchmark/assignments.jsonl` 选择输入并核对哈希。示例路径是占位符。
 
-## 当前 worker 的固定配置
+## 共用流程与模型配置
 
-`pool_verified.py --engine` 选择下表的 worker 配置。模型名、推理等级、窗口和压缩设置由 worker 与其原生 CLI 适配器写入。表内数值是代码配置，实际压缩事件和提供方支持情况由每回合日志记录。
+`pool_verified.py --engine` 选择原生 CLI 适配器，所有模型复用同一执行循环。`--model`、`--effort`、`--context-window`、`--compact-tokens`、`--binary` 会经过 pool → bootstrap → worker 透传；不支持的配置在创建世界前报错。最终配置保存为每房间 `cli/effective-config.json`，原生 compact 的实际触发以 CLI 日志为准。
 
 | engine | 模型 | effort | 配置的 context window | 原生自动压缩设置 |
 | --- | --- | --- | ---: | --- |
+| `codex`（Astra） | `gpt-6-astra` | `high` | 1,000,000 | 原生 compact 阈值 150,000；必须提供支持该容量的完整原生 model catalog 及 SHA-256。 |
+| `claude`（Opus） | `claude-opus-5-5` | `high` | 1,000,000 | 与 Qwen 共用 Claude Code 适配；原生自动压缩窗口 150,000，名义触发点约 120,000。 |
 | `dsh` | `deepseek-v4.1-flash-1017` | `high` | 1,048,576 | 阈值 150,000，写入 DSH 原生 compaction 配置。 |
 | `zcode` | `glm-5.3-flash` | 请求 `high`，relay 的提供方请求也固定为 `high` | 184,000 | ZCode 按原生公式 `contextWindow - min(normalRequestMaxOutputTokens, 21000) - 13000` 计算。输出预算达到 21,000 时预计阈值为 150,000，实际以原生事件为准。 |
 | `kimi` | `kimi-k3` | `high`，开启 thinking | 262,144 | 配置阈值 150,000，对应原生 `compaction_trigger_ratio=150000/262144`，预留 112,144 token。 |
@@ -44,7 +46,9 @@ python3 -m venv .venv
 
 配置来源见 [worker 的模型表与选项](worker/run.py#L17)、[DSH adapter](worker/adapters/dsh.py#L155)、[ZCode adapter](worker/adapters/zcode.py#L122)、[GLM 提供方 effort 映射](worker/zcode_effort.py#L11)、[Kimi adapter](worker/adapters/kimi.py#L27)、[Claude Code 参数](VideoICLBench/packages/sdk/vic_sdk/claude_structured.py#L25) 和 [Gemini adapter](worker/adapters/gemini.py#L37)。
 
-`pool_verified.py` 保留的通用参数 `--model`、`--effort`、`--codex-context-window`、`--codex-compact-tokens` 和 `--binary` 尚未传入当前房间 worker。填写这些参数不会覆盖上表。CLI 路径使用后文的 `VIC_CLI_*` 环境变量。修改运行配置时应在新副本中调整 worker 配置，再核对新 profile 和实际请求记录。[房间启动参数](pool_verified.py#L121) · [worker 参数生成](worker/run.py#L80)
+`--codex-context-window` 和 `--codex-compact-tokens` 是通用参数的兼容别名。GLM 的原生压缩由上下文与输出预算公式决定，不能单独指定 `--compact-tokens`，其预计值与实际事件分别记录；目前 GLM relay 只接收已验证的 `high` 配置。Astra 的 catalog 必须是安装的原生 Codex 可用的完整 catalog，不能用只有模型名的占位文件。低容量 catalog 会拒绝 1M 配置。
+
+Astra 使用 Responses API；Opus/Qwen 使用 Messages API；其他 CLI 由对应 adapter 转换 API 格式和原生会话事件。这些适配不改变七个公开工具、动作规则与评分入口。
 
 ## 运行
 
@@ -63,6 +67,8 @@ python3 -m venv .venv
 
 | 引擎参数 | CLI 路径变量 |
 | --- | --- |
+| `codex` | `VIC_CLI_CODEX` |
+| `claude` | `VIC_CLI_CLAUDE` |
 | `dsh` | `VIC_CLI_DSH` |
 | `zcode` | `VIC_CLI_ZCODE` |
 | `qwen`，通过 Claude Code | `VIC_CLI_QWEN` |
@@ -91,6 +97,16 @@ export VIC_POOL_AUTHFILE=/work/videoicl/secrets/dsh.key
 
 ```bash
 PYTHONPATH=VideoICLBench/packages/sdk:VideoICLBench/tests \
-  .venv/bin/python -m pytest -o addopts='' tests/test_coalesced_pool.py \
-  VideoICLBench/tests/test_embodied_environment.py -k 'not fake_cli'
+  .venv/bin/python -m pytest -o addopts='' tests \
+  VideoICLBench/tests/test_embodied_environment.py
 ```
+
+## Astra 与 Opus 选择方式
+
+复用上面同一个 `pool_verified.py` 命令和相同 cases/runtime。Astra 使用 `--engine codex --codex-model-catalog /work/catalog.json --codex-model-catalog-sha256 <实际SHA256>`；Opus 使用 `--engine claude`。两者均设置自己的 `VIC_CLI_*` 原生 CLI 路径、`VIC_UPSTREAM_ORIGIN` 与私有 `VIC_POOL_AUTHFILE`。也可使用 `--binary` 指定 CLI。
+
+`worker/run.py --check-config --engine ...` 只检查 CLI 路径与配置，不启动世界或请求模型；Codex 还检查完整 catalog 的哈希、模型与容量。模型执行默认 500 个物理动作、无全局时间上限。房间可同时等待模型响应，已就绪房间在最多 50ms 动作收集窗口后即可推进。仿真步进、相机操作仍由共享主线程调度；这不等于各房间完全独立的物理世界。
+
+11月6日旧配置仅用于解释或复现历史 Astra/Opus 轨迹，见 [历史归档](../../native-codex-20261106/README.md)。新跑各模型均从本目录进入。
+
+本次统一发布的离线验证结果与范围见 [VALIDATION.md](VALIDATION.md)。

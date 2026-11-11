@@ -15,7 +15,7 @@ from transport import make_relay as make_billing_relay
 
 
 def make_relay(engine, model, token, key, out, timing):
-    if engine not in ('qwen','dsh','zcode'):
+    if engine not in ('qwen','claude','dsh','zcode'):
         raise ValueError('This relay accepts audited Anthropic Messages engines only')
     inner = make_billing_relay(engine, model, token, key, out, timing)
     thread = threading.Thread(target=inner.serve_forever, name=engine+'-billing-relay', daemon=False)

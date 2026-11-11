@@ -131,7 +131,11 @@ tar -xzf ./videoicl-inputs/input_archives/all-saved-model-inputs.tar.gz \
 
 先读轨迹索引，按回合的归档和视频引用下载所需文件。HF 的 `full_observations/README.md` 列出分片与大小，避免一次下载所有原图。离线解包后可直接用播放器和文本编辑器查看。
 
-## 代码入口
+## 最新统一代码入口
+
+新评测的所有模型统一使用 `harness/coalesced/pool_verified.py`：Astra 选 `--engine codex`，Opus 选 `--engine claude`，其余模型选择对应 CLI adapter。默认 50ms 收集窗口，各房间独立发模型请求，已就绪房间无需等其他模型响应。各模型共用 GUI/MCP、动作执行、恢复和原生评分流程。配置及适配差异见 [统一 Harness README](harness/coalesced/README.md)。
+
+以下数据版本记录已经完成的历史实验；更新发布代码不会改变那些实验真实使用的版本。
 
 `simulator/harness/coalesced/` 集中当前多房间 Harness、CLI worker、GUI SDK、原生调度覆盖文件、安装说明和回归测试。每房间独立请求模型，仿真主线程通过短窗口合并已经提交的动作，空闲房间保存和恢复刚体、关节状态。
 
@@ -145,7 +149,7 @@ tar -xzf ./videoicl-inputs/input_archives/all-saved-model-inputs.tar.gz \
 | --- | --- |
 | Demo、prompt 与模型输入 | [6850489d7886334cb0d463f08ceb9eea461227bd](https://huggingface.co/datasets/JJimmyL/VideoICL-Embodied-Demos50/tree/6850489d7886334cb0d463f08ceb9eea461227bd) |
 | 模型结果与完整执行轨迹 | [0a84cd0305240eb98512b71e429ac9f0a6e9f304](https://huggingface.co/datasets/JJimmyL/VideoICL-Embodied-Evaluation-Trajectories-Public/tree/0a84cd0305240eb98512b71e429ac9f0a6e9f304) |
-| Harness 代码 | [37a25a4d7a99ec57705cd5c3d295143f3702d787](https://github.com/Aoraku/VideoICLBench/tree/37a25a4d7a99ec57705cd5c3d295143f3702d787/simulator) |
+| 11月11日数据交接时附带的代码（历史固定版本） | [37a25a4d7a99ec57705cd5c3d295143f3702d787](https://github.com/Aoraku/VideoICLBench/tree/37a25a4d7a99ec57705cd5c3d295143f3702d787/simulator) |
 | 仿真资产 | [99057ec5bc1a6b5655fb15d953aa77b6a9e94f8d](https://huggingface.co/datasets/JJimmyL/VideoICL-Embodied-Handoff-20261103/tree/99057ec5bc1a6b5655fb15d953aa77b6a9e94f8d) |
 
 HF 主分支后续可以补齐两条 GLM；复核本次交接时使用上述固定 revision。全部发布文件核对远端哈希，并抽样以匿名方式下载验证。

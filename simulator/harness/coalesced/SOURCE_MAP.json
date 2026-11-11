@@ -23,11 +23,11 @@
     },
     "worker/aihubmix_provider.py": {
       "deployed_sha256": "affe30591c9ae6f27ed9c5bc31e21c783f3644b20ac73f8967f420908178cdc9",
-      "published_sha256": "41316ca1d4ae3d30d65dc4c314bfbaaf2b3f8b979e6013e1aad54a2fb9696e2f"
+      "published_sha256": "7534d310d374a4027173d7d9352320b69b08075df36592ee1494c3f279bbc28a"
     },
     "worker/anthropic_guard_relay.py": {
       "deployed_sha256": "f79042928f0ebf03d4279fc0eeb1652b9db389a7c2535c429401d18b3af88cf5",
-      "published_sha256": "f79042928f0ebf03d4279fc0eeb1652b9db389a7c2535c429401d18b3af88cf5"
+      "published_sha256": "8638f102fba1782747c0ee7f3589699fa7d29acc2f4bb24de1263413a0dee781"
     },
     "worker/anthropic_stream_guard.py": {
       "deployed_sha256": "28af8c9b948655e91b834d076cae19af0b7914c82149294f1229dd9335d0bb68",
@@ -95,7 +95,7 @@
     },
     "worker/run.py": {
       "deployed_sha256": "830377bd5d346fc2d7e530b5300f30b453c12b561fb286815ada19dd034f499a",
-      "published_sha256": "6e44b0a4aaea839031eea2ce1d3ffae2127e5341a75556fad89238c0e4a4ef70"
+      "published_sha256": "ae49c064741948c95ab9b2d4300f673aed2869d91ac0f97088dd3d34a478fd5f"
     },
     "worker/sealed_zcode_cleanup.py": {
       "deployed_sha256": "27ad9bc1b912dbee9ab5f88732c2d7446b19d3243b16aad71e388a2a2eff916a",
@@ -111,7 +111,7 @@
     },
     "worker/transport.py": {
       "deployed_sha256": "a5a84bbd1ee05e70a18c2aa137d80cee949bb1e94779f60a459b0a32e9b479e3",
-      "published_sha256": "c105f327556916902f52b3baa4d464012e812bd4b586188d68f8cd78ef2ce58c"
+      "published_sha256": "a9e9eac8be482d200630947e8edb4c1291268fa945ad92c87a861807d8f5caf9"
     },
     "worker/transport_phases.py": {
       "deployed_sha256": "5c3963341df26c84e273254175b692f51340ebc552cda87a8d03bf96a14b7b65",
@@ -139,11 +139,11 @@
     },
     "pool_verified.py": {
       "deployed_sha256": "e0aa2643d8fce675e357f2080831022b5e6adb11c4a07929fe15f1da8f7c2cc2",
-      "published_sha256": "8cc0d061053664b9eef5a48be1d2b1a37ec3cbb7d63cf13854f489cbdefaa512"
+      "published_sha256": "8d2be712693222d01d76e38771a838a9025c7d0fab5eaad9ddcdb106e8e715df"
     },
     "bootstrap_verified_room.py": {
       "deployed_sha256": "742f3080c5fbba2a99dabf27463978e513a4ef81f308c90bb5980e59b534e464",
-      "published_sha256": "a31e04537c20c27c79321cd16ff0a6348bacb485c27e4fd2e494488a7512ce50"
+      "published_sha256": "5f6508523bfc380362ead5c1cff0013fb044698c2a674b47fd7ccc9ee57b82b9"
     },
     "runtime-overlay/videoicl_isaaclab/pool_rpc.py": {
       "deployed_sha256": "c3302514c6d297f8773b82297522d56eda1e36a22a825f5dee3ddcf8685e7805",
@@ -168,10 +168,40 @@
     "runtime-overlay/scripts/probe_realworld_room_pool.py": {
       "deployed_sha256": "93e4758aaae38d2b21b67f59795884af71b3a4d5118429690749f53cdec572ac",
       "published_sha256": "93e4758aaae38d2b21b67f59795884af71b3a4d5118429690749f53cdec572ac"
+    },
+    "worker/adapters/codex.py": {
+      "deployed_sha256": null,
+      "published_sha256": "ec2d1fad908ef6d1f3a8c7c8d0e999beecc9d8008a222cd622d6471b2092684c"
+    },
+    "VideoICLBench/scripts/harbor/verify_embodied.py": {
+      "deployed_sha256": null,
+      "published_sha256": "a4e99c3d2cc748bc54ca86dc5f5c7c6098aad439a9cafa9f817d4f94a2fd634f"
+    },
+    "VideoICLBench/tests/test_embodied_native_agent.py": {
+      "deployed_sha256": null,
+      "published_sha256": "a6f700e045b415d3cd794282539de446a3125aa7c1d9281de59606bab15b324c"
+    },
+    "VideoICLBench/tests/test_embodied_gui_mcp.py": {
+      "deployed_sha256": null,
+      "published_sha256": "a69955e2565d2961f98183fccacbb93df5c6055d8592ac044ffc518031bed5bb"
+    },
+    "tests/test_native_cli_backends.py": {
+      "deployed_sha256": null,
+      "published_sha256": "305eb1fa78edda748e6c5a15079373f3b32b2e0ed72ad76fa2e183aed11780b7"
+    },
+    "tests/test_unified_entry.py": {
+      "deployed_sha256": null,
+      "published_sha256": "0d10d1fcc36eac61b69e821e382dda8f8daf29bb48c59a4c79d78c1c83e7f9ec"
+    },
+    "tests/test_responses_transport.py": {
+      "deployed_sha256": null,
+      "published_sha256": "eb863b3e88da804f6d518e1b368c7c8808de6b84cf18f2262064d657c1ea4485"
     }
   },
   "sdk_base": "astra-iclworld-full-20261106 full-v2 SDK and room entrypoints",
   "sdk_overlays": {
     "VideoICLBench/packages/sdk/vic_sdk/embodied_environment/server.py": "acknowledge room shutdown after the HTTP close response"
-  }
+  },
+  "publication_contract": "shared-coalesced-all-models-20261112",
+  "publication_note": "Historical deployed hashes remain provenance; new release-only files have null deployed hashes. All new model backends share one pool and worker execution loop."
 }
