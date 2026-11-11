@@ -4,13 +4,23 @@
 
 | 要做的事 | 入口 |
 | --- | --- |
-| 接手最新实验，了解配置、数据格式与复现步骤 | [具身评测交接](../simulation/HANDOFF_20261111.md) |
-| 下载题目、QA 和实际输入视频 | [HF Benchmark](https://huggingface.co/datasets/JJimmyL/VideoICL-Embodied-Demos50/tree/main/benchmark) |
+| 接手最新实验，了解配置、数据格式与复现步骤 | [具身评测交接](HANDOFF.md) |
+| 下载题目、QA 和实际输入视频 | [HF Benchmark](https://huggingface.co/datasets/JJimmyL/VideoICL-Embodied-Demos50) |
 | 下载六个模型的原生终态、逐步动作和观察回放 | [HF 评测轨迹](https://huggingface.co/datasets/JJimmyL/VideoICL-Embodied-Evaluation-Trajectories-Public) |
-| 安装新版同池并发 Harness | [异步多房间 Harness](../simulation/embodied-coalesced-20261111/README.md) |
+| 安装新版同池并发 Harness | [异步多房间 Harness](harness/coalesced/README.md) |
 | 下载 Astra 和 Opus 当次实验的完整归档 | [GitHub Release 与恢复说明](trajectories/astra-opus-20261107/README.md) |
 
 HF Benchmark 提供评测输入。HF 评测轨迹用于分析结果。GitHub Release 保留 Astra 和 Opus 的完整归档。
+
+## 代码目录
+
+| 目录 | 内容 |
+| --- | --- |
+| [harness/](harness/README.md) | 当前同池并发 Harness，以及历史 Codex 和 GUI 入口导航。 |
+| [astra-iclworld-20261106/](astra-iclworld-20261106/README.md) | Astra 的固定实验配置、运行时装配、任务准备和独立 QA。 |
+| [native-codex-20261106/](native-codex-20261106/README.md) | Astra 归档对应的原生 Codex SDK 与 GUI 协议。 |
+| [trajectories/](trajectories/README.md) | HF 轨迹字段和归档下载入口。 |
+| [handoff/](handoff/HANDOFF.md) | 早期原型交接记录。当前交接从 [HANDOFF.md](HANDOFF.md) 进入。 |
 
 ## 复现 IsaacLab 实验
 
