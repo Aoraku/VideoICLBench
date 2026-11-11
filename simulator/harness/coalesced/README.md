@@ -30,6 +30,22 @@ python3 -m venv .venv
 
 `--cases` 使用 [cases.example.json](cases.example.json) 的字段。把任务包、机器人 profile 和物体 bindings 绑定到本机文件，保留固定的 task、variant、seed、R/I/E 和输入条件。Harbor 任务包的 `instruction.md` 与 `environment/native.json` 必须匹配，规则放在 `tests/rule.json`，视频文件及 SHA-256 写在 `demo` 或 `demo_sim`。按 HF `benchmark/assignments.jsonl` 选择输入并核对哈希。示例路径是占位符。
 
+## 当前 worker 的固定配置
+
+`pool_verified.py --engine` 选择下表的 worker 配置。模型名、推理等级、窗口和压缩设置由 worker 与其原生 CLI 适配器写入。表内数值是代码配置，实际压缩事件和提供方支持情况由每回合日志记录。
+
+| engine | 模型 | effort | 配置的 context window | 原生自动压缩设置 |
+| --- | --- | --- | ---: | --- |
+| `dsh` | `deepseek-v4.1-flash-1017` | `high` | 1,048,576 | 阈值 150,000，写入 DSH 原生 compaction 配置。 |
+| `zcode` | `glm-5.3-flash` | 请求 `high`，relay 的提供方请求也固定为 `high` | 184,000 | ZCode 按原生公式 `contextWindow - min(normalRequestMaxOutputTokens, 21000) - 13000` 计算。输出预算达到 21,000 时预计阈值为 150,000，实际以原生事件为准。 |
+| `kimi` | `kimi-k3` | `high`，开启 thinking | 262,144 | 配置阈值 150,000，对应原生 `compaction_trigger_ratio=150000/262144`，预留 112,144 token。 |
+| `qwen`，通过 Claude Code | `qwen3.8-max` | `high` | 1,000,000 | 自动压缩窗口设为 150,000，比例为 80%，名义触发点约 120,000。实际触发由 Claude Code 的原生上下文计算决定。 |
+| `gemini` | `gemini-4-argon` | `high` | 1,048,576 | 原生 `compressionThreshold=150000/1048576`。 |
+
+配置来源见 [worker 的模型表与选项](worker/run.py#L17)、[DSH adapter](worker/adapters/dsh.py#L155)、[ZCode adapter](worker/adapters/zcode.py#L122)、[GLM 提供方 effort 映射](worker/zcode_effort.py#L11)、[Kimi adapter](worker/adapters/kimi.py#L27)、[Claude Code 参数](VideoICLBench/packages/sdk/vic_sdk/claude_structured.py#L25) 和 [Gemini adapter](worker/adapters/gemini.py#L37)。
+
+`pool_verified.py` 保留的通用参数 `--model`、`--effort`、`--codex-context-window`、`--codex-compact-tokens` 和 `--binary` 尚未传入当前房间 worker。填写这些参数不会覆盖上表。CLI 路径使用后文的 `VIC_CLI_*` 环境变量。修改运行配置时应在新副本中调整 worker 配置，再核对新 profile 和实际请求记录。[房间启动参数](pool_verified.py#L121) · [worker 参数生成](worker/run.py#L80)
+
 ## 运行
 
 `pool_verified.py` 负责启动和回收单个执行池。每个输出目录对应一次执行。诊断和模型运行均可传 `--coalesce-window-seconds .05` 选择短窗口调度。

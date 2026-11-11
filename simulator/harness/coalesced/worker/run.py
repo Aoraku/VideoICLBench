@@ -194,7 +194,7 @@ def attempt_loop(*,engine,room,out,owner,identity,binary,module,prompt,session=N
                 content=claude.user_message(prompt,room/'native-structured/initial-gui.png' if attempt==1 else None)
             else:
                 cmd,env=module.command(profile,workspace,model,binary=binary,resume=session)
-                env.update(PATH=os.environ['PATH'],LD_LIBRARY_PATH=os.environ['LD_LIBRARY_PATH'],NO_PROXY='localhost,127.0.0.1')
+                env.update(PATH=os.environ['PATH'],LD_LIBRARY_PATH=os.environ.get('LD_LIBRARY_PATH',''),NO_PROXY='localhost,127.0.0.1')
                 if engine in ('kimi','dsh'):env.setdefault('HOME',str(profile))
                 content=prompt
             with stream.open('xb') as stdout,(out/f'attempt-{attempt}.stderr').open('xb') as stderr:

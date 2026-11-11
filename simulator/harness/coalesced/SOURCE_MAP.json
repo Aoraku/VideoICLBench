@@ -95,7 +95,7 @@
     },
     "worker/run.py": {
       "deployed_sha256": "830377bd5d346fc2d7e530b5300f30b453c12b561fb286815ada19dd034f499a",
-      "published_sha256": "d3fe6900f923e4eeb54d66d9d1340ee68025dad3c8770d797382c4b0b5c6b7a5"
+      "published_sha256": "6e44b0a4aaea839031eea2ce1d3ffae2127e5341a75556fad89238c0e4a4ef70"
     },
     "worker/sealed_zcode_cleanup.py": {
       "deployed_sha256": "27ad9bc1b912dbee9ab5f88732c2d7446b19d3243b16aad71e388a2a2eff916a",

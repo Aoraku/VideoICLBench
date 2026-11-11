@@ -47,7 +47,11 @@
 | `native_input_messages.jsonl` | 原生会话中已保存的 user、system、developer、tool 输入记录。 |
 | `input.json`、`native_input_coverage.json` | 输入来源、公开配置、源日志 SHA-256、记录数量与覆盖范围。 |
 
+原生记录的首条 user 消息可能是 CLI 自动加入的环境说明，后续任务正文和工具返回按 `source_record_index` 保留在 `native_input_messages.jsonl` 中。
+
 宿主 prompt 后可能追加 worker 指令，原生 CLI 还会生成系统内容与 compact 上下文。各文件按实际留存范围记录来源。复现时同时记录模型、CLI 版本、工具定义、窗口和 compact 配置，具体参数见对应 Harness 和回合元数据。
+
+`MODEL_INPUT_INDEX.csv` 和 `MODEL_INPUT_INDEX.jsonl` 按模型、题目和逻辑回合列出 prompt、原生输入消息、公开上下文与覆盖文件的直接路径。`prompt_templates/standalone-qa/` 另有独立视频 QA 的首轮文字、工具说明和窗口设置。
 
 `input_archives/` 按模型和回合分片，解压后得到同一 `model_inputs/` 目录。使用文字模式时把 `instruction` 与对应 `text_rule` 作为输入。视频模式使用指令和指定 real/sim 视频。none 模式使用该条件下的任务指令。
 
@@ -72,7 +76,7 @@
 
 观察视频按 4 fps 回放保存的观察事件，播放时长由帧数决定。实际运行耗时在终态元数据中。动作之间的物理过程按当时保存的材料提供。
 
-`native_success` 表示原生物理成功，`score_100` 是记录的工程分，`score_source` 标明来源。缺分为 `null`。Token 字段保留提供方原始名称，缓存计数及可用请求范围在 `api_usage` 中注明。
+`native_success` 表示原生物理成功，`score_100` 是记录的工程分，`score_source` 标明来源。缺分为 `null`。Token 字段保留提供方原始名称，缓存计数及可用请求范围在 `api_usage` 中注明。Astra 与 Opus 的原生 CLI 逐回合补充审计在 `cli_usage/`，索引中的 `audited_*` 列使用去重响应的小计，不把累计计数再次相加；没有保存用量的请求计费仍为未知。
 
 ## 实验与进度
 
@@ -80,14 +84,16 @@
 
 R 为按视频复现的场景，I 更换物体，E 使用新环境。支持范围见 Demo 数据集的 `environments/`，实际配置见固定清单。
 
-| 模型 | 原生终态 / 固定物理回合 |
-| --- | ---: |
-| Astra | 255 / 255 |
-| Opus 5.5 | 158 / 158 |
-| DeepSeek Flash 1017 | 255 / 255 |
-| GLM-5.3-Flash | 253 / 255 |
-| Kimi K3 | 158 / 158 |
-| Qwen3.8-Max | 158 / 158 |
+| 模型 | 原生终态 / 固定物理回合 | 原生成功 | 有工程分 | 已评分子集平均 / 100 |
+| --- | ---: | ---: | ---: | ---: |
+| Astra | 255 / 255 | 59 | 255 | 28.471 |
+| Opus 5.5 | 158 / 158 | 42 | 158 | 34.378 |
+| DeepSeek Flash 1017 | 255 / 255 | 19 | 222 | 13.243 |
+| GLM-5.3-Flash | 253 / 255 | 9 | 226 | 8.789 |
+| Kimi K3 | 158 / 158 | 0 | 152 | 2.862 |
+| Qwen3.8-Max | 158 / 158 | 8 | 141 | 10.461 |
+
+表中均分只使用该模型已经记录工程分的回合。模型实验范围和缺分数量不同；这张表用于交接核数，模型对比需按相同任务和条件取交集。
 
 本次交付快照有 1,237 条原生终态，GLM E41C-I-text 与 E45C-I-text 两条待补。独立视频 QA 共 153 个首答，保存在轨迹库的 `qa.parquet` 与 `qa.jsonl`。题库和作者答案放在 Demo 库，模型首答与判分放在结果库。
 
